@@ -192,7 +192,7 @@ record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
 \subsection{le fancu}
 
 \subsubsection{la'oi .\F{\_++\_}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
+ni'o la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 infixr 5 _++_
