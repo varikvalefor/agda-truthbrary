@@ -79,6 +79,7 @@ open import Data.String
     fromList to fromListₛ
   )
   hiding (
+    length;
     _++_
   )
 \end{code}
@@ -130,6 +131,16 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
    → ⦃ Q : LL A ⦄
    → LL.olen Q 0
 [] ⦃ Q ⦄ = LL.[] Q
+\end{code}
+
+\subsubsection{la'oi .\F{length}.}
+ni'o la'o zoi.\ \F{length} \B q .zoi.\ nilzilcmi la'o zoi.\ \B q .zoi.
+
+\begin{code}
+length : ∀ {a} → {A : Set a}
+       → ⦃ LL A ⦄
+       → A → ℕ
+length ⦃ T ⦄ = LL.l T
 \end{code}
 
 \section{la'oi .\F{map}.}
