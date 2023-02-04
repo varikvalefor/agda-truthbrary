@@ -56,6 +56,9 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 module Truthbrary.Record.SR where
 
 open import Data.Fin
+  hiding (
+    toℕ
+  )
 open import Data.Nat
 open import Data.Sum
 open import Function
@@ -63,6 +66,7 @@ open import Data.Bool
 open import Data.Char
   using (
     Char;
+    toℕ;
     fromℕ
   )
 open import Data.List
@@ -158,6 +162,32 @@ readMaybe ⦃ drivel ⦄ = Read.readMaybe drivel
 \subsection{le me'oi .\AgdaKeyword{instance}.}
 
 \begin{code}
+private
+  -- | ni'o ga jonai ga je  jmina lo me'oi .parenthesis.
+  -- la'oi .a. la'oi .b. gi ko'a goi la'o zoi. unparens
+  -- b .zoi. me'oi .just. la'oi .a. gi la'oi .b. du la'oi
+  -- .nothing.
+  --
+  -- .i cumki fa lo nu xamgu fa lo nu jmina la'oi
+  -- .unparens. la'o zoi. Truthbrary.String.Junk .zoi.
+  -- ja zo'e
+  unparens : String → Maybe String
+  unparens = f ∘ toList
+    where
+    r = Data.List.reverse
+    h = Data.List.head
+    ts = fromList
+    f : List Char → Maybe String
+    f q = if cp then just (ts $ delet q) else nothing
+      where
+      t : ∀ {a} → {A : Set a} → List A → List A
+      t (x ∷ xs) = xs
+      t zilch = zilch
+      delet = r ∘ t ∘ r ∘ t
+      px : ℕ → List Char → Bool
+      px n = maybe (_≡ᵇ_ n ∘ toℕ) false ∘ Data.List.head
+      cp = (px 40 q) ∧ (px 41 $ r q)
+
 instance
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
@@ -166,6 +196,38 @@ instance
   -- be le me'oi .show. co'e pe la'oi .Fin.
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
+  readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
+           → Read $ Maybe A
+  readMayb {_} {A} ⦃ X ⦄  = record {readMaybe = Q ∘ toList}
+    where
+    Q : List Char → Maybe $ Maybe A
+    Q t = if justice then just (t' >>= readMaybe) else nothing
+      where
+      justice = fromList (Data.List.take 5 t) == "just "
+      t' = unparens $ fromList $ Data.List.drop 5 t
+  readSum : ∀ {a b} → {A : Set a} → {B : Set b}
+           → ⦃ Read A ⦄ → ⦃ Read B ⦄
+           → Read $ A ⊎ B
+  readSum {_} {_} {A} {B} = record {readMaybe = inj₁?}
+    where
+    inj₁? : String → Maybe $ A ⊎ B
+    inj₁? q = if t5 == "inj₁ " then inj1 else inj2?
+      where
+      _<$>ₘ_ : ∀ {a b} → {A : Set a} → {B : Set b}
+             → (A → B) → Maybe A → Maybe B
+      _<$>ₘ_ f (just a) = just $ f a
+      _<$>ₘ_ _ _ = nothing
+      apf : (List Char → List Char) → String
+      apf f = fromList $ f $ toList q
+      t5 = apf $ Data.List.take 5
+      d5 = apf $ Data.List.drop 5
+      inj : ∀ {a b} → {A : Set a} → {B : Set b}
+          → ⦃ Read A ⦄
+          → (A → B) → Maybe B
+      inj f = unparens d5 >>= _<$>ₘ_ f ∘ readMaybe
+      inj1 = inj inj₁
+      inj2 = inj inj₂
+      inj2? = if t5 == "inj₂ " then inj2 else nothing
 \end{code}
 
 \section{la'oi .\F{SR}.}
