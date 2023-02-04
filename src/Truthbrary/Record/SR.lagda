@@ -25,6 +25,7 @@
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
+\newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
