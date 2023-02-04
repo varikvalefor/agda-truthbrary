@@ -216,8 +216,7 @@ instance
       where
       _<$>ₘ_ : ∀ {a b} → {A : Set a} → {B : Set b}
              → (A → B) → Maybe A → Maybe B
-      _<$>ₘ_ f (just a) = just $ f a
-      _<$>ₘ_ _ _ = nothing
+      _<$>ₘ_ f = maybe (just ∘ f) nothing
       apf : (List Char → List Char) → String
       apf f = fromList $ f $ toList q
       t5 = apf $ Data.List.take 5
