@@ -209,8 +209,8 @@ instance
       justice = fromList (Data.List.take 5 t) == "just "
       t' = unparens $ fromList $ Data.List.drop 5 t
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
-           → ⦃ Read A ⦄ → ⦃ Read B ⦄
-           → Read $ A ⊎ B
+          → ⦃ Read A ⦄ → ⦃ Read B ⦄
+          → Read $ A ⊎ B
   readSum {_} {_} {A} {B} = record {readMaybe = inj₁?}
     where
     inj₁? : String → Maybe $ A ⊎ B
