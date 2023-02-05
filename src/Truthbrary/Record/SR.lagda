@@ -178,17 +178,18 @@ private
   unparens : String → Maybe String
   unparens = f ∘ toList
     where
-    r = Data.List.reverse
-    h = Data.List.head
-    ts = fromList
     f : List Char → Maybe String
     f q = if cp then just (ts $ delet q) else nothing
       where
-      t = Data.List.drop 1
+      r = Data.List.reverse
+      ts = fromList
       delet = r ∘ t ∘ r ∘ t
-      px : ℕ → List Char → Bool
-      px n = maybe (_≡ᵇ_ n ∘ toℕ) false ∘ Data.List.head
+        where
+        t = Data.List.drop 1
       cp = (px 40 q) ∧ (px 41 $ r q)
+        where
+        px : ℕ → List Char → Bool
+        px n = maybe (_≡ᵇ_ n ∘ toℕ) false ∘ Data.List.head
 
 instance
   -- | .i pilno li pano ki'u le nu pruce le te pruce
