@@ -206,8 +206,7 @@ instance
     Q : List Char → Maybe $ Maybe A
     Q t = if justice then just (t' >>= readMaybe) else nada
       where
-      -- | ni'o su'o da zo'u to'e frili fa lo nu
-      -- jimpe fi da
+      -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
       tim = fromList t == "nothing"
       justice = fromList (Data.List.take 5 t) == "just "
       nada = if tim then just nothing else nothing
