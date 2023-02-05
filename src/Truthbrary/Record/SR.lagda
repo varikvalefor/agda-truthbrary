@@ -184,9 +184,7 @@ private
     f : List Char → Maybe String
     f q = if cp then just (ts $ delet q) else nothing
       where
-      t : ∀ {a} → {A : Set a} → List A → List A
-      t (x ∷ xs) = xs
-      t zilch = zilch
+      t = Data.List.drop 1
       delet = r ∘ t ∘ r ∘ t
       px : ℕ → List Char → Bool
       px n = maybe (_≡ᵇ_ n ∘ toℕ) false ∘ Data.List.head
