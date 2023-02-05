@@ -167,7 +167,7 @@ readMaybe ⦃ drivel ⦄ = Read.readMaybe drivel
 
 \begin{code}
 private
-  -- | ni'o ga jonai ga je  jmina lo me'oi .parenthesis.
+  -- | ni'o ga jonai ga je jmina lo me'oi .parenthesis.
   -- la'oi .a. la'oi .b. gi ko'a goi la'o zoi. unparens
   -- b .zoi. me'oi .just. la'oi .a. gi la'oi .b. du la'oi
   -- .nothing.
