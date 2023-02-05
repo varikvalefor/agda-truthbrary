@@ -204,9 +204,13 @@ instance
   readMayb {_} {A} ⦃ X ⦄  = record {readMaybe = Q ∘ toList}
     where
     Q : List Char → Maybe $ Maybe A
-    Q t = if justice then just (t' >>= readMaybe) else nothing
+    Q t = if justice then just (t' >>= readMaybe) else nada
       where
+      -- | ni'o su'o da zo'u to'e frili fa lo nu
+      -- jimpe fi da
+      tim = fromList t == "nothing"
       justice = fromList (Data.List.take 5 t) == "just "
+      nada = if tim then just nothing else nothing
       t' = unparens $ fromList $ Data.List.drop 5 t
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
