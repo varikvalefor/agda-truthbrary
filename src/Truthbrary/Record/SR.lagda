@@ -215,11 +215,8 @@ instance
   readSum {_} {_} {A} {B} = record {readMaybe = inj₁?}
     where
     inj₁? : String → Maybe $ A ⊎ B
-    inj₁? q = if t5 == "inj₁ " then inj1 else inj2?
+    inj₁? q = if t5 == "inj₁ " then inj inj₁ else inj2?
       where
-      _<$>ₘ_ : ∀ {a b} → {A : Set a} → {B : Set b}
-             → (A → B) → Maybe A → Maybe B
-      _<$>ₘ_ f = maybe (just ∘ f) nothing
       apf : (List Char → List Char) → String
       apf f = fromList $ f $ toList q
       t5 = apf $ Data.List.take 5
@@ -227,10 +224,8 @@ instance
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄
           → (A → B) → Maybe B
-      inj f = unparens d5 >>= _<$>ₘ_ f ∘ readMaybe
-      inj1 = inj inj₁
-      inj2 = inj inj₂
-      inj2? = if t5 == "inj₂ " then inj2 else nothing
+      inj f = unparens d5 >>= Data.Maybe.map f ∘ readMaybe
+      inj2? = if t5 == "inj₂ " then inj inj₂ else nothing
 \end{code}
 
 \section{la'oi .\F{SR}.}
