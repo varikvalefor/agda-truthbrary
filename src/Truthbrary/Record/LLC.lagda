@@ -22,6 +22,10 @@
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
+\newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
+\newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
+\newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -51,6 +55,10 @@ module Truthbrary.Record.LLC where
 
 open import Level
 open import Data.Nat
+  hiding (
+    _≟_;
+    _≡ᵇ_
+  )
 open import Data.Vec
   renaming (
     [] to []ᵥ;
@@ -63,7 +71,15 @@ open import Data.Vec
     map
   )
 open import Function
+open import Data.Bool
+  hiding (
+    _≟_;
+    T
+  )
 open import Data.Char
+  hiding (
+    _≟_
+  )
 open import Data.List
   renaming (
     [] to []ₗ;
@@ -75,6 +91,10 @@ open import Data.List
     _++_;
     map
   )
+open import Data.Maybe
+  hiding (
+    map
+  )
 open import Data.String
   renaming (
     toList to toListₛ;
@@ -82,7 +102,13 @@ open import Data.String
   )
   hiding (
     length;
+    _≟_;
     _++_
+  )
+open import Truthbrary.Record.Eq
+open import Relation.Nullary.Decidable
+  using (
+    isYes
   )
 \end{code}
 \section{la'oi .\F{LL}.}
@@ -144,6 +170,33 @@ length : ∀ {a} → {A : Set a}
        → A → ℕ
 length ⦃ T ⦄ = LL.l T
 \end{code}
+
+\subsection{la'oi .\F{decaf}.}
+ni'o ga jonai ga je la'o zoi.\ \B c .zoi.\ konkatena ja co'e la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B x .zoi.\ la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{decaf} \B c .zoi.\ me'oi .\F{just}.\ la'o zoi.\ \B x .zoi.\ gi ko'a du la'oi .\F{nothing}.
+
+\begin{code}
+decaf : ∀ {a} → {Bean : Set a}
+      → ⦃ Q : LL Bean ⦄
+      → ⦃ Eq $ LL.e Q ⦄
+      → LL.e Q → LL.e Q → (j : Bean)
+      → Maybe $ LL.olen Q $ LL.l Q j ∸ 2
+decaf {_} {A} ⦃ Q ⦄ a b = Data.Maybe.map (LL.cev Q) ∘ f ∘ LL.vec Q
+  where
+  f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
+  f []ᵥ = nothing
+  f (_ ∷ᵥ []ᵥ) = nothing
+  f (x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet q) else nothing
+    where
+    q = x ∷ᵥ y ∷ᵥ z
+    r = Data.Vec.reverse
+    delet = r ∘ t ∘ r ∘ t
+      where
+      t = Data.Vec.drop 1
+    conteven = (px a q) ∧ (px b $ r q)
+      where
+      px = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
+\end{code}
+
 
 \section{la'oi .\F{map}.}
 ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi .\F{map}.\ cu smimlu la'oi .\texttt{map}.\ pe la'oi .Haskell.

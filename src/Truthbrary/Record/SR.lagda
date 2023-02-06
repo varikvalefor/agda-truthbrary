@@ -90,6 +90,7 @@ open import Data.Fin.Show
 open import Data.Nat.Show
   using (
   )
+open import Truthbrary.Record.Eq
 open import Truthbrary.Record.LLC
   hiding (
     _∷_
@@ -167,29 +168,8 @@ readMaybe ⦃ drivel ⦄ = Read.readMaybe drivel
 
 \begin{code}
 private
-  -- | ni'o ga jonai ga je jmina lo me'oi .parenthesis.
-  -- la'oi .a. la'oi .b. gi ko'a goi la'o zoi. unparens
-  -- b .zoi. me'oi .just. la'oi .a. gi la'oi .b. du la'oi
-  -- .nothing.
-  --
-  -- .i cumki fa lo nu xamgu fa lo nu jmina la'oi
-  -- .unparens. la'o zoi. Truthbrary.String.Junk .zoi.
-  -- ja zo'e
   unparens : String → Maybe String
-  unparens = f ∘ toList
-    where
-    f : List Char → Maybe String
-    f q = if cp then just (ts $ delet q) else nothing
-      where
-      r = Data.List.reverse
-      ts = fromList
-      delet = r ∘ t ∘ r ∘ t
-        where
-        t = Data.List.drop 1
-      cp = (px 40 q) ∧ (px 41 $ r q)
-        where
-        px : ℕ → List Char → Bool
-        px n = maybe (_≡ᵇ_ n ∘ toℕ) false ∘ Data.List.head
+  unparens = decaf (Data.Char.fromℕ 40) $ Data.Char.fromℕ 41
 
 instance
   -- | .i pilno li pano ki'u le nu pruce le te pruce
