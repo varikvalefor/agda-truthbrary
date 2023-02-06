@@ -26,6 +26,7 @@
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
+\newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
