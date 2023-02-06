@@ -58,6 +58,7 @@ open import Data.Vec
     length to lengthᵥ
   )
   hiding (
+    reverse;
     _++_;
     map
   )
@@ -70,6 +71,7 @@ open import Data.List
     length to lengthₗ
   )
   hiding (
+    reverse;
     _++_;
     map
   )
@@ -93,7 +95,7 @@ ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ 
 	\item ga je la'o zoi.\ \F{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \F{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
 	\item ga je la'o zoi.\ \F{LL.l} \B q \B l .zoi.\ nilzilcmi la'o zoi.\ \B l .zoi. gi
 	\item ga je pilno la'oi .\F{\_∷\_}.\ lo nu me'oi .prepend.\ gi
-	\item la'o zoi.\ \F{LL.etsil} \Sym∘ \F{LL.liste} .zoi.\ dunli la'oi .\F{id}.
+	\item la'o zoi.\ \F{LL.cev} \B q \Sym∘ \F{LL.vec} \B q .zoi.\ dunli la'oi .\F{id}.
 \end{itemize}
 
 \begin{code}
@@ -105,8 +107,8 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     [] : olen 0
     l : A → ℕ
     _∷_ : e → (q : A) → olen $ ℕ.suc $ l q
-    liste : A → List e
-    etsil : (q : List e) → olen $ lengthₗ q
+    vec : (q : A) → Vec e $ l q
+    cev : {n : ℕ} → Vec e n → olen n
 \end{code}
 
 \subsection{le fancu}
@@ -150,11 +152,11 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi
 map : ∀ {a b} → {A : Set a} → {B : Set b}
     → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
     → (f : LL.e Q → LL.e R) → (x : A)
-    → LL.olen R $ lengthₗ $ Data.List.map f $ LL.liste Q x
-map ⦃ Q ⦄ ⦃ R ⦄ f = etsil ∘ Data.List.map f ∘ liste
+    → LL.olen R $ lengthᵥ $ Data.Vec.map f $ LL.vec Q x
+map ⦃ Q ⦄ ⦃ R ⦄ f = cev ∘ Data.Vec.map f ∘ vec
   where
-  liste = LL.liste Q
-  etsil = LL.etsil R
+  vec = LL.vec Q
+  cev = LL.cev R
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
@@ -168,8 +170,8 @@ instance
     [] = []ₗ;
     l = lengthₗ;
     _∷_ = _∷ₗ_;
-    liste = id;
-    etsil = id}
+    vec = Data.Vec.fromList;
+    cev = Data.Vec.toList}
   liliString : LL String
   liliString = record {
     e = Char;
@@ -177,8 +179,8 @@ instance
     [] = "";
     l = Data.String.length;
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
-    liste = Data.String.toList;
-    etsil = Data.String.fromList}
+    vec = Data.Vec.fromList ∘ Data.String.toList;
+    cev = Data.String.fromList ∘ Data.Vec.toList}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
@@ -186,8 +188,8 @@ instance
     e = A;
     l = const n';
     _∷_ = _∷ᵥ_;
-    liste = Data.Vec.toList;
-    etsil = Data.Vec.fromList}
+    vec = id;
+    cev = id}
 \end{code}
 
 \section{la'oi .\F{LC}.}
