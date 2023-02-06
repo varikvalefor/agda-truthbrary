@@ -55,6 +55,10 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 module Truthbrary.Record.LLC where
 
 open import Level
+open import Data.Fin
+  using (
+    Fin
+  )
 open import Data.Nat
   hiding (
     _≟_;
@@ -64,6 +68,7 @@ open import Data.Vec
   renaming (
     [] to []ᵥ;
     _∷_ to _∷ᵥ_;
+    replicate to replicateᵥ;
     length to lengthᵥ
   )
   hiding (
@@ -244,6 +249,15 @@ instance
     _∷_ = _∷ᵥ_;
     vec = id;
     cev = id}
+  liliℕ : LL ℕ
+  liliℕ = record {
+    [] = 0;
+    olen = const ℕ;
+    e = Fin 1;
+    l = id;
+    _∷_ = const ℕ.suc;
+    vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
+    cev = Data.Vec.length}
 \end{code}
 
 \section{la'oi .\F{LC}.}
@@ -285,5 +299,7 @@ instance
   LCVec : ∀ {a} → {A : Set a} → {m n : ℕ}
         → LC (Vec A m) (Vec A n)
   LCVec = record {_++_ = Data.Vec._++_}
+  LCℕ : LC ℕ ℕ
+  LCℕ = record {_++_ = Data.Nat._+_}
 \end{code}
 \end{document}
