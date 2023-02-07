@@ -89,6 +89,7 @@ open import Data.Char
 open import Data.List
   using (
     List;
+    null;
     _∷_
   )
 open import Data.Float
@@ -231,11 +232,11 @@ instance
     use = mapₘ Data.Float.fromℕ ∘ readMaybe ∘ fromList
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = use a
-    -- | .i gerna pe'a ru'e fi zoi zoi. 1. .zoi.
-    p (a ∷ List.[] ∷ List.[]) = use a
     p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
       where
-      rM = readMaybe ∘ fromList
+      -- | .i filri'a lo nu genturfa'i pe'a ru'e fi zoi zoi.
+      -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
+      rM = λ q → if null q then just 0 else readMaybe (fromList q)
       comb : Maybe ℕ → Maybe ℕ → Maybe Float
       comb (just x) (just y) = just $ _+f_ (n2f x) $ n2f y ÷ sf b
         where
