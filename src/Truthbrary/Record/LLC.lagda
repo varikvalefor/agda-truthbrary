@@ -59,6 +59,10 @@ open import Data.Fin
   using (
     Fin
   )
+  renaming (
+    fromℕ to fromℕF;
+    toℕ to toℕF
+  )
 open import Data.Nat
   hiding (
     _≟_;
@@ -258,6 +262,15 @@ instance
     _∷_ = const ℕ.suc;
     vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
     cev = Data.Vec.length}
+  liliFin : {n : ℕ} → LL $ Fin n
+  liliFin = record {
+    [] = fromℕF 0;
+    olen = Fin ∘ _+_ 1;
+    e = Fin 1;
+    l = toℕF;
+    _∷_ = const $ fromℕF ∘ ℕ.suc ∘ toℕF;
+    vec = λ q → replicateᵥ {_} {_} {toℕF q} $ fromℕF 0;
+    cev = fromℕF ∘ Data.Vec.length}
 \end{code}
 
 \section{la'oi .\F{LC}.}
@@ -301,5 +314,7 @@ instance
   LCVec = record {_++_ = Data.Vec._++_}
   LCℕ : LC ℕ ℕ
   LCℕ = record {_++_ = Data.Nat._+_}
+  LCFin : {m n : ℕ} → LC (Fin m) $ Fin n
+  LCFin = record {_++_ = λ a → fromℕF ∘ _+_ (toℕF a) ∘ toℕF}
 \end{code}
 \end{document}
