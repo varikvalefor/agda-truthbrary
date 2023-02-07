@@ -29,6 +29,7 @@
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^b}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
+\newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -61,12 +62,19 @@ module Truthbrary.Record.SR where
 
 open import Data.Fin
   hiding (
+    _≟_;
     toℕ
   )
 open import Data.Nat
+  hiding (
+    _≟_
+  )
 open import Data.Sum
 open import Function
 open import Data.Bool
+  hiding (
+    _≟_
+  )
 open import Data.Char
   using (
     Char;
@@ -78,10 +86,16 @@ open import Data.List
     List;
     _∷_
   )
+open import Data.Float
+  using (
+    Float
+  )
 open import Data.Maybe
 open import Data.String
   hiding (
+    _≟_;
     show;
+    length;
     _++_
   )
 open import Data.Fin.Show
@@ -95,6 +109,7 @@ open import Truthbrary.Record.LLC
   hiding (
     _∷_
   )
+open import Relation.Nullary.Decidable
 open import Relation.Binary.PropositionalEquality
 \end{code}
 
@@ -180,6 +195,48 @@ instance
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
+  readFloat : Read Float
+  readFloat = record {readMaybe = p ∘ splitOn db ∘ Data.String.toList}
+    where
+    db = Data.Char.fromℕ 46
+    splitOn : ∀ {a} → {A : Set a}
+            → ⦃ Eq A ⦄
+            → A → List A → List $ List A
+    splitOn a = rev ∘ Data.List.map rev ∘ sob a [] []
+      where
+      rev = Data.List.reverse
+      sob : ∀ {a} → {A : Set a}
+          → ⦃ Eq A ⦄
+          → A
+          → List $ List A
+          → List A
+          → List A
+          → List $ List A
+      sob a b g (f ∷ xs) = if isYes (f ≟ a) then hitit else add
+        where
+        hitit = sob a (g ∷ b) [] xs
+        add = sob a b (f ∷ g) xs
+      sob a b g Data.List.[] = g ∷ b
+    use = fn ∘ readMaybe ∘ Data.String.fromList
+      where fn = Data.Maybe.map Data.Float.fromℕ
+    p : List $ List Char → Maybe Float
+    p (a ∷ List.[]) = use a
+    -- | .i gerna pe'a ru'e fi zoi zoi. 1. .zoi.
+    p (a ∷ List.[] ∷ List.[]) = use a
+    p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
+      where
+      rM : List Char → Maybe ℕ
+      rM = readMaybe ∘ Data.String.fromList
+      comb : Maybe ℕ → Maybe ℕ → Maybe Float
+      comb (just x) (just y) = just $ _+f_ (n2f x) $ n2f y ÷ sf b
+        where
+        _+f_ = Data.Float._+_
+        _÷_ = Data.Float._÷_
+        n2f = Data.Float.fromℕ
+        sf : List Char → Float
+        sf = (Data.Float._**_ $ n2f 10) ∘ n2f ∘ Data.List.length
+      comb _ _ = nothing
+    p _ = nothing
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .Fin.
   readFin : {n : ℕ} → Read $ Fin n
