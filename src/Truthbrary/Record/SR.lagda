@@ -228,8 +228,7 @@ instance
         hitit = sob a (g ∷ b) [] xs
         add = sob a b (f ∷ g) xs
       sob a b g Data.List.[] = g ∷ b
-    use = fn ∘ readMaybe ∘ fromList
-      where fn = mapₘ Data.Float.fromℕ
+    use = mapₘ Data.Float.fromℕ ∘ readMaybe ∘ fromList
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = use a
     -- | .i gerna pe'a ru'e fi zoi zoi. 1. .zoi.
