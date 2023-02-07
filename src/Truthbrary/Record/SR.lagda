@@ -70,6 +70,11 @@ open import Data.Nat
     _≟_
   )
 open import Data.Sum
+  using (
+    _⊎_;
+    inj₁;
+    inj₂
+  )
 open import Function
 open import Data.Bool
   hiding (
@@ -91,6 +96,9 @@ open import Data.Float
     Float
   )
 open import Data.Maybe
+  renaming (
+    map to mapₘ
+  )
 open import Data.String
   hiding (
     _≟_;
@@ -110,6 +118,9 @@ open import Truthbrary.Record.LLC
     _∷_
   )
 open import Relation.Nullary.Decidable
+  using (
+    isYes
+  )
 open import Relation.Binary.PropositionalEquality
 \end{code}
 
@@ -190,7 +201,7 @@ instance
   readChar : Read Char
   readChar = record {readMaybe = stedu=<< ∘ decaf h h}
     where
-    stedu=<< = flip Data.Maybe._>>=_ Data.String.head
+    stedu=<< = flip _>>=_ Data.String.head
     h = Data.Char.fromℕ 39
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
@@ -202,7 +213,7 @@ instance
     splitOn : ∀ {a} → {A : Set a}
             → ⦃ Eq A ⦄
             → A → List A → List $ List A
-    splitOn a = rev ∘ Data.List.map rev ∘ sob a [] []
+    splitOn a = rev ∘ map rev ∘ sob a [] []
       where
       rev = Data.List.reverse
       sob : ∀ {a} → {A : Set a}
@@ -217,22 +228,22 @@ instance
         hitit = sob a (g ∷ b) [] xs
         add = sob a b (f ∷ g) xs
       sob a b g Data.List.[] = g ∷ b
-    use = fn ∘ readMaybe ∘ Data.String.fromList
-      where fn = Data.Maybe.map Data.Float.fromℕ
+    use = fn ∘ readMaybe ∘ fromList
+      where fn = mapₘ Data.Float.fromℕ
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = use a
     -- | .i gerna pe'a ru'e fi zoi zoi. 1. .zoi.
     p (a ∷ List.[] ∷ List.[]) = use a
     p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
       where
-      rM = readMaybe ∘ Data.String.fromList
+      rM = readMaybe ∘ fromList
       comb : Maybe ℕ → Maybe ℕ → Maybe Float
       comb (just x) (just y) = just $ _+f_ (n2f x) $ n2f y ÷ sf b
         where
         _+f_ = Data.Float._+_
         _÷_ = Data.Float._÷_
         n2f = Data.Float.fromℕ
-        sf = (Data.Float._**_ $ n2f 10) ∘ n2f ∘ Data.List.length
+        sf = (Data.Float._**_ $ n2f 10) ∘ n2f ∘ length
       comb _ _ = nothing
     p _ = nothing
   -- | .i pilno li pano ki'u le nu pruce le te pruce
@@ -266,7 +277,7 @@ instance
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄
           → (A → B) → Maybe B
-      inj f = unparens d5 >>= Data.Maybe.map f ∘ readMaybe
+      inj f = unparens d5 >>= mapₘ f ∘ readMaybe
       inj2? = if t5 == "inj₂ " then inj inj₂ else nothing
 \end{code}
 
