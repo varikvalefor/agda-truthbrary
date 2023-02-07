@@ -172,6 +172,11 @@ private
   unparens = decaf (Data.Char.fromℕ 40) $ Data.Char.fromℕ 41
 
 instance
+  readChar : Read Char
+  readChar = record {readMaybe = stedu=<< ∘ decaf h h}
+    where
+    stedu=<< = flip Data.Maybe._>>=_ Data.String.head
+    h = Data.Char.fromℕ 39
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
