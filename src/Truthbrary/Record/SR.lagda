@@ -225,7 +225,6 @@ instance
     p (a ∷ List.[] ∷ List.[]) = use a
     p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
       where
-      rM : List Char → Maybe ℕ
       rM = readMaybe ∘ Data.String.fromList
       comb : Maybe ℕ → Maybe ℕ → Maybe Float
       comb (just x) (just y) = just $ _+f_ (n2f x) $ n2f y ÷ sf b
@@ -233,7 +232,6 @@ instance
         _+f_ = Data.Float._+_
         _÷_ = Data.Float._÷_
         n2f = Data.Float.fromℕ
-        sf : List Char → Float
         sf = (Data.Float._**_ $ n2f 10) ∘ n2f ∘ Data.List.length
       comb _ _ = nothing
     p _ = nothing
