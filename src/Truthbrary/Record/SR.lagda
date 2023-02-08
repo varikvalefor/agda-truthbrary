@@ -208,9 +208,8 @@ instance
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
   readFloat : Read Float
-  readFloat = record {readMaybe = p ∘ splitOn db ∘ Data.String.toList}
+  readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
-    db = Data.Char.fromℕ 46
     splitOn : ∀ {a} → {A : Set a}
             → ⦃ Eq A ⦄
             → A → List A → List $ List A
@@ -226,9 +225,18 @@ instance
         hitit = sob a (g ∷ b) [] xs
         add = sob a b (f ∷ g) xs
       sob a b g Data.List.[] = g ∷ b
-    use = mapₘ Data.Float.fromℕ ∘ readMaybe ∘ fromList
+    spit : List Char → List $ List $ List Char
+    spit = map (splitOn db) ∘ splitOn ee
+      where
+      db = Data.Char.fromℕ 46
+      ee = Data.Char.fromℕ 101
+    liftM2 : ∀ {a b} → {A : Set a} → {B : Set b}
+           → (A → A → B) → Maybe A → Maybe A → Maybe B
+    liftM2 f (just a) (just b) = just $ f a b
+    liftM2 _ _ _ = nothing
+    n2f = Data.Float.fromℕ
     p : List $ List Char → Maybe Float
-    p (a ∷ List.[]) = use a
+    p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
     p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
       where
       -- | .i filri'a lo nu genturfa'i pe'a ru'e fi zoi zoi.
@@ -239,10 +247,14 @@ instance
         where
         _+f_ = Data.Float._+_
         _÷_ = Data.Float._÷_
-        n2f = Data.Float.fromℕ
         sf = Data.Float._**_ (n2f 10) ∘ n2f ∘ length
       comb _ _ = nothing
     p _ = nothing
+    exp : List $ List $ List Char → Maybe Float
+    exp (t ∷ List.[]) = p t
+    exp (t ∷ (x ∷ List.[])) = liftM2 dt10 (p t) $ p x
+      where dt10 = λ a b → a Data.Float.* n2f 10 Data.Float.** b
+    exp _ = nothing
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .Fin.
   readFin : {n : ℕ} → Read $ Fin n
