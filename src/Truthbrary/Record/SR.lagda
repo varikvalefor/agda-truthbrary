@@ -240,7 +240,7 @@ instance
         _+f_ = Data.Float._+_
         _÷_ = Data.Float._÷_
         n2f = Data.Float.fromℕ
-        sf = (Data.Float._**_ $ n2f 10) ∘ n2f ∘ length
+        sf = Data.Float._**_ (n2f 10) ∘ n2f ∘ length
       comb _ _ = nothing
     p _ = nothing
   -- | .i pilno li pano ki'u le nu pruce le te pruce
