@@ -248,6 +248,10 @@ instance
           add = sob a b (f ∷ g) xs
         sob a b g Data.List.[] = g ∷ b
     n2f = Data.Float.fromℤ
+    liftM2 : ∀ {a b} → {A : Set a} → {B : Set b}
+           → (A → A → B) → Maybe A → Maybe A → Maybe B
+    liftM2 f (just a) (just b) = just $ f a b
+    liftM2 _ _ _ = nothing
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
     p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
@@ -256,22 +260,17 @@ instance
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
       rM = λ q → if null q then just (+_ 0) else readMaybe (fromList q)
       comb : Maybe ℤ → Maybe ℤ → Maybe Float
-      comb (just x) (just y) = just $ _+f_ (n2f x) $ n2f y ÷ sf b
+      comb = liftM2 (λ x y → _+f_ (n2f x) $ n2f y ÷ sf b)
         where
         pos = isNo $ Data.List.head a ≟ just '-'
         _+f_ = if pos then Data.Float._+_ else Data.Float._-_
         _÷_ = Data.Float._÷_
         sf = Data.Float._**_ (n2f $ +_ 10) ∘ n2f ∘ +_ ∘ length
-      comb _ _ = nothing
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ List.[]) = p t
     exp (t ∷ (x ∷ List.[])) = liftM2 dt10 (p t) $ p x
       where
-      liftM2 : ∀ {a b} → {A : Set a} → {B : Set b}
-             → (A → A → B) → Maybe A → Maybe A → Maybe B
-      liftM2 f (just a) (just b) = just $ f a b
-      liftM2 _ _ _ = nothing
       dt10 = λ a b → a Data.Float.* n2f (+_ 10) Data.Float.** b
     exp _ = nothing
   -- | .i pilno li pano ki'u le nu pruce le te pruce
