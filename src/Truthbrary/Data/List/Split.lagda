@@ -91,10 +91,10 @@ splitOn a = rev ∘ map rev ∘ sob a [] []
   sob : ∀ {a} → {A : Set a}
       → ⦃ Eq A ⦄
       → A → List $ List A → List A → List A → List $ List A
+  sob a b g []ₗ = g ∷ₗ b
   sob a b g (f ∷ₗ xs) = if isYes (f ≟ a) then hitit else add
     where
     hitit = sob a (g ∷ₗ b) []ₗ xs
     add = sob a b (f ∷ₗ g) xs
-  sob a b g []ₗ = g ∷ₗ b
 \end{code}
 \end{document}
