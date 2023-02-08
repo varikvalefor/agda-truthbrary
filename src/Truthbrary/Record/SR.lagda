@@ -252,7 +252,7 @@ instance
     p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
     p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
       where
-      -- | .i filri'a lo nu genturfa'i pe'a ru'e fi zoi zoi.
+      -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
       rM = λ q → if null q then just (+_ 0) else readMaybe (fromList q)
       comb : Maybe ℤ → Maybe ℤ → Maybe Float
