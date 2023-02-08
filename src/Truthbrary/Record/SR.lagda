@@ -219,10 +219,7 @@ instance
       rev = Data.List.reverse
       sob : ∀ {a} → {A : Set a}
           → ⦃ Eq A ⦄
-          → A
-          → List $ List A
-          → List A
-          → List A
+          → A → List $ List A → List A → List A
           → List $ List A
       sob a b g (f ∷ xs) = if isYes (f ≟ a) then hitit else add
         where
