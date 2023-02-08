@@ -269,7 +269,7 @@ instance
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ List.[]) = p t
-    exp (t ∷ (x ∷ List.[])) = liftM2 dt10 (p t) $ p x
+    exp (t ∷ x ∷ List.[]) = liftM2 dt10 (p t) $ p x
       where
       dt10 = λ a b → a Data.Float.* n2f (+_ 10) Data.Float.** b
     exp _ = nothing
