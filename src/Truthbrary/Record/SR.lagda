@@ -129,6 +129,7 @@ open import Relation.Nullary.Decidable
     isNo;
     isYes
   )
+open import Truthbrary.Data.List.Split
 open import Relation.Binary.PropositionalEquality
 \end{code}
 
@@ -231,22 +232,6 @@ instance
     where
     spit : List Char → List $ List $ List Char
     spit = map (splitOn '.') ∘ splitOn 'e'
-      where
-      splitOn : ∀ {a} → {A : Set a}
-              → ⦃ Eq A ⦄
-              → A → List A → List $ List A
-      splitOn a = rev ∘ map rev ∘ sob a [] []
-        where
-        rev = Data.List.reverse
-        sob : ∀ {a} → {A : Set a}
-            → ⦃ Eq A ⦄
-            → A → List $ List A → List A → List A
-            → List $ List A
-        sob a b g (f ∷ xs) = if isYes (f ≟ a) then hitit else add
-          where
-          hitit = sob a (g ∷ b) [] xs
-          add = sob a b (f ∷ g) xs
-        sob a b g Data.List.[] = g ∷ b
     n2f = Data.Float.fromℤ
     liftM2 : ∀ {a b} → {A : Set a} → {B : Set b}
            → (A → A → B) → Maybe A → Maybe A → Maybe B
