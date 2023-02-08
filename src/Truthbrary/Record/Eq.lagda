@@ -17,6 +17,12 @@
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
+\newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
+\newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
+\newunicodechar{′}{\ensuremath{\mathnormal{\prime}}}
+\newunicodechar{∋}{\ensuremath{\mathnormal{\ni}}}
+\newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -45,15 +51,20 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 module Truthbrary.Record.Eq where
 
 import Level
+import Data.Fin
 import Data.Nat
 import Data.Char
 import Data.Float
 import Data.String
+open import Data.Sum
 open import Function
 open import Data.Bool
   using (
     Bool
   )
+open import Data.Maybe
+open import Relation.Nullary
+open import Data.Maybe.Properties
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
@@ -79,6 +90,13 @@ _≟_ : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → DecidableEquality A
 _≟_ ⦃ Q ⦄ = Eq._≟_ Q
 \end{code}
 
+\subsection{la'oi .\F{\_≡ᵇ\_}.}
+
+\begin{code}
+_≡ᵇ_ : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → A → A → Bool
+_≡ᵇ_ = isYes ∘₂ _≟_
+\end{code}
+
 \subsection{le me'oi .\AgdaKeyword{instance}.}
 
 \begin{code}
@@ -91,5 +109,25 @@ instance
   EqChar = record {_≟_ = Data.Char._≟_}
   EqFloat : Eq Data.Float.Float
   EqFloat = record {_≟_ = Data.Float._≟_}
+  EqFin : {n : Data.Nat.ℕ} → Eq $ Data.Fin.Fin n
+  EqFin = record {_≟_ = Data.Fin._≟_}
+  EqMaybe : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ Maybe A
+  EqMaybe {_} {A} ⦃ G ⦄ = record {_≟_ = ≡-dec $ Eq._≟_ G}
+  EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
+        → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
+        → Eq $ A ⊎ B
+  EqSum {_} {_} {A} {B} = record {_≟_ = Q}
+    where
+    inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : A}
+             → (A ⊎ B ∋ inj₁ x) ≡ inj₁ y → x ≡ y
+    inj₁-inj refl = refl
+    inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
+             → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
+    inj₂-inj refl = refl
+    Q : DecidableEquality $ A ⊎ B
+    Q (inj₁ t) (inj₁ l) = map′ (cong inj₁) inj₁-inj $ t ≟ l
+    Q (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
+    Q (inj₁ _) (inj₂ _) = no $ λ ()
+    Q (inj₂ _) (inj₁ _) = no $ λ ()
 \end{code}
 \end{document}
