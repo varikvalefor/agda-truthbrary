@@ -227,30 +227,26 @@ instance
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
-    splitOn : ∀ {a} → {A : Set a}
-            → ⦃ Eq A ⦄
-            → A → List A → List $ List A
-    splitOn a = rev ∘ map rev ∘ sob a [] []
-      where
-      rev = Data.List.reverse
-      sob : ∀ {a} → {A : Set a}
-          → ⦃ Eq A ⦄
-          → A → List $ List A → List A → List A
-          → List $ List A
-      sob a b g (f ∷ xs) = if isYes (f ≟ a) then hitit else add
-        where
-        hitit = sob a (g ∷ b) [] xs
-        add = sob a b (f ∷ g) xs
-      sob a b g Data.List.[] = g ∷ b
     spit : List Char → List $ List $ List Char
     spit = map (splitOn db) ∘ splitOn ee
       where
       db = Data.Char.fromℕ 46
       ee = Data.Char.fromℕ 101
-    liftM2 : ∀ {a b} → {A : Set a} → {B : Set b}
-           → (A → A → B) → Maybe A → Maybe A → Maybe B
-    liftM2 f (just a) (just b) = just $ f a b
-    liftM2 _ _ _ = nothing
+      splitOn : ∀ {a} → {A : Set a}
+              → ⦃ Eq A ⦄
+              → A → List A → List $ List A
+      splitOn a = rev ∘ map rev ∘ sob a [] []
+        where
+        rev = Data.List.reverse
+        sob : ∀ {a} → {A : Set a}
+            → ⦃ Eq A ⦄
+            → A → List $ List A → List A → List A
+            → List $ List A
+        sob a b g (f ∷ xs) = if isYes (f ≟ a) then hitit else add
+          where
+          hitit = sob a (g ∷ b) [] xs
+          add = sob a b (f ∷ g) xs
+        sob a b g Data.List.[] = g ∷ b
     n2f = Data.Float.fromℕ
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
@@ -270,7 +266,12 @@ instance
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ List.[]) = p t
     exp (t ∷ (x ∷ List.[])) = liftM2 dt10 (p t) $ p x
-      where dt10 = λ a b → a Data.Float.* n2f 10 Data.Float.** b
+      where
+      liftM2 : ∀ {a b} → {A : Set a} → {B : Set b}
+             → (A → A → B) → Maybe A → Maybe A → Maybe B
+      liftM2 f (just a) (just b) = just $ f a b
+      liftM2 _ _ _ = nothing
+      dt10 = λ a b → a Data.Float.* n2f 10 Data.Float.** b
     exp _ = nothing
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .Fin.
