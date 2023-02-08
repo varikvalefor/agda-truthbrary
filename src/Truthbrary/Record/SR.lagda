@@ -201,14 +201,13 @@ readMaybe ⦃ drivel ⦄ = Read.readMaybe drivel
 \begin{code}
 private
   unparens : String → Maybe String
-  unparens = decaf (Data.Char.fromℕ 40) $ Data.Char.fromℕ 41
+  unparens = decaf '(' ')'
 
 instance
   readChar : Read Char
-  readChar = record {readMaybe = stedu=<< ∘ decaf h h}
+  readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
     stedu=<< = flip _>>=_ Data.String.head
-    h = Data.Char.fromℕ 39
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
@@ -228,10 +227,8 @@ instance
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
     spit : List Char → List $ List $ List Char
-    spit = map (splitOn db) ∘ splitOn ee
+    spit = map (splitOn '.') ∘ splitOn 'e'
       where
-      db = Data.Char.fromℕ 46
-      ee = Data.Char.fromℕ 101
       splitOn : ∀ {a} → {A : Set a}
               → ⦃ Eq A ⦄
               → A → List A → List $ List A
