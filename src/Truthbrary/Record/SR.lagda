@@ -156,6 +156,7 @@ show ⦃ boob ⦄ = Show.show boob
 \begin{code}
 instance
   showℕ = record {show = Data.Nat.Show.show}
+  showFloat = record {show = Data.Float.show}
   showFin : {n : ℕ} → Show $ Fin n
   showFin = record {show = Data.Fin.Show.show}
   showChar = record {show = Data.Char.show}
