@@ -245,7 +245,7 @@ instance
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
       rM = λ q → if null q then just (+_ 0) else readMaybe (fromList q)
       comb : Maybe ℤ → Maybe ℤ → Maybe Float
-      comb = liftM2 (λ x y → _+f_ (n2f x) $ n2f y ÷ sf b)
+      comb = liftM2 $ λ x y → _+f_ (n2f x) $ n2f y ÷ sf b
         where
         pos = isNo $ Data.List.head a ≟ just '-'
         _+f_ = if pos then Data.Float._+_ else Data.Float._-_
