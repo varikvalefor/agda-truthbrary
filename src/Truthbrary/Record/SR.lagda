@@ -12,6 +12,7 @@
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
@@ -106,6 +107,10 @@ open import Data.String
     show;
     length;
     _++_
+  )
+open import Data.Integer
+  using (
+    ℤ
   )
 open import Data.Fin.Show
   using (
@@ -207,6 +212,18 @@ instance
   -- | .i pilno li pano ki'u le nu pruce le te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
+  readℤ : Read ℤ
+  readℤ = record {readMaybe = f ∘ toList}
+    where
+    f : List Char → Maybe ℤ
+    f List.[] = nothing
+    f (x ∷ xs) = if isYes (x ≟ '-') then mapₘ n r else mapₘ p r'
+      where
+      r r' : Maybe ℕ
+      r = readMaybe $ fromList xs
+      r' = readMaybe $ fromList $ x ∷ xs
+      p = Data.Integer.+_
+      n = Data.Integer.-_ ∘ p
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
