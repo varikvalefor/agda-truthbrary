@@ -13,6 +13,7 @@
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
+\newunicodechar{ℚ}{\ensuremath{\mathbb{Q}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
@@ -22,6 +23,7 @@
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
+\newunicodechar{ᵘ}{\ensuremath{\mathnormal{^u}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
@@ -31,6 +33,7 @@
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^b}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{∸}{\ensuremath{\mathnormal{\divdot}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -62,6 +65,8 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 {-# OPTIONS --instance-search-depth=2 #-}
 
 module Truthbrary.Record.SR where
+
+import Data.Integer.Show
 
 open import Data.Fin
   hiding (
@@ -176,6 +181,12 @@ instance
   showFin = record {show = Data.Fin.Show.show}
   showChar = record {show = Data.Char.show}
   showString = record {show = Data.String.show}
+  showℤ = record {show = Data.Integer.Show.show}
+  showℚᵘ : Show ℚᵘ
+  showℚᵘ = record {show = f}
+    where
+    f : ℚᵘ → String
+    f q = show (ℚᵘ.numerator q) ++ "/" ++ show (ℚᵘ.denominator q)
   showMaybe : ∀ {a} → {A : Set a}
             → ⦃ Show A ⦄
             → Show $ Maybe A
@@ -241,6 +252,17 @@ instance
       r' = readMaybe $ fromList $ x ∷ xs
       p = Data.Integer.+_
       n = Data.Integer.-_ ∘ p
+  readℚᵘ : Read ℚᵘ
+  readℚᵘ = record {readMaybe = f ∘ splitOn '/' ∘ toList}
+    where
+    f : List $ List Char → Maybe ℚᵘ
+    f (x ∷ List.[]) = mapₘ (flip mkℚᵘ 1) $ readMaybe $ fromList x
+    f (x ∷ y ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) y'
+      where
+      rm = readMaybe $ fromList y
+      rmy = if isYes (rm ≟ just 0) then nothing else rm
+      y' = maybe (just ∘ flip _∸_ 1) nothing rmy
+    f _ = nothing
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
