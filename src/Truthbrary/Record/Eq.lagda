@@ -11,7 +11,11 @@
 \usepackage{newunicodechar}
 
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℚ}{\ensuremath{\mathbb{Q}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∘}{\ensuremath{\circ}}
+\newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
