@@ -63,6 +63,10 @@ open import Data.Bool
     Bool
   )
 open import Data.Maybe
+open import Data.Rational
+  using (
+    ℚ
+  )
 open import Relation.Nullary
 open import Data.Maybe.Properties
 open import Relation.Nullary.Decidable
@@ -103,6 +107,8 @@ _≡ᵇ_ = isYes ∘₂ _≟_
 instance
   Eqℕ : Eq Data.Nat.ℕ
   Eqℕ = record {_≟_ = Data.Nat._≟_}
+  Eqℚ : Eq ℚ
+  Eqℚ = record {_≟_ = Data.Rational._≟_}
   EqString : Eq Data.String.String
   EqString = record {_≟_ = Data.String._≟_}
   EqChar : Eq Data.Char.Char
