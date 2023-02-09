@@ -63,6 +63,10 @@ open import Data.Bool
     Bool
   )
 open import Data.Maybe
+open import Data.Integer
+  using (
+    ℤ
+  )
 open import Data.Rational
   using (
     ℚ
@@ -109,6 +113,8 @@ instance
   Eqℕ = record {_≟_ = Data.Nat._≟_}
   Eqℚ : Eq ℚ
   Eqℚ = record {_≟_ = Data.Rational._≟_}
+  Eqℤ : Eq ℤ
+  Eqℤ = record {_≟_ = Data.Integer._≟_}
   EqString : Eq Data.String.String
   EqString = record {_≟_ = Data.String._≟_}
   EqChar : Eq Data.Char.Char
