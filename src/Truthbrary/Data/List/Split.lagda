@@ -28,7 +28,7 @@
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
-\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^b}}}
+\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\mathrm{b}}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 
