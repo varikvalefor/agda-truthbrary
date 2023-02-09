@@ -58,6 +58,8 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 
 \begin{code}
 {-# OPTIONS --safe #-}
+{-# OPTIONS --overlapping-instances #-}
+{-# OPTIONS --instance-search-depth=2 #-}
 
 module Truthbrary.Record.SR where
 
@@ -113,16 +115,28 @@ open import Data.Integer
     +_;
     ℤ
   )
+open import Data.Rational.Unnormalised as ℚᵘ
+  using (
+    ℚᵘ;
+    mkℚᵘ
+  )
 open import Data.Fin.Show
   using (
   )
 open import Data.Nat.Show
   using (
   )
+open import Data.Maybe.Instances
 open import Truthbrary.Record.Eq
 open import Truthbrary.Record.LLC
   hiding (
     _∷_
+  )
+open import Truthbrary.Category.Monad
+  using (
+  )
+  renaming (
+    map₂ to liftM2
   )
 open import Relation.Nullary.Decidable
   using (
@@ -232,10 +246,6 @@ instance
     where
     spit = map (splitOn '.') ∘ splitOn 'e'
     n2f = Data.Float.fromℤ
-    liftM2 : ∀ {a b} → {A : Set a} → {B : Set b}
-           → (A → A → B) → Maybe A → Maybe A → Maybe B
-    liftM2 f (just a) (just b) = just $ f a b
-    liftM2 _ _ _ = nothing
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
     p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
