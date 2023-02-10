@@ -117,4 +117,17 @@ map₂ : ∀ {a} → {A B C : Set a}
      → (A → B → C) → M A → M B → M C
 map₂ f a b = a >>= λ a' → map (f a') b
 \end{code}
+
+\section{le me'oi .\AgdaKeyword{instance}.}
+
+\begin{code}
+instance
+  ⊎Monad : ∀ {a} → {A : Set a} → RawMonad $ _⊎_ A
+  ⊎Monad = record {return = inj₂; _>>=_ = _>>=⊎_}
+    where
+    _>>=⊎_ : ∀ {a} → {A B C : Set a}
+           → A ⊎ B → (B → A ⊎ C) → A ⊎ C
+    _>>=⊎_ (inj₁ q) _ = inj₁ q
+    _>>=⊎_ (inj₂ q) f = f q
+\end{code}
 \end{document}
