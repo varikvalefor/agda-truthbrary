@@ -50,6 +50,7 @@ open import Level
 open import Data.Nat
 open import Data.Sum
   using (
+    [_,_];
     _⊎_;
     inj₁;
     inj₂
@@ -127,7 +128,6 @@ instance
     where
     _>>=⊎_ : ∀ {a} → {A B C : Set a}
            → A ⊎ B → (B → A ⊎ C) → A ⊎ C
-    _>>=⊎_ (inj₁ q) _ = inj₁ q
-    _>>=⊎_ (inj₂ q) f = f q
+    _>>=⊎_ q f = [_,_] inj₁ f q
 \end{code}
 \end{document}
