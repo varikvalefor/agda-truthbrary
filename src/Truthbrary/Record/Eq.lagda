@@ -54,12 +54,14 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.Eq where
 
+
 import Level
 import Data.Fin
 import Data.Nat
 import Data.Char
 import Data.Float
 import Data.String
+import Data.Product.Properties
 open import Data.Sum
 open import Function
 open import Data.Bool
@@ -71,6 +73,7 @@ open import Data.Integer
   using (
     ℤ
   )
+open import Data.Product
 open import Data.Rational
   using (
     ℚ
@@ -119,6 +122,11 @@ instance
   Eqℚ = record {_≟_ = Data.Rational._≟_}
   Eqℤ : Eq ℤ
   Eqℤ = record {_≟_ = Data.Integer._≟_}
+  -- | All I've got with me is a pistol and an...
+  EqProd : ∀ {a b} → {A : Set a} → {B : Set b}
+         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
+         → Eq $ A × B
+  EqProd = record {_≟_ = Data.Product.Properties.≡-dec _≟_ _≟_}
   EqString : Eq Data.String.String
   EqString = record {_≟_ = Data.String._≟_}
   EqChar : Eq Data.Char.Char
