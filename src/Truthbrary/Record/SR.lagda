@@ -338,7 +338,7 @@ instance
           → ⦃ Read A ⦄
           → (A → B) → Maybe B
       inj f = unparens d5 >>= mapₘ f ∘ readMaybe
-      inj2? = if t5 == "inj₂ " then inj inj₂ else nothing
+      inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
 \end{code}
 
 \section{la'oi .\F{SR}.}
