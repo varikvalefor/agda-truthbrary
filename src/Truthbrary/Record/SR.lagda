@@ -120,6 +120,10 @@ open import Data.Integer
     +_;
     ℤ
   )
+open import Data.Rational
+  using (
+    ℚ
+  )
 open import Data.Rational.Unnormalised as ℚᵘ
   using (
     ℚᵘ;
@@ -182,6 +186,11 @@ instance
   showChar = record {show = Data.Char.show}
   showString = record {show = Data.String.show}
   showℤ = record {show = Data.Integer.Show.show}
+  showℚ : Show ℚ
+  showℚ = record {show = f}
+    where
+    f : ℚ → String
+    f q = show (ℚ.numerator q) ++ "/" ++ show (ℚ.denominator q)
   showℚᵘ : Show ℚᵘ
   showℚᵘ = record {show = f}
     where
