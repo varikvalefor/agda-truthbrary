@@ -75,6 +75,7 @@ open import Data.Fin
   )
 open import Data.Nat
   hiding (
+    _≡ᵇ_;
     _≟_
   )
 open import Data.Sum
@@ -149,8 +150,7 @@ open import Truthbrary.Category.Monad
   )
 open import Relation.Nullary.Decidable
   using (
-    isNo;
-    isYes
+    isNo
   )
 open import Truthbrary.Data.List.Split
 open import Relation.Binary.PropositionalEquality
@@ -254,7 +254,7 @@ instance
     where
     f : List Char → Maybe ℤ
     f List.[] = nothing
-    f (x ∷ xs) = if isYes (x ≟ '-') then mapₘ n r else mapₘ p r'
+    f (x ∷ xs) = if x ≡ᵇ '-' then mapₘ n r else mapₘ p r'
       where
       r r' : Maybe ℕ
       r = readMaybe $ fromList xs
@@ -269,7 +269,7 @@ instance
     f (x ∷ y ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) y'
       where
       rm = readMaybe $ fromList y
-      rmy = if isYes (rm ≟ just 0) then nothing else rm
+      rmy = if rm ≡ᵇ just 0 then nothing else rm
       y' = maybe (just ∘ flip _∸_ 1) nothing rmy
     f _ = nothing
   readFloat : Read Float
@@ -286,7 +286,7 @@ instance
       rM = λ q → if null q then just (+_ 0) else readMaybe (fromList q)
       comb = liftM2 $ λ x y → _+f_ (n2f x) $ n2f y ÷ sf b
         where
-        pos = isNo $ Data.List.head a ≟ just '-'
+        pos = not $ Data.List.head a ≡ᵇ just '-'
         _+f_ = if pos then Data.Float._+_ else Data.Float._-_
         _÷_ = Data.Float._÷_
         sf = Data.Float._**_ (n2f $ +_ 10) ∘ n2f ∘ +_ ∘ length
@@ -309,8 +309,8 @@ instance
     Q t = if justice then just (t' >>= readMaybe) else nada
       where
       -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
-      tim = fromList t == "nothing"
-      justice = fromList (Data.List.take 5 t) == "just "
+      tim = fromList t ≡ᵇ "nothing"
+      justice = fromList (Data.List.take 5 t) ≡ᵇ "just "
       nada = if tim then just nothing else nothing
       t' = unparens $ fromList $ Data.List.drop 5 t
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
@@ -319,7 +319,7 @@ instance
   readSum {_} {_} {A} {B} = record {readMaybe = inj₁?}
     where
     inj₁? : String → Maybe $ A ⊎ B
-    inj₁? q = if t5 == "inj₁ " then inj inj₁ else inj2?
+    inj₁? q = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
       where
       apf : (List Char → List Char) → String
       apf f = fromList $ f $ toList q
