@@ -123,6 +123,7 @@ open import Data.Integer
   )
 open import Data.Rational
   using (
+    mkℚ;
     ℚ
   )
 open import Data.Rational.Unnormalised as ℚᵘ
@@ -144,6 +145,7 @@ open import Truthbrary.Record.LLC
   )
 open import Truthbrary.Category.Monad
   using (
+    _>=>_
   )
   renaming (
     map₂ to liftM2
@@ -272,6 +274,13 @@ instance
       rmy = if rm ≡ᵇ just 0 then nothing else rm
       y' = maybe (just ∘ flip _∸_ 1) nothing rmy
     f _ = nothing
+  readℚ : Read ℚ
+  readℚ = record {readMaybe = readMaybe >=> f}
+    where
+    fq = Data.Rational.fromℚᵘ
+    norm = show ∘ Data.Rational.toℚᵘ ∘ fq
+    f : ℚᵘ → Maybe ℚ
+    f x = if norm x ≡ᵇ show x then just (fq x) else nothing
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
