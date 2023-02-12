@@ -62,6 +62,7 @@ import Data.Char
 import Data.Float
 import Data.String
 import Data.Product.Properties
+
 open import Data.Sum
 open import Function
 open import Data.Bool
