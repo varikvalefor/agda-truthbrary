@@ -61,6 +61,7 @@ import Data.Nat
 import Data.Char
 import Data.Float
 import Data.String
+import Data.These.Properties
 import Data.Product.Properties
 
 open import Data.Sum
@@ -70,6 +71,10 @@ open import Data.Bool
     Bool
   )
 open import Data.Maybe
+open import Data.These
+  using (
+    These
+  )
 open import Data.Integer
   using (
     ℤ
@@ -138,6 +143,12 @@ instance
   EqFin = record {_≟_ = Data.Fin._≟_}
   EqMaybe : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ Maybe A
   EqMaybe {_} {A} ⦃ G ⦄ = record {_≟_ = ≡-dec $ Eq._≟_ G}
+  EqThese : ∀ {a b} → {A : Set a} → {B : Set b}
+          → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
+          → Eq $ These A B
+  EqThese ⦃ X ⦄ ⦃ Y ⦄ = record {_≟_ = dick (Eq._≟_ X) (Eq._≟_ Y)}
+    where
+    dick = Data.These.Properties.≡-dec
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
