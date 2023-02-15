@@ -167,10 +167,10 @@ instance
                → {x y : A} → {xs ys : List A}
                → x ∷ xs ≡ y ∷ ys → xs ≡ ys
     notBigInto refl = refl
-    tdneq : ∀ {a} → {A : Set a}
-          → {x y : A} → {xs ys : List A}
-          → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
-    tdneq w = {!!}
+    leadneck : ∀ {a} → {A : Set a}
+             → {x y : A} → {xs ys : List A}
+             → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
+    leadneck w = {!!}
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
          → (x y : A)
@@ -202,7 +202,7 @@ instance
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
       booty ass pants = map′ (doomsday ass) notBigInto $ f xs ys
       arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
-      arm wrestling _ = no $ tdneq wrestling
+      arm wrestling _ = no $ leadneck wrestling
       -- | .i la .varik. cu jinvi le du'u na xlabebna
       -- fa le versiio be le cmene be'o poi co'e ke'a
       -- pu lo nu gubygau le ctaipe... kei kei jenai
@@ -213,7 +213,7 @@ instance
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
-      ltd a _ = no $ tdneq a
+      ltd a _ = no $ leadneck a
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
