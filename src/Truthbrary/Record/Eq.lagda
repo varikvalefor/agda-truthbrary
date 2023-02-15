@@ -84,6 +84,11 @@ open import Data.Rational
   using (
     ℚ
   )
+open import Data.List
+  using (
+    List;
+    _∷_
+  )
 open import Relation.Nullary
 open import Data.Maybe.Properties
 open import Relation.Nullary.Decidable
@@ -149,6 +154,73 @@ instance
   EqThese ⦃ X ⦄ ⦃ Y ⦄ = record {_≟_ = dick (Eq._≟_ X) (Eq._≟_ Y)}
     where
     dick = Data.These.Properties.≡-dec
+  EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
+  EqList {_} {A} ⦃ Q ⦄ = record {_≟_ = f}
+    where
+    -- | Tick-tock, tick-tock, tick-tock!
+    doomsday : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄
+             → {x y : A} → {xs ys : List A}
+             → x ≡ y → xs ≡ ys → x List.∷ xs ≡ y List.∷ ys
+    doomsday refl refl = refl
+    notBigInto : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄
+               → {x y : A} → {xs ys : List A}
+               → x ∷ xs ≡ y ∷ ys → xs ≡ ys
+    notBigInto refl = refl
+    tdneq : ∀ {a} → {A : Set a}
+          → {x y : A} → {xs ys : List A}
+          → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
+    tdneq w = {!!}
+    bork : ∀ {a b} → {A : Set a} → {B : Set b}
+         → ⦃ Eq A ⦄
+         → (x y : A)
+         → (xs ys : List A)
+         → (x ≡ y → xs ≡ ys → B)
+         → (x ≡ y → ¬ (xs ≡ ys) → B)
+         → (¬ (x ≡ y) → xs ≡ ys → B)
+         → (¬ (x ≡ y) → ¬ (xs ≡ ys) → B)
+         → B
+    -- | .i la. varik. cu djica lo nu la'o zoi.
+    -- xs ≟ ys .zoi. ja zo'e xamgu basti le me'oi
+    -- .goal...  .i ku'i le te samrkompli ja co'e
+    -- cu xusra le sedu'u na me'oi .terminate. fa
+    -- le jalge ja co'e be lo nu basti
+    --
+    -- .i la .varik. cu se tolpu'a le nu na pilno
+    -- lo me'oi .monospace. versiio ja co'e be zoi
+    -- zoi. ≟ .zoi.
+    bork {_} {_} {A} {B} x y xs ys f g j k = spit (x ≟ y) {!!}
+      where
+      spit : Dec $ x ≡ y → Dec $ xs ≡ ys → B
+      spit (yes a) (yes b) = f a b
+      spit (yes a) (no b) = g a b
+      spit (no a) (yes b) = j a b
+      spit (no a) (no b) = k a b
+    f : DecidableEquality $ List A
+    f List.[] List.[] = yes refl
+    f (_ List.∷ _) List.[] = no $ λ ()
+    f List.[] (_ List.∷ _) = no $ λ ()
+    f (x ∷ xs) (y ∷ ys) = bork x y xs ys booty messiah arm ltd
+      where
+      -- .i cumki fa lo nu vimcu le ctaipe velcki
+      -- .i ku'i la .varik. cu jinvi le du'u jmina
+      -- ja co'e le ctaipe velcki cu filri'a lo nu
+      -- jimpe... kei kei je cu djica lo nu frili fa
+      -- lo nu jimpe
+      booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
+      booty ass pants = map′ (doomsday ass) notBigInto $ f xs ys
+      arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
+      arm wrestling _ = no $ tdneq wrestling
+      -- | .i la .varik. cu jinvi le du'u na xlabebna
+      -- fa le versiio be le cmene be'o poi co'e ke'a
+      -- pu lo nu gubygau le ctaipe... kei kei jenai
+      -- le du'u le versiio poi tu'a ke'a cabna cu
+      -- mutce le ka ce'u na xlabebna... kei kei je
+      -- ku'i cu nelci le jalge be le nu zo'oi
+      -- .messiah. cmene le ctaipe
+      messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
+      messiah eek = map′ (doomsday eek) notBigInto ∘ no
+      ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
+      ltd a _ = no $ tdneq a
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
