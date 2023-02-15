@@ -175,7 +175,7 @@ instance
          → ⦃ Eq A ⦄
          → (x y : A)
          → (xs ys : B)
-         → (Dec $ xs ≡ ys)
+         → Dec (xs ≡ ys)
          → (x ≡ y → xs ≡ ys → C)
          → (x ≡ y → ¬ (xs ≡ ys) → C)
          → (¬ (x ≡ y) → xs ≡ ys → C)
