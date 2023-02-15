@@ -181,10 +181,10 @@ instance
          → (¬ (x ≡ y) → xs ≡ ys → C)
          → (¬ (x ≡ y) → ¬ (xs ≡ ys) → C)
          → C
-    bork {_} {_} {_} {A} {B} {C} x y xs ys q f' g j k = spit (x ≟ y) q
+    bork {_} {_} {_} {A} {B} {C} x y xs ys q f g j k = spit (x ≟ y) q
       where
       spit : Dec $ x ≡ y → Dec $ xs ≡ ys → C
-      spit (yes a) (yes b) = f' a b
+      spit (yes a) (yes b) = f a b
       spit (yes a) (no b) = g a b
       spit (no a) (yes b) = j a b
       spit (no a) (no b) = k a b
