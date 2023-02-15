@@ -171,25 +171,29 @@ instance
           → {x y : A} → {xs ys : List A}
           → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
     tdneq w = {!!}
+    bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+         → ⦃ Eq A ⦄
+         → (x y : A)
+         → (xs ys : B)
+         → (Dec $ xs ≡ ys)
+         → (x ≡ y → xs ≡ ys → C)
+         → (x ≡ y → ¬ (xs ≡ ys) → C)
+         → (¬ (x ≡ y) → xs ≡ ys → C)
+         → (¬ (x ≡ y) → ¬ (xs ≡ ys) → C)
+         → C
+    bork {_} {_} {_} {A} {B} {C} x y xs ys q f' g j k = spit (x ≟ y) q
+      where
+      spit : Dec $ x ≡ y → Dec $ xs ≡ ys → C
+      spit (yes a) (yes b) = f' a b
+      spit (yes a) (no b) = g a b
+      spit (no a) (yes b) = j a b
+      spit (no a) (no b) = k a b
     f : DecidableEquality $ List A
     f List.[] List.[] = yes refl
     f (_ List.∷ _) List.[] = no $ λ ()
     f List.[] (_ List.∷ _) = no $ λ ()
-    f (x ∷ xs) (y ∷ ys) = bork booty messiah arm ltd
+    f (x ∷ xs) (y ∷ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
       where
-      bork : ∀ {b} → {B : Set b}
-           → (x ≡ y → xs ≡ ys → B)
-           → (x ≡ y → ¬ (xs ≡ ys) → B)
-           → (¬ (x ≡ y) → xs ≡ ys → B)
-           → (¬ (x ≡ y) → ¬ (xs ≡ ys) → B)
-           → B
-      bork {_} {B} f' g j k = spit (x ≟ y) $ f xs ys
-        where
-        spit : Dec $ x ≡ y → Dec $ xs ≡ ys → B
-        spit (yes a) (yes b) = f' a b
-        spit (yes a) (no b) = g a b
-        spit (no a) (yes b) = j a b
-        spit (no a) (no b) = k a b
       -- .i cumki fa lo nu vimcu le ctaipe velcki
       -- .i ku'i la .varik. cu jinvi le du'u jmina
       -- ja co'e le ctaipe velcki cu filri'a lo nu
