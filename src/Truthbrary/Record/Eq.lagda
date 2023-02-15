@@ -27,6 +27,7 @@
 \newunicodechar{′}{\ensuremath{\mathnormal{\prime}}}
 \newunicodechar{∋}{\ensuremath{\mathnormal{\ni}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
+\newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
