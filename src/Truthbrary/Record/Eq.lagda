@@ -170,12 +170,12 @@ instance
     leadneck : ∀ {a} → {A : Set a}
              → {x y : A} → {xs ys : List A}
              → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
-    leadneck f = f ∘ recoil
+    leadneck f = f ∘ hillbilly
       where
-      recoil : ∀ {a} → {A : Set a}
-             → {x y : A} → {xs ys : List A}
-             → x ∷ xs ≡ y ∷ ys → x ≡ y
-      recoil refl = refl
+      hillbilly : ∀ {a} → {A : Set a}
+                → {x y : A} → {xs ys : List A}
+                → x ∷ xs ≡ y ∷ ys → x ≡ y
+      hillbilly refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
          → (w x : A)
