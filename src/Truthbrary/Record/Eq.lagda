@@ -170,7 +170,12 @@ instance
     leadneck : ∀ {a} → {A : Set a}
              → {x y : A} → {xs ys : List A}
              → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
-    leadneck w = {!!}
+    leadneck f = f ∘ recoil
+      where
+      recoil : ∀ {a} → {A : Set a}
+             → {x y : A} → {xs ys : List A}
+             → x ∷ xs ≡ y ∷ ys → x ≡ y
+      recoil refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
          → (w x : A)
