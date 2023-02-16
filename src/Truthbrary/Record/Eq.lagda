@@ -161,7 +161,7 @@ instance
     -- | Tick-tock, tick-tock, tick-tock!
     doomsday : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄
              → {x y : A} → {xs ys : List A}
-             → x ≡ y → xs ≡ ys → x List.∷ xs ≡ y List.∷ ys
+             → x ≡ y → xs ≡ ys → x ∷ xs ≡ y ∷ ys
     doomsday refl refl = refl
     notBigInto : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄
                → {x y : A} → {xs ys : List A}
@@ -195,8 +195,8 @@ instance
       spit (no a) (no b) = k a b
     f : DecidableEquality $ List A
     f List.[] List.[] = yes refl
-    f (_ List.∷ _) List.[] = no $ λ ()
-    f List.[] (_ List.∷ _) = no $ λ ()
+    f (_ ∷ _) List.[] = no $ λ ()
+    f List.[] (_ ∷ _) = no $ λ ()
     f (x ∷ xs) (y ∷ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
       where
       -- .i cumki fa lo nu vimcu le ctaipe velcki
