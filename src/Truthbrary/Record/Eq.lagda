@@ -173,17 +173,17 @@ instance
     leadneck w = {!!}
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
-         → (x y : A)
-         → (xs ys : B)
-         → Dec (xs ≡ ys)
-         → (x ≡ y → xs ≡ ys → C)
-         → (x ≡ y → ¬ (xs ≡ ys) → C)
-         → (¬ (x ≡ y) → xs ≡ ys → C)
-         → (¬ (x ≡ y) → ¬ (xs ≡ ys) → C)
+         → (w x : A)
+         → (y z : B)
+         → Dec (y ≡ z)
+         → (w ≡ x → y ≡ z → C)
+         → (w ≡ x → ¬ (y ≡ z) → C)
+         → (¬ (w ≡ x) → y ≡ z → C)
+         → (¬ (w ≡ x) → ¬ (y ≡ z) → C)
          → C
-    bork {_} {_} {_} {A} {B} {C} x y xs ys q f g j k = spit (x ≟ y) q
+    bork {_} {_} {_} {_} {_} {C} w x y z q f g j k = spit (w ≟ x) q
       where
-      spit : Dec $ x ≡ y → Dec $ xs ≡ ys → C
+      spit : Dec $ w ≡ x → Dec $ y ≡ z → C
       spit (yes a) (yes b) = f a b
       spit (yes a) (no b) = g a b
       spit (no a) (yes b) = j a b
