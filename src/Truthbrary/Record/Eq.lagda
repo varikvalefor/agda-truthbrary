@@ -146,9 +146,7 @@ instance
   EqThese : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
           → Eq $ These A B
-  EqThese ⦃ X ⦄ ⦃ Y ⦄ = record {_≟_ = dick (Eq._≟_ X) (Eq._≟_ Y)}
-    where
-    dick = Data.These.Properties.≡-dec
+  EqThese = record {_≟_ = Data.These.Properties.≡-dec _≟_ _≟_}
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
