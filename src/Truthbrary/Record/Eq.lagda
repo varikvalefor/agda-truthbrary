@@ -180,7 +180,7 @@ instance
          → ⦃ Eq A ⦄
          → (w x : A)
          → (y z : B)
-         → Dec (y ≡ z)
+         → Dec $ y ≡ z
          → (w ≡ x → y ≡ z → C)
          → (w ≡ x → ¬ (y ≡ z) → C)
          → (¬ (w ≡ x) → y ≡ z → C)
