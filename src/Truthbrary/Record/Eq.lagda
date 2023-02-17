@@ -152,9 +152,7 @@ instance
   EqThese : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
           → Eq $ These A B
-  EqThese ⦃ X ⦄ ⦃ Y ⦄ = record {_≟_ = dick (Eq._≟_ X) (Eq._≟_ Y)}
-    where
-    dick = Data.These.Properties.≡-dec
+  EqThese = record {_≟_ = Data.These.Properties.≡-dec _≟_ _≟_}
   EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
   EqList {_} {A} ⦃ Q ⦄ = record {_≟_ = f}
     where
