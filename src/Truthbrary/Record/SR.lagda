@@ -258,7 +258,6 @@ instance
     f List.[] = nothing
     f (x ∷ xs) = if x ≡ᵇ '-' then mapₘ n r else mapₘ p r'
       where
-      r r' : Maybe ℕ
       r = readMaybe $ fromList xs
       r' = readMaybe $ fromList $ x ∷ xs
       p = Data.Integer.+_
