@@ -248,7 +248,7 @@ instance
   readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
     stedu=<< = flip _>>=_ Data.String.head
-  -- | .i pilno li pano ki'u le nu pruce le te pruce
+  -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
   readℤ : Read ℤ
@@ -306,7 +306,7 @@ instance
       where
       dt10 = λ a b → a Data.Float.* n2f (+_ 10) Data.Float.** b
     exp _ = nothing
-  -- | .i pilno li pano ki'u le nu pruce le te pruce
+  -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .Fin.
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
