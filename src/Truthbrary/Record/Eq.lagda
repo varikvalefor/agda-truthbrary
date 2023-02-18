@@ -62,6 +62,7 @@ import Data.Nat
 import Data.Char
 import Data.Float
 import Data.String
+import Data.Maybe.Properties
 import Data.These.Properties
 import Data.Product.Properties
 
@@ -91,7 +92,6 @@ open import Data.List
     _∷_
   )
 open import Relation.Nullary
-open import Data.Maybe.Properties
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
@@ -148,7 +148,7 @@ instance
   EqFin : {n : Data.Nat.ℕ} → Eq $ Data.Fin.Fin n
   EqFin = record {_≟_ = Data.Fin._≟_}
   EqMaybe : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ Maybe A
-  EqMaybe {_} {A} ⦃ G ⦄ = record {_≟_ = ≡-dec $ Eq._≟_ G}
+  EqMaybe = record {_≟_ = Data.Maybe.Properties.≡-dec _≟_}
   EqThese : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
           → Eq $ These A B
