@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{parskip}
 \usepackage{mathabx}
+\usepackage{MnSymbol}
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
@@ -19,10 +20,12 @@
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
+\newunicodechar{↥}{\ensuremath{\mathnormal{\upmapsto}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_\mathrm{s}}}}
+\newunicodechar{ₙ}{\ensuremath{\mathnormal{_\mathrm{n}}}}
 \newunicodechar{ᵘ}{\ensuremath{\mathnormal{^\mathrm{u}}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\mathrm{v}}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
@@ -35,6 +38,7 @@
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal{\divdot}}}
 \newunicodechar{⊔}{\ensuremath{\mathnormal{\sqcup}}}
+\newunicodechar{∣}{\ensuremath{\mathnormal{\mid}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -62,9 +66,10 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 
 \begin{code}
 {-# OPTIONS --safe #-}
-{-# OPTIONS --cubical-compatible #-}
 
 module Truthbrary.Record.Arithmetic where
+
+import Data.Integer.DivMod
 
 open import Data.Float
   using (
@@ -83,12 +88,21 @@ open import Data.Nat
     suc;
     ℕ
   )
+  renaming (
+    _≟_ to _≟ₙ_
+  )
 open import Function
 open import Data.Bool
   using (
     if_then_else_
   )
 open import Data.Maybe
+open import Data.Integer
+  using (
+    0ℤ;
+    1ℤ;
+    ℤ
+  )
 open import Data.Nat.DivMod
   using (
     _mod_
@@ -168,6 +182,38 @@ instance
     deev : ℕ → ℕ → Maybe ℕ
     deev _ 0 = nothing
     deev a (suc b) = just $ Data.Nat.DivMod._/_ a $ suc b
+    [matrix] = 3
+  ariℤℤ = record {
+    _⊔+_ = r;
+    _⊔-_ = r;
+    _⊔*_ = r;
+    _⊔/_ = const $ const $ Maybe ℤ;
+    _+_ = Data.Integer._+_;
+    _-_ = Data.Integer._-_;
+    _*_ = Data.Integer._*_;
+    _/_ = deev;
+    uyn₁ = 1ℤ;
+    uyn₂ = 1ℤ;
+    uyn* = 1ℤ;
+    uyn/ = just 1ℤ;
+    zir₁ = 0ℤ;
+    zir₂ = 0ℤ;
+    zir+ = 0ℤ;
+    zir- = 0ℤ;
+    1*1≡1 = refl;
+    1/1≡1 = refl;
+    0+0≡0 = refl;
+    0-0≡0 = refl}
+    where
+    r = const $ const ℤ
+    deev : ℤ → ℤ → Maybe ℤ
+    deev a b = csiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
+      where
+      ∣b∣ = Data.Integer.∣ b ∣
+      eek0 = ∣b∣ ≟ₙ 0
+      csiz : (False $ ∣b∣ ≟ₙ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
+      csiz f (no q) = just $ f $ fromWitnessFalse q
+      csiz _ (yes _) = nothing
   ariFloatFloat : Arris Float Float
   ariFloatFloat = record {
     _⊔+_ = r;
