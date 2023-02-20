@@ -226,13 +226,12 @@ instance
             → Show $ These A B
   showThese {_} {_} {A} {B} = record {show = f}
     where
+    ps : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → String
+    ps = parens ∘ show
     f : These A B → String
-    f (this q) = "this " ++ parens (show q)
-    f (that q) = "that " ++ parens (show q)
-    f (these a b) = "these " ++ parens a' ++ " " ++ parens b'
-      where
-      a' = show a
-      b' = show b
+    f (this q) = "this " ++ ps q
+    f (that q) = "that " ++ ps q
+    f (these a b) = "these " ++ ps a ++ " " ++ ps b
 \end{code}
 
 \section{la'oi .\F{Read}.}
