@@ -109,6 +109,13 @@ open import Data.Maybe
   renaming (
     map to mapₘ
   )
+open import Data.These
+  using (
+    These;
+    this;
+    that;
+    these
+  )
 open import Data.String
   hiding (
     _≟_;
@@ -214,6 +221,18 @@ instance
     stank : A ⊎ B → String
     stank (inj₁ pa) = "inj₁ " ++ parens (show pa)
     stank (inj₂ re) = "inj₂ " ++ parens (show re)
+  showThese : ∀ {a b} → {A : Set a} → {B : Set b}
+            → ⦃ Show A ⦄ → ⦃ Show B ⦄
+            → Show $ These A B
+  showThese {_} {_} {A} {B} = record {show = f}
+    where
+    f : These A B → String
+    f (this q) = "this " ++ parens (show q)
+    f (that q) = "that " ++ parens (show q)
+    f (these a b) = "these " ++ parens a' ++ " " ++ parens b'
+      where
+      a' = show a
+      b' = show b
 \end{code}
 
 \section{la'oi .\F{Read}.}
@@ -339,6 +358,34 @@ instance
           → (A → B) → Maybe B
       inj f = unparens d5 >>= mapₘ f ∘ readMaybe
       inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
+  readThese : ∀ {a b} → {A : Set a} → {B : Set b}
+            → ⦃ Read A ⦄ → ⦃ Read B ⦄
+            → Read $ These A B
+  readThese {_} {_} {A} {B} = record {readMaybe = this?}
+    where
+    this? : String → Maybe $ These A B
+    this? z = if t 5 "this " then inj 5 this else that?
+      where
+      apf = λ f → fromList ∘ f ∘ toList
+      t = λ n s → apf (Data.List.take n) z ≡ᵇ s
+      d = λ n → apf (Data.List.drop n) z
+      inj : ∀ {a b} → {A : Set a} → {B : Set b}
+          → ⦃ Read A ⦄
+          → ℕ
+          → (A → B)
+          → Maybe B
+      inj n f = unparens (d n) >>= mapₘ f ∘ readMaybe
+      injex = comb? $ map fromList $ splitOn ' ' $ toList $ d 6
+        where
+        rm : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
+           → String → Maybe A
+        rm a = unparens a >>= readMaybe
+        deez = λ b a → Data.Maybe.map (these a) $ rm b
+        comb? : List $ String → Maybe $ These A B
+        comb? (a ∷ b ∷ List.[]) = rm a >>= deez b
+        comb? _ = nothing
+      these? = if t 6 "these " then injex else nothing
+      that? = if t 5 "that " then inj 5 that else these?
 \end{code}
 
 \section{la'oi .\F{SR}.}
