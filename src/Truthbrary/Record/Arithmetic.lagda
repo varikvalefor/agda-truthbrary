@@ -197,7 +197,7 @@ instance
 \end{code}
 
 \section{la'oi .\F{\_+\_}.}
-ni'o la'o zoi.\ B a \Sym * \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \Sym + \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _+_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -207,7 +207,7 @@ _+_ ⦃ Q ⦄ = Arris._+_ Q
 \end{code}
 
 \section{la'oi .\F{\_-\_}.}
-ni'o la'o zoi.\ B a \Sym * \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \Sym - \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _-_ : ∀ {a b c} → {A : Set a} → {B : Set b}
