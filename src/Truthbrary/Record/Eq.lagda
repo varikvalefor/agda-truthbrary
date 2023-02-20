@@ -203,7 +203,7 @@ instance
       -- jimpe... kei kei je cu djica lo nu frili fa
       -- lo nu jimpe
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
-      booty ass pants = map′ (doomsday ass) notBigInto $ f xs ys
+      booty jorts _ = map′ (doomsday jorts) notBigInto $ f xs ys
       arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
       arm wrestling _ = no $ leadneck wrestling
       -- | .i la .varik. cu jinvi le du'u na xlabebna
