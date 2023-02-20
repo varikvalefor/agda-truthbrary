@@ -183,7 +183,6 @@ instance
     deev : ℕ → ℕ → Maybe ℕ
     deev _ 0 = nothing
     deev a (suc b) = just $ Data.Nat.DivMod._/_ a $ suc b
-    [matrix] = 3
   ariFloatFloat : Arris Float Float
   ariFloatFloat = record {
     _⊔+_ = r;
