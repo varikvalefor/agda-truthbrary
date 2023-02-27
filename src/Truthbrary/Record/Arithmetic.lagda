@@ -54,7 +54,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\F{String}.\ kei je lo nu lo ctaipe be la'oi .\F{String}.\ cu binxo pe'a ru'e
+ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru zo'e poi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\F{String}.\ kei je lo nu lo ctaipe be la'oi .\F{String}.\ cu binxo pe'a ru'e
 
 .i sa'u nai ru'e vasru\ldots
 \begin{itemize}
@@ -115,7 +115,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la'oi .\F{Arris}.}
-ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ .\F{Arris}. \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
+ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \F{Arris} \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
 \begin{itemize}
 	\item ga je la'o zoi.\ \F{Arris.\_+\_} \B a \B x \B y .zoi.\ sumji ko'a ko'e gi
 	\item ga je la'o zoi.\ \F{Arris.\_-\_} \B a \B x \B y .zoi.\ vujnu ko'a ko'e gi
@@ -245,7 +245,7 @@ instance
 \end{code}
 
 \section{la'oi .\F{\_+\_}.}
-ni'o la'o zoi.\ B a \Sym * \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \Sym + \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _+_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -255,7 +255,7 @@ _+_ ⦃ Q ⦄ = Arris._+_ Q
 \end{code}
 
 \section{la'oi .\F{\_-\_}.}
-ni'o la'o zoi.\ B a \Sym * \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \Sym - \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _-_ : ∀ {a b c} → {A : Set a} → {B : Set b}
