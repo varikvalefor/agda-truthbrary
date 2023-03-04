@@ -207,7 +207,6 @@ decaf {_} {A} ⦃ Q ⦄ a b = Data.Maybe.map (LL.cev Q) ∘ f ∘ LL.vec Q
       px = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
 \end{code}
 
-
 \section{la'oi .\F{map}.}
 ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi .\F{map}.\ cu smimlu la'oi .\texttt{map}.\ pe la'oi .Haskell.
 
