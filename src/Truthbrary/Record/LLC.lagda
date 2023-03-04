@@ -215,10 +215,7 @@ map : ∀ {a b} → {A : Set a} → {B : Set b}
     → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
     → (f : LL.e Q → LL.e R) → (x : A)
     → LL.olen R $ lengthᵥ $ Data.Vec.map f $ LL.vec Q x
-map ⦃ Q ⦄ ⦃ R ⦄ f = cev ∘ Data.Vec.map f ∘ vec
-  where
-  vec = LL.vec Q
-  cev = LL.cev R
+map ⦃ Q ⦄ ⦃ R ⦄ f = LL.cev R ∘ Data.Vec.map f ∘ LL.vec Q
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
