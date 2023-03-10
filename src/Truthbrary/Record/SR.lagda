@@ -131,6 +131,11 @@ open import Data.Rational.Unnormalised as ℚᵘ
     ℚᵘ;
     mkℚᵘ
   )
+open import Data.Product
+  using (
+    _×_;
+    _,_
+  )
 open import Data.Fin.Show
   using (
   )
@@ -214,6 +219,12 @@ instance
     stank : A ⊎ B → String
     stank (inj₁ pa) = "inj₁ " ++ parens (show pa)
     stank (inj₂ re) = "inj₂ " ++ parens (show re)
+  showProd : ∀ {a b} → {A : Set a} → {B : Set b}
+           → ⦃ Show A ⦄ → ⦃ Show B ⦄
+           → Show $ A × B
+  showProd {_} {_} {A} {B} = record {show = f}
+    where
+    f = λ (a , b) → parens (show a) ++ " , " ++ parens (show b)
 \end{code}
 
 \section{la'oi .\F{Read}.}
