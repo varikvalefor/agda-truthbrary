@@ -133,6 +133,7 @@ open import Data.Rational.Unnormalised as ℚᵘ
   )
 open import Data.Product
   using (
+    Σ;
     _×_;
     _,_
   )
@@ -155,6 +156,7 @@ open import Truthbrary.Category.Monad
   renaming (
     map₂ to liftM2
   )
+open import Relation.Nullary
 open import Relation.Nullary.Decidable
   using (
     isNo
@@ -348,6 +350,31 @@ instance
           → (A → B) → Maybe B
       inj f = unparens d5 >>= mapₘ f ∘ readMaybe
       inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
+  readProd : ∀ {a b} → {A : Set a} → {B : Set b}
+           → ⦃ Read A ⦄ → ⦃ Read B ⦄
+           → Read $ A × B
+  readProd {_} {_} {A} {B} = record {readMaybe = f ∘ toList}
+    where
+    f : List Char → Maybe $ A × B
+    f = Q ∘  splitOn ',' ∘ reverse ∘ _∷_ ' ' ∘ reverse ∘ _∷_ ' '
+      where
+      reverse = Data.List.reverse
+      Q : List $ List Char → Maybe $ A × B
+      Q List.[] = nothing
+      Q (x ∷ xs) = pamoi >>= λ a → romoi >>= λ b → just $ a , b
+        where
+        reed : ∀ {a} → {A : Set a}
+             → ⦃ Read A ⦄
+             → String → Maybe A
+        reed a = decaf ' ' ' ' a >>= unparens >>= readMaybe
+        pamoi = reed $ readd initech
+         where
+          initech = reverse $ Data.List.drop 1 $ reverse $ x ∷ xs
+          readd = fromList ∘ concatₗ ∘ intersperseₗ (toList " , ")
+            where
+            intersperseₗ = Data.List.intersperse
+            concatₗ = Data.List.concat
+        romoi = mapₘ fromList (Data.List.last xs) >>= reed
 \end{code}
 
 \section{la'oi .\F{SR}.}
