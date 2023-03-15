@@ -315,10 +315,11 @@ instance
     Q : List Char → Maybe $ Maybe A
     Q t = if justice then just (t' >>= readMaybe) else nada
       where
-      -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
-      tim = fromList t ≡ᵇ "nothing"
       justice = fromList (Data.List.take 5 t) ≡ᵇ "just "
       nada = if tim then just nothing else nothing
+        where
+        -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
+        tim = fromList t ≡ᵇ "nothing"
       t' = unparens $ fromList $ Data.List.drop 5 t
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
