@@ -235,7 +235,7 @@ instance
 \end{code}
 
 \section{la'oi .\F{Read}.}
-\newcommand\rmvvc{ga jonai ga je lo te samrkompli ja zo'e cu djuno lo du'u la'o zoi. \B b .zoi.\ sinxa ma kau gi ko'a goi la'o zoi.\ \F{Read.readMaybe} \F Q \B b .zoi.\ me'oi .\F{just}.\ lo selsni be la'o zoi.\ \B b .zoi.\ gi ko'a du la'oi .\F{nothing}.}
+\newcommand\rmvvc{ga jonai ga je lo te samrkompli ja zo'e cu djuno lo du'u la'o zoi.\ \B b .zoi.\ sinxa ma kau gi ko'a goi la'o zoi.\ \F{Read.readMaybe} \F Q \B b .zoi.\ me'oi .\F{just}.\ lo selsni be la'o zoi.\ \B b .zoi.\ gi ko'a du la'oi .\F{nothing}.}
 ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \F{Read} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B a .zoi.\ gi \rmvvc
 
 \begin{code}
@@ -266,7 +266,7 @@ instance
   readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
     stedu=<< = flip _>>=_ Data.String.head
-  -- | .i pilno li pano ki'u le nu pruce le te pruce
+  -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
   readℤ : Read ℤ
@@ -276,7 +276,6 @@ instance
     f List.[] = nothing
     f (x ∷ xs) = if x ≡ᵇ '-' then mapₘ n r else mapₘ p r'
       where
-      r r' : Maybe ℕ
       r = readMaybe $ fromList xs
       r' = readMaybe $ fromList $ x ∷ xs
       p = Data.Integer.+_
@@ -297,8 +296,7 @@ instance
     where
     fq = Data.Rational.fromℚᵘ
     norm = show ∘ Data.Rational.toℚᵘ ∘ fq
-    f : ℚᵘ → Maybe ℚ
-    f x = if norm x ≡ᵇ show x then just (fq x) else nothing
+    f = λ x → if norm x ≡ᵇ show x then just (fq x) else nothing
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
@@ -324,7 +322,7 @@ instance
       where
       dt10 = λ a b → a Data.Float.* n2f (+_ 10) Data.Float.** b
     exp _ = nothing
-  -- | .i pilno li pano ki'u le nu pruce le te pruce
+  -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .Fin.
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
