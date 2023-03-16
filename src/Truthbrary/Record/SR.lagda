@@ -372,16 +372,17 @@ instance
           → (A → B)
           → Maybe B
       inj n f = unparens (d n) >>= mapₘ f ∘ readMaybe
-      injex = comb? $ map fromList $ splitOn ' ' $ toList $ d 6
-        where
-        rm : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
-           → String → Maybe A
-        rm a = unparens a >>= readMaybe
-        deez = λ b a → Data.Maybe.map (these a) $ rm b
-        comb? : List $ String → Maybe $ These A B
-        comb? (a ∷ b ∷ List.[]) = rm a >>= deez b
-        comb? _ = nothing
       these? = if t 6 "these " then injex else nothing
+        where
+        injex = comb? $ map fromList $ splitOn ' ' $ toList $ d 6
+          where
+          rm : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
+             → String → Maybe A
+          rm a = unparens a >>= readMaybe
+          deez = λ b a → Data.Maybe.map (these a) $ rm b
+          comb? : List $ String → Maybe $ These A B
+          comb? (a ∷ b ∷ List.[]) = rm a >>= deez b
+          comb? _ = nothing
       that? = if t 5 "that " then inj 5 that else these?
 \end{code}
 
