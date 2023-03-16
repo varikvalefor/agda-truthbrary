@@ -198,10 +198,10 @@ instance
     f (x ∷ xs) (y ∷ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
       where
       -- .i cumki fa lo nu vimcu le ctaipe velcki
-      -- .i ku'i la .varik. cu jinvi le du'u jmina
-      -- ja co'e le ctaipe velcki cu filri'a lo nu
-      -- jimpe... kei kei je cu djica lo nu frili fa
-      -- lo nu jimpe
+      -- .i ku'i la .varik. cu jinvi le du'u lo nu
+      -- jmina ja co'e le ctaipe velcki cu filri'a
+      -- lo nu jimpe... kei kei je cu djica lo nu
+      -- frili fa lo nu jimpe
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
       booty ass pants = map′ (doomsday ass) notBigInto $ f xs ys
       arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
