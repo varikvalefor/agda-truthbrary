@@ -361,10 +361,10 @@ instance
   readThese {_} {_} {A} {B} = record {readMaybe = this?}
     where
     this? : String → Maybe $ These A B
-    this? z = if t 5 "this " then inj 5 this else that?
+    this? z = if t "this " then inj 5 this else that?
       where
       apf = λ f → fromList ∘ f ∘ toList
-      t = λ n s → apf (Data.List.take n) z ≡ᵇ s
+      t = λ s → apf (Data.List.take $ Data.String.length s) z ≡ᵇ s
       d = λ n → apf (Data.List.drop n) z
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄
@@ -372,7 +372,7 @@ instance
           → (A → B)
           → Maybe B
       inj n f = unparens (d n) >>= mapₘ f ∘ readMaybe
-      these? = if t 6 "these " then injex else nothing
+      these? = if t "these " then injex else nothing
         where
         injex = comb? $ map fromList $ splitOn ' ' $ toList $ d 6
           where
@@ -383,7 +383,7 @@ instance
           comb? : List $ String → Maybe $ These A B
           comb? (a ∷ b ∷ List.[]) = rm a >>= deez b
           comb? _ = nothing
-      that? = if t 5 "that " then inj 5 that else these?
+      that? = if t "that " then inj 5 that else these?
 \end{code}
 
 \section{la'oi .\F{SR}.}
