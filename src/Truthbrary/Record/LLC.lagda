@@ -54,6 +54,8 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.LLC where
 
+import Data.Vec.Bounded
+
 open import Level
 open import Data.Fin
   using (
@@ -115,11 +117,16 @@ open import Data.String
     _≟_;
     _++_
   )
+open import Data.Product
+  using (
+    Σ
+  )
 open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
   using (
     isYes
   )
+open import Relation.Binary.PropositionalEquality
 \end{code}
 \section{la'oi .\F{LL}.}
 ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
@@ -216,6 +223,21 @@ map : ∀ {a b} → {A : Set a} → {B : Set b}
     → (f : LL.e Q → LL.e R) → (x : A)
     → LL.olen R $ lengthᵥ $ Data.Vec.map f $ LL.vec Q x
 map ⦃ Q ⦄ ⦃ R ⦄ f = LL.cev R ∘ Data.Vec.map f ∘ LL.vec Q
+\end{code}
+
+\section{la'oi .\F{UL}.}
+ni'o ga jo ctaipe la'o zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
+
+\begin{code}
+UL : ∀ {a} → (A : Set a)
+   → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
+   → Set a
+UL A ⦃ LL ⦄ = Σ A $ λ q → liste q ≡ narpanra q
+  where
+  liste = Data.Vec.toList ∘ vec
+  flt = Data.List.filter
+  cardinalityOf = λ a b → Data.List.length $ flt (_≟_ a) $ liste b
+  narpanra = λ q → flt (λ a → 1 ≟ cardinalityOf a q) (liste q)
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
