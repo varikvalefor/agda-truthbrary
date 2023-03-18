@@ -188,6 +188,26 @@ length : ∀ {a} → {A : Set a}
 length ⦃ T ⦄ = LL.l T
 \end{code}
 
+\subsubsection{la'oi .\F{vec}.}
+ni'o la'o zoi.\ \F{vec} \B a .zoi.\ me'oi .equivalent.\ la'o zoi.\ \B a .zoi.
+
+\begin{code}
+vec : ∀ {a} → {Bean : Set a}
+    → ⦃ Q : LL Bean ⦄
+    → (lima : Bean) → Vec (LL.e Q) $ LL.l Q lima
+vec ⦃ Q ⦄ = LL.vec Q
+\end{code}
+
+\subsubsection{la'oi .\F{cev}.}
+ni'o la'o zoi.\ \F{cev} \B a .zoi.\ me'oi .equivalent.\ la'o zoi.\ \B a .zoi.
+
+\begin{code}
+cev : ∀ {a} → {Bean : Set a}
+    → ⦃ Q : LL Bean ⦄
+    → {n : ℕ} → Vec (LL.e Q) n → LL.olen Q n
+cev ⦃ Q ⦄ = LL.cev Q
+\end{code}
+
 \subsection{la'oi .\F{decaf}.}
 ni'o ga jonai ga je la'o zoi.\ \B c .zoi.\ konkatena ja co'e la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B x .zoi.\ la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{decaf} \B c .zoi.\ me'oi .\F{just}.\ la'o zoi.\ \B x .zoi.\ gi ko'a du la'oi .\F{nothing}.
 
