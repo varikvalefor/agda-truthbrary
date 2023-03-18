@@ -256,7 +256,7 @@ UL A ⦃ LL ⦄ = Σ A $ λ q → liste q ≡ narpanra q
   where
   liste = Data.Vec.toList ∘ vec
   flt = Data.List.filter
-  nilzilcmi = λ a b → Data.List.length $ flt (_≟_ a) $ liste b
+  nilzilcmi = λ a → Data.List.length ∘ flt (_≟_ a) ∘ liste
   narpanra = λ q → flt (λ a → 1 ≟ nilzilcmi a q) (liste q)
 \end{code}
 
