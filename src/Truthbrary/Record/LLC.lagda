@@ -236,8 +236,8 @@ UL A ⦃ LL ⦄ = Σ A $ λ q → liste q ≡ narpanra q
   where
   liste = Data.Vec.toList ∘ vec
   flt = Data.List.filter
-  cardinalityOf = λ a b → Data.List.length $ flt (_≟_ a) $ liste b
-  narpanra = λ q → flt (λ a → 1 ≟ cardinalityOf a q) (liste q)
+  nilzilcmi = λ a b → Data.List.length $ flt (_≟_ a) $ liste b
+  narpanra = λ q → flt (λ a → 1 ≟ nilzilcmi a q) (liste q)
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
