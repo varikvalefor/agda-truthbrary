@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{parskip}
 \usepackage{mathabx}
+\usepackage{MnSymbol}
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
@@ -19,10 +20,12 @@
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
+\newunicodechar{↥}{\ensuremath{\mathnormal{\upmapsto}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_\mathrm{s}}}}
+\newunicodechar{ₙ}{\ensuremath{\mathnormal{_\mathrm{n}}}}
 \newunicodechar{ᵘ}{\ensuremath{\mathnormal{^\mathrm{u}}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\mathrm{v}}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
@@ -35,6 +38,7 @@
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal{\divdot}}}
 \newunicodechar{⊔}{\ensuremath{\mathnormal{\sqcup}}}
+\newunicodechar{∣}{\ensuremath{\mathnormal{\mid}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -50,7 +54,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\F{String}.\ kei je lo nu lo ctaipe be la'oi .\F{String}.\ cu binxo pe'a ru'e
+ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru zo'e poi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\F{String}.\ kei je lo nu lo ctaipe be la'oi .\F{String}.\ cu binxo pe'a ru'e
 
 .i sa'u nai ru'e vasru\ldots
 \begin{itemize}
@@ -62,9 +66,10 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 
 \begin{code}
 {-# OPTIONS --safe #-}
-{-# OPTIONS --cubical-compatible #-}
 
 module Truthbrary.Record.Arithmetic where
+
+import Data.Integer
 
 open import Data.Float
   using (
@@ -83,12 +88,22 @@ open import Data.Nat
     suc;
     ℕ
   )
+  renaming (
+    _≟_ to _≟ₙ_
+  )
 open import Function
 open import Data.Bool
   using (
     if_then_else_
   )
 open import Data.Maybe
+open import Data.Rational.Unnormalised as ℚᵘ
+  using (
+    1ℚᵘ;
+    0ℚᵘ;
+    mkℚᵘ;
+    ℚᵘ
+  )
 open import Data.Nat.DivMod
   using (
     _mod_
@@ -100,7 +115,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la'oi .\F{Arris}.}
-ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ .\F{Arris}. \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
+ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \F{Arris} \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
 \begin{itemize}
 	\item ga je la'o zoi.\ \F{Arris.\_+\_} \B a \B x \B y .zoi.\ sumji ko'a ko'e gi
 	\item ga je la'o zoi.\ \F{Arris.\_-\_} \B a \B x \B y .zoi.\ vujnu ko'a ko'e gi
@@ -194,10 +209,43 @@ instance
     uyn = Data.Float.fromℕ 1
     zir = Data.Float.fromℕ 0
     r = const $ const Float
+  ariℚᵘℚᵘ : Arris ℚᵘ ℚᵘ
+  ariℚᵘℚᵘ = record {
+    _⊔+_ = r;
+    _⊔-_ = r;
+    _⊔*_ = r;
+    _⊔/_ = const $ const $ Maybe ℚᵘ;
+    _+_ = ℚᵘ._+_;
+    _-_ = ℚᵘ._-_;
+    _*_ = ℚᵘ._*_;
+    _/_ = deev;
+    uyn₁ = uyn;
+    uyn₂ = uyn;
+    uyn* = uyn;
+    uyn/ = just uyn;
+    zir₁ = zir;
+    zir₂ = zir;
+    zir+ = zir;
+    zir- = zir;
+    1*1≡1 = refl;
+    1/1≡1 = refl;
+    0+0≡0 = refl;
+    0-0≡0 = refl}
+    where
+    r = const $ const ℚᵘ
+    uyn = 1ℚᵘ
+    zir = 0ℚᵘ
+    deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
+    deev m n = spit (λ a → ℚᵘ._÷_ m n {a}) $ ∣↥n∣ ≟ₙ 0
+      where
+      ∣↥n∣ = Data.Integer.∣ ℚᵘ.↥ n ∣
+      spit : (False $ ∣↥n∣ ≟ₙ 0 → ℚᵘ) → Dec $ ∣↥n∣ ≡ 0 → Maybe ℚᵘ
+      spit f (no q) = just $ f $ fromWitnessFalse q
+      spit _ (yes _) = nothing
 \end{code}
 
 \section{la'oi .\F{\_+\_}.}
-ni'o la'o zoi.\ B a \Sym * \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \Sym + \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _+_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -207,7 +255,7 @@ _+_ ⦃ Q ⦄ = Arris._+_ Q
 \end{code}
 
 \section{la'oi .\F{\_-\_}.}
-ni'o la'o zoi.\ B a \Sym * \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \Sym - \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _-_ : ∀ {a b c} → {A : Set a} → {B : Set b}
