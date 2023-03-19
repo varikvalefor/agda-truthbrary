@@ -255,9 +255,10 @@ UL : ∀ {a} → (A : Set a)
 UL A ⦃ LL ⦄ = Σ A $ λ q → liste q ≡ narpanra q
   where
   liste = Data.Vec.toList ∘ vec
-  flt = Data.List.filter
-  nilzilcmi = λ a → Data.List.length ∘ flt (_≟_ a) ∘ liste
   narpanra = λ q → flt (λ a → 1 ≟ nilzilcmi a q) (liste q)
+    where
+    flt = Data.List.filter
+    nilzilcmi = λ a → Data.List.length ∘ flt (_≟_ a) ∘ liste
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
