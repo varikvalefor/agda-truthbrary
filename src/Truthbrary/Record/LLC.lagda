@@ -245,7 +245,7 @@ ni'o ga jonai ga je la'o zoi.\ \F{just} \B Q .zoi.\ selvau ko'a goi la'o zoi.\ \
 garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
        → ⦃ Q : LL CoolJ ⦄
        → (LL.e Q → Maybe B) → B → CoolJ → B
-garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
+garden the west gate = g2 the west $ vec gate
   where
   g2 : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
      → (A → Maybe B) → B → Vec A n → B
