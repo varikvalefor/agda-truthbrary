@@ -258,7 +258,6 @@ instance
     f List.[] = nothing
     f (x ∷ xs) = if x ≡ᵇ '-' then mapₘ n r else mapₘ p r'
       where
-      r r' : Maybe ℕ
       r = readMaybe $ fromList xs
       r' = readMaybe $ fromList $ x ∷ xs
       p = Data.Integer.+_
@@ -279,8 +278,7 @@ instance
     where
     fq = Data.Rational.fromℚᵘ
     norm = show ∘ Data.Rational.toℚᵘ ∘ fq
-    f : ℚᵘ → Maybe ℚ
-    f x = if norm x ≡ᵇ show x then just (fq x) else nothing
+    f = λ x → if norm x ≡ᵇ show x then just (fq x) else nothing
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
