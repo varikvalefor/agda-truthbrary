@@ -235,7 +235,7 @@ map : ∀ {a b} → {A : Set a} → {B : Set b}
     → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
     → (f : LL.e Q → LL.e R) → (x : A)
     → LL.olen R $ lengthᵥ $ Data.Vec.map f $ LL.vec Q x
-map ⦃ Q ⦄ ⦃ R ⦄ f = LL.cev R ∘ Data.Vec.map f ∘ LL.vec Q
+map f = cev ∘ Data.Vec.map f ∘ vec
 \end{code}
 
 \section{la .\F{garden}.}
