@@ -276,7 +276,7 @@ nu,iork {a} = nu,iork' ∘ Data.Vec.toList ∘ vec
 \end{code}
 
 \section{la'oi .\F{UL}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
+ni'o ga jo la'o zoi.\ \B a \Sym , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
 
 \begin{code}
 UL : ∀ {a} → (A : Set a)
