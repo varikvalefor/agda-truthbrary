@@ -222,9 +222,9 @@ decaf {_} {A} ⦃ Q ⦄ a b = Data.Maybe.map (LL.cev Q) ∘ f ∘ LL.vec Q
     delet = r ∘ t ∘ r ∘ t
       where
       t = Data.Vec.drop 1
-    conteven = (px a q) ∧ (px b $ r q)
+    conteven = (pamoi a q) ∧ (pamoi b $ r q)
       where
-      px = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
+      pamoi = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
 \end{code}
 
 \section{la'oi .\F{map}.}
