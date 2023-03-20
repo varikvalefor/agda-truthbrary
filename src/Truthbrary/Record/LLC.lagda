@@ -260,6 +260,21 @@ garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
   g2 _ d []ᵥ = d
 \end{code}
 
+\section{la'oi .\F{nu,iork}.}
+ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u la'o zoi.\ \B a .zoi.\ vasru lo pa versiio ja co'e be da
+
+\begin{code}
+nu,iork : ∀ {a} → {A : Set a}
+        → ⦃ Bean : LL A ⦄ → ⦃ Eq $ LL.e Bean ⦄
+        → A → Set a
+nu,iork {a} = nu,iork' ∘ Data.Vec.toList ∘ vec
+  where
+  nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
+    where
+    []' = flip List._∷_ List.[]
+    filterₗ = Data.List.filter
+\end{code}
+
 \section{la'oi .\F{UL}.}
 ni'o ga jo ctaipe la'o zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
 
@@ -267,13 +282,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zo
 UL : ∀ {a} → (A : Set a)
    → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
    → Set a
-UL A ⦃ LL ⦄ = Σ A $ λ q → liste q ≡ narpanra q
-  where
-  liste = Data.Vec.toList ∘ vec
-  narpanra = λ q → flt (λ a → 1 ≟ nilzilcmi a q) (liste q)
-    where
-    flt = Data.List.filter
-    nilzilcmi = λ a → Data.List.length ∘ flt (_≟_ a) ∘ liste
+UL A = Σ A nu,iork
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
