@@ -27,6 +27,7 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{∈}{\ensuremath{\mathnormal{\in}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -120,6 +121,7 @@ open import Relation.Nullary.Decidable
   using (
     isYes
   )
+open import Relation.Binary.PropositionalEquality
 \end{code}
 \section{la'oi .\F{LL}.}
 ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
@@ -251,6 +253,21 @@ garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
      → (A → Maybe B) → B → Vec A n → B
   g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
   g2 _ d []ᵥ = d
+\end{code}
+
+\section{la'oi .\F{\_∈\_}.}
+ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \Sym \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ vasru la'o zoi.\ \B a .zoi.\ gi la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B a \F ∈ \B b .zoi.
+
+\begin{code}
+_∈_ : ∀ {a} → {A : Set a}
+    → ⦃ Fireball : LL A ⦄
+    → ⦃ Eq $ LL.e Fireball ⦄
+    → LL.e Fireball → A → Set
+_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ Data.List.filter (_≟_ a) ∘ f
+  where
+  -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
+  -- cmavlaka'i zo'oi .from... ja cu co'e
+  f = toList ∘ vec
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
