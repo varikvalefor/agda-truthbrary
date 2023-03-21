@@ -27,6 +27,7 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -77,6 +78,7 @@ open import Data.Vec
   )
   hiding (
     reverse;
+    filter;
     _++_;
     map
   )
@@ -98,6 +100,7 @@ open import Data.List
   )
   hiding (
     reverse;
+    filter;
     _++_;
     map
   )
@@ -115,11 +118,17 @@ open import Data.String
     _≟_;
     _++_
   )
+open import Relation.Unary
+open import Data.Vec.Bounded
+  using (
+    Vec≤
+  )
 open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
   using (
     isYes
   )
+open import Relation.Binary.PropositionalEquality
 \end{code}
 \section{la'oi .\F{LL}.}
 ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
@@ -251,6 +260,19 @@ garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
      → (A → Maybe B) → B → Vec A n → B
   g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
   g2 _ d []ᵥ = d
+\end{code}
+
+\section{la'oi .\F{filter}.}
+ni'o la .varik.\ cu sorpa'a lo nu le ctaipe velcki je zo'e cu xamgu velcki
+
+\begin{code}
+filter : ∀ {a b} → {A : Set a}
+       → ⦃ Q : LL A ⦄
+       → {P : Pred (LL.e Q) b}
+       → (p : Decidable P)
+       → (x : A)
+       → LL.olen Q $ Vec≤.length $ Data.Vec.filter p $ vec x
+filter p = cev ∘ Vec≤.vec ∘ Data.Vec.filter p ∘ vec
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
