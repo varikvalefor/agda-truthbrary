@@ -265,8 +265,8 @@ garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
 ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u li pa nilzilcmi lo'i ro versiio ja co'e be da be'o poi tu'a ke'a selvau la'o zoi.\ \B a .zoi.
 
 \begin{code}
-nu,iork : ∀ {a} → {A : Set a}
-        → ⦃ Bean : LL A ⦄ → ⦃ Eq $ LL.e Bean ⦄
+nu,iork : ∀ {a} → {Bean : Set a}
+        → ⦃ Q : LL Bean ⦄ → ⦃ Eq $ LL.e Q ⦄
         → A → Set a
 nu,iork {a} = nu,iork' ∘ Data.Vec.toList ∘ vec
   where
