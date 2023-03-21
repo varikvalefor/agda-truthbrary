@@ -262,7 +262,7 @@ garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
 \end{code}
 
 \section{la'oi .\F{nu,iork}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u la'o zoi.\ \B a .zoi.\ vasru lo pa versiio ja co'e be da
+ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u li pa nilzilcmi lo'i ro versiio ja co'e be da be'o poi tu'a ke'a selvau la'o zoi.\ \B a .zoi.
 
 \begin{code}
 nu,iork : ∀ {a} → {A : Set a}
