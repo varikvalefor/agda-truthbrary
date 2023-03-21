@@ -134,6 +134,8 @@ instance
   Eqℚ = record {_≟_ = Data.Rational._≟_}
   Eqℤ : Eq ℤ
   Eqℤ = record {_≟_ = Data.Integer._≟_}
+  EqBool : Eq Bool
+  EqBool = record {_≟_ = Data.Bool._≟_}
   -- | All I've got with me is a pistol and an...
   EqProd : ∀ {a b} → {A : Set a} → {B : Set b}
          → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
