@@ -54,8 +54,6 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.LLC where
 
-import Data.Vec.Bounded
-
 open import Level
 open import Data.Fin
   using (
