@@ -67,6 +67,7 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 module Truthbrary.Record.SR where
 
 import Data.Integer.Show
+import Data.Rational.Show
 
 open import Data.Fin
   hiding (
@@ -189,10 +190,7 @@ instance
   showString = record {show = Data.String.show}
   showℤ = record {show = Data.Integer.Show.show}
   showℚ : Show ℚ
-  showℚ = record {show = f}
-    where
-    f : ℚ → String
-    f q = show (ℚ.numerator q) ++ "/" ++ show (ℚ.denominator q)
+  showℚ = record {show = Data.Rational.Show.show}
   showℚᵘ : Show ℚᵘ
   showℚᵘ = record {show = f}
     where
