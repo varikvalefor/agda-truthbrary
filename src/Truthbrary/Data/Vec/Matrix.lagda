@@ -82,9 +82,9 @@ _𝕄!!_ m n = map (flip lookup n) m
 ni'o la'o zoi.\ \F I \{\B x\} .zoi.\ me'oi .identity.\ nacmeimei
 
 \begin{code}
-I : {n : ℕ} → 𝕄 (Fin 2) n n
-I = map f $ allFin _
+I : ∀ {a} → {A : Set a} → {n : ℕ} →  A → A → 𝕄 A n n
+I z o = map f $ allFin _
   where
-  f = λ x → updateAt x (const $ suc zero) $ replicate zero
+  f = λ x → updateAt x (const o) $ replicate z
 \end{code}
 \end{document}
