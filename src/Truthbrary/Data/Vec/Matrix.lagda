@@ -16,6 +16,8 @@
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
+\newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
+
 
 \newcommand\hashish{cbf1 42fe 1ebd b0b2 87a4 4018 340b 8159 7ef1 3a63 6f5d 76f4 6f48 a080 b2bc d3f1 3922 f0f1 5219 94cc 5e71 fb1f b2d9 d9f8 dd3b ffe6 be32 0056 5cca 21c4 28eb 9de1}
 
@@ -91,13 +93,13 @@ I z o = map f $ allFin _
   f = λ x → updateAt x (const o) $ replicate z
 \end{code}
 
-\section{la'oi .\F{\_++\_}.}
-ni'o la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+\section{la'oi .\F{\_∣\_}.}
+ni'o la'o zoi.\ \B a \Sym{∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
-_++_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
-     → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m Data.Nat.+ o) n
-_++_ a b = Data.Vec.map lou $ allFin _
+_∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
+    → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m Data.Nat.+ o) n
+_∣_ a b = Data.Vec.map lou $ allFin _
   where
   lou = λ n → lookup a n Data.Vec.++ lookup b n
 \end{code}
