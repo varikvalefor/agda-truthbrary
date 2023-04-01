@@ -51,6 +51,9 @@ module Truthbrary.Data.Vec.Matrix where
 open import Data.Fin
 open import Data.Nat
 open import Data.Vec
+  hiding (
+    _++_
+  )
 open import Function
 \end{code}
 
@@ -86,5 +89,16 @@ I : ∀ {a} → {A : Set a} → {n : ℕ} →  A → A → 𝕄 A n n
 I z o = map f $ allFin _
   where
   f = λ x → updateAt x (const o) $ replicate z
+\end{code}
+
+\section{la'oi .\F{\_++\_}.}
+ni'o la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+
+\begin{code}
+_++_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
+     → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m Data.Nat.+ o) n
+_++_ a b = Data.Vec.map lou $ allFin _
+  where
+  lou = λ n → lookup a n Data.Vec.++ lookup b n
 \end{code}
 \end{document}
