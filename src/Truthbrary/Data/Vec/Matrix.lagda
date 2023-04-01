@@ -99,8 +99,8 @@ ni'o la'o zoi.\ \B a \Sym{∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o
 \begin{code}
 _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
     → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m Data.Nat.+ o) n
-_∣_ a b = Data.Vec.map lou $ allFin _
+_∣_ a b = Data.Vec.map lus $ allFin _
   where
-  lou = λ n → lookup a n Data.Vec.++ lookup b n
+  lus = λ n → lookup a n Data.Vec.++ lookup b n
 \end{code}
 \end{document}
