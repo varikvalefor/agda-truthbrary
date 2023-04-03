@@ -52,7 +52,14 @@ ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru\ldots
 module Truthbrary.Data.Vec.Matrix where
 
 open import Data.Fin
+  using (
+    Fin
+  )
 open import Data.Nat
+  using (
+    ℕ;
+    _+_
+  )
 open import Data.Vec
   hiding (
     _++_
@@ -102,7 +109,7 @@ ni'o la'o zoi.\ \B a \Sym{∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o
 
 \begin{code}
 _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
-    → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m Data.Nat.+ o) n
+    → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m + o) n
 _∣_ a b = Data.Vec.map lus $ allFin _
   where
   lus = λ n → lookupᵥ a n Data.Vec.++ lookupᵥ b n
