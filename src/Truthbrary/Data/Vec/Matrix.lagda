@@ -74,11 +74,7 @@ open import Function
 ni'o ro da poi ke'a mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
 
 \subsection{le me'oi .field.\ pe'a ru'e}
-ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo pa moi me'oi .field.\ pe'a ru'e be da cu se ctaipe lo selvau be da
-
-.i ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo re moi me'oi .field.\ pe'a ru'e be da cu ni da ganra
-
-.i ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo ci moi me'oi .field.\ pe'a ru'e be da cu ni da rajycla
+ni'o ga jo la'o zoi.\ \B a .zoi.\ nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \D 𝕄 A c b .zoi.
 
 \begin{code}
 𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
