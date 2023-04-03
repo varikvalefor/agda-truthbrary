@@ -16,6 +16,7 @@
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
 
 
@@ -56,6 +57,9 @@ open import Data.Vec
   hiding (
     _++_
   )
+  renaming (
+    lookup to lookupᵥ
+  )
 open import Function
 \end{code}
 
@@ -74,12 +78,12 @@ ni'o ro da poi ke'a me'oi .\D 𝕄.\ zo'u lo ci moi me'oi .field.\ pe'a ru'e be 
 𝕄 = Vec ∘₂ Vec
 \end{code}
 
-\section{la'oi .\Sym{𝕄!!}.}
+\section{la'oi .\F{lookup}.}
 ni'o la .varik.\ cu jinvi le du'u le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
 
 \begin{code}
-_𝕄!!_ : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
-_𝕄!!_ m n = map (flip lookup n) m
+lookup : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
+lookup m n = map (flip lookupᵥ n) m
 \end{code}
 
 \section{la'oi .\F I.}
@@ -101,6 +105,6 @@ _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
     → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m Data.Nat.+ o) n
 _∣_ a b = Data.Vec.map lus $ allFin _
   where
-  lus = λ n → lookup a n Data.Vec.++ lookup b n
+  lus = λ n → lookupᵥ a n Data.Vec.++ lookupᵥ b n
 \end{code}
 \end{document}
