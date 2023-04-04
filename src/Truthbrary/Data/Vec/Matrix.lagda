@@ -58,9 +58,6 @@ open import Data.Nat
     _+_
   )
 open import Data.Vec
-  hiding (
-    _++_
-  )
   renaming (
     lookup to lookupᵥ
   )
@@ -105,6 +102,6 @@ _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
     → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m + o) n
 _∣_ a b = Data.Vec.map lus $ allFin _
   where
-  lus = λ n → lookupᵥ a n Data.Vec.++ lookupᵥ b n
+  lus = λ n → lookupᵥ a n ++ lookupᵥ b n
 \end{code}
 \end{document}
