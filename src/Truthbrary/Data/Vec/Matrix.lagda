@@ -37,8 +37,8 @@
 ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru\ldots
 \begin{itemize}
 	\item le velcki be la'o zoi.\ \B 𝕄 .zoi.\ noi tu'a ke'a filri'a tu'a lo nacmeimei ku'o je
-        \item le velcki be la'o zoi.\ \F{lookup} .zoi.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o je
-        \item le velcki be la'o zoi.\ \F I .zoi.\ noi tu'a ke'a filri'a tu'a lo me'oi .identity.\ nacmeimei
+	\item le velcki be la'o zoi.\ \F{lookup} .zoi.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o je
+	\item le velcki be la'o zoi.\ \F I .zoi.\ noi tu'a ke'a filri'a tu'a lo me'oi .identity.\ nacmeimei
 \end{itemize}
 
 \section{le vrici}
