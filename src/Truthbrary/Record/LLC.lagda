@@ -115,11 +115,20 @@ open import Data.String
     _≟_;
     _++_
   )
+open import Data.Product
+  using (
+    Σ;
+    _×_;
+    _,_;
+    proj₁
+  )
+open import Relation.Nullary
 open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
   using (
     isYes
   )
+open import Relation.Binary.PropositionalEquality
 \end{code}
 \section{la'oi .\F{LL}.}
 ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
@@ -215,16 +224,22 @@ decaf {_} {A} ⦃ Q ⦄ a b = Data.Maybe.map (LL.cev Q) ∘ f ∘ LL.vec Q
   f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
   f []ᵥ = nothing
   f (_ ∷ᵥ []ᵥ) = nothing
-  f (x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet q) else nothing
+  f (x ∷ᵥ y ∷ᵥ z) = Data.Maybe.map (delet ∘ proj₁) mapti
     where
     q = x ∷ᵥ y ∷ᵥ z
     r = Data.Vec.reverse
     delet = r ∘ t ∘ r ∘ t
       where
       t = Data.Vec.drop 1
-    conteven = (px a q) ∧ (px b $ r q)
+    px = λ n → _≟_ n ∘ Data.Vec.head
+    Px = λ n → _≡_ n ∘ Data.Vec.head
+    mapti : Maybe $ Σ (Vec _ _) $ λ q → Px a q × Px b (r q)
+    mapti = toMaybe $ q , px a q , px b (r q)
       where
-      px = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
+      deck = λ q → Dec (Px a q) × Dec (Px b $ r q)
+      toMaybe : Σ (Vec _ _) deck → Maybe _
+      toMaybe (q , (yes a , yes b)) = just $ q , a , b
+      toMaybe _ = nothing
 \end{code}
 
 \section{la'oi .\F{map}.}
