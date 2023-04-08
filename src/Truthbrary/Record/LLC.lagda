@@ -267,7 +267,7 @@ dist : ∀ {a} → {A : Set a}
      → ⦃ Bean : LL A ⦄
      → ⦃ Eq $ LL.e Bean ⦄
      → A → A → ℕ
-dist {_} {A} ⦃ Q ⦄ a b = Data.List.length $ Data.List.filter drata ziprd
+dist a b = Data.List.length $ Data.List.filter drata ziprd
   where
   drata = Data.Bool._≟_ false ∘ isYes ∘ uncurry _≟_
   ziprd = Data.List.zip (lst a) $ lst b
