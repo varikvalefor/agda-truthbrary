@@ -273,7 +273,7 @@ dist a b = Data.List.length $ Data.List.filter drata ziprd
   ziprd = Data.List.zip (lst a) $ lst b
     where
     lst = toList ∘ vec
-\end{code}∈
+\end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
 
