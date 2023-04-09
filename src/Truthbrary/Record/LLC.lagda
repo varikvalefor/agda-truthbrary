@@ -260,7 +260,9 @@ garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
 \end{code}
 
 \section{la'oi .\F{dist}.}
-ni'o la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distance .glibau.\ la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o ko'a goi la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distance .glibau.\ la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+
+.i ki'ai zo'oi .equivalent.\ ko'a nilzilcmi lo'i ro co'e poi ga jo ke'a du la'o zoi.\ \B n .zoi.\ gi la'o zoi.\ \F{lookup} \B a \B n .zoi.\ na dunli la'o zoi.\ \F{lookup} \B b \B n .zoi.
 
 \begin{code}
 dist : ∀ {a} → {A : Set a}
