@@ -176,17 +176,17 @@ instance
       hillbilly refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
-         → (w x : A)
-         → (y z : B)
-         → Dec $ y ≡ z
-         → (w ≡ x → y ≡ z → C)
-         → (w ≡ x → ¬ (y ≡ z) → C)
-         → (¬ (w ≡ x) → y ≡ z → C)
-         → (¬ (w ≡ x) → ¬ (y ≡ z) → C)
+         → (t v : A)
+         → (x z : B)
+         → Dec $ x ≡ z
+         → (t ≡ v → x ≡ z → C)
+         → (t ≡ v → ¬ (x ≡ z) → C)
+         → (¬ (t ≡ v) → x ≡ z → C)
+         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
          → C
-    bork {_} {_} {_} {_} {_} {C} w x y z q f g j k = spit (w ≟ x) q
+    bork {_} {_} {_} {_} {_} {C} t v x z d f g j k = spit (t ≟ v) d
       where
-      spit : Dec $ w ≡ x → Dec $ y ≡ z → C
+      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
       spit (yes a) (yes b) = f a b
       spit (yes a) (no b) = g a b
       spit (no a) (yes b) = j a b
@@ -203,7 +203,7 @@ instance
       -- jimpe... kei kei je cu djica lo nu frili fa
       -- lo nu jimpe
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
-      booty ass pants = map′ (doomsday ass) notBigInto $ f xs ys
+      booty jorts _ = map′ (doomsday jorts) notBigInto $ f xs ys
       arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
       arm wrestling _ = no $ leadneck wrestling
       -- | .i la .varik. cu jinvi le du'u na xlabebna
