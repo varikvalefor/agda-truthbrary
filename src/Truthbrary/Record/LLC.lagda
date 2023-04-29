@@ -45,7 +45,7 @@
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
 	\item le velcki be la'o zoi.\ \F{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
-	\item le velcki be vu'oi la'o zoi.\ \F{_∈_} .zoi.\ je la'o zoi.\ \F{\_∉\_} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu facki lo jei vasru ku'o je
+	\item le velcki be vu'oi la'o zoi.\ \F{\_∈\_} .zoi.\ je la'o zoi.\ \F{\_∉\_} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu facki lo jei vasru ku'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
 	\item le velcki be lo me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LC} .zoi.
