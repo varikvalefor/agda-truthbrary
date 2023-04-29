@@ -28,6 +28,7 @@
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal{\in}}}
+\newunicodechar{∉}{\ensuremath{\mathnormal{\notin}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -44,7 +45,7 @@
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
 	\item le velcki be la'o zoi.\ \F{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
-	\item le velcki be la'o zoi.\ \F{_∈_} .zoi.\ noi tu'a ke'a filri'a lo nu facki lo jei vasru ku'o je
+	\item le velcki be vu'oi la'o zoi.\ \F{_∈_} .zoi.\ je la'o zoi.\ \F{\_∉\_} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu facki lo jei vasru ku'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
 	\item le velcki be lo me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LC} .zoi.
@@ -117,6 +118,7 @@ open import Data.String
     _≟_;
     _++_
   )
+open import Relation.Nullary
 open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
   using (
@@ -269,6 +271,18 @@ _∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ Data.List.filter (_≟_
   -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
   -- cmavlaka'i zo'oi .from... ja cu co'e
   f = toList ∘ vec
+\end{code}
+
+\section{la'o zoi.\ \F{\_∉\_}\ .zoi.}
+ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \Sym \$ \B x ∉ \B y\ .zoi.\ gi la'o zoi.\ \B y\ .zoi.\ na vasru la'o zoi.\ \B x\ .zoi.
+
+\begin{code}
+_∉_ : ∀ {a} → {A : Set a}
+    → ⦃ Q : LL A ⦄ → ⦃ _ : Eq $ LL.e Q ⦄
+    → (x : LL.e Q)
+    → (y : A)
+    → Set a
+_∉_ x = _≡_ []ₗ ∘ Data.List.filter (_≟_ x) ∘ Data.Vec.toList ∘ vec
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
