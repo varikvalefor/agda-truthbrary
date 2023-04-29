@@ -76,6 +76,7 @@ open import Data.Vec
     length to lengthᵥ
   )
   hiding (
+    updateAt;
     reverse;
     _++_;
     map
@@ -253,6 +254,18 @@ garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
   g2 _ d []ᵥ = d
 \end{code}
 
+\section{la'o zoi.\ \F{updateAt}\ .zoi.}
+ni'o la'o zoi.\ \F{updateAt}\ .zoi.\ cu mutce le ka ce'u smimlu la'o zoi.\ \F{Data.Vec.updateAt}\ .zoi.  .i la .varik. cu sorpa'a lo nu na sarcu fa lo nu ciksi bau la .lojban.
+
+\begin{code}
+updateAt : ∀ {a} → {AFWAOB : Set a}
+         → ⦃ BGB : LL AFWAOB ⦄
+         → (x : AFWAOB)
+         → Fin $ length x
+         → (LL.e BGB → LL.e BGB)
+         → LL.olen BGB $ length x
+updateAt x i f = cev $ Data.Vec.updateAt i f $ vec x
+\end{code}
 \section{le me'oi .\AgdaKeyword{instance}.}
 
 \begin{code}
