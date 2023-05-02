@@ -115,10 +115,18 @@ open import Data.String
     _≟_;
     _++_
   )
+open import Data.Product
+  using (
+    Σ
+  )
 open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
   using (
     isYes
+  )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
   )
 \end{code}
 \section{la'oi .\F{LL}.}
@@ -251,6 +259,31 @@ garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
      → (A → Maybe B) → B → Vec A n → B
   g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
   g2 _ d []ᵥ = d
+\end{code}
+
+\section{la'oi .\F{nu,iork}.}
+ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u li pa nilzilcmi lo'i ro versiio ja co'e be da be'o poi tu'a ke'a selvau la'o zoi.\ \B a .zoi.
+
+\begin{code}
+nu,iork : ∀ {a} → {Bean : Set a}
+        → ⦃ Q : LL Bean ⦄ → ⦃ Eq $ LL.e Q ⦄
+        → A → Set a
+nu,iork {a} = nu,iork' ∘ Data.Vec.toList ∘ vec
+  where
+  nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
+    where
+    []' = flip List._∷_ List.[]
+    filterₗ = Data.List.filter
+\end{code}
+
+\section{la'oi .\F{UL}.}
+ni'o ga jo la'o zoi.\ \B a \Sym , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
+
+\begin{code}
+UL : ∀ {a} → (A : Set a)
+   → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
+   → Set a
+UL A = Σ A nu,iork
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
