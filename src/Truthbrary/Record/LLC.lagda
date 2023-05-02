@@ -267,7 +267,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la
 \begin{code}
 nu,iork : ∀ {a} → {Bean : Set a}
         → ⦃ Q : LL Bean ⦄ → ⦃ Eq $ LL.e Q ⦄
-        → A → Set a
+        → Bean → Set a
 nu,iork {a} = nu,iork' ∘ Data.Vec.toList ∘ vec
   where
   nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
