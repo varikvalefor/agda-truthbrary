@@ -277,10 +277,10 @@ _∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ Data.List.filter (_≟_
 ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \Sym \$ \B x ∉ \B y\ .zoi.\ gi la'o zoi.\ \B y\ .zoi.\ na vasru la'o zoi.\ \B x\ .zoi.
 
 \begin{code}
-_∉_ : ∀ {a} → {A : Set a}
-    → ⦃ Q : LL A ⦄ → ⦃ _ : Eq $ LL.e Q ⦄
-    → (x : LL.e Q)
-    → (y : A)
+_∉_ : ∀ {a} → {Bean : Set a}
+    → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+    → (x : LL.e Jeans)
+    → (y : Bean)
     → Set a
 _∉_ x = _≡_ []ₗ ∘ Data.List.filter (_≟_ x) ∘ Data.Vec.toList ∘ vec
 \end{code}
