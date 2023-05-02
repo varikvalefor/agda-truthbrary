@@ -279,8 +279,8 @@ ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \Sym \$
 \begin{code}
 _∉_ : ∀ {a} → {Bean : Set a}
     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
-    → LL.e Jeans → Bean → Set a
-_∉_ x = _≡_ []ₗ ∘ Data.List.filter (_≟_ x) ∘ Data.Vec.toList ∘ vec
+    → LL.e Jeans → Bean → Set
+_∉_ x = _≡_ 0 ∘ lengthₗ ∘ Data.List.filter (_≟_ x) ∘ toList ∘ vec
 \end{code}
 
 \section{le me'oi .\AgdaKeyword{instance}.}
