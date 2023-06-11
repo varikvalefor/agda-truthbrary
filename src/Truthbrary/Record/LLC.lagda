@@ -158,8 +158,8 @@ record LL {a} (A : Set a) : Set (Level.suc a)
   -- nu ciksi le ctaipe be le su'u dunli kei bau la
   -- .lojban.
   field
-    lidus : (q : A) → l q ≡ lengthᵥ (vec q)
-    olendus : (q : A) → olen (l q) ≡ A
+    lidus : {q : A} → l q ≡ lengthᵥ (vec q)
+    olendus : {q : A} → olen (l q) ≡ A
 \end{code}
 
 \subsection{le fancu}
@@ -306,8 +306,8 @@ instance
     _∷_ = _∷ₗ_;
     vec = Data.Vec.fromList;
     cev = Data.Vec.toList;
-    lidus = λ l → _≡_.refl;
-    olendus = const _≡_.refl}
+    lidus = _≡_.refl;
+    olendus = _≡_.refl}
   liliString : LL String
   liliString = record {
     e = Char;
@@ -317,8 +317,8 @@ instance
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
     vec = Data.Vec.fromList ∘ Data.String.toList;
     cev = Data.String.fromList ∘ Data.Vec.toList;
-    lidus = λ s → _≡_.refl;
-    olendus = const _≡_.refl}
+    lidus = _≡_.refl;
+    olendus = _≡_.refl}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
@@ -328,8 +328,8 @@ instance
     _∷_ = _∷ᵥ_;
     vec = id;
     cev = id;
-    lidus = const _≡_.refl;
-    olendus = const _≡_.refl}
+    lidus = _≡_.refl;
+    olendus = _≡_.refl}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
@@ -339,8 +339,8 @@ instance
     _∷_ = const ℕ.suc;
     vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
     cev = Data.Vec.length;
-    lidus = λ n → _≡_.refl;
-    olendus = λ n → _≡_.refl}
+    lidus = _≡_.refl;
+    olendus = _≡_.refl}
 \end{code}
 
 \section{la'oi .\F{LC}.}
