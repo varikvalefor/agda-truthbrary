@@ -153,6 +153,11 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     _∷_ : e → (q : A) → olen $ ℕ.suc $ l q
     vec : (q : A) → Vec e $ l q
     cev : {n : ℕ} → Vec e n → olen n
+  -- .i la .varik. cu na jinvi le du'u sarcu fa lo
+  -- nu ciksi le ctaipe be le su'u dunli kei bau la
+  -- .lojban.
+  field
+    lidus : (q : A) → l q ≡ lengthᵥ (vec q)
 \end{code}
 
 \subsection{le fancu}
@@ -298,7 +303,8 @@ instance
     l = lengthₗ;
     _∷_ = _∷ₗ_;
     vec = Data.Vec.fromList;
-    cev = Data.Vec.toList}
+    cev = Data.Vec.toList;
+    lidus = λ l → _≡_.refl}
   liliString : LL String
   liliString = record {
     e = Char;
@@ -307,7 +313,8 @@ instance
     l = Data.String.length;
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
     vec = Data.Vec.fromList ∘ Data.String.toList;
-    cev = Data.String.fromList ∘ Data.Vec.toList}
+    cev = Data.String.fromList ∘ Data.Vec.toList;
+    lidus = λ s → _≡_.refl}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
@@ -316,7 +323,8 @@ instance
     l = const n';
     _∷_ = _∷ᵥ_;
     vec = id;
-    cev = id}
+    cev = id;
+    lidus = const _≡_.refl}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
@@ -325,7 +333,8 @@ instance
     l = id;
     _∷_ = const ℕ.suc;
     vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
-    cev = Data.Vec.length}
+    cev = Data.Vec.length;
+    lidus = λ n → _≡_.refl}
 \end{code}
 
 \section{la'oi .\F{LC}.}
