@@ -112,15 +112,15 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (f : A → B)
     → (n : Fin $ length l)
     → (_≡_
-        (Data.List.map f l ! mink n (tr $ length-map f l))
+        (map f l ! mink n (tr $ length-map f l))
         (f $ l ! n))
 lum (x ∷ xs) f zero = begin
-  Data.List.map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ zil ℓ ⟩
-  Data.List.map f (x ∷ xs) ! zero ≡⟨⟩
+  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ zil ℓ ⟩
+  map f (x ∷ xs) ! zero ≡⟨⟩
   f x ∎
   where
   ℓ = tr $ length-map f $ x ∷ xs
-  x∷xs! = _!_ $ Data.List.map f $ x ∷ xs
+  x∷xs! = _!_ $ map f $ x ∷ xs
   zil : {m n : ℕ}
       → (x : ℕ.suc m ≡ ℕ.suc n)
       → mink zero x ≡ zero
@@ -131,7 +131,7 @@ lum (x ∷ xs) f (suc n) = begin
   mef xs ! mink n tryk ≡⟨ lum xs f n ⟩
   f (xs ! n) ∎
   where
-  mef = Data.List.map f
+  mef = map f
   kong = cong $ _!_ $ mef $ x ∷ xs
   tryk = tr $ length-map f xs
   tryks = tr $ length-map f $ x ∷ xs
@@ -145,10 +145,10 @@ lum (x ∷ xs) f (suc n) = begin
     → (x : A)
     → (xs : List A)
     → (f : A → B)
-    → (n : Fin $ length $ Data.List.map f xs)
+    → (n : Fin $ length $ map f xs)
     → (_≡_
-        (Data.List.map f (x ∷ xs) ! (suc n))
-        (Data.List.map f xs ! n))
+        (map f (x ∷ xs) ! (suc n))
+        (map f xs ! n))
   𝔦 x xs f n = refl
 \end{code}
 
@@ -161,8 +161,8 @@ ual : ∀ {a} → {A : Set a}
     → Σ (List A) $ λ l'
       → Σ (length l ≡ length l') $ λ ℓ
       → l' ! mink n ℓ ≡ f (l ! n)
-ual (x ∷ xs) Fin.zero f = f x ∷ xs , refl , refl
-ual (x ∷ xs) (Fin.suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
+ual (x ∷ xs) zero f = f x ∷ xs , refl , refl
+ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
   where
   r₁ = ual xs n f
   r₂ = cong ℕ.suc $ proj₁ $ proj₂ r₁
@@ -208,7 +208,7 @@ ualmap : ∀ {a} → {A B : Set a}
          → g (f $ x ! k) ≡ l ! mink k ℓ
 ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , tr p₃
   where
-  mifix = Data.List.map f x
+  mifix = map f x
   ℓ : length x ≡ length mifix
   ℓ = tr $ length-map f x
   k₂ = mink k ℓ
@@ -218,18 +218,18 @@ ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , tr p₃
   l = ual mifix k₂ g
   p₂ = begin
     length x ≡⟨ tr $ length-map f x ⟩
-    length (Data.List.map f x) ≡⟨ proj₁ $ proj₂ l ⟩
+    length (map f x) ≡⟨ proj₁ $ proj₂ l ⟩
     length (proj₁ l) ∎
   p₃ = begin
     proj₁ l ! mink k p₂ ≡⟨ cong (_!_ $ proj₁ l) $ M k ℓ ℓ₂ xlulf ⟩
     proj₁ l ! mink k₂ (proj₁ $ proj₂ l) ≡⟨ proj₂ $ proj₂ l ⟩
-    g (Data.List.map f x ! k₂) ≡⟨ cong g $ lum x f k ⟩
+    g (map f x ! k₂) ≡⟨ cong g $ lum x f k ⟩
     g (f $ x ! k) ∎
     where
     ℓ₂ = proj₁ $ proj₂ l
     xlulf = begin
       length x ≡⟨ ℓ ⟩
-      length (Data.List.map f x) ≡⟨ ℓ₂ ⟩
+      length (map f x) ≡⟨ ℓ₂ ⟩
       length (proj₁ l) ∎
     M : {l m n : ℕ}
       → (k : Fin l)
