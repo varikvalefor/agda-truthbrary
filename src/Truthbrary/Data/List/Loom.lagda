@@ -111,9 +111,7 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (l : List A)
     → (f : A → B)
     → (n : Fin $ length l)
-    → (_≡_
-        (map f l ! mink n (tr $ length-map f l))
-        (f $ l ! n))
+    → (map f l ! mink n (tr $ length-map f l)) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
   map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ zil ℓ ⟩
   map f (x ∷ xs) ! zero ≡⟨⟩
@@ -146,9 +144,7 @@ lum (x ∷ xs) f (suc n) = begin
     → (xs : List A)
     → (f : A → B)
     → (n : Fin $ length $ map f xs)
-    → (_≡_
-        (map f (x ∷ xs) ! (suc n))
-        (map f xs ! n))
+    → map f (x ∷ xs) ! (suc n) ≡ map f xs ! n
   𝔦 x xs f n = refl
 \end{code}
 
