@@ -57,14 +57,35 @@ ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \k
 module Truthbrary.Data.List.Loom where
 
 open import Data.Fin
+  using (
+    Fin;
+    suc;
+    zero
+  )
 open import Data.Nat
+  using (
+    ℕ
+  )
 open import Function
+  using (
+    id;
+    _$_
+  )
 open import Data.List
   renaming (
     lookup to _!_
   )
 open import Data.Product
+  using (
+    proj₁;
+    proj₂;
+    _,_;
+    Σ
+  )
 open import Data.List.Properties
+  using (
+    length-map
+  )
 open import Relation.Binary.PropositionalEquality
 
 open ≡-Reasoning
