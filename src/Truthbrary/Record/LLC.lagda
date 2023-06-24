@@ -130,6 +130,7 @@ open import Relation.Nullary.Decidable
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    refl;
     _≡_
   )
 \end{code}
@@ -143,6 +144,7 @@ ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ 
 	\item ga je la'o zoi.\ \F{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \F{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
 	\item ga je la'o zoi.\ \F{LL.l} \B q \B l .zoi.\ nilzilcmi la'o zoi.\ \B l .zoi. gi
 	\item ga je pilno la'oi .\F{\_∷\_}.\ lo nu me'oi .prepend.\ gi
+        \item ga je la'o zoi.\ \F{olendus} \B q\ .zoi.\ ctaipe lo du'u la'o zoi.\ \F{LL.olen} \B q \Sym \$ \F{LL.l} \B q \B n\ .zoi.\ du la'o zoi.\ \B t .zoi.\ gi
 	\item la'o zoi.\ \F{LL.cev} \B q \Sym∘ \F{LL.vec} \B q .zoi.\ dunli la'oi .\F{id}.
 \end{itemize}
 
@@ -157,6 +159,7 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     _∷_ : e → (q : A) → olen $ ℕ.suc $ l q
     vec : (q : A) → Vec e $ l q
     cev : {n : ℕ} → Vec e n → olen n
+    olendus : {x : A} → olen (l x) ≡ A
 \end{code}
 
 \subsection{le fancu}
@@ -327,7 +330,8 @@ instance
     l = lengthₗ;
     _∷_ = _∷ₗ_;
     vec = Data.Vec.fromList;
-    cev = Data.Vec.toList}
+    cev = Data.Vec.toList;
+    olendus = refl}
   liliString : LL String
   liliString = record {
     e = Char;
@@ -336,7 +340,8 @@ instance
     l = Data.String.length;
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
     vec = Data.Vec.fromList ∘ Data.String.toList;
-    cev = Data.String.fromList ∘ Data.Vec.toList}
+    cev = Data.String.fromList ∘ Data.Vec.toList;
+    olendus = refl}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
@@ -345,7 +350,8 @@ instance
     l = const n';
     _∷_ = _∷ᵥ_;
     vec = id;
-    cev = id}
+    cev = id;
+    olendus = refl}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
@@ -354,7 +360,8 @@ instance
     l = id;
     _∷_ = const ℕ.suc;
     vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
-    cev = Data.Vec.length}
+    cev = Data.Vec.length;
+    olendus = refl}
 \end{code}
 
 \section{la'oi .\F{LC}.}
