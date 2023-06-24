@@ -27,6 +27,8 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{∈}{\ensuremath{\mathnormal{\in}}}
+\newunicodechar{∉}{\ensuremath{\mathnormal{\notin}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -43,6 +45,7 @@
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
 	\item le velcki be la'o zoi.\ \F{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
+	\item le velcki be vu'oi la'o zoi.\ \F{\_∈\_} .zoi.\ je la'o zoi.\ \F{\_∉\_} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu ciksi lo ctaipe lo du'u vasru kei ja lo du'u na vasru be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
 	\item le velcki be lo me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LC} .zoi.
@@ -115,10 +118,19 @@ open import Data.String
     _≟_;
     _++_
   )
+open import Data.Product
+  using (
+    Σ
+  )
+open import Relation.Nullary
 open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
   using (
     isYes
+  )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
   )
 \end{code}
 \section{la'oi .\F{LL}.}
@@ -253,6 +265,56 @@ garden the west gate = g2 the west $ vec gate
   g2 _ d []ᵥ = d
 \end{code}
 
+\section{la'oi .\F{\_∈\_}.}
+ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \Sym \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ vasru la'o zoi.\ \B a .zoi.\ gi la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B a \F ∈ \B b .zoi.
+
+\begin{code}
+_∈_ : ∀ {a} → {A : Set a}
+    → ⦃ Fireball : LL A ⦄
+    → ⦃ Eq $ LL.e Fireball ⦄
+    → LL.e Fireball → A → Set
+_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ Data.List.filter (_≟_ a) ∘ f
+  where
+  -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
+  -- cmavlaka'i zo'oi .from... ja cu co'e
+  f = toList ∘ vec
+\end{code}
+
+\section{la'o zoi.\ \F{\_∉\_}\ .zoi.}
+ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \Sym \$ \B x ∉ \B y\ .zoi.\ gi la'o zoi.\ \B y\ .zoi.\ na vasru la'o zoi.\ \B x\ .zoi.
+
+\begin{code}
+_∉_ : ∀ {a} → {Bean : Set a}
+    → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+    → LL.e Jeans → Bean → Set
+_∉_ x = _≡_ 0 ∘ lengthₗ ∘ Data.List.filter (_≟_ x) ∘ toList ∘ vec
+\end{code}
+
+\section{la'oi .\F{nu,iork}.}
+ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u li pa nilzilcmi lo'i ro versiio ja co'e be da be'o poi tu'a ke'a selvau la'o zoi.\ \B a .zoi.
+
+\begin{code}
+nu,iork : ∀ {a} → {Bean : Set a}
+        → ⦃ Q : LL Bean ⦄ → ⦃ Eq $ LL.e Q ⦄
+        → Bean → Set a
+nu,iork {a} = nu,iork' ∘ Data.Vec.toList ∘ vec
+  where
+  nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
+    where
+    []' = flip List._∷_ List.[]
+    filterₗ = Data.List.filter
+\end{code}
+
+\section{la'oi .\F{UL}.}
+ni'o ga jo la'o zoi.\ \B a \Sym , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
+
+\begin{code}
+UL : ∀ {a} → (A : Set a)
+   → ⦃ L : LL A ⦄ → ⦃ Eq $ LL.e L ⦄
+   → Set a
+UL A = Σ A nu,iork
+\end{code}
+
 \section{le me'oi .\AgdaKeyword{instance}.}
 
 \begin{code}
@@ -293,15 +355,6 @@ instance
     _∷_ = const ℕ.suc;
     vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
     cev = Data.Vec.length}
-  liliFin : {n : ℕ} → LL $ Fin n
-  liliFin = record {
-    [] = fromℕF 0;
-    olen = Fin ∘ _+_ 1;
-    e = Fin 1;
-    l = toℕF;
-    _∷_ = const $ fromℕF ∘ ℕ.suc ∘ toℕF;
-    vec = λ q → replicateᵥ {_} {_} {toℕF q} $ fromℕF 0;
-    cev = fromℕF ∘ Data.Vec.length}
 \end{code}
 
 \section{la'oi .\F{LC}.}
@@ -345,7 +398,5 @@ instance
   LCVec = record {_++_ = Data.Vec._++_}
   LCℕ : LC ℕ ℕ
   LCℕ = record {_++_ = Data.Nat._+_}
-  LCFin : {m n : ℕ} → LC (Fin m) $ Fin n
-  LCFin = record {_++_ = λ a → fromℕF ∘ _+_ (toℕF a) ∘ toℕF}
 \end{code}
 \end{document}
