@@ -217,13 +217,13 @@ ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , tr p₃
     length (map f x) ≡⟨ proj₁ $ proj₂ l ⟩
     length (proj₁ l) ∎
   p₃ = begin
-    proj₁ l ! mink k p₂ ≡⟨ cong (_!_ $ proj₁ l) $ M k ℓ ℓ₂ xlulf ⟩
+    proj₁ l ! mink k p₂ ≡⟨ cong (_!_ $ proj₁ l) $ M k ℓ ℓ₂ xul ⟩
     proj₁ l ! mink k₂ (proj₁ $ proj₂ l) ≡⟨ proj₂ $ proj₂ l ⟩
     g (map f x ! k₂) ≡⟨ cong g $ lum x f k ⟩
     g (f $ x ! k) ∎
     where
     ℓ₂ = proj₁ $ proj₂ l
-    xlulf = begin
+    xul = begin
       length x ≡⟨ ℓ ⟩
       length (map f x) ≡⟨ ℓ₂ ⟩
       length (proj₁ l) ∎
