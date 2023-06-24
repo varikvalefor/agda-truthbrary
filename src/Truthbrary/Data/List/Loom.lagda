@@ -124,13 +124,12 @@ lum (x ∷ xs) f zero = begin
       → mink zero x ≡ zero
   zil refl = refl
 lum (x ∷ xs) f (suc n) = begin
-  mef (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
-  mef (x ∷ xs) ! suc (mink n tryk) ≡⟨ 𝔦 x xs f $ mink n tryk ⟩
-  mef xs ! mink n tryk ≡⟨ lum xs f n ⟩
+  map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
+  map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ 𝔦 x xs f $ mink n tryk ⟩
+  map f xs ! mink n tryk ≡⟨ lum xs f n ⟩
   f (xs ! n) ∎
   where
-  mef = map f
-  kong = cong $ _!_ $ mef $ x ∷ xs
+  kong = cong $ _!_ $ map f $ x ∷ xs
   tryk = tr $ length-map f xs
   tryks = tr $ length-map f $ x ∷ xs
   𝔪 : {m n : ℕ}
