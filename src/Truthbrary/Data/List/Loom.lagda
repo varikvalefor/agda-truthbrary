@@ -84,6 +84,10 @@ open import Data.Product
     _,_;
     Σ
   )
+open import Truthbrary.Data.Fin
+  using (
+    mink
+  )
 open import Data.List.Properties
   using (
     length-map
@@ -100,9 +104,6 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi le me'oi .\AgdaKeyword
 private
   tr : ∀ {a} → {A : Set a} → {B C : A} → B ≡ C → C ≡ B
   tr refl = refl
-
-  mink : {m n : ℕ} → Fin n → n ≡ m → Fin m
-  mink f refl = f
 \end{code}
 
 \section{la .\F{lum}.}
