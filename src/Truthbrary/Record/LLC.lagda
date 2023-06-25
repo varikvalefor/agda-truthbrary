@@ -247,7 +247,7 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi
 map : ∀ {a b} → {A : Set a} → {B : Set b}
     → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
     → (f : LL.e Q → LL.e R) → (x : A)
-    → LL.olen R $ lengthᵥ $ Data.Vec.map f $ LL.vec Q x
+    → LL.olen R $ length x
 map f = cev ∘ Data.Vec.map f ∘ vec
 \end{code}
 
