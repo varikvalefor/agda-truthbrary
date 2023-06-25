@@ -54,6 +54,8 @@ ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \k
 \section{le vrici}
 
 \begin{code}
+{-# OPTIONS --safe #-}
+
 module Truthbrary.Data.List.Loom where
 
 open import Data.Fin
