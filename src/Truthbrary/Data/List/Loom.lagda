@@ -98,9 +98,6 @@ ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi le me'oi .\AgdaKeyword
 
 \begin{code}
 private
-  tr : ∀ {a} → {A : Set a} → {B C : A} → B ≡ C → C ≡ B
-  tr refl = refl
-
   mink : {m n : ℕ} → Fin n → n ≡ m → Fin m
   mink f refl = f
 \end{code}
@@ -113,13 +110,13 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (l : List A)
     → (f : A → B)
     → (n : Fin $ length l)
-    → (map f l ! mink n (tr $ length-map f l)) ≡ f (l ! n)
+    → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
   map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ zil ℓ ⟩
   map f (x ∷ xs) ! zero ≡⟨⟩
   f x ∎
   where
-  ℓ = tr $ length-map f $ x ∷ xs
+  ℓ = sym $ length-map f $ x ∷ xs
   x∷xs! = _!_ $ map f $ x ∷ xs
   zil : {m n : ℕ}
       → (x : ℕ.suc m ≡ ℕ.suc n)
@@ -132,8 +129,8 @@ lum (x ∷ xs) f (suc n) = begin
   f (xs ! n) ∎
   where
   kong = cong $ _!_ $ map f $ x ∷ xs
-  tryk = tr $ length-map f xs
-  tryks = tr $ length-map f $ x ∷ xs
+  tryk = sym $ length-map f xs
+  tryks = sym $ length-map f $ x ∷ xs
   𝔪 : {m n : ℕ}
     → (t : Fin m)
     → (x : m ≡ n)
@@ -203,18 +200,18 @@ ualmap : ∀ {a} → {A B : Set a}
        → Σ (List B) $ λ l
          → Σ (length x ≡ length l) $ λ ℓ
          → g (f $ x ! k) ≡ l ! mink k ℓ
-ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , tr p₃
+ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , sym p₃
   where
   mifix = map f x
   ℓ : length x ≡ length mifix
-  ℓ = tr $ length-map f x
+  ℓ = sym $ length-map f x
   k₂ = mink k ℓ
   l : Σ (List B) $ λ l'
       → Σ (length mifix ≡ length l') $ λ ℓ
       → l' ! mink k₂ ℓ ≡ g (mifix ! k₂)
   l = ual mifix k₂ g
   p₂ = begin
-    length x ≡⟨ tr $ length-map f x ⟩
+    length x ≡⟨ sym $ length-map f x ⟩
     length (map f x) ≡⟨ proj₁ $ proj₂ l ⟩
     length (proj₁ l) ∎
   p₃ = begin
