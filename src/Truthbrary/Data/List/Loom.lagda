@@ -84,6 +84,10 @@ open import Data.Product
     _,_;
     Σ
   )
+open import Truthbrary.Data.Fin
+  using (
+    mink
+  )
 open import Data.List.Properties
   using (
     length-map
@@ -91,15 +95,6 @@ open import Data.List.Properties
 open import Relation.Binary.PropositionalEquality
 
 open ≡-Reasoning
-\end{code}
-
-\section{le me'oi .\AgdaKeyword{private}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi le me'oi .\AgdaKeyword{private}.
-
-\begin{code}
-private
-  mink : {m n : ℕ} → Fin n → n ≡ m → Fin m
-  mink f refl = f
 \end{code}
 
 \section{la .\F{lum}.}
