@@ -308,7 +308,7 @@ instance
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
   readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
            → Read $ Maybe A
-  readMayb {_} {A} ⦃ X ⦄  = record {readMaybe = Q ∘ toList}
+  readMayb {_} {A} = record {readMaybe = Q ∘ toList}
     where
     Q : List Char → Maybe $ Maybe A
     Q t = if justice then just (t' >>= readMaybe) else nada
