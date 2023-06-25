@@ -97,6 +97,7 @@ open import Data.List
   renaming (
     [] to []ₗ;
     _∷_ to _∷ₗ_;
+    filter to filterₗ;
     length to lengthₗ
   )
   hiding (
@@ -273,7 +274,7 @@ _∈_ : ∀ {a} → {A : Set a}
     → ⦃ Fireball : LL A ⦄
     → ⦃ Eq $ LL.e Fireball ⦄
     → LL.e Fireball → A → Set
-_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ Data.List.filter (_≟_ a) ∘ f
+_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ filterₗ (_≟_ a) ∘ f
   where
   -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
   -- cmavlaka'i zo'oi .from... ja cu co'e
@@ -287,7 +288,7 @@ ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \Sym \$
 _∉_ : ∀ {a} → {Bean : Set a}
     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
     → LL.e Jeans → Bean → Set
-_∉_ x = _≡_ 0 ∘ lengthₗ ∘ Data.List.filter (_≟_ x) ∘ toList ∘ vec
+_∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (_≟_ x) ∘ toList ∘ vec
 \end{code}
 
 \section{la'oi .\F{nu,iork}.}
@@ -302,7 +303,6 @@ nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
   nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
     where
     []' = flip List._∷_ List.[]
-    filterₗ = Data.List.filter
 \end{code}
 
 \section{la'oi .\F{UL}.}
