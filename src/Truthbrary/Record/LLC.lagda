@@ -223,7 +223,7 @@ decaf : ∀ {a} → {Bean : Set a}
       → ⦃ Eq $ LL.e Q ⦄
       → LL.e Q → LL.e Q → (j : Bean)
       → Maybe $ LL.olen Q $ LL.l Q j ∸ 2
-decaf {_} {A} ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
+decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   where
   f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
   f []ᵥ = nothing
