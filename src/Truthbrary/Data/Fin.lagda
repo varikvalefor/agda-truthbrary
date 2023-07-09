@@ -91,8 +91,7 @@ tomindus _ refl = refl
 \ckinas{la .\F{tondus}.}
 
 \begin{code}
-tondus : (n : ℕ)
-       → Data.Fin.toℕ (Data.Fin.fromℕ n) ≡ n
+tondus : (n : ℕ) → toℕ (fromℕ n) ≡ n
 tondus ℕ.zero = refl
 tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 \end{code}
