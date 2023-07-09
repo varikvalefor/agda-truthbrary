@@ -239,6 +239,7 @@ ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , tr p₃
 \end{code}
 
 \section{la .\F{ualkonk}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualkonk}.\ bau la .lojban.
 
 \begin{code}
 ualkonk : ∀ {a} → {A : Set a}
