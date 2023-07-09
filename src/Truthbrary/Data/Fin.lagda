@@ -71,4 +71,15 @@ mindus : {m n : ℕ}
        → mink (mink a x) z ≡ a
 mindus a refl refl = refl
 \end{code}
+
+\section{la .\F{tondus}.}
+\ckinas{la .\F{tondus}.}
+
+\begin{code}
+tondus : {m n : ℕ}
+       → (x : Fin m)
+       → (d : m ≡ n)
+       → toℕ x ≡ toℕ (mink x d)
+tondus _ refl = refl
+\end{code}
 \end{document}
