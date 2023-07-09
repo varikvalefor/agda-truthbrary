@@ -72,14 +72,14 @@ mindus : {m n : ℕ}
 mindus a refl refl = refl
 \end{code}
 
-\section{la .\F{tondus}.}
-\ckinas{la .\F{tondus}.}
+\section{la .\F{tomindus}.}
+\ckinas{la .\F{tomindus}.}
 
 \begin{code}
-tondus : {m n : ℕ}
-       → (x : Fin m)
-       → (d : m ≡ n)
-       → toℕ x ≡ toℕ (mink x d)
-tondus _ refl = refl
+tomindus : {m n : ℕ}
+         → (x : Fin m)
+         → (d : m ≡ n)
+         → toℕ x ≡ toℕ (mink x d)
+tomindus _ refl = refl
 \end{code}
 \end{document}
