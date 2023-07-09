@@ -250,10 +250,10 @@ ualkonk : ∀ {a} → {A : Set a}
           (_≡_
             (proj₁ $ ual x n f)
             (_++_
-              (Data.List.take n' x)
+              (take n' x)
               (_∷_
                 (f $ x ! n)
-                (Data.List.drop (ℕ.suc n') x))))
+                (drop (ℕ.suc n') x))))
 ualkonk (_ ∷ _) Fin.zero _ = refl
 ualkonk (x ∷ xs) (Fin.suc n) f = cong (_∷_ x) u
   where
