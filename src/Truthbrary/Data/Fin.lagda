@@ -44,6 +44,10 @@ ni'o \kulmodis\ vasru le velcki be le fancu ja co'e poi tu'a ke'a filri'a tu'a l
 
 module Truthbrary.Data.Fin where
 
+open import Function
+  using (
+    _$_
+  )
 open import Data.Fin
 open import Data.Nat
   using (
@@ -81,5 +85,15 @@ tomindus : {m n : ℕ}
          → (d : m ≡ n)
          → toℕ x ≡ toℕ (mink x d)
 tomindus _ refl = refl
+\end{code}
+
+\section{la .\F{tondus}.}
+\ckinas{la .\F{tondus}.}
+
+\begin{code}
+tondus : (n : ℕ)
+       → Data.Fin.toℕ (Data.Fin.fromℕ n) ≡ n
+tondus ℕ.zero = refl
+tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 \end{code}
 \end{document}
