@@ -237,4 +237,25 @@ ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , tr p₃
       → mink k xov ≡ mink (mink k v) x
     M k refl refl refl = refl
 \end{code}
+
+\section{la .\F{ualkonk}.}
+
+\begin{code}
+ualkonk : ∀ {a} → {A : Set a}
+        → (x : List A)
+        → (n : Fin $ length x)
+        → (f : A → A)
+        → let n' = Data.Fin.toℕ n in
+          (_≡_
+            (proj₁ $ ual x n f)
+            (_++_
+              (Data.List.take n' x)
+              (_∷_
+                (f $ x ! n)
+                (Data.List.drop (ℕ.suc n') x))))
+ualkonk (_ ∷ _) Fin.zero _ = refl
+ualkonk (x ∷ xs) (Fin.suc n) f = cong (_∷_ x) u
+  where
+  u = ualkonk xs n f
+\end{code}
 \end{document}
