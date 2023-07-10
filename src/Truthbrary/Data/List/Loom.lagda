@@ -283,4 +283,21 @@ ualdrop : ∀ {a} → {A : Set a}
 ualdrop (_ ∷ _) Fin.zero _ = refl
 ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
 \end{code}
+
+\section{la .\F{teiklendus}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{teiklendus}.\ bau la .lojban.
+
+.i zo .teiklendus.\ cmavlaka'i lo konkatena be zo'oi .take.\ bei zo'oi .length.\ bei zo dunli
+
+\begin{code}
+teiklendus : ∀ {a} → {A : Set a}
+           → (xs : List A)
+           → (n : ℕ)
+           → n ≤ length xs
+           → length (take n xs) ≡ n
+teiklendus _ 0 _ = refl
+teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc t
+  where
+  t = teiklendus xs n g
+\end{code}
 \end{document}
