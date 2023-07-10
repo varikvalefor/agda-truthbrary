@@ -67,6 +67,7 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 module Truthbrary.Record.SR where
 
 import Data.Integer.Show
+import Data.Rational.Show
 
 open import Data.Fin
   hiding (
@@ -189,10 +190,7 @@ instance
   showString = record {show = Data.String.show}
   showℤ = record {show = Data.Integer.Show.show}
   showℚ : Show ℚ
-  showℚ = record {show = f}
-    where
-    f : ℚ → String
-    f q = show (ℚ.numerator q) ++ "/" ++ show (ℚ.denominator q)
+  showℚ = record {show = Data.Rational.Show.show}
   showℚᵘ : Show ℚᵘ
   showℚᵘ = record {show = f}
     where
@@ -310,16 +308,17 @@ instance
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
   readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
            → Read $ Maybe A
-  readMayb {_} {A} ⦃ X ⦄  = record {readMaybe = Q ∘ toList}
+  readMayb {_} {A} = record {readMaybe = Q ∘ toList}
     where
     Q : List Char → Maybe $ Maybe A
     Q t = if justice then just (t' >>= readMaybe) else nada
       where
-      -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
-      tim = fromList t ≡ᵇ "nothing"
       justice = fromList (Data.List.take 5 t) ≡ᵇ "just "
-      nada = if tim then just nothing else nothing
       t' = unparens $ fromList $ Data.List.drop 5 t
+      nada = if tim then just nothing else nothing
+        where
+        -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
+        tim = fromList t ≡ᵇ "nothing"
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
           → Read $ A ⊎ B
