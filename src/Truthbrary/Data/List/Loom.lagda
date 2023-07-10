@@ -21,6 +21,7 @@
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal{\divdot}}}
 \newunicodechar{⍨}{\raisebox{-0.25ex}{$\ddot\sim$}}
 \newunicodechar{ℓ}{\ensuremath{\mathnormal{\ell}}}
