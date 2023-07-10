@@ -67,11 +67,15 @@ open import Data.Fin
   )
 open import Data.Nat
   using (
+    suc;
+    _≤_;
+    s≤s;
     ℕ
   )
 open import Function
   using (
     id;
+    _∘_;
     _$_
   )
 open import Data.List
@@ -250,5 +254,33 @@ ualkonk (_ ∷ _) Fin.zero _ = refl
 ualkonk (x ∷ xs) (Fin.suc n) f = cong (_∷_ x) u
   where
   u = ualkonk xs n f
+\end{code}
+
+\section{la .\F{ualteik}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualteik}.\ bau la .lojban.
+
+\begin{code}
+ualteik : ∀ {a} → {A : Set a}
+        → (x : List A)
+        → (n : Fin $ length x)
+        → (f : A → A)
+        → let n' = Data.Fin.toℕ n in
+          take n' x ≡ take n' (proj₁ $ ual x n f)
+ualteik (_ ∷ _) Fin.zero _ = refl
+ualteik (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualteik xs n
+\end{code}
+
+\section{la .\F{ualdrop}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualdrop}.\ bau la .lojban.
+
+\begin{code}
+ualdrop : ∀ {a} → {A : Set a}
+        → (x : List A)
+        → (n : Fin $ length x)
+        → (f : A → A)
+        → let n' = ℕ.suc $ Data.Fin.toℕ n in
+          drop n' x ≡ drop n' (proj₁ $ ual x n f)
+ualdrop (_ ∷ _) Fin.zero _ = refl
+ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
 \end{code}
 \end{document}
