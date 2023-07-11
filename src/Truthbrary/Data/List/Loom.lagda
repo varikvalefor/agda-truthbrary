@@ -342,4 +342,24 @@ teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc t
   where
   t = teiklendus xs n g
 \end{code}
+
+\section{la .\F{mapimplant}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{mapimplant}.\ bau la .lojban.
+
+\begin{code}
+mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
+           → (x : List A)
+           → (z : B)
+           → (f : A → B)
+           → (n : Fin $ length x)
+           → let n' = Data.Fin.toℕ n in
+             let sin = ℕ.suc n' in
+             (_≡_
+               (take n' (map f x) ++ z ∷ drop sin (map f x))
+               (map f (take n' x) ++ z ∷ map f (drop sin x)))
+mapimplant (_ ∷ _) _ _ zero = refl
+mapimplant (x ∷ xs) z f (suc n) = cong (_∷_ $ f x) mip
+  where
+  mip = mapimplant xs z f n
+\end{code}
 \end{document}
