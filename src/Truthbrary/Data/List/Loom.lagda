@@ -75,6 +75,7 @@ open import Data.Nat
   )
 open import Function
   using (
+    flip;
     id;
     _∘_;
     _$_
@@ -283,6 +284,48 @@ ualdrop : ∀ {a} → {A : Set a}
           drop n' x ≡ drop n' (proj₁ $ ual x n f)
 ualdrop (_ ∷ _) Fin.zero _ = refl
 ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
+\end{code}
+
+\section{la .\F{ualmapkonk}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmapkonk}.\ bau la .lojban.
+
+\begin{code}
+ualmapkonk : ∀ {a} → {A B : Set a}
+           → (x : List A)
+           → (n : Fin $ length x)
+           → (f : A → B)
+           → (g : B → B)
+           → let n' = Data.Fin.toℕ n in
+             (_≡_
+               (proj₁ $ ualmap x f g n)
+               (_++_
+                 (take n' $ map f x)
+                 (_∷_
+                   (g $ f $ x ! n)
+                   (drop (ℕ.suc n') $ map f x))))
+ualmapkonk x n f g = begin
+  proj₁ (ualmap x f g n) ≡⟨ refl ⟩
+  proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
+  t m' ++ g ((map f x) ! m) ∷ d (ℕ.suc m') ≡⟨ mynydus ⟩
+  t n' ++ g ((map f x) ! m) ∷ d (ℕ.suc n') ≡⟨ midju ⟩
+  t n' ++ g (f $ x ! n) ∷ d (ℕ.suc n') ∎
+  where
+  m = mink n $ sym $ length-map f x
+  m' = Data.Fin.toℕ m
+  n' = Data.Fin.toℕ n
+  t = flip take $ map f x
+  d = flip drop $ map f x
+  tondus : {m n : ℕ}
+         → (x : Fin m)
+         → (d : m ≡ n)
+         → Data.Fin.toℕ x ≡ Data.Fin.toℕ (mink x d)
+  tondus _ refl = refl
+  mynydus = cong p $ sym $ tondus n $ sym $ length-map f x
+    where
+    p = λ n → t n ++ g ((map f x) ! m) ∷ d (ℕ.suc n)
+  midju = cong p $ cong g $ lum x f n
+    where
+    p = λ c → t n' ++ c ∷ d (ℕ.suc n')
 \end{code}
 
 \section{la .\F{teiklendus}.}
