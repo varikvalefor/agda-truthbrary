@@ -192,7 +192,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmap}.\ bau la .lojban.
 
 \begin{code}
-ualmap : ∀ {a} → {A B : Set a}
+ualmap : ∀ {a b} → {A : Set a} → {B : Set b}
        → (x : List A)
        → (f : A → B)
        → (g : B → B)
@@ -200,7 +200,7 @@ ualmap : ∀ {a} → {A B : Set a}
        → Σ (List B) $ λ l
          → Σ (length x ≡ length l) $ λ ℓ
          → g (f $ x ! k) ≡ l ! mink k ℓ
-ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , sym p₃
+ualmap {_} {_} {_} {B} x f g k = proj₁ l , p₂ , sym p₃
   where
   mifix = map f x
   ℓ : length x ≡ length mifix
