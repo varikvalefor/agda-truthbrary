@@ -323,7 +323,7 @@ ualmapkonk x n f g = begin
   mynydus = cong p $ sym $ tondus n $ sym $ length-map f x
     where
     p = λ n → t n ++ g ((map f x) ! m) ∷ d (ℕ.suc n)
-  midju = cong (λ c → t n' ++ c ∷ d (ℕ.suc n')) $ cong g $ lum x f n
+  midju = cong (λ c → t n' ++ g c ∷ d (ℕ.suc n')) $ lum x f n
 \end{code}
 
 \section{la .\F{teiklendus}.}
