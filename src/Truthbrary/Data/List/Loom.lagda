@@ -202,7 +202,7 @@ ualmap : ∀ {a b} → {A : Set a} → {B : Set b}
        → Σ (List B) $ λ l
          → Σ (length x ≡ length l) $ λ ℓ
          → g (f $ x ! k) ≡ l ! mink k ℓ
-ualmap {_} {_} {_} {B} x f g k = proj₁ l , p₂ , sym p₃
+ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
   where
   mifix = map f x
   ℓ : length x ≡ length mifix
