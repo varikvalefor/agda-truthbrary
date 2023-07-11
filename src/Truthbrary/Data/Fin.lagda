@@ -98,4 +98,14 @@ tondus : (n : ℕ) → toℕ (fromℕ n) ≡ n
 tondus ℕ.zero = refl
 tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 \end{code}
+
+\section{la .\F{minzero}.}
+\ckinas{la .\F{minzero}.}
+
+\begin{code}
+minzero : {m n : ℕ}
+        → (x : ℕ.suc m ≡ ℕ.suc n)
+        → mink zero x ≡ zero
+minzero refl = refl
+\end{code}
 \end{document}
