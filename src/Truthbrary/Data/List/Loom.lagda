@@ -16,6 +16,7 @@
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
+\newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
