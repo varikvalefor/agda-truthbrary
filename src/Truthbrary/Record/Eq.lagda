@@ -198,10 +198,10 @@ instance
     f (x ∷ xs) (y ∷ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
       where
       -- .i cumki fa lo nu vimcu le ctaipe velcki
-      -- .i ku'i la .varik. cu jinvi le du'u jmina
-      -- ja co'e le ctaipe velcki cu filri'a lo nu
-      -- jimpe... kei kei je cu djica lo nu frili fa
-      -- lo nu jimpe
+      -- .i ku'i la .varik. cu jinvi le du'u lo nu
+      -- jmina ja co'e le ctaipe velcki cu filri'a
+      -- lo nu jimpe... kei kei je cu djica lo nu
+      -- frili fa lo nu jimpe
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
       booty jorts _ = map′ (doomsday jorts) notBigInto $ f xs ys
       arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
@@ -220,7 +220,7 @@ instance
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
-  EqSum {_} {_} {A} {B} = record {_≟_ = Q}
+  EqSum = record {_≟_ = Q}
     where
     inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : A}
              → (A ⊎ B ∋ inj₁ x) ≡ inj₁ y → x ≡ y
@@ -228,7 +228,7 @@ instance
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
              → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
     inj₂-inj refl = refl
-    Q : DecidableEquality $ A ⊎ B
+    Q : DecidableEquality $ _ ⊎ _
     Q (inj₁ t) (inj₁ l) = map′ (cong inj₁) inj₁-inj $ t ≟ l
     Q (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
     Q (inj₁ _) (inj₂ _) = no $ λ ()
