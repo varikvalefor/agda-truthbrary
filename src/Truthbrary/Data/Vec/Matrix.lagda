@@ -47,6 +47,7 @@ ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru\ldots
 
 \begin{code}
 {-# OPTIONS --safe #-}
+{-# OPTIONS --cubical-compatible #-}
 
 module Truthbrary.Data.Vec.Matrix where
 
