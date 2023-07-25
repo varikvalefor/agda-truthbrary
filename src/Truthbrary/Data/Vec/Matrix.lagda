@@ -64,7 +64,7 @@ open import Data.Vec
 open import Function
 \end{code}
 
-\section{la'oi .\D 𝕄.}
+\section{la'o zoi. \F 𝕄\ .zoi.}
 ni'o ro da poi ke'a mu'oi zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
 
 \subsection{le me'oi .field.\ pe'a ru'e}
@@ -105,7 +105,7 @@ I z o = map f $ allFin _
   f = λ x → updateAt x (const o) $ replicate z
 \end{code}
 
-\section{la'oi .\F{\_∣\_}.}
+\section{la'o zoi. \F{\_∣\_}\ .zoi.}
 ni'o la'o zoi.\ \B a \Sym{∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
