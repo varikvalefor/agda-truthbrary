@@ -114,7 +114,7 @@ ni'o la'o zoi.\ \B a \Sym{∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o
 \begin{code}
 _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
     → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m + o) n
-_∣_ a b = Data.Vec.map lus $ allFin _
+_∣_ a b = map lus $ allFin _
   where
   lus = λ n → lookupᵥ a n ++ lookupᵥ b n
 \end{code}
