@@ -88,7 +88,7 @@ lookup m n = map (flip lookupᵥ n) m
 ni'o la'o zoi.\ \F I \{\B x\} .zoi.\ me'oi .identity.\ nacmeimei
 
 \begin{code}
-I : ∀ {a} → {A : Set a} → {n : ℕ} →  A → A → 𝕄 A n n
+I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
 I z o = map f $ allFin _
   where
   f = λ x → updateAt x (const o) $ replicate z
