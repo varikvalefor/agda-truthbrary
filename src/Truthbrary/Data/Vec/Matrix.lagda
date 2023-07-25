@@ -12,6 +12,8 @@
 
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{∷}{\ensuremath{\Colon}}
+\newunicodechar{∋}{\ensuremath{\ni}}
 \newunicodechar{𝕄}{\ensuremath{\mathbb{M}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
