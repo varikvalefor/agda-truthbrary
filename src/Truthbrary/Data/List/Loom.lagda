@@ -116,7 +116,7 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (n : Fin $ length l)
     → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
-  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ minzero ℓ ⟩
+  map f (x ∷ xs) ! mink zero ℓ ≡⟨ cong x∷xs! $ minzero ℓ ⟩
   map f (x ∷ xs) ! zero ≡⟨⟩
   f x ∎
   where
@@ -142,7 +142,7 @@ lum (x ∷ xs) f (suc n) = begin
     → (xs : List A)
     → (f : A → B)
     → (n : Fin $ length $ map f xs)
-    → map f (x ∷ xs) ! (suc n) ≡ map f xs ! n
+    → map f (x ∷ xs) ! suc n ≡ map f xs ! n
   i x xs f n = refl
 \end{code}
 
@@ -304,8 +304,8 @@ ualmapkonk : ∀ {a} → {A B : Set a}
 ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
   proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
-  t m' ++ g ((map f x) ! m) ∷ d (ℕ.suc m') ≡⟨ mynydus ⟩
-  t n' ++ g ((map f x) ! m) ∷ d (ℕ.suc n') ≡⟨ midju ⟩
+  t m' ++ g (map f x ! m) ∷ d (ℕ.suc m') ≡⟨ mynydus ⟩
+  t n' ++ g (map f x ! m) ∷ d (ℕ.suc n') ≡⟨ midju ⟩
   t n' ++ g (f $ x ! n) ∷ d (ℕ.suc n') ∎
   where
   m = mink n $ sym $ length-map f x
@@ -316,7 +316,7 @@ ualmapkonk x n f g = begin
   midju = cong (λ c → t n' ++ g c ∷ d (ℕ.suc n')) $ lum x f n
   mynydus = cong p $ sym $ tomindus n $ sym $ length-map f x
     where
-    p = λ n → t n ++ g ((map f x) ! m) ∷ d (ℕ.suc n)
+    p = λ n → t n ++ g (map f x ! m) ∷ d (ℕ.suc n)
 \end{code}
 
 \section{la .\F{teiklendus}.}
