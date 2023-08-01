@@ -331,9 +331,7 @@ teiklendus : ∀ {a} → {A : Set a}
            → n ≤ length xs
            → length (take n xs) ≡ n
 teiklendus _ 0 _ = refl
-teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc t
-  where
-  t = teiklendus xs n g
+teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc $ teiklendus xs n g
 \end{code}
 
 \section{la .\F{mapimplant}.}
