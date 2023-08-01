@@ -93,6 +93,8 @@ open import Data.Product
   )
 open import Truthbrary.Data.Fin
   using (
+    tomindus;
+    minzero;
     mink
   )
 open import Data.List.Properties
@@ -114,38 +116,34 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (n : Fin $ length l)
     → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
-  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ zil ℓ ⟩
+  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ minzero ℓ ⟩
   map f (x ∷ xs) ! zero ≡⟨⟩
   f x ∎
   where
   ℓ = sym $ length-map f $ x ∷ xs
   x∷xs! = _!_ $ map f $ x ∷ xs
-  zil : {m n : ℕ}
-      → (x : ℕ.suc m ≡ ℕ.suc n)
-      → mink zero x ≡ zero
-  zil refl = refl
 lum (x ∷ xs) f (suc n) = begin
-  map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
-  map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ 𝔦 x xs f $ mink n tryk ⟩
+  map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ m n tryk tryks ⟩
+  map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ i x xs f $ mink n tryk ⟩
   map f xs ! mink n tryk ≡⟨ lum xs f n ⟩
   f (xs ! n) ∎
   where
   kong = cong $ _!_ $ map f $ x ∷ xs
   tryk = sym $ length-map f xs
   tryks = sym $ length-map f $ x ∷ xs
-  𝔪 : {m n : ℕ}
+  m : {m n : ℕ}
     → (t : Fin m)
     → (x : m ≡ n)
     → (d : ℕ.suc m ≡ ℕ.suc n)
     → mink (suc t) d ≡ suc (mink t x)
-  𝔪 t refl refl = refl
-  𝔦 : ∀ {a b} → {A : Set a} → {B : Set b}
+  m t refl refl = refl
+  i : ∀ {a b} → {A : Set a} → {B : Set b}
     → (x : A)
     → (xs : List A)
     → (f : A → B)
     → (n : Fin $ length $ map f xs)
     → map f (x ∷ xs) ! (suc n) ≡ map f xs ! n
-  𝔦 x xs f n = refl
+  i x xs f n = refl
 \end{code}
 
 \section{la .\F{ual}.}
@@ -315,15 +313,10 @@ ualmapkonk x n f g = begin
   n' = Data.Fin.toℕ n
   t = flip take $ map f x
   d = flip drop $ map f x
-  tondus : {m n : ℕ}
-         → (x : Fin m)
-         → (d : m ≡ n)
-         → Data.Fin.toℕ x ≡ Data.Fin.toℕ (mink x d)
-  tondus _ refl = refl
-  mynydus = cong p $ sym $ tondus n $ sym $ length-map f x
+  midju = cong (λ c → t n' ++ g c ∷ d (ℕ.suc n')) $ lum x f n
+  mynydus = cong p $ sym $ tomindus n $ sym $ length-map f x
     where
     p = λ n → t n ++ g ((map f x) ! m) ∷ d (ℕ.suc n)
-  midju = cong (λ c → t n' ++ g c ∷ d (ℕ.suc n')) $ lum x f n
 \end{code}
 
 \section{la .\F{teiklendus}.}
