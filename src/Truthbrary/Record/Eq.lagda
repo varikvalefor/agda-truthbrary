@@ -178,17 +178,17 @@ instance
       hillbilly refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
-         → (w x : A)
-         → (y z : B)
-         → Dec $ y ≡ z
-         → (w ≡ x → y ≡ z → C)
-         → (w ≡ x → ¬ (y ≡ z) → C)
-         → (¬ (w ≡ x) → y ≡ z → C)
-         → (¬ (w ≡ x) → ¬ (y ≡ z) → C)
+         → (t v : A)
+         → (x z : B)
+         → Dec $ x ≡ z
+         → (t ≡ v → x ≡ z → C)
+         → (t ≡ v → ¬ (x ≡ z) → C)
+         → (¬ (t ≡ v) → x ≡ z → C)
+         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
          → C
-    bork {_} {_} {_} {_} {_} {C} w x y z q f g j k = spit (w ≟ x) q
+    bork {_} {_} {_} {_} {_} {C} t v x z d f g j k = spit (t ≟ v) d
       where
-      spit : Dec $ w ≡ x → Dec $ y ≡ z → C
+      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
       spit (yes a) (yes b) = f a b
       spit (yes a) (no b) = g a b
       spit (no a) (yes b) = j a b
@@ -200,12 +200,12 @@ instance
     f (x ∷ xs) (y ∷ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
       where
       -- .i cumki fa lo nu vimcu le ctaipe velcki
-      -- .i ku'i la .varik. cu jinvi le du'u jmina
-      -- ja co'e le ctaipe velcki cu filri'a lo nu
-      -- jimpe... kei kei je cu djica lo nu frili fa
-      -- lo nu jimpe
+      -- .i ku'i la .varik. cu jinvi le du'u lo nu
+      -- jmina ja co'e le ctaipe velcki cu filri'a
+      -- lo nu jimpe... kei kei je cu djica lo nu
+      -- frili fa lo nu jimpe
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
-      booty ass pants = map′ (doomsday ass) notBigInto $ f xs ys
+      booty jorts _ = map′ (doomsday jorts) notBigInto $ f xs ys
       arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
       arm wrestling _ = no $ leadneck wrestling
       -- | .i la .varik. cu jinvi le du'u na xlabebna
@@ -222,7 +222,7 @@ instance
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
-  EqSum {_} {_} {A} {B} = record {_≟_ = Q}
+  EqSum = record {_≟_ = Q}
     where
     inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : A}
              → (A ⊎ B ∋ inj₁ x) ≡ inj₁ y → x ≡ y
@@ -230,7 +230,7 @@ instance
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
              → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
     inj₂-inj refl = refl
-    Q : DecidableEquality $ A ⊎ B
+    Q : DecidableEquality $ _ ⊎ _
     Q (inj₁ t) (inj₁ l) = map′ (cong inj₁) inj₁-inj $ t ≟ l
     Q (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
     Q (inj₁ _) (inj₂ _) = no $ λ ()
