@@ -38,7 +38,7 @@
 \section{le torveki}
 ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru\ldots
 \begin{itemize}
-	\item le velcki be la'o zoi.\ \B 𝕄 .zoi.\ noi tu'a ke'a filri'a tu'a lo nacmeimei be'o je
+	\item le velcki be la'o zoi.\ \D 𝕄 .zoi.\ noi tu'a ke'a filri'a tu'a lo nacmeimei be'o je
 	\item le velcki be la'o zoi.\ \F{lookup} .zoi.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o je
 	\item le velcki be la'o zoi.\ \F I .zoi.\ noi tu'a ke'a filri'a tu'a lo me'oi .identity.\ nacmeimei be'o je
 	\item le velcki be la'o zoi.\ \F{_∣_}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo ctaipe be ko'a goi la'o zoi.\ \D 𝕄\ .zoi.\ be'o bei lo ctaipe be ko'a
