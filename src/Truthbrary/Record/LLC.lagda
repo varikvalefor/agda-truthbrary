@@ -97,6 +97,7 @@ open import Data.List
   renaming (
     [] to []ₗ;
     _∷_ to _∷ₗ_;
+    filter to filterₗ;
     length to lengthₗ
   )
   hiding (
@@ -222,7 +223,7 @@ decaf : ∀ {a} → {Bean : Set a}
       → ⦃ Eq $ LL.e Q ⦄
       → LL.e Q → LL.e Q → (j : Bean)
       → Maybe $ LL.olen Q $ LL.l Q j ∸ 2
-decaf {_} {A} ⦃ Q ⦄ a b = Data.Maybe.map (LL.cev Q) ∘ f ∘ LL.vec Q
+decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   where
   f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
   f []ᵥ = nothing
@@ -234,9 +235,9 @@ decaf {_} {A} ⦃ Q ⦄ a b = Data.Maybe.map (LL.cev Q) ∘ f ∘ LL.vec Q
     delet = r ∘ t ∘ r ∘ t
       where
       t = Data.Vec.drop 1
-    conteven = (px a q) ∧ (px b $ r q)
+    conteven = (pamoi a q) ∧ (pamoi b $ r q)
       where
-      px = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
+      pamoi = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
 \end{code}
 
 \section{la'oi .\F{map}.}
@@ -246,8 +247,8 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi
 map : ∀ {a b} → {A : Set a} → {B : Set b}
     → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
     → (f : LL.e Q → LL.e R) → (x : A)
-    → LL.olen R $ lengthᵥ $ Data.Vec.map f $ LL.vec Q x
-map ⦃ Q ⦄ ⦃ R ⦄ f = LL.cev R ∘ Data.Vec.map f ∘ LL.vec Q
+    → LL.olen R $ length x
+map f = cev ∘ Data.Vec.map f ∘ vec
 \end{code}
 
 \section{la .\F{garden}.}
@@ -257,7 +258,7 @@ ni'o ga jonai ga je la'o zoi.\ \F{just} \B Q .zoi.\ selvau ko'a goi la'o zoi.\ \
 garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
        → ⦃ Q : LL CoolJ ⦄
        → (LL.e Q → Maybe B) → B → CoolJ → B
-garden ⦃ Q ⦄ the west gate = g2 the west $ LL.vec Q gate
+garden the west gate = g2 the west $ vec gate
   where
   g2 : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
      → (A → Maybe B) → B → Vec A n → B
@@ -273,7 +274,7 @@ _∈_ : ∀ {a} → {A : Set a}
     → ⦃ Fireball : LL A ⦄
     → ⦃ Eq $ LL.e Fireball ⦄
     → LL.e Fireball → A → Set
-_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ Data.List.filter (_≟_ a) ∘ f
+_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ filterₗ (_≟_ a) ∘ f
   where
   -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
   -- cmavlaka'i zo'oi .from... ja cu co'e
@@ -287,7 +288,7 @@ ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B x ∉ \B y\ .zoi.\ gi la'o zoi
 _∉_ : ∀ {a} → {Bean : Set a}
     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
     → LL.e Jeans → Bean → Set
-_∉_ x = _≡_ 0 ∘ lengthₗ ∘ Data.List.filter (_≟_ x) ∘ toList ∘ vec
+_∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (_≟_ x) ∘ toList ∘ vec
 \end{code}
 
 \section{la'oi .\F{nu,iork}.}
@@ -297,12 +298,11 @@ ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la
 nu,iork : ∀ {a} → {Bean : Set a}
         → ⦃ Q : LL Bean ⦄ → ⦃ Eq $ LL.e Q ⦄
         → Bean → Set a
-nu,iork {a} = nu,iork' ∘ Data.Vec.toList ∘ vec
+nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
   where
   nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
     where
     []' = flip List._∷_ List.[]
-    filterₗ = Data.List.filter
 \end{code}
 
 \section{la'oi .\F{UL}.}
