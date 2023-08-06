@@ -204,9 +204,9 @@ ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
   where
   ℓ = sym $ length-map f x
   k₂ = mink k ℓ
-  l : Σ (List B) $ λ l'
-      → Σ (length (map f x) ≡ length l') $ λ ℓ
-      → l' ! mink k₂ ℓ ≡ g (map f x ! k₂)
+  l : Σ (List B) $ λ l
+      → Σ (length (map f x) ≡ length l) $ λ ℓ
+      → l ! mink k₂ ℓ ≡ g (map f x ! k₂)
   l = ual (map f x) k₂ g
   p₂ = begin
     length x ≡⟨ sym $ length-map f x ⟩
