@@ -116,13 +116,12 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (f : A → B)
     → (n : Fin $ length l)
     → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
-lum (x ∷ xs) f zero = begin
-  map f (x ∷ xs) ! mink zero ℓ ≡⟨ cong x∷xs! $ minzero ℓ ⟩
-  map f (x ∷ xs) ! zero ≡⟨⟩
+lum p@(x ∷ xs) f zero = begin
+  map f p ! mink zero ℓ ≡⟨ cong (_!_ $ map f p) $ minzero ℓ ⟩
+  map f p ! zero ≡⟨⟩
   f x ∎
   where
   ℓ = sym $ length-map f $ x ∷ xs
-  x∷xs! = _!_ $ map f $ x ∷ xs
 lum (x ∷ xs) f (suc n) = begin
   map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ m n tryk tryks ⟩
   map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ i x xs f $ mink n tryk ⟩
