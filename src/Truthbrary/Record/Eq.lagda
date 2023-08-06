@@ -186,7 +186,7 @@ instance
          → (¬ (t ≡ v) → x ≡ z → C)
          → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
          → C
-    bork {_} {_} {_} {_} {_} {C} t v x z d f g j k = spit (t ≟ v) d
+    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
       where
       spit : Dec $ t ≡ v → Dec $ x ≡ z → C
       spit (yes a) (yes b) = f a b
