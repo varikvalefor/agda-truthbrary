@@ -203,7 +203,6 @@ ualmap : ∀ {a b} → {A : Set a} → {B : Set b}
          → g (f $ x ! k) ≡ l ! mink k ℓ
 ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
   where
-  ℓ : length x ≡ length (map f x)
   ℓ = sym $ length-map f x
   k₂ = mink k ℓ
   l : Σ (List B) $ λ l'
