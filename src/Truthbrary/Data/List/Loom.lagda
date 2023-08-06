@@ -143,7 +143,7 @@ lum (x ∷ xs) f (suc n) = begin
     → (f : A → B)
     → (n : Fin $ length $ map f xs)
     → map f (x ∷ xs) ! suc n ≡ map f xs ! n
-  i x xs f n = refl
+  i _ _ _ _ = refl
 \end{code}
 
 \section{la .\F{ual}.}
@@ -185,7 +185,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
             → (f : Fin m)
             → (x : m ≡ n)
             → suc (mink f x) ≡ mink (suc f) (cong ℕ.suc x)
-      sukmi f refl = refl
+      sukmi _ refl = refl
 \end{code}
 
 \section{la .\F{ualmap}.}
