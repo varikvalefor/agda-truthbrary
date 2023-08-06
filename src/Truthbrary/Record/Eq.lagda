@@ -16,6 +16,8 @@
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{∘}{\ensuremath{\circ}}
 \newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
+\newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
+\newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
@@ -96,6 +98,8 @@ open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
+
+import Data.List.Properties as DLP
 \end{code}
 
 \section{la'oi .\F{Eq}.}
@@ -163,19 +167,10 @@ instance
              → {x y : A} → {xs ys : List A}
              → x ≡ y → xs ≡ ys → x ∷ xs ≡ y ∷ ys
     doomsday refl refl = refl
-    notBigInto : ∀ {a} → {A : Set a}
-               → {x y : A} → {xs ys : List A}
-               → x ∷ xs ≡ y ∷ ys → xs ≡ ys
-    notBigInto refl = refl
     leadneck : ∀ {a} → {A : Set a}
              → {x y : A} → {xs ys : List A}
              → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
-    leadneck f = f ∘ hillbilly
-      where
-      hillbilly : ∀ {a} → {A : Set a}
-                → {x y : A} → {xs ys : List A}
-                → x ∷ xs ≡ y ∷ ys → x ≡ y
-      hillbilly refl = refl
+    leadneck f = f ∘ DLP.∷-injectiveˡ
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
          → (t v : A)
@@ -205,7 +200,7 @@ instance
       -- lo nu jimpe... kei kei je cu djica lo nu
       -- frili fa lo nu jimpe
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
-      booty jorts _ = map′ (doomsday jorts) notBigInto $ f xs ys
+      booty jorts _ = map′ (doomsday jorts) DLP.∷-injectiveʳ $ f xs ys
       arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
       arm wrestling _ = no $ leadneck wrestling
       -- | .i la .varik. cu jinvi le du'u na xlabebna
@@ -216,7 +211,7 @@ instance
       -- ku'i cu nelci le jalge be le nu zo'oi
       -- .messiah. cmene le ctaipe
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
-      messiah eek = map′ (doomsday eek) notBigInto ∘ no
+      messiah eek = map′ (doomsday eek) DLP.∷-injectiveʳ ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ leadneck quality
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
