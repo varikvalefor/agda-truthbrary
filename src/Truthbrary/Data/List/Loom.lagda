@@ -245,7 +245,7 @@ ualkonk : ∀ {a} → {A : Set a}
             (proj₁ $ ual x n f)
             (_++_
               (take n' x)
-              (f (x ! n) ∷ (drop (ℕ.suc n') x))))
+              (f (x ! n) ∷ drop (ℕ.suc n') x)))
 ualkonk (_ ∷ _) Fin.zero _ = refl
 ualkonk (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualkonk xs n
 \end{code}
