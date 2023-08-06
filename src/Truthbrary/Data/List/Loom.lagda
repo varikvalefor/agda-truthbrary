@@ -118,7 +118,7 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
 lum p@(x ∷ xs) f zero = begin
   map f p ! mink zero ℓ ≡⟨ cong (_!_ $ map f p) $ minzero ℓ ⟩
-  map f p ! zero ≡⟨⟩
+  map f p ! zero ≡⟨ refl ⟩
   f x ∎
   where
   ℓ = sym $ length-map f $ x ∷ xs
