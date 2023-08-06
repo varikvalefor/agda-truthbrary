@@ -252,9 +252,7 @@ ualkonk : ∀ {a} → {A : Set a}
                 (f $ x ! n)
                 (drop (ℕ.suc n') x))))
 ualkonk (_ ∷ _) Fin.zero _ = refl
-ualkonk (x ∷ xs) (Fin.suc n) f = cong (_∷_ x) u
-  where
-  u = ualkonk xs n f
+ualkonk (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualkonk xs n
 \end{code}
 
 \section{la .\F{ualteik}.}
