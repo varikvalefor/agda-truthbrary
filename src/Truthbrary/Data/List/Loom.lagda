@@ -136,7 +136,7 @@ lum (x ∷ xs) f (suc n) = begin
     → (x : m ≡ n)
     → (d : ℕ.suc m ≡ ℕ.suc n)
     → mink (suc t) d ≡ suc (mink t x)
-  m t refl refl = refl
+  m _ refl refl = refl
   i : ∀ {a b} → {A : Set a} → {B : Set b}
     → (x : A)
     → (xs : List A)
@@ -229,7 +229,7 @@ ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
       → (x : m ≡ n)
       → (xov : l ≡ n)
       → mink k xov ≡ mink (mink k v) x
-    M k refl refl refl = refl
+    M _ refl refl refl = refl
 \end{code}
 
 \section{la .\F{ualkonk}.}
