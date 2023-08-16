@@ -72,7 +72,7 @@ open import Function
 ni'o ro da poi ke'a ctaipe la'o zoi.\ .\D 𝕄 \B a \B b .zoi.\ zo'u da nacmeimei la'oi .\B a.\ la'oi .\B b.
 
 \subsection{le me'oi .field.\ pe'a ru'e}
-ni'o ga jo la'o zoi.\ \B a .zoi.\ nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \D 𝕄 A c b .zoi.
+ni'o ga jo la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \D 𝕄 A c b .zoi.\ gi la'o zoi.\ \B a .zoi.\ nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.
 
 \subsection{le su'u me'oi .order.}
 ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}) \F ∷ (4 \F ∷ 5 \F ∷ 6 \F ∷ \F{[]}) \F ∷ (7 \F ∷ 8 \F ∷ 9 \F ∷ \F{[]}) \F ∷ \F{[]}) .zoi.\ du le nacmeimei poi ke'a du la'o cmaci.
