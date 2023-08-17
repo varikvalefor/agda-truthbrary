@@ -91,7 +91,7 @@ ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}
 \end{code}
 
 \section{la'oi .\F{lookup}.}
-ni'o la .varik.\ cu jinvi le du'u le mu'oi glibau.\ type signature .glibau.\ cu xamgu velcki
+ni'o la .varik.\ cu jinvi le du'u le se ctaipe velcki cu xamgu velcki
 
 \begin{code}
 lookup : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
