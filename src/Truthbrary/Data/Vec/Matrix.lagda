@@ -108,7 +108,7 @@ I z o = map f $ allFin _
   f = λ x → updateAt x (const o) $ replicate z
 \end{code}
 
-\section{la'o zoi. \F{\_∣\_}\ .zoi.}
+\section{la'o zoi.\ \F{\_∣\_}\ .zoi.}
 ni'o la'o zoi.\ \B a \F{∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
