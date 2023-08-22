@@ -72,7 +72,7 @@ open import Function
 ni'o nacmeimei la'oi .\B a.\ la'oi .\B b.\ fa lo ro ctaipe be la'o zoi.\ .\F 𝕄 \B a \B b .zoi.
 
 \subsection{le me'oi .field.\ pe'a ru'e}
-ni'o ga jo la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi la'o zoi.\ \B a .zoi.\ nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.
+ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.
 
 \subsection{le su'u me'oi .order.}
 ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ ((1 \F ∷ 2 \F \F ∷ 3 \F ∷ \F{[]}) \F ∷ (4 \F ∷ 5 \F ∷ 6 \F ∷ \F{[]}) \F ∷ (7 \F ∷ 8 \F ∷ 9 \F ∷ \F{[]}) \F ∷ \F{[]}) .zoi.\ nacmeimei je cu du la'o cmaci.
