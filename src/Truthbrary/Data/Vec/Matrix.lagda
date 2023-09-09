@@ -108,7 +108,7 @@ I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
 \section{la'o zoi.\ \F{\_∣\_}\ .zoi.}
-ni'o la'o zoi.\ \B a \F{∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
