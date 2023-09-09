@@ -66,6 +66,10 @@ open import Data.Vec
     lookup to lookupᵥ
   )
 open import Function
+open import Algebra.Core
+  using (
+    Op₂
+  )
 \end{code}
 
 \section{la'o zoi. \F 𝕄\ .zoi.}
