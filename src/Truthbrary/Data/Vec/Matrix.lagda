@@ -100,9 +100,7 @@ ni'o ga jo la'o zoi.\ \F I \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ga je
 
 \begin{code}
 I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
-I z o = map f $ allFin _
-  where
-  f = λ x → updateAt x (const o) $ replicate z
+I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
 \section{la'o zoi.\ \F{\_∣\_}\ .zoi.}
