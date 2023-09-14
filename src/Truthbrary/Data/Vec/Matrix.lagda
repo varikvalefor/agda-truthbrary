@@ -83,7 +83,7 @@ ni'o la'o zoi.\
 	\Sym(\nacmeimeiPagbu{1}{2}{3}\Sym) \InductiveOperator ∷
 	\Sym(\nacmeimeiPagbu{4}{5}{6}\Sym) \InductiveOperator ∷
 	\Sym(\nacmeimeiPagbu{7}{8}{9}\Sym) \InductiveOperator ∷
-        \AgdaInductiveConstructor{[]}
+	\AgdaInductiveConstructor{[]}
 \Sym)
 .zoi.\ nacmeimei je cu du la'o cmaci.
 \[
