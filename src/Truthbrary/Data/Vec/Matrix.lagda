@@ -76,7 +76,8 @@ open import Algebra.Core
 ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.
 
 \subsection{le su'u me'oi .order.}
-ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ \Sym(\Sym(1 \F ∷ 2 \F \F ∷ 3 \F ∷ \AgdaInductiveConstructor{[]}\Sym) \F ∷ \Sym(4 \F ∷ 5 \F ∷ 6 \F ∷ \AgdaInductiveConstructor{[]}\Sym) \F ∷ \Sym(7 \F ∷ 8 \F ∷ 9 \F ∷ \AgdaInductiveConstructor{[]}\Sym) \F ∷ \AgdaInductiveConstructor{[]}\Sym) .zoi.\ nacmeimei je cu du la'o cmaci.
+\newcommand\InductiveOperator[1]{\AgdaOperator{\AgdaInductiveConstructor{#1}}}
+ni'o la'o zoi.\ \F 𝕄 \F ℕ 3 3 \F ∋ \Sym(\Sym(1 \InductiveOperator ∷ 2 \F \InductiveOperator ∷ 3 \InductiveOperator ∷ \AgdaInductiveConstructor{[]}\Sym) \InductiveOperator ∷ \Sym(4 \InductiveOperator ∷ 5 \InductiveOperator ∷ 6 \InductiveOperator ∷ \AgdaInductiveConstructor{[]}\Sym) \InductiveOperator ∷ \Sym(7 \InductiveOperator ∷ 8 \InductiveOperator ∷ 9 \InductiveOperator ∷ \AgdaInductiveConstructor{[]}\Sym) \InductiveOperator ∷ \AgdaInductiveConstructor{[]}\Sym) .zoi.\ nacmeimei je cu du la'o cmaci.
 \[
 	\begin{bmatrix}
 		1 & 2 & 3 \\
