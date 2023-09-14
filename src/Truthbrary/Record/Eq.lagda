@@ -10,17 +10,17 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
-\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
-\newunicodechar{ℤ}{\ensuremath{\mathbb{N}}}
-\newunicodechar{ℚ}{\ensuremath{\mathbb{Q}}}
-\newunicodechar{∀}{\ensuremath{\forall}}
-\newunicodechar{∘}{\ensuremath{\circ}}
-\newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
+\newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{N}}}}
+\newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
+\newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
+\newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
+\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\mathrm{b}}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
-\newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}

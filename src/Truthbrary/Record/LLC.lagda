@@ -11,9 +11,9 @@
 \usepackage{newunicodechar}
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
-\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
-\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
@@ -25,8 +25,8 @@
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
-\newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
-\newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\mathrm{b}}}}
+\newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal{\in}}}
 \newunicodechar{∉}{\ensuremath{\mathnormal{\notin}}}
 
