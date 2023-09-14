@@ -100,7 +100,7 @@ lookup m n = map (flip lookupᵥ n) m
 \end{code}
 
 \section{la'oi .\F I.}
-ni'o ga jo la'o zoi.\ \F I \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ga je la'o zoi.\ \B z .zoi.\ du li no ja zo'e gi la'o zoi.\ \B o .zoi.\ du li pa ja zo'e
+ni'o ga jo la'o zoi.\ \F \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} I \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da du lo pilji ja co'e be da bei la'o zoi.\ \B o .zoi.
 
 \begin{code}
 I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
