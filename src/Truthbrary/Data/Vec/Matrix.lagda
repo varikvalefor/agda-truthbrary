@@ -41,7 +41,7 @@ ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru\ldots
 	\item le velcki be la'o zoi.\ \F 𝕄 .zoi.\ noi tu'a ke'a filri'a tu'a lo nacmeimei be'o je
 	\item le velcki be la'o zoi.\ \F{lookup} .zoi.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o je
 	\item le velcki be la'o zoi.\ \F I .zoi.\ noi tu'a ke'a filri'a tu'a lo me'oi .identity.\ nacmeimei be'o je
-	\item le velcki be la'o zoi.\ \F{\_∣\_}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo nacmeimei bei lo nacmeimei
+	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo nacmeimei bei lo nacmeimei
 \end{itemize}
 
 \section{le vrici}
@@ -114,7 +114,7 @@ I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
 I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
-\section{la'o zoi.\ \F{\_∣\_}\ .zoi.}
+\section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
