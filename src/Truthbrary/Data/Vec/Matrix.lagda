@@ -79,10 +79,11 @@ ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da n
 \newcommand\InductiveOperator[1]{\AgdaOperator{\AgdaInductiveConstructor{#1}}}
 \newcommand\nacmeimeiPagbu[3]{\AgdaNumber{#1} \InductiveOperator ∷ \AgdaNumber{#2} \InductiveOperator ∷ \AgdaNumber{#3} \InductiveOperator ∷ \AgdaInductiveConstructor{[]}}
 ni'o la'o zoi.\
-\F 𝕄 \D ℕ \AgdaNumber 3 \AgdaNumber 3 \F ∋ \Sym(\Sym(\nacmeimeiPagbu123\Sym) \InductiveOperator ∷
-                        \Sym(\nacmeimeiPagbu456\Sym) \InductiveOperator ∷
-                        \Sym(\nacmeimeiPagbu789\Sym) \InductiveOperator ∷
-                        \AgdaInductiveConstructor{[]}\Sym)
+\F 𝕄 \D ℕ \AgdaNumber 3 \AgdaNumber 3 \F ∋
+	\Sym(\Sym(\nacmeimeiPagbu123\Sym) \InductiveOperator ∷
+	     \Sym(\nacmeimeiPagbu456\Sym) \InductiveOperator ∷
+	     \Sym(\nacmeimeiPagbu789\Sym) \InductiveOperator ∷
+	     \AgdaInductiveConstructor{[]}\Sym)
 .zoi.\ nacmeimei je cu du la'o cmaci.
 \[
 	\begin{bmatrix}
