@@ -358,7 +358,7 @@ instance
 \end{code}
 
 \section{la'oi .\F{LC}.}
-ni'o ga jo ga je la'o zoi.\ \F{LC} \B A \B B .zoi.\ zasti gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o ga jo ga je ctaipe la'o zoi.\ \F{LC} \B A \B B .zoi.\ gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
