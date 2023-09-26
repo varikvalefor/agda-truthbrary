@@ -59,7 +59,7 @@ open import Function
 open import Category.Monad
 \end{code}
 
-\section{la'oi .\F{\_pure\_}.}
+\section{la'oi .\F{pure}.}
 \liharmi
 
 \begin{code}
@@ -99,7 +99,7 @@ _>=>_ : ∀ {a} → {A B C : Set a}
 _>=>_ f g = _=<<_ g ∘ f
 \end{code}
 
-\section{la'oi .\F{\_map\_}.}
+\section{la'oi .\F{map}.}
 \liharmi
 
 \begin{code}
@@ -109,7 +109,7 @@ map : ∀ {a} → {A B : Set a}
 map f = _=<<_ $ pure ∘ f
 \end{code}
 
-\section{la'oi .\F{\_map₂\_}.}
+\section{la'oi .\F{map₂}.}
 \liharmi
 
 \begin{code}
