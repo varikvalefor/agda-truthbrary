@@ -274,7 +274,7 @@ instance
     zir = 0ℚᵘ
     deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
     deev m n with Data.Integer.∣ ℚᵘ.↥ n ∣ ≟ₙ 0
-    ... | no q = just $ (λ a → ℚᵘ._÷_ m n {a}) $ fromWitnessFalse q
+    ... | no q = just $ ℚᵘ._÷_ m n {fromWitnessFalse q}
     ... | yes _ = nothing
 \end{code}
 
