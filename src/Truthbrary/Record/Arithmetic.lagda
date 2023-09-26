@@ -184,7 +184,7 @@ instance
     0+0≡0 = refl;
     0-0≡0 = refl}
     where
-    r = const $ const ℕ
+    r = λ _ _ → ℕ
     deev : ℕ → ℕ → Maybe ℕ
     deev _ 0 = nothing
     deev a (suc b) = just $ Data.Nat.DivMod._/_ a $ suc b
@@ -211,7 +211,7 @@ instance
     0+0≡0 = refl;
     0-0≡0 = refl}
     where
-    r = const $ const ℤ
+    r = λ _ _ → ℤ
     deev : ℤ → ℤ → Maybe ℤ
     deev a b = csiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
       where
@@ -245,13 +245,13 @@ instance
     where
     uyn = Data.Float.fromℕ 1
     zir = Data.Float.fromℕ 0
-    r = const $ const Float
+    r = λ _ _ → Float
   ariℚᵘℚᵘ : Arris ℚᵘ ℚᵘ
   ariℚᵘℚᵘ = record {
     _⊔+_ = r;
     _⊔-_ = r;
     _⊔*_ = r;
-    _⊔/_ = const $ const $ Maybe ℚᵘ;
+    _⊔/_ = λ _ _ → Maybe ℚᵘ;
     _+_ = ℚᵘ._+_;
     _-_ = ℚᵘ._-_;
     _*_ = ℚᵘ._*_;
@@ -269,7 +269,7 @@ instance
     0+0≡0 = refl;
     0-0≡0 = refl}
     where
-    r = const $ const ℚᵘ
+    r = λ _ _ → ℚᵘ
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
     deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
