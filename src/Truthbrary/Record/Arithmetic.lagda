@@ -273,12 +273,11 @@ instance
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
     deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
-    deev m n = spit (λ a → ℚᵘ._÷_ m n {a}) $ ∣↥n∣ ≟ₙ 0
+    deev m n with ∣↥n∣ ≟ₙ 0
       where
       ∣↥n∣ = Data.Integer.∣ ℚᵘ.↥ n ∣
-      spit : (False $ ∣↥n∣ ≟ₙ 0 → ℚᵘ) → Dec $ ∣↥n∣ ≡ 0 → Maybe ℚᵘ
-      spit f (no q) = just $ f $ fromWitnessFalse q
-      spit _ (yes _) = nothing
+    ... | (no q) = just $ (λ a → ℚᵘ._÷_ m n {a}) $ fromWitnessFalse q
+    ... | (yes _) = nothing
 \end{code}
 
 \section{la'oi .\F{\_+\_}.}
