@@ -59,7 +59,7 @@ open import Function
 open import Category.Monad
 \end{code}
 
-\section{la'oi .\F{\_pure\_}.}
+\section{la'oi .\F{\AgdaUnderscore{}pure\AgdaUnderscore}.}
 \liharmi
 
 \begin{code}
@@ -69,7 +69,7 @@ pure : ∀ {a} → {A : Set a}
 pure ⦃ idiocy ⦄ = RawMonad.pure idiocy
 \end{code}
 
-\section{la'oi .\F{\_>>=\_}.}
+\section{la'oi .\F{\AgdaUnderscore>>=\AgdaUnderscore}.}
 \liharmi
 
 \begin{code}
@@ -79,7 +79,7 @@ _>>=_ : ∀ {a} → {A B : Set a}
 _>>=_ ⦃ ssmw ⦄ = RawMonad._>>=_ ssmw
 \end{code}
 
-\section{la'oi .\F{\_=<<\_}.}
+\section{la'oi .\F{\AgdaUnderscore=<<\AgdaUnderscore}.}
 \liharmi
 
 \begin{code}
@@ -89,7 +89,7 @@ _=<<_ : ∀ {a} → {A B : Set a}
 _=<<_ = flip _>>=_
 \end{code}
 
-\section{la'oi .\F{\_>=>\_}.}
+\section{la'oi .\F{\AgdaUnderscore>=>\AgdaUnderscore}.}
 \liharmi
 
 \begin{code}
@@ -99,7 +99,7 @@ _>=>_ : ∀ {a} → {A B C : Set a}
 _>=>_ f g = _=<<_ g ∘ f
 \end{code}
 
-\section{la'oi .\F{\_map\_}.}
+\section{la'oi .\F{\AgdaUnderscore{}map\AgdaUnderscore}.}
 \liharmi
 
 \begin{code}
@@ -109,7 +109,7 @@ map : ∀ {a} → {A B : Set a}
 map f = _=<<_ $ pure ∘ f
 \end{code}
 
-\section{la'oi .\F{\_map₂\_}.}
+\section{la'oi .\F{\AgdaUnderscore{}map₂\AgdaUnderscore}.}
 \liharmi
 
 \begin{code}

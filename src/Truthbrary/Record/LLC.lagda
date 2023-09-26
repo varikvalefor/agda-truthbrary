@@ -46,7 +46,7 @@
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
 	\item le velcki be la'o zoi.\ \F{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
-	\item le velcki be vu'oi la'o zoi.\ \F{\_∈\_} .zoi.\ je la'o zoi.\ \F{\_∉\_} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu ciksi lo ctaipe lo du'u vasru kei ja lo du'u na vasru be'o je
+	\item le velcki be vu'oi la'o zoi.\ \F{\AgdaUnderscore∈\AgdaUnderscore} .zoi.\ je la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu ciksi lo ctaipe lo du'u vasru kei ja lo du'u na vasru be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
 	\item le velcki be lo me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LC} .zoi.
@@ -144,7 +144,7 @@ ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ 
 	\item ga je la'o zoi.\ \F{LL.olen} \B q \B n .zoi.\ se ctaipe lo ro lazmi'u pe'a be la'oi .\B t.\ be'o poi la'oi .\B n.\ nilzilcmi ke'a gi
 	\item ga je la'o zoi.\ \F{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \F{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
 	\item ga je la'o zoi.\ \F{LL.l} \B q \B l .zoi.\ nilzilcmi la'o zoi.\ \B l .zoi.\ gi
-	\item ga je pilno la'oi .\F{\_∷\_}.\ lo nu me'oi .prepend.\ gi
+	\item ga je pilno la'oi .\F{\AgdaUnderscore∷\AgdaUnderscore}.\ lo nu me'oi .prepend.\ gi
 	\item la'o zoi.\ \F{LL.cev} \B q \OpF∘ \F{LL.vec} \B q .zoi.\ dunli la'oi .\F{id}.
 \end{itemize}
 
@@ -163,7 +163,7 @@ record LL {a} (A : Set a) : Set (Level.suc a)
 
 \subsection{le fancu}
 
-\subsubsection{la'oi .\F{\_∷\_}.}
+\subsubsection{la'oi .\F{\AgdaUnderscore∷\AgdaUnderscore}.}
 ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 
 \begin{code}
@@ -267,7 +267,7 @@ garden the west gate = g2 the west $ vec gate
   g2 _ d []ᵥ = d
 \end{code}
 
-\subsection{la'oi .\F{\_∈\_}.}
+\subsection{la'oi .\F{\AgdaUnderscore∈\AgdaUnderscore}.}
 ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \OpF \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ vasru la'o zoi.\ \B a .zoi.\ gi la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B a \OpF ∈ \B b .zoi.
 
 \begin{code}
@@ -282,7 +282,7 @@ _∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ filterₗ (_≟_ a) ∘
   f = toList ∘ vec
 \end{code}
 
-\subsection{la'o zoi.\ \F{\_∉\_}\ .zoi.}
+\subsection{la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore}\ .zoi.}
 ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \OpF \$ \B x \OpF ∉ \B y\ .zoi.\ gi la'o zoi.\ \B y\ .zoi.\ na vasru la'o zoi.\ \B x\ .zoi.
 
 \begin{code}
@@ -370,7 +370,7 @@ record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
 
 \subsection{le fancu}
 
-\subsubsection{la'oi .\F{\_++\_}.}
+\subsubsection{la'oi .\F{\AgdaUnderscore++\AgdaUnderscore}.}
 ni'o la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
