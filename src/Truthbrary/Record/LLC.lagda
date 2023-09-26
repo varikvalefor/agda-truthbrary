@@ -267,7 +267,7 @@ garden the west gate = g2 the west $ vec gate
 \end{code}
 
 \section{la'oi .\F{\_∈\_}.}
-ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \Sym \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ vasru la'o zoi.\ \B a .zoi.\ gi la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B a \F ∈ \B b .zoi.
+ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \Sym \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ se cmima la'o zoi.\ \B a .zoi.\ gi la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B a \F ∈ \B b .zoi.
 
 \begin{code}
 _∈_ : ∀ {a} → {A : Set a}
