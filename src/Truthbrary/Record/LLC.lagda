@@ -34,6 +34,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\OpF[1]{\AgdaOperator{\F{#1}}}
 
 \title{la'o zoi.\ \texttt{Truthbrary.Record.LLC} .zoi.}
 \author{la .varik.\ .VALefor.}
@@ -144,7 +145,7 @@ ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ 
 	\item ga je la'o zoi.\ \F{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \F{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
 	\item ga je la'o zoi.\ \F{LL.l} \B q \B l .zoi.\ nilzilcmi la'o zoi.\ \B l .zoi.\ gi
 	\item ga je pilno la'oi .\F{\_∷\_}.\ lo nu me'oi .prepend.\ gi
-	\item la'o zoi.\ \F{LL.cev} \B q \Sym∘ \F{LL.vec} \B q .zoi.\ dunli la'oi .\F{id}.
+	\item la'o zoi.\ \F{LL.cev} \B q \OpF∘ \F{LL.vec} \B q .zoi.\ dunli la'oi .\F{id}.
 \end{itemize}
 
 \begin{code}
@@ -267,7 +268,7 @@ garden the west gate = g2 the west $ vec gate
 \end{code}
 
 \section{la'oi .\F{\_∈\_}.}
-ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \Sym \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ vasru la'o zoi.\ \B a .zoi.\ gi la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B a \F ∈ \B b .zoi.
+ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \OpF \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ vasru la'o zoi.\ \B a .zoi.\ gi la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B a \OpF ∈ \B b .zoi.
 
 \begin{code}
 _∈_ : ∀ {a} → {A : Set a}
@@ -282,7 +283,7 @@ _∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ filterₗ (_≟_ a) ∘
 \end{code}
 
 \section{la'o zoi.\ \F{\_∉\_}\ .zoi.}
-ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \Sym \$ \B x ∉ \B y\ .zoi.\ gi la'o zoi.\ \B y\ .zoi.\ na vasru la'o zoi.\ \B x\ .zoi.
+ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \OpF \$ \B x ∉ \B y\ .zoi.\ gi la'o zoi.\ \B y\ .zoi.\ na vasru la'o zoi.\ \B x\ .zoi.
 
 \begin{code}
 _∉_ : ∀ {a} → {Bean : Set a}
@@ -306,7 +307,7 @@ nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
 \end{code}
 
 \section{la'oi .\F{UL}.}
-ni'o ga jo la'o zoi.\ \B a \Sym , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
+ni'o ga jo la'o zoi.\ \B a \OpF , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
 
 \begin{code}
 UL : ∀ {a} → (A : Set a)
@@ -358,7 +359,7 @@ instance
 \end{code}
 
 \section{la'oi .\F{LC}.}
-ni'o ga jo ga je la'o zoi.\ \F{LC} \B A \B B .zoi.\ zasti gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o ga jo ga je la'o zoi.\ \F{LC} \B A \B B .zoi.\ zasti gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
@@ -370,7 +371,7 @@ record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
 \subsection{le fancu}
 
 \subsubsection{la'oi .\F{\_++\_}.}
-ni'o la'o zoi.\ \B a \Sym{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 infixr 5 _++_
