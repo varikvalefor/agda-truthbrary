@@ -276,8 +276,8 @@ instance
     deev m n with ∣↥n∣ ≟ₙ 0
       where
       ∣↥n∣ = Data.Integer.∣ ℚᵘ.↥ n ∣
-    ... | (no q) = just $ (λ a → ℚᵘ._÷_ m n {a}) $ fromWitnessFalse q
-    ... | (yes _) = nothing
+    ... | no q = just $ (λ a → ℚᵘ._÷_ m n {a}) $ fromWitnessFalse q
+    ... | yes _ = nothing
 \end{code}
 
 \section{la'oi .\F{\_+\_}.}
