@@ -292,7 +292,7 @@ _∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (_≟_ x) ∘ toList ∘ vec
 \end{code}
 
 \section{la'oi .\F{nu,iork}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u li pa nilzilcmi lo'i ro versiio ja co'e be da be'o poi tu'a ke'a selvau la'o zoi.\ \B a .zoi.
+ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u li pa nilzilcmi lo'i ro versiio ja co'e be da be'o poi ke'a selvau la'o zoi.\ \B a .zoi.
 
 \begin{code}
 nu,iork : ∀ {a} → {Bean : Set a}
