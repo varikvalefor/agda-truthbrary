@@ -222,7 +222,7 @@ decaf : ∀ {a} → {Bean : Set a}
       → ⦃ Q : LL Bean ⦄
       → ⦃ Eq $ LL.e Q ⦄
       → LL.e Q → LL.e Q → (j : Bean)
-      → Maybe $ LL.olen Q $ LL.l Q j ∸ 2
+      → Maybe $ LL.olen Q $ length j ∸ 2
 decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   where
   f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
@@ -364,7 +364,7 @@ ni'o ga jo ga je la'o zoi.\ \F{LC} \B A \B B .zoi.\ zasti gi la'o zoi.\ \B a .zo
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
   where
   field
-    _++_ : (C : A) → (D : B) → LL.olen Q $ LL.l Q C + LL.l R D
+    _++_ : (C : A) → (D : B) → LL.olen Q $ length C + length D
 \end{code}
 
 \subsection{le fancu}
@@ -380,7 +380,7 @@ _++_ : ∀ {a} → {Bean CoolJ : Set a}
      → ⦃ U : LL CoolJ ⦄
      → ⦃ LC Bean CoolJ ⦄
      → (BN : Bean) → (CJ : CoolJ)
-     → LL.olen T $ LL.l T BN + LL.l U CJ
+     → LL.olen T $ length BN + length CJ
 _++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
 \end{code}
 
