@@ -236,7 +236,7 @@ decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
       t = Data.Vec.drop 1
     conteven = (pamoi a q) ∧ (pamoi b $ r q)
       where
-      pamoi = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
+      pamoi = λ n → _≡ᵇ_ n ∘ Data.Vec.head
 \end{code}
 
 \section{la'oi .\F{map}.}
