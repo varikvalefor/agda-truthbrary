@@ -131,7 +131,7 @@ ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \F{Arris} \B A \B b .z
 	\item je la'o zoi.\ \F{Arris.zir₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir+} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir-} \B a \B x \B y .zoi.\ du li no gi
 	\item co'e
 \end{itemize}
-.i la .varik.\ cu na jinvi le du'u sarcu fa lo nu .lojban.\ velcki la'o zoi.\ \F{1*1≡1} .zoi.\ je zo'e
+.i la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \F{1*1≡1} .zoi.\ je zo'e bau la .lojban.
 
 \begin{code}
 record Arris {a b c} (A : Set a) (B : Set b) : Set (lsuc $ a ⊔ b ⊔ c)
