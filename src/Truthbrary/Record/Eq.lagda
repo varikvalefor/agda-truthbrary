@@ -177,10 +177,6 @@ instance
              → {x y : A} → {xs ys : Vec A m}
              → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
     doomsday refl refl = refl
-    leadneck : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
-             → {x y : A} → {xs ys : Vec A n}
-             → ¬ (x ≡ y) → ¬ (x ∷ᵥ xs ≡ y ∷ᵥ ys)
-    leadneck f = f ∘ DVP.∷-injectiveˡ
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
          → (t v : A)
@@ -212,7 +208,7 @@ instance
       arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
           → {x y : A} → {xs ys : Vec A n}
           → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      arm wrestling _ = no $ leadneck wrestling
+      arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
       -- | .i la .varik. cu jinvi le du'u na xlabebna
       -- fa le versiio be le cmene be'o poi co'e ke'a
       -- pu lo nu gubygau le ctaipe... kei kei jenai
@@ -223,7 +219,7 @@ instance
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      ltd quality _ = no $ leadneck quality
+      ltd quality _ = no $ quality ∘ DVP.∷-injectiveˡ
   EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
   EqList {_} {A} ⦃ Q ⦄ = record {_≟_ = f}
     where
