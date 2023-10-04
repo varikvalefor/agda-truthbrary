@@ -23,6 +23,7 @@
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{′}{\ensuremath{\mathnormal{\prime}}}
