@@ -212,13 +212,11 @@ instance
     where
     r = λ _ _ → ℤ
     deev : ℤ → ℤ → Maybe ℤ
-    deev a b = csiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
+    deev a b with Data.Integer.∣ b ∣ ≟ₙ 0
+    ... | no q = just $ _div_ a b {fromWitnessFalse q}
       where
-      ∣b∣ = Data.Integer.∣ b ∣
-      eek0 = ∣b∣ ≟ₙ 0
-      csiz : (False $ ∣b∣ ≟ₙ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
-      csiz f (no q) = just $ f $ fromWitnessFalse q
-      csiz _ (yes _) = nothing
+      _div_ = Data.Integer.DivMod._div_
+    ... | _ = nothing
   ariFloatFloat : Arris Float Float
   ariFloatFloat = record {
     _⊔+_ = r;
