@@ -22,6 +22,7 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
+\newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{′}{\ensuremath{\mathnormal{\prime}}}
@@ -104,6 +105,8 @@ open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
+
+import Data.Vec.Properties as DVP
 \end{code}
 
 \section{la'oi .\F{Eq}.}
@@ -178,12 +181,7 @@ instance
     leadneck : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
              → {x y : A} → {xs ys : Vec A n}
              → ¬ (x ≡ y) → ¬ (x ∷ᵥ xs ≡ y ∷ᵥ ys)
-    leadneck f = f ∘ hillbilly
-      where
-      hillbilly : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
-                → {x y : A} → {xs ys : Vec A n}
-                → x ∷ᵥ xs ≡ y ∷ᵥ ys → x ≡ y
-      hillbilly refl = refl
+    leadneck f = f ∘ DVP.∷-injectiveˡ
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
          → (t v : A)
