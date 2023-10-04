@@ -109,10 +109,7 @@ open import Data.Integer as ℤ
     ℤ
   )
 import Data.Integer.DivMod as ℤ
-open import Data.Nat.DivMod
-  using (
-    _mod_
-  )
+import Data.Nat.DivMod
 open import Relation.Nullary
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Definitions
