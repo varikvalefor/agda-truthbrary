@@ -44,6 +44,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\OpF[1]{\AgdaOperator{\AgdaFunction{#1}}}
 
 \newcommand\cmene{Truthbrary.Record.Arithmetic}
 
@@ -282,7 +283,7 @@ instance
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore+\AgdaUnderscore}.}
-ni'o la'o zoi.\ B a \Sym + \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \OpF + \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _+_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -292,7 +293,7 @@ _+_ ⦃ Q ⦄ = Arris._+_ Q
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore-\AgdaUnderscore}.}
-ni'o la'o zoi.\ B a \Sym - \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \OpF - \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _-_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -302,7 +303,7 @@ _-_ ⦃ Q ⦄ = Arris._-_ Q
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore*\AgdaUnderscore}.}
-ni'o la'o zoi.\ B a \Sym * \B b .zoi.\ pilji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \OpF * \B b .zoi.\ pilji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _*_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -312,7 +313,7 @@ _*_ ⦃ Q ⦄ = Arris._*_ Q
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore/\AgdaUnderscore}.}
-ni'o la'o zoi.\ B a \Sym / \B b .zoi.\ dilcu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \OpF / \B b .zoi.\ dilcu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _/_ : ∀ {a b c} → {A : Set a} → {B : Set b}
