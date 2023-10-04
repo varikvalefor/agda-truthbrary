@@ -108,12 +108,13 @@ open import Data.Integer as ℤ
     1ℤ;
     ℤ
   )
-import Data.Integer.DivMod as ℤ
-import Data.Nat.DivMod
 open import Relation.Nullary
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
+
+import Data.Integer.DivMod as ℤ
+import Data.Nat.DivMod
 \end{code}
 
 \section{la'oi .\F{Arris}.}
