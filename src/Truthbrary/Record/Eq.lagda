@@ -166,7 +166,8 @@ instance
           → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
           → Eq $ These A B
   EqThese = record {_≟_ = Data.These.Properties.≡-dec _≟_ _≟_}
-  EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄ → Eq $ Vec A n
+  EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄
+        → Eq $ Vec A n
   EqVec {_} {A} {n} ⦃ Q ⦄ = record {_≟_ = f}
     where
     -- | Tick-tock, tick-tock, tick-tock!
