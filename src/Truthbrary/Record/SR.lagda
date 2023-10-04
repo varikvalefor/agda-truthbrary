@@ -109,6 +109,13 @@ open import Data.Float
     Float
   )
 open import Data.Maybe
+  using (
+    nothing;
+    _>>=_;
+    Maybe;
+    maybe;
+    just
+  )
   renaming (
     map to mapₘ
   )
