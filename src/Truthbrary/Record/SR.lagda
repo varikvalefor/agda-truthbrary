@@ -72,14 +72,13 @@ import Data.Integer.Show
 import Data.Rational.Show
 
 open import Data.Fin
-  hiding (
-    _≟_;
-    toℕ
+  using (
+    Fin
   )
 open import Data.Nat
-  hiding (
-    _≡ᵇ_;
-    _≟_
+  using (
+    _∸_;
+    ℕ
   )
 open import Data.Sum
   using (
@@ -89,8 +88,9 @@ open import Data.Sum
   )
 open import Function
 open import Data.Bool
-  hiding (
-    _≟_
+  using (
+    if_then_else_;
+    not
   )
 open import Data.Char
   using (
@@ -120,11 +120,11 @@ open import Data.Maybe
     map to mapₘ
   )
 open import Data.String
-  hiding (
-    _≟_;
-    show;
-    length;
-    _++_
+  using (
+    fromList;
+    String;
+    parens;
+    toList
   )
 open import Data.Integer
   using (
