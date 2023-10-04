@@ -102,13 +102,13 @@ open import Data.Rational.Unnormalised as ℚᵘ
     mkℚᵘ;
     ℚᵘ
   )
-open import Data.Integer
+open import Data.Integer as ℤ
   using (
     0ℤ;
     1ℤ;
     ℤ
   )
-import Data.Integer.DivMod
+import Data.Integer.DivMod as ℤ
 open import Data.Nat.DivMod
   using (
     _mod_
@@ -193,9 +193,9 @@ instance
     _⊔-_ = r;
     _⊔*_ = r;
     _⊔/_ = const $ const $ Maybe ℤ;
-    _+_ = Data.Integer._+_;
-    _-_ = Data.Integer._-_;
-    _*_ = Data.Integer._*_;
+    _+_ = ℤ._+_;
+    _-_ = ℤ._-_;
+    _*_ = ℤ._*_;
     _/_ = deev;
     uyn₁ = 1ℤ;
     uyn₂ = 1ℤ;
@@ -212,10 +212,8 @@ instance
     where
     r = λ _ _ → ℤ
     deev : ℤ → ℤ → Maybe ℤ
-    deev a b with Data.Integer.∣ b ∣ ≟ₙ 0
-    ... | no q = just $ _div_ a b {fromWitnessFalse q}
-      where
-      _div_ = Data.Integer.DivMod._div_
+    deev a b with ℤ.∣ b ∣ ≟ₙ 0
+    ... | no q = just $ ℤ._div_ a b {fromWitnessFalse q}
     ... | _ = nothing
   ariFloatFloat : Arris Float Float
   ariFloatFloat = record {
@@ -270,7 +268,7 @@ instance
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
     deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
-    deev m n with Data.Integer.∣ ℚᵘ.↥ n ∣ ≟ₙ 0
+    deev m n with ℤ.∣ ℚᵘ.↥ n ∣ ≟ₙ 0
     ... | no q = just $ ℚᵘ._÷_ m n {fromWitnessFalse q}
     ... | yes _ = nothing
 \end{code}
