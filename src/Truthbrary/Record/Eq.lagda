@@ -23,6 +23,7 @@
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
+\newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
@@ -176,10 +177,6 @@ instance
              → {x y : A} → {xs ys : Vec A m}
              → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
     doomsday refl refl = refl
-    notBigInto : ∀ {a} → {A : Set a} → {m : Data.Nat.ℕ}
-               → {x y : A} → {xs ys : Vec A m}
-               → x ∷ᵥ xs ≡ y ∷ᵥ ys → xs ≡ ys
-    notBigInto refl = refl
     leadneck : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
              → {x y : A} → {xs ys : Vec A n}
              → ¬ (x ≡ y) → ¬ (x ∷ᵥ xs ≡ y ∷ᵥ ys)
@@ -211,7 +208,7 @@ instance
       -- lo nu jimpe... kei kei je cu djica lo nu
       -- frili fa lo nu jimpe
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      booty jorts _ = map′ (doomsday jorts) notBigInto $ f xs ys
+      booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
       arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
           → {x y : A} → {xs ys : Vec A n}
           → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
@@ -224,7 +221,7 @@ instance
       -- ku'i cu nelci le jalge be le nu zo'oi
       -- .messiah. cmene le ctaipe
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      messiah eek = map′ (doomsday eek) notBigInto ∘ no
+      messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       ltd quality _ = no $ leadneck quality
   EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
