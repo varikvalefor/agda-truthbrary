@@ -66,6 +66,8 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 
 module Truthbrary.Record.SR where
 
+import Data.Fin.Show
+import Data.Nat.Show
 import Data.Integer.Show
 import Data.Rational.Show
 
@@ -131,12 +133,6 @@ open import Data.Rational.Unnormalised as ℚᵘ
   using (
     ℚᵘ;
     mkℚᵘ
-  )
-open import Data.Fin.Show
-  using (
-  )
-open import Data.Nat.Show
-  using (
   )
 open import Data.Maybe.Instances
 open import Truthbrary.Record.Eq
