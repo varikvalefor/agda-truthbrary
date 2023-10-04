@@ -135,6 +135,7 @@ open import Relation.Binary.PropositionalEquality
     _≡_
   )
 \end{code}
+
 \section{la'oi .\F{LL}.}
 ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
 
