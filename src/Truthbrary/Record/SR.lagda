@@ -11,11 +11,11 @@
 \usepackage{newunicodechar}
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
-\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
-\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
-\newunicodechar{ℚ}{\ensuremath{\mathbb{Q}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
+\newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{Z}}}}
+\newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
-\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
@@ -32,7 +32,7 @@
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^b}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
-\newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal{\divdot}}}
 
 \newcommand\Sym\AgdaSymbol
