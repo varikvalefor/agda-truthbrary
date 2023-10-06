@@ -170,7 +170,7 @@ record Show {a} (A : Set a) : Set a
 \end{code}
 
 \subsection{la'oi .\F{show}.}
-ni'o ga naja la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi la'o zoi.\ \F{show} \B a .zoi.\ sinxa la'o zoi.\ \B a .zoi.
+ni'o ga naja ga je ctaipe la'o zoi.\ \F{Show} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi la'o zoi.\ \F{show} \B a .zoi.\ sinxa la'o zoi.\ \B a .zoi.
 
 \begin{code}
 show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄
