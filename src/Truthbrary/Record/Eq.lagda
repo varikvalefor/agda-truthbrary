@@ -45,7 +45,7 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 \begin{itemize}
 	\item le velcki be ko'a goi la'oi .\F{\AgdaUnderscore≟\AgdaUnderscore}.\ noi tu'a ke'a filri'a lo nu jdice lo jei dunli be'o je
 	\item le velcki be ko'e goi le me'oi .\AgdaKeyword{record}.\ poi ke'a jicmu ko'a be'o je
-	\item le me'oi .\F{instance}.\ pe ko'e
+	\item le me'oi .\AgdaKeyword{instance}.\ pe ko'e
 \end{itemize}
 
 \section{le vrici}
