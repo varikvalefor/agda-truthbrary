@@ -99,7 +99,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la'oi .\F{Eq}.}
-\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{isYes} \Sym \$ {#1} .zoi.\ du la'oi .\F{true}.\ gi ko'a du la'o zoi.\ \F{false} .zoi.}
+\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{isYes} \Sym \$ #1 .zoi.\ du la'oi .\F{true}.\ gi ko'a du la'o zoi.\ \F{false} .zoi.}
 ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \F{Eq} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ je la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi \eqq{\F{Eq.\AgdaUnderscore≟\AgdaUnderscore} \B Q \B a \B b}
 
 \begin{code}
