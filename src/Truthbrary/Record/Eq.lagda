@@ -95,7 +95,6 @@ open import Data.List
   )
 open import Relation.Nullary
 open import Relation.Nullary.Decidable
-open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
 
