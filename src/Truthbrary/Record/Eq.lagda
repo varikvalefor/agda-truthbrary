@@ -160,7 +160,7 @@ instance
           → Eq $ These A B
   EqThese = record {_≟_ = Data.These.Properties.≡-dec _≟_ _≟_}
   EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
-  EqList {_} {A} ⦃ Q ⦄ = record {_≟_ = f}
+  EqList {A = A} ⦃ Q ⦄ = record {_≟_ = f}
     where
     -- | Tick-tock, tick-tock, tick-tock!
     doomsday : ∀ {a} → {A : Set a}
