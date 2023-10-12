@@ -91,7 +91,7 @@ tomindus _ refl = refl
 \ckinas{la .\F{tondus}.}
 
 \subsection{lo ka ce'u mapti}
-ni'o xu ko'a goi la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu be la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots je ku'i zo'e pe la'o zoi.\ \texttt{Data.Nat}\ .zoi.
+ni'o xu ko'a goi la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots je ku'i zo'e pe la'o zoi.\ \texttt{Data.Nat}\ .zoi.
 
 \begin{code}
 tondus : (n : ℕ) → toℕ (fromℕ n) ≡ n
