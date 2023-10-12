@@ -33,6 +33,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\OpF[1]{\AgdaOperator{\AgdaFunction{#1}}}
 
 \title{la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.}
 \author{la .varik.\ .VALefor.}
@@ -99,7 +100,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la'oi .\AgdaRecord{Eq}.}
-\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{isYes} \Sym \$ #1\ .zoi.\ du la'oi .\F{true}.\ gi ko'a du la'o zoi.\ \F{false} .zoi.}
+\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{isYes} \OpF \$ #1\ .zoi.\ du la'oi .\F{true}.\ gi ko'a du la'o zoi.\ \F{false} .zoi.}
 ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{Eq} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ je la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi \eqq{\F{Eq.\AgdaUnderscore≟\AgdaUnderscore} \B Q \B a \B b}
 
 \begin{code}
@@ -110,7 +111,7 @@ record Eq {a} (A : Set a) : Set (Level.suc a)
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore≟\AgdaUnderscore}.}
-ni'o \eqq{\B a \Sym ≟ \B b}
+ni'o \eqq{\B a \OpF ≟ \B b}
 
 \begin{code}
 _≟_ : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → DecidableEquality A
