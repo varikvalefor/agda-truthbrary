@@ -236,7 +236,8 @@ instance
         → Eq $ Vec A n
   EqVec {_} {A} {n} ⦃ Q ⦄ = record {_≟_ = f}
     where
-    -- | Tick-tock, tick-tock, tick-tock!
+    -- ni'o srana la'oi .EqVec. fa
+    -- lo so'i pinka pe la'oi .EqList.
     doomsday : ∀ {a} → {A : Set a} → {m : Data.Nat.ℕ}
              → {x y : A} → {xs ys : Vec A m}
              → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
@@ -262,24 +263,12 @@ instance
     f []ᵥ []ᵥ = yes refl
     f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
       where
-      -- .i cumki fa lo nu vimcu le ctaipe velcki
-      -- .i ku'i la .varik. cu jinvi le du'u lo nu
-      -- jmina ja co'e le ctaipe velcki cu filri'a
-      -- lo nu jimpe... kei kei je cu djica lo nu
-      -- frili fa lo nu jimpe
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
       arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
           → {x y : A} → {xs ys : Vec A n}
           → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
-      -- | .i la .varik. cu jinvi le du'u na xlabebna
-      -- fa le versiio be le cmene be'o poi co'e ke'a
-      -- pu lo nu gubygau le ctaipe... kei kei jenai
-      -- le du'u le versiio poi tu'a ke'a cabna cu
-      -- mutce le ka ce'u na xlabebna... kei kei je
-      -- ku'i cu nelci le jalge be le nu zo'oi
-      -- .messiah. cmene le ctaipe
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
