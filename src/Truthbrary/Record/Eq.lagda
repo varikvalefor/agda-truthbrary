@@ -168,58 +168,6 @@ instance
           → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
           → Eq $ These A B
   EqThese = record {_≟_ = Data.These.Properties.≡-dec _≟_ _≟_}
-  EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄
-        → Eq $ Vec A n
-  EqVec {_} {A} {n} ⦃ Q ⦄ = record {_≟_ = f}
-    where
-    -- | Tick-tock, tick-tock, tick-tock!
-    doomsday : ∀ {a} → {A : Set a} → {m : Data.Nat.ℕ}
-             → {x y : A} → {xs ys : Vec A m}
-             → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
-    doomsday refl refl = refl
-    bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-         → ⦃ Eq A ⦄
-         → (t v : A)
-         → (x z : B)
-         → Dec $ x ≡ z
-         → (t ≡ v → x ≡ z → C)
-         → (t ≡ v → ¬ (x ≡ z) → C)
-         → (¬ (t ≡ v) → x ≡ z → C)
-         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
-         → C
-    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
-      where
-      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
-      spit (yes a) (yes b) = f a b
-      spit (yes a) (no b) = g a b
-      spit (no a) (yes b) = j a b
-      spit (no a) (no b) = k a b
-    f : {n : Data.Nat.ℕ} → DecidableEquality $ Vec A n
-    f []ᵥ []ᵥ = yes refl
-    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
-      where
-      -- .i cumki fa lo nu vimcu le ctaipe velcki
-      -- .i ku'i la .varik. cu jinvi le du'u lo nu
-      -- jmina ja co'e le ctaipe velcki cu filri'a
-      -- lo nu jimpe... kei kei je cu djica lo nu
-      -- frili fa lo nu jimpe
-      booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
-      arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
-          → {x y : A} → {xs ys : Vec A n}
-          → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
-      -- | .i la .varik. cu jinvi le du'u na xlabebna
-      -- fa le versiio be le cmene be'o poi co'e ke'a
-      -- pu lo nu gubygau le ctaipe... kei kei jenai
-      -- le du'u le versiio poi tu'a ke'a cabna cu
-      -- mutce le ka ce'u na xlabebna... kei kei je
-      -- ku'i cu nelci le jalge be le nu zo'oi
-      -- .messiah. cmene le ctaipe
-      messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
-      ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      ltd quality _ = no $ quality ∘ DVP.∷-injectiveˡ
   EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
   EqList {_} {A} ⦃ Q ⦄ = record {_≟_ = f}
     where
@@ -284,6 +232,58 @@ instance
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ leadneck quality
+  EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄
+        → Eq $ Vec A n
+  EqVec {_} {A} {n} ⦃ Q ⦄ = record {_≟_ = f}
+    where
+    -- | Tick-tock, tick-tock, tick-tock!
+    doomsday : ∀ {a} → {A : Set a} → {m : Data.Nat.ℕ}
+             → {x y : A} → {xs ys : Vec A m}
+             → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
+    doomsday refl refl = refl
+    bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+         → ⦃ Eq A ⦄
+         → (t v : A)
+         → (x z : B)
+         → Dec $ x ≡ z
+         → (t ≡ v → x ≡ z → C)
+         → (t ≡ v → ¬ (x ≡ z) → C)
+         → (¬ (t ≡ v) → x ≡ z → C)
+         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
+         → C
+    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
+      where
+      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
+      spit (yes a) (yes b) = f a b
+      spit (yes a) (no b) = g a b
+      spit (no a) (yes b) = j a b
+      spit (no a) (no b) = k a b
+    f : {n : Data.Nat.ℕ} → DecidableEquality $ Vec A n
+    f []ᵥ []ᵥ = yes refl
+    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
+      where
+      -- .i cumki fa lo nu vimcu le ctaipe velcki
+      -- .i ku'i la .varik. cu jinvi le du'u lo nu
+      -- jmina ja co'e le ctaipe velcki cu filri'a
+      -- lo nu jimpe... kei kei je cu djica lo nu
+      -- frili fa lo nu jimpe
+      booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
+      arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
+          → {x y : A} → {xs ys : Vec A n}
+          → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
+      -- | .i la .varik. cu jinvi le du'u na xlabebna
+      -- fa le versiio be le cmene be'o poi co'e ke'a
+      -- pu lo nu gubygau le ctaipe... kei kei jenai
+      -- le du'u le versiio poi tu'a ke'a cabna cu
+      -- mutce le ka ce'u na xlabebna... kei kei je
+      -- ku'i cu nelci le jalge be le nu zo'oi
+      -- .messiah. cmene le ctaipe
+      messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
+      ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      ltd quality _ = no $ quality ∘ DVP.∷-injectiveˡ
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
