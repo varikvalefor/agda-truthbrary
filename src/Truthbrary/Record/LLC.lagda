@@ -300,7 +300,7 @@ nu,iork : ∀ {a} → {Bean : Set a}
         → Bean → Set a
 nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
   where
-  nu,iork' = λ a → a ≡ filterₗ (λ b → [_]ₗ b ≟ filterₗ (_≟_ b) a) a
+  nu,iork' = λ a → a ≡ flip filterₗ a (λ b → [_]ₗ b ≟ filterₗ (_≟_ b) a)
 \end{code}
 
 \section{la'oi .\F{UL}.}
