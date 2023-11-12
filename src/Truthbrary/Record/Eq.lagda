@@ -31,6 +31,7 @@
 \newunicodechar{∋}{\ensuremath{\mathnormal{\ni}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
