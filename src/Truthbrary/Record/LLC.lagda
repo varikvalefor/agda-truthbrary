@@ -97,6 +97,7 @@ open import Data.List
   renaming (
     [] to []ₗ;
     _∷_ to _∷ₗ_;
+    [_] to [_]ₗ;
     filter to filterₗ;
     length to lengthₗ
   )
@@ -299,9 +300,7 @@ nu,iork : ∀ {a} → {Bean : Set a}
         → Bean → Set a
 nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
   where
-  nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
-    where
-    []' = flip List._∷_ List.[]
+  nu,iork' = λ a → a ≡ filterₗ (λ b → [_]ₗ b ≟ filterₗ (_≟_ b) a) a
 \end{code}
 
 \section{la'oi .\F{UL}.}
