@@ -172,60 +172,7 @@ instance
           → Eq $ These A B
   EqThese = record {_≟_ = Data.These.Properties.≡-dec _≟_ _≟_}
   EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
-  EqList {A = A} ⦃ Q ⦄ = record {_≟_ = f}
-    where
-    -- | Tick-tock, tick-tock, tick-tock!
-    doomsday : ∀ {a} → {A : Set a}
-             → {x y : A} → {xs ys : List A}
-             → x ≡ y → xs ≡ ys → x ∷ xs ≡ y ∷ ys
-    doomsday refl refl = refl
-    leadneck : ∀ {a} → {A : Set a}
-             → {x y : A} → {xs ys : List A}
-             → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
-    leadneck f = f ∘ DLP.∷-injectiveˡ
-    bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-         → ⦃ Eq A ⦄
-         → (t v : A)
-         → (x z : B)
-         → Dec $ x ≡ z
-         → (t ≡ v → x ≡ z → C)
-         → (t ≡ v → ¬ (x ≡ z) → C)
-         → (¬ (t ≡ v) → x ≡ z → C)
-         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
-         → C
-    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
-      where
-      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
-      spit (yes a) (yes b) = f a b
-      spit (yes a) (no b) = g a b
-      spit (no a) (yes b) = j a b
-      spit (no a) (no b) = k a b
-    f : DecidableEquality $ List A
-    f List.[] List.[] = yes refl
-    f (_ ∷ _) List.[] = no $ λ ()
-    f List.[] (_ ∷ _) = no $ λ ()
-    f (x ∷ xs) (y ∷ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
-      where
-      -- .i cumki fa lo nu vimcu le ctaipe velcki
-      -- .i ku'i la .varik. cu jinvi le du'u lo nu
-      -- jmina ja co'e le ctaipe velcki cu filri'a
-      -- lo nu jimpe... kei kei je cu djica lo nu
-      -- frili fa lo nu jimpe
-      booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
-      booty jorts _ = map′ (doomsday jorts) DLP.∷-injectiveʳ $ f xs ys
-      arm : ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
-      arm wrestling _ = no $ leadneck wrestling
-      -- | .i la .varik. cu jinvi le du'u na xlabebna
-      -- fa le versiio be le cmene be'o poi co'e ke'a
-      -- pu lo nu gubygau le ctaipe... kei kei jenai
-      -- le du'u le versiio poi tu'a ke'a cabna cu
-      -- mutce le ka ce'u na xlabebna... kei kei je
-      -- ku'i cu nelci le jalge be le nu zo'oi
-      -- .messiah. cmene le ctaipe
-      messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
-      messiah eek = map′ (doomsday eek) DLP.∷-injectiveʳ ∘ no
-      ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
-      ltd quality _ = no $ leadneck quality
+  EqList = record {_≟_ = DLP.≡-dec _≟_}
   EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄
         → Eq $ Vec A n
   EqVec = record {_≟_ = DVP.≡-dec _≟_}
