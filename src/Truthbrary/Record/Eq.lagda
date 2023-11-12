@@ -67,6 +67,7 @@ import Data.Nat
 import Data.Char
 import Data.Float
 import Data.String
+import Data.Sum.Properties
 import Data.Maybe.Properties
 import Data.These.Properties
 import Data.Product.Properties
@@ -269,18 +270,6 @@ instance
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
-  EqSum = record {_≟_ = Q}
-    where
-    inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : A}
-             → (A ⊎ B ∋ inj₁ x) ≡ inj₁ y → x ≡ y
-    inj₁-inj refl = refl
-    inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
-             → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
-    inj₂-inj refl = refl
-    Q : DecidableEquality $ _ ⊎ _
-    Q (inj₁ a) (inj₁ b) = map′ (cong inj₁) inj₁-inj $ a ≟ b
-    Q (inj₂ a) (inj₂ b) = map′ (cong inj₂) inj₂-inj $ a ≟ b
-    Q (inj₁ _) (inj₂ _) = no $ λ ()
-    Q (inj₂ _) (inj₁ _) = no $ λ ()
+  EqSum = record {_≟_ = Data.Sum.Properties.≡-dec _≟_ _≟_}
 \end{code}
 \end{document}
