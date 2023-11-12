@@ -228,45 +228,7 @@ instance
       ltd quality _ = no $ leadneck quality
   EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄
         → Eq $ Vec A n
-  EqVec {_} {A} {n} ⦃ Q ⦄ = record {_≟_ = f}
-    where
-    -- ni'o srana la'oi .EqVec. fa
-    -- lo so'i pinka pe la'oi .EqList.
-    doomsday : ∀ {a} → {A : Set a} → {m : Data.Nat.ℕ}
-             → {x y : A} → {xs ys : Vec A m}
-             → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
-    doomsday refl refl = refl
-    bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-         → ⦃ Eq A ⦄
-         → (t v : A)
-         → (x z : B)
-         → Dec $ x ≡ z
-         → (t ≡ v → x ≡ z → C)
-         → (t ≡ v → ¬ (x ≡ z) → C)
-         → (¬ (t ≡ v) → x ≡ z → C)
-         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
-         → C
-    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
-      where
-      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
-      spit (yes a) (yes b) = f a b
-      spit (yes a) (no b) = g a b
-      spit (no a) (yes b) = j a b
-      spit (no a) (no b) = k a b
-    f : {n : Data.Nat.ℕ} → DecidableEquality $ Vec A n
-    f []ᵥ []ᵥ = yes refl
-    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
-      where
-      booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
-      arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
-          → {x y : A} → {xs ys : Vec A n}
-          → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
-      messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
-      ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
-      ltd quality _ = no $ quality ∘ DVP.∷-injectiveˡ
+  EqVec = record {_≟_ = DVP.≡-dec _≟_}
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
