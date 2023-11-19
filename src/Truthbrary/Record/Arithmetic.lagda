@@ -95,6 +95,13 @@ open import Data.Bool
     if_then_else_
   )
 open import Data.Maybe
+open import Data.Rational
+  using (
+    1ℚ;
+    0ℚ;
+    mkℚ;
+    ℚ
+  )
 open import Data.Rational.Unnormalised as ℚᵘ
   using (
     1ℚᵘ;
@@ -246,6 +253,39 @@ instance
     uyn = Data.Float.fromℕ 1
     zir = Data.Float.fromℕ 0
     r = const $ const Float
+  ariℚℚ : Arris ℚ ℚ
+  ariℚℚ = record {
+    _⊔+_ = r;
+    _⊔-_ = r;
+    _⊔*_ = r;
+    _⊔/_ = const $ const $ Maybe ℚ;
+    _+_ = Data.Rational._+_;
+    _-_ = Data.Rational._-_;
+    _*_ = Data.Rational._*_;
+    _/_ = deev;
+    uyn₁ = uyn;
+    uyn₂ = uyn;
+    uyn* = uyn;
+    uyn/ = just uyn;
+    zir₁ = zir;
+    zir₂ = zir;
+    zir+ = zir;
+    zir- = zir;
+    1*1≡1 = refl;
+    1/1≡1 = refl;
+    0+0≡0 = refl;
+    0-0≡0 = refl}
+    where
+    r = const $ const ℚ
+    uyn = 1ℚ
+    zir = 0ℚ
+    deev : ℚ → ℚ → Maybe ℚ
+    deev m n = spit (λ a → Data.Rational._÷_ m n {a}) $ ∣↥n∣ ≟ₙ 0
+      where
+      ∣↥n∣ = Data.Integer.∣ Data.Rational.↥ n ∣
+      spit : (False $ ∣↥n∣ ≟ₙ 0 → ℚ) → Dec $ ∣↥n∣ ≡ 0 → Maybe ℚ
+      spit f (no q) = just $ f $ fromWitnessFalse q
+      spit _ (yes _) = nothing
   ariℚᵘℚᵘ : Arris ℚᵘ ℚᵘ
   ariℚᵘℚᵘ = record {
     _⊔+_ = r;
