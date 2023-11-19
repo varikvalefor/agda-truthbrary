@@ -16,11 +16,13 @@
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
+\newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal{\divdot}}}
 \newunicodechar{⍨}{\raisebox{-0.25ex}{$\ddot\sim$}}
 \newunicodechar{ℓ}{\ensuremath{\mathnormal{\ell}}}
@@ -54,6 +56,8 @@ ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \k
 \section{le vrici}
 
 \begin{code}
+{-# OPTIONS --safe #-}
+
 module Truthbrary.Data.List.Loom where
 
 open import Data.Fin
@@ -64,11 +68,16 @@ open import Data.Fin
   )
 open import Data.Nat
   using (
+    suc;
+    _≤_;
+    s≤s;
     ℕ
   )
 open import Function
   using (
+    flip;
     id;
+    _∘_;
     _$_
   )
 open import Data.List
@@ -82,6 +91,10 @@ open import Data.Product
     _,_;
     Σ
   )
+open import Truthbrary.Data.Fin
+  using (
+    mink
+  )
 open import Data.List.Properties
   using (
     length-map
@@ -89,18 +102,6 @@ open import Data.List.Properties
 open import Relation.Binary.PropositionalEquality
 
 open ≡-Reasoning
-\end{code}
-
-\section{le me'oi .\AgdaKeyword{private}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi le me'oi .\AgdaKeyword{private}.
-
-\begin{code}
-private
-  tr : ∀ {a} → {A : Set a} → {B C : A} → B ≡ C → C ≡ B
-  tr refl = refl
-
-  mink : {m n : ℕ} → Fin n → n ≡ m → Fin m
-  mink f refl = f
 \end{code}
 
 \section{la .\F{lum}.}
@@ -111,13 +112,13 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (l : List A)
     → (f : A → B)
     → (n : Fin $ length l)
-    → (map f l ! mink n (tr $ length-map f l)) ≡ f (l ! n)
+    → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
   map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ zil ℓ ⟩
   map f (x ∷ xs) ! zero ≡⟨⟩
   f x ∎
   where
-  ℓ = tr $ length-map f $ x ∷ xs
+  ℓ = sym $ length-map f $ x ∷ xs
   x∷xs! = _!_ $ map f $ x ∷ xs
   zil : {m n : ℕ}
       → (x : ℕ.suc m ≡ ℕ.suc n)
@@ -130,8 +131,8 @@ lum (x ∷ xs) f (suc n) = begin
   f (xs ! n) ∎
   where
   kong = cong $ _!_ $ map f $ x ∷ xs
-  tryk = tr $ length-map f xs
-  tryks = tr $ length-map f $ x ∷ xs
+  tryk = sym $ length-map f xs
+  tryks = sym $ length-map f $ x ∷ xs
   𝔪 : {m n : ℕ}
     → (t : Fin m)
     → (x : m ≡ n)
@@ -193,7 +194,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmap}.\ bau la .lojban.
 
 \begin{code}
-ualmap : ∀ {a} → {A B : Set a}
+ualmap : ∀ {a b} → {A : Set a} → {B : Set b}
        → (x : List A)
        → (f : A → B)
        → (g : B → B)
@@ -201,18 +202,18 @@ ualmap : ∀ {a} → {A B : Set a}
        → Σ (List B) $ λ l
          → Σ (length x ≡ length l) $ λ ℓ
          → g (f $ x ! k) ≡ l ! mink k ℓ
-ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , tr p₃
+ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
   where
   mifix = map f x
   ℓ : length x ≡ length mifix
-  ℓ = tr $ length-map f x
+  ℓ = sym $ length-map f x
   k₂ = mink k ℓ
   l : Σ (List B) $ λ l'
       → Σ (length mifix ≡ length l') $ λ ℓ
       → l' ! mink k₂ ℓ ≡ g (mifix ! k₂)
   l = ual mifix k₂ g
   p₂ = begin
-    length x ≡⟨ tr $ length-map f x ⟩
+    length x ≡⟨ sym $ length-map f x ⟩
     length (map f x) ≡⟨ proj₁ $ proj₂ l ⟩
     length (proj₁ l) ∎
   p₃ = begin
@@ -233,5 +234,132 @@ ualmap {_} {_} {B} x f g k = proj₁ l , p₂ , tr p₃
       → (xov : l ≡ n)
       → mink k xov ≡ mink (mink k v) x
     M k refl refl refl = refl
+\end{code}
+
+\section{la .\F{ualkonk}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualkonk}.\ bau la .lojban.
+
+\begin{code}
+ualkonk : ∀ {a} → {A : Set a}
+        → (x : List A)
+        → (n : Fin $ length x)
+        → (f : A → A)
+        → let n' = Data.Fin.toℕ n in
+          (_≡_
+            (proj₁ $ ual x n f)
+            (_++_
+              (take n' x)
+              (_∷_
+                (f $ x ! n)
+                (drop (ℕ.suc n') x))))
+ualkonk (_ ∷ _) Fin.zero _ = refl
+ualkonk (x ∷ xs) (Fin.suc n) f = cong (_∷_ x) u
+  where
+  u = ualkonk xs n f
+\end{code}
+
+\section{la .\F{ualteik}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualteik}.\ bau la .lojban.
+
+\begin{code}
+ualteik : ∀ {a} → {A : Set a}
+        → (x : List A)
+        → (n : Fin $ length x)
+        → (f : A → A)
+        → let n' = Data.Fin.toℕ n in
+          take n' x ≡ take n' (proj₁ $ ual x n f)
+ualteik (_ ∷ _) Fin.zero _ = refl
+ualteik (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualteik xs n
+\end{code}
+
+\section{la .\F{ualdrop}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualdrop}.\ bau la .lojban.
+
+\begin{code}
+ualdrop : ∀ {a} → {A : Set a}
+        → (x : List A)
+        → (n : Fin $ length x)
+        → (f : A → A)
+        → let n' = ℕ.suc $ Data.Fin.toℕ n in
+          drop n' x ≡ drop n' (proj₁ $ ual x n f)
+ualdrop (_ ∷ _) Fin.zero _ = refl
+ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
+\end{code}
+
+\section{la .\F{ualmapkonk}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmapkonk}.\ bau la .lojban.
+
+\begin{code}
+ualmapkonk : ∀ {a} → {A B : Set a}
+           → (x : List A)
+           → (n : Fin $ length x)
+           → (f : A → B)
+           → (g : B → B)
+           → let n' = Data.Fin.toℕ n in
+             (_≡_
+               (proj₁ $ ualmap x f g n)
+               (_++_
+                 (take n' $ map f x)
+                 (_∷_
+                   (g $ f $ x ! n)
+                   (drop (ℕ.suc n') $ map f x))))
+ualmapkonk x n f g = begin
+  proj₁ (ualmap x f g n) ≡⟨ refl ⟩
+  proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
+  t m' ++ g ((map f x) ! m) ∷ d (ℕ.suc m') ≡⟨ mynydus ⟩
+  t n' ++ g ((map f x) ! m) ∷ d (ℕ.suc n') ≡⟨ midju ⟩
+  t n' ++ g (f $ x ! n) ∷ d (ℕ.suc n') ∎
+  where
+  m = mink n $ sym $ length-map f x
+  m' = Data.Fin.toℕ m
+  n' = Data.Fin.toℕ n
+  t = flip take $ map f x
+  d = flip drop $ map f x
+  tondus : {m n : ℕ}
+         → (x : Fin m)
+         → (d : m ≡ n)
+         → Data.Fin.toℕ x ≡ Data.Fin.toℕ (mink x d)
+  tondus _ refl = refl
+  mynydus = cong p $ sym $ tondus n $ sym $ length-map f x
+    where
+    p = λ n → t n ++ g ((map f x) ! m) ∷ d (ℕ.suc n)
+  midju = cong (λ c → t n' ++ g c ∷ d (ℕ.suc n')) $ lum x f n
+\end{code}
+
+\section{la .\F{teiklendus}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{teiklendus}.\ bau la .lojban.
+
+.i zo .teiklendus.\ cmavlaka'i lo konkatena be zo'oi .take.\ bei zo'oi .length.\ bei zo dunli
+
+\begin{code}
+teiklendus : ∀ {a} → {A : Set a}
+           → (xs : List A)
+           → (n : ℕ)
+           → n ≤ length xs
+           → length (take n xs) ≡ n
+teiklendus _ 0 _ = refl
+teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc t
+  where
+  t = teiklendus xs n g
+\end{code}
+
+\section{la .\F{mapimplant}.}
+ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{mapimplant}.\ bau la .lojban.
+
+\begin{code}
+mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
+           → (x : List A)
+           → (z : B)
+           → (f : A → B)
+           → (n : Fin $ length x)
+           → let n' = Data.Fin.toℕ n in
+             let sin = ℕ.suc n' in
+             (_≡_
+               (take n' (map f x) ++ z ∷ drop sin (map f x))
+               (map f (take n' x) ++ z ∷ map f (drop sin x)))
+mapimplant (_ ∷ _) _ _ zero = refl
+mapimplant (x ∷ xs) z f (suc n) = cong (_∷_ $ f x) mip
+  where
+  mip = mapimplant xs z f n
 \end{code}
 \end{document}

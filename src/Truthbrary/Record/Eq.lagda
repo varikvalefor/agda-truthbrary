@@ -22,6 +22,9 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
+\newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
+\newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{′}{\ensuremath{\mathnormal{\prime}}}
@@ -91,11 +94,21 @@ open import Data.List
     List;
     _∷_
   )
+open import Data.Vec
+  using (
+    Vec
+  )
+  renaming (
+    _∷_ to _∷ᵥ_;
+    [] to []ᵥ
+  )
 open import Relation.Nullary
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
+
+import Data.Vec.Properties as DVP
 \end{code}
 
 \section{la'oi .\F{Eq}.}
@@ -134,6 +147,8 @@ instance
   Eqℚ = record {_≟_ = Data.Rational._≟_}
   Eqℤ : Eq ℤ
   Eqℤ = record {_≟_ = Data.Integer._≟_}
+  EqBool : Eq Bool
+  EqBool = record {_≟_ = Data.Bool._≟_}
   -- | All I've got with me is a pistol and an...
   EqProd : ∀ {a b} → {A : Set a} → {B : Set b}
          → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
@@ -217,10 +232,51 @@ instance
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ leadneck quality
+  EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄
+        → Eq $ Vec A n
+  EqVec {_} {A} {n} ⦃ Q ⦄ = record {_≟_ = f}
+    where
+    -- ni'o srana la'oi .EqVec. fa
+    -- lo so'i pinka pe la'oi .EqList.
+    doomsday : ∀ {a} → {A : Set a} → {m : Data.Nat.ℕ}
+             → {x y : A} → {xs ys : Vec A m}
+             → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
+    doomsday refl refl = refl
+    bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+         → ⦃ Eq A ⦄
+         → (t v : A)
+         → (x z : B)
+         → Dec $ x ≡ z
+         → (t ≡ v → x ≡ z → C)
+         → (t ≡ v → ¬ (x ≡ z) → C)
+         → (¬ (t ≡ v) → x ≡ z → C)
+         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
+         → C
+    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
+      where
+      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
+      spit (yes a) (yes b) = f a b
+      spit (yes a) (no b) = g a b
+      spit (no a) (yes b) = j a b
+      spit (no a) (no b) = k a b
+    f : {n : Data.Nat.ℕ} → DecidableEquality $ Vec A n
+    f []ᵥ []ᵥ = yes refl
+    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
+      where
+      booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
+      arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
+          → {x y : A} → {xs ys : Vec A n}
+          → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
+      messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
+      ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      ltd quality _ = no $ quality ∘ DVP.∷-injectiveˡ
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
-  EqSum {_} {_} {A} {B} = record {_≟_ = Q}
+  EqSum = record {_≟_ = Q}
     where
     inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : A}
              → (A ⊎ B ∋ inj₁ x) ≡ inj₁ y → x ≡ y
@@ -228,7 +284,7 @@ instance
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
              → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
     inj₂-inj refl = refl
-    Q : DecidableEquality $ A ⊎ B
+    Q : DecidableEquality $ _ ⊎ _
     Q (inj₁ t) (inj₁ l) = map′ (cong inj₁) inj₁-inj $ t ≟ l
     Q (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
     Q (inj₁ _) (inj₂ _) = no $ λ ()

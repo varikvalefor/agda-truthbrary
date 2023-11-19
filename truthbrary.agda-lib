@@ -1,3 +1,3 @@
-name: varik-truthbrary-0.2.2
+name: varik-truthbrary-0.2.10
 include: src
 depend: standard-library-1.7.2
