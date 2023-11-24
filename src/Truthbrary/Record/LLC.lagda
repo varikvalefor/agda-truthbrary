@@ -45,6 +45,7 @@
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
 	\item le velcki be la'o zoi.\ \F{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
+        \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o je
 	\item le velcki be vu'oi la'o zoi.\ \F{\_∈\_} .zoi.\ je la'o zoi.\ \F{\_∉\_} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu ciksi lo ctaipe lo du'u vasru kei ja lo du'u na vasru be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
@@ -108,6 +109,11 @@ open import Data.List
 open import Data.Maybe
   hiding (
     map
+  )
+open import Data.Product
+  using (
+    uncurry;
+    _,_
   )
 open import Data.String
   renaming (
@@ -265,6 +271,24 @@ garden west gate = g2 west gate ∘ vec
      → (A → Maybe B) → B → Vec A n → B
   g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
   g2 _ d []ᵥ = d
+\end{code}
+
+\section{la'oi .\F{dist}.}
+ni'o ko'a goi la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distance .glibau.\ la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+
+.i ki'ai zo'oi .equivalent.\ ko'a nilzilcmi lo'i ro co'e poi ga jo ke'a du la'o zoi.\ \B n .zoi.\ gi la'o zoi.\ \F{lookup} \B a \B n .zoi.\ na dunli la'o zoi.\ \F{lookup} \B b \B n .zoi.
+
+\begin{code}
+dist : ∀ {a} → {A : Set a}
+     → ⦃ Bean : LL A ⦄
+     → ⦃ Eq $ LL.e Bean ⦄
+     → A → A → ℕ
+dist a b = Data.List.length $ Data.List.filter drata ziprd
+  where
+  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
+  ziprd = Data.List.zip (lst a) $ lst b
+    where
+    lst = toList ∘ vec
 \end{code}
 
 \section{la'oi .\F{\_∈\_}.}
