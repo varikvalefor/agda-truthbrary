@@ -376,7 +376,7 @@ instance
     e = Fin 1;
     l = id;
     _∷_ = const ℕ.suc;
-    vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
+    vec = λ q → replicateᵥ {n = q} $ Data.Fin.fromℕ 0;
     cev = Data.Vec.length}
 \end{code}
 
