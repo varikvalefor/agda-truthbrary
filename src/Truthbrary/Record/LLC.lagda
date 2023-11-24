@@ -284,7 +284,7 @@ dist : ∀ {a} → {A : Set a}
      → A → A → ℕ
 dist a b = Data.List.length $ Data.List.filter drata ziprd
   where
-  drata = Data.Bool._≟_ false ∘ isYes ∘ uncurry _≟_
+  drata = _≟_ false ∘ isYes ∘ uncurry _≟_
   ziprd = Data.List.zip (lst a) $ lst b
     where
     lst = toList ∘ vec
