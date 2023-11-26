@@ -240,8 +240,8 @@ decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
       pamoi = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
 \end{code}
 
-\section{la'oi .\F{map}.}
-ni'o la .varik.\ cu pacna lo nu banzuka fa zo'e je le se ctaipe  .i ku'i la'oi .\F{map}.\ cu smimlu la'oi .\texttt{map}.\ pe la'oi .Haskell.
+\section{la .\F{map}.}
+ni'o la .varik.\ cu pacna lo nu banzuka fa zo'e je le se ctaipe  .i ku'i la .\F{map}.\ cu smimlu la .\texttt{map}.\ pe la'oi .Haskell.
 
 \begin{code}
 map : ∀ {a b} → {A : Set a} → {B : Set b}
