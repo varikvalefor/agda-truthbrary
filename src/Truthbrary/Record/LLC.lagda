@@ -67,9 +67,10 @@ open import Data.Fin
     toℕ to toℕF
   )
 open import Data.Nat
-  hiding (
-    _≟_;
-    _≡ᵇ_
+  using (
+    _∸_;
+    _+_;
+    ℕ
   )
 open import Data.Vec
   renaming (
@@ -85,9 +86,12 @@ open import Data.Vec
   )
 open import Function
 open import Data.Bool
-  hiding (
-    _≟_;
-    T
+  using (
+    if_then_else_;
+    false;
+    Bool;
+    true;
+    _∧_
   )
 open import Data.Char
   hiding (
@@ -101,14 +105,15 @@ open import Data.List
     filter to filterₗ;
     length to lengthₗ
   )
-  hiding (
-    reverse;
-    _++_;
-    map
+  using (
+    List
   )
 open import Data.Maybe
-  hiding (
-    map
+  using (
+    nothing;
+    Maybe;
+    maybe;
+    just
   )
 open import Data.Product
   using (
@@ -120,10 +125,8 @@ open import Data.String
     toList to toListₛ;
     fromList to fromListₛ
   )
-  hiding (
-    length;
-    _≟_;
-    _++_
+  using (
+    String
   )
 open import Data.Product
   using (
