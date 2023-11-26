@@ -110,6 +110,7 @@ open import Data.List
   )
 open import Data.Maybe
   using (
+    fromMaybe;
     nothing;
     Maybe;
     maybe;
@@ -268,12 +269,11 @@ ni'o ga jonai ga je la'o zoi.\ \F{just} \B Q .zoi.\ selvau ko'a goi la'o zoi.\ \
 garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
        → ⦃ Q : LL CoolJ ⦄
        → (LL.e Q → Maybe B) → B → CoolJ → B
-garden west gate = g2 west gate ∘ vec
+garden west gate = g2 west gate ∘ toList ∘ vec
   where
-  g2 : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
-     → (A → Maybe B) → B → Vec A n → B
-  g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
-  g2 _ d []ᵥ = d
+  g2 : ∀ {a b} → {A : Set a} → {B : Set b}
+     → (A → Maybe B) → B → List A → B
+  g2 f d = fromMaybe d ∘ Data.List.head ∘ Data.List.mapMaybe f
 \end{code}
 
 \section{la'oi .\F{dist}.}
