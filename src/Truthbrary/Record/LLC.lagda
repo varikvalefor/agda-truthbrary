@@ -217,7 +217,7 @@ cev ⦃ Q ⦄ = LL.cev Q
 \end{code}
 
 \subsection{la'oi .\F{decaf}.}
-ni'o ga jonai ga je la'o zoi.\ \B c .zoi.\ konkatena ja co'e la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B x .zoi.\ la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{decaf} \B c .zoi.\ me'oi .\F{just}.\ la'o zoi.\ \B x .zoi.\ gi ko'a du la'oi .\F{nothing}.
+ni'o ga jonai ga je la'o zoi.\ \B c .zoi.\ konkatena ja co'e la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B x .zoi.\ la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{decaf} \B c .zoi.\ me'oi .\AgdaInductiveConstructor{just}.\ la'o zoi.\ \B x .zoi.\ gi ko'a du la'oi .\AgdaInductiveConstructor{nothing}.
 
 \begin{code}
 decaf : ∀ {a} → {Bean : Set a}
@@ -254,7 +254,7 @@ map f = cev ∘ Data.Vec.map f ∘ vec
 \end{code}
 
 \subsection{la .\F{garden}.}
-ni'o ga jonai ga je la'o zoi.\ \F{just} \B Q .zoi.\ selvau ko'a goi la'o zoi.\ \F{map} \B f \B x .zoi.\ je cu pamoi lo'i ro me'oi .\F{just}.\ poi ke'a selvau ko'a gi ko'a goi la'o zoi.\ \F{garden} \B f \B q \B x .zoi.\ du la'o zoi.\ \B Q .zoi.\ gi ko'a du la'o zoi.\ \B q .zoi.
+ni'o ga jonai ga je la'o zoi.\ \AgdaInductiveConstructor{just} \B Q .zoi.\ selvau ko'a goi la'o zoi.\ \F{map} \B f \B x .zoi.\ je cu pamoi lo'i ro me'oi .\AgdaInductiveConstructor{just}.\ poi ke'a selvau ko'a gi ko'a goi la'o zoi.\ \F{garden} \B f \B q \B x .zoi.\ du la'o zoi.\ \B Q .zoi.\ gi ko'a du la'o zoi.\ \B q .zoi.
 
 \begin{code}
 garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
@@ -269,7 +269,7 @@ garden the west gate = g2 the west $ vec gate
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore∈\AgdaUnderscore}.}
-ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \OpF \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ vasru la'o zoi.\ \B a .zoi.\ gi la'oi .\F{refl}.\ ctaipe la'o zoi.\ \B a \OpF ∈ \B b .zoi.
+ni'o ga jo ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \OpF \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ vasru la'o zoi.\ \B a .zoi.\ gi la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B a \OpF ∈ \B b .zoi.
 
 \begin{code}
 _∈_ : ∀ {a} → {A : Set a}
@@ -284,7 +284,7 @@ _∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ filterₗ (_≟_ a) ∘
 \end{code}
 
 \subsection{la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore}\ .zoi.}
-ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \OpF \$ \B x \OpF ∉ \B y\ .zoi.\ gi la'o zoi.\ \B y\ .zoi.\ na vasru la'o zoi.\ \B x\ .zoi.
+ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \OpF \$ \B x \OpF ∉ \B y\ .zoi.\ gi la'o zoi.\ \B y\ .zoi.\ na vasru la'o zoi.\ \B x\ .zoi.
 
 \begin{code}
 _∉_ : ∀ {a} → {Bean : Set a}
