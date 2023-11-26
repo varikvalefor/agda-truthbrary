@@ -252,7 +252,7 @@ map f = cev ∘ Data.Vec.map f ∘ vec
 \end{code}
 
 \section{la .\F{garden}.}
-ni'o ga jonai la'o zoi.\ \B q\ .zoi.\ du ko'a goi la'o zoi.\ \F{garden} \B f \B q \B x .zoi.\ gi ga je la'o zoi.\ \F{just} \B Q .zoi.\ cmima ko'e goi la'o zoi.\ \F{map} \B f \B x .zoi.\ je cu pamoi lo'i ro me'oi .\F{just}.\ poi ke'a cmima ko'a gi ko'a du la'o zoi.\ \B Q .zoi.
+ni'o ga jonai la'o zoi.\ \B q\ .zoi.\ du ko'a goi la'o zoi.\ \F{garden} \B f \B q \B x .zoi.\ gi ga je la'o zoi.\ \F{just} \B Q .zoi.\ cmima la'o zoi.\ \F{map} \B f \B x .zoi.\ je cu pamoi lo'i ro me'oi .\F{just}.\ poi ke'a cmima ko'a gi ko'a du la'o zoi.\ \B Q .zoi.
 
 \begin{code}
 garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
