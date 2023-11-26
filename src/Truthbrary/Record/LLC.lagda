@@ -45,7 +45,7 @@
 \section{le me'oi .abstract.}
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
-	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
+	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\D{List}.\ ku'o be'o je
 	\item le velcki be vu'oi la'o zoi.\ \F{\AgdaUnderscore∈\AgdaUnderscore} .zoi.\ je la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu ciksi lo ctaipe lo du'u vasru kei ja lo du'u na vasru be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \AgdaRecord{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \AgdaRecord{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
@@ -137,7 +137,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la'oi .\AgdaRecord{LL}.}
-ni'o ga jo zasti fa lo selvau be la'o zoi.\ \AgdaRecord{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
+ni'o ga jo zasti fa lo selvau be la'o zoi.\ \AgdaRecord{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\D{List}.
 
 .i ga jo la'oi .\B q.\ zasti je cu ctaipe la'o zoi.\ \AgdaRecord{LL} \B t .zoi.\ je cu ba'e drani gi\ldots
 \begin{itemize}
