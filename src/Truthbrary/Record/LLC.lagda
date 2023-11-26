@@ -241,7 +241,7 @@ decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
 \end{code}
 
 \section{la'oi .\F{map}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka  .i ku'i la'oi .\F{map}.\ cu smimlu la'oi .\texttt{map}.\ pe la'oi .Haskell.
+ni'o la .varik.\ cu sorpa'a lo nu banzuka fa zo'e je le se ctaipe  .i ku'i la'oi .\F{map}.\ cu smimlu la'oi .\texttt{map}.\ pe la'oi .Haskell.
 
 \begin{code}
 map : ∀ {a b} → {A : Set a} → {B : Set b}
