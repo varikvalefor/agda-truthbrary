@@ -215,7 +215,7 @@ cev ⦃ Q ⦄ = LL.cev Q
 \end{code}
 
 \subsection{la'oi .\F{decaf}.}
-ni'o ga jonai ga je la'o zoi.\ \B c .zoi.\ konkatena ja co'e la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B x .zoi.\ la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{decaf} \B c .zoi.\ me'oi .\F{just}.\ la'o zoi.\ \B x .zoi.\ gi ko'a du la'oi .\F{nothing}.
+ni'o ga jonai ga je la'o zoi.\ \B c .zoi.\ konkatena ja co'e la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B x .zoi.\ la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{decaf} \B a \B b \B c .zoi.\ me'oi .\F{just}.\ la'o zoi.\ \B x .zoi.\ gi ko'a du la'oi .\F{nothing}.
 
 \begin{code}
 decaf : ∀ {a} → {Bean : Set a}
