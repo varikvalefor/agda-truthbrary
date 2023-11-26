@@ -45,11 +45,11 @@
 \section{le me'oi .abstract.}
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
-	\item le velcki be la'o zoi.\ \F{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
+	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
 	\item le velcki be vu'oi la'o zoi.\ \F{\AgdaUnderscore∈\AgdaUnderscore} .zoi.\ je la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu ciksi lo ctaipe lo du'u vasru kei ja lo du'u na vasru be'o je
-	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LL} .zoi.\ be'o je
-	\item le velcki be la'o zoi.\ \F{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
-	\item le velcki be lo me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LC} .zoi.
+	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \AgdaRecord{LL} .zoi.\ be'o je
+	\item le velcki be la'o zoi.\ \AgdaRecord{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
+	\item le velcki be lo me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \AgdaRecord{LC} .zoi.
 \end{itemize}
 
 \section{le me'oi .preamble.}
@@ -136,10 +136,10 @@ open import Relation.Binary.PropositionalEquality
   )
 \end{code}
 
-\section{la'oi .\F{LL}.}
-ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
+\section{la'oi .\AgdaRecord{LL}.}
+ni'o ga jo zasti fa lo selvau be la'o zoi.\ \AgdaRecord{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
 
-.i ga jo la'oi .\B q.\ zasti je cu ctaipe la'o zoi.\ \F{LL} \B t .zoi.\ je cu ba'e drani gi\ldots
+.i ga jo la'oi .\B q.\ zasti je cu ctaipe la'o zoi.\ \AgdaRecord{LL} \B t .zoi.\ je cu ba'e drani gi\ldots
 \begin{itemize}
 	\item ga je la'o zoi.\ \F{LL.e} \B q .zoi.\ se ctaipe lo selvau be lo ctaipe be la'oi .\B t.\ gi
 	\item ga je la'o zoi.\ \F{LL.olen} \B q \B n .zoi.\ se ctaipe lo ro lazmi'u pe'a be la'oi .\B t.\ be'o poi la'oi .\B n.\ nilzilcmi ke'a gi
@@ -359,8 +359,8 @@ instance
     cev = Data.Vec.length}
 \end{code}
 
-\section{la'oi .\F{LC}.}
-ni'o ga jo ga je la'o zoi.\ \F{LC} \B A \B B .zoi.\ zasti gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+\section{la'oi .\AgdaRecord{LC}.}
+ni'o ga jo ga je la'o zoi.\ \AgdaRecord{LC} \B A \B B .zoi.\ zasti gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
