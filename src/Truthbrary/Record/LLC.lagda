@@ -314,7 +314,7 @@ ni'o ga jo la'oi .\F{refl}.\ ctaipe la'o zoi.\ \F{Relation.Nullary.does} \Sym \$
 
 \begin{code}
 _∉_ : ∀ {a} → {Bean : Set a}
-    → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+    → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
     → LL.e Jeans → Bean → Set
 _∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (_≟_ x) ∘ toList ∘ vec
 \end{code}
