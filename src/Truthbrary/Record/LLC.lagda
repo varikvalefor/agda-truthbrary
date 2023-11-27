@@ -212,7 +212,7 @@ ni'o la'o zoi.\ \F{vec} \B a .zoi.\ me'oi .equivalent.\ la'o zoi.\ \B a .zoi.
 \begin{code}
 vec : ∀ {a} → {Bean : Set a}
     → ⦃ Q : LL Bean ⦄
-    → (lima : Bean) → Vec (LL.e Q) $ LL.l Q lima
+    → (lima : Bean) → Vec (LL.e Q) $ length lima
 vec ⦃ Q ⦄ = LL.vec Q
 \end{code}
 
