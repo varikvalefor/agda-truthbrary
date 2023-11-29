@@ -338,8 +338,8 @@ instance
       inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
 \end{code}
 
-\section{la'oi .\F{SR}.}
-ni'o ga jo zasti fa lo ctaipe be la'o zoi.\ \F{SR} \B Q .zoi.\ gi ga naja la'o zoi.\ \B q .zoi.\ ctaipe la'o zoi.\ \B Q .zoi.\ gi la'o zoi.\ \F{readMaybe} \Sym\$ \F{show} \B q .zoi.\ du la'o zoi.\ \F{just} \B q .zoi.
+\section{la'oi .\AgdaRecord{SR}.}
+ni'o ga jo zasti fa lo ctaipe be la'o zoi.\ \AgdaRecord{SR} \B Q .zoi.\ gi ga naja la'o zoi.\ \B q .zoi.\ ctaipe la'o zoi.\ \B Q .zoi.\ gi la'o zoi.\ \F{readMaybe} \Sym\$ \F{show} \B q .zoi.\ du la'o zoi.\ \F{just} \B q .zoi.
 
 \subsection{le cmene be le me'oi .\AgdaKeyword{field}.}
 ni'o la .varik.\ cu xamsku zo'oi .\F{fat}.\ noi ke'a cmene le me'oi .\AgdaKeyword{field}.\ je ku'i cu na mutce le ka ce'u .anci\ldots kei je ku'i cu sorpa'a lo nu lo tcidu cu jimpe fi le se xamsku
