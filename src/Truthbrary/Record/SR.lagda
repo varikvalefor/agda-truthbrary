@@ -53,8 +53,8 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 
 .i sa'u nai ru'e vasru\ldots
 \begin{itemize}
-	\item vu'oi la'oi .\F{Show}.\ je la'oi .\F{show}.\ je le me'oi .\AgdaKeyword{instance}.\ pe la'oi .\F{Show}.\ vu'o noi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\AgdaPostulate{String}.\ ku'o je
-        \item vu'oi la'oi .\F{Read}.\ je la'oi .\F{readMaybe}.\ je le me'oi .\AgdaKeyword{instance}.\ pe la'oi .\F{Read}.\ vu'o noi tu'a ke'a filri'a lo nu lo me'oi .\F{Maybe}.\ ctaipe cu selbi'o pe'a ru'e lo ctaipe be la'oi .\AgdaPostulate{String}.
+	\item vu'oi la'oi .\AgdaRecord{Show}.\ je la'oi .\F{show}.\ je le me'oi .\AgdaKeyword{instance}.\ pe la'oi .\AgdaRecord{Show}.\ vu'o noi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\AgdaPostulate{String}.\ ku'o je
+        \item vu'oi la'oi .\AgdaRecord{Read}.\ je la'oi .\F{readMaybe}.\ je le me'oi .\AgdaKeyword{instance}.\ pe la'oi .\AgdaRecord{Read}.\ vu'o noi tu'a ke'a filri'a lo nu lo me'oi .\F{Maybe}.\ ctaipe cu selbi'o pe'a ru'e lo ctaipe be la'oi .\AgdaPostulate{String}.
 \end{itemize}
 
 \section{le vrici}
@@ -159,8 +159,8 @@ open import Truthbrary.Data.List.Split
 open import Relation.Binary.PropositionalEquality
 \end{code}
 
-\section{la'oi .\F{Show}.}
-ni'o ga naja la'o zoi.\ \B S .zoi.\ fa'u la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \F{Show} \B A .zoi.\ fa'u la'o zoi.\ \B A .zoi.\ gi la'o zoi.\ \F{Show.show} \B S \B a .zoi.\ sinxa la'o zoi.\ \B a .zoi.
+\section{la'oi .\AgdaRecord{Show}.}
+ni'o ga naja la'o zoi.\ \B S .zoi.\ fa'u la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{Show} \B A .zoi.\ fa'u la'o zoi.\ \B A .zoi.\ gi la'o zoi.\ \F{Show.show} \B S \B a .zoi.\ sinxa la'o zoi.\ \B a .zoi.
 
 \begin{code}
 record Show {a} (A : Set a) : Set a
@@ -170,7 +170,7 @@ record Show {a} (A : Set a) : Set a
 \end{code}
 
 \subsection{la'oi .\F{show}.}
-ni'o ga naja ga je ctaipe la'o zoi.\ \F{Show} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi la'o zoi.\ \F{show} \B a .zoi.\ sinxa la'o zoi.\ \B a .zoi.
+ni'o ga naja ga je ctaipe la'o zoi.\ \AgdaRecord{Show} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi la'o zoi.\ \F{show} \B a .zoi.\ sinxa la'o zoi.\ \B a .zoi.
 
 \begin{code}
 show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄
@@ -214,9 +214,9 @@ instance
     stank (inj₂ re) = "inj₂ " ++ parens (show re)
 \end{code}
 
-\section{la'oi .\F{Read}.}
+\section{la'oi .\AgdaRecord{Read}.}
 \newcommand\rmvvc{ga jonai ga je lo te samrkompli ja zo'e cu djuno lo du'u la'o zoi.\ \B b .zoi.\ sinxa ma kau gi ko'a goi la'o zoi.\ \F{Read.readMaybe} \F Q \B b .zoi.\ me'oi .\AgdaInductiveConstructor{just}.\ lo selsni be la'o zoi.\ \B b .zoi.\ gi ko'a du la'oi .\F{nothing}.}
-ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \F{Read} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B a .zoi.\ gi \rmvvc
+ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{Read} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B a .zoi.\ gi \rmvvc
 
 \begin{code}
 record Read {a} (A : Set a) : Set a
