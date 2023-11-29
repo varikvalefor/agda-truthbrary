@@ -215,7 +215,7 @@ instance
 \end{code}
 
 \section{la'oi .\AgdaRecord{Read}.}
-\newcommand\rmvvc{ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \AgdaField{Read.readMaybe} \F Q \B b .zoi.\ gi ga je lo te samrkompli ja zo'e cu djuno lo du'u la'o zoi.\ \B b .zoi.\ sinxa ma kau gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ lo selsni be la'o zoi.\ \B b .zoi.
+\newcommand\rmvvc{ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \AgdaField{Read.readMaybe} \B Q \B b .zoi.\ gi ga je lo te samrkompli ja zo'e cu djuno lo du'u la'o zoi.\ \B b .zoi.\ sinxa ma kau gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ lo selsni be la'o zoi.\ \B b .zoi.
 ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{Read} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B a .zoi.\ gi \rmvvc
 
 \begin{code}
