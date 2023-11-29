@@ -150,7 +150,7 @@ ni'o ga jo zasti fa lo ctaipe be la'o zoi.\ \AgdaRecord{LL} \B x .zoi.\ gi la'oi
 	\item ga je la'o zoi.\ \F{LL.e} \B q .zoi.\ se ctaipe lo selvau be lo ctaipe be la'oi .\B t.\ gi
 	\item ga je la'o zoi.\ \F{LL.olen} \B q \B n .zoi.\ se ctaipe lo ro lazmi'u pe'a be la'oi .\B t.\ be'o poi la'oi .\B n.\ nilzilcmi ke'a gi
 	\item ga je la'o zoi.\ \F{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \F{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
-	\item ga je la'o zoi.\ \F{LL.l} \B q \B l .zoi.\ nilzilcmi la'o zoi.\ \B l .zoi.\ gi
+	\item ga je la'o zoi.\ \F{LL.l} \B q \B l .zoi.\ nilzilcmi la'oi .\B l.\ gi
 	\item ga je pilno la'oi .\F{\AgdaUnderscore∷\AgdaUnderscore}.\ lo nu me'oi .prepend.\ gi
 	\item la'o zoi.\ \F{LL.cev} \B q \OpF∘ \F{LL.vec} \B q .zoi.\ dunli la'oi .\F{id}.
 \end{itemize}
@@ -193,7 +193,7 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 \end{code}
 
 \subsubsection{la'oi .\F{length}.}
-ni'o la'o zoi.\ \F{length} \B q .zoi.\ nilzilcmi la'o zoi.\ \B q .zoi.
+ni'o la'o zoi.\ \F{length} \B q .zoi.\ nilzilcmi la'oi .\B q.
 
 \begin{code}
 length : ∀ {a} → {A : Set a}
@@ -203,7 +203,7 @@ length ⦃ T ⦄ = LL.l T
 \end{code}
 
 \subsubsection{la'oi .\F{vec}.}
-ni'o la'o zoi.\ \F{vec} \B a .zoi.\ me'oi .equivalent.\ la'o zoi.\ \B a .zoi.
+ni'o la'o zoi.\ \F{vec} \B a .zoi.\ me'oi .equivalent.\ la'oi .\B a.
 
 \begin{code}
 vec : ∀ {a} → {Bean : Set a}
@@ -213,7 +213,7 @@ vec ⦃ Q ⦄ = LL.vec Q
 \end{code}
 
 \subsubsection{la'oi .\F{cev}.}
-ni'o la'o zoi.\ \F{cev} \B a .zoi.\ me'oi .equivalent.\ la'o zoi.\ \B a .zoi.
+ni'o la'o zoi.\ \F{cev} \B a .zoi.\ me'oi .equivalent.\ la'oi .\B a.
 
 \begin{code}
 cev : ∀ {a} → {Bean : Set a}
@@ -223,7 +223,7 @@ cev ⦃ Q ⦄ = LL.cev Q
 \end{code}
 
 \subsection{la'oi .\F{decaf}.}
-ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \F{decaf} \B a \B b \B c .zoi.\ gi ga je la'o zoi.\ \B c .zoi.\ konkatena ja co'e la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B x .zoi.\ la'o zoi.\ \B b .zoi.\ gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ la'o zoi.\ \B x .zoi.
+ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \F{decaf} \B a \B b \B c .zoi.\ gi ga je la'oi .\B c.\ konkatena ja co'e la'oi .\B a.\ la'oi .\B x.\ la'oi .\B b.\ gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ la'oi .\B x.
 
 \begin{code}
 decaf : ∀ {a} → {Bean : Set a}
@@ -260,7 +260,7 @@ map f = cev ∘ Data.Vec.map f ∘ vec
 \end{code}
 
 \subsection{la .\F{garden}.}
-ni'o ga jonai la'o zoi.\ \B q\ .zoi.\ du ko'a goi la'o zoi.\ \F{garden} \B f \B q \B x .zoi.\ gi ga je la'o zoi.\ \AgdaInductiveConstructor{just} \B Q .zoi.\ cmima la'o zoi.\ \F{map} \B f \B x .zoi.\ je cu pamoi lo'i ro me'oi .\AgdaInductiveConstructor{just}.\ poi ke'a cmima ko'a gi ko'a du la'o zoi.\ \B Q .zoi.
+ni'o ga jonai la'o zoi.\ \B q\ .zoi.\ du ko'a goi la'o zoi.\ \F{garden} \B f \B q \B x .zoi.\ gi ga je la'o zoi.\ \AgdaInductiveConstructor{just} \B Q .zoi.\ cmima la'o zoi.\ \F{map} \B f \B x .zoi.\ je cu pamoi lo'i ro me'oi .\AgdaInductiveConstructor{just}.\ poi ke'a cmima ko'a gi ko'a du la'oi .\B Q.
 
 \begin{code}
 garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
@@ -275,9 +275,9 @@ garden the west gate = g2 the west $ vec gate
 \end{code}
 
 \section{la'oi .\F{dist}.}
-ni'o ko'a goi la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distance .glibau.\ la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o ko'a goi la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distance .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
-.i smudu'i fa lu ko'a nilzilcmi lo'i ro co'e poi ga jo ke'a du la'o zoi.\ \B n .zoi.\ gi la'o zoi.\ \F{lookup} \B a \B n .zoi.\ na dunli la'o zoi.\ \F{lookup} \B b \B n .zoi.\ li'u
+.i smudu'i fa lu ko'a nilzilcmi lo'i ro co'e poi ga jo ke'a du la'oi .\B n.\ gi la'o zoi.\ \F{lookup} \B a \B n .zoi.\ na dunli la'o zoi.\ \F{lookup} \B b \B n .zoi.\ li'u
 
 \begin{code}
 dist : ∀ {a} → {A : Set a}
@@ -293,7 +293,7 @@ dist a b = Data.List.length $ Data.List.filter drata ziprd
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore∈\AgdaUnderscore}.}
-ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B a \OpF ∈ \B b .zoi.\ gi ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \OpF \$ \F{typeOf} \B a .zoi.\ gi la'o zoi.\ \B b .zoi.\ se cmima la'o zoi.\ \B a .zoi.
+ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B a \OpF ∈ \B b .zoi.\ gi ga je su'o da zo'u da ctaipe la'o zoi.\ \F{Eq} \OpF \$ \F{typeOf} \B a .zoi.\ gi la'oi .\B b.\ se cmima la'oi .\B a.
 
 \begin{code}
 _∈_ : ∀ {a} → {A : Set a}
@@ -318,7 +318,7 @@ _∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (_≟_ x) ∘ toList ∘ vec
 \end{code}
 
 \subsection{la'oi .\F{nu,iork}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B a .zoi.\ zo'u li pa nilzilcmi lo'i ro versiio ja co'e be da be'o poi ke'a selvau la'o zoi.\ \B a .zoi.
+ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la'oi .\B a.\ zo'u li pa nilzilcmi lo'i ro versiio ja co'e be da be'o poi ke'a selvau la'oi .\B a.
 
 \begin{code}
 nu,iork : ∀ {a} → {Bean : Set a}
@@ -332,7 +332,7 @@ nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
 \end{code}
 
 \section{la'oi .\F{UL}.}
-ni'o ga jo la'o zoi.\ \B A \OpF , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'o zoi.\ \B A .zoi.\ zo'u la'o zoi.\ \B A .zoi.\ vasru lo pa versiio ja co'e be da
+ni'o ga jo la'o zoi.\ \B A \OpF , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'oi .\B A.\ zo'u la'oi .\B A.\ vasru lo pa versiio ja co'e be da
 
 \begin{code}
 UL : ∀ {a} → (A : Set a)
@@ -385,7 +385,7 @@ instance
 
 \section{la'oi .\AgdaRecord{LC}.}
 \section{la'oi .\F{LC}.}
-ni'o ga jo ga je ctaipe la'o zoi.\ \AgdaRecord{LC} \B A \B B .zoi.\ gi la'o zoi.\ \B a .zoi.\ fa'u la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o ga jo ga je ctaipe la'o zoi.\ \AgdaRecord{LC} \B A \B B .zoi.\ gi la'oi .\B a.\ fa'u la'oi .\B b.\ ctaipe la'oi .\B A.\ fa'u la'oi .\B B.\ gi la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
@@ -397,7 +397,7 @@ record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
 \subsection{le fancu}
 
 \subsubsection{la'oi .\F{\AgdaUnderscore++\AgdaUnderscore}.}
-ni'o la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 infixr 5 _++_
