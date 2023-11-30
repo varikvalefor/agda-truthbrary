@@ -384,7 +384,7 @@ instance
 \end{code}
 
 \section{la'oi .\AgdaRecord{LC}.}
-ni'o ga jo ga je ctaipe la'o zoi.\ \AgdaRecord{LC} \B A \B B .zoi.\ gi la'oi .\B a.\ fa'u la'oi .\B b.\ ctaipe la'oi .\B A.\ fa'u la'oi .\B B.\ gi la'o zoi.\ \B a \OpF{++} \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.
+ni'o ga jo ga je ctaipe la'o zoi.\ \AgdaRecord{LC} \B A \B B .zoi.\ gi la'oi .\B a.\ fa'u la'oi .\B b.\ ctaipe la'oi .\B A.\ fa'u la'oi .\B B.\ gi la'o zoi.\ \B a \AgdaOperator{\AgdaField{LC.++}} \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
