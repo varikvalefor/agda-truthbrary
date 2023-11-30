@@ -143,7 +143,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la'oi .\AgdaRecord{LL}.}
-ni'o ga jo ctaipe la'o zoi.\ \AgdaRecord{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\D{List}.
+ni'o ga jo ctaipe la'o zoi.\ \AgdaRecord{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\D{Vec}.
 
 .i ga jo la'oi .\B q.\ ctaipe la'o zoi.\ \AgdaRecord{LL} \B t .zoi.\ je cu ba'e drani gi\ldots
 \begin{itemize}
