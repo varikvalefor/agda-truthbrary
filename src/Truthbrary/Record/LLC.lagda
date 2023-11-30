@@ -332,7 +332,7 @@ nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
 \end{code}
 
 \section{la'oi .\F{UL}.}
-ni'o ga jo la'o zoi.\ \B A \OpF , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau la'oi .\B A.\ zo'u la'oi .\B A.\ vasru lo pa versiio ja co'e be da
+ni'o ga jo la'o zoi.\ \B A \OpF , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau ko'a goi la'oi .\B A.\ zo'u li pa du lo nilzilcmi be lo'i ro selvau be ko'a be'o poi ke'a du da
 
 \begin{code}
 UL : ∀ {a} → (A : Set a)
