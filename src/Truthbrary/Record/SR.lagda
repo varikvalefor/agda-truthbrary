@@ -144,8 +144,11 @@ open import Data.Rational.Unnormalised as ℚᵘ
 open import Data.Maybe.Instances
 open import Truthbrary.Record.Eq
 open import Truthbrary.Record.LLC
-  hiding (
-    _∷_
+  using (
+   length;
+   decaf;
+   _++_;
+   map
   )
 open import Truthbrary.Category.Monad
   using (
