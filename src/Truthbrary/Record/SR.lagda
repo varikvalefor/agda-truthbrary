@@ -326,8 +326,7 @@ instance
           → Read $ A ⊎ B
   readSum {_} {_} {A} {B} = record {readMaybe = d}
     where
-    apf : (List Char → List Char) → String → String
-    apf f = fromList ∘ f ∘ toList
+    apf = λ f → fromList ∘ f ∘ toList
     t5 = apf $ Data.List.take 5
     d5 = apf $ Data.List.drop 5
     inj : ∀ {a b} → {A : Set a} → {B : Set b}
