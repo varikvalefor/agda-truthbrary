@@ -330,9 +330,7 @@ instance
     inj : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Read A ⦄
         → (A → B) → String → Maybe B
-    inj f q = unparens (d5 q) >>= mapₘ f ∘ readMaybe
-      where
-      d5 = apf $ Data.List.drop 5
+    inj f q = unparens (apf (Data.List.drop 5) q) >>= mapₘ f ∘ readMaybe
     d : String → Maybe $ A ⊎ B
     d q with flip apf q $ Data.List.take 5
     ... | "inj₁ " = inj inj₁ q
