@@ -123,8 +123,8 @@ open import Data.String
   using (
     fromList;
     String;
-    parens;
-    toList
+    toList;
+    parens
   )
 open import Data.Integer
   using (
