@@ -269,10 +269,11 @@ instance
     f (x ∷ List.[]) = mapₘ (flip mkℚᵘ 1) $ readMaybe $ fromList x
     f (x ∷ y ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) y'
       where
-      rmy = if rm ≡ᵇ just 0 then nothing else rm
-        where
-        rm = readMaybe $ fromList y
       y' = maybe (just ∘ flip _∸_ 1) nothing rmy
+        where
+        rmy = if rm ≡ᵇ just 0 then nothing else rm
+          where
+          rm = readMaybe $ fromList y
     f _ = nothing
   readℚ : Read ℚ
   readℚ = record {readMaybe = readMaybe >=> f}
