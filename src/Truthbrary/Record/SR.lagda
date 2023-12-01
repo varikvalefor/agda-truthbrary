@@ -324,20 +324,21 @@ instance
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
           → Read $ A ⊎ B
-  readSum {_} {_} {A} {B} = record {readMaybe = inj₁?}
+  readSum {_} {_} {A} {B} = record {readMaybe = d}
     where
-    inj₁? : String → Maybe $ A ⊎ B
-    inj₁? q = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
-      where
-      apf : (List Char → List Char) → String
-      apf f = fromList $ f $ toList q
-      t5 = apf $ Data.List.take 5
-      d5 = apf $ Data.List.drop 5
-      inj : ∀ {a b} → {A : Set a} → {B : Set b}
-          → ⦃ Read A ⦄
-          → (A → B) → Maybe B
-      inj f = unparens d5 >>= mapₘ f ∘ readMaybe
-      inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
+    apf : (List Char → List Char) → String → String
+    apf f = fromList ∘ f ∘ toList
+    t5 = apf $ Data.List.take 5
+    d5 = apf $ Data.List.drop 5
+    inj : ∀ {a b} → {A : Set a} → {B : Set b}
+        → ⦃ Read A ⦄
+        → (A → B) → String → Maybe B
+    inj f q = unparens (d5 q) >>= mapₘ f ∘ readMaybe
+    d : String → Maybe $ A ⊎ B
+    d q with t5 q
+    ... | "inj₁ " = inj inj₁ q
+    ... | "inj₂ " = inj inj₂ q
+    ... | _ = nothing
 \end{code}
 
 \section{la'oi .\F{SR}.}
