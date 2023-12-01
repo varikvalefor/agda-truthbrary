@@ -326,13 +326,13 @@ instance
           → Read $ A ⊎ B
   readSum {_} {_} {A} {B} = record {readMaybe = d}
     where
-    apf = λ f → fromList ∘ f ∘ toList
+    apf = flip $ λ f → fromList ∘ f ∘ toList
     inj : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Read A ⦄
         → (A → B) → String → Maybe B
-    inj f q = unparens (apf (Data.List.drop 5) q) >>= mapₘ f ∘ readMaybe
+    inj f q = unparens (apf q $ Data.List.drop 5) >>= mapₘ f ∘ readMaybe
     d : String → Maybe $ A ⊎ B
-    d q with flip apf q $ Data.List.take 5
+    d q with apf q $ Data.List.take 5
     ... | "inj₁ " = inj inj₁ q
     ... | "inj₂ " = inj inj₂ q
     ... | _ = nothing
