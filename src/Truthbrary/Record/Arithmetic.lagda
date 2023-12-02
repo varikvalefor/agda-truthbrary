@@ -59,7 +59,7 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru zo'e poi tu'a ke'a fil
 
 .i sa'u nai ru'e ko'a vasru\ldots
 \begin{itemize}
-	\item le velcki be ko'e goi la'oi .\AgdaRecord{Arithmetic}.\ noi tu'a ke'a filri'a lo nu ciksi ja co'e ko'a goi lo'i namcu ge'u je lo fancu be ko'a ku'o be'o je
+	\item le velcki be ko'e goi la'oi .\AgdaRecord{Arris}.\ noi tu'a ke'a filri'a lo nu ciksi ja co'e ko'a goi lo'i namcu ge'u je lo fancu be ko'a ku'o be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ be ko'e be'o be'o je
 	\item le velcki be vu'oi la'o zoi.\ \F{\AgdaUnderscore+\AgdaUnderscore}\ .zoi.\ je zo'e vu'o noi tu'a ke'a filri'a tu'a lo sumji je zo'e
 \end{itemize}
