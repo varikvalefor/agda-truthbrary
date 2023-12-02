@@ -49,6 +49,12 @@ open import Function
     _$_
   )
 open import Data.Fin
+  using (
+    fromℕ;
+    zero;
+    toℕ;
+    Fin
+  )
 open import Data.Nat
   using (
     ℕ
