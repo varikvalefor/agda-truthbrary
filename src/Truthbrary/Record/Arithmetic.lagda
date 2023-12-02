@@ -121,8 +121,8 @@ open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
 \end{code}
 
-\section{la'oi .\F{Arris}.}
-ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \F{Arris} \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
+\section{la'oi .\AgdaRecord{Arris}.}
+ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \AgdaRecord{Arris} \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
 \begin{itemize}
 	\item ga je la'o zoi.\ \F{Arris.\AgdaUnderscore+\AgdaUnderscore} \B a \B x \B y .zoi.\ sumji ko'a ko'e gi
 	\item ga je la'o zoi.\ \F{Arris.\AgdaUnderscore-\AgdaUnderscore} \B a \B x \B y .zoi.\ vujnu ko'a ko'e gi
