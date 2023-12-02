@@ -95,6 +95,12 @@ open import Data.Bool
     if_then_else_
   )
 open import Data.Maybe
+  using (
+    fromMaybe;
+    nothing;
+    Maybe;
+    just
+  )
 open import Data.Rational.Unnormalised as ℚᵘ
   using (
     1ℚᵘ;
