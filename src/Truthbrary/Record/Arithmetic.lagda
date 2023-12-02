@@ -124,15 +124,15 @@ open import Relation.Binary.PropositionalEquality
 \section{la'oi .\AgdaRecord{Arris}.}
 ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \AgdaRecord{Arris} \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
 \begin{itemize}
-	\item ga je la'o zoi.\ \F{Arris.\AgdaUnderscore+\AgdaUnderscore} \B a \B x \B y .zoi.\ sumji ko'a ko'e gi
-	\item ga je la'o zoi.\ \F{Arris.\AgdaUnderscore-\AgdaUnderscore} \B a \B x \B y .zoi.\ vujnu ko'a ko'e gi
-	\item ga je la'o zoi.\ \F{Arris.\AgdaUnderscore*\AgdaUnderscore} \B a \B x \B y .zoi.\ pilji ko'a ko'e gi
-	\item ga je la'o zoi.\ \F{Arris.\AgdaUnderscore/\AgdaUnderscore} \B a \B x \B y .zoi.\ dilcu ko'a ko'e gi
-	\item ga je la'o zoi.\ \F{Arris.uyn₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.uyn₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.uyn*} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.uyn/} \B a \B x \B y .zoi.\ du li pa gi
-	\item je la'o zoi.\ \F{Arris.zir₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir+} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir-} \B a \B x \B y .zoi.\ du li no gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore+\AgdaUnderscore} \B a \B x \B y .zoi.\ sumji ko'a ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore-\AgdaUnderscore} \B a \B x \B y .zoi.\ vujnu ko'a ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore*\AgdaUnderscore} \B a \B x \B y .zoi.\ pilji ko'a ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore/\AgdaUnderscore} \B a \B x \B y .zoi.\ dilcu ko'a ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.uyn₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn*} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn/} \B a \B x \B y .zoi.\ du li pa gi
+	\item je la'o zoi.\ \AgdaField{Arris.zir₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir+} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir-} \B a \B x \B y .zoi.\ du li no gi
 	\item co'e
 \end{itemize}
-.i la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \F{Arris.1*1≡1} .zoi.\ je zo'e bau la .lojban.
+.i la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \AgdaField{Arris.1*1≡1} .zoi.\ je zo'e bau la .lojban.
 
 \begin{code}
 record Arris {a b c} (A : Set a) (B : Set b) : Set (lsuc $ a ⊔ b ⊔ c)
