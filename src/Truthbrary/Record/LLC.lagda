@@ -98,15 +98,15 @@ open import Data.Char
     Char
   )
 open import Data.List
+  using (
+    List
+  )
   renaming (
     [] to []ₗ;
     _∷_ to _∷ₗ_;
     [_] to [_]ₗ;
     filter to filterₗ;
     length to lengthₗ
-  )
-  using (
-    List
   )
 open import Data.Maybe
   using (
