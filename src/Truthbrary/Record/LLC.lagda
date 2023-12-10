@@ -73,16 +73,16 @@ open import Data.Nat
     ℕ
   )
 open import Data.Vec
+  using (
+    fromList;
+    toList;
+    Vec
+  )
   renaming (
     [] to []ᵥ;
     _∷_ to _∷ᵥ_;
     replicate to replicateᵥ;
     length to lengthᵥ
-  )
-  hiding (
-    reverse;
-    _++_;
-    map
   )
 open import Function
 open import Data.Bool
@@ -94,8 +94,8 @@ open import Data.Bool
     _∧_
   )
 open import Data.Char
-  hiding (
-    _≟_
+  using (
+    Char
   )
 open import Data.List
   renaming (
