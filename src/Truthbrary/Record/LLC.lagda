@@ -118,10 +118,6 @@ open import Data.Product
     _,_
   )
 open import Data.String
-  renaming (
-    toList to toListₛ;
-    fromList to fromListₛ
-  )
   using (
     String
   )
@@ -359,6 +355,9 @@ instance
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
     vec = Data.Vec.fromList ∘ Data.String.toList;
     cev = Data.String.fromList ∘ Data.Vec.toList}
+    where
+    toListₛ = Data.String.toList
+    fromListₛ = Data.String.fromList
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
