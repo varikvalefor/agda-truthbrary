@@ -62,10 +62,6 @@ open import Data.Fin
   using (
     Fin
   )
-  renaming (
-    fromℕ to fromℕF;
-    toℕ to toℕF
-  )
 open import Data.Nat
   using (
     _∸_;
