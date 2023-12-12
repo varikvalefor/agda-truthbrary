@@ -148,7 +148,7 @@ ni'o ga jo ctaipe la'o zoi.\ \AgdaRecord{LL} \B x .zoi.\ gi la'oi .\B x.\ cu sim
 .i ga jo la'oi .\B q.\ ctaipe la'o zoi.\ \AgdaRecord{LL} \B t .zoi.\ je cu ba'e drani gi\ldots
 \begin{itemize}
 	\item ga je la'o zoi.\ \AgdaField{LL.e} \B q .zoi.\ se ctaipe lo selvau be lo ctaipe be la'oi .\B t.\ gi
-	\item ga je la'o zoi.\ \AgdaField{LL.olen} \B q \B n .zoi.\ se ctaipe lo ro lazmi'u pe'a be la'oi .\B t.\ be'o poi la'oi .\B n.\ nilzilcmi ke'a gi
+	\item ga je la'o zoi.\ \AgdaField{LL.olen} \B q \B n .zoi.\ se ctaipe lo ro ctaipe be la'oi .\B t.\ be'o poi la'oi .\B n.\ nilzilcmi ke'a gi
 	\item ga je la'o zoi.\ \AgdaField{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \AgdaField{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
 	\item ga je la'o zoi.\ \AgdaField{LL.l} \B q \B l .zoi.\ nilzilcmi la'oi .\B l.\ gi
 	\item ga je pilno la'oi .\AgdaField{LL.\AgdaUnderscore∷\AgdaUnderscore}.\ lo nu me'oi .prepend.\ gi
