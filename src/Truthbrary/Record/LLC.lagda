@@ -356,6 +356,8 @@ instance
     vec = Data.Vec.fromList ∘ Data.String.toList;
     cev = Data.String.fromList ∘ Data.Vec.toList}
     where
+    -- | ni'o tu'a le cmavlaka'i cu filri'a lo nu
+    -- na me'oi .overfull.
     toListₛ = Data.String.toList
     fromListₛ = Data.String.fromList
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
