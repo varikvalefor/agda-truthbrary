@@ -152,7 +152,8 @@ ni'o ga jo ctaipe la'o zoi.\ \AgdaRecord{LL} \B x .zoi.\ gi la'oi .\B x.\ simsa 
 	\item ga je la'o zoi.\ \AgdaField{LL.[]} \B q .zoi.\ ctaipe la'o zoi.\ \AgdaField{LL.olen} \B q 0 .zoi\ldots je cu kunti gi
 	\item ga je la'o zoi.\ \AgdaField{LL.l} \B q \B l .zoi.\ nilzilcmi la'oi .\B l.\ gi
 	\item ga je pilno la'oi .\AgdaField{LL.\AgdaUnderscore∷\AgdaUnderscore}.\ lo nu me'oi .prepend.\ gi
-	\item la'o zoi.\ \AgdaField{LL.cev} \B q \OpF∘ \AgdaField{LL.vec} \B q .zoi.\ smimlu la'oi .\F{id}.
+	\item ga je ro da poi ke'a kacna'u je cu mleca zo'u lo meirmoi be la'oi .\B x.\ bei fo da cu meirmoi la'o zoi.\ \AgdaField{LL.vec} \B q \B x .zoi.\ fo da gi
+        \item ro da poi ke'a kacna'u je cu mleca zo'u lo meirmoi be la'oi .\B z.\ bei fo da cu meirmoi la'o zoi.\ \AgdaField{LL.cev} \B q \B z .zoi.\ fo da
 \end{itemize}
 
 \begin{code}
