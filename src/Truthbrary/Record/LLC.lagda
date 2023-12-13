@@ -384,7 +384,7 @@ instance
 \end{code}
 
 \section{la'oi .\AgdaRecord{LC}.}
-ni'o la'o zoi.\ \AgdaField{LC.\AgdaUnderscore++\AgdaUnderscore} \AgdaUnderscore \B a \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.
+ni'o ga jo la'oi .\B Q.\ drani gi la'o zoi.\ \AgdaField{LC.\AgdaUnderscore++\AgdaUnderscore} \B Q \B a \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
