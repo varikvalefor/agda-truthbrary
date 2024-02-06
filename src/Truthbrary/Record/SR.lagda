@@ -280,7 +280,7 @@ instance
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
-    spit = map (splitOn '.') ∘ splitOn 'e'
+    spit = Data.List.map (splitOn '.') ∘ splitOn 'e'
     n2f = Data.Float.fromℤ
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
