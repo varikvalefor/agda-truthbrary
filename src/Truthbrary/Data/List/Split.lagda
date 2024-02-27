@@ -85,7 +85,7 @@ ni'o ga jo ko'a goi la'o zoi\ \B a .zoi.\ ctaipe la'o zoi.\ \F{List} \B A .zoi.\
 splitOn : ∀ {a} → {A : Set a}
         → ⦃ Eq A ⦄
         → A → List A → List $ List A
-splitOn a = rev ∘ map rev ∘ sob a [] []
+splitOn a = rev ∘ Data.List.map rev ∘ sob a []ₗ []ₗ
   where
   rev = Data.List.reverse
   sob : ∀ {a} → {A : Set a}
