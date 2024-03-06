@@ -99,6 +99,16 @@ _>=>_ : ∀ {a} → {A B C : Set a}
 _>=>_ f g = _=<<_ g ∘ f
 \end{code}
 
+\section{la'oi .\F{\_<=<\_}.}
+\liharmi
+
+\begin{code}
+_<=<_ : ∀ {a} → {A B C : Set a}
+      → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
+      → (B → M C) → (A → M B) → A → M C
+_<=<_ = flip _>=>_
+\end{code}
+
 \section{la'oi .\F{\_map\_}.}
 \liharmi
 
