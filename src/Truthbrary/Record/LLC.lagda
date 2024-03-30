@@ -26,6 +26,7 @@
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{≢}{\ensuremath{\mathnormal\nequiv}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal{\in}}}
@@ -50,7 +51,7 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\D{Vec}.\ ku'o be'o je
         \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u vasru ku'o be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u na vasru ku'o be'o je
-	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∈₂\AgdaUnderscore} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore}\ .zoi.\ be'o je
+	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∈₂\AgdaUnderscore} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore}\ .zoi.\ be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∉\AgdaUnderscore}\ .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈₂?\AgdaUnderscore} .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∈₂\AgdaUnderscore}\ .zoi.\ co'e be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \AgdaRecord{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \AgdaRecord{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
@@ -143,6 +144,7 @@ open import Relation.Nullary.Decidable
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    _≢_;
     _≡_
   )
 
@@ -151,6 +153,11 @@ import Data.Vec.Relation.Unary.Any
   using (
     any?;
     Any
+  )
+import Data.Vec.Relation.Unary.All
+  as DVRUL
+  using (
+    All
   )
 \end{code}
 
@@ -348,6 +355,16 @@ _∈₂?_ : ∀ {a} → {Bean : Set a}
        → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
        → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∈₂ xs
 _∈₂?_ ⦃ Q ⦄ x s = DVRUA.any? (x ≟_) $ LL.vec Q s
+\end{code}
+
+\subsubsection{la'oi .\F{\AgdaUnderscore{}∉₂\AgdaUnderscore}.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∉₂}} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ na cmima la'o zoi.\ \B b\ .zoi.
+
+\begin{code}
+_∉₂_ : ∀ {a} → {Bean : Set a}
+     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+     → LL.e Jeans → Bean → Set a
+_∉₂_ ⦃ Q ⦄ a b = DVRUL.All (a ≢_) $ LL.vec Q b
 \end{code}
 
 \subsection{la'oi .\F{nu,iork}.}
