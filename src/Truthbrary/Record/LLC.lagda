@@ -52,7 +52,7 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
         \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u vasru ku'o be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u na vasru ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∈₂\AgdaUnderscore} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore}\ .zoi.\ be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∉\AgdaUnderscore}\ .zoi.\ be'o je
-	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈₂?\AgdaUnderscore} .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∈₂\AgdaUnderscore}\ .zoi.\ co'e be'o je
+	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈₂?\AgdaUnderscore} .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∈₂\AgdaUnderscore}\ .zoi.\ co'e be'o je le velcki be la'o zoi.\ \F{AgdaUnderscore{}∉₂?\AgdaUnderscore}\ .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ co'e be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \AgdaRecord{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \AgdaRecord{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \AgdaRecord{LC} .zoi.
@@ -136,6 +136,10 @@ open import Data.Product
     ∃;
     Σ
   )
+open import Relation.Unary
+  using (
+    Pred
+  )
 open import Relation.Nullary
 open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
@@ -157,6 +161,7 @@ import Data.Vec.Relation.Unary.Any
 import Data.Vec.Relation.Unary.All
   as DVRUL
   using (
+    all?;
     All
   )
 \end{code}
@@ -365,6 +370,28 @@ _∉₂_ : ∀ {a} → {Bean : Set a}
      → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
      → LL.e Jeans → Bean → Set a
 _∉₂_ ⦃ Q ⦄ a b = DVRUL.All (a ≢_) $ LL.vec Q b
+\end{code}
+
+
+\subsection{la'oi .\F{\AgdaUnderscore{}∉₂\AgdaUnderscore}.}
+ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
+
+\begin{code}
+_∉₂?_ : ∀ {a} → {Bean : Set a}
+       → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+       → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∉₂ xs
+_∉₂?_ ⦃ Q ⦄ x xs = DVRUL.all? (inv {P = _≡_ x} ∘ _≟_ x) $ LL.vec Q xs
+  where
+  inv : ∀ {a p} → {A : Set a} → {P : Pred A p}
+      → {x : A}
+      → Dec $ P x
+      → Dec $ ¬_ $ P x
+  inv record {does = false; proof = ofⁿ x} = R
+    where
+    R = record {does = true; proof = ofʸ x}
+  inv record {does = true; proof = ofʸ x} = R
+    where
+    R  = record {does = false; proof = ofⁿ $ flip _$_ x}
 \end{code}
 
 \subsection{la'oi .\F{nu,iork}.}
