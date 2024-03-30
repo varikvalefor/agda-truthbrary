@@ -352,7 +352,7 @@ _∈₂_ : ∀ {a} → {Bean : Set a}
 _∈₂_ ⦃ Q ⦄ a b = DVRUA.Any (a ≡_) $ LL.vec Q b
 \end{code}
 
-\subsection{la'oi .\F{\AgdaUnderscore{}∈₂\AgdaUnderscore}.}
+\subsection{la'oi .\F{\AgdaUnderscore{}∈₂?\AgdaUnderscore}.}
 ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 
 \begin{code}
