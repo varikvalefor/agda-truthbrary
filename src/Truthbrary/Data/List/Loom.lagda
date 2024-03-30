@@ -47,11 +47,11 @@
 \maketitle
 
 \begin{abstract}
-	\noindent ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru lo velcki be lo ctaipe be lo su'u dunli be'o be'o je lo velcki be lo fancu ja co'e be ko'a goi lo liste bei zo'e ja lo liste poi ga je lo me'oi .\F{length}.\ be ke'a cu du lo me'oi .\F{length}.\ be ko'a gi su'o da zo'u lo meirmoi be da bei fo ke'a cu frica ja co'e cu co'e lo meirmoi be da bei fo ko'a
+	\noindent ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru lo velcki be lo ctaipe be lo su'u dunli be'o be'o je lo velcki be lo fancu ja co'e be ko'a goi lo liste bei zo'e ja lo liste poi lo me'oi .\F{length}.\ be ke'a cu du lo me'oi .\F{length}.\ be ko'a je poi su'o da zo'u lo meirmoi be da bei fo ke'a cu frica ja co'e lo meirmoi be da bei fo ko'a
 \end{abstract}
 
 \section{le torveki}
-ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulmodis\ .zoi.\ je cu curmi lo nu cusku lo se du'u cadga fa lo nu ma kau torveki ko'a
+ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulmodis\ .zoi.\ kei je cu curmi lo nu cusku lo se du'u cadga fa lo nu ma kau torveki ko'a
 
 \section{le vrici}
 

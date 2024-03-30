@@ -10,17 +10,17 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
-\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
-\newunicodechar{ℤ}{\ensuremath{\mathbb{N}}}
-\newunicodechar{ℚ}{\ensuremath{\mathbb{Q}}}
-\newunicodechar{∀}{\ensuremath{\forall}}
-\newunicodechar{∘}{\ensuremath{\circ}}
-\newunicodechar{ᵇ}{\ensuremath{^\mathrm{b}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
+\newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{N}}}}
+\newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
+\newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
+\newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
+\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\mathrm{b}}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
-\newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
+\newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
@@ -31,11 +31,13 @@
 \newunicodechar{∋}{\ensuremath{\mathnormal{\ni}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\OpF[1]{\AgdaOperator{\AgdaFunction{#1}}}
 
 \title{la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.}
 \author{la .varik.\ .VALefor.}
@@ -46,9 +48,9 @@
 \section{le me'oi .abstract.}
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 \begin{itemize}
-	\item le velcki be ko'a goi la'oi .\F{\_≟\_}.\ noi tu'a ke'a filri'a lo nu jdice lo jei dunli be'o je
+	\item le velcki be ko'a goi la'oi .\F{\AgdaUnderscore≟\AgdaUnderscore}.\ noi tu'a ke'a filri'a lo nu jdice lo jei dunli be'o je
 	\item le velcki be ko'e goi le me'oi .\AgdaKeyword{record}.\ poi ke'a jicmu ko'a be'o je
-	\item le me'oi .\F{instance}.\ pe ko'e
+	\item le me'oi .\AgdaKeyword{instance}.\ pe ko'e
 \end{itemize}
 
 \section{le vrici}
@@ -111,9 +113,9 @@ open import Relation.Binary.PropositionalEquality
 import Data.Vec.Properties as DVP
 \end{code}
 
-\section{la'oi .\F{Eq}.}
-\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi ko'a goi la'o zoi.\ \F{isYes} \Sym \$ {#1} .zoi.\ du la'oi .\F{true}.\ gi ko'a du la'o zoi.\ \F{false} .zoi.}
-ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \F{Eq} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ je la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi \eqq{\F{Eq.\_≟\_} \B Q \B a \B b}
+\section{la'oi .\AgdaRecord{Eq}.}
+\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi la'oi .\F{true}.\ du ko'a goi la'o zoi.\ \F{isYes} \OpF \$ #1\ .zoi.\ gi ko'a du la'o zoi.\ \F{false} .zoi.}
+ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{Eq} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ je la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi \eqq{\F{Eq.\AgdaUnderscore≟\AgdaUnderscore} \B Q \B a \B b}
 
 \begin{code}
 record Eq {a} (A : Set a) : Set (Level.suc a)
@@ -122,15 +124,15 @@ record Eq {a} (A : Set a) : Set (Level.suc a)
     _≟_ : DecidableEquality A
 \end{code}
 
-\subsection{la'oi .\F{\_≟\_}.}
-ni'o \eqq{\B a \Sym ≟ \B b}
+\subsection{la'oi .\F{\AgdaUnderscore≟\AgdaUnderscore}.}
+ni'o \eqq{\B a \OpF ≟ \B b}
 
 \begin{code}
 _≟_ : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → DecidableEquality A
 _≟_ ⦃ Q ⦄ = Eq._≟_ Q
 \end{code}
 
-\subsection{la'oi .\F{\_≡ᵇ\_}.}
+\subsection{la'oi .\F{\AgdaUnderscore≡ᵇ\AgdaUnderscore}.}
 
 \begin{code}
 _≡ᵇ_ : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → A → A → Bool
