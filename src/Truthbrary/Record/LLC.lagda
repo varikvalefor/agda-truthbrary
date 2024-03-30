@@ -382,7 +382,7 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 _∉₂?_ : ∀ {a} → {Bean : Set a}
        → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
        → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∉₂ xs
-_∉₂?_ ⦃ Q ⦄ x xs = DVRUL.all? (inv {P = _≡_ x} ∘ _≟_ x) $ LL.vec Q xs
+_∉₂?_ ⦃ Q ⦄ x = DVRUL.all? (inv {P = _≡_ x} ∘ _≟_ x) ∘ LL.vec Q
   where
   inv : ∀ {a p} → {A : Set a} → {P : Pred A p}
       → {x : A}
