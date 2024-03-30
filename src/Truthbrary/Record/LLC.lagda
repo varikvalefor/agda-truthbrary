@@ -143,6 +143,12 @@ open import Relation.Binary.PropositionalEquality
   using (
     _≡_
   )
+
+import Data.Vec.Relation.Unary.Any
+  as DVRUA
+  using (
+    Any
+  )
 \end{code}
 \section{la'oi .\F{LL}.}
 ni'o ga jo zasti fa lo selvau be la'o zoi.\ \F{LL} \B x .zoi.\ gi la'oi .\B x.\ cu simsa la'oi .\F{List}.
@@ -326,7 +332,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∈₂}} \B b\ .zoi.\ gi la'o
 _∈₂_ : ∀ {a} → {Bean : Set a}
      → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
      → LL.e Jeans → Bean → Set a
-_∈₂_ ⦃ Q ⦄ a b = ∃ $ λ n → a ≡ Data.Vec.lookup (LL.vec Q b) n
+_∈₂_ ⦃ Q ⦄ a b = DVRUA.Any (a ≡_) $ LL.vec Q b
 \end{code}
 
 \section{la'oi .\F{nu,iork}.}
