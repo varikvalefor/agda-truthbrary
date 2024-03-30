@@ -44,6 +44,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\OpF[1]{\AgdaOperator{\AgdaFunction{#1}}}
 
 \newcommand\cmene{Truthbrary.Record.Arithmetic}
 
@@ -54,12 +55,13 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru zo'e poi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\F{String}.\ kei je lo nu lo ctaipe be la'oi .\F{String}.\ cu binxo pe'a ru'e
+ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru zo'e poi tu'a ke'a filri'a tu'a lo namcu
 
-.i sa'u nai ru'e vasru\ldots
+.i sa'u nai ru'e ko'a vasru\ldots
 \begin{itemize}
-	\item vu'oi la'oi .\F{Show}.\ je la'oi .\F{show}.\ je le me'oi .\AgdaKeyword{instance}.\ pe la'oi .\F{Show}.\ vu'o noi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\F{String}.\ ku'o je
-        \item vu'oi la'oi .\F{Read}.\ je la'oi .\F{readmaybe}.\ je le me'oi .\AgdaKeyword{instance}.\ pe la'oi .\F{Read}.\ vu'o noi tu'a ke'a filri'a lo nu lo me'oi .\F{Maybe}.\ ctaipe cu selbi'o pe'a ru'e lo ctaipe be la'oi .\F{String}.
+	\item le velcki be ko'e goi la'oi .\AgdaRecord{Arris}.\ noi tu'a ke'a filri'a lo nu ciksi ja co'e ko'a goi lo'i namcu ge'u je lo fancu be ko'a ku'o be'o je
+	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ be ko'e be'o be'o je
+	\item le velcki be vu'oi la'o zoi.\ \F{\AgdaUnderscore+\AgdaUnderscore}\ .zoi.\ je zo'e vu'o noi tu'a ke'a filri'a tu'a lo sumji je zo'e
 \end{itemize}
 
 \section{le vrici}
@@ -119,18 +121,18 @@ open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
 \end{code}
 
-\section{la'oi .\F{Arris}.}
-ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \F{Arris} \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
+\section{la'oi .\AgdaRecord{Arris}.}
+ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \AgdaRecord{Arris} \B A \B b .zoi.\ gi ko'a goi la'o zoi.\ \B x .zoi.\ ge'u fa'u ko'e goi la'o zoi.\ \B y .zoi.\ cu ctaipe la'o zoi.\ \B A .zoi.\ fa'u la'o zoi.\ \B B .zoi.\ gi\ldots
 \begin{itemize}
-	\item ga je la'o zoi.\ \F{Arris.\_+\_} \B a \B x \B y .zoi.\ sumji ko'a ko'e gi
-	\item ga je la'o zoi.\ \F{Arris.\_-\_} \B a \B x \B y .zoi.\ vujnu ko'a ko'e gi
-	\item ga je la'o zoi.\ \F{Arris.\_*\_} \B a \B x \B y .zoi.\ pilji ko'a ko'e gi
-	\item ga je la'o zoi.\ \F{Arris.\_/\_} \B a \B x \B y .zoi.\ dilcu ko'a ko'e gi
-	\item ga je la'o zoi.\ \F{Arris.uyn₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.uyn₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.uyn*} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.uyn/} \B a \B x \B y .zoi.\ du li pa gi
-	\item je la'o zoi.\ \F{Arris.zir₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir+} \B a \B x \B y .zoi.\ je la'o zoi.\ \F{Arris.zir-} \B a \B x \B y .zoi.\ du li no gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore+\AgdaUnderscore} \B a \B x \B y .zoi.\ sumji ko'a ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore-\AgdaUnderscore} \B a \B x \B y .zoi.\ vujnu ko'a ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore*\AgdaUnderscore} \B a \B x \B y .zoi.\ pilji ko'a ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore/\AgdaUnderscore} \B a \B x \B y .zoi.\ dilcu ko'a ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.uyn₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn*} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn/} \B a \B x \B y .zoi.\ du li pa gi
+	\item je la'o zoi.\ \AgdaField{Arris.zir₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir+} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir-} \B a \B x \B y .zoi.\ du li no gi
 	\item co'e
 \end{itemize}
-.i la .varik.\ cu na jinvi le du'u sarcu fa lo nu .lojban.\ velcki la'o zoi.\ \F{1*1≡1} .zoi.\ je zo'e
+.i la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \AgdaField{Arris.1*1≡1} .zoi.\ je zo'e bau la .lojban.
 
 \begin{code}
 record Arris {a b c} (A : Set a) (B : Set b) : Set (lsuc $ a ⊔ b ⊔ c)
@@ -281,8 +283,8 @@ instance
       spit _ (yes _) = nothing
 \end{code}
 
-\section{la'oi .\F{\_+\_}.}
-ni'o la'o zoi.\ B a \Sym + \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+\section{la'oi .\F{\AgdaUnderscore+\AgdaUnderscore}.}
+ni'o la'o zoi.\ B a \OpF + \B b .zoi.\ sumji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _+_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -291,8 +293,8 @@ _+_ : ∀ {a b c} → {A : Set a} → {B : Set b}
 _+_ ⦃ Q ⦄ = Arris._+_ Q
 \end{code}
 
-\section{la'oi .\F{\_-\_}.}
-ni'o la'o zoi.\ B a \Sym - \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+\section{la'oi .\F{\AgdaUnderscore-\AgdaUnderscore}.}
+ni'o la'o zoi.\ B a \OpF - \B b .zoi.\ vujnu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _-_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -301,8 +303,8 @@ _-_ : ∀ {a b c} → {A : Set a} → {B : Set b}
 _-_ ⦃ Q ⦄ = Arris._-_ Q
 \end{code}
 
-\section{la'oi .\F{\_*\_}.}
-ni'o la'o zoi.\ B a \Sym * \B b .zoi.\ pilji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+\section{la'oi .\F{\AgdaUnderscore*\AgdaUnderscore}.}
+ni'o la'o zoi.\ B a \OpF * \B b .zoi.\ pilji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _*_ : ∀ {a b c} → {A : Set a} → {B : Set b}
@@ -311,8 +313,8 @@ _*_ : ∀ {a b c} → {A : Set a} → {B : Set b}
 _*_ ⦃ Q ⦄ = Arris._*_ Q
 \end{code}
 
-\section{la'oi .\F{\_/\_}.}
-ni'o la'o zoi.\ B a \Sym / \B b .zoi.\ dilcu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+\section{la'oi .\F{\AgdaUnderscore/\AgdaUnderscore}.}
+ni'o la'o zoi.\ B a \OpF / \B b .zoi.\ dilcu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _/_ : ∀ {a b c} → {A : Set a} → {B : Set b}
