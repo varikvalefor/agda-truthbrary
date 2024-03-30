@@ -50,6 +50,7 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
         \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o je
 	\item le velcki be vu'oi la'o zoi.\ \F{\_∈\_} .zoi.\ je la'o zoi.\ \F{\_∉\_} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu ciksi lo ctaipe lo du'u vasru kei ja lo du'u na vasru be'o je
 	\item le velcki be la'o zoi.\ \F{\_∈₂\_} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\_∈\_}\ .zoi.\ be'o je
+	\item le velcki be la'o zoi.\ \F{\_∈₂?\_} .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\_∈₂\_}\ .zoi.\ co'e be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
 	\item le velcki be lo me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LC} .zoi.
@@ -147,6 +148,7 @@ open import Relation.Binary.PropositionalEquality
 import Data.Vec.Relation.Unary.Any
   as DVRUA
   using (
+    any?;
     Any
   )
 \end{code}
@@ -333,6 +335,16 @@ _∈₂_ : ∀ {a} → {Bean : Set a}
      → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
      → LL.e Jeans → Bean → Set a
 _∈₂_ ⦃ Q ⦄ a b = DVRUA.Any (a ≡_) $ LL.vec Q b
+\end{code}
+
+\section{la'oi .\F{\_∈₂\_}.}
+ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
+
+\begin{code}
+_∈₂?_ : ∀ {a} → {Bean : Set a}
+       → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+       → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∈₂ xs
+_∈₂?_ ⦃ Q ⦄ x s = DVRUA.any? (x ≟_) $ LL.vec Q s
 \end{code}
 
 \section{la'oi .\F{nu,iork}.}
