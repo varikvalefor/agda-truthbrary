@@ -393,7 +393,7 @@ _∉₂?_ ⦃ Q ⦄ x = DVRUL.all? (inv {P = x ≡_} ∘ _≟_ x) ∘ LL.vec Q
     R = record {does = true; proof = ofʸ x}
   inv record {does = true; proof = ofʸ x} = R
     where
-    R  = record {does = false; proof = ofⁿ $ flip _$_ x}
+    R = record {does = false; proof = ofⁿ $ flip _$_ x}
 \end{code}
 
 \subsection{la'oi .\F{nu,iork}.}
