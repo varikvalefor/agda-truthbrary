@@ -14,6 +14,7 @@
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∃}{\ensuremath{\exists}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
@@ -29,6 +30,7 @@
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal{\in}}}
 \newunicodechar{∉}{\ensuremath{\mathnormal{\notin}}}
+\newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -47,6 +49,7 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 	\item le velcki be la'o zoi.\ \F{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\F{List}.\ ku'o be'o je
         \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o je
 	\item le velcki be vu'oi la'o zoi.\ \F{\_∈\_} .zoi.\ je la'o zoi.\ \F{\_∉\_} .zoi.\ vu'o noi tu'a ke'a filri'a lo nu ciksi lo ctaipe lo du'u vasru kei ja lo du'u na vasru be'o je
+	\item le velcki be la'o zoi.\ \F{\_∈₂\_} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\_∈\_}\ .zoi.\ be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
 	\item le velcki be lo me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \F{LC} .zoi.
@@ -127,6 +130,7 @@ open import Data.String
   )
 open import Data.Product
   using (
+    ∃;
     Σ
   )
 open import Relation.Nullary
@@ -313,6 +317,16 @@ _∉_ : ∀ {a} → {Bean : Set a}
     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
     → LL.e Jeans → Bean → Set
 _∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (_≟_ x) ∘ toList ∘ vec
+\end{code}
+
+\section{la'oi .\F{\_∈₂\_}.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∈₂}} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ cmima la'o zoi.\ \B b\ .zoi.
+
+\begin{code}
+_∈₂_ : ∀ {a} → {Bean : Set a}
+     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+     → LL.e Jeans → Bean → Set a
+_∈₂_ ⦃ Q ⦄ a b = ∃ $ λ n → a ≡ Data.Vec.lookup (LL.vec Q b) n
 \end{code}
 
 \section{la'oi .\F{nu,iork}.}
