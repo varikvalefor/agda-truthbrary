@@ -299,7 +299,7 @@ garden the west gate = g2 the west $ vec gate
   g2 _ d []ᵥ = d
 \end{code}
 
-\section{la'oi .\F{dist}.}
+\subsection{la'oi .\F{dist}.}
 ni'o ko'a goi la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distance .glibau.\ la'oi .\B a.\ la'oi .\B b.
 
 .i smudu'i fa lu ko'a nilzilcmi lo'i ro co'e poi ga jo ke'a du la'oi .\B n.\ gi la'o zoi.\ \F{lookup} \B a \B n .zoi.\ na dunli la'o zoi.\ \F{lookup} \B b \B n .zoi.\ li'u
