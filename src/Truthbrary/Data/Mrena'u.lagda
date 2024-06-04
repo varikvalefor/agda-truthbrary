@@ -179,6 +179,9 @@ module _+_Veritas where
   dratadratas = {!!}
 \end{code}
 
+\section{la \F{frinu}}
+ni'o la'o zoi.\ \F{frinu} \B a \B b\ .zoi.\ frinu la'oi .\B a.\ la'oi .\B b.
+
 \begin{code}
 frinu : ℝ → (d : ℝ) → ¬_ $ d ≡ fromℕ 0 → ℝ
 frinu = {!!}
