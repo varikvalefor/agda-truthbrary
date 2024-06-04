@@ -111,6 +111,7 @@ open import Data.Nat
   )
 open import Function
   using (
+    _∘_;
     _$_
   )
 open import Data.Integer
@@ -173,7 +174,7 @@ module _+_Veritas where
 
   dratadratas : (r s : ℝ)
               → ¬_ $ r ≡ s
-              → let N = λ x → ¬_ $ x ≡ r + s in
+              → let N = ¬_ ∘ _≡_ (r + s) in
                 N r × N s
   dratadratas = {!!}
 \end{code}
