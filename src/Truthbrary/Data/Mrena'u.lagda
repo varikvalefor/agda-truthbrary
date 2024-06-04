@@ -197,5 +197,8 @@ _≥_ = {!!}
 module _≥_Veritas where
   sez : (r : ℝ) → r ≥ r
   sez = {!!}
+
+  >⇒≥ : (r s : ℝ) → r > s → r ≥ s
+  >⇒≥ = {!!}
 \end{code}
 \end{document}
