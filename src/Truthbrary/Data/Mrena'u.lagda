@@ -156,6 +156,14 @@ div : ℝ → (d : ℝ) → ¬_ $ d ≡ fromℕ 0 → ℝ
 div = {!!}
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module DivVeritas where
+  sez≡1 : (r : ℝ) → (d : _) → div r r d ≡ fromℕ 1
+  sez≡1 = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
 
