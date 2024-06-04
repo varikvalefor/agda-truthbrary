@@ -154,4 +154,12 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavm
 _≥_ : ℝ → ℝ → Set
 _≥_ = {!!}
 \end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module _≥_Veritas where
+  sez : (r : ℝ) → r ≥ r
+  sez = {!!}
+\end{code}
 \end{document}
