@@ -182,6 +182,14 @@ module _+_Veritas where
   dratadratas = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{\AgdaUnderscore{}-\AgdaUnderscore}\ .zoi.}
+ni'o la'o zoi.\ \B a \OpF - \B b\ .zoi.\ vujnu la'oi .\B a.\ la'oi .\B b.
+
+\begin{code}
+_-_ : ℝ → ℝ → ℝ
+_-_ = {!!}
+\end{code}
+
 \section{la \F{frinu}}
 ni'o la'o zoi.\ \F{frinu} \B a \B b\ .zoi.\ frinu la'oi .\B a.\ la'oi .\B b.
 
