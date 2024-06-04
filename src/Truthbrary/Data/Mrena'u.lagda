@@ -205,7 +205,7 @@ module FrinuVeritas where
   sez≡1 : (r : ℝ) → (d : _) → frinu r r d ≡ fromℕ 1
   sez≡1 = {!!}
 
-  r≡r/1 : (r : ℝ) → r ≡_ $ frinu r (fromℕ 1) {!!}
+  r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) {!!}
   r≡r/1 = {!!}
 \end{code}
 
