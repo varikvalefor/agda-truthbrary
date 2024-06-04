@@ -105,6 +105,14 @@ ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots{}\ jenai zo'e
 ℝ = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
+ni'o la'o zoi.\ \B a \OpF + \B b\ .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
+
+\begin{code}
+_+_ : ℝ → ℝ → ℝ
+_+_ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
 
