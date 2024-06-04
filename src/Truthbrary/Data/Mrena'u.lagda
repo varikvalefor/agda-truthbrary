@@ -146,7 +146,7 @@ ni'o la'o zoi.\ \F{fromℕ} \B n\ .zoi.\ namcu du la'oi .\B n.
 
 \begin{code}
 fromℕ : ℕ → ℝ
-fromℕ = {!!}
+fromℕ n = ℤ.+_ n , {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
