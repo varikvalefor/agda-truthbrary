@@ -101,6 +101,10 @@ open import Data.Nat
   using (
     ℕ
   )
+open import Function
+  using (
+    _$_
+  )
 open import Data.Integer
   as ℤ
   using (
@@ -110,6 +114,10 @@ open import Data.Product
   using (
     _×_;
     _,_
+  )
+open import Relation.Nullary
+  using (
+    ¬_
   )
 \end{code}
 
@@ -145,6 +153,14 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la
 \begin{code}
 _>_ : ℝ → ℝ → Set
 _>_ = {!!}
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module _>_Veritas where
+  ¬sez : (r : ℝ) → ¬_ $ r > r
+  ¬sez = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
