@@ -34,6 +34,7 @@
 \newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb{S}}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb{M}}}}
 \newunicodechar{ℝ}{\ensuremath{\mathnormal{\mathbb{R}}}}
+\newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{Z}}}}
 \newunicodechar{ℂ}{\ensuremath{\mathnormal{\mathbb{C}}}}
 \newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb{B}}}}
 \newunicodechar{ν}{\ensuremath{\mathnormal{\nu}}}
@@ -70,6 +71,8 @@
 \newunicodechar{′}{\ensuremath{\mathnormal{'}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{≗}{\ensuremath{\mathnormal{\circeq}}}
+\newunicodechar{⇒}{\ensuremath{\mathnormal{\Rightarrow}}}
+\newunicodechar{⍨}{\raisebox{-0.25ex}{$\ddot\sim$}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
