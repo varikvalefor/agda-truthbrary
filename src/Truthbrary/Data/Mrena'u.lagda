@@ -185,7 +185,6 @@ module DivVeritas where
 
   r≡r/1 : (r : ℝ) → r ≡_ $ div r (fromℕ 1) {!!}
   r≡r/1 = {!!}
-
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
