@@ -151,6 +151,16 @@ _+_ : ℝ → ℝ → ℝ
 _+_ = {!!}
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module _+_Veritas where
+  dratadratas : (r s : ℝ)
+              → ¬_ $ r ≡ s
+              → (¬_ $ r ≡ (r + s)) × (¬_ $ s ≡ (r + s))
+  dratadratas = {!!}
+\end{code}
+
 \begin{code}
 div : ℝ → (d : ℝ) → ¬_ $ d ≡ fromℕ 0 → ℝ
 div = {!!}
