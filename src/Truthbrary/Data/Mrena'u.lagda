@@ -101,7 +101,8 @@ module Truthbrary.Data.Mrena'u where
 
 open import Algebra
   using (
-    Associative
+    Associative;
+    Commutative
   )
 open import Data.Nat
   as ℕ
@@ -166,6 +167,9 @@ _+_ = {!!}
 module _+_Veritas where
   +≡+⍨ : Associative {ℓ = Level.zero} {!!} _+_
   +≡+⍨ = {!!}
+
+  +-comm : Commutative {ℓ = Level.zero} {!!} _+_
+  +-comm = {!!}
 
   dratadratas : (r s : ℝ)
               → ¬_ $ r ≡ s
