@@ -96,6 +96,10 @@ ni'o bau la .lojban.\ joi la'oi .Agda.\ la .varik.\ cu ciksi ko'a goi lo mrena'u
 
 module Truthbrary.Data.Mrena'u where
 
+open import Algebra
+  using (
+    Associative
+  )
 open import Data.Nat
   as ℕ
   using (
@@ -123,6 +127,8 @@ open import Relation.Binary.PropositionalEquality
   using (
     _≡_
   )
+
+import Level
 \end{code}
 
 \section{la'oi .\F ℝ.}
@@ -155,6 +161,9 @@ _+_ = {!!}
 
 \begin{code}
 module _+_Veritas where
+  +≡+⍨ : Associative {ℓ = Level.zero} {!!} _+_
+  +≡+⍨ = {!!}
+
   dratadratas : (r s : ℝ)
               → ¬_ $ r ≡ s
               → (¬_ $ r ≡ (r + s)) × (¬_ $ s ≡ (r + s))
