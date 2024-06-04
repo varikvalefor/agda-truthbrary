@@ -95,6 +95,12 @@ ni'o bau la .lojban.\ joi la'oi .Agda.\ la .varik.\ cu ciksi ko'a goi lo mrena'u
 {-# OPTIONS --safe #-}
 
 module Truthbrary.Data.Mrena'u where
+
+open import Data.Nat
+  as ℕ
+  using (
+    ℕ
+  )
 \end{code}
 
 \section{la'oi .\F ℝ.}
@@ -103,6 +109,14 @@ ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots{}\ jenai zo'e
 \begin{code}
 ℝ : Set
 ℝ = {!!}
+\end{code}
+
+\section{la'o zoi.\ \F{fromℕ} .zoi.}
+ni'o la'o zoi.\ \F{fromℕ} \B n\ .zoi.\ namcu du la'oi .\B n.
+
+\begin{code}
+fromℕ : ℕ → ℝ
+fromℕ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
@@ -119,5 +133,13 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la
 \begin{code}
 _>_ : ℝ → ℝ → Set
 _>_ = {!!}
+\end{code}
+
+\section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavmau la'oi .\B b.
+
+\begin{code}
+_≥_ : ℝ → ℝ → Set
+_≥_ = {!!}
 \end{code}
 \end{document}
