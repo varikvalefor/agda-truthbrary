@@ -172,6 +172,9 @@ module _+_Veritas where
   +-comm : Commutative {ℓ = Level.zero} {!!} _+_
   +-comm = {!!}
 
+  id≡+0 : (r : ℝ) → r ≡ r + fromℕ 0
+  id≡+0 = {!!}
+
   dratadratas : (r s : ℝ)
               → ¬_ $ r ≡ s
               → let N = ¬_ ∘ _≡_ (r + s) in
