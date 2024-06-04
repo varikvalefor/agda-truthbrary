@@ -119,6 +119,10 @@ open import Relation.Nullary
   using (
     ¬_
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'oi .\F ℝ.}
@@ -145,6 +149,11 @@ ni'o la'o zoi.\ \B a \OpF + \B b\ .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 \begin{code}
 _+_ : ℝ → ℝ → ℝ
 _+_ = {!!}
+\end{code}
+
+\begin{code}
+div : ℝ → (d : ℝ) → ¬_ $ d ≡ fromℕ 0 → ℝ
+div = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
