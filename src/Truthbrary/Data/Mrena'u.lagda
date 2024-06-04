@@ -114,6 +114,10 @@ open import Function
     _∘_;
     _$_
   )
+open import Data.Digit
+  using (
+    Digit
+  )
 open import Data.Integer
   as ℤ
   using (
@@ -137,13 +141,13 @@ import Level
 \end{code}
 
 \section{la'oi .\F ℝ.}
-ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots{}\ jenai zo'e  .i la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B b\ .zoi.\ poi ke'a ctaipe la'oi .\F ℝ.\ cu du lo sumji be la'oi .\B a.\ bei lo pilji be lo me'oi .sign.\ namcu be la'oi .\B a.\ be'o bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.
+ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots{}\ jenai zo'e  .i la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B b\ .zoi.\ poi ke'a ctaipe la'oi .\F ℝ.\ cu du lo sumji be la'oi .\B a.\ bei lo pilji be lo me'oi .sign.\ namcu be la'oi .\B a.\ be'o bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.  .i ga jo la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B f\ .zoi.\ gi la'o zoi.\ \B f \B n\ .zoi.\ meirmoi la'oi .\B n.\ fo lo me'oi .digit.\ be lo cmalu pagbu be lo mu'oi glibau.\ decimal expansion .glibau.\ be da
 
 .i la .varik.\ cu pacna lo nu frili cumki fa lo nu xagzengau pe'a le velcki
 
 \begin{code}
 ℝ : Set
-ℝ = ℤ × {!!}
+ℝ = ℤ × (ℕ → Digit 10)
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
