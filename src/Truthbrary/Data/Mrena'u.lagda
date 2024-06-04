@@ -181,6 +181,10 @@ div = {!!}
 module DivVeritas where
   sez≡1 : (r : ℝ) → (d : _) → div r r d ≡ fromℕ 1
   sez≡1 = {!!}
+
+  r≡r/1 : (r : ℝ) → r ≡_ $ div r (fromℕ 1) {!!}
+  r≡r/1 = {!!}
+
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
