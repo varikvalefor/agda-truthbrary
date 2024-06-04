@@ -161,6 +161,9 @@ _>_ = {!!}
 module _>_Veritas where
   ¬sez : (r : ℝ) → ¬_ $ r > r
   ¬sez = {!!}
+
+  zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
+  zmad = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
