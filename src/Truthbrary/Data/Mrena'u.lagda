@@ -180,18 +180,18 @@ module _+_Veritas where
 \end{code}
 
 \begin{code}
-div : ℝ → (d : ℝ) → ¬_ $ d ≡ fromℕ 0 → ℝ
-div = {!!}
+frinu : ℝ → (d : ℝ) → ¬_ $ d ≡ fromℕ 0 → ℝ
+frinu = {!!}
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
-module DivVeritas where
-  sez≡1 : (r : ℝ) → (d : _) → div r r d ≡ fromℕ 1
+module FrinuVeritas where
+  sez≡1 : (r : ℝ) → (d : _) → frinu r r d ≡ fromℕ 1
   sez≡1 = {!!}
 
-  r≡r/1 : (r : ℝ) → r ≡_ $ div r (fromℕ 1) {!!}
+  r≡r/1 : (r : ℝ) → r ≡_ $ frinu r (fromℕ 1) {!!}
   r≡r/1 = {!!}
 \end{code}
 
