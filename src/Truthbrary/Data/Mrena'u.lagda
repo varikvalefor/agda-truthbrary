@@ -72,6 +72,7 @@
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{≗}{\ensuremath{\mathnormal{\circeq}}}
 \newunicodechar{⇒}{\ensuremath{\mathnormal{\Rightarrow}}}
+\newunicodechar{≈}{\ensuremath{\mathnormal{\approx}}}
 \newunicodechar{⍨}{\raisebox{-0.25ex}{$\ddot\sim$}}
 
 \newcommand\Sym\AgdaSymbol
@@ -155,6 +156,14 @@ ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots\ jenai zo'e  .i la'o zoi.\ \IC{\
 \begin{code}
 ℝ : Set
 ℝ = ℤ × (ℕ → Digit 10)
+\end{code}
+
+\section{la'o zoi.\ \F{\AgdaUnderscore{}≈\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu du la'oi .\B s.
+
+\begin{code}
+_≈_ : ℝ → ℝ → Set
+_≈_ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
