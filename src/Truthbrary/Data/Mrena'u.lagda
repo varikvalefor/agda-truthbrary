@@ -165,6 +165,14 @@ fromℕ : ℕ → ℝ
 fromℕ n = ℤ.+_ n , const 𝔽.zero
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module FromℕVeritas where
+  pav : (n : ℕ) → ℤ.+_ n ≡ proj₁ (fromℕ n)
+  pav = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \OpF + \B b\ .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 
