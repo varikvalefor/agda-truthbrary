@@ -192,8 +192,10 @@ module _≈_Veritas where
   n+1≈n,9+ = {!!}
 
   >⇒¬≈ : (r s : ℝ)
-       → let ℤp = λ {(Sign.+ , n , _) → ℤ.+_ n;
-                     (Sign.- , n , _) → ℤ.-_ $ ℤ.+_ n} in
+       → let ℤp = (Function._∋_
+                    (ℝ → ℤ)
+                    (λ {(Sign.+ , n , x) → ℤ.+_ n;
+                        (Sign.- , n , x) → ℤ.-_ (ℤ.+_ n)})) in
          ℤ.∣_∣ (ℤp r ℤ.- ℤp s) ℕ.> 1
        → ¬_ $ r ≈ s
   >⇒¬≈ = {!!}
