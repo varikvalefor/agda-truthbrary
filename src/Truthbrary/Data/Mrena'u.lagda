@@ -285,6 +285,9 @@ module _^_Veritas where
   0≡0^r : (r : ℝ) → fromℕ 0 ≡ fromℕ 0 ^ r
   0≡0^r = {!!}
 
+  [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
+  [r^s]^t≈r^[s*t] = {!!}
+
   r≡[r^s]^[1/s] : (r s : ℝ)
                 → (N : _)
                 → (_≡_
