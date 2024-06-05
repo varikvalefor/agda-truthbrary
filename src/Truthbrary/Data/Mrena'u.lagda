@@ -146,7 +146,7 @@ import Level
 \end{code}
 
 \section{la'oi .\F ℝ.}
-ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots{}\ jenai zo'e  .i la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B b\ .zoi.\ poi ke'a ctaipe la'oi .\F ℝ.\ cu du lo sumji be la'oi .\B a.\ bei lo pilji be lo me'oi .sign.\ namcu be la'oi .\B a.\ be'o bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.  .i ga jo ko'a goi la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B f\ .zoi.\ gi la'o zoi.\ \B f \B n\ .zoi.\ meirmoi la'oi .\B n.\ fo lo me'oi .digit.\ be lo cmalu pagbu be lo mu'oi glibau.\ decimal expansion .glibau.\ be ko'a
+ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots\ jenai zo'e  .i la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B b\ .zoi.\ poi ke'a ctaipe la'oi .\F ℝ.\ cu du lo sumji be la'oi .\B a.\ bei lo pilji be lo me'oi .sign.\ namcu be la'oi .\B a.\ be'o bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.  .i ga jo ko'a goi la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B f\ .zoi.\ gi la'o zoi.\ \B f \B n\ .zoi.\ meirmoi la'oi .\B n.\ fo lo me'oi .digit.\ be lo cmalu pagbu be lo mu'oi glibau.\ decimal expansion .glibau.\ be ko'a
 
 .i la .varik.\ cu pacna lo nu frili cumki fa lo nu xagzengau pe'a le velcki
 
