@@ -130,6 +130,8 @@ open import Data.Integer
   )
 open import Data.Product
   using (
+    proj₂;
+    proj₁;
     _×_;
     _,_
   )
@@ -189,6 +191,14 @@ module _+_Veritas where
               → let N = ¬_ ∘ _≡_ (r + s) in
                 N r × N s
   dratadratas = {!!}
+
+  r≡r₁+r₂ : (r : ℝ)
+          → (_≡_
+              r
+              (_+_
+                (proj₁ r , const 𝔽.zero)
+                (ℤ.+_ 0 , proj₂ r)))
+  r≡r₁+r₂ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}-\AgdaUnderscore}\ .zoi.}
