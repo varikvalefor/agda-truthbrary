@@ -250,6 +250,14 @@ _^_ : ℝ → ℝ → ℝ
 _^_ = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
+ni'o cu'alni la'oi .\B r.\ fa la'o zoi.\ \F{∣\AgdaUnderscore{}∣} \B r\ .zoi.
+
+\begin{code}
+∣_∣ : ℝ → ℝ
+∣_∣ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
 
