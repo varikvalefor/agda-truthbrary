@@ -181,6 +181,11 @@ module _≈_Veritas where
                (ℤ.+_ (ℕ.suc n) , const 𝔽.zero)
                (ℤ.+_ n , const 9F))
   n+1≈n,9+ = {!!}
+
+  >⇒¬≈ : (r s : ℝ)
+       → ℤ.∣_∣ (proj₁ r ℤ.- proj₁ s) ℕ.> 1
+       → ¬_ $ r ≈ s
+  >⇒¬≈ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
