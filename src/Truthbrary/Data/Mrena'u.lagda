@@ -104,6 +104,10 @@ open import Algebra
     Associative;
     Commutative
   )
+open import Data.Fin
+  as 𝔽
+  using (
+  )
 open import Data.Nat
   as ℕ
   using (
@@ -111,6 +115,7 @@ open import Data.Nat
   )
 open import Function
   using (
+    const;
     _∘_;
     _$_
   )
@@ -155,7 +160,7 @@ ni'o la'o zoi.\ \F{fromℕ} \B n\ .zoi.\ namcu du la'oi .\B n.
 
 \begin{code}
 fromℕ : ℕ → ℝ
-fromℕ n = ℤ.+_ n , {!!}
+fromℕ n = ℤ.+_ n , const 𝔽.zero
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
