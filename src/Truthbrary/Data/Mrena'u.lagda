@@ -172,6 +172,15 @@ _≈_ = {!!}
 module _≈_Veritas where
   ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
   ≡⇒≈ = {!!}
+
+  n+1≈n,9+ : (n : ℕ)
+           → let 3F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 𝔽.zero in
+             let 6F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 3F in
+             let 9F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 6F in
+             (_≈_
+               (ℤ.+_ (ℕ.suc n) , const 𝔽.zero)
+               (ℤ.+_ n , const 9F))
+  n+1≈n,9+ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
