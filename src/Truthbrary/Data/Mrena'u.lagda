@@ -166,6 +166,14 @@ _≈_ : ℝ → ℝ → Set
 _≈_ = {!!}
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module _≈_Veritas where
+  ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
+  ≡⇒≈ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
 ni'o la'o zoi.\ \F{fromℕ} \B n\ .zoi.\ namcu du la'oi .\B n.
 
