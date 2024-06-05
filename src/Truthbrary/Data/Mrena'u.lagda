@@ -227,6 +227,14 @@ module FromℕVeritas where
   rel = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{fromℤ}\ .zoi.}
+ni'o la'o zoi.\ \F{fromℤ} \B z\ .zoi.\ namcu dunli la'oi .\B z.
+
+\begin{code}
+fromℤ : ℤ → ℝ
+fromℤ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \OpF + \B b\ .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 
