@@ -267,6 +267,14 @@ _^_ : ℝ → ℝ → ℝ
 _^_ = {!!}
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module _^_Veritas where
+  id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
+  id≡_^1 = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
 ni'o cu'alni la'oi .\B r.\ fa la'o zoi.\ \F{∣\AgdaUnderscore{}∣} \B r\ .zoi.
 
