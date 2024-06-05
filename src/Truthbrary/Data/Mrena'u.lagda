@@ -171,6 +171,9 @@ fromℕ n = ℤ.+_ n , const 𝔽.zero
 module FromℕVeritas where
   pav : (n : ℕ) → ℤ.+_ n ≡ proj₁ (fromℕ n)
   pav = {!!}
+
+  rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (fromℕ m) n
+  rel = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
