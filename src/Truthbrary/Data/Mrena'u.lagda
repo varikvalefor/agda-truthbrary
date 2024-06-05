@@ -232,7 +232,7 @@ frinu = {!!}
 
 \begin{code}
 module FrinuVeritas where
-  sez≡1 : (r : ℝ) → (d : _) → frinu r r d ≡ fromℕ 1
+  sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
   sez≡1 = {!!}
 
   r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (λ ())
