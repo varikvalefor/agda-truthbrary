@@ -237,6 +237,9 @@ module FrinuVeritas where
 
   r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (λ ())
   r≡r/1 = {!!}
+
+  0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
+  0≡0/r = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}\textasciicircum{}\AgdaUnderscore}\ .zoi.}
