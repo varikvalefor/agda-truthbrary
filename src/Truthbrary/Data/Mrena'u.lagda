@@ -276,6 +276,15 @@ module _^_Veritas where
 
   0≡0^r : (r : ℝ) → fromℕ 0 ≡ fromℕ 0 ^ r
   0≡0^r = {!!}
+
+  r≡[r^s]^[1/s] : (r s : ℝ)
+                → (N : _)
+                → (_≡_
+                    r
+                    (_^_
+                      (r ^ s)
+                      (frinu (fromℕ 1) s N)))
+  r≡[r^s]^[1/s] = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
