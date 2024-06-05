@@ -136,6 +136,10 @@ open import Data.Product
     _×_;
     _,_
   )
+open import Relation.Binary
+  using (
+    Asymmetric 
+  )
 open import Relation.Nullary
   using (
     ¬_
@@ -348,6 +352,9 @@ module _>_Veritas where
 
   zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
   zmad = {!!}
+
+  >⇒¬< : Asymmetric _>_
+  >⇒¬< = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
