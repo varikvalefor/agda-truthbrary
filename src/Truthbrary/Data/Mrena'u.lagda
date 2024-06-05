@@ -190,6 +190,12 @@ module _≈_Veritas where
        → ℤ.∣_∣ (proj₁ r ℤ.- proj₁ s) ℕ.> 1
        → ¬_ $ r ≈ s
   >⇒¬≈ = {!!}
+
+  ¬[fn≡gn]⇒¬≈ : (r s : ℝ)
+              → proj₁ r ≡ proj₁ s
+              → ∃ $ λ n → ¬_ $ proj₂ r n ≡ proj₂ s n
+              → ¬_ $ r ≈ s
+  ¬[fn≡gn]⇒¬≈ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
