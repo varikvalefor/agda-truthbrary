@@ -146,6 +146,7 @@ open import Relation.Nullary
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    _≗_;
     _≡_
   )
 
@@ -193,7 +194,7 @@ module _≈_Veritas where
 
   ¬[fn≡gn]⇒¬≈ : (r s : ℝ)
               → proj₁ r ≡ proj₁ s
-              → ∃ $ λ n → ¬_ $ proj₂ r n ≡ proj₂ s n
+              → ¬_ $ proj₂ r ≗ proj₂ s
               → ¬_ $ r ≈ s
   ¬[fn≡gn]⇒¬≈ = {!!}
 \end{code}
