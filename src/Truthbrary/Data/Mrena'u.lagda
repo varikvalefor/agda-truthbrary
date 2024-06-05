@@ -259,6 +259,14 @@ _*_ : ℝ → ℝ → ℝ
 _*_ = {!!}
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module _*_Veritas where
+  r≈1*r : (r : ℝ) → r ≈_ $ fromℕ 1 * r
+  r≈1*r = {!!}
+\end{code}
+
 \section{la \F{frinu}}
 ni'o la'o zoi.\ \F{frinu} \B a \B b\ .zoi.\ frinu la'oi .\B a.\ la'oi .\B b.
 
