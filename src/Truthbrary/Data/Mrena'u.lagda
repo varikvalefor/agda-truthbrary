@@ -262,6 +262,16 @@ _-_ : ℝ → ℝ → ℝ
 _-_ = {!!}
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module _-_Veritas where
+  r≈-r⇒r≡0 : (r : ℝ)
+           → r ≈ (fromℕ 0 - r)
+           → r ≡ fromℕ 0
+  r≈-r⇒r≡0 = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}*\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \OpF * \B b\ .zoi.\ pilji la'oi .\B a.\ la'oi .\B b.
 
