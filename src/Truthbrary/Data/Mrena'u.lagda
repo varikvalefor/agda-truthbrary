@@ -170,7 +170,7 @@ fromℕ n = ℤ.+_ n , const 𝔽.zero
 \begin{code}
 module FromℕVeritas where
   pav : (n : ℕ) → ℤ.+_ n ≡ proj₁ (fromℕ n)
-  pav = λ _ → _≡_.refl
+  pav _ = _≡_.refl
 
   rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (fromℕ m) n
   rel = {!!}
