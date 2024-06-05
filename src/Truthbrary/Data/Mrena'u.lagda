@@ -239,6 +239,14 @@ module FrinuVeritas where
   r≡r/1 = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{\AgdaUnderscore{}\textasciicircum{}\AgdaUnderscore}\ .zoi.}
+ni'o tenfa la'oi .\B a.\ la'oi .\B b.\ fa la'o zoi.\ \B a \OpF \textasciicircum{} \B b\ .zoi.
+
+\begin{code}
+_^_ : ℝ → ℝ → ℝ
+_^_ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
 
