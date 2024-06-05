@@ -120,6 +120,10 @@ open import Function
     _∘_;
     _$_
   )
+open import Data.Sign
+  using (
+    Sign
+  )
 open import Data.Digit
   using (
     Digit
@@ -154,13 +158,13 @@ import Level
 \end{code}
 
 \section{la'oi .\F ℝ.}
-ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots\ jenai zo'e  .i la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B b\ .zoi.\ poi ke'a ctaipe la'oi .\F ℝ.\ cu du lo sumji be la'oi .\B a.\ bei lo pilji be lo me'oi .sign.\ namcu be la'oi .\B a.\ be'o bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.  .i ga jo ko'a goi la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B f\ .zoi.\ gi la'o zoi.\ \B f \B n\ .zoi.\ meirmoi la'oi .\B n.\ fo lo me'oi .digit.\ be lo cmalu pagbu be lo mu'oi glibau.\ decimal expansion .glibau.\ be ko'a
+ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots\ jenai zo'e  .i la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B s \Sym(\IC{\AgdaUnderscore{},\AgdaUnderscore{}}\B a \B b\Sym)\ .zoi.\ poi ke'a ctaipe la'oi .\F ℝ.\ cu lo pilji be lo sumji be la'oi .\B a.\ bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.\ be'o be'o be'o bei zo'e poi ga jonai ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.+}\ .zoi.\ gi ke'a du li pa gi ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.-}\ .zoi.\ gi ke'a du li ni'u pa  .i ga jo ko'a goi la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \AgdaUnderscore{} \Sym(\IC{\AgdaUnderscore{},\AgdaUnderscore} \B a \B f\Sym)\ .zoi.\ gi la'o zoi.\ \B f \B n\ .zoi.\ meirmoi la'oi .\B n.\ fo lo me'oi .digit.\ be lo cmalu pagbu be lo mu'oi glibau.\ decimal expansion .glibau.\ be ko'a
 
 .i la .varik.\ cu pacna lo nu frili cumki fa lo nu xagzengau pe'a le velcki
 
 \begin{code}
 ℝ : Set
-ℝ = ℤ × (ℕ → Digit 10)
+ℝ = Sign × ℕ × (ℕ → Digit 10)
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≈\AgdaUnderscore}\ .zoi.}
@@ -183,18 +187,21 @@ module _≈_Veritas where
              let 6F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 3F in
              let 9F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 6F in
              (_≈_
-               (ℤ.+_ (ℕ.suc n) , const 𝔽.zero)
-               (ℤ.+_ n , const 9F))
+               (Sign.+ , (ℕ.suc n) , const 𝔽.zero)
+               (Sign.+ , n , const 9F))
   n+1≈n,9+ = {!!}
 
   >⇒¬≈ : (r s : ℝ)
-       → ℤ.∣_∣ (proj₁ r ℤ.- proj₁ s) ℕ.> 1
+       → let ℤp = λ {(Sign.+ , n , _) → ℤ.+_ n;
+                     (Sign.- , n , _) → ℤ.-_ $ ℤ.+_ n} in
+         ℤ.∣_∣ (ℤp r ℤ.- ℤp s) ℕ.> 1
        → ¬_ $ r ≈ s
   >⇒¬≈ = {!!}
 
   ¬[fn≡gn]⇒¬≈ : (r s : ℝ)
               → proj₁ r ≡ proj₁ s
-              → ¬_ $ proj₂ r ≗ proj₂ s
+              → let fp = proj₂ ∘ proj₂ in
+                ¬_ $ fp r ≗ fp s
               → ¬_ $ r ≈ s
   ¬[fn≡gn]⇒¬≈ = {!!}
 \end{code}
@@ -204,17 +211,17 @@ ni'o la'o zoi.\ \F{fromℕ} \B n\ .zoi.\ namcu du la'oi .\B n.
 
 \begin{code}
 fromℕ : ℕ → ℝ
-fromℕ n = ℤ.+_ n , const 𝔽.zero
+fromℕ n = Sign.+ , n , const 𝔽.zero
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
 module FromℕVeritas where
-  pav : (n : ℕ) → ℤ.+_ n ≡ proj₁ (fromℕ n)
+  pav : (n : ℕ) → n ≡ proj₁ (proj₂ $ fromℕ n)
   pav _ = _≡_.refl
 
-  rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (fromℕ m) n
+  rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (proj₂ $ fromℕ m) n
   rel = {!!}
 \end{code}
 
@@ -249,8 +256,8 @@ module _+_Veritas where
           → (_≡_
               r
               (_+_
-                (proj₁ r , const 𝔽.zero)
-                (ℤ.+_ 0 , proj₂ r)))
+                (proj₁ r , proj₁ (proj₂ r) , const 𝔽.zero)
+                (Sign.+ , 0 , proj₂ (proj₂ r))))
   r≡r₁+r₂ = {!!}
 \end{code}
 
