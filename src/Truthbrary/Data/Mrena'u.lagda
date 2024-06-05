@@ -265,6 +265,9 @@ _*_ = {!!}
 module _*_Veritas where
   r≈1*r : (r : ℝ) → r ≈_ $ fromℕ 1 * r
   r≈1*r = {!!}
+
+  0≈0*r : (r : ℝ) → fromℕ 0 ≈ (fromℕ 0 * r)
+  0≈0*r = {!!}
 \end{code}
 
 \section{la \F{frinu}}
