@@ -258,14 +258,6 @@ fromℤ (ℤ.pos n) = Sign.+ , n , const 𝔽.zero
 fromℤ (ℤ.negsuc n) = Sign.- , ℕ.suc n , const 𝔽.zero
 \end{code}
 
-\section{la'o zoi.\ \F{fromℚ}\ .zoi.}
-ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
-
-\begin{code}
-fromℚ : ℚ → ℝ
-fromℚ = {!!}
-\end{code}
-
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \OpF + \B b\ .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 
@@ -393,6 +385,14 @@ module _^_Veritas where
                       (r ^ s)
                       (frinu (fromℕ 1) s N)))
   r≡[r^s]^[1/s] = {!!}
+\end{code}
+
+\section{la'o zoi.\ \F{fromℚ}\ .zoi.}
+ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
+
+\begin{code}
+fromℚ : ℚ → ℝ
+fromℚ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
