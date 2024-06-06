@@ -443,8 +443,7 @@ module _≥_Veritas where
   >⇒≥ : (r s : ℝ) → r > s → r ≥ s
   >⇒≥ = {!!}
 
-  ∃[≥∧≥⍨] : (r s : ℝ)
-          → ∃ $ λ t → (s ≥ t) × (t ≥ r)
+  ∃[≥∧≥⍨] : (r s : ℝ) → ∃ $ λ t → (s ≥ t) × (t ≥ r)
   ∃[≥∧≥⍨] = λ r s → frinu (r + s) (fromℕ 2) (λ ()) , {!!}
 \end{code}
 \end{document}
