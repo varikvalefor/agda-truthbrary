@@ -33,6 +33,7 @@
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb{F}}}}
 \newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb{S}}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb{M}}}}
+\newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
 \newunicodechar{ℝ}{\ensuremath{\mathnormal{\mathbb{R}}}}
 \newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{Z}}}}
 \newunicodechar{ℂ}{\ensuremath{\mathnormal{\mathbb{C}}}}
@@ -140,6 +141,11 @@ open import Data.Product
     _×_;
     _,_
   )
+open import Data.Rational
+  as ℚ
+  using (
+    ℚ
+  )
 open import Relation.Binary
   using (
     Asymmetric 
@@ -233,6 +239,14 @@ ni'o la'o zoi.\ \F{fromℤ} \B z\ .zoi.\ namcu dunli la'oi .\B z.
 \begin{code}
 fromℤ : ℤ → ℝ
 fromℤ = {!!}
+\end{code}
+
+\section{la'o zoi.\ \F{fromℚ}\ .zoi.}
+ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
+
+\begin{code}
+fromℚ : ℚ → ℝ
+fromℚ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
