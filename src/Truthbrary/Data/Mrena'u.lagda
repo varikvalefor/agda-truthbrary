@@ -443,7 +443,7 @@ module _≥_Veritas where
   >⇒≥ = {!!}
 
   ∃[≥∧≥⍨] : (r s : ℝ)
-          → (Data.Product.∃ (λ t → (s ≥ t) × (t ≥ r)))
+          → Data.Product.∃ (λ t → (s ≥ t) × (t ≥ r))
   ∃[≥∧≥⍨] = {!!}
 \end{code}
 \end{document}
