@@ -186,6 +186,14 @@ ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ be lo co'e
 ⌊' = {!!}
 \end{code}
 
+\section{la'oi .\F{dp}.}
+ni'o la'o zoi.\ \F{dp} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ ke co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'oi .\F{dp}.\ be'o je le velcki be la'oi .\F ℝ.
+
+\begin{code}
+dp : ℝ → ℕ → Digit 10
+dp = proj₂ ∘ proj₂
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≈\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu du la'oi .\B s.
 
