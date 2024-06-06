@@ -294,7 +294,7 @@ module _+_Veritas where
               r
               (_+_
                 (proj₁ r , proj₁ (proj₂ r) , const 𝔽.zero)
-                (Sign.+ , 0 , proj₂ (proj₂ r))))
+                (proj₁ r , 0 , proj₂ (proj₂ r))))
   r≡r₁+r₂ = {!!}
 \end{code}
 
