@@ -298,8 +298,8 @@ module _+_Veritas where
           → (_≡_
               r
               (_+_
-                (proj₁ r , proj₁ (proj₂ r) , const 𝔽.zero)
-                (proj₁ r , 0 , proj₂ (proj₂ r))))
+                (fromℤ $ ⌊' r)
+                (proj₁ r , 0 , ⌊'⁻¹ r)))
   r≡r₁+r₂ = {!!}
 \end{code}
 
