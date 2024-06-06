@@ -444,9 +444,7 @@ module _≥_Veritas where
 
   ∃[≥∧≥⍨] : (r s : ℝ)
           → (Data.Product.∃
-              (λ t → _×_
-                (s ≥ t)
-                (t ≥ r)))
+              (λ t → _×_ (s ≥ t) (t ≥ r)))
   ∃[≥∧≥⍨] = {!!}
 \end{code}
 \end{document}
