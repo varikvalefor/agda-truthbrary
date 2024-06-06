@@ -313,6 +313,9 @@ _-_ = {!!}
 
 \begin{code}
 module _-_Veritas where
+  0≈r-r : (r : ℝ) → fromℕ 0 ≡ r - r
+  0≈r-r = {!!}
+
   r≈-r⇒r≡0 : (r : ℝ)
            → r ≈ (fromℕ 0 - r)
            → r ≡ fromℕ 0
