@@ -202,7 +202,7 @@ module _≈_Veritas where
                     (ℝ → ℤ)
                     (λ {(Sign.+ , n , x) → ℤ.+_ n;
                         (Sign.- , n , x) → ℤ.-_ (ℤ.+_ n)})) in
-         ℤ.∣ ℤp r ℤ.- ℤp s ∣ ℕ.> 1
+         1 ℕ.< ℤ.∣ ℤp r ℤ.- ℤp s ∣
        → ¬_ $ r ≈ s
   >⇒¬≈ = {!!}
 
