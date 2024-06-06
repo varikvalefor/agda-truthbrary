@@ -43,6 +43,7 @@
 \newunicodechar{◆}{\ensuremath{\mathnormal\blackdiamond}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
+\newunicodechar{⁻}{\ensuremath{\mathnormal{^-}}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
 \newunicodechar{ϕ}{\ensuremath{\mathnormal{\phi}}}
 \newunicodechar{χ}{\ensuremath{\mathnormal{\chi}}}
@@ -186,12 +187,12 @@ ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ be lo co'e
 ⌊' = {!!}
 \end{code}
 
-\section{la'oi .\F{dp}.}
-ni'o la'o zoi.\ \F{dp} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ ke co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'oi .\F{dp}.\ be'o je le velcki be la'oi .\F ℝ.
+\section{la'o zoi.\ \F{⌊'⁻¹}\ .zoi.}
+ni'o la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ ke co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'o zoi.\ \F{⌊'⁻¹}\ .zoi.\ be'o je le velcki be la'oi .\F ℝ.
 
 \begin{code}
-dp : ℝ → ℕ → Digit 10
-dp = proj₂ ∘ proj₂
+⌊'⁻¹ : ℝ → ℕ → Digit 10
+⌊'⁻¹ = proj₂ ∘ proj₂
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≈\AgdaUnderscore}\ .zoi.}
