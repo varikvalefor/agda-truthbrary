@@ -238,7 +238,8 @@ ni'o la'o zoi.\ \F{fromℤ} \B z\ .zoi.\ namcu dunli la'oi .\B z.
 
 \begin{code}
 fromℤ : ℤ → ℝ
-fromℤ = {!!}
+fromℤ (ℤ.pos n) = {!!}
+fromℤ (ℤ.negsuc n) = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℚ}\ .zoi.}
