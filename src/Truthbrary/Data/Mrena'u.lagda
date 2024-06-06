@@ -436,7 +436,7 @@ _≥_ = {!!}
 
 \begin{code}
 module _≥_Veritas where
-  sez : (r : ℝ) → r ≥ r
+  sez : Relation.Binary.Reflexive _≥_
   sez = {!!}
 
   >⇒≥ : (r s : ℝ) → r > s → r ≥ s
