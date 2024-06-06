@@ -332,6 +332,9 @@ module _*_Veritas where
 
   0≈0*r : (r : ℝ) → fromℕ 0 ≈ (fromℕ 0 * r)
   0≈0*r = {!!}
+
+  r*s≈s*r : Associative _≈_ _*_
+  r*s≈s*r = {!!}
 \end{code}
 
 \section{la \F{frinu}}
