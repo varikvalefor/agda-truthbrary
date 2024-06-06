@@ -194,6 +194,13 @@ _≈_ = {!!}
 
 \begin{code}
 module _≈_Veritas where
+  ≡∧≡∧≗⇒≈ : (r s : ℝ)
+          → proj₁ r ≡ proj₁ s
+          → proj₁ (proj₂ r) ≡ proj₁ (proj₂ r)
+          → proj₂ (proj₂ r) ≗ proj₂ (proj₂ r)
+          → r ≈ s
+  ≡∧≡∧≗⇒≈ = {!!}
+
   ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
   ≡⇒≈ = {!!}
 
