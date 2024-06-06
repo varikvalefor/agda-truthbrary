@@ -444,6 +444,6 @@ module _≥_Veritas where
 
   ∃[≥∧≥⍨] : (r s : ℝ)
           → Data.Product.∃ $ λ t → (s ≥ t) × (t ≥ r)
-  ∃[≥∧≥⍨] = {!!}
+  ∃[≥∧≥⍨] = λ r s → frinu (r + s) (fromℕ 2) (λ ()) , {!!}
 \end{code}
 \end{document}
