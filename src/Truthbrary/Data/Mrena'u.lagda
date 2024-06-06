@@ -174,6 +174,9 @@ ni'o la'oi .\F ℝ.\ ctaipe lo ro mrena'u\ldots\ jenai zo'e  .i la'o zoi.\ \IC{\
 ℝ = Sign × ℕ × (ℕ → Digit 10)
 \end{code}
 
+\subsection{tu'a li ni'u no}
+ni'o la'oi .\F ℝ.\ jai .indika le du'u li no na du li ni'u no  .i la .varik.\ na mutce le ka ce'u tolnei la'e di'u  .i krinu la'e di'u fa le su'u la .varik.\ cu tolnei le su'u sampu  .i ku'i cumki fa lo nu la .varik.\ cu binxo
+
 \section{la'o zoi.\ \F{⌊'}\ .zoi.}
 ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ be lo co'e be la'o zoi.\ \AgdaField{proj₂} \OpF \$ \AgdaField{proj₂} \B r\ .zoi.
 
