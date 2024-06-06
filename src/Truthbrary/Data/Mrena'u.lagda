@@ -140,7 +140,8 @@ open import Data.Product
     proj₂;
     proj₁;
     _×_;
-    _,_
+    _,_;
+    ∃
   )
 open import Data.Rational
   as ℚ
@@ -443,7 +444,7 @@ module _≥_Veritas where
   >⇒≥ = {!!}
 
   ∃[≥∧≥⍨] : (r s : ℝ)
-          → Data.Product.∃ $ λ t → (s ≥ t) × (t ≥ r)
+          → ∃ $ λ t → (s ≥ t) × (t ≥ r)
   ∃[≥∧≥⍨] = λ r s → frinu (r + s) (fromℕ 2) (λ ()) , {!!}
 \end{code}
 \end{document}
