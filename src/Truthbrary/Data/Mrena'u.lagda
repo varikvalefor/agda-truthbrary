@@ -299,7 +299,7 @@ module Veritas where
   module _≈_ where
     ≡∧≡∧≗⇒≈ : (r s : ℝ)
             → ⌊' r ≡ ⌊' s
-            → proj₂ (proj₂ r) ≗ proj₂ (proj₂ s)
+            → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
             → r ≈ s
     ≡∧≡∧≗⇒≈ = {!!}
   
