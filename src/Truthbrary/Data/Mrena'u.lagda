@@ -221,6 +221,14 @@ fromℤ (ℤ.pos n) = Sign.+ , n , const 𝔽.zero
 fromℤ (ℤ.negsuc n) = Sign.- , ℕ.suc n , const 𝔽.zero
 \end{code}
 
+\section{la'o zoi.\ \F{toℤ}\ .zoi.}
+ni'o la'o zoi.\ \F{toℤ} \B r \AgdaUnderscore{}\ .zoi.\ namcu du la'oi .\B r.
+
+\begin{code}
+toℤ : (r : ℝ) → r ≡ fromℤ (⌊' r) → ℤ
+toℤ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \OpF + \B b\ .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 
