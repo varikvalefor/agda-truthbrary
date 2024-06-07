@@ -184,7 +184,8 @@ ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ be lo co'e
 
 \begin{code}
 ⌊' : ℝ → ℤ
-⌊' = {!!}
+⌊' (Sign.+ , n , f) = {!!}
+⌊' (Sign.- , n , f) = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{⌊'⁻¹}\ .zoi.}
