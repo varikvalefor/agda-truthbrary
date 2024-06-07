@@ -305,11 +305,11 @@ module Veritas where
 
 \begin{code}
   module _≈_ where
-    ≡∧≡∧≗⇒≈ : (r s : ℝ)
-            → ⌊' r ≡ ⌊' s
-            → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
-            → r ≈ s
-    ≡∧≡∧≗⇒≈ = {!!}
+    ≡∧≗⇒≈ : (r s : ℝ)
+          → ⌊' r ≡ ⌊' s
+          → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
+          → r ≈ s
+    ≡∧≗⇒≈ = {!!}
   
     ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
     ≡⇒≈ = {!!}
