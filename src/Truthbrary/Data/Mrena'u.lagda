@@ -347,7 +347,7 @@ module Veritas where
     rel = {!!}
 
   module _+_ where
-    +≡+⍨ : Associative {ℓ = Level.zero} _≈_ _+_
+    +≡+⍨ : Associative _≈_ _+_
     +≡+⍨ = {!!}
   
     +-comm : Commutative {ℓ = Level.zero} {!!} _+_
