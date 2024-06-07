@@ -249,7 +249,7 @@ _*_ = {!!}
 ni'o la'o zoi.\ \F{frinu} \B a \B b\ .zoi.\ frinu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-frinu : (_ d : ℝ) → ¬_ $ d ≡ fromℕ 0 → ℝ
+frinu : (_ d : ℝ) → ¬_ $ d ≈ fromℕ 0 → ℝ
 frinu = {!!}
 \end{code}
 
@@ -413,7 +413,7 @@ module Veritas where
     sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
     sez≡1 = {!!}
   
-    r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (λ ())
+    r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) {!!}
     r≡r/1 = {!!}
   
     0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
@@ -468,6 +468,6 @@ module Veritas where
     >⇒≥ = {!!}
 
     ∃[≥∧≥⍨] : (r s : ℝ) → ∃ $ λ t → (s ≥ t) × (t ≥ r)
-    ∃[≥∧≥⍨] r s = frinu (r + s) (fromℕ 2) (λ ()) , {!!}
+    ∃[≥∧≥⍨] r s = frinu (r + s) (fromℕ 2) {!!} , {!!}
 \end{code}
 \end{document}
