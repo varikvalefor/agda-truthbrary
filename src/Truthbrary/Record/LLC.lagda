@@ -14,6 +14,7 @@
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
+\newunicodechar{∃}{\ensuremath{\mathnormal{\exists}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
@@ -22,13 +23,17 @@
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
+\newunicodechar{ⁿ}{\ensuremath{\mathnormal{^n}}}
+\newunicodechar{ʸ}{\ensuremath{\mathnormal{^y}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{≢}{\ensuremath{\mathnormal\nequiv}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{∈}{\ensuremath{\mathnormal{\in}}}
 \newunicodechar{∉}{\ensuremath{\mathnormal{\notin}}}
+\newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -47,7 +52,9 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
 	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\D{Vec}.\ ku'o be'o je
         \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o be'o je
-	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∈\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u vasru ku'o be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u na vasru ku'o be'o je
+	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u vasru ku'o be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u na vasru ku'o be'o je
+	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∈₂\AgdaUnderscore} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore}\ .zoi.\ be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∉\AgdaUnderscore}\ .zoi.\ be'o je
+	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈₂?\AgdaUnderscore} .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∈₂\AgdaUnderscore}\ .zoi.\ co'e be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂?\AgdaUnderscore}\ .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ co'e be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \AgdaRecord{LL} .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \AgdaRecord{LC} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu konkatena lo ctaipe be ko'a goi lo smimlu be lo liste lo ctaipe be ko'a ku'o be'o je
 	\item le velcki be le me'oi .\AgdaKeyword{instance}.\ pe la'o zoi.\ \AgdaRecord{LC} .zoi.
@@ -128,7 +135,12 @@ open import Data.String
   )
 open import Data.Product
   using (
+    ∃;
     Σ
+  )
+open import Relation.Unary
+  using (
+    Pred
   )
 open import Relation.Nullary
 open import Truthbrary.Record.Eq
@@ -138,7 +150,21 @@ open import Relation.Nullary.Decidable
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    _≢_;
     _≡_
+  )
+
+import Data.Vec.Relation.Unary.Any
+  as DVRUA
+  using (
+    any?;
+    Any
+  )
+import Data.Vec.Relation.Unary.All
+  as DVRUL
+  using (
+    all?;
+    All
   )
 \end{code}
 
@@ -316,6 +342,58 @@ _∉_ : ∀ {a} → {Bean : Set a}
     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
     → LL.e Jeans → Bean → Set
 _∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (_≟_ x) ∘ toList ∘ vec
+\end{code}
+
+\subsection{la'oi .\F{\AgdaUnderscore{}∈₂\AgdaUnderscore}.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∈₂}} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ cmima la'o zoi.\ \B b\ .zoi.
+
+\begin{code}
+_∈₂_ : ∀ {a} → {Bean : Set a}
+     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+     → LL.e Jeans → Bean → Set a
+_∈₂_ ⦃ Q ⦄ a b = DVRUA.Any (a ≡_) $ LL.vec Q b
+\end{code}
+
+\subsection{la'oi .\F{\AgdaUnderscore{}∈₂?\AgdaUnderscore}.}
+ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
+
+\begin{code}
+_∈₂?_ : ∀ {a} → {Bean : Set a}
+       → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+       → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∈₂ xs
+_∈₂?_ ⦃ Q ⦄ x xs = DVRUA.any? (x ≟_) $ LL.vec Q xs
+\end{code}
+
+\subsubsection{la'oi .\F{\AgdaUnderscore{}∉₂\AgdaUnderscore}.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∉₂}} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ na cmima la'o zoi.\ \B b\ .zoi.
+
+\begin{code}
+_∉₂_ : ∀ {a} → {Bean : Set a}
+     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+     → LL.e Jeans → Bean → Set a
+_∉₂_ ⦃ Q ⦄ a b = DVRUL.All (a ≢_) $ LL.vec Q b
+\end{code}
+
+
+\subsection{la'oi .\F{\AgdaUnderscore{}∉₂?\AgdaUnderscore}.}
+ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
+
+\begin{code}
+_∉₂?_ : ∀ {a} → {Bean : Set a}
+       → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+       → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∉₂ xs
+_∉₂?_ ⦃ Q ⦄ x = DVRUL.all? (inv {P = x ≡_} ∘ _≟_ x) ∘ LL.vec Q
+  where
+  inv : ∀ {a p} → {A : Set a} → {P : Pred A p}
+      → {x : A}
+      → Dec $ P x
+      → Dec $ ¬_ $ P x
+  inv record {does = false; proof = ofⁿ x} = R
+    where
+    R = record {does = true; proof = ofʸ x}
+  inv record {does = true; proof = ofʸ x} = R
+    where
+    R = record {does = false; proof = ofⁿ $ flip _$_ x}
 \end{code}
 
 \subsection{la'oi .\F{nu,iork}.}
