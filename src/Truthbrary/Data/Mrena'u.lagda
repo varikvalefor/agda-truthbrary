@@ -204,6 +204,22 @@ _≈_ : ℝ → ℝ → Set
 _≈_ = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
+
+\begin{code}
+_>_ : ℝ → ℝ → Set
+_>_ = {!!}
+\end{code}
+
+\section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavmau la'oi .\B b.
+
+\begin{code}
+_≥_ : ℝ → ℝ → Set
+_≥_ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
 ni'o la'o zoi.\ \F{fromℕ} \B n\ .zoi.\ namcu du la'oi .\B n.
 
@@ -275,22 +291,6 @@ ni'o cu'alni la'oi .\B r.\ fa la'o zoi.\ \F{∣\AgdaUnderscore{}∣} \B r\ .zoi.
 \begin{code}
 ∣_∣ : ℝ → ℝ
 ∣_∣ = _,_ Sign.+ ∘ proj₂
-\end{code}
-
-\section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
-
-\begin{code}
-_>_ : ℝ → ℝ → Set
-_>_ = {!!}
-\end{code}
-
-\section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavmau la'oi .\B b.
-
-\begin{code}
-_≥_ : ℝ → ℝ → Set
-_≥_ = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u mapti}
