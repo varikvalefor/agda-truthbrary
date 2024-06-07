@@ -350,7 +350,7 @@ module Veritas where
     +≡+⍨ : Associative _≈_ _+_
     +≡+⍨ = {!!}
   
-    +-comm : Commutative {ℓ = Level.zero} _≈_ _+_
+    +-comm : Commutative _≈_ _+_
     +-comm = {!!}
   
     id≡+0 : (r : ℝ) → r ≡ r + fromℕ 0
