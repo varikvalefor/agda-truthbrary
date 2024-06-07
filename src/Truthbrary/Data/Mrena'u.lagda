@@ -298,8 +298,7 @@ _≥_ = {!!}
 module Veritas where
   module _≈_ where
     ≡∧≡∧≗⇒≈ : (r s : ℝ)
-            → proj₁ r ≡ proj₁ s
-            → proj₁ (proj₂ r) ≡ proj₁ (proj₂ s)
+            → ⌊' r ≡ ⌊' s
             → proj₂ (proj₂ r) ≗ proj₂ (proj₂ s)
             → r ≈ s
     ≡∧≡∧≗⇒≈ = {!!}
