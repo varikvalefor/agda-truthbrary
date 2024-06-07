@@ -390,6 +390,13 @@ module Veritas where
              → r ≈ (fromℕ 0 - r)
              → r ≡ fromℕ 0
     r≈-r⇒r≡0 = {!!}
+
+    0-[+r]≈-r : (n : ℕ)
+              → (f : _)
+              → (_≈_
+                  (fromℕ 0 -_ $ Sign.+ , n , f)
+                  (Sign.- , n , f))
+    0-[+r]≈-r = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
