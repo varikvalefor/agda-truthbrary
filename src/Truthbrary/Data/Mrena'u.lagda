@@ -301,6 +301,14 @@ module Veritas where
 
 \newcommand\lcblm[1]{le ctaipe be le su'u mapti fa la'o zoi.\ #1\ .zoi.}
 
+\subsection{\lcblm{\F{⌊'}}}
+
+\begin{code}
+  module ⌊' where
+    ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
+    ∃f≡ = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{\AgdaUnderscore{}≈\AgdaUnderscore}}}
 
 \begin{code}
