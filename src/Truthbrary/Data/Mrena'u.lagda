@@ -296,6 +296,13 @@ _≥_ = {!!}
 
 \begin{code}
 module Veritas where
+\end{code}
+
+\newcommand\lcblm[1]{le ctaipe be le su'u mapti fa la'o zoi.\ #1\ .zoi.}
+
+\subsection{\lcblm{\F{\AgdaUnderscore{}≈\AgdaUnderscore}}}
+
+\begin{code}
   module _≈_ where
     ≡∧≡∧≗⇒≈ : (r s : ℝ)
             → ⌊' r ≡ ⌊' s
@@ -326,7 +333,11 @@ module Veritas where
                   ¬_ $ fp r ≗ fp s
                 → ¬_ $ r ≈ s
     ¬[fn≡gn]⇒¬≈ = {!!}
+\end{code}
 
+\subsection{\lcblm{\F{fromℕ}}}
+
+\begin{code}
   module Fromℕ where
     pav : (n : ℕ) → n ≡ proj₁ (proj₂ $ fromℕ n)
     pav _ = _≡_.refl
@@ -357,7 +368,11 @@ module Veritas where
                   (fromℤ $ ⌊' r)
                   (proj₁ r , 0 , ⌊'⁻¹ r)))
     r≡r₁+r₂ = {!!}
+\end{code}
 
+\subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
+
+\begin{code}
   module _-_ where
     0≈r-r : (r : ℝ) → fromℕ 0 ≡ r - r
     0≈r-r = {!!}
@@ -366,7 +381,11 @@ module Veritas where
              → r ≈ (fromℕ 0 - r)
              → r ≡ fromℕ 0
     r≈-r⇒r≡0 = {!!}
+\end{code}
 
+\subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
+
+\begin{code}
   module _*_ where
     r≈1*r : Algebra.LeftIdentity _≈_ (fromℕ 1) _*_
     r≈1*r = {!!}
@@ -376,7 +395,11 @@ module Veritas where
   
     r*s≈s*r : Associative _≈_ _*_
     r*s≈s*r = {!!}
+\end{code}
 
+\subsection{\lcblm{\F{frinu}}}
+
+\begin{code}
   module Frinu where
     sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
     sez≡1 = {!!}
@@ -386,7 +409,11 @@ module Veritas where
   
     0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
     0≡0/r = {!!}
+\end{code}
 
+\subsection{\lcblm{\F{\AgdaUnderscore{}\textasciicircum\AgdaUnderscore}}}
+
+\begin{code}
   module _^_ where
     id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
     id≡_^1 = {!!}
@@ -405,7 +432,11 @@ module Veritas where
                         (r ^ s)
                         (frinu (fromℕ 1) s N)))
     r≡[r^s]^[1/s] = {!!}
+\end{code}
 
+\subsection{\lcblm{\F{\AgdaUnderscore{}>\AgdaUnderscore}}}
+
+\begin{code}
   module _>_ where
     ¬sez : (r : ℝ) → ¬_ $ r > r
     ¬sez = {!!}
@@ -415,7 +446,11 @@ module Veritas where
 
     >⇒¬< : Asymmetric _>_
     >⇒¬< = {!!}
+\end{code}
 
+\subsection{\lcblm{\F{\AgdaUnderscore{}≥\AgdaUnderscore}}}
+
+\begin{code}
   module _≥_ where
     sez : Relation.Binary.Reflexive _≥_
     sez = {!!}
