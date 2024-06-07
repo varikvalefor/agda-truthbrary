@@ -203,59 +203,12 @@ _≈_ : ℝ → ℝ → Set
 _≈_ = {!!}
 \end{code}
 
-\subsection{le ctaipe be le su'u mapti}
-
-\begin{code}
-module _≈_Veritas where
-  ≡∧≡∧≗⇒≈ : (r s : ℝ)
-          → proj₁ r ≡ proj₁ s
-          → proj₁ (proj₂ r) ≡ proj₁ (proj₂ r)
-          → proj₂ (proj₂ r) ≗ proj₂ (proj₂ r)
-          → r ≈ s
-  ≡∧≡∧≗⇒≈ = {!!}
-
-  ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
-  ≡⇒≈ = {!!}
-
-  n+1≈n,9+ : (n : ℕ)
-           → let 3F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 𝔽.zero in
-             let 6F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 3F in
-             let 9F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 6F in
-             (_≈_
-               (Sign.+ , (ℕ.suc n) , const 𝔽.zero)
-               (Sign.+ , n , const 9F))
-  n+1≈n,9+ = {!!}
-
-  >⇒¬≈ : (r s : ℝ)
-       → 1 ℕ.< ℤ.∣ ⌊' r ℤ.- ⌊' s ∣
-       → ¬_ $ r ≈ s
-  >⇒¬≈ = {!!}
-
-  ¬[fn≡gn]⇒¬≈ : (r s : ℝ)
-              → proj₁ r ≡ proj₁ s
-              → let fp = proj₂ ∘ proj₂ in
-                ¬_ $ fp r ≗ fp s
-              → ¬_ $ r ≈ s
-  ¬[fn≡gn]⇒¬≈ = {!!}
-\end{code}
-
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
 ni'o la'o zoi.\ \F{fromℕ} \B n\ .zoi.\ namcu du la'oi .\B n.
 
 \begin{code}
 fromℕ : ℕ → ℝ
 fromℕ n = Sign.+ , n , const 𝔽.zero
-\end{code}
-
-\subsection{le ctaipe be le su'u mapti}
-
-\begin{code}
-module FromℕVeritas where
-  pav : (n : ℕ) → n ≡ proj₁ (proj₂ $ fromℕ n)
-  pav _ = _≡_.refl
-
-  rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (proj₂ $ fromℕ m) n
-  rel = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℤ}\ .zoi.}
@@ -275,53 +228,12 @@ _+_ : ℝ → ℝ → ℝ
 _+_ = {!!}
 \end{code}
 
-\subsection{le ctaipe be le su'u mapti}
-
-\begin{code}
-module _+_Veritas where
-  +≡+⍨ : Associative {ℓ = Level.zero} {!!} _+_
-  +≡+⍨ = {!!}
-
-  +-comm : Commutative {ℓ = Level.zero} {!!} _+_
-  +-comm = {!!}
-
-  id≡+0 : (r : ℝ) → r ≡ r + fromℕ 0
-  id≡+0 = {!!}
-
-  dratadratas : (r s : ℝ)
-              → ¬_ $ r ≡ s
-              → let N = ¬_ ∘ _≡_ (r + s) in
-                N r × N s
-  dratadratas = {!!}
-
-  r≡r₁+r₂ : (r : ℝ)
-          → (_≡_
-              r
-              (_+_
-                (fromℤ $ ⌊' r)
-                (proj₁ r , 0 , ⌊'⁻¹ r)))
-  r≡r₁+r₂ = {!!}
-\end{code}
-
 \section{la'o zoi.\ \F{\AgdaUnderscore{}-\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \OpF - \B b\ .zoi.\ vujnu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _-_ : ℝ → ℝ → ℝ
 _-_ = {!!}
-\end{code}
-
-\subsection{le ctaipe be le su'u mapti}
-
-\begin{code}
-module _-_Veritas where
-  0≈r-r : (r : ℝ) → fromℕ 0 ≡ r - r
-  0≈r-r = {!!}
-
-  r≈-r⇒r≡0 : (r : ℝ)
-           → r ≈ (fromℕ 0 - r)
-           → r ≡ fromℕ 0
-  r≈-r⇒r≡0 = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}*\AgdaUnderscore}\ .zoi.}
@@ -332,20 +244,6 @@ _*_ : ℝ → ℝ → ℝ
 _*_ = {!!}
 \end{code}
 
-\subsection{le ctaipe be le su'u mapti}
-
-\begin{code}
-module _*_Veritas where
-  r≈1*r : Algebra.LeftIdentity _≈_ (fromℕ 1) _*_
-  r≈1*r = {!!}
-
-  0≈0*r : Algebra.LeftZero _≈_ (fromℕ 0) _*_
-  0≈0*r = {!!}
-
-  r*s≈s*r : Associative _≈_ _*_
-  r*s≈s*r = {!!}
-\end{code}
-
 \section{la \F{frinu}}
 ni'o la'o zoi.\ \F{frinu} \B a \B b\ .zoi.\ frinu la'oi .\B a.\ la'oi .\B b.
 
@@ -354,49 +252,12 @@ frinu : (_ d : ℝ) → ¬_ $ d ≡ fromℕ 0 → ℝ
 frinu = {!!}
 \end{code}
 
-\subsection{le ctaipe be le su'u mapti}
-
-\begin{code}
-module FrinuVeritas where
-  sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
-  sez≡1 = {!!}
-
-  r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (λ ())
-  r≡r/1 = {!!}
-
-  0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
-  0≡0/r = {!!}
-\end{code}
-
 \section{la'o zoi.\ \F{\AgdaUnderscore{}\textasciicircum{}\AgdaUnderscore}\ .zoi.}
 ni'o tenfa la'oi .\B a.\ la'oi .\B b.\ fa la'o zoi.\ \B a \OpF \textasciicircum{} \B b\ .zoi.
 
 \begin{code}
 _^_ : ℝ → ℝ → ℝ
 _^_ = {!!}
-\end{code}
-
-\subsection{le ctaipe be le su'u mapti}
-
-\begin{code}
-module _^_Veritas where
-  id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
-  id≡_^1 = {!!}
-
-  0≡0^r : (r : ℝ) → fromℕ 0 ≡ fromℕ 0 ^ r
-  0≡0^r = {!!}
-
-  [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
-  [r^s]^t≈r^[s*t] = {!!}
-
-  r≡[r^s]^[1/s] : (r s : ℝ)
-                → (N : _)
-                → (_≡_
-                    r
-                    (_^_
-                      (r ^ s)
-                      (frinu (fromℕ 1) s N)))
-  r≡[r^s]^[1/s] = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℚ}\ .zoi.}
@@ -423,20 +284,6 @@ _>_ : ℝ → ℝ → Set
 _>_ = {!!}
 \end{code}
 
-\subsection{le ctaipe be le su'u mapti}
-
-\begin{code}
-module _>_Veritas where
-  ¬sez : (r : ℝ) → ¬_ $ r > r
-  ¬sez = {!!}
-
-  zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
-  zmad = {!!}
-
-  >⇒¬< : Asymmetric _>_
-  >⇒¬< = {!!}
-\end{code}
-
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavmau la'oi .\B b.
 
@@ -445,17 +292,139 @@ _≥_ : ℝ → ℝ → Set
 _≥_ = {!!}
 \end{code}
 
-\subsection{le ctaipe be le su'u mapti}
+\section{le ctaipe be le su'u mapti}
 
 \begin{code}
-module _≥_Veritas where
-  sez : Relation.Binary.Reflexive _≥_
-  sez = {!!}
+module Veritas where
+  module _≈_ where
+    ≡∧≡∧≗⇒≈ : (r s : ℝ)
+            → proj₁ r ≡ proj₁ s
+            → proj₁ (proj₂ r) ≡ proj₁ (proj₂ r)
+            → proj₂ (proj₂ r) ≗ proj₂ (proj₂ r)
+            → r ≈ s
+    ≡∧≡∧≗⇒≈ = {!!}
+  
+    ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
+    ≡⇒≈ = {!!}
+  
+    n+1≈n,9+ : (n : ℕ)
+             → let 3F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 𝔽.zero in
+               let 6F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 3F in
+               let 9F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 6F in
+               (_≈_
+                 (Sign.+ , (ℕ.suc n) , const 𝔽.zero)
+                 (Sign.+ , n , const 9F))
+    n+1≈n,9+ = {!!}
+  
+    >⇒¬≈ : (r s : ℝ)
+         → 1 ℕ.< ℤ.∣ ⌊' r ℤ.- ⌊' s ∣
+         → ¬_ $ r ≈ s
+    >⇒¬≈ = {!!}
+  
+    ¬[fn≡gn]⇒¬≈ : (r s : ℝ)
+                → proj₁ r ≡ proj₁ s
+                → let fp = proj₂ ∘ proj₂ in
+                  ¬_ $ fp r ≗ fp s
+                → ¬_ $ r ≈ s
+    ¬[fn≡gn]⇒¬≈ = {!!}
 
-  >⇒≥ : (r s : ℝ) → r > s → r ≥ s
-  >⇒≥ = {!!}
+  module Fromℕ where
+    pav : (n : ℕ) → n ≡ proj₁ (proj₂ $ fromℕ n)
+    pav _ = _≡_.refl
+  
+    rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (proj₂ $ fromℕ m) n
+    rel = {!!}
 
-  ∃[≥∧≥⍨] : (r s : ℝ) → ∃ $ λ t → (s ≥ t) × (t ≥ r)
-  ∃[≥∧≥⍨] r s = frinu (r + s) (fromℕ 2) (λ ()) , {!!}
+  module _+_ where
+    +≡+⍨ : Associative {ℓ = Level.zero} {!!} _+_
+    +≡+⍨ = {!!}
+  
+    +-comm : Commutative {ℓ = Level.zero} {!!} _+_
+    +-comm = {!!}
+  
+    id≡+0 : (r : ℝ) → r ≡ r + fromℕ 0
+    id≡+0 = {!!}
+  
+    dratadratas : (r s : ℝ)
+                → ¬_ $ r ≡ s
+                → let N = ¬_ ∘ _≡_ (r + s) in
+                  N r × N s
+    dratadratas = {!!}
+  
+    r≡r₁+r₂ : (r : ℝ)
+            → (_≡_
+                r
+                (_+_
+                  (fromℤ $ ⌊' r)
+                  (proj₁ r , 0 , ⌊'⁻¹ r)))
+    r≡r₁+r₂ = {!!}
+
+  module _-_ where
+    0≈r-r : (r : ℝ) → fromℕ 0 ≡ r - r
+    0≈r-r = {!!}
+  
+    r≈-r⇒r≡0 : (r : ℝ)
+             → r ≈ (fromℕ 0 - r)
+             → r ≡ fromℕ 0
+    r≈-r⇒r≡0 = {!!}
+
+  module _*_ where
+    r≈1*r : Algebra.LeftIdentity _≈_ (fromℕ 1) _*_
+    r≈1*r = {!!}
+  
+    0≈0*r : Algebra.LeftZero _≈_ (fromℕ 0) _*_
+    0≈0*r = {!!}
+  
+    r*s≈s*r : Associative _≈_ _*_
+    r*s≈s*r = {!!}
+
+  module Frinu where
+    sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
+    sez≡1 = {!!}
+  
+    r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (λ ())
+    r≡r/1 = {!!}
+  
+    0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
+    0≡0/r = {!!}
+
+  module _^_ where
+    id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
+    id≡_^1 = {!!}
+  
+    0≡0^r : (r : ℝ) → fromℕ 0 ≡ fromℕ 0 ^ r
+    0≡0^r = {!!}
+  
+    [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
+    [r^s]^t≈r^[s*t] = {!!}
+  
+    r≡[r^s]^[1/s] : (r s : ℝ)
+                  → (N : _)
+                  → (_≡_
+                      r
+                      (_^_
+                        (r ^ s)
+                        (frinu (fromℕ 1) s N)))
+    r≡[r^s]^[1/s] = {!!}
+
+  module _>_ where
+    ¬sez : (r : ℝ) → ¬_ $ r > r
+    ¬sez = {!!}
+
+    zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
+    zmad = {!!}
+
+    >⇒¬< : Asymmetric _>_
+    >⇒¬< = {!!}
+
+  module _≥_ where
+    sez : Relation.Binary.Reflexive _≥_
+    sez = {!!}
+
+    >⇒≥ : (r s : ℝ) → r > s → r ≥ s
+    >⇒≥ = {!!}
+
+    ∃[≥∧≥⍨] : (r s : ℝ) → ∃ $ λ t → (s ≥ t) × (t ≥ r)
+    ∃[≥∧≥⍨] r s = frinu (r + s) (fromℕ 2) (λ ()) , {!!}
 \end{code}
 \end{document}
