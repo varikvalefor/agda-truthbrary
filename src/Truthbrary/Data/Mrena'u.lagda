@@ -335,6 +335,13 @@ module Veritas where
          → 1 ℕ.< ℤ.∣ ⌊' r ℤ.- ⌊' s ∣
          → ¬_ $ r ≈ s
     >⇒¬≈ = {!!}
+  
+    ¬[fn≡gn]⇒¬≈ : (r s : ℝ)
+                → ⌊' r ≡ ⌊' s
+                → let fp = proj₂ ∘ proj₂ in
+                  ¬_ $ fp r ≗ fp s
+                → ¬_ $ r ≈ s
+    ¬[fn≡gn]⇒¬≈ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
