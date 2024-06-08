@@ -353,8 +353,7 @@ module Veritas where
   
     ¬[fn≡gn]⇒¬≈ : (r s : ℝ)
                 → ⌊' r ≡ ⌊' s
-                → let fp = proj₂ ∘ proj₂ in
-                  ¬_ $ fp r ≗ fp s
+                → ¬_ $ ⌊'⁻¹ r ≗ ⌊'⁻¹ s
                 → ¬_ $ r ≈ s
     ¬[fn≡gn]⇒¬≈ = {!!}
 \end{code}
