@@ -474,7 +474,7 @@ module Veritas where
     >⇒≥ : (r s : ℝ) → r > s → r ≥ s
     >⇒≥ = {!!}
 
-    ∃[≥∧≥⍨] : (r s : ℝ) → ∃ $ λ t → (s ≥ t) × (t ≥ r)
-    ∃[≥∧≥⍨] r s = frinu (r + s) (fromℕ 2) {!!} , {!!}
+    ∃[≥∧≥⍨] : (r s : ℝ) → s ≥ r → ∃ $ λ t → (s ≥ t) × (t ≥ r)
+    ∃[≥∧≥⍨] r s z = frinu (r + s) (fromℕ 2) {!!} , {!!}
 \end{code}
 \end{document}
