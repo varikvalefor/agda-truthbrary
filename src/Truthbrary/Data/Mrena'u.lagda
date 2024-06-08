@@ -373,11 +373,11 @@ module Veritas where
     ¬[fromℕ[s]≈0] = {!!}
 
   module _+_ where
-    +≡+⍨ : Associative _≈_ _+_
+    +≡+⍨ : Commutative _≈_ _+_
     +≡+⍨ = {!!}
   
-    +-comm : Commutative _≈_ _+_
-    +-comm = {!!}
+    +-ass : Associative _≈_ _+_
+    +-ass = {!!}
   
     id≡+0 : Zero _≡_ (fromℕ 0) _+_
     id≡+0 = {!!}
