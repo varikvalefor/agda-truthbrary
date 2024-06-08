@@ -473,7 +473,7 @@ module Veritas where
     >⇒¬< = {!!}
 
     ∃[>∧>⍨] : (r s : ℝ) → s > r → ∃ $ λ t → (s > t) × (t > r)
-    ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) N , {!!}
+    ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) N , {!!} , {!!}
       where
       N = Fromℕ.¬[fromℕ[s]≈0] 1
 \end{code}
