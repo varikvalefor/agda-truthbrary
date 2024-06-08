@@ -464,7 +464,10 @@ module Veritas where
     >⇒¬< = {!!}
 
     ∃[>∧>⍨] : (r s : ℝ) → s > r → ∃ $ λ t → (s > t) × (t > r)
-    ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) {!!} , {!!}
+    ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) (¬[fromℕ[s]≈0] 1) , {!!}
+      where
+      ¬[fromℕ[s]≈0] : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
+      ¬[fromℕ[s]≈0] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}≥\AgdaUnderscore}}}
