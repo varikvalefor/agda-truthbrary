@@ -202,6 +202,14 @@ ni'o la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .gli
 ⌊'⁻¹ = proj₂ ∘ proj₂
 \end{code}
 
+\section{la'o zoi.\ \F{⌊'⁻¹ℝ}\ .zoi.}
+ni'o la'o zoi.\ \F{⌊'⁻¹ℝ} \B r\ .zoi.\ namcu du la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.
+
+\begin{code}
+⌊'⁻¹ℝ : ℝ → ℝ
+⌊'⁻¹ℝ (s , _ , r) = s , 0 , r
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≈\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu du la'oi .\B s.
 
