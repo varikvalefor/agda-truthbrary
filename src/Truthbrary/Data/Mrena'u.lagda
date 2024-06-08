@@ -423,7 +423,7 @@ module Veritas where
     sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
     sez≡1 = {!!}
   
-    r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) {!!}
+    r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.¬[fromℕ[s]≈0] 0)
     r≡r/1 = {!!}
   
     0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
