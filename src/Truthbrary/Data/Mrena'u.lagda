@@ -337,14 +337,14 @@ module Veritas where
     ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
     ≡⇒≈ = {!!}
   
-    n+1≈n,9+ : (n : ℕ)
+    n,9+≈n+1 : (n : ℕ)
              → let 3F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 𝔽.zero in
                let 6F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 3F in
                let 9F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 6F in
                (_≈_
-                 (Sign.+ , (ℕ.suc n) , const 𝔽.zero)
-                 (Sign.+ , n , const 9F))
-    n+1≈n,9+ = {!!}
+                 (Sign.+ , n , const 9F)
+                 (Sign.+ , (ℕ.suc n) , const 𝔽.zero))
+    n,9+≈n+1 = {!!}
   
     >⇒¬≈ : (r s : ℝ)
          → 1 ℕ.< ℤ.∣ ⌊' r ℤ.- ⌊' s ∣
