@@ -363,7 +363,7 @@ module Veritas where
 
 \begin{code}
   module Fromℕ where
-    pav : (n : ℕ) → n ≡ proj₁ (proj₂ $ fromℕ n)
+    pav : (n : ℕ) → ℤ.+_ n ≡ ⌊' (fromℕ n)
     pav _ = _≡_.refl
   
     rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (proj₂ $ fromℕ m) n
