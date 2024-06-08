@@ -354,6 +354,9 @@ module Veritas where
     rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (proj₂ $ fromℕ m) n
     rel = {!!}
 
+    ¬[fromℕ[s]≈0] : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
+    ¬[fromℕ[s]≈0] = {!!}
+
   module _+_ where
     +≡+⍨ : Associative _≈_ _+_
     +≡+⍨ = {!!}
@@ -466,10 +469,7 @@ module Veritas where
     ∃[>∧>⍨] : (r s : ℝ) → s > r → ∃ $ λ t → (s > t) × (t > r)
     ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) N , {!!}
       where
-      N = ¬[fromℕ[s]≈0] 1
-        where
-        ¬[fromℕ[s]≈0] : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
-        ¬[fromℕ[s]≈0] = {!!}
+      N = Fromℕ.¬[fromℕ[s]≈0] 1
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}≥\AgdaUnderscore}}}
