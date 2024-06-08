@@ -262,7 +262,7 @@ _*_ = {!!}
 \end{code}
 
 \section{la \F{frinu}}
-ni'o la'o zoi.\ \F{frinu} \B a \B b\ .zoi.\ frinu la'oi .\B a.\ la'oi .\B b.
+ni'o la'o zoi.\ \F{frinu} \B a \B b \AgdaUnderscore{}\ .zoi.\ frinu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 frinu : (_ d : ℝ) → ¬_ $ d ≈ fromℕ 0 → ℝ
