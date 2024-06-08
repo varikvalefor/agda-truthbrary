@@ -379,7 +379,7 @@ module Veritas where
     +-comm : Commutative _≈_ _+_
     +-comm = {!!}
   
-    id≡+0 : Algebra.Zero _≡_ (fromℕ 0) _+_
+    id≡+0 : Zero _≡_ (fromℕ 0) _+_
     id≡+0 = {!!}
   
     dratadratas : (r s : ℝ)
