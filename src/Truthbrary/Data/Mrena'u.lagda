@@ -366,7 +366,7 @@ module Veritas where
     pav : (n : ℕ) → ℤ.+_ n ≡ ⌊' (fromℕ n)
     pav _ = _≡_.refl
   
-    rel : (m n : ℕ) → 𝔽.zero ≡ proj₂ (proj₂ $ fromℕ m) n
+    rel : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
     rel = {!!}
 
     ¬[fromℕ[s]≈0] : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
