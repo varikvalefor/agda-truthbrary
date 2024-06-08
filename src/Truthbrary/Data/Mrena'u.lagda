@@ -185,6 +185,30 @@ ni'o ro da zo'u da mrena'u jo cu ctaipe la'oi .\F ℝ.  .i la'o zoi.\ \IC{\AgdaU
 \subsection{tu'a li ni'u no}
 ni'o la'oi .\F ℝ.\ jai .indika le du'u li no na du li ni'u no  .i la .varik.\ na mutce le ka ce'u tolnei la'e di'u  .i krinu la'e di'u fa le su'u la .varik.\ cu nelci le su'u sampu  .i ku'i cumki fa lo nu la .varik.\ cu binxo
 
+\section{la'o zoi.\ \F{\AgdaUnderscore{}≈\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu du la'oi .\B s.
+
+\begin{code}
+_≈_ : ℝ → ℝ → Set
+_≈_ = {!!}
+\end{code}
+
+\section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
+
+\begin{code}
+_>_ : ℝ → ℝ → Set
+_>_ = {!!}
+\end{code}
+
+\section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavmau la'oi .\B b.
+
+\begin{code}
+_≥_ : ℝ → ℝ → Set
+_≥_ = λ r s → (r ≈ s) ⊎ (r > s)
+\end{code}
+
 \section{la'o zoi.\ \F{⌊'}\ .zoi.}
 ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ be lo co'e be la'o zoi.\ \AgdaField{proj₂} \OpF \$ \AgdaField{proj₂} \B r\ .zoi.
 
@@ -208,30 +232,6 @@ ni'o la'o zoi.\ \F{⌊'⁻¹ℝ} \B r\ .zoi.\ namcu du la'o zoi.\ \F{⌊'⁻¹} 
 \begin{code}
 ⌊'⁻¹ℝ : ℝ → ℝ
 ⌊'⁻¹ℝ (s , _ , r) = s , 0 , r
-\end{code}
-
-\section{la'o zoi.\ \F{\AgdaUnderscore{}≈\AgdaUnderscore}\ .zoi.}
-ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu du la'oi .\B s.
-
-\begin{code}
-_≈_ : ℝ → ℝ → Set
-_≈_ = {!!}
-\end{code}
-
-\section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
-
-\begin{code}
-_>_ : ℝ → ℝ → Set
-_>_ = {!!}
-\end{code}
-
-\section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavmau la'oi .\B b.
-
-\begin{code}
-_≥_ : ℝ → ℝ → Set
-_≥_ = λ r s → (r ≈ s) ⊎ (r > s)
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
