@@ -462,6 +462,9 @@ module Veritas where
 
     >⇒¬< : Asymmetric _>_
     >⇒¬< = {!!}
+
+    ∃[>∧>⍨] : (r s : ℝ) → s > r → ∃ $ λ t → (s > t) × (t > r)
+    ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) {!!} , {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}≥\AgdaUnderscore}}}
@@ -473,8 +476,5 @@ module Veritas where
 
     >⇒≥ : (r s : ℝ) → r > s → r ≥ s
     >⇒≥ = {!!}
-
-    ∃[≥∧≥⍨] : (r s : ℝ) → s ≥ r → ∃ $ λ t → (s ≥ t) × (t ≥ r)
-    ∃[≥∧≥⍨] r s z = frinu (r + s) (fromℕ 2) {!!} , {!!}
 \end{code}
 \end{document}
