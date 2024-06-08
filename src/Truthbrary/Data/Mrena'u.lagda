@@ -486,6 +486,6 @@ module Veritas where
     sez {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r _≡_.refl
 
     >⇒≥ : (r s : ℝ) → r > s → r ≥ s
-    >⇒≥ = {!!}
+    >⇒≥ = λ _ _ → _⊎_.inj₂
 \end{code}
 \end{document}
