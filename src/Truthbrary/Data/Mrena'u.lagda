@@ -117,6 +117,11 @@ open import Data.Nat
   using (
     ℕ
   )
+open import Data.Sum
+  as _⊎_
+  using (
+    _⊎_
+  )
 open import Function
   using (
     const;
@@ -217,7 +222,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavm
 
 \begin{code}
 _≥_ : ℝ → ℝ → Set
-_≥_ = {!!}
+_≥_ = λ r s → (r ≈ s) ⊎ (r > s)
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
