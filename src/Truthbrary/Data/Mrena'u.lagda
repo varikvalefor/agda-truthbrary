@@ -321,7 +321,7 @@ module Veritas where
 \begin{code}
   module ⌊' where
     ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
-    ∃f≡ = {!!}
+    ∃f≡ = λ r → ⌊'⁻¹ℝ r , {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}≈\AgdaUnderscore}}}
