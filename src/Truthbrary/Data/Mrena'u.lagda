@@ -156,7 +156,8 @@ open import Data.Rational
   )
 open import Relation.Binary
   using (
-    Asymmetric 
+    Asymmetric;
+    Reflexive
   )
 open import Relation.Nullary
   using (
@@ -481,7 +482,7 @@ module Veritas where
 
 \begin{code}
   module _≥_ where
-    sez : Relation.Binary.Reflexive _≥_
+    sez : Reflexive _≥_
     sez {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r _≡_.refl
 
     >⇒≥ : (r s : ℝ) → r > s → r ≥ s
