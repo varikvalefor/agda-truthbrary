@@ -395,6 +395,16 @@ module Veritas where
                   (fromℤ $ ⌊' r)
                   (proj₁ r , 0 , ⌊'⁻¹ r)))
     r≡r₁+r₂ = {!!}
+
+    f+n≡r : (s : Sign)
+          → (n : ℕ)
+          → (f : ℕ → Digit 10)
+          → (_≡_
+              (s , n , f)
+              (_+_
+                (s , 0 , f)
+                (s , n , const 𝔽.zero)))
+    f+n≡r = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
