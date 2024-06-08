@@ -106,7 +106,8 @@ module Truthbrary.Data.Mrena'u where
 open import Algebra
   using (
     Associative;
-    Commutative
+    Commutative;
+    Zero
   )
 open import Data.Fin
   as 𝔽
@@ -451,7 +452,7 @@ module Veritas where
     id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
     id≡_^1 = {!!}
   
-    0≡0^r : (r : ℝ) → fromℕ 0 ≡ fromℕ 0 ^ r
+    0≡0^r : Zero _≡_ (fromℕ 0) _^_
     0≡0^r = {!!}
   
     [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
