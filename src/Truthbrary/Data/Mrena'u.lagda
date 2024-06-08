@@ -482,7 +482,7 @@ module Veritas where
 \begin{code}
   module _≥_ where
     sez : Relation.Binary.Reflexive _≥_
-    sez = {!!}
+    sez {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r _≡_.refl
 
     >⇒≥ : (r s : ℝ) → r > s → r ≥ s
     >⇒≥ = {!!}
