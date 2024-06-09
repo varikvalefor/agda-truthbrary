@@ -344,10 +344,11 @@ module Veritas where
     ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
     ≡⇒≈ = {!!}
   
-    n,9+≈n+1 : (n : ℕ)
+    n,9+≈n+1 : (s : Sign)
+             → (n : ℕ)
              → (_≈_
-                 (Sign.+ , n , const 9F)
-                 (Sign.+ , (ℕ.suc n) , const 𝔽.zero))
+                 (s , n , const 9F)
+                 (s , (ℕ.suc n) , const 𝔽.zero))
     n,9+≈n+1 = {!!}
   
     >⇒≉ : (r s : ℝ)
