@@ -532,4 +532,12 @@ module Veritas where
     >⇒≥ : {r s : ℝ} → r > s → r ≥ s
     >⇒≥ = _⊎_.inj₂
 \end{code}
+
+\subsection{\lcblm{\F{\AgdaUnderscore{}⌊\AgdaUnderscore}}}
+
+\begin{code}
+  module _⌊_ where
+    >⇒2 : (r s : ℝ) → r > s → s ≡ r ⌊ s
+    >⇒2 = {!!}
+\end{code}
 \end{document}
