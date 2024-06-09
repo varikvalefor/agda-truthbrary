@@ -351,7 +351,9 @@ module Veritas where
     n,9+≈n+1 = {!!}
   
     >⇒¬≈ : (r s : ℝ)
-         → 1 ℕ.< ℤ.∣ ⌊' r ℤ.- ⌊' s ∣
+         → (∃ $ λ k → _×_
+             (¬_ $ fromℚ k ≈ fromℕ 0)
+             (∣ r - s ∣ > fromℚ k))
          → ¬_ $ r ≈ s
     >⇒¬≈ = {!!}
   
