@@ -21,6 +21,7 @@
 \newunicodechar{∉}{\ensuremath{\mathnormal\notin}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{≢}{\ensuremath{\mathnormal\nequiv}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
 \newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
@@ -353,11 +354,11 @@ module Veritas where
          → ¬_ $ r ≈ s
     >⇒¬≈ = {!!}
   
-    ¬[fn≡gn]⇒¬≈ : (r s : ℝ)
-                → ⌊' r ≡ ⌊' s
-                → ¬_ $ ⌊'⁻¹ r ≗ ⌊'⁻¹ s
-                → ¬_ $ r ≈ s
-    ¬[fn≡gn]⇒¬≈ = {!!}
+    fn≢gn⇒¬≈ : (r s : ℝ)
+             → ⌊' r ≡ ⌊' s
+             → ¬_ $ ⌊'⁻¹ r ≗ ⌊'⁻¹ s
+             → ¬_ $ r ≈ s
+    fn≢gn⇒¬≈ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
