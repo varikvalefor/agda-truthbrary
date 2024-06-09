@@ -537,6 +537,9 @@ module Veritas where
 
 \begin{code}
   module _⌊_ where
+    <⇒1 : (r s : ℝ) → s > r → r ≡ r ⌊ s
+    <⇒1 = {!!}
+
     >⇒2 : (r s : ℝ) → r > s → s ≡ r ⌊ s
     >⇒2 = {!!}
 \end{code}
