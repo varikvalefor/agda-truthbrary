@@ -112,6 +112,7 @@ open import Algebra
   using (
     Associative;
     Commutative;
+    IsRing;
     Zero
   )
 open import Data.Fin
@@ -542,5 +543,12 @@ module Veritas where
 
     >⇒2 : (r s : ℝ) → r > s → s ≡ r ⌊ s
     >⇒2 = {!!}
+\end{code}
+
+\section{le ctaipe be le su'u me'oi .ring.}
+
+\begin{code}
+isRing : IsRing _≈_ _+_ _*_ (fromℕ 0 -_) (fromℕ 0) (fromℕ 1)
+isRing = {!!}
 \end{code}
 \end{document}
