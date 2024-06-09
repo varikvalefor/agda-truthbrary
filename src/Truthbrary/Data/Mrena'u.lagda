@@ -553,6 +553,6 @@ isRing = record {
   +-isAbelianGroup = {!!};
   *-isMonoid = {!!};
   distrib = {!!};
-  zero = {!!}}
+  zero = Veritas._*_.0≈0*r}
 \end{code}
 \end{document}
