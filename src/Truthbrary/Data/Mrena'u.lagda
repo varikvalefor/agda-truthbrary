@@ -402,7 +402,7 @@ module Veritas where
     +-ass = {!!}
   
     id≡+0 : Zero _≡_ (fromℕ 0) _+_
-    id≡+0 = {!!}
+    id≡+0 = {!!} , {!!}
   
     dratadratas : (r s : ℝ)
                 → ¬_ $ r ≡ s
