@@ -457,7 +457,7 @@ module Veritas where
     r≈1*r : Algebra.LeftIdentity _≈_ (fromℕ 1) _*_
     r≈1*r = {!!}
   
-    0≈0*r : Algebra.LeftZero _≈_ (fromℕ 0) _*_
+    0≈0*r : Zero _≈_ (fromℕ 0) _*_
     0≈0*r = {!!}
   
     r*s≈s*r : Associative _≈_ _*_
