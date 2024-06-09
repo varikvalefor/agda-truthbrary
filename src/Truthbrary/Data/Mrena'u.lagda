@@ -164,6 +164,10 @@ open import Relation.Nullary
   using (
     ¬_
   )
+open import Data.Fin.Patterns
+  using (
+    9F
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     _≗_;
@@ -338,10 +342,7 @@ module Veritas where
     ≡⇒≈ = {!!}
   
     n,9+≈n+1 : (n : ℕ)
-             → let 3F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 𝔽.zero in
-               let 6F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 3F in
-               let 9F = 𝔽.suc $ 𝔽.suc $ 𝔽.suc 6F in
-               (_≈_
+             → (_≈_
                  (Sign.+ , n , const 9F)
                  (Sign.+ , (ℕ.suc n) , const 𝔽.zero))
     n,9+≈n+1 = {!!}
