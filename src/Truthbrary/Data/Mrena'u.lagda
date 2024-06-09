@@ -302,7 +302,7 @@ ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
 
 \begin{code}
 fromℚ : ℚ → ℝ
-fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) (fromℕ b) {!!}
+fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) (fromℕ $ ℕ.suc b) {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
