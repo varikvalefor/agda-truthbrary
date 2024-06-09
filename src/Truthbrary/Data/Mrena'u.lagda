@@ -103,6 +103,9 @@ ni'o bau la .lojban.\ joi la'oi .Agda.\ la .varik.\ cu ciksi ko'a goi lo mrena'u
 
 module Truthbrary.Data.Mrena'u where
 
+open import Level
+  using (
+  )
 open import Algebra
   using (
     Associative;
@@ -173,8 +176,6 @@ open import Relation.Binary.PropositionalEquality
     _≗_;
     _≡_
   )
-
-import Level
 \end{code}
 
 \section{la'oi .\F ℝ.}
