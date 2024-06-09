@@ -549,6 +549,10 @@ module Veritas where
 
 \begin{code}
 isRing : IsRing _≈_ _+_ _*_ (fromℕ 0 -_) (fromℕ 0) (fromℕ 1)
-isRing = {!!}
+isRing = record {
+  +-isAbelianGroup = {!!};
+  *-isMonoid = {!!};
+  distrib = {!!};
+  zero = {!!}}
 \end{code}
 \end{document}
