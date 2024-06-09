@@ -76,6 +76,7 @@
 \newunicodechar{≗}{\ensuremath{\mathnormal{\circeq}}}
 \newunicodechar{⇒}{\ensuremath{\mathnormal{\Rightarrow}}}
 \newunicodechar{≈}{\ensuremath{\mathnormal{\approx}}}
+\newunicodechar{≉}{\ensuremath{\mathnormal{\napprox}}}
 \newunicodechar{⌊}{\ensuremath{\mathnormal{\lfloor}}}
 \newunicodechar{⍨}{\raisebox{-0.25ex}{$\ddot\sim$}}
 
@@ -354,11 +355,11 @@ module Veritas where
          → ¬_ $ r ≈ s
     >⇒¬≈ = {!!}
   
-    fn≢gn⇒¬≈ : (r s : ℝ)
-             → ⌊' r ≡ ⌊' s
-             → ¬_ $ ⌊'⁻¹ r ≗ ⌊'⁻¹ s
-             → ¬_ $ r ≈ s
-    fn≢gn⇒¬≈ = {!!}
+    fn≢gn⇒≉ : (r s : ℝ)
+            → ⌊' r ≡ ⌊' s
+            → ¬_ $ ⌊'⁻¹ r ≗ ⌊'⁻¹ s
+            → ¬_ $ r ≈ s
+    fn≢gn⇒≉ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
