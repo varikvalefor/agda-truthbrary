@@ -355,11 +355,11 @@ module Veritas where
          → ¬_ $ r ≈ s
     >⇒¬≈ = {!!}
   
-    fn≢gn⇒≉ : (r s : ℝ)
+    ≈⇒fn≡gn : (r s : ℝ)
             → ⌊' r ≡ ⌊' s
-            → ¬_ $ ⌊'⁻¹ r ≗ ⌊'⁻¹ s
-            → ¬_ $ r ≈ s
-    fn≢gn⇒≉ = {!!}
+            → r ≈ s
+            → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
+    ≈⇒fn≡gn = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
