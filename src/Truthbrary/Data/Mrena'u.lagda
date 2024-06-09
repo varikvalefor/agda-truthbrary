@@ -308,7 +308,9 @@ module Fromℚ where
   fromℕ[s]≉0 = {!!}
 
   fromℚ : ℚ → ℝ
-  fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) (fromℕ $ ℕ.suc b) $ fromℕ[s]≉0 b
+  fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) 1+b $ fromℕ[s]≉0 b
+    where
+    1+b = fromℕ $ ℕ.suc b
 
 fromℚ = Fromℚ.fromℚ
 \end{code}
