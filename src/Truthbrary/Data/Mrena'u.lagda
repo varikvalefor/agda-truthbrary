@@ -303,11 +303,14 @@ _^_ = {!!}
 ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
 
 \begin{code}
-fromℚ : ℚ → ℝ
-fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) (fromℕ $ ℕ.suc b) $ fromℕ[s]≉0 b
-  where
+module Fromℚ where
   fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
   fromℕ[s]≉0 = {!!}
+
+  fromℚ : ℚ → ℝ
+  fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) (fromℕ $ ℕ.suc b) $ fromℕ[s]≉0 b
+
+fromℚ = Fromℚ.fromℚ
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
