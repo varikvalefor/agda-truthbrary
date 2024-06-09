@@ -382,7 +382,7 @@ module Veritas where
     rel = {!!}
 
     ¬[fromℕ[s]≈0] : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
-    ¬[fromℕ[s]≈0] = {!!}
+    ¬[fromℕ[s]≈0] = Fromℚ.fromℕ[s]≉0
 
   module _+_ where
     +≡+⍨ : Commutative _≈_ _+_
