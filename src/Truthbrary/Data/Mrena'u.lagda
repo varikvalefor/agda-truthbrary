@@ -394,7 +394,7 @@ module Veritas where
     +-ass : Associative _≈_ _+_
     +-ass = {!!}
   
-    id≡+0 : Zero _≡_ (fromℕ 0) _+_
+    id≡+0 : Algebra.Identity _≡_ (fromℕ 0) _+_
     id≡+0 = {!!} , {!!}
   
     dratadratas : (r s : ℝ)
