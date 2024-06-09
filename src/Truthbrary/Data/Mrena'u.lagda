@@ -389,7 +389,7 @@ module Veritas where
     pav _ = _≡_.refl
   
     rel : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
-    rel = λ _ _ → _≡_.refl
+    rel _ _ = _≡_.refl
 
     ¬[fromℕ[s]≈0] : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
     ¬[fromℕ[s]≈0] = Fromℚ.fromℕ[s]≉0
