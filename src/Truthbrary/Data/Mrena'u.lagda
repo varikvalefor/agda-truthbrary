@@ -177,7 +177,8 @@ open import Data.Fin.Patterns
 open import Relation.Binary.PropositionalEquality
   using (
     _≗_;
-    _≡_
+    _≡_;
+    sym
   )
 \end{code}
 
@@ -484,7 +485,7 @@ module Veritas where
     0≡0^r = {!!}
 
     0^0≡? : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 1
-    0^0≡? = {!!}
+    0^0≡? = sym $ 1≡r^0 $ fromℕ 0
   
     [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
     [r^s]^t≈r^[s*t] = {!!}
