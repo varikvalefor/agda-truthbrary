@@ -474,7 +474,7 @@ module Veritas where
 
 \begin{code}
   module _^_ where
-    0^0≡? : fromℕ 0 ^ fromℕ 0 ≡ {!!}
+    0^0≡? : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 0
     0^0≡? = {!!}
 
     id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
