@@ -453,7 +453,7 @@ module Veritas where
     0≈0*r : Zero _≈_ (fromℕ 0) _*_
     0≈0*r = {!!}
   
-    r*s≈s*r : Associative _≈_ _*_
+    r*s≈s*r : Commutative _≈_ _*_
     r*s≈s*r = {!!}
 \end{code}
 
