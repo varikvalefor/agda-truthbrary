@@ -493,14 +493,14 @@ module Veritas where
     [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
     [r^s]^t≈r^[s*t] = {!!}
   
-    r≡[r^s]^[1/s] : (r s : ℝ)
+    r≈[r^s]^[1/s] : (r s : ℝ)
                   → (N : _)
-                  → (_≡_
+                  → (_≈_
                       r
                       (_^_
                         (r ^ s)
                         (frinu (fromℕ 1) s N)))
-    r≡[r^s]^[1/s] = {!!}
+    r≈[r^s]^[1/s] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{⌊'}}}
