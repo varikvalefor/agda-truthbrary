@@ -476,6 +476,9 @@ module Veritas where
   module _^_ where
     id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
     id≡_^1 = {!!}
+
+    1≡r^0 : (r : ℝ) → fromℕ 1 ≡_ $ r ^ fromℕ 0
+    1≡r^0 = {!!}
   
     0≡0^r : (r : ℝ) → ¬_ $ r ≈ fromℕ 0 → fromℕ 0 ≡_ $ fromℕ 0 ^ r
     0≡0^r = {!!}
