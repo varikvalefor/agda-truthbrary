@@ -455,6 +455,9 @@ module Veritas where
   
     *≈*⍨ : Commutative _≈_ _*_
     *≈*⍨ = {!!}
+
+    *-ass : Associative _≈_ _*_
+    *-ass = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
