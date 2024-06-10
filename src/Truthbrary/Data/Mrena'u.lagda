@@ -484,8 +484,8 @@ module Veritas where
     0≡0^r : (r : ℝ) → ¬_ $ r ≈ fromℕ 0 → fromℕ 0 ≡_ $ fromℕ 0 ^ r
     0≡0^r = {!!}
 
-    0^0≡? : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 1
-    0^0≡? = sym $ 1≡r^0 $ fromℕ 0
+    0^0≡1 : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 1
+    0^0≡1 = sym $ 1≡r^0 $ fromℕ 0
   
     [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
     [r^s]^t≈r^[s*t] = {!!}
