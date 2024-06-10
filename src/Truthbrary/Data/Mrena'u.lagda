@@ -432,7 +432,7 @@ module Veritas where
     0≈r-r = {!!}
   
     r≈-r⇒r≡0 : (r : ℝ)
-             → r ≈ (fromℕ 0 - r)
+             → r ≈_ $ fromℕ 0 - r
              → r ≡ fromℕ 0
     r≈-r⇒r≡0 = {!!}
 
