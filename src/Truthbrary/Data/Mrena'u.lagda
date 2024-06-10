@@ -389,8 +389,8 @@ module Veritas where
     ¬[fromℕ[s]≈0] = Fromℚ.fromℕ[s]≉0
 
   module _+_ where
-    +≡+⍨ : Commutative _≈_ _+_
-    +≡+⍨ = {!!}
+    +≈+⍨ : Commutative _≈_ _+_
+    +≈+⍨ = {!!}
   
     +-ass : Associative _≈_ _+_
     +-ass = {!!}
@@ -558,7 +558,7 @@ module Veritas where
 ga+ : Algebra.IsAbelianGroup _≈_ _+_ (fromℕ 0) (fromℕ 0 -_)
 ga+ = record {
   isGroup = {!!};
-  comm = Veritas._+_.+≡+⍨}
+  comm = Veritas._+_.+≈+⍨}
 \end{code}
 
 \section{le ctaipe be le su'u me'oi .ring.}
