@@ -558,7 +558,7 @@ module Veritas where
 ga+ : Algebra.IsAbelianGroup _≈_ _+_ (fromℕ 0) (fromℕ 0 -_)
 ga+ = record {
   isGroup = {!!};
-  comm = {!!}}
+  comm = Veritas._+_.+≡+⍨}
 \end{code}
 
 \section{le ctaipe be le su'u me'oi .ring.}
