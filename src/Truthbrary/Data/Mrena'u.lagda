@@ -422,14 +422,6 @@ module Veritas where
     f+n≡r = {!!}
 \end{code}
 
-\subsection{\lcblm{\F{⌊'}}}
-
-\begin{code}
-  module ⌊' where
-    ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
-    ∃f≡ r = ⌊'⁻¹ℝ r , {!!}
-\end{code}
-
 \subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
 
 \begin{code}
@@ -502,6 +494,14 @@ module Veritas where
                         (r ^ s)
                         (frinu (fromℕ 1) s N)))
     r≡[r^s]^[1/s] = {!!}
+\end{code}
+
+\subsection{\lcblm{\F{⌊'}}}
+
+\begin{code}
+  module ⌊' where
+    ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
+    ∃f≡ r = ⌊'⁻¹ℝ r , {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}>\AgdaUnderscore}}}
