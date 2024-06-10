@@ -477,10 +477,10 @@ module Veritas where
     id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
     id≡_^1 = {!!}
   
-    0≡0^r : Algebra.LeftZero _≡_ (fromℕ 0) _^_
+    0≡0^r : (r : ℝ) → ¬_ $ r ≈ fromℕ 0 → fromℕ 0 ≡_ $ fromℕ 0 ^ r
     0≡0^r = {!!}
 
-    0^0≡? : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 0
+    0^0≡? : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 1
     0^0≡? = {!!}
   
     [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
