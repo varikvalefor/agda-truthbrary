@@ -559,6 +559,9 @@ module Veritas where
 
     ≈⇒1 : (r s : ℝ) → r ≈ s → r ≈ (r ⌊ s)
     ≈⇒1 = {!!}
+
+    ≈⇒2 : (r s : ℝ) → r ≈ s → s ≈ (r ⌊ s)
+    ≈⇒2 = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u sumji mu'oi glibau.\ abelian group .glibau.}
