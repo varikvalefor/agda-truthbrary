@@ -547,6 +547,9 @@ module Veritas where
 
     >⇒2 : (r s : ℝ) → r > s → s ≡ r ⌊ s
     >⇒2 = {!!}
+
+    ≈⇒1 : (r s : ℝ) → r ≈ s → r ≈ (r ⌊ s)
+    ≈⇒1 = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u me'oi .ring.}
