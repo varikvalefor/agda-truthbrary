@@ -324,7 +324,7 @@ ni'o cu'alni la'oi .\B r.\ fa la'o zoi.\ \F{∣\AgdaUnderscore{}∣} \B r\ .zoi.
 ∣_∣ = _,_ Sign.+ ∘ proj₂
 \end{code}
 
-\section{la'o zoi.\ \F{\AgdaUnderscore{}⌊\AgdaUnderscore}\ .zoi.}
+section{la'o zoi.\ \F{\AgdaUnderscore{}⌊\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B r \OpF ⌊ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B s.
 
 \begin{code}
