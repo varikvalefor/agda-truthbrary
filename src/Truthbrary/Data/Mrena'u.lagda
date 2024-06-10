@@ -552,12 +552,19 @@ module Veritas where
     ≈⇒1 = {!!}
 \end{code}
 
+\section{le ctaipe be le su'u sumji mu'oi glibau.\ abelian group .glibau.}
+
+\begin{code}
+ga+ : Algebra.IsAbelianGroup _≈_ _+_ (fromℕ 0) (fromℕ 0 -_)
+ga+ = {!!}
+\end{code}
+
 \section{le ctaipe be le su'u me'oi .ring.}
 
 \begin{code}
 isRing : IsRing _≈_ _+_ _*_ (fromℕ 0 -_) (fromℕ 0) (fromℕ 1)
 isRing = record {
-  +-isAbelianGroup = {!!};
+  +-isAbelianGroup = ga+;
   *-isMonoid = {!!};
   distrib = {!!};
   zero = Veritas._*_.0≈0*r}
