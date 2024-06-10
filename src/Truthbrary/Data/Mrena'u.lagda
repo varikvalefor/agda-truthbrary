@@ -110,6 +110,7 @@ open import Level
   )
 open import Algebra
   using (
+    LeftIdentity;
     Associative;
     Commutative;
     IsRing;
@@ -447,7 +448,7 @@ module Veritas where
 
 \begin{code}
   module _*_ where
-    r≈1*r : Algebra.LeftIdentity _≈_ (fromℕ 1) _*_
+    r≈1*r : LeftIdentity _≈_ (fromℕ 1) _*_
     r≈1*r = {!!}
   
     0≈0*r : Zero _≈_ (fromℕ 0) _*_
