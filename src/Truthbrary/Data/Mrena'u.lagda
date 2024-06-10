@@ -475,7 +475,7 @@ module Veritas where
 
 \begin{code}
   module _^_ where
-    id≡_^1 : (r : ℝ) → r ≡ r ^ fromℕ 1
+    id≡_^1 : Algebra.RightIdentity _≡_ (fromℕ 1) _^_
     id≡_^1 = {!!}
 
     1≡r^0 : (r : ℝ) → fromℕ 1 ≡_ $ r ^ fromℕ 0
