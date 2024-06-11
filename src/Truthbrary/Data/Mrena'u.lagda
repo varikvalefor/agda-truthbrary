@@ -465,7 +465,9 @@ module Veritas where
            → (_≈_
                (r * fromℕ 10)
                (_+_
-                 (fromℤ $ ⌊' r ℤ.* ℤ.+_ 10 ℤ.+ {!!})
+                 (fromℤ $ ℤ._+_
+                   (⌊' r ℤ.* ℤ.+_ 10)
+                   {!!})
                  (proj₁ r , 0 , ⌊'⁻¹ r ∘ ℕ.suc)))
     r*10≈_ = {!!}
 \end{code}
