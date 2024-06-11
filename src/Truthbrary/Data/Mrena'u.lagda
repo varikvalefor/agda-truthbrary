@@ -387,8 +387,8 @@ module Veritas where
     rel : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
     rel _ _ = _≡_.refl
 
-    ¬[fromℕ[s]≈0] : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
-    ¬[fromℕ[s]≈0] = Fromℚ.fromℕ[s]≉0
+    fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
+    fromℕ[s]≉0 = Fromℚ.fromℕ[s]≉0
 
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
@@ -469,7 +469,7 @@ module Veritas where
     sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
     sez≡1 = {!!}
   
-    r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.¬[fromℕ[s]≈0] 0)
+    r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
     r≡r/1 = {!!}
   
     0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
@@ -534,7 +534,7 @@ module Veritas where
     ∃[>∧>⍨] : (r s : ℝ) → s > r → ∃ $ λ t → (s > t) × (t > r)
     ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) N , {!!} , {!!}
       where
-      N = Fromℕ.¬[fromℕ[s]≈0] 1
+      N = Fromℕ.fromℕ[s]≉0 1
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}≥\AgdaUnderscore}}}
