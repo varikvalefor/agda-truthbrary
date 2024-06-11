@@ -75,9 +75,11 @@
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{≗}{\ensuremath{\mathnormal{\circeq}}}
 \newunicodechar{⇒}{\ensuremath{\mathnormal{\Rightarrow}}}
+\newunicodechar{⇐}{\ensuremath{\mathnormal{\Leftarrow}}}
 \newunicodechar{≈}{\ensuremath{\mathnormal{\approx}}}
 \newunicodechar{≉}{\ensuremath{\mathnormal{\napprox}}}
 \newunicodechar{⌊}{\ensuremath{\mathnormal{\lfloor}}}
+\newunicodechar{⊓}{\ensuremath{\mathnormal{\sqcap}}}
 \newunicodechar{⍨}{\raisebox{-0.25ex}{$\ddot\sim$}}
 
 \newcommand\Sym\AgdaSymbol
