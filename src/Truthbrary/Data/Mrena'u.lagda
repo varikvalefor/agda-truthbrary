@@ -559,6 +559,9 @@ module Veritas where
 
     >⇒≥ : {r s : ℝ} → r > s → r ≥ s
     >⇒≥ = _⊎_.inj₂
+
+    ≥∧≉⇒> : {r s : ℝ} → r ≥ s → ¬_ $ r ≈ s → r > s
+    ≥∧≉⇒> = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⌊\AgdaUnderscore}}}
