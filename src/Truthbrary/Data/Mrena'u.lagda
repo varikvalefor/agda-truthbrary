@@ -469,8 +469,8 @@ module Veritas where
                  (_,_
                    (ℕ._+_
                      (10 ℕ.* proj₁ (proj₂ r))
-                     (𝔽.toℕ (proj₂ (proj₂ r) 0)))
-                   (proj₂ (proj₂ r) ∘ ℕ.suc))))
+                     (𝔽.toℕ (⌊'⁻¹ r 0)))
+                   (⌊'⁻¹ r ∘ ℕ.suc))))
     r*10≈_ = {!!}
 \end{code}
 
