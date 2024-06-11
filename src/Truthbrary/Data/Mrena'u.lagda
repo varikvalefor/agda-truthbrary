@@ -102,6 +102,7 @@ ni'o bau la .lojban.\ joi la'oi .Agda.\ la .varik.\ cu ciksi ko'a goi lo mrena'u
 
 \begin{code}
 {-# OPTIONS --safe #-}
+{-# OPTIONS --cubical-compatible #-}
 
 module Truthbrary.Data.Mrena'u where
 
