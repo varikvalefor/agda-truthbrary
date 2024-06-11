@@ -474,6 +474,9 @@ module Veritas where
   
     0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
     0≡0/r = {!!}
+
+    r/s<r : (r s : ℝ) → s > fromℕ 1 → r > frinu r s {!!}
+    r/s<r = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}\textasciicircum\AgdaUnderscore}}}
