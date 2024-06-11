@@ -184,6 +184,7 @@ open import Relation.Nullary.Negation
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    module ≡-Reasoning;
     _≗_;
     _≡_;
     sym
@@ -529,7 +530,13 @@ module Veritas where
 \begin{code}
   module ⌊' where
     ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
-    ∃f≡ r = ⌊'⁻¹ℝ r , {!!}
+    ∃f≡ r = ⌊'⁻¹ℝ r , d
+      where
+      d = begin
+        ⌊'⁻¹ℝ r + fromℤ (⌊' r) ≡⟨ {!!} ⟩
+        r ∎
+        where
+        open ≡-Reasoning
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}>\AgdaUnderscore}}}
