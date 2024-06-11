@@ -534,6 +534,7 @@ module Veritas where
       where
       d = begin
         ⌊'⁻¹ℝ r + fromℤ (⌊' r) ≡⟨ {!!} ⟩
+        fromℤ (⌊' r) + ⌊'⁻¹ℝ r ≡⟨ {!!} ⟩
         r ∎
         where
         open ≡-Reasoning
