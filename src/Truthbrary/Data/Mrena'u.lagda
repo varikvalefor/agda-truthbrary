@@ -417,7 +417,7 @@ module Veritas where
                 r
                 (_+_
                   (fromℤ $ ⌊' r)
-                  (proj₁ r , 0 , ⌊'⁻¹ r)))
+                  (⌊'⁻¹ℝ r)))
     r≡r₁+r₂ = {!!}
 
     f+n≡r : (s : Sign)
