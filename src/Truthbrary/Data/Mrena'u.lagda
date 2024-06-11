@@ -534,7 +534,7 @@ module Veritas where
       where
       d = sym $ begin
         ⌊'⁻¹ℝ r + fromℤ (⌊' r) ≡⟨ {!!} ⟩
-        fromℤ (⌊' r) + ⌊'⁻¹ℝ r ≡⟨ {!!} ⟩
+        fromℤ (⌊' r) + ⌊'⁻¹ℝ r ≡⟨ sym $ _+_.r≡r₁+r₂ r ⟩
         r ∎
         where
         open ≡-Reasoning
