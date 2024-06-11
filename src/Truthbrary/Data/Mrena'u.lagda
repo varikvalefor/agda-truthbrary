@@ -544,7 +544,7 @@ module Veritas where
     >⇒¬< : Asymmetric _>_
     >⇒¬< = {!!}
 
-    ∃[>∧>⍨] : (r s : ℝ) → s > r → ∃ $ λ t → (s > t) × (t > r)
+    ∃[>∧>⍨] : (r s : ℝ) → r > s → ∃ $ λ t → (r > t) × (t > s)
     ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) N , {!!} , {!!}
       where
       N = Fromℕ.fromℕ[s]≉0 1
