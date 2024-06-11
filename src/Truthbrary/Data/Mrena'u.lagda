@@ -176,6 +176,12 @@ open import Data.Fin.Patterns
   using (
     9F
   )
+open import Relation.Nullary.Negation
+  using (
+  )
+  renaming (
+    contradiction to _⇒⇐_
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     _≗_;
@@ -565,7 +571,7 @@ module Veritas where
 
     ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
     ≥∧¬>⇒≈ (_⊎_.inj₁ d) N = d
-    ≥∧¬>⇒≈ (_⊎_.inj₂ z) N = {!!}
+    ≥∧¬>⇒≈ (_⊎_.inj₂ z) N = z ⇒⇐ N
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⌊\AgdaUnderscore}}}
