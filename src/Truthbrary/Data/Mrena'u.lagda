@@ -532,7 +532,7 @@ module Veritas where
     ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
     ∃f≡ r = ⌊'⁻¹ℝ r , d
       where
-      d = begin
+      d = sym $ begin
         ⌊'⁻¹ℝ r + fromℤ (⌊' r) ≡⟨ {!!} ⟩
         fromℤ (⌊' r) + ⌊'⁻¹ℝ r ≡⟨ {!!} ⟩
         r ∎
