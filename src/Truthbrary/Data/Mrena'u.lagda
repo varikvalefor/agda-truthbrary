@@ -421,7 +421,7 @@ module Veritas where
     r≡r₁+r₂ : (r : ℝ) → r ≡_ $ fromℤ (⌊' r) + ⌊'⁻¹ℝ r
     r≡r₁+r₂ = {!!}
 
-    f+n≡r : (s : Sign)
+    r≡f+n : (s : Sign)
           → (n : ℕ)
           → (f : ℕ → Digit 10)
           → (_≡_
@@ -429,7 +429,7 @@ module Veritas where
               (_+_
                 (s , 0 , f)
                 (s , n , const 𝔽.zero)))
-    f+n≡r = {!!}
+    r≡f+n = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
