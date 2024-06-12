@@ -444,6 +444,9 @@ module Veritas where
              → r ≡ fromℕ 0
     r≈-r⇒r≡0 = {!!}
 
+    0≡r-0 : Algebra.RightZero _≡_ (fromℕ 0) _-_
+    0≡r-0 = {!!}
+
     0-[+r]≈-r : (n : ℕ)
               → (f : _)
               → ((_≈_ ⍨)
