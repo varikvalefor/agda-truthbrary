@@ -614,7 +614,10 @@ module Veritas where
 
 \begin{code}
 +--group : Algebra.IsGroup _≈_ _+_ (fromℕ 0) (fromℕ 0 -_)
-+--group = {!!}
++--group = record {
+  isMonoid = {!!};
+  inverse = {!!};
+  ⁻¹-cong = {!!}}
 \end{code}
 
 \section{le ctaipe be le su'u sumji mu'oi glibau.\ abelian group .glibau.}
