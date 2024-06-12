@@ -547,12 +547,7 @@ module Veritas where
 \begin{code}
   module ⌊' where
     ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
-    ∃f≡ r = _,_ (⌊'⁻¹ℝ r) $ sym $ begin
-      ⌊'⁻¹ℝ r + fromℤ (⌊' r) ≡⟨ {!!} ⟩
-      fromℤ (⌊' r) + ⌊'⁻¹ℝ r ≡⟨ sym $ _+_.r≡r₁+r₂ r ⟩
-      r ∎
-      where
-      open ≡-Reasoning
+    ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡r₂+r₁ r
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}>\AgdaUnderscore}}}
