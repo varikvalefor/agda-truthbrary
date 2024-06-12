@@ -139,6 +139,9 @@ open import Function
     _∘_;
     _$_
   )
+  renaming (
+    flip to _⍨
+  )
 open import Data.Sign
   using (
     Sign
@@ -443,9 +446,9 @@ module Veritas where
 
     0-[+r]≈-r : (n : ℕ)
               → (f : _)
-              → (_≈_
-                  (fromℕ 0 -_ $ Sign.+ , n , f)
-                  (Sign.- , n , f))
+              → ((_≈_ ⍨)
+                  (Sign.- , n , f)
+                  (fromℕ 0 -_ $ Sign.+ , n , f))
     0-[+r]≈-r = {!!}
 \end{code}
 
