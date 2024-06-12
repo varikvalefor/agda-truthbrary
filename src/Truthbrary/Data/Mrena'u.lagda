@@ -657,6 +657,9 @@ module Veritas where
 
     ≈⇒2 : (r s : ℝ) → r ≈ s → s ≈ (r ⊓ s)
     ≈⇒2 = {!!}
+
+    ⊓≈⊓⍨ : Commutative _≈_ _⊓_
+    ⊓≈⊓⍨ = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
