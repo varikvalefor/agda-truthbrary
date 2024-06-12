@@ -413,8 +413,8 @@ module Veritas where
     id≡+0 = {!!} , {!!}
   
     dratadratas : (r s : ℝ)
-                → ¬_ $ r ≡ s
-                → let N = ¬_ ∘ _≡_ (r + s) in
+                → ¬_ $ r ≈ s
+                → let N = ¬_ ∘ _≈_ (r + s) in
                   N r × N s
     dratadratas = {!!}
   
