@@ -453,6 +453,9 @@ module Veritas where
                   (Sign.- , n , f)
                   (fromℕ 0 -_ $ Sign.+ , n , f))
     0-[+r]≈-r = {!!}
+
+    r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
+    r≈[r-s]+s = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
