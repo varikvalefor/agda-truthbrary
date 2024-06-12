@@ -471,7 +471,7 @@ module Veritas where
 
 \begin{code}
   module _*_ where
-    r≈1*r : LeftIdentity _≈_ (fromℕ 1) _*_
+    r≈1*r : Algebra.Identity _≈_ (fromℕ 1) _*_
     r≈1*r = {!!}
   
     0≈0*r : Zero _≈_ (fromℕ 0) _*_
