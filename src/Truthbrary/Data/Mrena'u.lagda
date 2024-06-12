@@ -552,8 +552,8 @@ module Veritas where
     ¬sez : (r : ℝ) → ¬_ $ r > r
     ¬sez = {!!}
 
-    zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
-    zmad = {!!}
+    +-zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
+    +-zmad = {!!}
 
     >⇒¬< : Asymmetric _>_
     >⇒¬< = {!!}
