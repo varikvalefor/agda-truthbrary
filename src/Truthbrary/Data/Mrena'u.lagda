@@ -350,7 +350,7 @@ ni'o la'o zoi.\ \B r \OpF ⊓ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B 
 \begin{code}
 module _⊓_I where
   f : ∀ {a} → {A : Set a} → A → A → 𝔹.Bool → A
-  f r s n = if_then_else_ n r s
+  f r s n = if_then_else_ n s r
 
   i : ℝ → ℝ → 𝔹.Bool
   i = {!!}
@@ -641,10 +641,10 @@ module Veritas where
       <⇒⊤ : (r s : ℝ) → s > r → 𝔹.true ≡ i r s
       <⇒⊤ = {!!}
 
-      ⊤⇒1 : ∀ {a} → {A : Set a}
+      ⊥⇒1 : ∀ {a} → {A : Set a}
           → (x z : A)
-          → x ≡ f x z 𝔹.true
-      ⊤⇒1 = {!!}
+          → x ≡ f x z 𝔹.false
+      ⊥⇒1 = {!!}
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
     <⇒1 = {!!}
