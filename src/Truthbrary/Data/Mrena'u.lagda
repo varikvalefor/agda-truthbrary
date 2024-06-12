@@ -354,7 +354,7 @@ module _⊓_I where
 
   i : ℝ → ℝ → 𝔹.Bool
   i = {!!}
-  
+
 _⊓_ : ℝ → ℝ → ℝ
 _⊓_ r s = _⊓_I.f r s $ _⊓_I.i r s
 \end{code}
@@ -384,27 +384,27 @@ module Veritas where
           → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
           → r ≈ s
     ≡∧≗⇒≈ = {!!}
-  
+
     ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
     ≡⇒≈ = {!!}
 
     ≈⇒≈ : (r s : ℝ) → r ≈ s → s ≈ r
     ≈⇒≈ = {!!}
-  
+
     n,9+≈n+1 : (s : Sign)
              → (n : ℕ)
              → (_≈_
                  (s , n , const 9F)
                  (s , (ℕ.suc n) , const 𝔽.zero))
     n,9+≈n+1 = {!!}
-  
+
     >⇒≉ : (r s : ℝ)
         → (∃ $ λ k → _×_
             (¬_ $ fromℚ k ≈ fromℕ 0)
             (∣ r - s ∣ > fromℚ k))
         → ¬_ $ r ≈ s
     >⇒≉ = {!!}
-  
+
     ≈⇒fn≡gn : (r s : ℝ)
             → ⌊' r ≡ ⌊' s
             → r ≈ s
@@ -418,7 +418,7 @@ module Veritas where
   module Fromℕ where
     pav : (n : ℕ) → ℤ.+_ n ≡ ⌊' (fromℕ n)
     pav _ = _≡_.refl
-  
+
     rel : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
     rel _ _ = _≡_.refl
 
@@ -428,19 +428,19 @@ module Veritas where
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
     +≈+⍨ = {!!}
-  
+
     +-ass : Associative _≈_ _+_
     +-ass = {!!}
-  
+
     id≡+0 : Algebra.Identity _≡_ (fromℕ 0) _+_
     id≡+0 = {!!} , {!!}
-  
+
     dratadratas : (r s : ℝ)
                 → ¬_ $ r ≈ s
                 → let N = ¬_ ∘ _≈_ (r + s) in
                   N r × N s
     dratadratas = {!!}
-  
+
     r≡r₁+r₂ : (r : ℝ) → r ≡_ $ fromℤ (⌊' r) + ⌊'⁻¹ℝ r
     r≡r₁+r₂ = {!!}
 
@@ -464,7 +464,7 @@ module Veritas where
   module _-_ where
     0≈r-r : (r : ℝ) → fromℕ 0 ≡ r - r
     0≈r-r = {!!}
-  
+
     r≈-r⇒r≡0 : (r : ℝ)
              → r ≈_ $ fromℕ 0 - r
              → r ≡ fromℕ 0
@@ -496,10 +496,10 @@ module Veritas where
   module _*_ where
     r≈1*r : Algebra.Identity _≈_ (fromℕ 1) _*_
     r≈1*r = {!!}
-  
+
     0≈0*r : Zero _≈_ (fromℕ 0) _*_
     0≈0*r = {!!}
-  
+
     *≈*⍨ : Commutative _≈_ _*_
     *≈*⍨ = {!!}
 
@@ -523,10 +523,10 @@ module Veritas where
   module Frinu where
     sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
     sez≡1 = {!!}
-  
+
     r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
     r≡r/1 = {!!}
-  
+
     0≡0/r : (r : ℝ) → (N : _) → fromℕ 0 ≡ frinu (fromℕ 0) r N
     0≡0/r = {!!}
 
@@ -549,7 +549,7 @@ module Veritas where
 
     1≡r^0 : (r : ℝ) → fromℕ 1 ≡_ $ r ^ fromℕ 0
     1≡r^0 = {!!}
-  
+
     0≡0^r : (r : ℝ)
           → ¬_ $ r ≈ fromℕ 0
           → fromℕ 0 ≡_ $ fromℕ 0 ^ r
@@ -557,10 +557,10 @@ module Veritas where
 
     0^0≡1 : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 1
     0^0≡1 = sym $ 1≡r^0 $ fromℕ 0
-  
+
     [r^s]^t≈r^[s*t] : (r s t : ℝ) → ((r ^ s) ^ t) ≈ (r ^ (s * t))
     [r^s]^t≈r^[s*t] = {!!}
-  
+
     r≈[r^s]^[1/s] : (r s : ℝ)
                   → (N : _)
                   → (_≈_
