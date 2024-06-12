@@ -348,11 +348,15 @@ section{la'o zoi.\ \F{\AgdaUnderscore{}⊓\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B r \OpF ⊓ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B s.
 
 \begin{code}
-_⊓_ : ℝ → ℝ → ℝ
-_⊓_ r s = f i
-  where
-  f = λ n → if_then_else_ n r s
+module _⊓_I where
+  f : ℝ → ℝ → 𝔹.Bool → ℝ
+  f = λ r s n → if_then_else_ n r s
+
+  i : ℝ → ℝ → 𝔹.Bool
   i = {!!}
+  
+_⊓_ : ℝ → ℝ → ℝ
+_⊓_ r s = _⊓_I.f r s $ _⊓_I.i r s
 \end{code}
 
 section{la'o zoi.\ \F{\AgdaUnderscore{}⊔\AgdaUnderscore}\ .zoi.}
