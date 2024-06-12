@@ -347,6 +347,14 @@ _⊓_ : ℝ → ℝ → ℝ
 _⊓_ = {!!}
 \end{code}
 
+section{la'o zoi.\ \F{\AgdaUnderscore{}⊔\AgdaUnderscore}\ .zoi.}
+ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B s.
+
+\begin{code}
+_⊔_ : ℝ → ℝ → ℝ
+_⊔_ = {!!}
+\end{code}
+
 \section{le ctaipe be le su'u mapti}
 
 \begin{code}
