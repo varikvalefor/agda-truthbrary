@@ -546,6 +546,11 @@ module Veritas where
 
 \begin{code}
   module ⌊' where
+    fromℤ∘⌊' : (r : ℝ)
+            → ⌊'⁻¹ r ≗ const 𝔽.zero
+            → r ≡ fromℤ (⌊' r)
+    fromℤ∘⌊' = {!!}
+
     ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
     ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡r₂+r₁ r
 \end{code}
