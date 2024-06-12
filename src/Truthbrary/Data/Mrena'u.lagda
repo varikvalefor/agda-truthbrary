@@ -356,7 +356,9 @@ module _⊓_I where
   i = {!!}
 
 _⊓_ : ℝ → ℝ → ℝ
-_⊓_ r s = _⊓_I.f r s $ _⊓_I.i r s
+_⊓_ r s = f r s $ i r s
+  where
+  open _⊓_I
 \end{code}
 
 section{la'o zoi.\ \F{\AgdaUnderscore{}⊔\AgdaUnderscore}\ .zoi.}
