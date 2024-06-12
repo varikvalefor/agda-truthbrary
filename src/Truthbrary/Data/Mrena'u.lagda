@@ -629,7 +629,12 @@ module Veritas where
 \begin{code}
   module _⊓_ where
     module I where
-      >⇒⊥ : (r s : ℝ) → r > s → 𝔹.false ≡ _⊓_I.i r s
+      open _⊓_I
+        using (
+          i
+        )
+
+      >⇒⊥ : (r s : ℝ) → r > s → 𝔹.false ≡ i r s
       >⇒⊥ = {!!}
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
