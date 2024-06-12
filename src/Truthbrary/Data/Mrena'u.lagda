@@ -142,6 +142,11 @@ open import Function
   renaming (
     flip to _⍨
   )
+open import Data.Bool
+  as 𝔹
+  using (
+    if_then_else_
+  )
 open import Data.Sign
   using (
     Sign
@@ -344,7 +349,10 @@ ni'o la'o zoi.\ \B r \OpF ⊓ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B 
 
 \begin{code}
 _⊓_ : ℝ → ℝ → ℝ
-_⊓_ = {!!}
+_⊓_ r s = f i
+  where
+  f = λ n → if_then_else_ n r s
+  i = {!!}
 \end{code}
 
 section{la'o zoi.\ \F{\AgdaUnderscore{}⊔\AgdaUnderscore}\ .zoi.}
