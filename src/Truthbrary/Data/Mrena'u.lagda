@@ -350,7 +350,7 @@ ni'o la'o zoi.\ \B r \OpF ⊓ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B 
 \begin{code}
 module _⊓_I where
   f : ∀ {a} → {A : Set a} → A → A → 𝔹.Bool → A
-  f = λ r s n → if_then_else_ n r s
+  f r s n = if_then_else_ n r s
 
   i : ℝ → ℝ → 𝔹.Bool
   i = {!!}
