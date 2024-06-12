@@ -453,6 +453,9 @@ module Veritas where
     0≡r-0 : Algebra.RightZero _≡_ (fromℕ 0) _-_
     0≡r-0 = {!!}
 
+    r-s-t≈r-[s+t] : (r s t : ℝ) → ((r - s) - t) ≈ (r - (s + t))
+    r-s-t≈r-[s+t] = {!!}
+
     0-[+r]≈-r : (n : ℕ)
               → (f : _)
               → ((_≈_ ⍨)
