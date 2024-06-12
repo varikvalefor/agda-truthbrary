@@ -367,6 +367,9 @@ module Veritas where
   
     ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
     ≡⇒≈ = {!!}
+
+    ≈⇒≈ : (r s : ℝ) → r ≈ s → s ≈ r
+    ≈⇒≈ = {!!}
   
     n,9+≈n+1 : (s : Sign)
              → (n : ℕ)
