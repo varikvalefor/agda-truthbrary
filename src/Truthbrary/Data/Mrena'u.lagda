@@ -631,6 +631,7 @@ module Veritas where
     module I where
       open _⊓_I
         using (
+          f;
           i
         )
 
@@ -639,6 +640,11 @@ module Veritas where
 
       <⇒⊤ : (r s : ℝ) → s > r → 𝔹.true ≡ i r s
       <⇒⊤ = {!!}
+
+      ⊤⇒1 : ∀ {a} → {A : Set a}
+          → (x z : A)
+          → x ≡ f x z 𝔹.true
+      ⊤⇒1 = {!!}
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
     <⇒1 = {!!}
