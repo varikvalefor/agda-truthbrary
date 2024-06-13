@@ -409,6 +409,9 @@ module Veritas where
     ≈⇒≈ : (r s : ℝ) → r ≈ s → s ≈ r
     ≈⇒≈ = {!!}
 
+    ≈∧≈⇒≈ : (r s t : ℝ) → r ≈ s → s ≈ t → r ≈ t
+    ≈∧≈⇒≈ = {!!}
+
     n,9+≈n+1 : (s : Sign)
              → (n : ℕ)
              → (_≈_
