@@ -368,11 +368,11 @@ module _⊓_I where
   f : ∀ {a} → {A : Set a} → A → A → 𝔹.Bool → A
   f r s n = if_then_else_ n s r
 
-  i : ℝ → ℝ → 𝔹.Bool
-  i = {!!}
+  _>ᵇ_ : ℝ → ℝ → 𝔹.Bool
+  _>ᵇ_ = {!!}
 
 _⊓_ : ℝ → ℝ → ℝ
-_⊓_ r s = f r s $ i r s
+_⊓_ r s = f r s $ _>ᵇ_ r s
   where
   open _⊓_I
 \end{code}
@@ -382,7 +382,7 @@ ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B
 
 \begin{code}
 _⊔_ : ℝ → ℝ → ℝ
-_⊔_ r s = _⊓_I.f r s $ 𝔹.not $ _⊓_I.i r s
+_⊔_ r s = _⊓_I.f r s $ 𝔹.not $ _⊓_I._>ᵇ_ r s
 \end{code}
 
 \section{le ctaipe be le su'u mapti}
@@ -667,14 +667,14 @@ module Veritas where
     module I where
       open _⊓_I
         using (
-          f;
-          i
+          _>ᵇ_;
+          f
         )
 
-      >⇒⊤ : (r s : ℝ) → r > s → 𝔹.true ≡ i r s
+      >⇒⊤ : (r s : ℝ) → r > s → 𝔹.true ≡ _>ᵇ_ r s
       >⇒⊤ = {!!}
 
-      <⇒⊥ : (r s : ℝ) → s > r → 𝔹.false ≡ i r s
+      <⇒⊥ : (r s : ℝ) → s > r → 𝔹.false ≡ _>ᵇ_ r s
       <⇒⊥ = {!!}
 
       ⊥⇒1 : ∀ {a} → {A : Set a}
