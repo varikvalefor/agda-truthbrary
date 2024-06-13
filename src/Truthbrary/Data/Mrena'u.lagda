@@ -344,12 +344,11 @@ module FromℚI where
   fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
   fromℕ[s]≉0 = {!!}
 
-  fromℚ : ℚ → ℝ
-  fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) 1+b $ fromℕ[s]≉0 b
-    where
-    1+b = fromℕ $ ℕ.suc b
-
-fromℚ = FromℚI.fromℚ
+fromℚ : ℚ → ℝ
+fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) 1+b $ fromℕ[s]≉0 b
+  where
+  open FromℚI
+  1+b = fromℕ $ ℕ.suc b
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
