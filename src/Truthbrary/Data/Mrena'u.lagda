@@ -489,10 +489,10 @@ module Veritas where
     0≈r-r : (r : ℝ) → fromℕ 0 ≡ r - r
     0≈r-r = {!!}
 
-    r≈-r⇒r≡0 : (r : ℝ)
+    r≈-r⇒r≈0 : (r : ℝ)
              → r ≈_ $ fromℕ 0 - r
-             → r ≡ fromℕ 0
-    r≈-r⇒r≡0 = {!!}
+             → r ≈ fromℕ 0
+    r≈-r⇒r≈0 = {!!}
 
     0≡r-0 : Algebra.RightZero _≡_ (fromℕ 0) _-_
     0≡r-0 = {!!}
