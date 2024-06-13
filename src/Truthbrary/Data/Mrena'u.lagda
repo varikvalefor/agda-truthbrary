@@ -420,9 +420,9 @@ module Veritas where
     n,9+≈n+1 = {!!}
 
     >⇒≉ : (r s : ℝ)
-        → (∃ $ λ k → _×_
-            (¬_ $ fromℚ k ≈ fromℕ 0)
-            (∣ r - s ∣ > fromℚ k))
+        → {k : ℚ}
+        → ¬_ $ fromℚ k ≈ fromℕ 0
+        → ∣ r - s ∣ > fromℚ k
         → ¬_ $ r ≈ s
     >⇒≉ = {!!}
 
