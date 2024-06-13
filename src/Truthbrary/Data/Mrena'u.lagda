@@ -542,7 +542,7 @@ module Veritas where
     r*10≈_ = {!!}
 
     r*s>r : (r s : ℝ)
-          → ¬_ $ r ≈ fromℕ 0
+          → r > fromℕ 0
           → s > fromℕ 1
           → (r * s) > r
     r*s>r = {!!}
