@@ -692,7 +692,7 @@ module Veritas where
     <⇒1 r s z = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s z) (I.⊥⇒1 s)
 
     >⇒2 : (r s : ℝ) → r > s → s ≡ r ⊓ s
-    >⇒2 = λ r s z → subst (_≡_ s ∘ _⊓_I.f r s) (I.>⇒⊤ r s z) (I.⊤⇒2 r s)
+    >⇒2 r s z = subst (_≡_ s ∘ _⊓_I.f r s) (I.>⇒⊤ r s z) (I.⊤⇒2 r s)
 
     ≈⇒1 : (r s : ℝ) → r ≈ s → r ≈ (r ⊓ s)
     ≈⇒1 = {!!}
