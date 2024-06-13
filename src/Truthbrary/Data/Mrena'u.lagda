@@ -61,6 +61,7 @@
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\mathsf{m}}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_\mathsf{s}}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
+\newunicodechar{⊥}{\ensuremath{\mathnormal{\bot}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
 \newunicodechar{⍉}{\ensuremath{\mathnormal{∘\hspace{-0.455em}\backslash}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
@@ -80,6 +81,7 @@
 \newunicodechar{≉}{\ensuremath{\mathnormal{\napprox}}}
 \newunicodechar{⌊}{\ensuremath{\mathnormal{\lfloor}}}
 \newunicodechar{⊓}{\ensuremath{\mathnormal{\sqcap}}}
+\newunicodechar{⊔}{\ensuremath{\mathnormal{\sqcup}}}
 \newunicodechar{⍨}{\raisebox{-0.25ex}{$\ddot\sim$}}
 
 \newcommand\Sym\AgdaSymbol
