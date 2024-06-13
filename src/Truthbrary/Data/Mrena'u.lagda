@@ -546,6 +546,12 @@ module Veritas where
           → s > fromℕ 1
           → (r * s) > r
     r*s>r = {!!}
+
+    r>r*s : (r s : ℝ)
+          → r > fromℕ 0
+          → fromℕ 1 > s
+          → r >_ $ r * s
+    r>r*s = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
