@@ -465,9 +465,7 @@ module Veritas where
     r≡r₂+r₁ = {!!}
 
     rn+sn≡[r+s]n : (z₁ z₂ : ℤ)
-                 → (_≡_
-                     (fromℤ $ z₁ ℤ.+ z₂)
-                     (fromℤ z₁ + fromℤ z₂))
+                 → fromℤ (z₁ ℤ.+ z₂) ≡ fromℤ z₁ + fromℤ z₂
     rn+sn≡[r+s]n = {!!}
                      
 
