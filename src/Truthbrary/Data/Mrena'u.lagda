@@ -197,6 +197,7 @@ open import Relation.Nullary.Negation
 open import Relation.Binary.PropositionalEquality
   using (
     module ≡-Reasoning;
+    subst;
     _≗_;
     _≡_;
     sym
@@ -689,8 +690,6 @@ module Veritas where
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
     <⇒1 r s z = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s z) (I.⊥⇒1 s)
-      where
-      subst = Relation.Binary.PropositionalEquality.subst
 
     >⇒2 : (r s : ℝ) → r > s → s ≡ r ⊓ s
     >⇒2 = {!!}
