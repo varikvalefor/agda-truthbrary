@@ -688,7 +688,7 @@ module Veritas where
       ⊤⇒2 _ _ = _≡_.refl
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
-    <⇒1 r s z = subst (λ j → r ≡ _⊓_I.f r s j) (I.<⇒⊥ r s z) (I.⊥⇒1 s)
+    <⇒1 r s z = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s z) (I.⊥⇒1 s)
       where
       subst = Relation.Binary.PropositionalEquality.subst
 
