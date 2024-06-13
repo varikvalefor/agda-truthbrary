@@ -696,8 +696,8 @@ module Veritas where
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
     ⊓≈⊓⍨ = {!!}
 
-    [r⊓s]⊓t≈r⊓[s⊓t] : Associative _≈_ _⊓_
-    [r⊓s]⊓t≈r⊓[s⊓t] = {!!}
+    ⊓-ass : Associative _≈_ _⊓_
+    ⊓-ass = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
