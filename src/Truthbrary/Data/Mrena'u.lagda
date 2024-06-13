@@ -396,6 +396,9 @@ module Veritas where
 
 \begin{code}
   module _≈_ where
+    r≈r : (r : ℝ) → r ≈ r
+    r≈r = {!!}
+
     ≡∧≗⇒≈ : (r s : ℝ)
           → ⌊' r ≡ ⌊' s
           → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
