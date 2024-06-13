@@ -677,9 +677,10 @@ module Veritas where
       <⇒⊥ = {!!}
 
       ⊥⇒1 : ∀ {a} → {A : Set a}
-          → (x z : A)
+          → {x : A}
+          → (z : A)
           → x ≡ f x z 𝔹.false
-      ⊥⇒1 _ _ = _≡_.refl
+      ⊥⇒1 _ = _≡_.refl
 
       ⊤⇒2 : ∀ {a} → {A : Set a}
           → (x z : A)
@@ -687,7 +688,7 @@ module Veritas where
       ⊤⇒2 _ _ = _≡_.refl
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
-    <⇒1 r s z = subst (λ j → r ≡ _⊓_I.f r s j) (I.<⇒⊥ r s z) (I.⊥⇒1 r s)
+    <⇒1 r s z = subst (λ j → r ≡ _⊓_I.f r s j) (I.<⇒⊥ r s z) (I.⊥⇒1 s)
       where
       subst = Relation.Binary.PropositionalEquality.subst
 
