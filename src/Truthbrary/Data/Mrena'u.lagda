@@ -512,6 +512,9 @@ module Veritas where
 
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
     r≈0-[0-r] = {!!}
+
+    r>r-s : (r s : ℝ) → s > fromℕ 0 → r >_ $ r - s
+    r>r-s = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
