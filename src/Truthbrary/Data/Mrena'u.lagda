@@ -340,7 +340,7 @@ _^_ = {!!}
 ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
 
 \begin{code}
-module Fromℚ where
+module FromℚI where
   fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
   fromℕ[s]≉0 = {!!}
 
@@ -349,7 +349,7 @@ module Fromℚ where
     where
     1+b = fromℕ $ ℕ.suc b
 
-fromℚ = Fromℚ.fromℚ
+fromℚ = FromℚI.fromℚ
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
@@ -444,7 +444,7 @@ module Veritas where
     rel _ _ = _≡_.refl
 
     fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
-    fromℕ[s]≉0 = Fromℚ.fromℕ[s]≉0
+    fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
 
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
