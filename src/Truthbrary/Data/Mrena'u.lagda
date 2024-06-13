@@ -430,6 +430,11 @@ module Veritas where
             → r ≈ s
             → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
     ≈⇒fn≡gn = {!!}
+
+    setoid : Relation.Binary.Setoid Level.zero Level.zero
+    setoid = record {
+      _≈_ = _≈_;
+      isEquivalence = {!!}}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
