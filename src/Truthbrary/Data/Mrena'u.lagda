@@ -434,7 +434,10 @@ module Veritas where
     setoid : Relation.Binary.Setoid Level.zero Level.zero
     setoid = record {
       _≈_ = _≈_;
-      isEquivalence = {!!}}
+      isEquivalence = record {
+        refl = {!!};
+        sym = {!!};
+        trans = {!!} }}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
