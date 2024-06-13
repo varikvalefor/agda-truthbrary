@@ -464,6 +464,13 @@ module Veritas where
     r≡r₂+r₁ : (r : ℝ) → r ≡_ $ ⌊'⁻¹ℝ r + fromℤ (⌊' r)
     r≡r₂+r₁ = {!!}
 
+    rn+sn≡[r+s]n : (z₁ z₂ : ℤ)
+                 → (_≡_
+                     (fromℤ $ z₁ ℤ.+ z₂)
+                     (fromℤ z₁ + fromℤ z₂))
+    rn+sn≡[r+s]n = {!!}
+                     
+
     r≡f+n : (s : Sign)
           → (n : ℕ)
           → (f : ℕ → Digit 10)
