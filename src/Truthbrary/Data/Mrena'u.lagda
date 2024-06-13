@@ -679,7 +679,7 @@ module Veritas where
       ⊥⇒1 : ∀ {a} → {A : Set a}
           → (x z : A)
           → x ≡ f x z 𝔹.false
-      ⊥⇒1 = λ _ _ → _≡_.refl
+      ⊥⇒1 _ _ = _≡_.refl
 
       ⊤⇒2 : ∀ {a} → {A : Set a}
           → (x z : A)
