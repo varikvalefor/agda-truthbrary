@@ -540,6 +540,12 @@ module Veritas where
                    (⌊' r ℤ.* ℤ.+_ 10)
                    ({!!} ℤ.*_ $ ℤ.+_ $ 𝔽.toℕ $ ⌊'⁻¹ r 0))))
     r*10≈_ = {!!}
+
+    r*s>r : (r s : ℝ)
+          → ¬_ $ r ≈ fromℕ 0
+          → s > fromℕ 1
+          → (r * s) > r
+    r*s>r = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
