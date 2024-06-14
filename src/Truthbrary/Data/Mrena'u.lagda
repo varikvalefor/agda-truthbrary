@@ -364,7 +364,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{Irrational} \B r\ .zoi.\ gi la'oi .\B r.\ me'oi 
 
 \begin{code}
 Irrational : ℝ → Set
-Irrational r = ¬_ $ ∃ $ _≈_ r ∘ fromℚ
+Irrational = ¬_ ∘ Rational
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
