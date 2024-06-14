@@ -438,7 +438,7 @@ module Veritas where
     setoid = record {
       _≈_ = _≈_;
       isEquivalence = record {
-        refl = {!!};
+        refl = λ {r} → r≈r r;
         sym = {!!};
         trans = {!!} }}
 \end{code}
