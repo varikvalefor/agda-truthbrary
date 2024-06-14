@@ -411,6 +411,11 @@ module Veritas where
     ≈⇒≈⍨ : (r s : ℝ) → r ≈ s → s ≈ r
     ≈⇒≈⍨ = {!!}
 
+    id≡[≈⇒≈⍨]² : (r s : ℝ)
+               → (d : r ≈ s)
+               → d ≡_ $ ≈⇒≈⍨ s r $ ≈⇒≈⍨ r s d
+    id≡[≈⇒≈⍨]² = {!!}
+
     ≈∧≈⇒≈ : Relation.Binary.Transitive _≈_
     ≈∧≈⇒≈ = {!!}
 
