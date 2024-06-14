@@ -481,7 +481,6 @@ module Veritas where
     rn+sn≡[r+s]n : (z₁ z₂ : ℤ)
                  → fromℤ (z₁ ℤ.+ z₂) ≡ fromℤ z₁ + fromℤ z₂
     rn+sn≡[r+s]n = {!!}
-                     
 
     r≡f+n : (s : Sign)
           → (n : ℕ)
