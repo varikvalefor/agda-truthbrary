@@ -568,6 +568,17 @@ module Veritas where
     *-ass : Associative _≈_ _*_
     *-ass = {!!}
 
+    r*n≈? : (r : ℝ)
+          → (n : ℕ)
+          → (_≈_
+              (r * fromℕ n)
+              (_+_
+                (proj₁ r , 0 , {!!})
+                (fromℤ $ ℤ._+_
+                  (⌊' r ℤ.* ℤ.+_ 10)
+                  {!!})))
+    r*n≈? = {!!}
+
     r*10≈_ : (r : ℝ)
            → (_≈_
                (r * fromℕ 10)
