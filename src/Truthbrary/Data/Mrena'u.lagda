@@ -351,6 +351,14 @@ fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) 1+b $ fromℕ[s]≉0 b
   1+b = fromℕ $ ℕ.suc b
 \end{code}
 
+\section{la'oi .\F{Rational}.}
+ni'o ga jo ctaipe la'o zoi.\ \F{Rational} \B r\ .zoi.\ gi la'oi .\B r.\ me'oi .rational.  .i cadga fa lo nu li'armi  .i le velcki zo'u ro da poi ke'a co'e zo'u da me'oi .irrational.\ jo cu du lo su'o frinu
+
+\begin{code}
+Rational : ℝ → Set
+Rational r = ∃ $ _≈_ r ∘ fromℚ
+\end{code}
+
 \section{la'oi .\F{Irrational}.}
 ni'o ga jo ctaipe la'o zoi.\ \F{Irrational} \B r\ .zoi.\ gi la'oi .\B r.\ me'oi .irrational.  .i cadga fa lo nu li'armi  .i le velcki zo'u ro da poi ke'a co'e zo'u da me'oi .irrational.\ jo cu du lo no frinu
 
