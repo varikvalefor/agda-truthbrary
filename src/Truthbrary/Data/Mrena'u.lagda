@@ -778,10 +778,7 @@ module Veritas where
 
 \begin{code}
   module Irrational where
-    I[I-R] : (r s : ℝ)
-           → Irrational r
-           → Rational s
-           → Irrational $ r - s
+    I[I-R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r - s
     I[I-R] = {!!}
 \end{code}
 
