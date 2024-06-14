@@ -497,7 +497,7 @@ module Veritas where
 
 \begin{code}
   module _-_ where
-    0≈r-r : (r : ℝ) → fromℕ 0 ≡ r - r
+    0≈r-r : (r : ℝ) → fromℕ 0 ≈_ $ r - r
     0≈r-r = {!!}
 
     r≈-r⇒r≈0 : (r : ℝ)
