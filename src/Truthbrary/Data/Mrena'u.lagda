@@ -376,7 +376,7 @@ _⊓_ r s = f r s $ _>ᵇ_ r s
   open _⊓_I
 \end{code}
 
-section{la'o zoi.\ \F{\AgdaUnderscore{}⊔\AgdaUnderscore}\ .zoi.}
+\section{la'o zoi.\ \F{\AgdaUnderscore{}⊔\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B s.
 
 \begin{code}
