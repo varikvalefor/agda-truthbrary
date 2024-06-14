@@ -408,8 +408,8 @@ module Veritas where
     ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
     ≡⇒≈ = {!!}
 
-    ≈⇒≈ : (r s : ℝ) → r ≈ s → s ≈ r
-    ≈⇒≈ = {!!}
+    ≈⇒≈⍨ : (r s : ℝ) → r ≈ s → s ≈ r
+    ≈⇒≈⍨ = {!!}
 
     ≈∧≈⇒≈ : Relation.Binary.Transitive _≈_
     ≈∧≈⇒≈ = {!!}
