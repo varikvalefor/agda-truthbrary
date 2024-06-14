@@ -774,6 +774,17 @@ module Veritas where
     ⊓-ass = {!!}
 \end{code}
 
+\subsection{\lcblm{\F{Irrational}}}
+
+\begin{code}
+  module Irrational where
+    I[I-R] : (r s : ℝ)
+           → Irrational r
+           → Rational s
+           → Irrational $ r - s
+    I[I-R] = {!!}
+\end{code}
+
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
 
 \begin{code}
