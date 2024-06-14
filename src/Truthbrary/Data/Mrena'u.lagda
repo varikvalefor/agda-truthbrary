@@ -434,7 +434,7 @@ module Veritas where
             → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
     ≈⇒fn≡gn = {!!}
 
-    setoid : Relation.Binary.Setoid Level.zero Level.zero
+    setoid : Relation.Binary.Setoid _ _
     setoid = record {
       _≈_ = _≈_;
       isEquivalence = record {
