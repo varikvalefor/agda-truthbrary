@@ -477,6 +477,9 @@ module Veritas where
     fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
 
+    fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
+    fromℕ-Rational = {!!}
+
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
     +≈+⍨ = {!!}
