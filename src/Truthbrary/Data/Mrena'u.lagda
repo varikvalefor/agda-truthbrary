@@ -658,6 +658,9 @@ module Veritas where
             → r ≡ fromℤ (⌊' r)
     fromℤ∘⌊' = {!!}
 
+    ⌊'∘fromℤ : (z : ℤ) → z ≡_ $ ⌊' $ fromℤ z
+    ⌊'∘fromℤ = {!!}
+
     ∃f≡ : (r : ℝ) → ∃ $ λ f → r ≡ f + fromℤ (⌊' r)
     ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡r₂+r₁ r
 \end{code}
