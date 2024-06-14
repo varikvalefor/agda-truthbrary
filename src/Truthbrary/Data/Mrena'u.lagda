@@ -672,6 +672,9 @@ module Veritas where
     sez : Reflexive _≥_
     sez {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r _≡_.refl
 
+    ≈⇒≥ : {r s : ℝ} → r ≈ s → r ≥ s
+    ≈⇒≥ = _⊎_.inj₁
+
     >⇒≥ : {r s : ℝ} → r > s → r ≥ s
     >⇒≥ = _⊎_.inj₂
 
