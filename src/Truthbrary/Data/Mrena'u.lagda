@@ -660,6 +660,9 @@ module Veritas where
     ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) N , {!!} , {!!}
       where
       N = Fromℕ.fromℕ[s]≉0 1
+
+    >∧>⇒> : (r s t : ℝ) → r > s → s > t → r > t
+    >∧>⇒> = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}≥\AgdaUnderscore}}}
