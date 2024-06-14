@@ -681,7 +681,7 @@ module Veritas where
     ≥∧¬>⇒≈ (_⊎_.inj₂ z) N = z ⇒⇐ N
 \end{code}
 
-\subsection{\lcblm{\F{\AgdaUnderscore{}⌊\AgdaUnderscore}}}
+\subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
 
 \begin{code}
   module _⊓_ where
