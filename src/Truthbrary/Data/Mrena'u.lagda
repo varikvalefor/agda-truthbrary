@@ -440,7 +440,7 @@ module Veritas where
       isEquivalence = record {
         refl = λ {r} → r≈r r;
         sym = {!!};
-        trans = {!!} }}
+        trans = λ {i} {j} {k} → ≈∧≈⇒≈ {i} {j} {k}}}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
