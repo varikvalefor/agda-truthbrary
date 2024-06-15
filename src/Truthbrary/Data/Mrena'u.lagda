@@ -729,6 +729,9 @@ module Veritas where
 
     >∧>⇒> : (r s t : ℝ) → r > s → s > t → r > t
     >∧>⇒> = {!!}
+
+    ¬[0,9>0,1] : ¬_ $ (Sign.+ , 0 , const 𝔽.zero) > fromℕ 1
+    ¬[0,9>0,1] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}≥\AgdaUnderscore}}}
