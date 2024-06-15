@@ -524,7 +524,7 @@ module Veritas where
                 (s , n , const 𝔽.zero)))
     r≡f+n = {!!}
 
-    R[R+R] : (r s : ℝ) → Rational R → Rational s → Rational $ r + s
+    R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
     R[R+R] = {!!}
 \end{code}
 
