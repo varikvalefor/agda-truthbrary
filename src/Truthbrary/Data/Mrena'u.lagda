@@ -630,7 +630,7 @@ module Veritas where
                (- r) > frinu (- r) (- s) {!!}
     -r/-s<-r = {!!}
 
-    r<r/s : (r s : ℝ) → (N : _) → fromℕ 1 > s → r > frinu r s N
+    r<r/s : (r s : ℝ) → (N : _) → fromℕ 1 > s → s > fromℕ 0 → r > frinu r s N
     r<r/s = {!!}
 \end{code}
 
