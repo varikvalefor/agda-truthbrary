@@ -523,6 +523,9 @@ module Veritas where
                 (s , 0 , f)
                 (s , n , const 𝔽.zero)))
     r≡f+n = {!!}
+
+    R[R+R] : (r s : ℝ) → Rational R → Rational s → Rational $ r + s
+    R[R+R] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
