@@ -526,6 +526,9 @@ module Veritas where
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
     R[R+R] = {!!}
+
+    I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
+    I[I+R] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
