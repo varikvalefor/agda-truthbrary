@@ -685,7 +685,7 @@ module Veritas where
 
     r≈[r^s]^[1/s] : (r s : ℝ)
                   → (N : _)
-                  → r ≈ ((r ^ s) ^ frinu (fromℕ 1) s N)
+                  → r ≈_ $ (r ^ s) ^ frinu (fromℕ 1) s N
     r≈[r^s]^[1/s] = {!!}
 \end{code}
 
