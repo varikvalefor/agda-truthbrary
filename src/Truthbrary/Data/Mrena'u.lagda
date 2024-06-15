@@ -608,6 +608,9 @@ module Veritas where
 
     I[I*R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r * s
     I[I*R] = {!!}
+
+    R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
+    R[R*R] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
