@@ -564,6 +564,9 @@ module Veritas where
 
     r>r-s : (r s : ℝ) → s > fromℕ 0 → r >_ $ r - s
     r>r-s = {!!}
+
+    I[I-R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r - s
+    I[I-R] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
@@ -810,8 +813,6 @@ module Veritas where
 
 \begin{code}
   module Irrational where
-    I[I-R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r - s
-    I[I-R] = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
