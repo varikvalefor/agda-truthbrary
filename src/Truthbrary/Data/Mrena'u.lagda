@@ -460,7 +460,7 @@ module Veritas where
       _≈_ = _≈_;
       isEquivalence = record {
         refl = λ {r} → r≈r r;
-        sym = {!!};
+        sym = λ {r s} d → ≈⇒≈⍨ r s d;
         trans = λ {i} {j} {k} → ≈∧≈⇒≈ {i} {j} {k}}}
 \end{code}
 
