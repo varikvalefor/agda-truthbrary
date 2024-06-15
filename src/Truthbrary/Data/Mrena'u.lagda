@@ -442,6 +442,11 @@ module Veritas where
                  (s , (ℕ.suc n) , const 𝔽.zero))
     n,9+≈n+1 = {!!}
 
+    ¬∃⇒≈ : (r s : ℝ)
+          → ¬_ $ ∃ $ λ t → (¬_ $ t ≈ fromℕ 0) × r ≈ (s - t)
+          → r ≈ s
+    ¬∃⇒≈ = {!!}
+
     >⇒≉ : (r s : ℝ)
         → {k : ℚ}
         → ¬_ $ fromℚ k ≈ fromℕ 0
