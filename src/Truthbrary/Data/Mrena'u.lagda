@@ -687,9 +687,7 @@ module Veritas where
                   → (N : _)
                   → (_≈_
                       r
-                      (_^_
-                        (r ^ s)
-                        (frinu (fromℕ 1) s N)))
+                      ((r ^ s) ^ (frinu (fromℕ 1) s N)))
     r≈[r^s]^[1/s] = {!!}
 \end{code}
 
