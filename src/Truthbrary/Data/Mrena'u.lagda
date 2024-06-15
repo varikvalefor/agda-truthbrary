@@ -605,6 +605,9 @@ module Veritas where
           → fromℕ 1 > s
           → r >_ $ r * s
     r>r*s = {!!}
+
+    I[I*R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r * s
+    I[I*R] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
