@@ -668,10 +668,11 @@ module Veritas where
     1≡r^0 : (r : ℝ) → fromℕ 1 ≡_ $ r ^ fromℕ 0
     1≡r^0 = {!!}
 
-    0≡0^r : (r : ℝ)
+    0≈0^r : (r s : ℝ)
           → ¬_ $ r ≈ fromℕ 0
-          → fromℕ 0 ≡_ $ fromℕ 0 ^ r
-    0≡0^r = {!!}
+          → s ≈ fromℕ 0
+          → fromℕ 0 ≈_ $ s ^ r
+    0≈0^r = {!!}
 
     0^0≡1 : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 1
     0^0≡1 = sym $ 1≡r^0 $ fromℕ 0
