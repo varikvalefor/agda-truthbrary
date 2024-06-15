@@ -460,6 +460,9 @@ module Veritas where
             → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
     ≈⇒fn≡gn = {!!}
 
+    r≈s⇒fr≈fs : (r s : ℝ) → (f : ℝ → ℝ) → r ≈ s → f r ≈ f s
+    r≈s⇒fr≈fs = {!!}
+
     setoid : Relation.Binary.Setoid _ _
     setoid = record {
       _≈_ = _≈_;
