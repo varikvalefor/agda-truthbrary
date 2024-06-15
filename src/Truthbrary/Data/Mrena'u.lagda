@@ -422,7 +422,7 @@ module Veritas where
     ≡⇒≈ r s _≡_.refl = ≡∧≗⇒≈ r s _≡_.refl $ λ _ → _≡_.refl
 
     r≈r : (r : ℝ) → r ≈ r
-    r≈r = λ r → ≡⇒≈ r r _≡_.refl
+    r≈r r = ≡⇒≈ r r _≡_.refl
 
     ≈⇒≈⍨ : (r s : ℝ) → r ≈ s → s ≈ r
     ≈⇒≈⍨ = {!!}
