@@ -434,7 +434,7 @@ module Veritas where
     r≈r : (r : ℝ) → r ≈ r
     r≈r r = ≡⇒≈ r r _≡_.refl
 
-    ≈⇒≈⍨ : Relation.Binary.Symmetric _≈_
+    ≈⇒≈⍨ : (r s : ℝ) → r ≈ s → s ≈ r
     ≈⇒≈⍨ = {!!}
 
     id≡[≈⇒≈⍨]² : (r s : ℝ)
