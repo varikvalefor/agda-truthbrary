@@ -372,7 +372,7 @@ ni'o la'oi .\B r.\ namcu du la'o zoi.\ \F{toℚ} \B r \B R\ .zoi.
 
 \begin{code}
 toℚ : (r : ℝ) → Rational r → ℚ
-toℚ = λ _ (r' , _) → r'
+toℚ = λ _ → proj₁
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
