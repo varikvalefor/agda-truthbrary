@@ -368,11 +368,11 @@ Irrational = ¬_ ∘ Rational
 \end{code}
 
 \section{la'o zoi.\ \F{toℚ}\ .zoi.}
-ni'o la'oi .\B r.\ namcu du la'o zoi.\ \F{toℚ} \B r \B R\ .zoi.
+ni'o la'oi .\B r.\ namcu du la'o zoi.\ \F{toℚ} \AgdaSym\{\B r\AgdaSym\} \B R\ .zoi.
 
 \begin{code}
-toℚ : (r : ℝ) → Rational r → ℚ
-toℚ _ = proj₁
+toℚ : {r : ℝ} → Rational r → ℚ
+toℚ = proj₁
 \end{code}
 
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
