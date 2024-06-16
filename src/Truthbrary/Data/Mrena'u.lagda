@@ -717,6 +717,9 @@ module Veritas where
                   → (N : _)
                   → r ≈_ $ (r ^ s) ^ frinu (fromℕ 1) s N
     r≈[r^s]^[1/s] = {!!}
+
+    I[2^[1/2]] : Irrational $ fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) (Fromℕ.≢⇒≉ 2 0 $ λ ())
+    I[2^[1/2]] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{⌊'}}}
