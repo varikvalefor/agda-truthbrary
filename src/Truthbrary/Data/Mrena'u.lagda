@@ -246,7 +246,7 @@ ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ be lo co'e
 
 \begin{code}
 ⌊' : ℝ → ℤ
-⌊' (Sign.+ , n , _) = ℤ.+_ n
+⌊' (Sign.+ , n , _) = ℤ.+ n
 ⌊' (Sign.- , n , _) = ℤ.-_ $ ℤ.+_ n
 \end{code}
 
