@@ -367,6 +367,14 @@ Irrational : ℝ → Set
 Irrational = ¬_ ∘ Rational
 \end{code}
 
+\section{la'o zoi.\ \F{toℚ}\ .zoi.}
+ni'o la'oi .\B r.\ namcu du la'o zoi.\ \F{toℚ} \B r \B R\ .zoi.
+
+\begin{code}
+toℚ : (r : ℝ) → Rational r → ℚ
+toℚ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{∣\AgdaUnderscore{}∣}\ .zoi.}
 ni'o cu'alni la'oi .\B r.\ fa la'o zoi.\ \F{∣\AgdaUnderscore{}∣} \B r\ .zoi.
 
