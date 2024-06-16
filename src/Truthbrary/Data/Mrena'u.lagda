@@ -666,7 +666,10 @@ module Veritas where
     r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
     r≡r/1 = {!!}
 
-    0≈0/r : (r s : ℝ) → (N : _) → s ≈ fromℕ 0 → fromℕ 0 ≈ frinu (fromℕ 0) r N
+    0≈0/r : (r s : ℝ)
+          → (N : _)
+          → s ≈ fromℕ 0
+          → fromℕ 0 ≈ frinu (fromℕ 0) r N
     0≈0/r = {!!}
 
     r/s<r : (r s : ℝ)
