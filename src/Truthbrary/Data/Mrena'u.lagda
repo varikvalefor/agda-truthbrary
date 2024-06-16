@@ -504,6 +504,9 @@ module Veritas where
     rel : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
     rel _ _ = _≡_.refl
 
+    ≢⇒≉ : (m n : ℕ) → ¬_ $ m ≡ n → ¬_ $ fromℕ m ≈ fromℕ n
+    ≢⇒≉ = {!!}
+
     fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
 
