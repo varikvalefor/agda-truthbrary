@@ -525,7 +525,7 @@ module Veritas where
     r≡f+n = {!!}
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
-    R[R+R] = {!!}
+    R[R+R] = λ r s (k₁ , d₁) (k₂ , d₂) → k₁ ℚ.+ k₂ , {!!}
 
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
