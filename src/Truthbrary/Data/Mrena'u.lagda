@@ -347,7 +347,7 @@ module FromℚI where
   fromℕ[s]≉0 = λ n → N n ∘ r≈0⇒⌊'r≡0 (fromℕ $ ℕ.suc n)
     where
     N : (n : ℕ) → ¬_ $ ⌊' (fromℕ $ ℕ.suc n) ≡ ℤ.+ 0
-    N = λ _ ()
+    N _ ()
     r≈0⇒⌊'r≡0 : (r : ℝ) → r ≈ fromℕ 0 → ⌊' r ≡ ℤ.+ 0
     r≈0⇒⌊'r≡0 = {!!}
 
