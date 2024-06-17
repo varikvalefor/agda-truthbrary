@@ -797,6 +797,9 @@ module Veritas where
 
     0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈_ $ fromℕ 0 - r
     0>r⇒∣r∣≈-r = {!!}
+
+    ∣_∣≈∣_∣∘∣_∣ : Algebra.IdempotentFun _≈_ ∣_∣
+    ∣_∣≈∣_∣∘∣_∣ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
