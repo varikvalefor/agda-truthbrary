@@ -344,10 +344,12 @@ ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
 \begin{code}
 module FromℚI where
   fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
-  fromℕ[s]≉0 = λ n → ⌊'r≢0⇒r≉0 (fromℕ $ ℕ.suc n) $ λ ()
+  fromℕ[s]≉0 = λ n → N n ∘ r≈0⇒⌊'r≡0 (fromℕ $ ℕ.suc n)
     where
-    ⌊'r≢0⇒r≉0 : (r : ℝ) → ¬_ $ ⌊' r ≡ ℤ.+ 0 → ¬_ $ r ≈ fromℕ 0
-    ⌊'r≢0⇒r≉0 = {!!}
+    N : (n : ℕ) → ¬_ $ ⌊' (fromℕ $ ℕ.suc n) ≡ ℤ.+ 0
+    N = {!!}
+    r≈0⇒⌊'r≡0 : (r : ℝ) → r ≈ fromℕ 0 → ⌊' r ≡ ℤ.+ 0
+    r≈0⇒⌊'r≡0 = {!!}
 
 fromℚ : ℚ → ℝ
 fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) 1+b $ fromℕ[s]≉0 b
