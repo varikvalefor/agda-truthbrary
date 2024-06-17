@@ -140,6 +140,7 @@ open import Data.Sum
 open import Function
   using (
     const;
+    _∘₂_;
     _∘_;
     _$_
   )
@@ -344,7 +345,7 @@ ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
 \begin{code}
 module FromℚI where
   fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
-  fromℕ[s]≉0 = λ n → N ∘ r≈0⇒⌊'r≡0 (fromℕ $ ℕ.suc n)
+  fromℕ[s]≉0 = N ∘₂ r≈0⇒⌊'r≡0 ∘ fromℕ ∘ ℕ.suc
     where
     N : {n : ℕ} → ¬_ $ ⌊' (fromℕ $ ℕ.suc n) ≡ ℤ.+ 0
     N ()
