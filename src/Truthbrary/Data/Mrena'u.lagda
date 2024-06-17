@@ -376,7 +376,7 @@ Irrational = ¬_ ∘ Rational
 \end{code}
 
 \section{la'o zoi.\ \F{toℚ}\ .zoi.}
-ni'o la'oi .\B r.\ namcu du la'o zoi.\ \F{toℚ} \Sym{\B r\Sym} \B R\ .zoi.
+ni'o la'oi .\B r.\ namcu du la'o zoi.\ \F{toℚ} \Sym\{\B r\Sym\} \B R\ .zoi.
 
 \begin{code}
 toℚ : {r : ℝ} → Rational r → ℚ
