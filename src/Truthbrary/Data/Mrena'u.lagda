@@ -868,6 +868,9 @@ module Veritas where
 
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass = {!!}
+
+    id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
+    id≡⊓⍨ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{Irrational}}}
