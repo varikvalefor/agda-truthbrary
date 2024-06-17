@@ -803,6 +803,9 @@ module Veritas where
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
     ≈⇒∣_∣≈ = {!!}
+
+    jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (fromℕ 0 - r)
+    jonais = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
