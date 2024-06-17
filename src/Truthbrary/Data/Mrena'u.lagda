@@ -887,6 +887,14 @@ module Veritas where
   module Irrational where
 \end{code}
 
+\subsection{\lcblm{\F{toℚ}}}
+
+\begin{code}
+  module Toℚ where
+    toℚ∘fromℚ : (k : ℚ) → k ≡ toℚ {fromℚ k} {!!}
+    toℚ∘fromℚ = {!!}
+\end{code}
+
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
 
 \begin{code}
