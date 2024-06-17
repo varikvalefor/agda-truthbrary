@@ -800,6 +800,9 @@ module Veritas where
 
     ∣_∣≈∣_∣∘∣_∣ : Algebra.IdempotentFun _≈_ ∣_∣
     ∣_∣≈∣_∣∘∣_∣ = {!!}
+
+    cong₁ : Algebra.Congruent₁ _≈_ ∣_∣
+    cong₁ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
