@@ -788,6 +788,14 @@ module Veritas where
     ≥∧¬>⇒≈ (_⊎_.inj₂ z) N = z ⇒⇐ N
 \end{code}
 
+\subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
+
+\begin{code}
+  module ∣_∣ where
+    r>0⇒r≈∣r∣ : (r : ℝ) → r > fromℕ 0 → r ≈ ∣ r ∣
+    r>0⇒r≈∣r∣ = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
 
 \begin{code}
