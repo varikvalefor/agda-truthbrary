@@ -891,8 +891,8 @@ module Veritas where
 
 \begin{code}
   module Toℚ where
-    toℚ∘fromℚ : (k : ℚ) → k ≡ toℚ {fromℚ k} {!!}
-    toℚ∘fromℚ = {!!}
+    id≡toℚ∘fromℚ : (k : ℚ) → k ≡ toℚ {fromℚ k} {!!}
+    id≡toℚ∘fromℚ = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
