@@ -914,7 +914,9 @@ module Veritas where
 \begin{code}
 +--group : Algebra.IsGroup _≈_ _+_ (fromℕ 0) (fromℕ 0 -_)
 +--group = record {
-  isMonoid = {!!};
+  isMonoid = record {
+    isSemigroup = {!!};
+    identity = {!!}};
   inverse = {!!};
   ⁻¹-cong = {!!}}
 \end{code}
