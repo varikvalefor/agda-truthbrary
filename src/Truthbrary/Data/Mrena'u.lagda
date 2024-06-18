@@ -786,7 +786,7 @@ module Veritas where
       where
       N = Fromℕ.fromℕ[s]≉0 1
 
-    >∧>⇒> : (r s t : ℝ) → r > s → s > t → r > t
+    >∧>⇒> : Relation.Binary.Transitive _>_
     >∧>⇒> = {!!}
 
     ¬[0,9>0,1] : ¬_ $ (Sign.+ , 0 , const 𝔽.zero) > fromℕ 1
