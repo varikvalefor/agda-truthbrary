@@ -819,8 +819,8 @@ module Veritas where
 
 \begin{code}
   module ∣_∣ where
-    r>0⇒r≈∣r∣ : (r : ℝ) → r > fromℕ 0 → r ≈ ∣ r ∣
-    r>0⇒r≈∣r∣ = {!!}
+    r≥0⇒r≈∣r∣ : (r : ℝ) → r ≥ fromℕ 0 → r ≈ ∣ r ∣
+    r≥0⇒r≈∣r∣ = {!!}
 
     0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈_ $ fromℕ 0 - r
     0>r⇒∣r∣≈-r = {!!}
