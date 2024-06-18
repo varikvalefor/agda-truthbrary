@@ -757,6 +757,14 @@ module Veritas where
     ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡r₂+r₁ r
 \end{code}
 
+\subsection{\lcblm{\F{⌊'⁻¹ℝ}}}
+
+\begin{code}
+  module ⌊'⁻¹ℝ where
+    I[r]⇒I[⌊'⁻¹ℝ[r]] : (r : ℝ) → Irrational r → Irrational $ ⌊'⁻¹ℝ r
+    I[r]⇒I[⌊'⁻¹ℝ[r]] = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{\AgdaUnderscore{}>\AgdaUnderscore}}}
 
 \begin{code}
