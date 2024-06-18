@@ -899,7 +899,8 @@ module Veritas where
 
 \begin{code}
   module Toℚ where
-    id≡toℚ∘fromℚ : (k : ℚ) → k ≡ toℚ {fromℚ k} (k , _≈_.≡⇒≈ (fromℚ k) (fromℚ k) _≡_.refl)
+    id≡toℚ∘fromℚ : (k : ℚ)
+                 → k ≡ toℚ {fromℚ k} (k , _≈_.≡⇒≈ (fromℚ k) (fromℚ k) _≡_.refl)
     id≡toℚ∘fromℚ = {!!}
 \end{code}
 
