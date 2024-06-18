@@ -182,7 +182,8 @@ open import Relation.Binary
   using (
     Asymmetric;
     Transitive;
-    Reflexive
+    Reflexive;
+    Setoid
   )
 open import Relation.Nullary
   using (
@@ -494,7 +495,7 @@ module Veritas where
     r≈s⇒fr≈fs : (r s : ℝ) → (f : ℝ → ℝ) → r ≈ s → f r ≈ f s
     r≈s⇒fr≈fs = {!!}
 
-    setoid : Relation.Binary.Setoid _ _
+    setoid : Setoid _ _
     setoid = record {
       _≈_ = _≈_;
       isEquivalence = record {
