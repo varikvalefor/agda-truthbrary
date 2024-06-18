@@ -181,6 +181,7 @@ open import Data.Rational
 open import Relation.Binary
   using (
     Asymmetric;
+    Transitive;
     Reflexive
   )
 open import Relation.Nullary
@@ -448,7 +449,7 @@ module Veritas where
                → d ≡_ $ ≈⇒≈⍨ s r $ ≈⇒≈⍨ r s d
     id≡[≈⇒≈⍨]² = {!!}
 
-    ≈∧≈⇒≈ : Relation.Binary.Transitive _≈_
+    ≈∧≈⇒≈ : Transitive _≈_
     ≈∧≈⇒≈ = {!!}
 
     n,9+≈n+1 : (s : Sign)
@@ -786,7 +787,7 @@ module Veritas where
       where
       N = Fromℕ.fromℕ[s]≉0 1
 
-    >∧>⇒> : Relation.Binary.Transitive _>_
+    >∧>⇒> : Transitive _>_
     >∧>⇒> = {!!}
 
     ¬[0,9>0,1] : ¬_ $ (Sign.+ , 0 , const 𝔽.zero) > fromℕ 1
