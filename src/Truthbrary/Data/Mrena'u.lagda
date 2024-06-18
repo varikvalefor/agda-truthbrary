@@ -180,6 +180,7 @@ open import Data.Rational
   )
 open import Relation.Binary
   using (
+    Irreflexive;
     Asymmetric;
     Transitive;
     Reflexive;
@@ -774,7 +775,7 @@ module Veritas where
 
 \begin{code}
   module _>_ where
-    ¬[r>r] : Relation.Binary.Irreflexive _≈_ _>_
+    ¬[r>r] : Irreflexive _≈_ _>_
     ¬[r>r] = {!!}
 
     +-zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
