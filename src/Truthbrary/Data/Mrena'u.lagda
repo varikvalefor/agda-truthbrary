@@ -772,7 +772,7 @@ module Veritas where
 
 \begin{code}
   module _>_ where
-    ¬sez : (r : ℝ) → ¬_ $ r > r
+    ¬sez : Relation.Binary.Irreflexive _≈_ _>_
     ¬sez = {!!}
 
     +-zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
