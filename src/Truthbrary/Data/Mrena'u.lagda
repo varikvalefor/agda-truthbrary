@@ -665,7 +665,7 @@ module Veritas where
 
     *-magma : Algebra.IsMagma _≈_ _*_
     *-magma = record {
-      isEquivalence = {!!};
+      isEquivalence = _≈_.isEquivalence;
       ∙-cong = {!!}}
 \end{code}
 
