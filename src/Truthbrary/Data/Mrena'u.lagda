@@ -662,6 +662,9 @@ module Veritas where
 
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
+
+    *-magma : Algebra.IsMagma _≈_ _*_
+    *-magma = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
