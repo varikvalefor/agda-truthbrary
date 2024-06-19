@@ -663,6 +663,12 @@ module Veritas where
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
 
+    a*b≈a'*b' : (a a' b b' : ℝ)
+              → a ≈ a'
+              → b ≈ b'
+              → (a * b) ≈ (a' * b')
+    a*b≈a'*b' = {!!}
+
     *-magma : Algebra.IsMagma _≈_ _*_
     *-magma = record {
       isEquivalence = _≈_.isEquivalence;
