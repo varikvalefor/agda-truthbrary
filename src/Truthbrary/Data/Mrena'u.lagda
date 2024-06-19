@@ -496,13 +496,16 @@ module Veritas where
     r≈s⇒fr≈fs : (r s : ℝ) → (f : ℝ → ℝ) → r ≈ s → f r ≈ f s
     r≈s⇒fr≈fs = {!!}
 
+    isEquivalence : Relation.Binary.IsEquivalence _≈_
+    isEquivalence = record {
+      refl = λ {r} → r≈r r;
+      sym = λ {r s} d → ≈⇒≈⍨ r s d;
+      trans = λ {i} {j} {k} → ≈∧≈⇒≈ {i} {j} {k}}
+
     setoid : Setoid _ _
     setoid = record {
       _≈_ = _≈_;
-      isEquivalence = record {
-        refl = λ {r} → r≈r r;
-        sym = λ {r s} d → ≈⇒≈⍨ r s d;
-        trans = λ {i} {j} {k} → ≈∧≈⇒≈ {i} {j} {k}}}
+      isEquivalence = isEquivalence}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
