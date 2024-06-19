@@ -672,7 +672,7 @@ module Veritas where
     *-magma : Algebra.IsMagma _≈_ _*_
     *-magma = record {
       isEquivalence = _≈_.isEquivalence;
-      ∙-cong = {!!}}
+      ∙-cong = λ {a a' b b'} → a*b≈a'*b' a a' b b'}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
