@@ -664,7 +664,9 @@ module Veritas where
     R[R*R] = {!!}
 
     *-magma : Algebra.IsMagma _≈_ _*_
-    *-magma = {!!}
+    *-magma = record {
+      isEquivalence = {!!};
+      ∙-cong = {!!}}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
