@@ -987,7 +987,9 @@ ga+ = record {
 isRing : IsRing _≈_ _+_ _*_ (fromℕ 0 -_) (fromℕ 0) (fromℕ 1)
 isRing = record {
   +-isAbelianGroup = ga+;
-  *-isMonoid = {!!};
+  *-isMonoid = record {
+    isSemigroup = {!!};
+    identity = {!!}};
   distrib = {!!};
   zero = Veritas._*_.0≈0*r}
 \end{code}
