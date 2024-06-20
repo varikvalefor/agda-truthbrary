@@ -660,7 +660,7 @@ module Veritas where
           → (_≈_
               (r * fromℕ n)
               (_+_
-                (proj₁ r , 0 , {!!})
+                (from𝔻 (sign r) {!!})
                 (fromℤ $ ℤ._+_
                   (⌊' r ℤ.* ℤ.+_ 10)
                   {!!})))
