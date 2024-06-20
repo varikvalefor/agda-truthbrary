@@ -194,6 +194,11 @@ open import Data.Fin.Patterns
   using (
     9F
   )
+open import Data.Nat.Coprimality
+  as Coprime
+  using (
+    1-coprimeTo
+  )
 open import Relation.Nullary.Negation
   using (
   )
@@ -525,7 +530,7 @@ module Veritas where
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
 
     fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
-    fromℕ-Rational n = ℚ.mkℚ (ℤ.+_ n) 0 {!!} , {!!}
+    fromℕ-Rational n = ℚ.mkℚ (ℤ.+_ n) 0 (Coprime.sym $ 1-coprimeTo _) , {!!}
 
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
