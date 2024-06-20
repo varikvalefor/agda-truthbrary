@@ -989,7 +989,7 @@ isRing = record {
   +-isAbelianGroup = ga+;
   *-isMonoid = record {
     isSemigroup = {!!};
-    identity = {!!}};
+    identity = Veritas._*_.r≈1*r};
   distrib = {!!};
   zero = Veritas._*_.0≈0*r}
 \end{code}
