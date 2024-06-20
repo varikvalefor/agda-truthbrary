@@ -315,6 +315,14 @@ fromℤ (ℤ.pos n) = Sign.+ , n , const 𝔽.zero
 fromℤ (ℤ.negsuc n) = Sign.- , ℕ.suc n , const 𝔽.zero
 \end{code}
 
+\section{la'o zoi.\ \F{from𝔻}\ .zoi.}
+ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki  .i ku'i lakne fa lo nu la .varik.\ cu facki
+
+\begin{code}
+from𝔻 : Sign → (ℕ → Digit 10) → ℝ
+from𝔻 s f = s , 0 , f
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \OpF + \B b\ .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 
