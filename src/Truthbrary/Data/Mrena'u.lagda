@@ -807,6 +807,14 @@ module Veritas where
     I[⌊'⁻¹ℝ]⇒I = {!!}
 \end{code}
 
+\subsection{\lcblm{\F{signℤ}}}
+
+\begin{code}
+  module Signℤ where
+    >⇒1 : (r : ℝ) → r > fromℕ 0 → signℤ r ≡ ℤ.+_ 1
+    >⇒1 = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{\AgdaUnderscore{}>\AgdaUnderscore}}}
 
 \begin{code}
