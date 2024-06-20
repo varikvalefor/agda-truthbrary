@@ -356,7 +356,7 @@ _^_ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℚ}\ .zoi.}
-ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu dunli la'oi .\B k.
+ni'o la'o zoi.\ \F{fromℚ} \B k\ .zoi.\ namcu du la'oi .\B k.
 
 \begin{code}
 module FromℚI where
