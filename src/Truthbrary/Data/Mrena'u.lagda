@@ -552,6 +552,9 @@ module Veritas where
     id≡+0 : Algebra.Identity _≡_ (fromℕ 0) _+_
     id≡+0 = {!!} , {!!}
 
+    id≈+0 : Algebra.Identity _≈_ (fromℕ 0) _+_
+    id≈+0 = {!!}
+
     dratadratas : (r s : ℝ)
                 → ¬_ $ r ≈ s
                 → let N = ¬_ ∘ _≈_ (r + s) in
