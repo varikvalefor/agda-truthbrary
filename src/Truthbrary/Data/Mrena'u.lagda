@@ -307,7 +307,7 @@ fromℕ n = Sign.+ , n , const 𝔽.zero
 \end{code}
 
 \section{la'o zoi.\ \F{fromℤ}\ .zoi.}
-ni'o la'o zoi.\ \F{fromℤ} \B z\ .zoi.\ namcu dunli la'oi .\B z.
+ni'o la'o zoi.\ \F{fromℤ} \B z\ .zoi.\ namcu du la'oi .\B z.
 
 \begin{code}
 fromℤ : ℤ → ℝ
