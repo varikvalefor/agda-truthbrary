@@ -938,6 +938,8 @@ module Veritas where
 
 \begin{code}
   module Irrational where
+    R⊎I : (r : ℝ) → Rational r ⊎ Irrational r
+    R⊎I = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{toℚ}}}
