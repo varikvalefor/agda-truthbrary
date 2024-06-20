@@ -277,17 +277,17 @@ ni'o la'o zoi.\ \F{⌊'⁻¹ℝ} \B r\ .zoi.\ namcu du la'o zoi.\ \F{⌊'⁻¹} 
 ⌊'⁻¹ℝ (s , _ , r) = s , 0 , r
 \end{code}
 
-\section{la'oi .\F{sign}.}
+\section{la'oi .\F{signℤ}.}
 ni'o ro da poi ke'a ctaipe la'oi .\F ℝ.\ zo'u\ldots
 \begin{itemize}
-	\item ga jonai ga je da du li no gi li no du ko'a goi lo me'oi .\F{sign}.\ be da gi
+	\item ga jonai ga je da du li no gi li no du ko'a goi lo me'oi .\F{signℤ}.\ be da gi
 	\item ga jonai ga je da mleca li no gi ko'a du li ni'u pa gi
 	\item ga je da zmadu li no gi ko'a du li pa
 \end{itemize}
 
 \begin{code}
-sign : ℝ → ℤ
-sign = {!!}
+signℤ : ℝ → ℤ
+signℤ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
