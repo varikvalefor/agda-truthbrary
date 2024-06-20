@@ -525,7 +525,7 @@ module Veritas where
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
 
     fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
-    fromℕ-Rational n = ℚ.mkℚ (ℤ.+_ n) 1 {!!} , {!!}
+    fromℕ-Rational n = ℚ.mkℚ (ℤ.+_ n) 0 {!!} , {!!}
 
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
