@@ -557,6 +557,9 @@ module Veritas where
     id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡_ $ ℤ.∣_∣ $ ⌊' $ fromℕ n
     id≡∣_∣∘⌊'∘fromℕ _ = _≡_.refl
 
+    fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
+    fromℕ≥0 = {!!}
+
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
     +≈+⍨ = {!!}
