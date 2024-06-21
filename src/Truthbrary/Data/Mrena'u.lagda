@@ -861,8 +861,8 @@ module Veritas where
 
 \begin{code}
   module _≥_ where
-    sez : Reflexive _≥_
-    sez {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r _≡_.refl
+    r≥r : Reflexive _≥_
+    r≥r {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r _≡_.refl
 
     ≈⇒≥ : {r s : ℝ} → r ≈ s → r ≥ s
     ≈⇒≥ = _⊎_.inj₁
