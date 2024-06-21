@@ -657,7 +657,7 @@ module Veritas where
     S≡S : (s : Sign)
         → (f : ℕ → Digit 10)
         → s ≡ sign (from𝔻 s f)
-    S≡S = λ _ _ → _≡_.refl
+    S≡S _ _ = _≡_.refl
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
