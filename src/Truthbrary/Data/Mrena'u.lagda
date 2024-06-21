@@ -650,6 +650,16 @@ module Veritas where
     I[I-R] = {!!}
 \end{code}
 
+\subsection{\lcblm{\F{from𝔻}}}
+
+\begin{code}
+  module From𝔻 where
+    S≡S : (s : Sign)
+        → (f : ℕ → Digit 10)
+        → s ≡ sign (from𝔻 s f)
+    S≡S = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
 
 \begin{code}
