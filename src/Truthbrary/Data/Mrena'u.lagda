@@ -662,7 +662,8 @@ module Veritas where
     0≡⌊'[from𝔻] : (s : Sign)
                 → (f : ℕ → Digit 10)
                 → ℤ.+_ 0 ≡ ⌊' (from𝔻 s f)
-    0≡⌊'[from𝔻] = {!!}
+    0≡⌊'[from𝔻] Sign.+ f = {!!}
+    0≡⌊'[from𝔻] Sign.- f = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
