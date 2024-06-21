@@ -551,7 +551,7 @@ module Veritas where
       c = Coprime.sym $ 1-coprimeTo _
 
     id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡_ $ ℤ.∣_∣ $ ⌊' $ fromℕ n
-    id≡∣_∣∘⌊'∘fromℕ = λ _ → _≡_.refl
+    id≡∣_∣∘⌊'∘fromℕ _ = _≡_.refl
 
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
