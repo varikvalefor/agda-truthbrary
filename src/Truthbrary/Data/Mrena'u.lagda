@@ -558,7 +558,8 @@ module Veritas where
     id≡∣_∣∘⌊'∘fromℕ _ = _≡_.refl
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
-    fromℕ≥0 = {!!}
+    fromℕ≥0 0 = {!!}
+    fromℕ≥0 (ℕ.suc n) = {!!}
 
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
