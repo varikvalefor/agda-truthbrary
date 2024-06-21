@@ -867,6 +867,9 @@ module Veritas where
     ≥∧≥⇒≥ : (r s t : ℝ) → r ≥ s → s ≥ t → r ≥ t
     ≥∧≥⇒≥ = {!!}
 
+    ≥∧≥⍨⇒≈ : (r s : ℝ) → r ≥ s → s ≥ r → r ≈ s
+    ≥∧≥⍨⇒≈ = {!!}
+
     ≈⇒≥ : {r s : ℝ} → r ≈ s → r ≥ s
     ≈⇒≥ = _⊎_.inj₁
 
