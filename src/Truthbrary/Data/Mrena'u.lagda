@@ -597,7 +597,7 @@ module Veritas where
           → (_≡_
               (s , n , f)
               (_+_
-                (s , 0 , f)
+                (from𝔻 s f)
                 (s , n , const 𝔽.zero)))
     r≡f+n = {!!}
 
