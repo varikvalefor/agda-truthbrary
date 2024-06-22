@@ -799,8 +799,8 @@ module Veritas where
 
     -- | ni'o krinu fa le su'u li no nilzilcmi lo'i ro
     -- me'oi .arrangement. be lo kunti
-    0^0≡1 : fromℕ 0 ^ fromℕ 0 ≡ fromℕ 1
-    0^0≡1 = sym $ 1≡r^0 0' 0' $ _≈_.≡⇒≈ 0' 0' _≡_.refl
+    1≡0^0 : fromℕ 1 ≡ fromℕ 0 ^ fromℕ 0
+    1≡0^0 = 1≡r^0 0' 0' $ _≈_.≡⇒≈ 0' 0' _≡_.refl
       where
       0' = fromℕ 0
 
