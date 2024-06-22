@@ -928,7 +928,7 @@ module Veritas where
     0>r⇒∣r∣≈-r = {!!}
 
     ∣_∣≈∣_∣∘∣_∣ : Algebra.IdempotentFun _≈_ ∣_∣
-    ∣_∣≈∣_∣∘∣_∣ r = _≈_.≡⇒≈ ∣ r ∣ (∣_∣ $ ∣ r ∣) _≡_.refl
+    ∣_∣≈∣_∣∘∣_∣ r = _≈_.≡⇒≈ ∣ r ∣ (∣_∣ ∣ r ∣) _≡_.refl
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
     ≈⇒∣_∣≈ = {!!}
