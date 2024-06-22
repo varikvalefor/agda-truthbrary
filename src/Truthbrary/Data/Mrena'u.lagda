@@ -812,7 +812,9 @@ module Veritas where
                   → r ≈_ $ (r ^ s) ^ frinu (fromℕ 1) s N
     r≈[r^s]^[1/s] = {!!}
 
-    r≥0⇒R[R^r] : (r s : ℝ) → s ≥ fromℕ 0 → Rational r → Rational $ r ^ s
+    r≥0⇒R[R^r] : (r s : ℝ)
+               → s ≥ fromℕ 0
+               → Rational r → Rational $ r ^ s
     r≥0⇒R[R^r] = {!!}
     
     I[2^[1/2]] : (Irrational $ _^_
