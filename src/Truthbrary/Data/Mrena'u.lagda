@@ -601,6 +601,12 @@ module Veritas where
                 (s , n , const 𝔽.zero)))
     r≡f+n = {!!}
 
+    ℚ+ : (r s : ℝ)
+       → (r' : Rational r)
+       → (s' : Rational s)
+       → r + s ≡ fromℚ (proj₁ r' ℚ.+ proj₁ s')
+    ℚ+ = {!!}
+
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
     R[R+R] r s (r' , d₁) (s' , d₂) = r' ℚ.+ s' , {!!}
 
