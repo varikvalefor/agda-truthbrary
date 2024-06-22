@@ -37,6 +37,7 @@
 \newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
 \newunicodechar{ℝ}{\ensuremath{\mathnormal{\mathbb{R}}}}
 \newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{Z}}}}
+\newunicodechar{𝔻}{\ensuremath{\mathnormal{\mathbb{D}}}}
 \newunicodechar{ℂ}{\ensuremath{\mathnormal{\mathbb{C}}}}
 \newunicodechar{𝔹}{\ensuremath{\mathnormal{\mathbb{B}}}}
 \newunicodechar{ν}{\ensuremath{\mathnormal{\nu}}}
