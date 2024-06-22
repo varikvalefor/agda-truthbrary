@@ -896,7 +896,7 @@ module Veritas where
     r≥r : Reflexive _≥_
     r≥r {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r _≡_.refl
 
-    ≥∧≥⇒≥ : (r s t : ℝ) → r ≥ s → s ≥ t → r ≥ t
+    ≥∧≥⇒≥ : Transitive _≥_
     ≥∧≥⇒≥ = {!!}
 
     ≥∧≥⍨⇒≈ : (r s : ℝ) → r ≥ s → s ≥ r → r ≈ s
