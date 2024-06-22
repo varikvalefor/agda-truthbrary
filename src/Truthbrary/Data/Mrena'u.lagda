@@ -332,7 +332,7 @@ ni'o la'o zoi.\ \AgdaOperator{¯} \B r\ .zoi.\ vujnu li no la'oi .\B r.
 \begin{code}
 ¯_ : ℝ → ℝ
 ¯_ (Sign.+ , n , f) = Sign.- , n , f
-¯_ (Sign.- , n , f) = {!!}
+¯_ (Sign.- , n , f) = Sign.+ , n , f
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
