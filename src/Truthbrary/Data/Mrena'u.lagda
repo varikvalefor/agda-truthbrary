@@ -592,13 +592,13 @@ module Veritas where
                  → fromℤ (z₁ ℤ.+ z₂) ≡ fromℤ z₁ + fromℤ z₂
     rn+sn≡[r+s]n = {!!}
 
-    r≡f+n : (s : Sign)
+    r≡f+z : (s : Sign)
           → (n : ℕ)
           → (f : ℕ → Digit 10)
           → (_≡_
               (s , n , f)
               (from𝔻 s f + fromℤ (s ℤ.◃ n)))
-    r≡f+n = {!!}
+    r≡f+z = {!!}
 
     ℚ+ : (r s : ℝ)
        → (r' : Rational r)
