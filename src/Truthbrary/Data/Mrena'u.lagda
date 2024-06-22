@@ -28,6 +28,7 @@
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{⊹}{\ensuremath{\mathnormal\dag}}
+\newunicodechar{¯}{\ensuremath{\mathnormal{^{-}}}}
 \newunicodechar{◃}{\ensuremath{\mathnormal\triangleleft}}
 \newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 \newunicodechar{𝕗}{\ensuremath{\mathnormal{\mathbb{f}}}}
