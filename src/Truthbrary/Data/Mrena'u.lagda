@@ -597,7 +597,7 @@ module Veritas where
           → (f : ℕ → Digit 10)
           → (_≡_
               (s , n , f)
-              (from𝔻 s f + (fromℤ $ s ℤ.◃ n)))
+              (from𝔻 s f + fromℤ (s ℤ.◃ n)))
     r≡f+n = {!!}
 
     ℚ+ : (r s : ℝ)
