@@ -325,6 +325,14 @@ from𝔻 : Sign → (ℕ → Digit 10) → ℝ
 from𝔻 s f = s , 0 , f
 \end{code}
 
+\section{la'o zoi.\ \F{¯\AgdaUnderscore}\ .zoi.}
+ni'o la'o zoi.\ \AgdaOperator{¯} \B r\ .zoi.\ vujnu li no la'oi .\B r.
+
+\begin{code}
+¯_ : ℝ → ℝ
+¯_ = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \OpF + \B b\ .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 
