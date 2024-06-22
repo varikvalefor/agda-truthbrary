@@ -28,6 +28,7 @@
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{⊹}{\ensuremath{\mathnormal\dag}}
+\newunicodechar{◃}{\ensuremath{\mathnormal\triangleleft}}
 \newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 \newunicodechar{𝕗}{\ensuremath{\mathnormal{\mathbb{f}}}}
 \newunicodechar{ℙ}{\ensuremath{\mathnormal{\mathbb{P}}}}
@@ -598,7 +599,7 @@ module Veritas where
               (s , n , f)
               (_+_
                 (from𝔻 s f)
-                (s , n , const 𝔽.zero)))
+                (fromℤ $ s ℤ.◃ n)))
     r≡f+n = {!!}
 
     ℚ+ : (r s : ℝ)
