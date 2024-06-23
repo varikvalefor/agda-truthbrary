@@ -690,7 +690,7 @@ module Veritas where
     I[I-R] = {!!}
 
     R[R-R] : (r s : ℝ) → Rational r → Rational s → Rational $ r - s
-    R[R-R] = {!!}
+    R[R-R] = λ r s R S → _+_.R[R+R] r (¯ s) R {!!}
 \end{code}
 
 \subsection{\lcblm{\F{from𝔻}}}
