@@ -301,6 +301,14 @@ signℤ : ℝ → ℤ
 signℤ = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{fromℝ-}\ .zoi.}
+ni'o la'o zoi.\ \F{fromℝ-} \B s \B a \B b\ .zoi.\ pilji lo sumji be la'oi .\B a.\ bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.\ zo'e poi ga jonai ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.+}\ .zoi.\ gi ke'a du li pa gi ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.-}\ .zoi.\ gi ke'a du li ni'u pa
+
+\begin{code}
+fromℝ- : Sign → ℕ → (ℕ → Digit 10) → ℝ
+fromℝ- = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
 ni'o la'o zoi.\ \F{fromℕ} \B n\ .zoi.\ namcu du la'oi .\B n.
 
