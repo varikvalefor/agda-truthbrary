@@ -925,7 +925,7 @@ module Veritas where
     ≥∧≥⇒≥ : Transitive _≥_
     ≥∧≥⇒≥ = {!!}
 
-    ≥∧≥⍨⇒≈ : (r s : ℝ) → r ≥ s → s ≥ r → r ≈ s
+    ≥∧≥⍨⇒≈ : Relation.Binary.Antisymmetric _≈_ _≥_
     ≥∧≥⍨⇒≈ = {!!}
 
     ≈⇒≥ : {r s : ℝ} → r ≈ s → r ≥ s
