@@ -822,8 +822,6 @@ module Veritas where
           → fromℕ 0 ≈_ $ s ^ r
     0≈0^r = {!!}
 
-    -- | ni'o krinu fa le su'u li no nilzilcmi lo'i ro
-    -- me'oi .arrangement. be lo kunti
     1≡0^0 : fromℕ 1 ≡ fromℕ 0 ^ fromℕ 0
     1≡0^0 = 1≡r^0 0' 0' $ _≈_.≡⇒≈ 0' 0' _≡_.refl
       where
