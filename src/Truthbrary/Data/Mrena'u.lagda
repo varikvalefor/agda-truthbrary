@@ -155,6 +155,11 @@ open import Data.Bool
   using (
     if_then_else_
   )
+open import Data.List
+  as 𝕃
+  using (
+    List
+  )
 open import Data.Sign
   using (
     Sign
@@ -162,6 +167,10 @@ open import Data.Sign
 open import Data.Digit
   using (
     Digit
+  )
+open import Data.Empty
+  using (
+    ⊥
   )
 open import Data.Integer
   as ℤ
@@ -236,7 +245,12 @@ ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu d
 
 \begin{code}
 _≈_ : ℝ → ℝ → Set
-_≈_ = λ r s → r ≡ s ⊎ {!!}
+_≈_ = f $ _≡_ 𝕃.∷ {!!}
+  where
+  F : (ℝ → ℝ → Set) → (ℝ → ℝ → Set) → ℝ → ℝ → Set
+  F G J = λ r s → G r s ⊎ J r s
+  f : List (ℝ → ℝ → Set) → ℝ → ℝ → Set
+  f = 𝕃.foldr F $ λ _ _ → ⊥
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
