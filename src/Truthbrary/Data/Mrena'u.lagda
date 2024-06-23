@@ -596,6 +596,15 @@ module Veritas where
     fromℕ≥0 (ℕ.suc n) = {!!}
 \end{code}
 
+\subsection{\lcblm{\F{¯\AgdaUnderscore}}}
+
+\begin{code}
+  module ¯_ where
+
+  R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
+  R[¯R] = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{\AgdaUnderscore{}+\AgdaUnderscore}}}
 
 \begin{code}
