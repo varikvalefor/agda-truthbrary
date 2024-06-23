@@ -306,7 +306,7 @@ ni'o la'o zoi.\ \F{fromℝ-} \B s \B a \B b\ .zoi.\ pilji lo sumji be la'oi .\B 
 
 \begin{code}
 fromℝ- : Sign → ℕ → (ℕ → Digit 10) → ℝ
-fromℝ- = λ s n f → s , n , f
+fromℝ- s n f = s , n , f
 \end{code}
 
 \section{la'o zoi.\ \F{fromℕ} .zoi.}
