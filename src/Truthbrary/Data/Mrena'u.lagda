@@ -594,7 +594,11 @@ module Veritas where
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
     fromℕ≥0 0 = {!!}
     fromℕ≥0 (ℕ.suc n) = {!!}
+\end{code}
 
+\subsection{\lcblm{\F{\AgdaUnderscore{}+\AgdaUnderscore}}}
+
+\begin{code}
   module _+_ where
     +≈+⍨ : Commutative _≈_ _+_
     +≈+⍨ = {!!}
