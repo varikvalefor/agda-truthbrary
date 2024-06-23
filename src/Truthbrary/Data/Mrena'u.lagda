@@ -639,7 +639,7 @@ module Veritas where
     ℚ+ = {!!}
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
-    R[R+R] r s R@(r' , d₁) S@(s' , d₂) = r' ℚ.+ s' , _≈_.≡⇒≈ _ _ D
+    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ _ _ D
       where
       D = ℚ+ _ _ R S
 
