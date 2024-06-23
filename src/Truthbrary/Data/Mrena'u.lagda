@@ -1017,6 +1017,9 @@ module Veritas where
 
     jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (fromℕ 0 - r)
     jonais = {!!}
+
+    R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
+    R[∣R∣] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
