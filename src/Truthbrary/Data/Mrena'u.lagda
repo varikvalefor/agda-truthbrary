@@ -888,6 +888,11 @@ module Veritas where
 
     ≈⇒0 : (r : ℝ) → r ≈ fromℕ 0 → signℤ r ≡ ℤ.+_ 0
     ≈⇒0 = {!!}
+
+    jonais : (r : ℝ)
+           → let s = signℤ r ≡_ in
+             s (ℤ.+_ 0) ⊎ s (ℤ.+_ 1) ⊎ s (ℤ.-_ $ ℤ.+_ 1)
+    jonais = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}>\AgdaUnderscore}}}
