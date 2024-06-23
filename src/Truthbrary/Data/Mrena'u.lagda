@@ -236,7 +236,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu d
 
 \begin{code}
 _≈_ : ℝ → ℝ → Set
-_≈_ = {!!}
+_≈_ = λ r s → r ≡ s ⊎ {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
