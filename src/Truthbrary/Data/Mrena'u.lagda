@@ -639,9 +639,9 @@ module Veritas where
     ℚ+ = {!!}
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
-    R[R+R] r s (r' , d₁) (s' , d₂) = r' ℚ.+ s' , _≈_.≡⇒≈ _ _ D
+    R[R+R] r s R@(r' , d₁) S@(s' , d₂) = r' ℚ.+ s' , _≈_.≡⇒≈ _ _ D
       where
-      D = ℚ+ _ _ (r' , d₁) (s' , d₂)
+      D = ℚ+ _ _ R S
 
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
