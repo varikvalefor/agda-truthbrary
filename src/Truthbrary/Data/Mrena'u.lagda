@@ -883,6 +883,9 @@ module Veritas where
     >⇒1 : (r : ℝ) → r > fromℕ 0 → signℤ r ≡ ℤ.+_ 1
     >⇒1 = {!!}
 
+    1⇒> : (r : ℝ) → signℤ r ≡ ℤ.+_ 1 → r > fromℕ 0
+    1⇒> = {!!}
+
     <⇒-1 : (r : ℝ) → fromℕ 0 > r → signℤ r ≡ ℤ.-_ (ℤ.+_ 1)
     <⇒-1 = {!!}
 
