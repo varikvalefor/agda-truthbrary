@@ -480,6 +480,7 @@ _⊔_ r s = _⊓_I.f r s $ 𝔹.not $ _⊓_I._>ᵇ_ r s
 module Veritas where
 \end{code}
 
+% | ni'o zo'oi .lcblm. cmavlaka'i zo'e ja lu le ctaipe be le su'u mapti li'u
 \newcommand\lcblm[1]{le ctaipe be le su'u mapti fa la'o zoi.\ #1\ .zoi.}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}≈\AgdaUnderscore}}}
