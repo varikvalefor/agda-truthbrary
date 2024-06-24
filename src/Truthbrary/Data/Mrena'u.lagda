@@ -25,6 +25,8 @@
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
 \newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
 \newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
+\newunicodechar{⟪}{\ensuremath{\mathnormal{\langle\hspace{-0.2em}\langle}}}
+\newunicodechar{⟫}{\ensuremath{\mathnormal{\rangle\hspace{-0.2em}\rangle}}}
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{∶}{\ensuremath{\mathnormal\colon\!\!}}
 \newunicodechar{⊹}{\ensuremath{\mathnormal\dag}}
@@ -143,6 +145,7 @@ open import Data.Sum
   )
 open import Function
   using (
+    _-⟪_⟫-_;
     const;
     _∘₂_;
     _∘_;
@@ -253,7 +256,7 @@ _≈_ : ℝ → ℝ → Set
 _≈_ = f $ _≡_ 𝕃.∷ {!!}
   where
   F : Op₂ (ℝ → ℝ → Set)
-  F G J = λ r s → G r s ⊎ J r s
+  F G J = G -⟪ _⊎_ ⟫- J
   f : List (ℝ → ℝ → Set) → ℝ → ℝ → Set
   f = 𝕃.foldr F $ λ _ _ → ⊥
 \end{code}
