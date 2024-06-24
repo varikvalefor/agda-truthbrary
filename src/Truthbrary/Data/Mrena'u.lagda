@@ -267,7 +267,7 @@ _>_ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}<\AgdaUnderscore}\ .zoi.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{<} \B b\ .zoi.\ gi la'oi .\B a.\ mleca la'oi .\B b.
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{<} \B b\ .zoi.\ gi la'oi .\B a.\ dubme'a la'oi .\B b.
 
 \begin{code}
 _<_ : ℝ → ℝ → Set
