@@ -1102,6 +1102,15 @@ module Veritas where
                  → let k' = fromℚ k in
                    k ≡ toℚ {k'} (k , _≈_.≡⇒≈ k' k' _≡_.refl)
     id≡toℚ∘fromℚ = {!!}
+
+    toℚ∘fromℕ : (n : ℕ)
+              → (_≡_
+                  (toℚ {fromℕ n} $ Fromℕ.fromℕ-Rational n)
+                  (ℚ.mkℚ
+                    (ℤ.+_ n)
+                    0
+                    (Coprime.sym $ Coprime.1-coprimeTo n)))
+    toℚ∘fromℕ = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
