@@ -608,7 +608,7 @@ module Veritas where
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
     fromℕ≥0 0 = _⊎_.inj₁ $ _≈_.≡⇒≈ _ _ _≡_.refl
-    fromℕ≥0 (ℕ.suc n) = {!!}
+    fromℕ≥0 (ℕ.suc n) = _⊎_.inj₂ {!!}
 \end{code}
 
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
