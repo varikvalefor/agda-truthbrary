@@ -934,7 +934,7 @@ module Veritas where
     I[⌊'⁻¹ℝ]⇒I : (r : ℝ) → Irrational $ ⌊'⁻¹ℝ r → Irrational r
     I[⌊'⁻¹ℝ]⇒I = {!!}
 
-    ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : (r : ℝ) → ⌊'⁻¹ℝ r ≡ ⌊'⁻¹ℝ (⌊'⁻¹ℝ r)
+    ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ ⌊'⁻¹ℝ
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ = {!!}
 \end{code}
 
