@@ -266,6 +266,14 @@ _>_ : ℝ → ℝ → Set
 _>_ = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{\AgdaUnderscore{}<\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{<} \B b\ .zoi.\ gi la'oi .\B a.\ mleca la'oi .\B b.
+
+\begin{code}
+_<_ : ℝ → ℝ → Set
+_<_ = _>_ ⍨
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≥\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavmau la'oi .\B b.
 
