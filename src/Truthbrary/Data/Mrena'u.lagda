@@ -38,6 +38,7 @@
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb{F}}}}
 \newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb{S}}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb{M}}}}
+\newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb{L}}}}
 \newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
 \newunicodechar{ℝ}{\ensuremath{\mathnormal{\mathbb{R}}}}
 \newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{Z}}}}
@@ -47,6 +48,7 @@
 \newunicodechar{ν}{\ensuremath{\mathnormal{\nu}}}
 \newunicodechar{μ}{\ensuremath{\mathnormal{\mu}}}
 \newunicodechar{◆}{\ensuremath{\mathnormal\blackdiamond}}
+\newunicodechar{∙}{\ensuremath{\mathnormal\bullet}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{⁻}{\ensuremath{\mathnormal{^-}}}
