@@ -153,7 +153,11 @@ open import Function
 open import Data.Bool
   as 𝔹
   using (
-    if_then_else_
+    if_then_else_;
+    false;
+    Bool;
+    true;
+    not
   )
 open import Data.List
   as 𝕃
@@ -454,10 +458,10 @@ ni'o la'o zoi.\ \B r \OpF ⊓ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B 
 
 \begin{code}
 module _⊓_I where
-  f : ∀ {a} → {A : Set a} → A → A → 𝔹.Bool → A
+  f : ∀ {a} → {A : Set a} → A → A → Bool → A
   f r s n = if n then s else r
 
-  _>ᵇ_ : ℝ → ℝ → 𝔹.Bool
+  _>ᵇ_ : ℝ → ℝ → Bool
   _>ᵇ_ = {!!}
 
 _⊓_ : ℝ → ℝ → ℝ
@@ -471,7 +475,7 @@ ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B
 
 \begin{code}
 _⊔_ : ℝ → ℝ → ℝ
-_⊔_ r s = _⊓_I.f r s $ 𝔹.not $ _⊓_I._>ᵇ_ r s
+_⊔_ r s = _⊓_I.f r s $ not $ _⊓_I._>ᵇ_ r s
 \end{code}
 
 \section{le ctaipe be le su'u mapti}
@@ -1040,28 +1044,28 @@ module Veritas where
           f
         )
 
-      ≥⇒⊤ : (r s : ℝ) → r ≥ s → 𝔹.true ≡ _>ᵇ_ r s
+      ≥⇒⊤ : (r s : ℝ) → r ≥ s → true ≡ _>ᵇ_ r s
       ≥⇒⊤ = {!!}
 
-      ⊤⇒≥ : (r s : ℝ) → 𝔹.true ≡ _>ᵇ_ r s → r ≥ s
+      ⊤⇒≥ : (r s : ℝ) → true ≡ _>ᵇ_ r s → r ≥ s
       ⊤⇒≥ = {!!}
 
-      <⇒⊥ : (r s : ℝ) → s > r → 𝔹.false ≡ _>ᵇ_ r s
+      <⇒⊥ : (r s : ℝ) → s > r → false ≡ _>ᵇ_ r s
       <⇒⊥ = {!!}
 
-      ⊥⇒≤ : (r s : ℝ) → 𝔹.false ≡ _>ᵇ_ r s → s ≥ r
+      ⊥⇒≤ : (r s : ℝ) → false ≡ _>ᵇ_ r s → s ≥ r
       ⊥⇒≤ = {!!}
 
       ⊥⇒1 : ∀ {a} → {A : Set a}
           → {x : A}
           → (z : A)
-          → x ≡ f x z 𝔹.false
+          → x ≡ f x z false
       ⊥⇒1 _ = _≡_.refl
 
       ⊤⇒2 : ∀ {a} → {A : Set a}
           → (x : A)
           → {z : A}
-          → z ≡ f x z 𝔹.true
+          → z ≡ f x z true
       ⊤⇒2 _ = _≡_.refl
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
