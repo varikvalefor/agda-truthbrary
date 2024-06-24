@@ -935,7 +935,7 @@ module Veritas where
     I[⌊'⁻¹ℝ]⇒I = {!!}
 
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ ⌊'⁻¹ℝ
-    ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ = λ _ → _≡_.refl
+    ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ _ = _≡_.refl
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
