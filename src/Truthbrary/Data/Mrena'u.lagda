@@ -422,7 +422,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{Rational} \B r\ .zoi.\ gi la'oi .\B r.\ me'oi .r
 
 \begin{code}
 Rational : ℝ → Set
-Rational r = ∃ $ _≈_ r ∘ fromℚ
+Rational r = ∃ $ r ≈_ ∘ fromℚ
 \end{code}
 
 \section{la'oi .\F{Irrational}.}
