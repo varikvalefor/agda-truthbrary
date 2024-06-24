@@ -455,7 +455,7 @@ ni'o la'o zoi.\ \B r \OpF ⊓ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B 
 \begin{code}
 module _⊓_I where
   f : ∀ {a} → {A : Set a} → A → A → 𝔹.Bool → A
-  f r s n = if_then_else_ n s r
+  f r s n = if n then s else r
 
   _>ᵇ_ : ℝ → ℝ → 𝔹.Bool
   _>ᵇ_ = {!!}
