@@ -590,9 +590,18 @@ module Veritas where
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
 
     fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
-    fromℕ-Rational n = ℚ.mkℚ (ℤ.+_ n) 0 c , {!!}
+    fromℕ-Rational n = ℚ.mkℚ (ℤ.+_ n) 0 c , fromℕ-fromℚ n
       where
       c = Coprime.sym $ 1-coprimeTo _
+      fromℕ-fromℚ : (n : ℕ)
+                  → (_≈_
+                      (fromℕ n)
+                      (fromℚ
+                        (ℚ.mkℚ
+                          (ℤ.+_ n)
+                          0
+                          (Coprime.sym $ Coprime.1-coprimeTo n))))
+      fromℕ-fromℚ = {!!}
 
     id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡_ $ ℤ.∣_∣ $ ⌊' $ fromℕ n
     id≡∣_∣∘⌊'∘fromℕ _ = _≡_.refl
