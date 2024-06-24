@@ -1110,7 +1110,7 @@ module Veritas where
                     (ℤ.+_ n)
                     0
                     (Coprime.sym $ Coprime.1-coprimeTo n)))
-    toℚ∘fromℕ = {!!}
+    toℚ∘fromℕ = λ n → _≡_.refl
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
