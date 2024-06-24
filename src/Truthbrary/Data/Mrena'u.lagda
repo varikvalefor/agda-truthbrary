@@ -251,7 +251,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu d
 _≈_ : ℝ → ℝ → Set
 _≈_ = f $ _≡_ 𝕃.∷ {!!}
   where
-  F : (ℝ → ℝ → Set) → (ℝ → ℝ → Set) → ℝ → ℝ → Set
+  F : (ℝ → ℝ → Set) → (ℝ → ℝ → Set) → (ℝ → ℝ → Set)
   F G J = λ r s → G r s ⊎ J r s
   f : List (ℝ → ℝ → Set) → ℝ → ℝ → Set
   f = 𝕃.foldr F $ λ _ _ → ⊥
