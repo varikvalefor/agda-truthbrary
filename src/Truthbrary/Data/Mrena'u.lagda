@@ -259,7 +259,7 @@ _≈_ = f $ _≡_ 𝕃.∷ {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ zmadu la'oi .\B b.
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ dubmau la'oi .\B b.
 
 \begin{code}
 _>_ : ℝ → ℝ → Set
