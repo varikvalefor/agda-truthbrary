@@ -1138,12 +1138,13 @@ module Veritas where
     id≡toℚ∘fromℚ = {!!}
 
     toℚ∘fromℕ : (n : ℕ)
-              → (_≡_
+              → let C = Coprime.sym $ Coprime.1-coprimeTo n in
+                (_≡_
                   (toℚ {fromℕ n} $ Fromℕ.fromℕ-Rational n)
                   (ℚ.mkℚ
                     (ℤ.+_ n)
                     0
-                    (Coprime.sym $ Coprime.1-coprimeTo n)))
+                    (C)))
     toℚ∘fromℕ _ = _≡_.refl
 \end{code}
 
