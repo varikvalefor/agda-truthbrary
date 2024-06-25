@@ -1144,7 +1144,7 @@ module Veritas where
                   (ℚ.mkℚ
                     (ℤ.+_ n)
                     0
-                    (C)))
+                    C))
     toℚ∘fromℕ _ = _≡_.refl
 \end{code}
 
