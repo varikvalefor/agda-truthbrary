@@ -287,6 +287,14 @@ _≥_ : ℝ → ℝ → Set
 _≥_ = λ r s → (r ≈ s) ⊎ (r > s)
 \end{code}
 
+\section{la'o zoi.\ \F{\AgdaUnderscore{}≤\AgdaUnderscore}\ .zoi.}
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≤ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavme'a la'oi .\B b.
+
+\begin{code}
+_≤_ : ℝ → ℝ → Set
+_≤_ = _≥_ ⍨
+\end{code}
+
 \section{la'o zoi.\ \F{⌊'}\ .zoi.}
 ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ be lo co'e be la'o zoi.\ \AgdaField{proj₂} \OpF \$ \AgdaField{proj₂} \B r\ .zoi.
 
