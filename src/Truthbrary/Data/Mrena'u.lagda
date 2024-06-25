@@ -577,9 +577,7 @@ module Veritas where
       trans = ≈∧≈⇒≈}
 
     setoid : Setoid _ _
-    setoid = record {
-      _≈_ = _≈_;
-      isEquivalence = isEquivalence}
+    setoid = record {_≈_ = _≈_; isEquivalence = isEquivalence}
 
     0≈-0 : let 0⁻ = Sign.- , 0 , const 𝔽.zero in
            fromℕ 0 ≈ 0⁻
