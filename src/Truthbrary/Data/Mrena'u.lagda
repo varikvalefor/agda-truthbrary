@@ -333,6 +333,15 @@ signℤ : ℝ → ℤ
 signℤ = {!!}
 \end{code}
 
+\section{la'o zoi.\ \F{¯\AgdaUnderscore}\ .zoi.}
+ni'o la'o zoi.\ \AgdaOperator{¯} \B r\ .zoi.\ vujnu li no la'oi .\B r.
+
+\begin{code}
+¯_ : ℝ → ℝ
+¯_ (Sign.+ , n , f) = Sign.- , n , f
+¯_ (Sign.- , n , f) = Sign.+ , n , f
+\end{code}
+
 \section{la'o zoi.\ \F{fromℝ-}\ .zoi.}
 ni'o la'o zoi.\ \F{fromℝ-} \B s \B a \B b\ .zoi.\ pilji lo sumji be la'oi .\B a.\ bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.\ zo'e poi ga jonai ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.+}\ .zoi.\ gi ke'a du li pa gi ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.-}\ .zoi.\ gi ke'a du li ni'u pa
 
@@ -364,15 +373,6 @@ ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki  .i ku'i
 \begin{code}
 from𝔻 : Sign → (ℕ → Digit 10) → ℝ
 from𝔻 s f = s , 0 , f
-\end{code}
-
-\section{la'o zoi.\ \F{¯\AgdaUnderscore}\ .zoi.}
-ni'o la'o zoi.\ \AgdaOperator{¯} \B r\ .zoi.\ vujnu li no la'oi .\B r.
-
-\begin{code}
-¯_ : ℝ → ℝ
-¯_ (Sign.+ , n , f) = Sign.- , n , f
-¯_ (Sign.- , n , f) = Sign.+ , n , f
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
