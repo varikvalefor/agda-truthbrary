@@ -1134,7 +1134,7 @@ module Veritas where
   module Toℚ where
     id≡toℚ∘fromℚ : (k : ℚ)
                  → let k' = fromℚ k in
-                   k ≡ toℚ {k'} (k , _≈_.≡⇒≈ k' k' _≡_.refl)
+                   k ≡ toℚ (k , _≈_.≡⇒≈ k' k' _≡_.refl)
     id≡toℚ∘fromℚ k = _≡_.refl
 
     toℚ∘fromℕ : (n : ℕ)
