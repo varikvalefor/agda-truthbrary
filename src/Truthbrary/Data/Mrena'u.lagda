@@ -364,7 +364,7 @@ ni'o la'o zoi.\ \F{fromℤ} \B z\ .zoi.\ namcu du la'oi .\B z.
 \begin{code}
 fromℤ : ℤ → ℝ
 fromℤ (ℤ.pos n) = fromℕ n
-fromℤ (ℤ.negsuc n) = Sign.- , ℕ.suc n , const 𝔽.zero
+fromℤ (ℤ.negsuc n) = ¯ fromℕ n
 \end{code}
 
 \section{la'o zoi.\ \F{from𝔻}\ .zoi.}
