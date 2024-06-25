@@ -380,7 +380,7 @@ ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki  .i ku'i
 
 \begin{code}
 from𝔻 : Sign → (ℕ → Digit 10) → ℝ
-from𝔻 s f = s , 0 , f
+from𝔻 s f = fromℝ- s 0 f
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}+\AgdaUnderscore}\ .zoi.}
