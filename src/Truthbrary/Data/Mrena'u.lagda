@@ -691,6 +691,9 @@ module Veritas where
        → r + s ≡ fromℚ (proj₁ r' ℚ.+ proj₁ s')
     ℚ+ = {!!}
 
+    r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈_ $ r + s
+    r≉r+s = {!!}
+
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
     R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ _ _ D
       where
