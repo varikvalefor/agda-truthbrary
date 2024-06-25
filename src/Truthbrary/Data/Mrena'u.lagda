@@ -574,7 +574,7 @@ module Veritas where
     isEquivalence = record {
       refl = λ {r} → r≈r r;
       sym = λ {r s} d → ≈⇒≈⍨ r s d;
-      trans = λ {i} {j} {k} → ≈∧≈⇒≈ {i} {j} {k}}
+      trans = ≈∧≈⇒≈}
 
     setoid : Setoid _ _
     setoid = record {
