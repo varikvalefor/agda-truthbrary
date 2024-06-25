@@ -1134,7 +1134,7 @@ module Veritas where
   module Toℚ where
     id≡toℚ∘fromℚ : (k : ℚ)
                  → k ≡ toℚ (k , _≈_.≡⇒≈ _ _ _≡_.refl)
-    id≡toℚ∘fromℚ k = _≡_.refl
+    id≡toℚ∘fromℚ _ = _≡_.refl
 
     toℚ∘fromℕ : (n : ℕ)
               → let C = Coprime.sym $ Coprime.1-coprimeTo n in
