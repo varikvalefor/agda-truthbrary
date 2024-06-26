@@ -258,7 +258,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu d
 _≈_ : ℝ → ℝ → Set
 _≈_ = ⊎/ $ _≡_ 𝕃.∷ {!!}
   where
-  F : Op₂ (ℝ → ℝ → Set)
+  F : ∀ {a} → {A : Set a} → Op₂ (A → A → Set)
   F = _-⟪ _⊎_ ⟫-_
   ⊎/ : let C = ℝ → ℝ → Set in List C → C
   ⊎/ = 𝕃.foldr F $ λ _ _ → ⊥
