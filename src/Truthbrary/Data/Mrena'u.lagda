@@ -573,12 +573,6 @@ module Veritas where
                 → ∣ r - s ∣ > fromℕ 0
     r≉s⇒∣r-s∣>0 = {!!}
 
-    ≈⇒fn≡gn : (r s : ℝ)
-            → ⌊' r ≡ ⌊' s
-            → r ≈ s
-            → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
-    ≈⇒fn≡gn = {!!}
-
     r≈s⇒fr≈fs : (r s : ℝ) → (f : ℝ → ℝ) → r ≈ s → f r ≈ f s
     r≈s⇒fr≈fs = {!!}
 
