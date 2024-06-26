@@ -256,12 +256,12 @@ ni'o ga jo ctaipe la'o zoi.\ \B r \OpF ≈ \B s\ .zoi.\ gi la'oi .\B r.\ namcu d
 
 \begin{code}
 _≈_ : ℝ → ℝ → Set
-_≈_ = f $ _≡_ 𝕃.∷ {!!}
+_≈_ = ⊎/ $ _≡_ 𝕃.∷ {!!}
   where
   F : Op₂ (ℝ → ℝ → Set)
   F = _-⟪ _⊎_ ⟫-_
-  f : let C = ℝ → ℝ → Set in List C → C
-  f = 𝕃.foldr F $ λ _ _ → ⊥
+  ⊎/ : let C = ℝ → ℝ → Set in List C → C
+  ⊎/ = 𝕃.foldr F $ λ _ _ → ⊥
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
