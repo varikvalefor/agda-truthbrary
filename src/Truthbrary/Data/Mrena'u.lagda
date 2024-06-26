@@ -686,7 +686,7 @@ module Veritas where
               (from𝔻 s f + fromℤ (s ℤ.◃ n)))
     r≡f+z = {!!}
 
-    ℚ+ : (r s : ℝ)
+    ℚ+ : {r s : ℝ}
        → (r' : Rational r)
        → (s' : Rational s)
        → r + s ≡ fromℚ (proj₁ r' ℚ.+ proj₁ s')
@@ -698,7 +698,7 @@ module Veritas where
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
     R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ _ _ D
       where
-      D = ℚ+ _ _ R S
+      D = ℚ+ R S
 
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
