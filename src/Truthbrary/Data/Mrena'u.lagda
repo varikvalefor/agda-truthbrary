@@ -725,8 +725,7 @@ module Veritas where
     r-s-t≈r-[s+t] : (r s t : ℝ) → ((r - s) - t) ≈ (r - (s + t))
     r-s-t≈r-[s+t] = {!!}
 
-    -r≈0-[r] : (r : ℝ)
-             → (¯ r) ≈ (fromℕ 0 - r)
+    -r≈0-[r] : (r : ℝ) → (¯ r) ≈ (fromℕ 0 - r)
     -r≈0-[r] = {!!}
 
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
