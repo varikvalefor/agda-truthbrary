@@ -682,7 +682,7 @@ module Veritas where
           → (n : ℕ)
           → (f : ℕ → Digit 10)
           → (_≡_
-              (s , n , f)
+              (fromℝ- s n f)
               (from𝔻 s f + fromℤ (s ℤ.◃ n)))
     r≡f+z = {!!}
 
