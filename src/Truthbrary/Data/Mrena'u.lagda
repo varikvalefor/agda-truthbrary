@@ -1053,7 +1053,7 @@ module Veritas where
     r≥0⇒r≈∣r∣ = {!!}
 
     +r≡∣+r∣ : (r : ℝ) → sign r ≡ Sign.+ → r ≡ ∣ r ∣
-    +r≡∣+r∣ = λ r → λ {refl → refl}
+    +r≡∣+r∣ r refl = refl
 
     0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈_ $ fromℕ 0 - r
     0>r⇒∣r∣≈-r = {!!}
