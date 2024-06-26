@@ -585,7 +585,7 @@ module Veritas where
     setoid : Setoid _ _
     setoid = record {_≈_ = _≈_; isEquivalence = isEquivalence}
 
-    0≈-0 : let 0⁻ = Sign.- , 0 , const 𝔽.zero in
+    0≈-0 : let 0⁻ = fromℝ- Sign.- 0 $ const 𝔽.zero in
            fromℕ 0 ≈ 0⁻
     0≈-0 = {!!}
 \end{code}
