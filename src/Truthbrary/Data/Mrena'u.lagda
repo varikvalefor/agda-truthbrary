@@ -564,9 +564,7 @@ module Veritas where
     ¬∃⇒≈ = {!!}
 
     >⇒≉ : (r s : ℝ)
-        → {k : ℚ}
-        → ¬_ $ fromℚ k ≈ fromℕ 0
-        → ∣ r - s ∣ > fromℚ k
+        → ∣ r - s ∣ > fromℕ 0
         → ¬_ $ r ≈ s
     >⇒≉ = {!!}
 
