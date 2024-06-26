@@ -729,7 +729,7 @@ module Veritas where
               → (f : _)
               → ((_≈_ ⍨)
                   (Sign.- , n , f)
-                  (fromℕ 0 -_ $ Sign.+ , n , f))
+                  (¯_ $ Sign.+ , n , f))
     0-[+r]≈-r = {!!}
 
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
