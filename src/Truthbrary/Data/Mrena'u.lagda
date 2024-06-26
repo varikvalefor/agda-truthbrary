@@ -260,7 +260,7 @@ _≈_ = ⊎/ $ _≡_ 𝕃.∷ {!!}
   where
   F : ∀ {a} → {A : Set a} → Op₂ (A → A → Set)
   F = _-⟪ _⊎_ ⟫-_
-  ⊎/ : let C = ℝ → ℝ → Set in List C → C
+  ⊎/ : ∀ {a} → {A : Set a} → let C = A → A → Set in List C → C
   ⊎/ = 𝕃.foldr F $ λ _ _ → ⊥
 \end{code}
 
