@@ -233,6 +233,7 @@ open import Relation.Binary.PropositionalEquality
     subst;
     _≗_;
     _≡_;
+    refl;
     sym
   )
 \end{code}
@@ -520,10 +521,10 @@ module Veritas where
     ≡∧≗⇒≈ = {!!}
 
     ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
-    ≡⇒≈ r s _≡_.refl = ≡∧≗⇒≈ r s _≡_.refl $ λ _ → _≡_.refl
+    ≡⇒≈ r s refl = ≡∧≗⇒≈ r s refl $ λ _ → refl
 
     r≈r : (r : ℝ) → r ≈ r
-    r≈r r = ≡⇒≈ r r _≡_.refl
+    r≈r r = ≡⇒≈ r r refl
 
     ≈⇒≈⍨ : (r s : ℝ) → r ≈ s → s ≈ r
     ≈⇒≈⍨ = {!!}
@@ -597,10 +598,10 @@ module Veritas where
 \begin{code}
   module Fromℕ where
     pav : (n : ℕ) → ℤ.+_ n ≡ ⌊' (fromℕ n)
-    pav _ = _≡_.refl
+    pav _ = refl
 
     rel : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
-    rel _ _ = _≡_.refl
+    rel _ _ = refl
 
     ≢⇒≉ : (m n : ℕ) → ¬_ $ m ≡ n → ¬_ $ fromℕ m ≈ fromℕ n
     ≢⇒≉ = {!!}
@@ -623,10 +624,10 @@ module Veritas where
       fromℕ-fromℚ = {!!}
 
     id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡_ $ ℤ.∣_∣ $ ⌊' $ fromℕ n
-    id≡∣_∣∘⌊'∘fromℕ _ = _≡_.refl
+    id≡∣_∣∘⌊'∘fromℕ _ = refl
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
-    fromℕ≥0 0 = _⊎_.inj₁ $ _≈_.≡⇒≈ _ _ _≡_.refl
+    fromℕ≥0 0 = _⊎_.inj₁ $ _≈_.≡⇒≈ _ _ refl
     fromℕ≥0 (ℕ.suc n) = _⊎_.inj₂ {!!}
 \end{code}
 
@@ -711,7 +712,7 @@ module Veritas where
     0≈r-s = {!!}
 
     0≈r-r : (r : ℝ) → fromℕ 0 ≈_ $ r - r
-    0≈r-r r = 0≈r-s r r $ _≈_.≡⇒≈ r r _≡_.refl
+    0≈r-r r = 0≈r-s r r $ _≈_.≡⇒≈ r r refl
 
     r≈-r⇒r≈0 : (r : ℝ)
              → r ≈_ $ fromℕ 0 - r
@@ -759,13 +760,13 @@ module Veritas where
     S≡S : (s : Sign)
         → (f : ℕ → Digit 10)
         → s ≡ sign (from𝔻 s f)
-    S≡S _ _ = _≡_.refl
+    S≡S _ _ = refl
 
     0≡⌊'[from𝔻] : (s : Sign)
                 → (f : ℕ → Digit 10)
                 → ℤ.+_ 0 ≡ ⌊' (from𝔻 s f)
-    0≡⌊'[from𝔻] Sign.+ _ = _≡_.refl
-    0≡⌊'[from𝔻] Sign.- _ = _≡_.refl
+    0≡⌊'[from𝔻] Sign.+ _ = refl
+    0≡⌊'[from𝔻] Sign.- _ = refl
 
     id≡⌊'⁻¹∘from𝔻x : (s : Sign)
                  → (f : ℕ → Digit 10)
@@ -902,7 +903,7 @@ module Veritas where
     0≈0^r = {!!}
 
     1≡0^0 : fromℕ 1 ≡ fromℕ 0 ^ fromℕ 0
-    1≡0^0 = 1≡r^0 0' 0' $ _≈_.≡⇒≈ 0' 0' _≡_.refl
+    1≡0^0 = 1≡r^0 0' 0' $ _≈_.≡⇒≈ 0' 0' refl
       where
       0' = fromℕ 0
 
@@ -955,7 +956,7 @@ module Veritas where
     I[⌊'⁻¹ℝ]⇒I = {!!}
 
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ ⌊'⁻¹ℝ
-    ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ _ = _≡_.refl
+    ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ _ = refl
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
@@ -1025,7 +1026,7 @@ module Veritas where
 \begin{code}
   module _≥_ where
     r≥r : Reflexive _≥_
-    r≥r {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r _≡_.refl
+    r≥r {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r refl
 
     ≥∧≥⇒≥ : Transitive _≥_
     ≥∧≥⇒≥ = {!!}
@@ -1059,7 +1060,7 @@ module Veritas where
     0>r⇒∣r∣≈-r = {!!}
 
     ∣_∣≡∣_∣∘∣_∣ : Algebra.IdempotentFun _≡_ ∣_∣
-    ∣_∣≡∣_∣∘∣_∣ r = _≡_.refl
+    ∣_∣≡∣_∣∘∣_∣ r = refl
 
     ∣_∣≈∣_∣∘∣_∣ : Algebra.IdempotentFun _≈_ ∣_∣
     ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ _ _ ∘ ∣_∣≡∣_∣∘∣_∣
@@ -1104,13 +1105,13 @@ module Veritas where
           → {x : A}
           → (z : A)
           → x ≡ f x z false
-      ⊥⇒1 _ = _≡_.refl
+      ⊥⇒1 _ = refl
 
       ⊤⇒2 : ∀ {a} → {A : Set a}
           → (x : A)
           → {z : A}
           → z ≡ f x z true
-      ⊤⇒2 _ = _≡_.refl
+      ⊤⇒2 _ = refl
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
     <⇒1 r s z = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s z) (I.⊥⇒1 s)
@@ -1147,15 +1148,15 @@ module Veritas where
 \begin{code}
   module Toℚ where
     id≡toℚ∘fromℚ : (k : ℚ)
-                 → k ≡ toℚ (k , _≈_.≡⇒≈ _ _ _≡_.refl)
-    id≡toℚ∘fromℚ _ = _≡_.refl
+                 → k ≡ toℚ (k , _≈_.≡⇒≈ _ _ refl)
+    id≡toℚ∘fromℚ _ = refl
 
     toℚ∘fromℕ : (n : ℕ)
               → let C = Coprime.sym $ Coprime.1-coprimeTo n in
                 (_≡_
                   (toℚ {fromℕ n} $ Fromℕ.fromℕ-Rational n)
                   (ℚ.mkℚ (ℤ.+_ n) 0 C))
-    toℚ∘fromℕ _ = _≡_.refl
+    toℚ∘fromℕ _ = refl
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
