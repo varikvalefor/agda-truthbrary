@@ -540,7 +540,7 @@ module Veritas where
     n,9+≈n+1 : (s : Sign)
              → (n : ℕ)
              → (_≈_
-                 (s , n , const 9F)
+                 (fromℝ- s n $ const 9F)
                  (s , (ℕ.suc n) , const 𝔽.zero))
     n,9+≈n+1 = {!!}
 
