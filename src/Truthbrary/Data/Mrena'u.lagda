@@ -1056,7 +1056,7 @@ module Veritas where
     0>r⇒∣r∣≈-r = {!!}
 
     ∣_∣≡∣_∣∘∣_∣ : Algebra.IdempotentFun _≡_ ∣_∣
-    ∣_∣≡∣_∣∘∣_∣ r = refl
+    ∣_∣≡∣_∣∘∣_∣ _ = refl
 
     ∣_∣≈∣_∣∘∣_∣ : Algebra.IdempotentFun _≈_ ∣_∣
     ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ _ _ ∘ ∣_∣≡∣_∣∘∣_∣
