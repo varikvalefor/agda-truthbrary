@@ -528,6 +528,9 @@ module Veritas where
     ≈⇒≈⍨ : (r s : ℝ) → r ≈ s → s ≈ r
     ≈⇒≈⍨ = {!!}
 
+    ≈⇒≯ : {r s : ℝ} → r ≈ s → ¬_ $ r > s
+    ≈⇒≯ = {!!}
+
     id≡[≈⇒≈⍨]² : (r s : ℝ)
                → (d : r ≈ s)
                → d ≡_ $ ≈⇒≈⍨ s r $ ≈⇒≈⍨ r s d
