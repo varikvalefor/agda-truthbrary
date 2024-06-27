@@ -143,6 +143,7 @@ open import Data.Nat
 open import Data.Sum
   as _⊎_
   using (
+    inj₁;
     _⊎_
   )
 open import Function
@@ -622,7 +623,7 @@ module Veritas where
     id≡∣_∣∘⌊'∘fromℕ _ = refl
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
-    fromℕ≥0 0 = _⊎_.inj₁ $ _≈_.≡⇒≈ _ _ refl
+    fromℕ≥0 0 = inj₁ $ _≈_.≡⇒≈ _ _ refl
     fromℕ≥0 (ℕ.suc n) = _⊎_.inj₂ {!!}
 \end{code}
 
@@ -1020,7 +1021,7 @@ module Veritas where
 \begin{code}
   module _≥_ where
     r≥r : Reflexive _≥_
-    r≥r {r} = _⊎_.inj₁ $ _≈_.≡⇒≈ r r refl
+    r≥r {r} = inj₁ $ _≈_.≡⇒≈ r r refl
 
     ≥∧≥⇒≥ : Transitive _≥_
     ≥∧≥⇒≥ = {!!}
@@ -1029,7 +1030,7 @@ module Veritas where
     ≥∧≥⍨⇒≈ = {!!}
 
     ≈⇒≥ : {r s : ℝ} → r ≈ s → r ≥ s
-    ≈⇒≥ = _⊎_.inj₁
+    ≈⇒≥ = inj₁
 
     >⇒≥ : {r s : ℝ} → r > s → r ≥ s
     >⇒≥ = _⊎_.inj₂
@@ -1038,11 +1039,11 @@ module Veritas where
     ≥⇒¬< = {!!}
 
     ≥∧≉⇒> : {r s : ℝ} → r ≥ s → ¬_ $ r ≈ s → r > s
-    ≥∧≉⇒> (_⊎_.inj₁ d) N = d ⇒⇐ N
+    ≥∧≉⇒> (inj₁ d) N = d ⇒⇐ N
     ≥∧≉⇒> (_⊎_.inj₂ z) N = z
 
     ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
-    ≥∧¬>⇒≈ (_⊎_.inj₁ d) N = d
+    ≥∧¬>⇒≈ (inj₁ d) N = d
     ≥∧¬>⇒≈ (_⊎_.inj₂ z) N = z ⇒⇐ N
 \end{code}
 
