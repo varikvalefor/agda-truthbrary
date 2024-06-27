@@ -891,7 +891,7 @@ module Veritas where
     1≡1^r : (r : ℝ) → fromℕ 1 ≡_ $ fromℕ 1 ^ r
     1≡1^r = {!!}
 
-    1≡r^0 : (r 0' : ℝ) → 0' ≈ fromℕ 0 → fromℕ 1 ≡_ $ r ^ 0'
+    1≡r^0 : (r 0' : ℝ) → 0' ≈ fromℕ 0 → fromℕ 1 ≡ r ^ 0'
     1≡r^0 = {!!}
 
     0≈0^r : (r s : ℝ)
