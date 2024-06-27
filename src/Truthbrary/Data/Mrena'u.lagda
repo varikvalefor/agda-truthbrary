@@ -620,7 +620,7 @@ module Veritas where
                         (ℚ.mkℚ
                           (ℤ.+_ n)
                           0
-                          (C))))
+                          C)))
       fromℕ-fromℚ = {!!}
 
     id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡_ $ ℤ.∣_∣ $ ⌊' $ fromℕ n
