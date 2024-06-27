@@ -580,7 +580,7 @@ module Veritas where
 
     isEquivalence : Relation.Binary.IsEquivalence _≈_
     isEquivalence = record {
-      refl = λ {r} → r≈r r;
+      refl = r≈r _;
       sym = λ {r s} d → ≈⇒≈⍨ r s d;
       trans = ≈∧≈⇒≈}
 
