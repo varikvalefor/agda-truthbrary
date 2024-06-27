@@ -613,13 +613,14 @@ module Veritas where
       where
       c = Coprime.sym $ 1-coprimeTo _
       fromℕ-fromℚ : (n : ℕ)
-                  → (_≈_
+                  → let C = Coprime.sym $ Coprime.1-coprimeTo n in
+                    (_≈_
                       (fromℕ n)
                       (fromℚ
                         (ℚ.mkℚ
                           (ℤ.+_ n)
                           0
-                          (Coprime.sym $ Coprime.1-coprimeTo n))))
+                          (C))))
       fromℕ-fromℚ = {!!}
 
     id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡_ $ ℤ.∣_∣ $ ⌊' $ fromℕ n
