@@ -1034,6 +1034,9 @@ module Veritas where
     >⇒≥ : {r s : ℝ} → r > s → r ≥ s
     >⇒≥ = _⊎_.inj₂
 
+    ≥⇒¬< : {r s : ℝ} → r ≥ s → ¬_ $ r < s
+    ≥⇒¬< = {!!}
+
     ≥∧≉⇒> : {r s : ℝ} → r ≥ s → ¬_ $ r ≈ s → r > s
     ≥∧≉⇒> (_⊎_.inj₁ d) N = d ⇒⇐ N
     ≥∧≉⇒> (_⊎_.inj₂ z) N = z
