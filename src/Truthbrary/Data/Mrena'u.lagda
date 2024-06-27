@@ -922,7 +922,7 @@ module Veritas where
                    (fromℕ 2)
                    (frinu
                      (fromℕ 1)
-                     (fromℕ 2)
+                     _
                      (Fromℕ.≢⇒≉ 2 0 $ λ ())))
     I[2^[1/2]] = {!!}
 \end{code}
