@@ -259,9 +259,7 @@ _≈_ : ℝ → ℝ → Set
 _≈_ = ⊎/ $ _≡_ 𝕃.∷ {!!}
   where
   ⊎/ : ∀ {a} → {A : Set a} → let C = A → A → Set in List C → C
-  ⊎/ = 𝕃.foldr F $ λ _ _ → ⊥
-    where
-    F = _-⟪ _⊎_ ⟫-_
+  ⊎/ = 𝕃.foldr _-⟪ _⊎_ ⟫-_ $ λ _ _ → ⊥
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
