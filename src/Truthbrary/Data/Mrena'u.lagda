@@ -879,6 +879,11 @@ module Veritas where
           → s > fromℕ 0
           → r > frinu r s N
     r<r/s = {!!}
+
+    r≈s*r/s : (r s : ℝ)
+            → (N : _)
+            → r ≈_ $ s * frinu r s N
+    r≈s*r/s = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}\textasciicircum\AgdaUnderscore}}}
