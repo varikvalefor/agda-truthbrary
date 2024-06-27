@@ -533,7 +533,7 @@ module Veritas where
 
     id≡[≈⇒≈⍨]² : (r s : ℝ)
                → (d : r ≈ s)
-               → d ≡_ $ ≈⇒≈⍨ s r $ ≈⇒≈⍨ r s d
+               → d ≡_ $ ≈⇒≈⍨ _ _ $ ≈⇒≈⍨ _ _ d
     id≡[≈⇒≈⍨]² = {!!}
 
     ≈∧≈⇒≈ : Transitive _≈_
