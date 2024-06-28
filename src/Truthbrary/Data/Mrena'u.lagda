@@ -581,7 +581,7 @@ module Veritas where
     isEquivalence : Relation.Binary.IsEquivalence _≈_
     isEquivalence = record {
       refl = r≈r _;
-      sym = λ {r s} d → ≈⇒≈⍨ r s d;
+      sym = λ {r s} d → ≈⇒≈⍨ _ _ d;
       trans = ≈∧≈⇒≈}
 
     setoid : Setoid _ _
