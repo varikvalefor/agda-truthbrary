@@ -1141,7 +1141,7 @@ module Veritas where
     ⊓-ass = {!!}
 
     id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
-    id≡⊓⍨ = λ r → _≈_.≈⇒≈⍨ _ _ $ ≈⇒1 r r $ _≈_.≡⇒≈ _ _ refl
+    id≡⊓⍨ r = _≈_.≈⇒≈⍨ _ _ $ ≈⇒1 r r $ _≈_.≡⇒≈ _ _ refl
 \end{code}
 
 \subsection{\lcblm{\F{Irrational}}}
