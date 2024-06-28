@@ -956,7 +956,7 @@ module Veritas where
 
     from𝔻≡⌊'⁻¹ℝ∘from𝔻 : (s : Sign)
                       → (f : ℕ → Digit 10)
-                      → (_≡_ (from𝔻 s f) (⌊'⁻¹ℝ $ from𝔻 s f))
+                      → _≡_ (from𝔻 s f) (⌊'⁻¹ℝ $ from𝔻 s f)
     from𝔻≡⌊'⁻¹ℝ∘from𝔻 _ _ = refl
 \end{code}
 
