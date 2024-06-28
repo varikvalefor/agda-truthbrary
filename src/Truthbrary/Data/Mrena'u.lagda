@@ -959,7 +959,7 @@ module Veritas where
                       → (_≡_
                           (from𝔻 s f)
                           (⌊'⁻¹ℝ $ from𝔻 s f))
-    from𝔻≡⌊'⁻¹ℝ∘from𝔻 = {!!}
+    from𝔻≡⌊'⁻¹ℝ∘from𝔻 = λ _ _ → refl
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
