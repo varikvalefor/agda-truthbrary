@@ -376,7 +376,7 @@ fromℤ (ℤ.negsuc n) = ¯ fromℕ n
 \end{code}
 
 \section{la'o zoi.\ \F{from𝔻}\ .zoi.}
-ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki  .i ku'i lakne fa lo nu la .varik.\ cu facki
+ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki la'o zoi.\ \F{from𝔻}\ .zoi.  .i ku'i lakne fa lo nu la .varik.\ cu facki
 
 \begin{code}
 from𝔻 : Sign → (ℕ → Digit 10) → ℝ
