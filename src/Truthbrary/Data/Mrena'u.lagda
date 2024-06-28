@@ -608,14 +608,15 @@ module Veritas where
     fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
 
+    fromℕ-fromℚ : (n : ℕ)
+                → let C = Coprime.sym $ Coprime.1-coprimeTo n in
+                  fromℕ n ≈ fromℚ (ℚ.mkℚ (ℤ.+_ n) 0 C)
+    fromℕ-fromℚ = {!!}
+
     fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
     fromℕ-Rational n = ℚ.mkℚ (ℤ.+_ n) 0 c , fromℕ-fromℚ n
       where
       c = Coprime.sym $ 1-coprimeTo _
-      fromℕ-fromℚ : (n : ℕ)
-                  → let C = Coprime.sym $ Coprime.1-coprimeTo n in
-                    fromℕ n ≈ fromℚ (ℚ.mkℚ (ℤ.+_ n) 0 C)
-      fromℕ-fromℚ = {!!}
 
     id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡_ $ ℤ.∣_∣ $ ⌊' $ fromℕ n
     id≡∣_∣∘⌊'∘fromℕ _ = refl
@@ -1021,7 +1022,7 @@ module Veritas where
 \begin{code}
   module _≥_ where
     r≥r : Reflexive _≥_
-    r≥r {r} = inj₁ $ _≈_.≡⇒≈ r r refl
+    r≥r = inj₁ $ _≈_.≡⇒≈ _ _ refl
 
     ≥∧≥⇒≥ : Transitive _≥_
     ≥∧≥⇒≥ = {!!}
