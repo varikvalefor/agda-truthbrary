@@ -631,8 +631,8 @@ module Veritas where
 \begin{code}
   module ¯_ where
 
-  r>0⇒¯r≈? : (r : ℝ) → r > fromℕ 0 → (¯ r) ≈ {!!}
-  r>0⇒¯r≈? = {!!}
+  r>0⇒¯r≈¯r : (r : ℝ) → r > fromℕ 0 → (¯ r) ≈ (Sign.- , ℤ.∣ ⌊' r ∣ , ⌊'⁻¹ r)
+  r>0⇒¯r≈¯r = {!!}
 
   r<0⇒¯r≈∣r∣ : (r : ℝ) → fromℕ 0 > r → (¯ r) ≈ ∣ r ∣
   r<0⇒¯r≈∣r∣ = {!!}
