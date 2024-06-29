@@ -1056,7 +1056,10 @@ module Veritas where
     ≥∧¬>⇒≈ (_⊎_.inj₂ z) N = z ⇒⇐ N
 
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
-    jonais = {!!}
+    jonais r s with _>_.jonais r s
+    ... | inj₁ z = {!!}
+    ... | _⊎_.inj₂ (inj₁ m) = {!!}
+    ... | _⊎_.inj₂ (_⊎_.inj₂ d) = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
