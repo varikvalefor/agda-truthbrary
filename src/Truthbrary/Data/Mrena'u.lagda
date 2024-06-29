@@ -1078,7 +1078,7 @@ module Veritas where
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
     ≈⇒∣_∣≈ = {!!}
 
-    jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (fromℕ 0 - r)
+    jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (¯ r)
     jonais = {!!}
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
