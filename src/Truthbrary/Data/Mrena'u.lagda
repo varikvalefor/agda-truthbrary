@@ -1058,7 +1058,7 @@ module Veritas where
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
     jonais r s with _>_.jonais r s
     ... | inj₁ z = inj₁ $ _⊎_.inj₂ z
-    ... | _⊎_.inj₂ (inj₁ m) = {!!}
+    ... | _⊎_.inj₂ (inj₁ m) = _⊎_.inj₂ m
     ... | _⊎_.inj₂ (_⊎_.inj₂ d) = {!!}
 \end{code}
 
