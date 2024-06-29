@@ -1054,6 +1054,9 @@ module Veritas where
     ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
     ≥∧¬>⇒≈ (inj₁ d) N = d
     ≥∧¬>⇒≈ (_⊎_.inj₂ z) N = z ⇒⇐ N
+
+    jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
+    jonais = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
