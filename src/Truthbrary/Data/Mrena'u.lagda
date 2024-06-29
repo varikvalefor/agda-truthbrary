@@ -1141,6 +1141,9 @@ module Veritas where
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass = {!!}
 
+    ⊓-sel : Algebra.Selective _≈_ _⊓_
+    ⊓-sel = {!!}
+
     id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
     id≡⊓⍨ r = _≈_.≈⇒≈⍨ _ _ $ ≈⇒1 r r $ _≈_.≡⇒≈ _ _ refl
 \end{code}
