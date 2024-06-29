@@ -1142,7 +1142,10 @@ module Veritas where
     ⊓-ass = {!!}
 
     ⊓-sel : Algebra.Selective _≈_ _⊓_
-    ⊓-sel = {!!}
+    ⊓-sel r s with _>_.jonais r s
+    ... | inj₁ z = {!!}
+    ... | _⊎_.inj₂ (inj₁ m) = {!!}
+    ... | _⊎_.inj₂ (_⊎_.inj₂ d) = {!!}
 
     id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
     id≡⊓⍨ r = _≈_.≈⇒≈⍨ _ _ $ ≈⇒1 r r $ _≈_.≡⇒≈ _ _ refl
