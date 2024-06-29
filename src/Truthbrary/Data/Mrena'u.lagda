@@ -53,6 +53,7 @@
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{⁻}{\ensuremath{\mathnormal{^-}}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
+\newunicodechar{≯}{\ensuremath{\mathnormal{\ngtr}}}
 \newunicodechar{ϕ}{\ensuremath{\mathnormal{\phi}}}
 \newunicodechar{χ}{\ensuremath{\mathnormal{\chi}}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\wedge}}}
