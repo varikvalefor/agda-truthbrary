@@ -1147,7 +1147,7 @@ module Veritas where
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass = {!!}
 
-    ⊓-sel : Algebra.Selective _≈_ _⊓_
+    ⊓-sel : Algebra.Selective _≡_ _⊓_
     ⊓-sel r s with _≥_.jonais r s
     ... | inj₁ djm = {!!}
     ... | _⊎_.inj₂ ml = {!!}
