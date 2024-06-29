@@ -521,11 +521,11 @@ module Veritas where
           → r ≈ s
     ≡∧≗⇒≈ = {!!}
 
-    ≡⇒≈ : (r s : ℝ) → r ≡ s → r ≈ s
-    ≡⇒≈ r s refl = ≡∧≗⇒≈ refl $ λ _ → refl
+    ≡⇒≈ : {r s : ℝ} → r ≡ s → r ≈ s
+    ≡⇒≈ {r} {s} refl = ≡∧≗⇒≈ refl $ λ _ → refl
 
     r≈r : (r : ℝ) → r ≈ r
-    r≈r r = ≡⇒≈ _ _ refl
+    r≈r r = ≡⇒≈ refl
 
     ≈⇒≈⍨ : (r s : ℝ) → r ≈ s → s ≈ r
     ≈⇒≈⍨ = {!!}
@@ -624,7 +624,7 @@ module Veritas where
     id≡∣_∣∘⌊'∘fromℕ _ = refl
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
-    fromℕ≥0 0 = inj₁ $ _≈_.≡⇒≈ _ _ refl
+    fromℕ≥0 0 = inj₁ $ _≈_.≡⇒≈ refl
     fromℕ≥0 (ℕ.suc n) = inj₂ {!!}
 \end{code}
 
@@ -698,7 +698,7 @@ module Veritas where
     r≉r+s = {!!}
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
-    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ _ _ D
+    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ D
       where
       D = ℚ+ R S
 
@@ -714,7 +714,7 @@ module Veritas where
     0≈r-s = {!!}
 
     0≈r-r : (r : ℝ) → fromℕ 0 ≈_ $ r - r
-    0≈r-r r = 0≈r-s r r $ _≈_.≡⇒≈ _ _ refl
+    0≈r-r r = 0≈r-s r r $ _≈_.≡⇒≈ refl
 
     r≈-r⇒r≈0 : (r : ℝ)
              → r ≈_ $ fromℕ 0 - r
@@ -906,7 +906,7 @@ module Veritas where
     0≈0^r = {!!}
 
     1≡0^0 : fromℕ 1 ≡ fromℕ 0 ^ fromℕ 0
-    1≡0^0 = 1≡r^0 0' 0' $ _≈_.≡⇒≈ _ _ refl
+    1≡0^0 = 1≡r^0 0' 0' $ _≈_.≡⇒≈ refl
       where
       0' = fromℕ 0
 
@@ -1031,7 +1031,7 @@ module Veritas where
 \begin{code}
   module _≥_ where
     r≥r : Reflexive _≥_
-    r≥r = inj₁ $ _≈_.≡⇒≈ _ _ refl
+    r≥r = inj₁ $ _≈_.≡⇒≈ refl
 
     ≥∧≥⇒≥ : Transitive _≥_
     ≥∧≥⇒≥ = {!!}
@@ -1080,7 +1080,7 @@ module Veritas where
     ∣_∣≡∣_∣∘∣_∣ _ = refl
 
     ∣_∣≈∣_∣∘∣_∣ : Algebra.IdempotentFun _≈_ ∣_∣
-    ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ _ _ ∘ ∣_∣≡∣_∣∘∣_∣
+    ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ ∘ ∣_∣≡∣_∣∘∣_∣
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
     ≈⇒∣_∣≈ = {!!}
@@ -1154,7 +1154,7 @@ module Veritas where
     ... | inj₂ ml = inj₁ $ sym $ <⇒1 r s ml
 
     id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
-    id≡⊓⍨ r = _≈_.≈⇒≈⍨ _ _ $ ≈⇒1 r r $ _≈_.≡⇒≈ _ _ refl
+    id≡⊓⍨ r = _≈_.≈⇒≈⍨ _ _ $ ≈⇒1 r r $ _≈_.≡⇒≈ refl
 \end{code}
 
 \subsection{\lcblm{\F{Irrational}}}
@@ -1170,7 +1170,7 @@ module Veritas where
 \begin{code}
   module Toℚ where
     id≡toℚ∘fromℚ : (k : ℚ)
-                 → k ≡ toℚ (k , _≈_.≡⇒≈ _ _ refl)
+                 → k ≡ toℚ (k , _≈_.≡⇒≈ refl)
     id≡toℚ∘fromℚ _ = refl
 
     toℚ∘fromℕ : (n : ℕ)
