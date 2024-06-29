@@ -998,8 +998,8 @@ module Veritas where
     ¬[r>r] : Irreflexive _≈_ _>_
     ¬[r>r] = {!!}
 
-    +-zmad : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
-    +-zmad = {!!}
+    r+s>r : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
+    r+s>r = {!!}
 
     >⇒¬< : Asymmetric _>_
     >⇒¬< = {!!}
