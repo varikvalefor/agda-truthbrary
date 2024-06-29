@@ -144,6 +144,7 @@ open import Data.Nat
 open import Data.Sum
   as _⊎_
   using (
+    inj₂;
     inj₁;
     _⊎_
   )
@@ -624,7 +625,7 @@ module Veritas where
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
     fromℕ≥0 0 = inj₁ $ _≈_.≡⇒≈ _ _ refl
-    fromℕ≥0 (ℕ.suc n) = _⊎_.inj₂ {!!}
+    fromℕ≥0 (ℕ.suc n) = inj₂ {!!}
 \end{code}
 
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
@@ -1042,24 +1043,24 @@ module Veritas where
     ≈⇒≥ = inj₁
 
     >⇒≥ : {r s : ℝ} → r > s → r ≥ s
-    >⇒≥ = _⊎_.inj₂
+    >⇒≥ = inj₂
 
     ≥⇒¬< : {r s : ℝ} → r ≥ s → ¬_ $ r < s
     ≥⇒¬< = {!!}
 
     ≥∧≉⇒> : {r s : ℝ} → r ≥ s → ¬_ $ r ≈ s → r > s
     ≥∧≉⇒> (inj₁ d) N = d ⇒⇐ N
-    ≥∧≉⇒> (_⊎_.inj₂ z) N = z
+    ≥∧≉⇒> (inj₂ z) N = z
 
     ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
     ≥∧¬>⇒≈ (inj₁ d) N = d
-    ≥∧¬>⇒≈ (_⊎_.inj₂ z) N = z ⇒⇐ N
+    ≥∧¬>⇒≈ (inj₂ z) N = z ⇒⇐ N
 
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
     jonais r s with _>_.jonais r s
-    ... | inj₁ z = inj₁ $ _⊎_.inj₂ z
-    ... | _⊎_.inj₂ (inj₁ m) = _⊎_.inj₂ m
-    ... | _⊎_.inj₂ (_⊎_.inj₂ d) = inj₁ $ inj₁ d
+    ... | inj₁ z = inj₁ $ inj₂ z
+    ... | inj₂ (inj₁ m) = inj₂ m
+    ... | inj₂ (inj₂ d) = inj₁ $ inj₁ d
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
@@ -1149,8 +1150,8 @@ module Veritas where
 
     ⊓-sel : Algebra.Selective _≡_ _⊓_
     ⊓-sel r s with _≥_.jonais r s
-    ... | inj₁ djm = _⊎_.inj₂ $ sym $ ≥⇒2 r s djm
-    ... | _⊎_.inj₂ ml = inj₁ $ sym $ <⇒1 r s ml
+    ... | inj₁ djm = inj₂ $ sym $ ≥⇒2 r s djm
+    ... | inj₂ ml = inj₁ $ sym $ <⇒1 r s ml
 
     id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
     id≡⊓⍨ r = _≈_.≈⇒≈⍨ _ _ $ ≈⇒1 r r $ _≈_.≡⇒≈ _ _ refl
