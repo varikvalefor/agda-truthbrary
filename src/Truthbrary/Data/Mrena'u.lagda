@@ -498,7 +498,7 @@ ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B
 
 \begin{code}
 _⊔_ : ℝ → ℝ → ℝ
-_⊔_ r s = _⊓_I.f r s $ not $ _⊓_I._>ᵇ_ r s
+_⊔_ r s = _⊓_I.f s r $ _⊓_I._>ᵇ_ r s
 \end{code}
 
 \section{le ctaipe be le su'u mapti}
