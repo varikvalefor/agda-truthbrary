@@ -1066,7 +1066,7 @@ module Veritas where
     +r≡∣+r∣ : (r : ℝ) → sign r ≡ Sign.+ → r ≡ ∣ r ∣
     +r≡∣+r∣ r refl = refl
 
-    0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈_ $ fromℕ 0 - r
+    0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈_ $ ¯ r
     0>r⇒∣r∣≈-r = {!!}
 
     ∣_∣≡∣_∣∘∣_∣ : Algebra.IdempotentFun _≡_ ∣_∣
