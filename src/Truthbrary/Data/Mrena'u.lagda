@@ -1019,9 +1019,6 @@ module Veritas where
     >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
     >ℤ⇒> = {!!}
 
-    ¬[0,9>0,1] : ¬_ $ (Sign.+ , 0 , const 𝔽.zero) > fromℕ 1
-    ¬[0,9>0,1] = {!!}
-
     jonais : (r s : ℝ) → (r > s) ⊎ (s > r) ⊎ (r ≈ s)
     jonais = {!!}
 \end{code}
