@@ -1059,7 +1059,7 @@ module Veritas where
     jonais r s with _>_.jonais r s
     ... | inj₁ z = inj₁ $ _⊎_.inj₂ z
     ... | _⊎_.inj₂ (inj₁ m) = _⊎_.inj₂ m
-    ... | _⊎_.inj₂ (_⊎_.inj₂ d) = {!!}
+    ... | _⊎_.inj₂ (_⊎_.inj₂ d) = inj₁ $ inj₁ d
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
