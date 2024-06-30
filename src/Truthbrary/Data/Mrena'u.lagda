@@ -474,7 +474,7 @@ ni'o cu'alni la'oi .\B r.\ fa la'o zoi.\ \F{∣\AgdaUnderscore{}∣} \B r\ .zoi.
 
 \begin{code}
 ∣_∣ : ℝ → ℝ
-∣_∣ = λ r → fromℝ- Sign.+ ℤ.∣ ⌊' r ∣ $ ⌊'⁻¹ r
+∣_∣ r = fromℝ- Sign.+ ℤ.∣ ⌊' r ∣ $ ⌊'⁻¹ r
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}⊓\AgdaUnderscore}\ .zoi.}
