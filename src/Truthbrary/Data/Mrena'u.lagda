@@ -1062,6 +1062,12 @@ module Veritas where
     ≥∧¬>⇒≈ (inj₁ d) N = d
     ≥∧¬>⇒≈ (inj₂ z) N = z ⇒⇐ N
 
+    +r≥-s : {r s : ℝ}
+          → sign r ≡ Sign.+
+          → sign s ≡ Sign.-
+          → r ≥ s
+    +r≥-s = {!!}
+
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
     jonais r s with _>_.jonais r s
     ... | inj₁ z = inj₁ $ >⇒≥ z
