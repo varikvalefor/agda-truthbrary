@@ -688,14 +688,14 @@ module Veritas where
               (from𝔻 s f + fromℤ (s ℤ.◃ n)))
     r≡f+z = {!!}
 
+    ℕ+ : (m n : ℕ) → fromℕ m + fromℕ n ≡ fromℕ (m ℕ.+ n)
+    ℕ+ = {!!}
+
     ℚ+ : {r s : ℝ}
        → (r' : Rational r)
        → (s' : Rational s)
        → r + s ≡ fromℚ (proj₁ r' ℚ.+ proj₁ s')
     ℚ+ = {!!}
-
-    ℕ+ : (m n : ℕ) → fromℕ m + fromℕ n ≡ fromℕ (m ℕ.+ n)
-    ℕ+ = {!!}
 
     r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈_ $ r + s
     r≉r+s = {!!}
