@@ -527,7 +527,7 @@ module Veritas where
     r≈r : (r : ℝ) → r ≈ r
     r≈r r = ≡⇒≈ refl
 
-    ≈⇒≈⍨ : (r s : ℝ) → r ≈ s → s ≈ r
+    ≈⇒≈⍨ : {r s : ℝ} → r ≈ s → s ≈ r
     ≈⇒≈⍨ = {!!}
 
     ≈⇒≯ : {r s : ℝ} → r ≈ s → ¬_ $ r > s
@@ -535,7 +535,7 @@ module Veritas where
 
     id≡[≈⇒≈⍨]² : (r s : ℝ)
                → (d : r ≈ s)
-               → d ≡_ $ ≈⇒≈⍨ _ _ $ ≈⇒≈⍨ _ _ d
+               → d ≡_ $ ≈⇒≈⍨ $ ≈⇒≈⍨ d
     id≡[≈⇒≈⍨]² = {!!}
 
     ≈∧≈⇒≈ : Transitive _≈_
@@ -583,7 +583,7 @@ module Veritas where
     isEquivalence : Relation.Binary.IsEquivalence _≈_
     isEquivalence = record {
       refl = r≈r _;
-      sym = ≈⇒≈⍨ _ _;
+      sym = ≈⇒≈⍨;
       trans = ≈∧≈⇒≈}
 
     setoid : Setoid _ _
@@ -1166,7 +1166,7 @@ module Veritas where
     ... | inj₂ ml = inj₁ $ sym $ <⇒1 r s ml
 
     id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
-    id≡⊓⍨ r = _≈_.≈⇒≈⍨ _ _ $ ≈⇒1 r r $ _≈_.≡⇒≈ refl
+    id≡⊓⍨ r = _≈_.≈⇒≈⍨ $ ≈⇒1 r r $ _≈_.≡⇒≈ refl
 \end{code}
 
 \subsection{\lcblm{\F{Irrational}}}
