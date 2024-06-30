@@ -970,6 +970,14 @@ module Veritas where
     from𝔻≡⌊'⁻¹ℝ∘from𝔻 _ _ = refl
 \end{code}
 
+\subsection{\lcblm{\F{sign}}}
+
+\begin{code}
+  module SignV where
+    r>0⇒s[r]≡+ : (r : ℝ) → r > fromℕ 0 → sign r ≡ Sign.+
+    r>0⇒s[r]≡+ = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{signℤ}}}
 
 \begin{code}
