@@ -767,8 +767,8 @@ module Veritas where
     0≡⌊'[from𝔻] Sign.- _ = refl
 
     id≡⌊'⁻¹∘from𝔻x : (s : Sign)
-                 → (f : ℕ → Digit 10)
-                 → f ≡ ⌊'⁻¹ (from𝔻 s f)
+                   → (f : ℕ → Digit 10)
+                   → f ≡ ⌊'⁻¹ (from𝔻 s f)
     id≡⌊'⁻¹∘from𝔻x = λ _ _ → refl
 \end{code}
 
