@@ -1036,9 +1036,6 @@ module Veritas where
 
 \begin{code}
   module _≥_ where
-    r≥r : Reflexive _≥_
-    r≥r = inj₁ $ _≈_.≡⇒≈ refl
-
     ≥∧≥⇒≥ : Transitive _≥_
     ≥∧≥⇒≥ = {!!}
 
@@ -1050,6 +1047,9 @@ module Veritas where
 
     >⇒≥ : {r s : ℝ} → r > s → r ≥ s
     >⇒≥ = inj₂
+
+    r≥r : Reflexive _≥_
+    r≥r = inj₁ $ _≈_.≡⇒≈ refl
 
     ≥⇒¬< : {r s : ℝ} → r ≥ s → ¬_ $ r < s
     ≥⇒¬< = {!!}
