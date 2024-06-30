@@ -976,6 +976,9 @@ module Veritas where
   module SignV where
     r>0⇒s[r]≡+ : (r : ℝ) → r > fromℕ 0 → sign r ≡ Sign.+
     r>0⇒s[r]≡+ = {!!}
+
+    r<0⇒s[r]≡- : (r : ℝ) → r < fromℕ 0 → sign r ≡ Sign.-
+    r<0⇒s[r]≡- = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
