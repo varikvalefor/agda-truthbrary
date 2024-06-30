@@ -1191,7 +1191,7 @@ module Veritas where
 \begin{code}
   module Fromℚ where
     fromℚ-Rational : (k : ℚ) → Rational $ fromℚ k
-    fromℚ-Rational = {!!}
+    fromℚ-Rational = λ k → k , _≈_.≡⇒≈ refl
 \end{code}
 
 \subsection{\lcblm{\F{Irrational}}}
