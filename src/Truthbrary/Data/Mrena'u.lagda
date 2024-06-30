@@ -760,6 +760,11 @@ module Veritas where
         → s ≡ sign (from𝔻 s f)
     S≡S _ _ = refl
 
+    f≡f : (s : Sign)
+        → (f : ℕ → Digit 10)
+        → f ≗ ⌊'⁻¹ (from𝔻 s f)
+    f≡f = {!!}
+
     0≡⌊'[from𝔻] : (s : Sign)
                 → (f : ℕ → Digit 10)
                 → ℤ.+_ 0 ≡ ⌊' (from𝔻 s f)
