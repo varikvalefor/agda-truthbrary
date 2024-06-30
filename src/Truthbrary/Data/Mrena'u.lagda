@@ -1019,6 +1019,15 @@ module Veritas where
     >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
     >ℤ⇒> = {!!}
 
+    +r>-s : {r s : ℝ}
+          → sign r ≡ Sign.+
+          → sign s ≡ Sign.-
+            -- | ni'o sarcu ni'i zo'e joi le su'u li no na
+            -- dubmau li no
+          → ¬_ $ r ≈ fromℕ 0 × s ≈ fromℕ 0
+          → r > s
+    +r>-s = {!!}
+
     jonais : (r s : ℝ) → (r > s) ⊎ (s > r) ⊎ (r ≈ s)
     jonais = {!!}
 \end{code}
