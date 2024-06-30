@@ -1186,6 +1186,14 @@ module Veritas where
     id≡⊓⍨ r = _≈_.≈⇒≈⍨ $ ≈⇒1 r r $ _≈_.≡⇒≈ refl
 \end{code}
 
+\subsection{\lcblm{\F{fromℚ}}}
+
+\begin{code}
+  module Fromℚ where
+    fromℚ-Rational : (k : ℚ) → Rational $ fromℚ k
+    fromℚ-Rational = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{Irrational}}}
 
 \begin{code}
