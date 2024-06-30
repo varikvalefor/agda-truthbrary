@@ -691,6 +691,9 @@ module Veritas where
     ℕ+ : (m n : ℕ) → fromℕ m + fromℕ n ≡ fromℕ (m ℕ.+ n)
     ℕ+ = {!!}
 
+    ℤ+ : (x z : ℤ) → fromℤ x + fromℤ z ≡ fromℤ (x ℤ.+ z)
+    ℤ+ = {!!}
+
     ℚ+ : {r s : ℝ}
        → (r' : Rational r)
        → (s' : Rational s)
