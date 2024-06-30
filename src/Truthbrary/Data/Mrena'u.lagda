@@ -755,9 +755,7 @@ module Veritas where
 
 \begin{code}
   module From𝔻 where
-    S≡S : (s : Sign)
-        → (f : ℕ → Digit 10)
-        → s ≡ sign (from𝔻 s f)
+    S≡S : (s : Sign) → (f : ℕ → Digit 10) → s ≡ sign (from𝔻 s f)
     S≡S _ _ = refl
 
     f≡f : (s : Sign)
