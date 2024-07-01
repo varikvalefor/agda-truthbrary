@@ -604,8 +604,8 @@ module Veritas where
     rel : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
     rel _ _ = refl
 
-    ≢⇒≉ : (m n : ℕ) → ¬_ $ m ≡ n → ¬_ $ fromℕ m ≈ fromℕ n
-    ≢⇒≉ = {!!}
+    ≈⇒≡ : (m n : ℕ) → fromℕ m ≈ fromℕ n → m ≡ n
+    ≈⇒≡ = {!!}
 
     fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
@@ -934,7 +934,7 @@ module Veritas where
     
     I[2^[1/2]] : (Irrational $ _^_
                    (fromℕ 2)
-                   (frinu (fromℕ 1) _ (Fromℕ.≢⇒≉ 2 0 $ λ ())))
+                   (frinu (fromℕ 1) _ ((¬ (2 ≡ 0) Function.∋ λ ()) ∘ Fromℕ.≈⇒≡ 2 0)))
     I[2^[1/2]] = {!!}
 \end{code}
 
