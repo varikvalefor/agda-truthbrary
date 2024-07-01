@@ -929,7 +929,8 @@ module Veritas where
 
     R[R^r] : (r s : ℝ)
            → Set Function.∋ {!!}
-           → Rational r → Rational $ r ^ s
+           → Rational r
+           → Rational $ r ^ s
     R[R^r] = {!!}
     
     I[2^[1/2]] : (Irrational $ _^_
