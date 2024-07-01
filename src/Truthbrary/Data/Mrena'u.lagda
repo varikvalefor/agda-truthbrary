@@ -934,7 +934,10 @@ module Veritas where
     
     I[2^[1/2]] : (Irrational $ _^_
                    (fromℕ 2)
-                   (frinu (fromℕ 1) _ ((¬ (2 ≡ 0) Function.∋ λ ()) ∘ Fromℕ.≈⇒≡ 2 0)))
+                   (frinu
+                     (fromℕ 1)
+                     _
+                     ((¬ (2 ≡ 0) Function.∋ λ ()) ∘ Fromℕ.≈⇒≡ 2 0)))
     I[2^[1/2]] = {!!}
 \end{code}
 
