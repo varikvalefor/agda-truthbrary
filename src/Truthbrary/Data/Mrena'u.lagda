@@ -936,7 +936,7 @@ module Veritas where
                    (fromℕ 2)
                    (frinu
                      (fromℕ 1)
-                     _
+                     (fromℕ 2)
                      (_∘_
                        (¬ (2 ≡ 0) Function.∋ λ ())
                        (Fromℕ.≈⇒≡ 2 0))))
