@@ -1183,7 +1183,14 @@ module Veritas where
     ⊓≈⊓⍨ = {!!}
 
     ⊓-ass : Associative _≈_ _⊓_
-    ⊓-ass = {!!}
+    ⊓-ass r s t with T
+      where
+      T : ((r ≥ s) ⊎ (r < s)) × ((s ≥ t) ⊎ (s < t))
+      T = _≥_.jonais r s , _≥_.jonais s t
+    ... | (inj₁ djm₁ , inj₁ djm₂) = {!!}
+    ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
+    ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
+    ... | (inj₂ m₁ , inj₂ m₂) = {!!}
 
     ⊓-sel : Algebra.Selective _≡_ _⊓_
     ⊓-sel r s with _≥_.jonais r s
