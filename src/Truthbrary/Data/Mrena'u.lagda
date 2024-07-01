@@ -937,7 +937,9 @@ module Veritas where
                    (frinu
                      (fromℕ 1)
                      _
-                     ((¬ (2 ≡ 0) Function.∋ λ ()) ∘ Fromℕ.≈⇒≡ 2 0)))
+                     (_∘_
+                       (¬ (2 ≡ 0) Function.∋ λ ())
+                       (Fromℕ.≈⇒≡ 2 0))))
     I[2^[1/2]] = {!!}
 \end{code}
 
