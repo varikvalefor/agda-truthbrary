@@ -820,7 +820,7 @@ module Veritas where
 
     r*s>r : (r s : ℝ)
           → r > fromℕ 0
-          → s > fromℕ 1
+          → s > fromℕ 0
           → (r * s) > r
     r*s>r = {!!}
 
@@ -928,8 +928,8 @@ module Veritas where
     r≈[r^s]^[1/s] = {!!}
 
     R[R^r] : (r s : ℝ)
-           → Set Function.∋ {!!}
            → Rational r
+           → Set Function.∋ {!!}
            → Rational $ r ^ s
     R[R^r] = {!!}
     
