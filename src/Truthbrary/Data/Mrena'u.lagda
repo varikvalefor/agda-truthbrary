@@ -153,6 +153,7 @@ open import Function
     _-⟪_⟫-_;
     const;
     _∘₂_;
+    _∋_;
     _∘_;
     _$_
   )
@@ -929,7 +930,7 @@ module Veritas where
 
     R[R^r] : (r s : ℝ)
            → Rational r
-           → Set Function.∋ {!!}
+           → Set ∋ {!!}
            → Rational $ r ^ s
     R[R^r] = {!!}
     
@@ -939,7 +940,7 @@ module Veritas where
                      (fromℕ 1)
                      (fromℕ 2)
                      (_∘_
-                       (¬ (2 ≡ 0) Function.∋ λ ())
+                       (¬ (2 ≡ 0) ∋ λ ())
                        (Fromℕ.≈⇒≡ 2 0))))
     I[2^[1/2]] = {!!}
 \end{code}
