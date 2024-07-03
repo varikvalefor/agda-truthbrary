@@ -1166,10 +1166,10 @@ module Veritas where
         T⇒¬F refl ()
 
       ⊥⇒1 : ∀ {a} → {A : Set a}
-          → {x : A}
+          → (x : A)
           → (z : A)
           → x ≡ f x z false
-      ⊥⇒1 _ = refl
+      ⊥⇒1 _ _ = refl
 
       ⊤⇒2 : ∀ {a} → {A : Set a}
           → (x : A)
@@ -1178,7 +1178,7 @@ module Veritas where
       ⊤⇒2 _ = refl
 
     <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
-    <⇒1 r s z = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s z) (I.⊥⇒1 s)
+    <⇒1 r s z = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s z) (I.⊥⇒1 r s)
 
     ≥⇒2 : (r s : ℝ) → r ≥ s → s ≡ r ⊓ s
     ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.f r s) (I.≥⇒⊤ r s z) (I.⊤⇒2 r)
