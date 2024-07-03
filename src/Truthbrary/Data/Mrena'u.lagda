@@ -1095,6 +1095,9 @@ module Veritas where
           → r ≥ s
     +r≥-s = {!!}
 
+    ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
+    ¬≥⇒< = {!!}
+
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
     jonais r s with _>_.jonais r s
     ... | inj₁ z = inj₁ $ >⇒≥ z
