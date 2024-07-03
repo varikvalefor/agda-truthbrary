@@ -1180,7 +1180,7 @@ module Veritas where
     ≥⇒2 : (r s : ℝ) → r ≥ s → s ≡ r ⊓ s
     ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.f r s) (I.≥⇒⊤ r s z) (I.⊤⇒2 r)
 
-    ≈⇒1 : (r s : ℝ) → r ≈ s → r ≈ (r ⊓ s)
+    ≈⇒1 : {r s : ℝ} → r ≈ s → r ≈ (r ⊓ s)
     ≈⇒1 = {!!}
 
     ≈⇒2 : (r s : ℝ) → r ≈ s → s ≈ (r ⊓ s)
@@ -1198,7 +1198,7 @@ module Veritas where
     ... | inj₂ ml = inj₁ $ sym $ <⇒1 r s ml
 
     id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
-    id≡⊓⍨ r = _≈_.≈⇒≈⍨ $ ≈⇒1 _ _ $ _≈_.≡⇒≈ refl
+    id≡⊓⍨ r = _≈_.≈⇒≈⍨ $ ≈⇒1 $ _≈_.≡⇒≈ refl
 \end{code}
 
 \subsection{\lcblm{\F{fromℚ}}}
