@@ -1165,9 +1165,7 @@ module Veritas where
         T⇒¬F : {x : Bool} → true ≡ x → ¬_ $ false ≡ x
         T⇒¬F refl ()
 
-      ⊥⇒1 : ∀ {a} → {A : Set a}
-          → (x z : A)
-          → x ≡ f x z false
+      ⊥⇒1 : ∀ {a} → {A : Set a} → (x z : A) → x ≡ f x z false
       ⊥⇒1 _ _ = refl
 
       ⊤⇒2 : ∀ {a} → {A : Set a}
