@@ -1157,7 +1157,7 @@ module Veritas where
       ⊥⇒≤ : (r s : ℝ) → false ≡ _≥ᵇ_ r s → s ≥ r
       ⊥⇒≤ r s d with _≥_.jonais s r
       ... | inj₁ djm = djm
-      ... | inj₂ m = {!!}
+      ... | inj₂ m = d ⇒⇐ {!!}
 
       ⊥⇒1 : ∀ {a} → {A : Set a}
           → {x : A}
