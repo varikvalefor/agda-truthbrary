@@ -1154,7 +1154,7 @@ module Veritas where
           f
         )
 
-      ≥⇒⊤ : (r s : ℝ) → r ≥ s → true ≡ _≥ᵇ_ r s
+      ≥⇒⊤ : {r s : ℝ} → r ≥ s → true ≡ _≥ᵇ_ r s
       ≥⇒⊤ = {!!}
 
       ⊤⇒≥ : (r s : ℝ) → true ≡ _≥ᵇ_ r s → r ≥ s
@@ -1166,7 +1166,7 @@ module Veritas where
       ⊥⇒≤ : (r s : ℝ) → false ≡ _≥ᵇ_ r s → s ≥ r
       ⊥⇒≤ r s d with _≥_.jonais s r
       ... | inj₁ djm = djm
-      ... | inj₂ z = d ⇒⇐ T⇒¬F (≥⇒⊤ r s $ _≥_.>⇒≥ z)
+      ... | inj₂ z = d ⇒⇐ T⇒¬F (≥⇒⊤ {r} {s} $ _≥_.>⇒≥ z)
         where
         T⇒¬F : {x : Bool} → true ≡ x → ¬_ $ false ≡ x
         T⇒¬F refl ()
@@ -1184,7 +1184,7 @@ module Veritas where
     <⇒1 r s z = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s z) (I.⊥⇒1 r s)
 
     ≥⇒2 : (r s : ℝ) → r ≥ s → s ≡ r ⊓ s
-    ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.f r s) (I.≥⇒⊤ r s z) (I.⊤⇒2 r)
+    ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.f r s) (I.≥⇒⊤ z) (I.⊤⇒2 r)
 
     ≈⇒1 : {r s : ℝ} → r ≈ s → r ≈ (r ⊓ s)
     ≈⇒1 = {!!}
