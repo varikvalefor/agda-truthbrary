@@ -1180,7 +1180,7 @@ module Veritas where
           → z ≡ f x z true
       ⊤⇒2 _ = refl
 
-    <⇒1 : (r s : ℝ) → s > r → r ≡ r ⊓ s
+    <⇒1 : (r s : ℝ) → r < s → r ≡ r ⊓ s
     <⇒1 r s z = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s z) (I.⊥⇒1 r s)
 
     ≥⇒2 : (r s : ℝ) → r ≥ s → s ≡ r ⊓ s
