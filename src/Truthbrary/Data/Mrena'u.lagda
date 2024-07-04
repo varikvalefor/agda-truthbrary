@@ -1189,7 +1189,7 @@ module Veritas where
     ≈⇒1 : {r s : ℝ} → r ≈ s → r ≈ (r ⊓ s)
     ≈⇒1 = {!!}
 
-    ≈⇒2 : (r s : ℝ) → r ≈ s → s ≈ (r ⊓ s)
+    ≈⇒2 : {r s : ℝ} → r ≈ s → s ≈ (r ⊓ s)
     ≈⇒2 = {!!}
 
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
