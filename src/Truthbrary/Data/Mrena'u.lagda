@@ -730,7 +730,7 @@ module Veritas where
     0≈r-r r = 0≈r-s r r $ _≈_.≡⇒≈ refl
 
     r≈-r⇒r≈0 : (r : ℝ)
-             → r ≈_ $ fromℕ 0 - r
+             → r ≈_ $ ¯ r
              → r ≈ fromℕ 0
     r≈-r⇒r≈0 = {!!}
 
