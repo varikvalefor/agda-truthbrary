@@ -1131,7 +1131,7 @@ module Veritas where
     ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ ∘ ∣_∣≡∣_∣∘∣_∣
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
-    ≈⇒∣_∣≈ {r} {s} with sign r , sign s
+    ≈⇒∣_∣≈ {r} {s} d with sign r , sign s
     ... | Sign.+ , Sign.+ = {!!}
     ... | Sign.+ , Sign.- = {!!}
     ... | Sign.- , Sign.+ = {!!}
