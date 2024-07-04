@@ -1197,8 +1197,8 @@ module Veritas where
     ... | inj₁ djm = inj₂ $ sym $ ≥⇒2 r s djm
     ... | inj₂ ml = inj₁ $ sym $ <⇒1 r s ml
 
-    id≡⊓⍨ : Algebra.Idempotent _≈_ _⊓_
-    id≡⊓⍨ r = _≈_.≈⇒≈⍨ $ ≈⇒1 $ _≈_.≡⇒≈ refl
+    id≈⊓⍨ : Algebra.Idempotent _≈_ _⊓_
+    id≈⊓⍨ r = _≈_.≈⇒≈⍨ $ ≈⇒1 $ _≈_.≡⇒≈ refl
 \end{code}
 
 \subsection{\lcblm{\F{fromℚ}}}
