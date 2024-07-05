@@ -646,8 +646,7 @@ module Veritas where
       where
       ℤ→ℚ : ℤ → ℚ
       ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
-      fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ)
-                      → fromℤ z ≈ fromℚ (ℤ→ℚ z)
+      fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
       fromℤ≈fromℚ∘ℤ→ℚ = {!!}
 \end{code}
 
