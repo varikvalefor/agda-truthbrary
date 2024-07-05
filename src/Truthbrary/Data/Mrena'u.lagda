@@ -642,9 +642,9 @@ module Veritas where
 \begin{code}
   module Fromℤ where
     fromℤ-Rational : (z : ℤ) → Rational $ fromℤ z
-    fromℤ-Rational z = f , {!!}
+    fromℤ-Rational z = z' , {!!}
       where
-      f = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
+      z' = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
 \end{code}
 
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
