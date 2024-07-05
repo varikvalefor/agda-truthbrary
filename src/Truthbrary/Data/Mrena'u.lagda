@@ -637,6 +637,14 @@ module Veritas where
     fromℕ≥0 (ℕ.suc n) = inj₂ {!!}
 \end{code}
 
+\subsection{\lcblm{\F{fromℤ}}}
+
+\begin{code}
+  module Fromℤ where
+    fromℤ-Rational : (z : ℤ) → Rational $ fromℤ z
+    fromℤ-Rational = {!!}
+\end{code}
+
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
 
 \begin{code}
