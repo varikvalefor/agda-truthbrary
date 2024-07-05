@@ -545,7 +545,7 @@ module Veritas where
              → (n : ℕ)
              → (_≈_
                  (fromℝ- s n $ const 9F)
-                 (s , (ℕ.suc n) , const 𝔽.zero))
+                 (fromℝ- s (ℕ.suc n) $ const 𝔽.zero))
     n,9+≈n+1 = {!!}
 
     9≈ : (r s : ℝ)
