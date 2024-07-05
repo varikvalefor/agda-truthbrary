@@ -1095,6 +1095,13 @@ module Veritas where
     ≥∧¬>⇒≈ (inj₁ d) N = d
     ≥∧¬>⇒≈ (inj₂ z) N = z ⇒⇐ N
 
+    +r>-s : {r s : ℝ}
+          → ¬_ $ r ≈ fromℕ 0 × s ≈ fromℕ 0
+          → sign r ≡ Sign.+
+          → sign s ≡ Sign.-
+          → r > s
+    +r>-s = {!!}
+
     +r≥-s : {r s : ℝ}
           → sign r ≡ Sign.+
           → sign s ≡ Sign.-
