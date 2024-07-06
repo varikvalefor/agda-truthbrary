@@ -1183,7 +1183,11 @@ module Veritas where
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
     ≈⇒∣_∣≈ {r} {s} d with sign r , sign s
-    ... | Sign.+ , Sign.+ = _≈_.≡⇒≈ {!!}
+    ... | Sign.+ , Sign.+ = begin
+      ∣ r ∣ ≈⟨ {!!} ⟩
+      ∣ s ∣ ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     ... | Sign.+ , Sign.- = {!!}
     ... | Sign.- , Sign.+ = {!!}
     ... | Sign.- , Sign.- = {!!}
