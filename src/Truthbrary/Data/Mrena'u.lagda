@@ -891,10 +891,12 @@ module Veritas where
   module Frinu where
     module I where
       r>1⇒r≉0 : (r : ℝ) → r > fromℕ 1 → ¬_ $ r ≈ fromℕ 0
-      r>1⇒r≉0 r zm = >⇒≉ r _ {!!}
+      r>1⇒r≉0 r zm = >⇒≉ r _ $ r>1⇒r>0 {r} zm
         where
         >⇒≉ : (r s : ℝ) → r > s → ¬_ $ r ≈ s
         >⇒≉ = {!!}
+        r>1⇒r>0 : {r : ℝ} → r > fromℕ 1 → r > fromℕ 0
+        r>1⇒r>0 = {!!}
 
     sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
     sez≡1 = {!!}
