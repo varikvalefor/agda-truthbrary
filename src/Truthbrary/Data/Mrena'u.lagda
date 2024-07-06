@@ -666,7 +666,6 @@ module Veritas where
 
 \begin{code}
   module ¯_ where
-
     r>0⇒¯r≈¯r : (r : ℝ)
               → r > fromℕ 0
               → (¯ r) ≈ fromℝ- Sign.- ℤ.∣ ⌊' r ∣ (⌊'⁻¹ r)
