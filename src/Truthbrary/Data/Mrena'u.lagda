@@ -567,6 +567,13 @@ module Veritas where
           → r ≈ s
     ¬∃⇒≈ = {!!}
 
+    ≈⇒¬∃ : (r s : ℝ)
+          → r ≈ s
+          → (¬_ $ ∃ $ λ t → _×_
+              (¬_ $ t ≈ fromℕ 0)
+              (r ≈ (s + t)))
+    ≈⇒¬∃ = {!!}
+
     ∣r-s∣>0⇒r≉s : (r s : ℝ)
                 → ∣ r - s ∣ > fromℕ 0
                 → ¬_ $ r ≈ s
