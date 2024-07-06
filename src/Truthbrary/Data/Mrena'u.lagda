@@ -1283,7 +1283,7 @@ module Veritas where
     toℚ∘fromℤ : (z : ℤ)
               → let C = Coprime.sym $ Coprime.1-coprimeTo ℤ.∣ z ∣ in
                 (_≡_
-                  (toℚ {fromℤ z} {!!})
+                  (toℚ {fromℤ z} $ Fromℤ.fromℤ-Rational z)
                   (ℚ.mkℚ z 0 C))
     toℚ∘fromℤ = {!!}
 \end{code}
