@@ -667,22 +667,22 @@ module Veritas where
 \begin{code}
   module ¯_ where
 
-  r>0⇒¯r≈¯r : (r : ℝ)
-            → r > fromℕ 0
-            → (¯ r) ≈ fromℝ- Sign.- ℤ.∣ ⌊' r ∣ (⌊'⁻¹ r)
-  r>0⇒¯r≈¯r = {!!}
+    r>0⇒¯r≈¯r : (r : ℝ)
+              → r > fromℕ 0
+              → (¯ r) ≈ fromℝ- Sign.- ℤ.∣ ⌊' r ∣ (⌊'⁻¹ r)
+    r>0⇒¯r≈¯r = {!!}
 
-  r<0⇒¯r≈∣r∣ : (r : ℝ) → fromℕ 0 > r → (¯ r) ≈ ∣ r ∣
-  r<0⇒¯r≈∣r∣ = {!!}
+    r<0⇒¯r≈∣r∣ : (r : ℝ) → fromℕ 0 > r → (¯ r) ≈ ∣ r ∣
+    r<0⇒¯r≈∣r∣ = {!!}
 
-  r-¯s≈r+s : (r s : ℝ) → (r - (¯ s)) ≈ (r + s)
-  r-¯s≈r+s = {!!}
+    r-¯s≈r+s : (r s : ℝ) → (r - (¯ s)) ≈ (r + s)
+    r-¯s≈r+s = {!!}
 
-  R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
-  R[¯R] = {!!}
+    R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
+    R[¯R] = {!!}
 
-  I[¯I] : (r : ℝ) → Irrational r → Irrational $ ¯ r
-  I[¯I] = {!!}
+    I[¯I] : (r : ℝ) → Irrational r → Irrational $ ¯ r
+    I[¯I] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}+\AgdaUnderscore}}}
