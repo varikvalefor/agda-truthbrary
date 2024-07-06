@@ -1186,7 +1186,7 @@ module Veritas where
     ... | Sign.+ , Sign.+ = begin
       ∣ r ∣ ≈⟨ _≈_.≡⇒≈ $ sym $ +r≡∣+r∣ r {!!} ⟩
       r ≈⟨ d ⟩
-      s ≈⟨ {!!} ⟩
+      s ≈⟨ _≈_.≡⇒≈ $ +r≡∣+r∣ s {!!} ⟩
       ∣ s ∣ ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
