@@ -656,10 +656,12 @@ module Veritas where
       fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
       fromℤ≈fromℚ∘ℤ→ℚ = λ z → _≈_.≈⇒≈⍨ $ begin
         fromℚ (ℤ→ℚ z) ≈⟨ {!!} ⟩
-        frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ {!!} ⟩
+        frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.≡⇒≈ $ sym $ r≡r/1 $ fromℤ z ⟩
         fromℤ z ∎
         where
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+        r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
+        r≡r/1 = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
