@@ -654,7 +654,11 @@ module Veritas where
       ℤ→ℚ : ℤ → ℚ
       ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
       fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
-      fromℤ≈fromℚ∘ℤ→ℚ = {!!}
+      fromℤ≈fromℚ∘ℤ→ℚ = λ z → _≈_.≈⇒≈⍨ $ begin
+        fromℚ (ℤ→ℚ z) ≈⟨ {!!} ⟩
+        fromℤ z ∎
+        where
+        open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 \end{code}
 
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
