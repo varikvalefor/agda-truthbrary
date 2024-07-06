@@ -972,6 +972,12 @@ module Veritas where
                   → r ≈_ $ (r ^ s) ^ frinu (fromℕ 1) s N
     r≈[r^s]^[1/s] = {!!}
 
+    R[R^ℕ] : (r : ℝ)
+           → (n : ℕ)
+           → Rational r
+           → Rational $ r ^ fromℕ n
+    R[R^ℕ] = {!!}
+
     R[R^r] : (r s : ℝ)
            → Set Function.∋ {!!}
            → Rational r → Rational $ r ^ s
