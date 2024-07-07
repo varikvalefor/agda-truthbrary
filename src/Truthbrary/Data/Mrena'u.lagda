@@ -781,6 +781,7 @@ module Veritas where
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
     r≈0-[0-r] = λ r → _≈_.≈⇒≈⍨ $ begin
       fromℕ 0 - (fromℕ 0 - r) ≈⟨ {!!} ⟩
+      fromℕ 0 - (¯ r) ≈⟨ {!!} ⟩
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
