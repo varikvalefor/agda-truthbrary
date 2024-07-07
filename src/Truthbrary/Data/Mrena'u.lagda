@@ -655,7 +655,8 @@ module Veritas where
       ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
       fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
       fromℤ≈fromℚ∘ℤ→ℚ = λ z → _≈_.≈⇒≈⍨ $ begin
-        fromℚ (ℤ→ℚ z) ≈⟨ {!!} ⟩
+        fromℚ (ℤ→ℚ z) ≈⟨ _≈_.r≈r _ ⟩
+        fromℚ (ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)) ≈⟨ {!!} ⟩
         frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r _ ⟩
         _ ≈⟨ _≈_.≡⇒≈ $ sym $ r≡r/1 $ fromℤ z ⟩
         fromℤ z ∎
