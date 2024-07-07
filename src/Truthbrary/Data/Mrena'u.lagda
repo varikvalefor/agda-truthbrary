@@ -1163,7 +1163,7 @@ module Veritas where
     ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
     ¬≥⇒< {r} {s} N with jonais r s
     ... | inj₁ djm = djm ⇒⇐ N
-    ... | inj₂ m = {!!}
+    ... | inj₂ m = m
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
