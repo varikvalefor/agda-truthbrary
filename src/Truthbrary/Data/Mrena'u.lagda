@@ -889,7 +889,7 @@ module Veritas where
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
 
-    r*s≈r'*s' : (r r' s s' : ℝ)
+    r*s≈r'*s' : {r r' s s' : ℝ}
               → r ≈ r'
               → s ≈ s'
               → (r * s) ≈ (r' * s')
@@ -898,7 +898,7 @@ module Veritas where
     *-magma : Algebra.IsMagma _≈_ _*_
     *-magma = record {
       isEquivalence = _≈_.isEquivalence;
-      ∙-cong = r*s≈r'*s' _ _ _ _}
+      ∙-cong = r*s≈r'*s'}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
