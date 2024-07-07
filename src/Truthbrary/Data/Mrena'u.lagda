@@ -907,9 +907,9 @@ module Veritas where
   module Frinu where
     module I where
       r>1⇒r≉0 : (r : ℝ) → r > fromℕ 1 → ¬_ $ r ≈ fromℕ 0
-      r>1⇒r≉0 r = >⇒≉ _ _ ∘ r>1⇒r>0 {r}
+      r>1⇒r≉0 r = >⇒≉ ∘ r>1⇒r>0 {r}
         where
-        >⇒≉ : (r s : ℝ) → r > s → ¬_ $ r ≈ s
+        >⇒≉ : {r s : ℝ} → r > s → ¬_ $ r ≈ s
         >⇒≉ = {!!}
         r>1⇒r>0 : {r : ℝ} → r > fromℕ 1 → r > fromℕ 0
         r>1⇒r>0 = {!!}
