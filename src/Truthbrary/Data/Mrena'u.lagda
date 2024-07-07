@@ -1162,7 +1162,7 @@ module Veritas where
 
     ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
     ¬≥⇒< {r} {s} N with jonais r s
-    ... | inj₁ djm = {!!}
+    ... | inj₁ djm = djm ⇒⇐ N
     ... | inj₂ m = {!!}
 \end{code}
 
