@@ -1148,9 +1148,6 @@ module Veritas where
           → r ≥ s
     +r≥-s = {!!}
 
-    ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
-    ¬≥⇒< = {!!}
-
     ⌊'r≥⌊'s⇒r≥s : {r s : ℝ}
                 → ⌊' r ℤ.≥ ⌊' s
                 → sign s ≡ Sign.+ ⊎ s ≈ fromℕ 0
@@ -1162,6 +1159,9 @@ module Veritas where
     ... | inj₁ z = inj₁ $ >⇒≥ z
     ... | inj₂ (inj₁ m) = inj₂ m
     ... | inj₂ (inj₂ d) = inj₁ $ inj₁ d
+
+    ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
+    ¬≥⇒< = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
