@@ -778,11 +778,11 @@ module Veritas where
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
     r≈[r-s]+s = {!!}
 
-    r*s≈r'*s' : (r r' s s' : ℝ)
+    r-s≈r'-s' : (r r' s s' : ℝ)
               → r ≈ r'
               → s ≈ s'
               → (r - s) ≈ (r' - s')
-    r*s≈r'*s' = {!!}
+    r-s≈r'-s' = {!!}
 
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
     r≈0-[0-r] = λ r → _≈_.≈⇒≈⍨ $ begin
