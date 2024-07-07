@@ -158,6 +158,7 @@ open import Function
     _$_
   )
   renaming (
+    _|>_ to _▹_;
     flip to _⍨
   )
 open import Data.Bool
@@ -637,7 +638,7 @@ module Veritas where
       where
       c = Coprime.sym $ 1-coprimeTo _
 
-    id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡_ $ ℤ.∣_∣ $ ⌊' $ fromℕ n
+    id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡ ℤ.∣ ⌊' $ fromℕ n ∣
     id≡∣_∣∘⌊'∘fromℕ _ = refl
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
@@ -656,7 +657,8 @@ module Veritas where
       ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
       fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
       fromℤ≈fromℚ∘ℤ→ℚ = λ z → _≈_.≈⇒≈⍨ $ begin
-        fromℚ (ℤ→ℚ z) ≈⟨ {!!} ⟩
+        fromℚ (ℤ→ℚ z) ≈⟨ _≈_.r≈r _ ⟩
+        fromℚ (ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)) ≈⟨ _≈_.r≈r _ ⟩
         frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r _ ⟩
         _ ≈⟨ _≈_.≡⇒≈ $ sym $ r≡r/1 $ fromℤ z ⟩
         fromℤ z ∎
@@ -721,10 +723,6 @@ module Veritas where
     r≡r₂+r₁ : (r : ℝ) → r ≡_ $ ⌊'⁻¹ℝ r + fromℤ (⌊' r)
     r≡r₂+r₁ = {!!}
 
-    rn+sn≡[r+s]n : (z₁ z₂ : ℤ)
-                 → fromℤ (z₁ ℤ.+ z₂) ≡ fromℤ z₁ + fromℤ z₂
-    rn+sn≡[r+s]n = {!!}
-
     r≡f+z : (s : Sign)
           → (n : ℕ)
           → (f : ℕ → Digit 10)
@@ -747,6 +745,9 @@ module Veritas where
 
     r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈_ $ r + s
     r≉r+s = {!!}
+
+    r≈r+s⇒s≈0 : (r s : ℝ) → r ≈_ $ r + s → s ≈ fromℕ 0
+    r≈r+s⇒s≈0 = {!!}
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
     R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ D
@@ -779,8 +780,21 @@ module Veritas where
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
     r≈[r-s]+s = {!!}
 
+    r-s≈r'-s' : {r r' s s' : ℝ}
+              → r ≈ r'
+              → s ≈ s'
+              → (r - s) ≈ (r' - s')
+    r-s≈r'-s' = {!!}
+
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
-    r≈0-[0-r] = {!!}
+    r≈0-[0-r] = λ r → _≈_.≈⇒≈⍨ $ begin
+      fromℕ 0 - (fromℕ 0 - r) ≈⟨ _≈_.r≈r _ ⟩
+      _ ≈⟨ r-s≈r'-s' (_≈_.r≈r $ fromℕ 0) (-r≈0-r r) ▹ _≈_.≈⇒≈⍨ ⟩
+      fromℕ 0 - (¯ r) ≈⟨ -r≈0-r (¯ r) ▹ _≈_.≈⇒≈⍨ ⟩
+      ¯ (¯ r) ≈⟨ {!!} ⟩
+      r ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     0≈r+[0-r] : (r 0' : ℝ)
               → 0' ≈ fromℕ 0
@@ -876,16 +890,16 @@ module Veritas where
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
 
-    a*b≈a'*b' : (a a' b b' : ℝ)
-              → a ≈ a'
-              → b ≈ b'
-              → (a * b) ≈ (a' * b')
-    a*b≈a'*b' = {!!}
+    r*s≈r'*s' : {r r' s s' : ℝ}
+              → r ≈ r'
+              → s ≈ s'
+              → (r * s) ≈ (r' * s')
+    r*s≈r'*s' = {!!}
 
     *-magma : Algebra.IsMagma _≈_ _*_
     *-magma = record {
       isEquivalence = _≈_.isEquivalence;
-      ∙-cong = a*b≈a'*b' _ _ _ _}
+      ∙-cong = r*s≈r'*s'}
 \end{code}
 
 \subsection{\lcblm{\F{frinu}}}
@@ -894,9 +908,9 @@ module Veritas where
   module Frinu where
     module I where
       r>1⇒r≉0 : (r : ℝ) → r > fromℕ 1 → ¬_ $ r ≈ fromℕ 0
-      r>1⇒r≉0 r = >⇒≉ r _ ∘ r>1⇒r>0 {r}
+      r>1⇒r≉0 r = >⇒≉ ∘ r>1⇒r>0 {r}
         where
-        >⇒≉ : (r s : ℝ) → r > s → ¬_ $ r ≈ s
+        >⇒≉ : {r s : ℝ} → r > s → ¬_ $ r ≈ s
         >⇒≉ = {!!}
         r>1⇒r>0 : {r : ℝ} → r > fromℕ 1 → r > fromℕ 0
         r>1⇒r>0 = {!!}
@@ -1094,6 +1108,9 @@ module Veritas where
     >∧>⇒> : Transitive _>_
     >∧>⇒> = {!!}
 
+    fromℕ>fromℕ : (m n : ℕ) → m ℕ.> n → fromℕ m > fromℕ n
+    fromℕ>fromℕ = {!!}
+
     >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
     >ℤ⇒> = {!!}
 
@@ -1153,9 +1170,6 @@ module Veritas where
           → r ≥ s
     +r≥-s = {!!}
 
-    ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
-    ¬≥⇒< = {!!}
-
     ⌊'r≥⌊'s⇒r≥s : {r s : ℝ}
                 → ⌊' r ℤ.≥ ⌊' s
                 → sign s ≡ Sign.+ ⊎ s ≈ fromℕ 0
@@ -1167,6 +1181,11 @@ module Veritas where
     ... | inj₁ z = inj₁ $ >⇒≥ z
     ... | inj₂ (inj₁ m) = inj₂ m
     ... | inj₂ (inj₂ d) = inj₁ $ inj₁ d
+
+    ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
+    ¬≥⇒< {r} {s} N with jonais r s
+    ... | inj₁ djm = djm ⇒⇐ N
+    ... | inj₂ m = m
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
