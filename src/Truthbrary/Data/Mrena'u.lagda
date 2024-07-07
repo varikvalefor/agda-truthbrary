@@ -157,6 +157,7 @@ open import Function
     _$_
   )
   renaming (
+    _|>_ to _▹_;
     flip to _⍨
   )
 open import Data.Bool
@@ -787,7 +788,7 @@ module Veritas where
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
     r≈0-[0-r] = λ r → _≈_.≈⇒≈⍨ $ begin
       fromℕ 0 - (fromℕ 0 - r) ≈⟨ _≈_.r≈r _ ⟩
-      _ ≈⟨ _≈_.≈⇒≈⍨ $ r-s≈r'-s' (_≈_.r≈r $ fromℕ 0) $ -r≈0-r r ⟩
+      _ ≈⟨ r-s≈r'-s' (_≈_.r≈r $ fromℕ 0) (-r≈0-r r) ▹ _≈_.≈⇒≈⍨ ⟩
       fromℕ 0 - (¯ r) ≈⟨ {!!} ⟩
       ¯ (¯ r) ≈⟨ {!!} ⟩
       r ∎
