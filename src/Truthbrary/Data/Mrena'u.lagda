@@ -1161,7 +1161,9 @@ module Veritas where
     ... | inj₂ (inj₂ d) = inj₁ $ inj₁ d
 
     ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
-    ¬≥⇒< = {!!}
+    ¬≥⇒< {r} {s} N with jonais r s
+    ... | inj₁ djm = {!!}
+    ... | inj₂ m = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
