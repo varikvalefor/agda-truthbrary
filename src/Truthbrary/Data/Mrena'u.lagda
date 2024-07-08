@@ -1287,7 +1287,11 @@ module Veritas where
       s ⊓ r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-    ... | inj₂ m = {!!}
+    ... | inj₂ m = begin
+      r ⊓ s ≈⟨ {!!} ⟩
+      s ⊓ r ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass = {!!}
