@@ -1224,7 +1224,7 @@ module Veritas where
 
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
     I[∣I∣] r R with sign r
-    ... | Sign.+ = subst Irrational {!!} R
+    ... | Sign.+ = subst Irrational (+r≡∣+r∣ r {!!}) R
     ... | Sign.- = {!!}
 \end{code}
 
