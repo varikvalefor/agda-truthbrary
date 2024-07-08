@@ -525,8 +525,8 @@ module Veritas where
     ≡⇒≈ : {r s : ℝ} → r ≡ s → r ≈ s
     ≡⇒≈ refl = ≡∧≗⇒≈ refl $ λ _ → refl
 
-    r≈r : (r : ℝ) → r ≈ r
-    r≈r _ = ≡⇒≈ refl
+    r≈r : {r : ℝ} → r ≈ r
+    r≈r = ≡⇒≈ refl
 
     ≈⇒≈⍨ : {r s : ℝ} → r ≈ s → s ≈ r
     ≈⇒≈⍨ = {!!}
@@ -600,7 +600,7 @@ module Veritas where
 
     isEquivalence : Relation.Binary.IsEquivalence _≈_
     isEquivalence = record {
-      refl = r≈r _;
+      refl = r≈r;
       sym = ≈⇒≈⍨;
       trans = ≈∧≈⇒≈}
 
@@ -656,9 +656,9 @@ module Veritas where
       ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
       fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
       fromℤ≈fromℚ∘ℤ→ℚ z = _≈_.≈⇒≈⍨ $ begin
-        fromℚ (ℤ→ℚ z) ≈⟨ _≈_.r≈r _ ⟩
-        fromℚ (ℚ.mkℚ z 0 C) ≈⟨ _≈_.r≈r _ ⟩
-        frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r _ ⟩
+        fromℚ (ℤ→ℚ z) ≈⟨ _≈_.r≈r ⟩
+        fromℚ (ℚ.mkℚ z 0 C) ≈⟨ _≈_.r≈r ⟩
+        frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r ⟩
         _ ≈⟨ _≈_.≡⇒≈ $ sym $ r≡r/1 $ fromℤ z ⟩
         fromℤ z ∎
         where
@@ -788,8 +788,8 @@ module Veritas where
 
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
     r≈0-[0-r] = λ r → _≈_.≈⇒≈⍨ $ begin
-      fromℕ 0 - (fromℕ 0 - r) ≈⟨ _≈_.r≈r _ ⟩
-      _ ≈⟨ r-s≈r'-s' (_≈_.r≈r $ fromℕ 0) (-r≈0-r r) ▹ _≈_.≈⇒≈⍨ ⟩
+      fromℕ 0 - (fromℕ 0 - r) ≈⟨ _≈_.r≈r ⟩
+      _ ≈⟨ r-s≈r'-s' (_≈_.r≈r {fromℕ 0}) (-r≈0-r r) ▹ _≈_.≈⇒≈⍨ ⟩
       fromℕ 0 - (¯ r) ≈⟨ -r≈0-r (¯ r) ▹ _≈_.≈⇒≈⍨ ⟩
       ¯ (¯ r) ≈⟨ {!!} ⟩
       r ∎
