@@ -1221,6 +1221,9 @@ module Veritas where
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
     R[∣R∣] = {!!}
 
+    R[∣r∣]⇒R[r] : (r : ℝ) → Rational ∣ r ∣ → Rational r
+    R[∣r∣]⇒R[r] = {!!}
+
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
     I[∣I∣] = {!!}
 \end{code}
