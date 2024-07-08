@@ -1150,7 +1150,7 @@ module Veritas where
 
     ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
     ≥∧¬>⇒≈ (inj₁ d) N = d
-    ≥∧¬>⇒≈ (inj₂ z) N = z ⇒⇐ N
+    ≥∧¬>⇒≈ (inj₂ z) = z ⇒⇐_
 
     +r>-s : {r s : ℝ}
           → ¬_ $ r ≈ fromℕ 0 × s ≈ fromℕ 0
