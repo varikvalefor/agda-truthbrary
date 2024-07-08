@@ -1148,8 +1148,7 @@ module Veritas where
     ≥∧≉⇒> x N = _⊎_.[_,_] (_⇒⇐ N) Function.id x
 
     ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
-    ≥∧¬>⇒≈ (inj₁ d) N = d
-    ≥∧¬>⇒≈ (inj₂ z) = z ⇒⇐_
+    ≥∧¬>⇒≈ x N = _⊎_.[_,_] Function.id (_⇒⇐ N) x
 
     +r>-s : {r s : ℝ}
           → ¬_ $ r ≈ fromℕ 0 × s ≈ fromℕ 0
