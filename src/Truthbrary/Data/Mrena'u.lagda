@@ -1219,7 +1219,7 @@ module Veritas where
     jonais = {!!}
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
-    R[∣R∣] = {!!}
+    R[∣R∣] = λ r (r' , d) → ℚ.∣ r' ∣ , {!!}
 
     R[∣r∣]⇒R[r] : (r : ℝ) → Rational ∣ r ∣ → Rational r
     R[∣r∣]⇒R[r] = {!!}
