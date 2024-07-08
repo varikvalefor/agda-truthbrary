@@ -483,14 +483,14 @@ ni'o la'o zoi.\ \B r \OpF ⊓ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B 
 
 \begin{code}
 module _⊓_I where
-  f : ∀ {a} → {A : Set a} → A → A → Bool → A
-  f r s n = if n then s else r
+  bool' : ∀ {a} → {A : Set a} → A → A → Bool → A
+  bool' r s n = if n then s else r
 
   _≥ᵇ_ : ℝ → ℝ → Bool
   _≥ᵇ_ = {!!}
 
 _⊓_ : ℝ → ℝ → ℝ
-_⊓_ r s = f r s $ _≥ᵇ_ r s
+_⊓_ r s = bool' r s $ _≥ᵇ_ r s
   where
   open _⊓_I
 \end{code}
@@ -500,7 +500,7 @@ ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B
 
 \begin{code}
 _⊔_ : ℝ → ℝ → ℝ
-_⊔_ r s = _⊓_I.f s r $ _⊓_I._≥ᵇ_ r s
+_⊔_ r s = _⊓_I.bool' s r $ _⊓_I._≥ᵇ_ r s
 \end{code}
 
 \section{le ctaipe be le su'u mapti}
@@ -1238,7 +1238,7 @@ module Veritas where
       open _⊓_I
         using (
           _≥ᵇ_;
-          f
+          bool'
         )
 
       ≥⇒⊤ : {r s : ℝ} → r ≥ s → true ≡ _≥ᵇ_ r s
@@ -1258,20 +1258,20 @@ module Veritas where
         T⇒¬F : {x : Bool} → true ≡ x → ¬_ $ false ≡ x
         T⇒¬F refl ()
 
-      ⊥⇒1 : ∀ {a} → {A : Set a} → (x z : A) → x ≡ f x z false
+      ⊥⇒1 : ∀ {a} → {A : Set a} → (x z : A) → x ≡ bool' x z false
       ⊥⇒1 _ _ = refl
 
       ⊤⇒2 : ∀ {a} → {A : Set a}
           → (x : A)
           → {z : A}
-          → z ≡ f x z true
+          → z ≡ bool' x z true
       ⊤⇒2 _ = refl
 
     <⇒1 : (r s : ℝ) → r < s → r ≡ r ⊓ s
-    <⇒1 r s m = subst (_≡_ r ∘ _⊓_I.f r s) (I.<⇒⊥ r s m) (I.⊥⇒1 r s)
+    <⇒1 r s m = subst (_≡_ r ∘ _⊓_I.bool' r s) (I.<⇒⊥ r s m) (I.⊥⇒1 r s)
 
     ≥⇒2 : (r s : ℝ) → r ≥ s → s ≡ r ⊓ s
-    ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.f r s) (I.≥⇒⊤ z) (I.⊤⇒2 r)
+    ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.bool' r s) (I.≥⇒⊤ z) (I.⊤⇒2 r)
 
     ≈⇒1 : {r s : ℝ} → r ≈ s → r ≈ (r ⊓ s)
     ≈⇒1 = {!!}
