@@ -657,11 +657,12 @@ module Veritas where
       fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
       fromℤ≈fromℚ∘ℤ→ℚ z = _≈_.≈⇒≈⍨ $ begin
         fromℚ (ℤ→ℚ z) ≈⟨ _≈_.r≈r _ ⟩
-        fromℚ (ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)) ≈⟨ _≈_.r≈r _ ⟩
+        fromℚ (ℚ.mkℚ z 0 C) ≈⟨ _≈_.r≈r _ ⟩
         frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r _ ⟩
         _ ≈⟨ _≈_.≡⇒≈ $ sym $ r≡r/1 $ fromℤ z ⟩
         fromℤ z ∎
         where
+        C = Coprime.sym $ 1-coprimeTo _
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
         r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
         r≡r/1 = {!!}
