@@ -1145,8 +1145,7 @@ module Veritas where
     ≥⇒¬< = {!!}
 
     ≥∧≉⇒> : {r s : ℝ} → r ≥ s → ¬_ $ r ≈ s → r > s
-    ≥∧≉⇒> (inj₁ d) N = d ⇒⇐ N
-    ≥∧≉⇒> (inj₂ z) N = z
+    ≥∧≉⇒> x N = _⊎_.[_,_] (_⇒⇐ N) Function.id x
 
     ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
     ≥∧¬>⇒≈ (inj₁ d) N = d
