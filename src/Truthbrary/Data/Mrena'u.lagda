@@ -1281,7 +1281,11 @@ module Veritas where
 
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
     ⊓≈⊓⍨ r s with _≥_.jonais r s
-    ... | inj₁ djm = {!!}
+    ... | inj₁ djm = begin
+      r ⊓ s ≈⟨ {!!} ⟩
+      s ⊓ r ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     ... | inj₂ m = {!!}
 
     ⊓-ass : Associative _≈_ _⊓_
