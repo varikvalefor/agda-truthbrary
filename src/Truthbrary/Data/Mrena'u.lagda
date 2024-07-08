@@ -1225,7 +1225,7 @@ module Veritas where
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
     I[∣I∣] r R with sign r
     ... | Sign.+ = subst Irrational (+r≡∣+r∣ r {!!}) R
-    ... | Sign.- = {!!}
+    ... | Sign.- = subst Irrational {!!} $ ¯_.I[¯I] r R
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
