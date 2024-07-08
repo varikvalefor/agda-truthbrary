@@ -1288,7 +1288,7 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     ... | inj₂ m = begin
-      r ⊓ s ≈⟨ {!!} ⟩
+      r ⊓ s ≈⟨ <⇒1 r s m ▹ sym ▹ _≈_.≡⇒≈ ⟩
       r ≈⟨ {!!} ⟩
       s ⊓ r ∎
       where
