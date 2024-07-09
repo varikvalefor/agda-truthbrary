@@ -999,9 +999,10 @@ module Veritas where
     R[R^ℕ] r 0 R = _,_ ℚ.1ℚ $ begin
       r ^ fromℕ 0 ≈⟨ 1≡r^0 r _ _≈_.r≈r ▹ sym ▹ _≈_.≡⇒≈ ⟩
       fromℕ 1 ≈⟨ Fromℕ.fromℕ-fromℚ 1 ⟩
-      fromℚ (ℚ.mkℚ (ℤ.+ 1) 0 (Coprime.sym $ 1-coprimeTo _)) ≈⟨ _≈_.r≈r ⟩
+      fromℚ (ℚ.mkℚ (ℤ.+ 1) 0 C) ≈⟨ _≈_.r≈r ⟩
       fromℚ ℚ.1ℚ ∎
       where
+      C = Coprime.sym $ 1-coprimeTo _
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     R[R^ℕ] r (ℕ.suc n) R = proj₁ R ℚ.* proj₁ (R[R^ℕ] r n R) , {!!}
 
