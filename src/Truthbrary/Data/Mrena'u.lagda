@@ -526,7 +526,7 @@ module Veritas where
     ≡⇒≈ : _≡_ ⇒ _≈_
     ≡⇒≈ = inj₁
 
-    r≈r : {r : ℝ} → r ≈ r
+    r≈r : Reflexive _≈_
     r≈r = ≡⇒≈ refl
 
     ≈⇒≈⍨ : {r s : ℝ} → r ≈ s → s ≈ r
