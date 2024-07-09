@@ -980,7 +980,7 @@ module Veritas where
     0≈0^r = {!!}
 
     1≡0^0 : fromℕ 1 ≡ fromℕ 0 ^ fromℕ 0
-    1≡0^0 = 1≡r^0 0' 0' $ _≈_.≡⇒≈ refl
+    1≡0^0 = 1≡r^0 0' _ $ _≈_.≡⇒≈ refl
       where
       0' = fromℕ 0
 
