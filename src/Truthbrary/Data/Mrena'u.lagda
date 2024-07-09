@@ -1273,7 +1273,9 @@ module Veritas where
       ⊤⇒2 _ = refl
 
     <⇒1 : (r s : ℝ) → r < s → r ≡ r ⊓ s
-    <⇒1 r s m = subst (_≡_ r ∘ _⊓_I.bool' r s) (I.<⇒⊥ r s m) (I.⊥⇒1 r s)
+    <⇒1 r s m = subst (_≡_ r ∘ _⊓_I.bool' r s) (I.<⇒⊥ r s m) 1'
+      where
+      1' = I.⊥⇒1 r s
 
     ≥⇒2 : (r s : ℝ) → r ≥ s → s ≡ r ⊓ s
     ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.bool' r s) (I.≥⇒⊤ z) (I.⊤⇒2 r)
