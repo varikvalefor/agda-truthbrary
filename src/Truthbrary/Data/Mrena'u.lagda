@@ -994,7 +994,11 @@ module Veritas where
            → (n : ℕ)
            → Rational r
            → Rational $ r ^ fromℕ n
-    R[R^ℕ] r 0 R = ℚ.1ℚ , {!!}
+    R[R^ℕ] r 0 R = _,_ ℚ.1ℚ $ begin
+      r ^ fromℕ ℕ.zero ≈⟨ {!!} ⟩
+      fromℚ ℚ.1ℚ ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     R[R^ℕ] r (ℕ.suc n) R = {!!}
 
     R[R^r] : (r s : ℝ)
