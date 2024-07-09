@@ -994,7 +994,7 @@ module Veritas where
            → (n : ℕ)
            → Rational r
            → Rational $ r ^ fromℕ n
-    R[R^ℕ] r 0 R = {!!}
+    R[R^ℕ] r 0 R = {!!} , {!!}
     R[R^ℕ] r (ℕ.suc n) R = {!!}
 
     R[R^r] : (r s : ℝ)
