@@ -990,10 +990,7 @@ module Veritas where
                   → r ≈_ $ (r ^ s) ^ frinu (fromℕ 1) s N
     r≈[r^s]^[1/s] = {!!}
 
-    R[R^ℕ] : (r : ℝ)
-           → (n : ℕ)
-           → Rational r
-           → Rational $ r ^ fromℕ n
+    R[R^ℕ] : (r : ℝ) → (n : ℕ) → Rational r → Rational $ r ^ fromℕ n
     R[R^ℕ] r 0 R = _,_ ℚ.1ℚ $ begin
       r ^ fromℕ 0 ≈⟨ 1≡r^0 r _ _≈_.r≈r ▹ sym ▹ _≈_.≡⇒≈ ⟩
       fromℕ 1 ≈⟨ Fromℕ.fromℕ-fromℚ 1 ⟩
