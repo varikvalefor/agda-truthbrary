@@ -210,7 +210,8 @@ open import Relation.Binary
     Asymmetric;
     Transitive;
     Reflexive;
-    Setoid
+    Setoid;
+    _⇒_
   )
 open import Relation.Nullary
   using (
@@ -522,7 +523,7 @@ module Veritas where
           → r ≈ s
     ≡∧≗⇒≈ = {!!}
 
-    ≡⇒≈ : {r s : ℝ} → r ≡ s → r ≈ s
+    ≡⇒≈ : _≡_ ⇒ _≈_
     ≡⇒≈ = inj₁
 
     r≈r : {r : ℝ} → r ≈ r
