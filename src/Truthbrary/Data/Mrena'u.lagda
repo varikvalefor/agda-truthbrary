@@ -1003,7 +1003,7 @@ module Veritas where
       fromℚ ℚ.1ℚ ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-    R[R^ℕ] r (ℕ.suc n) R = {!!}
+    R[R^ℕ] r (ℕ.suc n) R = {!!} , {!!}
 
     R[R^r] : (r s : ℝ)
            → Set Function.∋ {!!}
