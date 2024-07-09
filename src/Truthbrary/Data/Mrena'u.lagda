@@ -997,7 +997,7 @@ module Veritas where
            → Rational r
            → Rational $ r ^ fromℕ n
     R[R^ℕ] r 0 R = _,_ ℚ.1ℚ $ begin
-      r ^ fromℕ 0 ≈⟨ 1≡r^0 r (fromℕ 0) _≈_.r≈r ▹ sym ▹ _≈_.≡⇒≈ ⟩
+      r ^ fromℕ 0 ≈⟨ 1≡r^0 r _ _≈_.r≈r ▹ sym ▹ _≈_.≡⇒≈ ⟩
       fromℕ 1 ≈⟨ Fromℕ.fromℕ-fromℚ 1 ⟩
       fromℚ (ℚ.mkℚ (ℤ.+ 1) 0 (Coprime.sym $ 1-coprimeTo _)) ≈⟨ {!!} ⟩
       fromℚ ℚ.1ℚ ∎
