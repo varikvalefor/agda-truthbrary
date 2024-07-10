@@ -1164,10 +1164,7 @@ module Veritas where
           → r > s
     +r>-s = {!!}
 
-    +r≥-s : {r s : ℝ}
-          → sign r ≡ Sign.+
-          → sign s ≡ Sign.-
-          → r ≥ s
+    +r≥-s : {r s : ℝ} → sign r ≡ Sign.+ → sign s ≡ Sign.- → r ≥ s
     +r≥-s = {!!}
 
     ⌊'r≥⌊'s⇒r≥s : {r s : ℝ}
