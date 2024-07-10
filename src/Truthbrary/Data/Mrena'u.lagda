@@ -1352,7 +1352,7 @@ module Veritas where
                   (ℚ.mkℚ z 0 C))
     toℚ∘fromℤ = λ z → begin
       toℚ {fromℤ z} (Fromℤ.fromℤ-Rational z) ≡⟨ {!!} ⟩
-      ℚ.mkℚ z 0 (C {ℤ.∣ z ∣}) ∎
+      ℚ.mkℚ z 0 (C {_}) ∎
       where
       open ≡-Reasoning
       C : {n : ℕ} → Coprime.Coprime n 1
