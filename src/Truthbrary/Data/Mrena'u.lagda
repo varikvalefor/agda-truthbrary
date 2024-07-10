@@ -744,6 +744,9 @@ module Veritas where
        → r + s ≡ fromℚ (proj₁ r' ℚ.+ proj₁ s')
     ℚ+ = {!!}
 
+    ℚ+' : (k l : ℚ) → fromℚ k + fromℚ l ≡ fromℚ (k ℚ.+ l)
+    ℚ+' = {!!}
+
     r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈_ $ r + s
     r≉r+s = {!!}
 
