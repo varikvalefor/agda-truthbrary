@@ -1350,7 +1350,13 @@ module Veritas where
                 (_≡_
                   (toℚ {fromℤ z} $ Fromℤ.fromℤ-Rational z)
                   (ℚ.mkℚ z 0 C))
-    toℚ∘fromℤ = {!!}
+    toℚ∘fromℤ = λ z → begin
+      toℚ {fromℤ z} (Fromℤ.fromℤ-Rational z) ≡⟨ {!!} ⟩
+      ℚ.mkℚ z 0 (C {ℤ.∣ z ∣}) ∎
+      where
+      open ≡-Reasoning
+      C : {n : ℕ} → Coprime.Coprime n 1
+      C {n} = Coprime.sym $ Coprime.1-coprimeTo n
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
