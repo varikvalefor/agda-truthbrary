@@ -1355,8 +1355,6 @@ module Veritas where
       ℚ.mkℚ z 0 _ ∎
       where
       open ≡-Reasoning
-      C : {n : ℕ} → Coprime.Coprime n 1
-      C {n} = Coprime.sym $ Coprime.1-coprimeTo n
 \end{code}
 
 \section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
