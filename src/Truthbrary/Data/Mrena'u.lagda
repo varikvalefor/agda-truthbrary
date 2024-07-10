@@ -1352,6 +1352,7 @@ module Veritas where
                   (ℚ.mkℚ z 0 C))
     toℚ∘fromℤ = λ z → begin
       toℚ {fromℤ z} (Fromℤ.fromℤ-Rational z) ≡⟨ {!!} ⟩
+      proj₁ (Fromℤ.fromℤ-Rational z) ≡⟨ {!!} ⟩
       ℚ.mkℚ z 0 _ ∎
       where
       open ≡-Reasoning
