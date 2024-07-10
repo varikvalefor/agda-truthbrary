@@ -782,7 +782,7 @@ module Veritas where
     -r≈0-r = {!!}
 
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
-    r≈[r-s]+s = λ r s → _≈_.≈⇒≈⍨ $ begin
+    r≈[r-s]+s r s = _≈_.≈⇒≈⍨ $ begin
       (r - s) + s ≈⟨ {!!} ⟩
       r ∎
       where
