@@ -789,7 +789,7 @@ module Veritas where
       (r - s) + s ≈⟨ _≈_.r≈r ⟩
       (r + (¯ s)) + s ≈⟨ _+_.+-ass r (¯ s) s ⟩
       r + ((¯ s) + s) ≈⟨ {!!} ⟩
-      r + (s + (¯ s)) ≈⟨ {!!} ⟩
+      r + (s + (¯ s)) ≈⟨ _≈_.r≈r ⟩
       r + (s - s) ≈⟨ {!!} ⟩
       r + fromℕ 0 ≈⟨ {!!} ⟩
       r ∎
