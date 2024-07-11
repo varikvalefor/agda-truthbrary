@@ -1214,15 +1214,15 @@ module Veritas where
 
 \begin{code}
   module ∣_∣ where
+    +r≡∣+r∣ : (r : ℝ) → sign r ≡ Sign.+ → r ≡ ∣ r ∣
+    +r≡∣+r∣ r refl = refl
+
     r≥0⇒r≈∣r∣ : (r : ℝ) → r ≥ fromℕ 0 → r ≈ ∣ r ∣
     r≥0⇒r≈∣r∣ r (inj₁ d) = {!!}
     r≥0⇒r≈∣r∣ r (inj₂ z) = {!!}
 
     0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈_ $ ¯ r
     0>r⇒∣r∣≈-r = {!!}
-
-    +r≡∣+r∣ : (r : ℝ) → sign r ≡ Sign.+ → r ≡ ∣ r ∣
-    +r≡∣+r∣ r refl = refl
 
     ∣_∣≡∣_∣∘∣_∣ : Algebra.IdempotentFun _≡_ ∣_∣
     ∣_∣≡∣_∣∘∣_∣ _ = refl
