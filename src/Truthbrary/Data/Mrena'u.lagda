@@ -791,6 +791,7 @@ module Veritas where
       r + ((¯ s) + s) ≈⟨ {!!} ⟩
       r + (s + (¯ s)) ≈⟨ {!!} ⟩
       r + (s - s) ≈⟨ {!!} ⟩
+      r + fromℕ 0 ≈⟨ {!!} ⟩
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
