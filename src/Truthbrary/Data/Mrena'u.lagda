@@ -810,7 +810,7 @@ module Veritas where
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-      r≈¯¯r : (r : ℝ) → r ≈_ $ ¯_ $ ¯ r
+      r≈¯¯r : (r : ℝ) → r ≈_ $ ¯ (¯ r)
       r≈¯¯r = {!!}
 
     0≈r+[0-r] : (r 0' : ℝ)
