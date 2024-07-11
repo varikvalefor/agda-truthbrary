@@ -689,6 +689,9 @@ module Veritas where
     r-¯s≈r+s : (r s : ℝ) → (r - (¯ s)) ≈ (r + s)
     r-¯s≈r+s = {!!}
 
+    r≈s⇒¯r≈¯s : (r s : ℝ) → r ≈ s → (¯ r) ≈ (¯ s)
+    r≈s⇒¯r≈¯s = {!!}
+
     R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
     R[¯R] = {!!}
 
