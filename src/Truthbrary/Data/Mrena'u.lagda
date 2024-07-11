@@ -813,7 +813,7 @@ module Veritas where
       fromℕ 0 - (fromℕ 0 - r) ≈⟨ _≈_.r≈r ⟩
       _ ≈⟨ r-s≈r'-s' (_≈_.r≈r {fromℕ 0}) (-r≈0-r r) ▹ _≈_.≈⇒≈⍨ ⟩
       fromℕ 0 - (¯ r) ≈⟨ -r≈0-r (¯ r) ▹ _≈_.≈⇒≈⍨ ⟩
-      ¯ (¯ r) ≈⟨ r≈¯¯r r ▹ _≈_.≈⇒≈⍨ ⟩
+      ¯ (¯ r) ≈⟨ r≈¯¯r _ ▹ _≈_.≈⇒≈⍨ ⟩
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
