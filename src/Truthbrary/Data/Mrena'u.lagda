@@ -1153,7 +1153,7 @@ module Veritas where
           → sign s ≡ Sign.-
             -- | ni'o sarcu ni'i zo'e joi le su'u li no na
             -- dubmau li no
-          → ¬_ $ r ≈ fromℕ 0 × s ≈ fromℕ 0
+          → ¬_ $ r ≈ s
           → r > s
     +r>-s = {!!}
 
