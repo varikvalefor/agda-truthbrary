@@ -787,7 +787,7 @@ module Veritas where
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
     r≈[r-s]+s r s = _≈_.≈⇒≈⍨ $ begin
       (r - s) + s ≈⟨ _≈_.r≈r ⟩
-      (r + (¯ s)) + s ≈⟨ {!!} ⟩
+      (r + (¯ s)) + s ≈⟨ _+_.+-ass r (¯ s) s ⟩
       r + ((¯ s) + s) ≈⟨ {!!} ⟩
       r + (s + (¯ s)) ≈⟨ {!!} ⟩
       r + (s - s) ≈⟨ {!!} ⟩
