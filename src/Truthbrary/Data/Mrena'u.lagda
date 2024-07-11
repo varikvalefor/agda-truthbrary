@@ -769,6 +769,11 @@ module Veritas where
 
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
+
+    I[r+s]⇒I[r]⊎I[s] : (r s : ℝ)
+                     → Irrational $ r + s
+                     → Irrational r ⊎ Irrational s
+    I[r+s]⇒I[r]⊎I[s] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
