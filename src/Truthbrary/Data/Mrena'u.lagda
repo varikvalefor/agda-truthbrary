@@ -799,14 +799,20 @@ module Veritas where
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
     r≈[r-s]+s r s = _≈_.≈⇒≈⍨ $ begin
       (r - s) + s ≈⟨ _≈_.r≈r ⟩
-      (r + (¯ s)) + s ≈⟨ _+_.+-ass r (¯ s) s ⟩
-      r + ((¯ s) + s) ≈⟨ _+_.r+s≈r'+s' {r} _≈_.r≈r $ _+_.+≈+⍨ (¯ s) s ⟩
+      (r + (¯ s)) + s ≈⟨ +-ass r (¯ s) s ⟩
+      r + ((¯ s) + s) ≈⟨ r+s≈r'+s' {r} _≈_.r≈r $ +≈+⍨ (¯ s) s ⟩
       r + (s + (¯ s)) ≈⟨ _≈_.r≈r ⟩
-      r + (s - s) ≈⟨ _+_.r+s≈r'+s' {r} _≈_.r≈r $ _≈_.≈⇒≈⍨ $ 0≈r-r s ⟩
+      r + (s - s) ≈⟨ r+s≈r'+s' {r} _≈_.r≈r $ _≈_.≈⇒≈⍨ $ 0≈r-r s ⟩
       r + fromℕ 0 ≈⟨ proj₂ _+_.id≈+0 r ⟩
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      open _+_
+        using (
+          r+s≈r'+s';
+          +-ass;
+          +≈+⍨
+        )
 
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
     r≈0-[0-r] = λ r → _≈_.≈⇒≈⍨ $ begin
