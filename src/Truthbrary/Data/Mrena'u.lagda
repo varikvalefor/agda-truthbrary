@@ -800,7 +800,7 @@ module Veritas where
     r≈[r-s]+s r s = _≈_.≈⇒≈⍨ $ begin
       (r - s) + s ≈⟨ _≈_.r≈r ⟩
       (r + (¯ s)) + s ≈⟨ _+_.+-ass r (¯ s) s ⟩
-      r + ((¯ s) + s) ≈⟨ {!!} ⟩
+      r + ((¯ s) + s) ≈⟨ _+_.r+s≈r'+s' {r} _≈_.r≈r $ _+_.+≈+⍨ (¯ s) s ⟩
       r + (s + (¯ s)) ≈⟨ _≈_.r≈r ⟩
       r + (s - s) ≈⟨ _+_.r+s≈r'+s' {r} _≈_.r≈r $ _≈_.≈⇒≈⍨ $ 0≈r-r s ⟩
       r + fromℕ 0 ≈⟨ {!!} ⟩
