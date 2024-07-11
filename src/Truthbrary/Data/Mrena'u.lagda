@@ -784,6 +784,12 @@ module Veritas where
     -r≈0-r : (r : ℝ) → (¯ r) ≈ (fromℕ 0 - r)
     -r≈0-r = {!!}
 
+    r-s≈r'-s' : {r r' s s' : ℝ}
+              → r ≈ r'
+              → s ≈ s'
+              → (r - s) ≈ (r' - s')
+    r-s≈r'-s' = {!!}
+
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
     r≈[r-s]+s r s = _≈_.≈⇒≈⍨ $ begin
       (r - s) + s ≈⟨ _≈_.r≈r ⟩
@@ -795,12 +801,6 @@ module Veritas where
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-
-    r-s≈r'-s' : {r r' s s' : ℝ}
-              → r ≈ r'
-              → s ≈ s'
-              → (r - s) ≈ (r' - s')
-    r-s≈r'-s' = {!!}
 
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
     r≈0-[0-r] = λ r → _≈_.≈⇒≈⍨ $ begin
