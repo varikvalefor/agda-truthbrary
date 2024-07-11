@@ -1113,7 +1113,7 @@ module Veritas where
     >⇒¬< : Asymmetric _>_
     >⇒¬< = {!!}
 
-    >⇒≉ : (r s : ℝ) → r > s → ¬_ $ r ≈ s
+    >⇒≉ : {r s : ℝ} → r > s → ¬_ $ r ≈ s
     >⇒≉ = {!!}
 
     ∃[>∧>⍨] : (r s : ℝ) → r > s → ∃ $ λ t → (r > t) × (t > s)
