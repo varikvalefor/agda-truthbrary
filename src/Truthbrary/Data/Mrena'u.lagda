@@ -1162,6 +1162,12 @@ module Veritas where
     >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
     >ℤ⇒> = {!!}
 
+    >F∧≥ℤ⇒> : (r s : ℝ)
+            → ⌊'⁻¹ℝ r > ⌊'⁻¹ℝ s
+            → ⌊' r ℤ.≥ ⌊' s
+            → r > s
+    >F∧≥ℤ⇒> = {!!}
+
     +r>-s : {r s : ℝ}
           → sign r ≡ Sign.+
           → sign s ≡ Sign.-
