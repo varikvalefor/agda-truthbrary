@@ -1302,7 +1302,7 @@ module Veritas where
       ⊤⇒≥ : (r s : ℝ) → true ≡ _≥ᵇ_ r s → r ≥ s
       ⊤⇒≥ = {!!}
 
-      <⇒⊥ : (r s : ℝ) → s > r → false ≡ _≥ᵇ_ r s
+      <⇒⊥ : (r s : ℝ) → r < s → false ≡ _≥ᵇ_ r s
       <⇒⊥ = {!!}
 
       ⊥⇒≤ : (r s : ℝ) → false ≡ _≥ᵇ_ r s → s ≥ r
