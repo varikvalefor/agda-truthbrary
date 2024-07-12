@@ -1254,7 +1254,7 @@ module Veritas where
     ... | Sign.- , Sign.- = begin
       ∣ r ∣ ≈⟨ 0>r⇒∣r∣≈-r r {!!} ⟩
       ¯ r ≈⟨ {!!} ⟩
-      ¯ s ≈⟨ {!!} ⟩
+      ¯ s ≈⟨ 0>r⇒∣r∣≈-r s {!!} ▹ _≈_.≈⇒≈⍨ ⟩
       ∣ s ∣ ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
