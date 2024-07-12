@@ -1047,6 +1047,12 @@ module Veritas where
                      (fromℕ 2)
                      ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒≡ 2 0)))
     I[2^[1/2]] = {!!}
+
+    r^s≈r'^s' : {r r' s s' : ℝ}
+              → r ≈ r'
+              → s ≈ s'
+              → (r ^ s) ≈ (r' ^ s')
+    r^s≈r'^s' = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{⌊'}}}
