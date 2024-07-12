@@ -1334,7 +1334,7 @@ module Veritas where
     ≈⇒1 = λ d → _≈_.≈∧≈⇒≈ d $ _≈_.≡⇒≈ $ ≥⇒2 _ _ $ _≥_.≈⇒≥ d
 
     ≈⇒2 : {r s : ℝ} → r ≈ s → s ≈ (r ⊓ s)
-    ≈⇒2 = {!!}
+    ≈⇒2 = _≈_.≡⇒≈ ∘ ≥⇒2 _ _ ∘ _≥_.≈⇒≥
 
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
     ⊓≈⊓⍨ r s with _≥_.jonais r s
@@ -1408,7 +1408,7 @@ module Veritas where
                   (toℚ {fromℤ z} $ Fromℤ.fromℤ-Rational z)
                   (ℚ.mkℚ z 0 C))
     toℚ∘fromℤ z = begin
-      toℚ {fromℤ z} (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
+      toℚ (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
       proj₁ (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
       ℚ.mkℚ z 0 _ ∎
       where
