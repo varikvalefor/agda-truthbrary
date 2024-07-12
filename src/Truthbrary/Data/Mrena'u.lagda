@@ -1254,7 +1254,9 @@ module Veritas where
     ... | Sign.- , Sign.- = {!!}
 
     jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (¯ r)
-    jonais = {!!}
+    jonais r with _≥_.jonais r $ fromℕ 0
+    ... | inj₁ djm = {!!}
+    ... | inj₂ m = {!!}
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
     R[∣R∣] = λ r (r' , d) → ℚ.∣ r' ∣ , {!!}
