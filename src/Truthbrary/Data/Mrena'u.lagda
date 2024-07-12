@@ -1133,8 +1133,8 @@ module Veritas where
 
 \begin{code}
   module _>_ where
-    ¬[r>r] : Irreflexive _≈_ _>_
-    ¬[r>r] = {!!}
+    ≈⇒¬> : Irreflexive _≈_ _>_
+    ≈⇒¬> = {!!}
 
     r+s>r : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
     r+s>r = {!!}
