@@ -1251,12 +1251,16 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     ... | Sign.+ , Sign.- = {!!}
     ... | Sign.- , Sign.+ = {!!}
-    ... | Sign.- , Sign.- = {!!}
+    ... | Sign.- , Sign.- = begin
+      ∣ r ∣ ≈⟨ {!!} ⟩
+      ∣ s ∣ ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (¯ r)
     jonais r with _≥_.jonais r $ fromℕ 0
     ... | inj₁ djm = {!!}
-    ... | inj₂ m = {!!}
+    ... | inj₂ m = inj₂ $ 0>r⇒∣r∣≈-r r m
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
     R[∣R∣] = λ r (r' , d) → ℚ.∣ r' ∣ , {!!}
