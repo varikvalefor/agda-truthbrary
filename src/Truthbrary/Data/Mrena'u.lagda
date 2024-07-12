@@ -690,7 +690,7 @@ module Veritas where
     r-¯s≈r+s : (r s : ℝ) → (r - (¯ s)) ≈ (r + s)
     r-¯s≈r+s = {!!}
 
-    r≈s⇒¯r≈¯s : (r s : ℝ) → r ≈ s → (¯ r) ≈ (¯ s)
+    r≈s⇒¯r≈¯s : Algebra.Congruent₁ _≈_ ¯_
     r≈s⇒¯r≈¯s = {!!}
 
     R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
@@ -1253,7 +1253,7 @@ module Veritas where
     ... | Sign.- , Sign.+ = {!!}
     ... | Sign.- , Sign.- = begin
       ∣ r ∣ ≈⟨ 0>r⇒∣r∣≈-r r {!!} ⟩
-      ¯ r ≈⟨ ¯_.r≈s⇒¯r≈¯s _ _ d ⟩
+      ¯ r ≈⟨ ¯_.r≈s⇒¯r≈¯s d ⟩
       ¯ s ≈⟨ 0>r⇒∣r∣≈-r s {!!} ▹ _≈_.≈⇒≈⍨ ⟩
       ∣ s ∣ ∎
       where
