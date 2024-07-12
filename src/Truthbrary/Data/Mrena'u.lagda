@@ -1253,7 +1253,7 @@ module Veritas where
     ... | Sign.- , Sign.+ = {!!}
     ... | Sign.- , Sign.- = begin
       ∣ r ∣ ≈⟨ 0>r⇒∣r∣≈-r r {!!} ⟩
-      ¯ r ≈⟨ {!!} ⟩
+      ¯ r ≈⟨ ¯_.r≈s⇒¯r≈¯s r s d ⟩
       ¯ s ≈⟨ 0>r⇒∣r∣≈-r s {!!} ▹ _≈_.≈⇒≈⍨ ⟩
       ∣ s ∣ ∎
       where
