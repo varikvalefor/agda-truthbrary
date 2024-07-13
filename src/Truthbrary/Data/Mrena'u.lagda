@@ -1212,12 +1212,6 @@ module Veritas where
     +r≥-s : {r s : ℝ} → sign r ≡ Sign.+ → sign s ≡ Sign.- → r ≥ s
     +r≥-s = {!!}
 
-    ⌊'r≥⌊'s⇒r≥s : {r s : ℝ}
-                → ⌊' r ℤ.≥ ⌊' s
-                → sign s ≡ Sign.+ ⊎ s ≈ fromℕ 0
-                → r ≥ s
-    ⌊'r≥⌊'s⇒r≥s = {!!}
-
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
     jonais r s with _>_.jonais r s
     ... | inj₁ z = inj₁ $ >⇒≥ z
