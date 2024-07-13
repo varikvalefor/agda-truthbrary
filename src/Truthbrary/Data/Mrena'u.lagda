@@ -1159,6 +1159,9 @@ module Veritas where
     >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
     >ℤ⇒> = {!!}
 
+    fromℤ>fromℤ : {x z : ℤ} → x ℤ.> z → fromℤ x > fromℤ z
+    fromℤ>fromℤ = {!!}
+
     >F∧≥ℤ⇒> : (r s : ℝ)
             → ⌊'⁻¹ℝ r > ⌊'⁻¹ℝ s
             → ⌊' r ℤ.≥ ⌊' s
