@@ -1222,9 +1222,7 @@ module Veritas where
     ... | inj₂ (inj₂ d) = inj₁ $ inj₁ d
 
     ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
-    ¬≥⇒< N with jonais _ _
-    ... | inj₁ djm = djm ⇒⇐ N
-    ... | inj₂ m = m
+    ¬≥⇒< N = _⊎_.[_,_]′ (_⇒⇐ N) Function.id $ jonais _ _
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
