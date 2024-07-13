@@ -983,8 +983,7 @@ module Veritas where
 
     -r/-s<-r : (r s : ℝ)
              → (z : s > fromℕ 1)
-             → let -_ = _-_ $ fromℕ 0 in
-               (- r) > frinu (- r) (- s) {!!}
+             → (¯ r) > frinu (¯ r) (¯ s) {!!}
     -r/-s<-r = {!!}
 
     r<r/s : (r s : ℝ)
