@@ -1359,7 +1359,11 @@ module Veritas where
       where
       T : ((r ≥ s) ⊎ (r < s)) × ((s ≥ t) ⊎ (s < t))
       T = _≥_.jonais r s , _≥_.jonais s t
-    ... | (inj₁ djm₁ , inj₁ djm₂) = {!!}
+    ... | (inj₁ djm₁ , inj₁ djm₂) = begin
+      (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
+      r ⊓ (s ⊓ t) ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = {!!}
