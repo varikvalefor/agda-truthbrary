@@ -1340,7 +1340,7 @@ module Veritas where
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
     ⊓≈⊓⍨ r s with _≥_.jonais r s
     ... | inj₁ djm = begin
-      r ⊓ s ≈⟨ ≥⇒2 r s djm ▹ sym ▹ _≈_.≡⇒≈ ⟩
+      r ⊓ s ≈⟨ ≥⇒2 _ _ djm ▹ sym ▹ _≈_.≡⇒≈ ⟩
       s ≈⟨ ≤⇒1 s r djm ⟩
       s ⊓ r ∎
       where
