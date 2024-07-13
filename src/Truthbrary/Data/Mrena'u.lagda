@@ -1136,7 +1136,7 @@ module Veritas where
     ≈⇒¬> : Irreflexive _≈_ _>_
     ≈⇒¬> = {!!}
 
-    r<r+s : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
+    r<r+s : (r s : ℝ) → s > fromℕ 0 → r < (r + s)
     r<r+s = {!!}
 
     >⇒¬< : Asymmetric _>_
