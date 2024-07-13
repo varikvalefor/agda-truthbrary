@@ -1206,8 +1206,8 @@ module Veritas where
     ≥∧≉⇒> : {r s : ℝ} → r ≥ s → ¬_ $ r ≈ s → r > s
     ≥∧≉⇒> x N = _⊎_.[_,_] (_⇒⇐ N) Function.id x
 
-    ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
-    ≥∧¬>⇒≈ x N = _⊎_.[_,_] Function.id (_⇒⇐ N) x
+    ≥∧≯⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
+    ≥∧≯⇒≈ x N = _⊎_.[_,_] Function.id (_⇒⇐ N) x
 
     +r≥-s : {r s : ℝ} → sign r ≡ Sign.+ → sign s ≡ Sign.- → r ≥ s
     +r≥-s = {!!}
