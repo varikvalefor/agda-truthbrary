@@ -667,6 +667,11 @@ module Veritas where
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
         r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
         r≡r/1 = {!!}
+
+    fromℤ≡+fromℕ : (z : ℤ)
+                 → (ℤ.sign z ≡ Sign.+)
+                 → fromℤ z ≡ fromℕ ℤ.∣ z ∣
+    fromℤ≡+fromℕ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
