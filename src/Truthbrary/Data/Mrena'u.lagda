@@ -1003,9 +1003,7 @@ module Veritas where
               → (N' : _)
               → r ≈ r'
               → s ≈ s'
-              → (_≈_
-                  (frinu r s N)
-                  (frinu r' s' N'))
+              → frinu r s N ≈ frinu r' s' N'
     r/s≈r'/s' = {!!}
 \end{code}
 
