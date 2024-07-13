@@ -1361,6 +1361,7 @@ module Veritas where
       T = _≥_.jonais r s , _≥_.jonais s t
     ... | (inj₁ djm₁ , inj₁ djm₂) = begin
       (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
+      s ⊓ t ≈⟨ {!!} ⟩
       r ⊓ (s ⊓ t) ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
