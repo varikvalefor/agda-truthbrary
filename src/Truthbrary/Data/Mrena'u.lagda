@@ -958,8 +958,8 @@ module Veritas where
         r>1⇒r>0 : {r : ℝ} → r > fromℕ 1 → r > fromℕ 0
         r>1⇒r>0 = {!!}
 
-    sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
-    sez≡1 = {!!}
+    r/r≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
+    r/r≡1 = {!!}
 
     r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
     r≡r/1 = {!!}
