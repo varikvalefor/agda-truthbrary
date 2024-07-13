@@ -1111,7 +1111,7 @@ module Veritas where
     1⇒> : (r : ℝ) → signℤ r ≡ ℤ.+_ 1 → r > fromℕ 0
     1⇒> = {!!}
 
-    <⇒-1 : (r : ℝ) → fromℕ 0 > r → signℤ r ≡ ℤ.-_ (ℤ.+_ 1)
+    <⇒-1 : (r : ℝ) → fromℕ 0 > r → signℤ r ≡ ℤ.-[1+ 0 ]
     <⇒-1 = {!!}
 
     -1⇒< : (r : ℝ) → signℤ r ≡ ℤ.-_ (ℤ.+_ 1) → fromℕ 0 > r
