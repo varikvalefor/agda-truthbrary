@@ -669,7 +669,7 @@ module Veritas where
         r≡r/1 = {!!}
 
     fromℤ≡+fromℕ : (z : ℤ)
-                 → (ℤ.sign z ≡ Sign.+)
+                 → ℤ.sign z ≡ Sign.+
                  → fromℤ z ≡ fromℕ ℤ.∣ z ∣
     fromℤ≡+fromℕ = {!!}
 \end{code}
