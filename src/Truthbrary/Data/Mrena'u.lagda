@@ -1299,7 +1299,7 @@ module Veritas where
     R[∣R∣] r (r' , d) = ℚ.∣ r' ∣ , _≈_.≈⇒≈⍨ d₂
       where
       d₂ = begin
-        fromℚ ℚ.∣ r' ∣ ≈⟨ {!!} ⟩
+        fromℚ ℚ.∣ r' ∣ ≈⟨ ∣fromℚ[k]∣≈fromℚ[∣k∣] r' ▹ _≈_.≈⇒≈⍨ ⟩
         ∣ fromℚ r' ∣ ≈⟨ {!!} ⟩
         ∣ r ∣ ∎
         where
