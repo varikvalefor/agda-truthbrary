@@ -821,7 +821,7 @@ module Veritas where
       (r + (¯ s)) + s ≈⟨ +-ass r (¯ s) s ⟩
       r + ((¯ s) + s) ≈⟨ r+s≈r'+s' {r} _≈_.r≈r $ +≈+⍨ (¯ s) s ⟩
       r + (s + (¯ s)) ≈⟨ _≈_.r≈r ⟩
-      r + (s - s) ≈⟨ r+s≈r'+s' {r} _≈_.r≈r $ _≈_.≈⇒≈⍨ $ 0≈r-r s ⟩
+      r + (s - s) ≈⟨ 0≈r-r s ▹ _≈_.≈⇒≈⍨ ▹ r+s≈r'+s' {r} _≈_.r≈r ⟩
       r + fromℕ 0 ≈⟨ proj₂ _+_.id≈+0 r ⟩
       r ∎
       where
