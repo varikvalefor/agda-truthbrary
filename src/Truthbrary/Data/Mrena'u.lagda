@@ -941,10 +941,7 @@ module Veritas where
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
 
-    r*s≈r'*s' : {r r' s s' : ℝ}
-              → r ≈ r'
-              → s ≈ s'
-              → (r * s) ≈ (r' * s')
+    r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
 
     *-magma : Algebra.IsMagma _≈_ _*_
