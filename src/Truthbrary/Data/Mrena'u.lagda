@@ -769,6 +769,9 @@ module Veritas where
     r+s≈r'+s' : {r r' s s' : ℝ} → r ≈ r' → s ≈ s' → (r + s) ≈ (r' + s')
     r+s≈r'+s' = {!!}
 
+    ¯r+¯s≈¯[r+s] : (r s : ℝ) → ((¯ r) + (¯ s)) ≈ (¯ (r + s))
+    ¯r+¯s≈¯[r+s] = {!!}
+
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
 
@@ -797,13 +800,11 @@ module Veritas where
       (r - s) + (¯ t) ≈⟨ _≈_.r≈r ⟩
       (r + (¯ s)) + (¯ t) ≈⟨ _+_.+-ass r (¯ s) (¯ t) ⟩
       r + ((¯ s) + (¯ t)) ≈⟨ _≈_.r≈r ⟩
-      _ ≈⟨ ¯r+¯s≈¯[r+s] s t ▹ _+_.r+s≈r'+s' (_≈_.r≈r {r}) ⟩
+      _ ≈⟨ _+_.¯r+¯s≈¯[r+s] s t ▹ _+_.r+s≈r'+s' (_≈_.r≈r {r}) ⟩
       r + (¯ (s + t)) ≈⟨ _≈_.r≈r ⟩
       r - (s + t) ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-      ¯r+¯s≈¯[r+s] : (r s : ℝ) → ((¯ r) + (¯ s)) ≈ (¯ (r + s))
-      ¯r+¯s≈¯[r+s] = {!!}
 
     -r≈0-r : (r : ℝ) → (¯ r) ≈ (fromℕ 0 - r)
     -r≈0-r = {!!}
