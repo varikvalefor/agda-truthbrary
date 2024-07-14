@@ -766,10 +766,7 @@ module Veritas where
       where
       D = ℚ+ R S
 
-    r+s≈r'+s' : {r r' s s' : ℝ}
-              → r ≈ r'
-              → s ≈ s'
-              → (r + s) ≈ (r' + s')
+    r+s≈r'+s' : {r r' s s' : ℝ} → r ≈ r' → s ≈ s' → (r + s) ≈ (r' + s')
     r+s≈r'+s' = {!!}
 
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
