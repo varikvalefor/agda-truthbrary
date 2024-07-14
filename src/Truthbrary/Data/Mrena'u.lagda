@@ -1468,7 +1468,7 @@ isRing = record {
       isMagma = Veritas._*_.*-magma;
       assoc = Veritas._*_.*-ass};
     identity = Veritas._*_.r≈1*r};
-  distrib = {!!};
+  distrib = Veritas._*_.dist;
   zero = Veritas._*_.0≈0*r}
 \end{code}
 \end{document}
