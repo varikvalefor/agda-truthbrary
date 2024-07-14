@@ -792,7 +792,7 @@ module Veritas where
     0≡r-0 = {!!}
 
     r-s-t≈r-[s+t] : (r s t : ℝ) → ((r - s) - t) ≈ (r - (s + t))
-    r-s-t≈r-[s+t] = λ r s t → begin
+    r-s-t≈r-[s+t] r s t = begin
       (r - s) - t ≈⟨ {!!} ⟩
       r - (s + t) ∎
       where
