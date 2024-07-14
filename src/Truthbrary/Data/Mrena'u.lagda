@@ -1296,7 +1296,7 @@ module Veritas where
     ... | inj₂ m = inj₂ $ 0>r⇒∣r∣≈-r r m
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
-    R[∣R∣] = λ r (r' , d) → ℚ.∣ r' ∣ , {!!}
+    R[∣R∣] r (r' , d) = ℚ.∣ r' ∣ , {!!}
 
     R[∣r∣]⇒R[r] : (r : ℝ) → Rational ∣ r ∣ → Rational r
     R[∣r∣]⇒R[r] = {!!}
