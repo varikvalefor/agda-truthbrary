@@ -944,6 +944,9 @@ module Veritas where
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
 
+    dist : Algebra._DistributesOver_ _≈_ _*_ _+_
+    dist = {!!}
+
     *-magma : Algebra.IsMagma _≈_ _*_
     *-magma = record {
       isEquivalence = _≈_.isEquivalence;
