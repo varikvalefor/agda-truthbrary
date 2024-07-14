@@ -796,7 +796,8 @@ module Veritas where
       (r - s) - t ≈⟨ _≈_.r≈r ⟩
       (r - s) + (¯ t) ≈⟨ _≈_.r≈r ⟩
       (r + (¯ s)) + (¯ t) ≈⟨ _+_.+-ass r (¯ s) (¯ t) ⟩
-      r + ((¯ s) + (¯ t)) ≈⟨ ¯r+¯s≈¯[r+s] s t ▹ _+_.r+s≈r'+s' (_≈_.r≈r {r}) ⟩
+      r + ((¯ s) + (¯ t)) ≈⟨ _≈_.r≈r ⟩
+      _ ≈⟨ ¯r+¯s≈¯[r+s] s t ▹ _+_.r+s≈r'+s' (_≈_.r≈r {r}) ⟩
       r + (¯ (s + t)) ≈⟨ _≈_.r≈r ⟩
       r - (s + t) ∎
       where
