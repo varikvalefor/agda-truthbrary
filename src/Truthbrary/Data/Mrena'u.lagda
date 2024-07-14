@@ -792,7 +792,11 @@ module Veritas where
     0≡r-0 = {!!}
 
     r-s-t≈r-[s+t] : (r s t : ℝ) → ((r - s) - t) ≈ (r - (s + t))
-    r-s-t≈r-[s+t] = {!!}
+    r-s-t≈r-[s+t] = λ r s t → begin
+      (r - s) - t ≈⟨ {!!} ⟩
+      r - (s + t) ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     -r≈0-r : (r : ℝ) → (¯ r) ≈ (fromℕ 0 - r)
     -r≈0-r = {!!}
