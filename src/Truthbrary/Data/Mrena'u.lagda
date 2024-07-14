@@ -1300,7 +1300,7 @@ module Veritas where
       where
       d₂ = begin
         fromℚ ℚ.∣ r' ∣ ≈⟨ ∣fromℚ[k]∣≈fromℚ[∣k∣] r' ▹ _≈_.≈⇒≈⍨ ⟩
-        ∣ fromℚ r' ∣ ≈⟨ {!!} ⟩
+        ∣ fromℚ r' ∣ ≈⟨ ≈⇒∣_∣≈ d ▹ _≈_.≈⇒≈⍨ ⟩
         ∣ r ∣ ∎
         where
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
