@@ -1333,7 +1333,7 @@ module Veritas where
       where
       jonis = SignV.jonis {P₁ = Irrational} {P₂ = Irrational ∘ ∣_∣}
       f₁ : (r : ℝ) → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
-      f₁ = {!!}
+      f₁ = λ r I d → subst Irrational (+r≡∣+r∣ r d) I
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
