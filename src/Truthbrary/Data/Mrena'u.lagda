@@ -1329,11 +1329,13 @@ module Veritas where
     R[∣r∣]⇒R[r] = {!!}
 
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
-    I[∣I∣] = jonis f₁ {!!}
+    I[∣I∣] = jonis f₁ f₂
       where
       jonis = SignV.jonis {P₁ = Irrational} {P₂ = Irrational ∘ ∣_∣}
       f₁ : (r : ℝ) → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
       f₁ r I d = subst Irrational (+r≡∣+r∣ r d) I
+      f₂ : (r : ℝ) → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
+      f₂ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
