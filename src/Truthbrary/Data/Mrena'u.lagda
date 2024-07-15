@@ -1119,6 +1119,9 @@ module Veritas where
 
     r<0⇒s[r]≡- : (r : ℝ) → r < fromℕ 0 → sign r ≡ Sign.-
     r<0⇒s[r]≡- = {!!}
+
+    jonais : (r : ℝ) → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
+    jonais = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
