@@ -1338,6 +1338,9 @@ module Veritas where
         where
         I[r]⇒I[¯r] : (r : ℝ) → Irrational r → Irrational $ ¯ r
         I[r]⇒I[¯r] = {!!}
+
+    I[∣r∣]⇒I[r] : (r : ℝ) → Irrational ∣ r ∣ → Irrational r
+    I[∣r∣]⇒I[r] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
