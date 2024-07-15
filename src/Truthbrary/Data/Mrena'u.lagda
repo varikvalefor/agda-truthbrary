@@ -179,6 +179,10 @@ open import Data.Sign
   using (
     Sign
   )
+open import Data.Unit
+  using (
+    ⊤
+  )
 open import Data.Digit
   using (
     Digit
@@ -1124,15 +1128,15 @@ module Veritas where
     r<0⇒s[r]≡- : (r : ℝ) → r < fromℕ 0 → sign r ≡ Sign.-
     r<0⇒s[r]≡- = {!!}
 
-    jonis : ∀ {p} → {P : Pred ℝ p}
-          → ((r : ℝ) → sign r ≡ Sign.+ → P r)
-          → ((r : ℝ) → sign r ≡ Sign.- → P r)
+    jonis : ∀ {p₁ p₂ } → {P₁ : Pred ℝ p₁} → {P₂ : Pred ℝ p₂}
+          → ((r : ℝ) → P₁ r → sign r ≡ Sign.+ → P₂ r)
+          → ((r : ℝ) → P₁ r → sign r ≡ Sign.- → P₂ r)
           → (r : ℝ)
-          → P r
+          → P₂ r
     jonis = {!!}
 
     jonais : (r : ℝ) → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
-    jonais = jonis (λ _ → inj₁) (λ _ → inj₂)
+    jonais = jonis {P₁ = λ _ → ⊤} (λ _ _ → inj₁) (λ _ _ → inj₂)
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
