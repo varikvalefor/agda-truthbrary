@@ -205,6 +205,10 @@ open import Data.Rational
   using (
     ℚ
   )
+open import Relation.Unary
+  using (
+    Pred
+  )
 open import Relation.Binary
   using (
     Irreflexive;
@@ -1119,6 +1123,13 @@ module Veritas where
 
     r<0⇒s[r]≡- : (r : ℝ) → r < fromℕ 0 → sign r ≡ Sign.-
     r<0⇒s[r]≡- = {!!}
+
+    jonis : ∀ {p} → {P : Pred ℝ p}
+          → ((r : ℝ) → sign r ≡ Sign.+ → P r)
+          → ((r : ℝ) → sign r ≡ Sign.- → P r)
+          → (r : ℝ)
+          → P r
+    jonis = {!!}
 
     jonais : (r : ℝ) → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
     jonais = {!!}
