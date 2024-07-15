@@ -1306,8 +1306,7 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
-    ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ)
-                          → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
+    ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ) → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
     ∣fromℚ[k]∣≈fromℚ[∣k∣] = {!!}
 
     jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (¯ r)
