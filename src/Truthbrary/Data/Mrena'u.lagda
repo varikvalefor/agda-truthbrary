@@ -1132,11 +1132,12 @@ module Veritas where
           → ((r : ℝ) → P₁ r → sign r ≡ Sign.+ → P₂ r)
           → ((r : ℝ) → P₁ r → sign r ≡ Sign.- → P₂ r)
           → (r : ℝ)
+          → P₁ r
           → P₂ r
     jonis = {!!}
 
     jonais : (r : ℝ) → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
-    jonais = jonis {P₁ = λ _ → ⊤} (λ _ _ → inj₁) (λ _ _ → inj₂)
+    jonais = λ r → jonis {P₁ = λ _ → ⊤} (λ _ _ → inj₁) (λ _ _ → inj₂) r Data.Unit.tt
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
@@ -1327,7 +1328,7 @@ module Veritas where
     R[∣r∣]⇒R[r] = {!!}
 
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
-    I[∣I∣] r I = jonis {!!} {!!} r
+    I[∣I∣] r I = jonis {!!} {!!} r I
       where
       jonis = SignV.jonis {P₁ = Irrational} {P₂ = Irrational ∘ ∣_∣}
 \end{code}
