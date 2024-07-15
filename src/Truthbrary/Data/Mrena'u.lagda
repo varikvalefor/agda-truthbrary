@@ -1332,7 +1332,7 @@ module Veritas where
       where
       jonis = SignV.jonis {P₁ = Irrational} {P₂ = Irrational ∘ ∣_∣}
       f₁ : {r : ℝ} → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
-      f₁ {r} I d = subst Irrational (+r≡∣+r∣ r d) I
+      f₁ {r} I d = subst Irrational (+r≡∣+r∣ _ d) I
       f₂ : {r : ℝ} → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
       f₂ = λ I d → subst Irrational {!!} $ I[r]⇒I[¯r] _ I
         where
