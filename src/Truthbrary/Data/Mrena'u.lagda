@@ -1138,7 +1138,7 @@ module Veritas where
     jonis = {!!}
 
     jonais : (r : ℝ) → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
-    jonais r = jonis {P₁ = λ _ → ⊤} (λ _ _ → inj₁) (λ _ _ → inj₂) r tt
+    jonais r = jonis (λ _ _ → inj₁) (λ _ _ → inj₂) r tt
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
