@@ -1130,15 +1130,15 @@ module Veritas where
     r<0⇒s[r]≡- = {!!}
 
     jonis : ∀ {p₁ p₂ } → {P₁ : Pred ℝ p₁} → {P₂ : Pred ℝ p₂}
-          → ((r : ℝ) → P₁ r → sign r ≡ Sign.+ → P₂ r)
-          → ((r : ℝ) → P₁ r → sign r ≡ Sign.- → P₂ r)
+          → ({r : ℝ} → P₁ r → sign r ≡ Sign.+ → P₂ r)
+          → ({r : ℝ} → P₁ r → sign r ≡ Sign.- → P₂ r)
           → (r : ℝ)
           → P₁ r
           → P₂ r
     jonis = {!!}
 
     jonais : (r : ℝ) → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
-    jonais r = jonis (λ _ _ → inj₁) (λ _ _ → inj₂) r tt
+    jonais r = jonis (λ _ → inj₁) (λ _ → inj₂) r tt
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
@@ -1331,10 +1331,10 @@ module Veritas where
     I[∣I∣] = jonis f₁ f₂
       where
       jonis = SignV.jonis {P₁ = Irrational} {P₂ = Irrational ∘ ∣_∣}
-      f₁ : (r : ℝ) → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
-      f₁ r I d = subst Irrational (+r≡∣+r∣ r d) I
-      f₂ : (r : ℝ) → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
-      f₂ = λ r I d → subst Irrational {!!} $ I[r]⇒I[¯r] r I
+      f₁ : {r : ℝ} → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
+      f₁ {r} I d = subst Irrational (+r≡∣+r∣ r d) I
+      f₂ : {r : ℝ} → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
+      f₂ = λ I d → subst Irrational {!!} $ I[r]⇒I[¯r] _ I
         where
         I[r]⇒I[¯r] : (r : ℝ) → Irrational r → Irrational $ ¯ r
         I[r]⇒I[¯r] = {!!}
