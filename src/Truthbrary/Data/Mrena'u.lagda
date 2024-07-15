@@ -1329,7 +1329,7 @@ module Veritas where
     R[∣r∣]⇒R[r] = {!!}
 
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
-    I[∣I∣] r I = jonis {!!} {!!} r I
+    I[∣I∣] = jonis {!!} {!!}
       where
       jonis = SignV.jonis {P₁ = Irrational} {P₂ = Irrational ∘ ∣_∣}
 \end{code}
