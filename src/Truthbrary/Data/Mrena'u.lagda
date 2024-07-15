@@ -1335,7 +1335,10 @@ module Veritas where
       f₁ : (r : ℝ) → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
       f₁ r I d = subst Irrational (+r≡∣+r∣ r d) I
       f₂ : (r : ℝ) → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
-      f₂ = {!!}
+      f₂ = λ r I d → subst Irrational {!!} $ I[r]⇒I[¯r] r I
+        where
+        I[r]⇒I[¯r] : (r : ℝ) → Irrational r → Irrational $ ¯ r
+        I[r]⇒I[¯r] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
