@@ -1419,11 +1419,16 @@ module Veritas where
     ⊓-ass r s t with _≥_.jonais r s ,′ _≥_.jonais s t
     ... | (inj₁ djm₁ , inj₁ djm₂) = begin
       (r ⊓ s) ⊓ t ≈⟨ ≥⇒2 r s djm₁ ▹ sym ▹ cong (_⊓ t) ▹ _≈_.≡⇒≈ ⟩
-      s ⊓ t ≈⟨ {!!} ⟩
+      s ⊓ t ≈⟨ r≥s∧s≥t⇒r⊓[s⊓t]≈s⊓t djm₁ djm₂ ▹ _≈_.≈⇒≈⍨ ⟩
       r ⊓ (s ⊓ t) ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       cong = Relation.Binary.PropositionalEquality.cong
+      r≥s∧s≥t⇒r⊓[s⊓t]≈s⊓t : {r s t : ℝ}
+                          → r ≥ s
+                          → s ≥ t
+                          → (r ⊓ (s ⊓ t)) ≈ (s ⊓ t)
+      r≥s∧s≥t⇒r⊓[s⊓t]≈s⊓t = {!!}
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = {!!}
