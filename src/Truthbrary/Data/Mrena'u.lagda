@@ -1418,7 +1418,6 @@ module Veritas where
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass r s t with T
       where
-      T : ((r ≥ s) ⊎ (r < s)) × ((s ≥ t) ⊎ (s < t))
       T = _≥_.jonais r s ,′ _≥_.jonais s t
     ... | (inj₁ djm₁ , inj₁ djm₂) = begin
       (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
