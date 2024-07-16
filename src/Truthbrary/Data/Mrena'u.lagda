@@ -1416,9 +1416,7 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ⊓-ass : Associative _≈_ _⊓_
-    ⊓-ass r s t with T
-      where
-      T = _≥_.jonais r s ,′ _≥_.jonais s t
+    ⊓-ass r s t with _≥_.jonais r s ,′ _≥_.jonais s t
     ... | (inj₁ djm₁ , inj₁ djm₂) = begin
       (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
       s ⊓ t ≈⟨ {!!} ⟩
