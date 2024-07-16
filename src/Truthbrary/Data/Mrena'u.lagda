@@ -201,6 +201,7 @@ open import Data.Product
   using (
     proj₂;
     proj₁;
+    _,′_;
     _×_;
     _,_;
     ∃
@@ -1418,7 +1419,7 @@ module Veritas where
     ⊓-ass r s t with T
       where
       T : ((r ≥ s) ⊎ (r < s)) × ((s ≥ t) ⊎ (s < t))
-      T = _≥_.jonais r s , _≥_.jonais s t
+      T = _≥_.jonais r s ,′ _≥_.jonais s t
     ... | (inj₁ djm₁ , inj₁ djm₂) = begin
       (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
       s ⊓ t ≈⟨ {!!} ⟩
