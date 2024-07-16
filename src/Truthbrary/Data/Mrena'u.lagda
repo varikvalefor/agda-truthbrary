@@ -1428,7 +1428,7 @@ module Veritas where
                           → r ≥ s
                           → s ≥ t
                           → (r ⊓ (s ⊓ t)) ≈ (s ⊓ t)
-      r≥s∧s≥t⇒r⊓[s⊓t]≈s⊓t {r} {s} {t} djm₁ djm₂ = f
+      r≥s∧s≥t⇒r⊓[s⊓t]≈s⊓t {r} djm₁ djm₂ = f
         where
         f = ≥⇒2 r _ (_≥_.≥∧≥⇒≥ djm₁ djm₂') ▹ sym ▹ _≈_.≡⇒≈
           where
