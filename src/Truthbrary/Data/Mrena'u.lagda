@@ -1436,7 +1436,7 @@ module Veritas where
                         → r ≥ s
                         → s ≥ t
                         → r ≥ (s ⊓ t)
-          r≥s∧s≥t⇒r≥s⊓t = λ djm₁ djm₂ → _≥_.≥∧≥⇒≥ djm₁ {!!}
+          r≥s∧s≥t⇒r≥s⊓t djm₁ djm₂ = _≥_.≥∧≥⇒≥ djm₁ {!!}
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = {!!}
