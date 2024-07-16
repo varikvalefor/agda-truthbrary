@@ -1430,7 +1430,13 @@ module Veritas where
                           → (r ⊓ (s ⊓ t)) ≈ (s ⊓ t)
       r≥s∧s≥t⇒r⊓[s⊓t]≈s⊓t {r} {s} {t} djm₁ djm₂ = f
         where
-        f = ≥⇒2 r _ {!!} ▹ _≈_.≡⇒≈ ▹ _≈_.≈⇒≈⍨
+        f = ≥⇒2 r _ (r≥s∧s≥t⇒r≥s⊓t djm₁ djm₂) ▹ _≈_.≡⇒≈ ▹ _≈_.≈⇒≈⍨
+          where
+          r≥s∧s≥t⇒r≥s⊓t : {r s t : ℝ}
+                        → r ≥ s
+                        → s ≥ t
+                        → r ≥ (s ⊓ t)
+          r≥s∧s≥t⇒r≥s⊓t = {!!}
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = {!!}
