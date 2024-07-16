@@ -1394,6 +1394,9 @@ module Veritas where
     ≈⇒2 : {r s : ℝ} → r ≈ s → s ≈ (r ⊓ s)
     ≈⇒2 = _≈_.≡⇒≈ ∘ ≥⇒2 _ _ ∘ _≥_.≈⇒≥
 
+    r⊓s≈r'⊓s' : {r r' s s' : ℝ} → r ≈ r' → s ≈ s' → (r ⊓ s) ≈ (r' ⊓ s')
+    r⊓s≈r'⊓s' = {!!}
+
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
     ⊓≈⊓⍨ r s with _≥_.jonais r s
     ... | inj₁ djm = begin
