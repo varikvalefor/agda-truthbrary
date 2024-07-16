@@ -1418,7 +1418,7 @@ module Veritas where
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass r s t with _≥_.jonais r s ,′ _≥_.jonais s t
     ... | (inj₁ djm₁ , inj₁ djm₂) = begin
-      (r ⊓ s) ⊓ t ≈⟨ ≥⇒2 r s djm₁ ▹ sym ▹ cong (_⊓ t) ▹ _≈_.≡⇒≈ ⟩
+      (r ⊓ s) ⊓ t ≈⟨ ≥⇒2 _ _ djm₁ ▹ sym ▹ cong (_⊓ t) ▹ _≈_.≡⇒≈ ⟩
       s ⊓ t ≈⟨ ≥⇒2 _ _ (_≥_.≥∧≥⇒≥ djm₁ djm₂') ▹ _≈_.≡⇒≈ ⟩
       r ⊓ (s ⊓ t) ∎
       where
