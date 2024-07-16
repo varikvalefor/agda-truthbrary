@@ -1410,7 +1410,7 @@ module Veritas where
       ≤⇒1 r s = _⊎_.[_,_] (≈⇒1 ∘ _≈_.≈⇒≈⍨) $ _≈_.≡⇒≈ ∘ <⇒1 r s
     ... | inj₂ m = begin
       r ⊓ s ≈⟨ <⇒1 r s m ▹ sym ▹ _≈_.≡⇒≈ ⟩
-      r ≈⟨ ≥⇒2 s r (_≥_.>⇒≥ m) ▹ _≈_.≡⇒≈ ⟩
+      r ≈⟨ ≥⇒2 s _ (_≥_.>⇒≥ m) ▹ _≈_.≡⇒≈ ⟩
       s ⊓ r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
