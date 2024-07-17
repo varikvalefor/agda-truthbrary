@@ -808,7 +808,7 @@ module Veritas where
     0≈r-s = {!!}
 
     0≈r-r : (r : ℝ) → fromℕ 0 ≈_ $ r - r
-    0≈r-r r = 0≈r-s r r $ _≈_.≡⇒≈ refl
+    0≈r-r r = 0≈r-s r r $ _≈_.r≈r
 
     r≡r-0 : Algebra.RightIdentity _≡_ (fromℕ 0) _-_
     r≡r-0 = {!!}
