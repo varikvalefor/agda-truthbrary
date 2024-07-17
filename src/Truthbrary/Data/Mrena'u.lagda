@@ -1287,7 +1287,7 @@ module Veritas where
       where
       open SignV using (r>0⇒s[r]≡+)
 
-    0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈_ $ ¯ r
+    0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈ (¯ r)
     0>r⇒∣r∣≈-r = {!!}
 
     ∣_∣≡∣_∣∘∣_∣ : Algebra.IdempotentFun _≡_ ∣_∣
