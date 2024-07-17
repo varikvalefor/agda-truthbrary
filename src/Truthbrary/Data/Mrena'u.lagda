@@ -1305,23 +1305,12 @@ module Veritas where
     ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ ∘ ∣_∣≡∣_∣∘∣_∣
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
-    ≈⇒∣_∣≈ {r} {s} d with sign r , sign s
-    ... | Sign.+ , Sign.+ = begin
-      ∣ r ∣ ≈⟨ _≈_.≡⇒≈ $ sym $ +r≡∣+r∣ r {!!} ⟩
-      r ≈⟨ d ⟩
-      s ≈⟨ _≈_.≡⇒≈ $ +r≡∣+r∣ s {!!} ⟩
-      ∣ s ∣ ∎
+    ≈⇒∣_∣≈ {r} {s} d = SignV.jonis {P₁ = _≈ s} f₁ f₂ r d
       where
-      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-    ... | Sign.+ , Sign.- = {!!}
-    ... | Sign.- , Sign.+ = {!!}
-    ... | Sign.- , Sign.- = begin
-      ∣ r ∣ ≈⟨ 0>r⇒∣r∣≈-r r {!!} ⟩
-      ¯ r ≈⟨ ¯_.r≈s⇒¯r≈¯s d ⟩
-      ¯ s ≈⟨ 0>r⇒∣r∣≈-r s {!!} ▹ _≈_.≈⇒≈⍨ ⟩
-      ∣ s ∣ ∎
-      where
-      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      f₁ : {r : ℝ} → r ≈ s → sign r ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
+      f₁ = {!!}
+      f₂ : {r : ℝ} → r ≈ s → sign r ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
+      f₂ = {!!}
 
     ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ) → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
     ∣fromℚ[k]∣≈fromℚ[∣k∣] = {!!}
