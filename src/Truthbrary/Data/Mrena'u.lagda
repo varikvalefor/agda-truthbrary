@@ -1308,7 +1308,12 @@ module Veritas where
     ≈⇒∣_∣≈ {r} {s} d = SignV.jonis {P₁ = _≈ s} f₁ f₂ r d
       where
       f₁ : {r : ℝ} → r ≈ s → sign r ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
-      f₁ = {!!}
+      f₁ {r} d ds = SignV.jonis {P₁ = r ≈_} g₁ g₂ s d
+        where
+        g₁ : {s : ℝ} → r ≈ s → sign s ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
+        g₁ = {!!}
+        g₂ : {s : ℝ} → r ≈ s → sign s ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
+        g₂ = {!!}
       f₂ : {r : ℝ} → r ≈ s → sign r ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
       f₂ = {!!}
 
