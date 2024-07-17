@@ -825,7 +825,7 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
-    -r≈0-r : (r : ℝ) → (¯ r) ≈ (fromℕ 0 - r)
+    -r≈0-r : (r : ℝ) → ¯_ r ≈ (fromℕ 0 - r)
     -r≈0-r = {!!}
 
     r-s≈r'-s' : Algebra.Congruent₂ _≈_ _-_
