@@ -1111,7 +1111,7 @@ module Veritas where
             → r ≡ fromℤ (⌊' r)
     fromℤ∘⌊' = {!!}
 
-    ⌊'∘fromℤ : (z : ℤ) → z ≡_ $ ⌊' $ fromℤ z
+    ⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
     ⌊'∘fromℤ = {!!}
 
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
