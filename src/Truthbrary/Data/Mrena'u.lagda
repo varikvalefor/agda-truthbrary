@@ -193,6 +193,11 @@ open import Data.Empty
   using (
     ⊥
   )
+open import Data.These
+  as These
+  using (
+    These
+  )
 open import Data.Integer
   as ℤ
   using (
@@ -786,10 +791,10 @@ module Veritas where
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
 
-    I[r+s]⇒I[r]⊎I[s] : (r s : ℝ)
+    I[r+s]⇒I[r]∨I[s] : (r s : ℝ)
                      → Irrational $ r + s
-                     → Irrational r ⊎ Irrational s
-    I[r+s]⇒I[r]⊎I[s] = {!!}
+                     → These (Irrational r) (Irrational s)
+    I[r+s]⇒I[r]∨I[s] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
