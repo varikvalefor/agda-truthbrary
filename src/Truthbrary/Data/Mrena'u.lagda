@@ -144,6 +144,7 @@ open import Data.Nat
 open import Data.Sum
   as _⊎_
   using (
+    _-⊎-_;
     inj₂;
     inj₁;
     _⊎_
@@ -275,7 +276,7 @@ _≈_ : ℝ → ℝ → Set
 _≈_ = ⊎/ $ _≡_ 𝕃.∷ {!!}
   where
   ⊎/ : ∀ {a} → {A : Set a} → let C = A → A → Set in List C → C
-  ⊎/ = 𝕃.foldr _-⟪ _⊎_ ⟫-_ $ λ _ _ → ⊥
+  ⊎/ = 𝕃.foldr _-⊎-_ $ λ _ _ → ⊥
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
