@@ -144,6 +144,7 @@ open import Data.Nat
 open import Data.Sum
   as _⊎_
   using (
+    _-⊎-_;
     inj₂;
     inj₁;
     _⊎_
@@ -179,6 +180,11 @@ open import Data.Sign
   using (
     Sign
   )
+open import Data.Unit
+  using (
+    tt;
+    ⊤
+  )
 open import Data.Digit
   using (
     Digit
@@ -186,6 +192,11 @@ open import Data.Digit
 open import Data.Empty
   using (
     ⊥
+  )
+open import Data.These
+  as These
+  using (
+    These
   )
 open import Data.Integer
   as ℤ
@@ -196,6 +207,7 @@ open import Data.Product
   using (
     proj₂;
     proj₁;
+    _,′_;
     _×_;
     _,_;
     ∃
@@ -204,6 +216,10 @@ open import Data.Rational
   as ℚ
   using (
     ℚ
+  )
+open import Relation.Unary
+  using (
+    Pred
   )
 open import Relation.Binary
   using (
@@ -265,7 +281,7 @@ _≈_ : ℝ → ℝ → Set
 _≈_ = ⊎/ $ _≡_ 𝕃.∷ {!!}
   where
   ⊎/ : ∀ {a} → {A : Set a} → let C = A → A → Set in List C → C
-  ⊎/ = 𝕃.foldr _-⟪ _⊎_ ⟫-_ $ λ _ _ → ⊥
+  ⊎/ = 𝕃.foldr _-⊎-_ $ λ _ _ → ⊥
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
@@ -376,8 +392,7 @@ ni'o la'o zoi.\ \F{fromℤ} \B z\ .zoi.\ namcu du la'oi .\B z.
 
 \begin{code}
 fromℤ : ℤ → ℝ
-fromℤ (ℤ.pos n) = fromℕ n
-fromℤ (ℤ.negsuc n) = ¯ fromℕ n
+fromℤ z = fromℝ- (ℤ.sign z) ℤ.∣ z ∣ $ const 𝔽.zero
 \end{code}
 
 \section{la'o zoi.\ \F{from𝔻}\ .zoi.}
@@ -668,6 +683,11 @@ module Veritas where
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
         r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
         r≡r/1 = {!!}
+
+    fromℤ≡+fromℕ : (z : ℤ)
+                 → ℤ.sign z ≡ Sign.+
+                 → fromℤ z ≡ fromℕ ℤ.∣ z ∣
+    fromℤ≡+fromℕ = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
@@ -692,6 +712,9 @@ module Veritas where
 
     r≈s⇒¯r≈¯s : Algebra.Congruent₁ _≈_ ¯_
     r≈s⇒¯r≈¯s = {!!}
+
+    r≈¯¯r : (r : ℝ) → r ≈_ $ ¯ (¯ r)
+    r≈¯¯r = {!!}
 
     R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
     R[¯R] = {!!}
@@ -762,19 +785,19 @@ module Veritas where
       where
       D = ℚ+ R S
 
-    r+s≈r'+s' : {r r' s s' : ℝ}
-              → r ≈ r'
-              → s ≈ s'
-              → (r + s) ≈ (r' + s')
+    r+s≈r'+s' : {r r' s s' : ℝ} → r ≈ r' → s ≈ s' → (r + s) ≈ (r' + s')
     r+s≈r'+s' = {!!}
+
+    ¯r+¯s≈¯[r+s] : (r s : ℝ) → ((¯ r) + (¯ s)) ≈ (¯ (r + s))
+    ¯r+¯s≈¯[r+s] = {!!}
 
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
 
-    I[r+s]⇒I[r]⊎I[s] : (r s : ℝ)
+    I[r+s]⇒I[r]∨I[s] : (r s : ℝ)
                      → Irrational $ r + s
-                     → Irrational r ⊎ Irrational s
-    I[r+s]⇒I[r]⊎I[s] = {!!}
+                     → These (Irrational r) (Irrational s)
+    I[r+s]⇒I[r]∨I[s] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}-\AgdaUnderscore}}}
@@ -785,21 +808,36 @@ module Veritas where
     0≈r-s = {!!}
 
     0≈r-r : (r : ℝ) → fromℕ 0 ≈_ $ r - r
-    0≈r-r r = 0≈r-s r r $ _≈_.≡⇒≈ refl
+    0≈r-r r = 0≈r-s r r _≈_.r≈r
 
-    0≡r-0 : Algebra.RightZero _≡_ (fromℕ 0) _-_
-    0≡r-0 = {!!}
+    r≡r-0 : Algebra.RightIdentity _≡_ (fromℕ 0) _-_
+    r≡r-0 = {!!}
 
     r-s-t≈r-[s+t] : (r s t : ℝ) → ((r - s) - t) ≈ (r - (s + t))
-    r-s-t≈r-[s+t] = {!!}
+    r-s-t≈r-[s+t] r s t = begin
+      (r - s) - t ≈⟨ r≈r ⟩
+      (r - s) + (¯ t) ≈⟨ r≈r ⟩
+      (r + (¯ s)) + (¯ t) ≈⟨ _+_.+-ass r (¯ s) (¯ t) ⟩
+      r + ((¯ s) + (¯ t)) ≈⟨ r≈r ⟩
+      _ ≈⟨ ¯r+¯s≈¯[r+s] s t ▹ r+s≈r'+s' {r} r≈r ⟩
+      r + (¯ (s + t)) ≈⟨ r≈r ⟩
+      r - (s + t) ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      open _+_
+        using (
+          ¯r+¯s≈¯[r+s];
+          r+s≈r'+s'
+        )
+      open _≈_
+        using (
+          r≈r
+        )
 
-    -r≈0-r : (r : ℝ) → (¯ r) ≈ (fromℕ 0 - r)
+    -r≈0-r : (r : ℝ) → ¯_ r ≈ (fromℕ 0 - r)
     -r≈0-r = {!!}
 
-    r-s≈r'-s' : {r r' s s' : ℝ}
-              → r ≈ r'
-              → s ≈ s'
-              → (r - s) ≈ (r' - s')
+    r-s≈r'-s' : Algebra.Congruent₂ _≈_ _-_
     r-s≈r'-s' = {!!}
 
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ (r - s) + s
@@ -808,7 +846,7 @@ module Veritas where
       (r + (¯ s)) + s ≈⟨ +-ass r (¯ s) s ⟩
       r + ((¯ s) + s) ≈⟨ r+s≈r'+s' {r} _≈_.r≈r $ +≈+⍨ (¯ s) s ⟩
       r + (s + (¯ s)) ≈⟨ _≈_.r≈r ⟩
-      r + (s - s) ≈⟨ r+s≈r'+s' {r} _≈_.r≈r $ _≈_.≈⇒≈⍨ $ 0≈r-r s ⟩
+      r + (s - s) ≈⟨ 0≈r-r s ▹ _≈_.≈⇒≈⍨ ▹ r+s≈r'+s' {r} _≈_.r≈r ⟩
       r + fromℕ 0 ≈⟨ proj₂ _+_.id≈+0 r ⟩
       r ∎
       where
@@ -821,24 +859,29 @@ module Veritas where
         )
 
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
-    r≈0-[0-r] = λ r → _≈_.≈⇒≈⍨ $ begin
+    r≈0-[0-r] r = _≈_.≈⇒≈⍨ $ begin
       fromℕ 0 - (fromℕ 0 - r) ≈⟨ _≈_.r≈r ⟩
       _ ≈⟨ r-s≈r'-s' (_≈_.r≈r {fromℕ 0}) (-r≈0-r r) ▹ _≈_.≈⇒≈⍨ ⟩
-      fromℕ 0 - (¯ r) ≈⟨ -r≈0-r (¯ r) ▹ _≈_.≈⇒≈⍨ ⟩
-      ¯ (¯ r) ≈⟨ r≈¯¯r _ ▹ _≈_.≈⇒≈⍨ ⟩
+      fromℕ 0 - (¯ r) ≈⟨ -r≈0-r _ ▹ _≈_.≈⇒≈⍨ ⟩
+      ¯ (¯ r) ≈⟨ ¯_.r≈¯¯r _ ▹ _≈_.≈⇒≈⍨ ⟩
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-      r≈¯¯r : (r : ℝ) → r ≈_ $ ¯ (¯ r)
-      r≈¯¯r = {!!}
 
     0≈r+[0-r] : (r 0' : ℝ)
               → 0' ≈ fromℕ 0
               → fromℕ 0 ≈_ $ r + (0' - r)
-    0≈r+[0-r] = {!!}
+    0≈r+[0-r] = λ r 0' d → _≈_.≈⇒≈⍨ $ begin
+      r + (0' - r) ≈⟨ {!!} ⟩
+      fromℕ 0 ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     r>r-s : (r s : ℝ) → s > fromℕ 0 → r >_ $ r - s
     r>r-s = {!!}
+
+    r≥r-s : (r s : ℝ) → s ≥ fromℕ 0 → r ≥_ $ r - s
+    r≥r-s = {!!}
 
     I[I-R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r - s
     I[I-R] = {!!}
@@ -902,7 +945,7 @@ module Veritas where
            → (_≈_
                (r * fromℕ 10)
                (_+_
-                 (proj₁ r , 0 , ⌊'⁻¹ r ∘ ℕ.suc)
+                 (sign r , 0 , ⌊'⁻¹ r ∘ ℕ.suc)
                  (fromℤ $ ℤ._+_
                    (⌊' r ℤ.* ℤ.+_ 10)
                    (signℤ r ℤ.*_ $ ℤ.+_ $ 𝔽.toℕ $ ⌊'⁻¹ r 0))))
@@ -926,11 +969,11 @@ module Veritas where
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
 
-    r*s≈r'*s' : {r r' s s' : ℝ}
-              → r ≈ r'
-              → s ≈ s'
-              → (r * s) ≈ (r' * s')
+    r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
+
+    dist : Algebra._DistributesOver_ _≈_ _*_ _+_
+    dist = {!!}
 
     *-magma : Algebra.IsMagma _≈_ _*_
     *-magma = record {
@@ -951,8 +994,8 @@ module Veritas where
         r>1⇒r>0 : {r : ℝ} → r > fromℕ 1 → r > fromℕ 0
         r>1⇒r>0 = {!!}
 
-    sez≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
-    sez≡1 = {!!}
+    r/r≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
+    r/r≡1 = {!!}
 
     r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0)
     r≡r/1 = {!!}
@@ -976,8 +1019,7 @@ module Veritas where
 
     -r/-s<-r : (r s : ℝ)
              → (z : s > fromℕ 1)
-             → let -_ = _-_ $ fromℕ 0 in
-               (- r) > frinu (- r) (- s) {!!}
+             → (¯ r) > frinu (¯ r) (¯ s) {!!}
     -r/-s<-r = {!!}
 
     r<r/s : (r s : ℝ)
@@ -991,6 +1033,14 @@ module Veritas where
             → (N : _)
             → r ≈_ $ s * frinu r s N
     r≈s*r/s = {!!}
+
+    r/s≈r'/s' : {r r' s s' : ℝ}
+              → (N : _)
+              → (N' : _)
+              → r ≈ r'
+              → s ≈ s'
+              → frinu r s N ≈ frinu r' s' N'
+    r/s≈r'/s' = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}\textasciicircum\AgdaUnderscore}}}
@@ -1047,6 +1097,9 @@ module Veritas where
                      (fromℕ 2)
                      ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒≡ 2 0)))
     I[2^[1/2]] = {!!}
+
+    r^s≈r'^s' : Algebra.Congruent₂ _≈_ _^_
+    r^s≈r'^s' = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{⌊'}}}
@@ -1058,7 +1111,7 @@ module Veritas where
             → r ≡ fromℤ (⌊' r)
     fromℤ∘⌊' = {!!}
 
-    ⌊'∘fromℤ : (z : ℤ) → z ≡_ $ ⌊' $ fromℤ z
+    ⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
     ⌊'∘fromℤ = {!!}
 
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
@@ -1093,6 +1146,17 @@ module Veritas where
 
     r<0⇒s[r]≡- : (r : ℝ) → r < fromℕ 0 → sign r ≡ Sign.-
     r<0⇒s[r]≡- = {!!}
+
+    jonis : ∀ {p₁ p₂ } → {P₁ : Pred ℝ p₁} → {P₂ : Pred ℝ p₂}
+          → ({r : ℝ} → P₁ r → sign r ≡ Sign.+ → P₂ r)
+          → ({r : ℝ} → P₁ r → sign r ≡ Sign.- → P₂ r)
+          → (r : ℝ)
+          → P₁ r
+          → P₂ r
+    jonis = {!!}
+
+    jonais : (r : ℝ) → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
+    jonais r = jonis (λ _ → inj₁) (λ _ → inj₂) r tt
 \end{code}
 
 \subsection{\lcblm{\F{signℤ}}}
@@ -1105,10 +1169,10 @@ module Veritas where
     1⇒> : (r : ℝ) → signℤ r ≡ ℤ.+_ 1 → r > fromℕ 0
     1⇒> = {!!}
 
-    <⇒-1 : (r : ℝ) → fromℕ 0 > r → signℤ r ≡ ℤ.-_ (ℤ.+_ 1)
+    <⇒-1 : (r : ℝ) → fromℕ 0 > r → signℤ r ≡ ℤ.-[1+ 0 ]
     <⇒-1 = {!!}
 
-    -1⇒< : (r : ℝ) → signℤ r ≡ ℤ.-_ (ℤ.+_ 1) → fromℕ 0 > r
+    -1⇒< : (r : ℝ) → signℤ r ≡ ℤ.-[1+ 0 ] → fromℕ 0 > r
     -1⇒< = {!!}
 
     ≈⇒0 : (r : ℝ) → r ≈ fromℕ 0 → signℤ r ≡ ℤ.+_ 0
@@ -1119,7 +1183,7 @@ module Veritas where
 
     jonais : (r : ℝ)
            → let s = signℤ r ≡_ in
-             s (ℤ.+_ 0) ⊎ s (ℤ.+_ 1) ⊎ s (ℤ.-_ $ ℤ.+_ 1)
+             s (ℤ.+_ 0) ⊎ s (ℤ.+_ 1) ⊎ s ℤ.-[1+ 0 ]
     jonais = {!!}
 \end{code}
 
@@ -1127,11 +1191,11 @@ module Veritas where
 
 \begin{code}
   module _>_ where
-    ¬[r>r] : Irreflexive _≈_ _>_
-    ¬[r>r] = {!!}
+    ≈⇒≯ : Irreflexive _≈_ _>_
+    ≈⇒≯ = {!!}
 
-    r+s>r : (r s : ℝ) → s > fromℕ 0 → (r + s) > r
-    r+s>r = {!!}
+    r<r+s : (r s : ℝ) → s > fromℕ 0 → r < (r + s)
+    r<r+s = {!!}
 
     >⇒¬< : Asymmetric _>_
     >⇒¬< = {!!}
@@ -1152,6 +1216,15 @@ module Veritas where
 
     >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
     >ℤ⇒> = {!!}
+
+    fromℤ>fromℤ : {x z : ℤ} → x ℤ.> z → fromℤ x > fromℤ z
+    fromℤ>fromℤ = {!!}
+
+    >F∧≥ℤ⇒> : (r s : ℝ)
+            → ⌊'⁻¹ℝ r > ⌊'⁻¹ℝ s
+            → ⌊' r ℤ.≥ ⌊' s
+            → r > s
+    >F∧≥ℤ⇒> = {!!}
 
     +r>-s : {r s : ℝ}
           → sign r ≡ Sign.+
@@ -1191,17 +1264,11 @@ module Veritas where
     ≥∧≉⇒> : {r s : ℝ} → r ≥ s → ¬_ $ r ≈ s → r > s
     ≥∧≉⇒> x N = _⊎_.[_,_] (_⇒⇐ N) Function.id x
 
-    ≥∧¬>⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
-    ≥∧¬>⇒≈ x N = _⊎_.[_,_] Function.id (_⇒⇐ N) x
+    ≥∧≯⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
+    ≥∧≯⇒≈ x N = _⊎_.[_,_] Function.id (_⇒⇐ N) x
 
     +r≥-s : {r s : ℝ} → sign r ≡ Sign.+ → sign s ≡ Sign.- → r ≥ s
     +r≥-s = {!!}
-
-    ⌊'r≥⌊'s⇒r≥s : {r s : ℝ}
-                → ⌊' r ℤ.≥ ⌊' s
-                → sign s ≡ Sign.+ ⊎ s ≈ fromℕ 0
-                → r ≥ s
-    ⌊'r≥⌊'s⇒r≥s = {!!}
 
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
     jonais r s with _>_.jonais r s
@@ -1210,9 +1277,7 @@ module Veritas where
     ... | inj₂ (inj₂ d) = inj₁ $ inj₁ d
 
     ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
-    ¬≥⇒< N with jonais _ _
-    ... | inj₁ djm = djm ⇒⇐ N
-    ... | inj₂ m = m
+    ¬≥⇒< N = _⊎_.[_,_]′ (_⇒⇐ N) Function.id $ jonais _ _
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
@@ -1226,12 +1291,11 @@ module Veritas where
     0≈∣0∣ = {!!}
 
     r≥0⇒r≈∣r∣ : (r : ℝ) → r ≥ fromℕ 0 → r ≈ ∣ r ∣
-    r≥0⇒r≈∣r∣ r (inj₁ d) = 0≈∣0∣ d
-    r≥0⇒r≈∣r∣ r (inj₂ z) = _≈_.≡⇒≈ $ +r≡∣+r∣ r $ r>0⇒s[r]≡+ r z
+    r≥0⇒r≈∣r∣ r = _⊎_.[_,_] 0≈∣0∣ $ _≈_.≡⇒≈ ∘ +r≡∣+r∣ r ∘ r>0⇒s[r]≡+ r
       where
       open SignV using (r>0⇒s[r]≡+)
 
-    0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈_ $ ¯ r
+    0>r⇒∣r∣≈-r : (r : ℝ) → fromℕ 0 > r → ∣ r ∣ ≈ (¯ r)
     0>r⇒∣r∣≈-r = {!!}
 
     ∣_∣≡∣_∣∘∣_∣ : Algebra.IdempotentFun _≡_ ∣_∣
@@ -1241,23 +1305,26 @@ module Veritas where
     ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ ∘ ∣_∣≡∣_∣∘∣_∣
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
-    ≈⇒∣_∣≈ {r} {s} d with sign r , sign s
-    ... | Sign.+ , Sign.+ = begin
-      ∣ r ∣ ≈⟨ _≈_.≡⇒≈ $ sym $ +r≡∣+r∣ r {!!} ⟩
-      r ≈⟨ d ⟩
-      s ≈⟨ _≈_.≡⇒≈ $ +r≡∣+r∣ s {!!} ⟩
-      ∣ s ∣ ∎
+    ≈⇒∣_∣≈ {r} {s} d = SignV.jonis {P₁ = _≈ s} f₁ f₂ r d
       where
-      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-    ... | Sign.+ , Sign.- = {!!}
-    ... | Sign.- , Sign.+ = {!!}
-    ... | Sign.- , Sign.- = begin
-      ∣ r ∣ ≈⟨ 0>r⇒∣r∣≈-r r {!!} ⟩
-      ¯ r ≈⟨ ¯_.r≈s⇒¯r≈¯s _ _ d ⟩
-      ¯ s ≈⟨ 0>r⇒∣r∣≈-r s {!!} ▹ _≈_.≈⇒≈⍨ ⟩
-      ∣ s ∣ ∎
-      where
-      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      f₁ : {r : ℝ} → r ≈ s → sign r ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
+      f₁ {r} d ds = SignV.jonis {P₁ = r ≈_} g₁ g₂ s d
+        where
+        g₁ : {s : ℝ} → r ≈ s → sign s ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
+        g₁ {s} d dss = begin
+          ∣ r ∣ ≈⟨ +r≡∣+r∣ r ds ▹ _≈_.≡⇒≈ ▹ _≈_.≈⇒≈⍨ ⟩
+          r ≈⟨ d ⟩
+          s ≈⟨ +r≡∣+r∣ s dss ▹ _≈_.≡⇒≈ ⟩
+          ∣ s ∣ ∎
+          where
+          open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+        g₂ : {s : ℝ} → r ≈ s → sign s ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
+        g₂ = {!!}
+      f₂ : {r : ℝ} → r ≈ s → sign r ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
+      f₂ = {!!}
+
+    ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ) → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
+    ∣fromℚ[k]∣≈fromℚ[∣k∣] = {!!}
 
     jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (¯ r)
     jonais r with _≥_.jonais r $ fromℕ 0
@@ -1265,15 +1332,32 @@ module Veritas where
     ... | inj₂ m = inj₂ $ 0>r⇒∣r∣≈-r r m
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
-    R[∣R∣] = λ r (r' , d) → ℚ.∣ r' ∣ , {!!}
+    R[∣R∣] r (r' , d) = ℚ.∣ r' ∣ , _≈_.≈⇒≈⍨ d₂
+      where
+      d₂ = begin
+        fromℚ ℚ.∣ r' ∣ ≈⟨ ∣fromℚ[k]∣≈fromℚ[∣k∣] r' ▹ _≈_.≈⇒≈⍨ ⟩
+        ∣ fromℚ r' ∣ ≈⟨ ≈⇒∣_∣≈ d ▹ _≈_.≈⇒≈⍨ ⟩
+        ∣ r ∣ ∎
+        where
+        open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     R[∣r∣]⇒R[r] : (r : ℝ) → Rational ∣ r ∣ → Rational r
-    R[∣r∣]⇒R[r] = {!!}
+    R[∣r∣]⇒R[r] = SignV.jonis {!!} {!!}
 
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
-    I[∣I∣] r R with sign r
-    ... | Sign.+ = subst Irrational (+r≡∣+r∣ r {!!}) R
-    ... | Sign.- = subst Irrational {!!} $ ¯_.I[¯I] r R
+    I[∣I∣] = jonis f₁ f₂
+      where
+      jonis = SignV.jonis {P₁ = Irrational} {P₂ = Irrational ∘ ∣_∣}
+      f₁ : {r : ℝ} → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
+      f₁ I d = subst Irrational (+r≡∣+r∣ _ d) I
+      f₂ : {r : ℝ} → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
+      f₂ I d = subst Irrational {!!} $ I[r]⇒I[¯r] _ I
+        where
+        I[r]⇒I[¯r] : (r : ℝ) → Irrational r → Irrational $ ¯ r
+        I[r]⇒I[¯r] = {!!}
+
+    I[∣r∣]⇒I[r] : (r : ℝ) → Irrational ∣ r ∣ → Irrational r
+    I[∣r∣]⇒I[r] = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
@@ -1293,7 +1377,7 @@ module Veritas where
       ⊤⇒≥ : (r s : ℝ) → true ≡ _≥ᵇ_ r s → r ≥ s
       ⊤⇒≥ = {!!}
 
-      <⇒⊥ : (r s : ℝ) → s > r → false ≡ _≥ᵇ_ r s
+      <⇒⊥ : (r s : ℝ) → r < s → false ≡ _≥ᵇ_ r s
       <⇒⊥ = {!!}
 
       ⊥⇒≤ : (r s : ℝ) → false ≡ _≥ᵇ_ r s → s ≥ r
@@ -1322,15 +1406,18 @@ module Veritas where
     ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.bool' r s) (I.≥⇒⊤ z) (I.⊤⇒2 r)
 
     ≈⇒1 : {r s : ℝ} → r ≈ s → r ≈ (r ⊓ s)
-    ≈⇒1 = {!!}
+    ≈⇒1 = λ d → _≈_.≈∧≈⇒≈ d $ _≈_.≡⇒≈ $ ≥⇒2 _ _ $ _≥_.≈⇒≥ d
 
     ≈⇒2 : {r s : ℝ} → r ≈ s → s ≈ (r ⊓ s)
-    ≈⇒2 = {!!}
+    ≈⇒2 = _≈_.≡⇒≈ ∘ ≥⇒2 _ _ ∘ _≥_.≈⇒≥
+
+    r⊓s≈r'⊓s' : {r r' s s' : ℝ} → r ≈ r' → s ≈ s' → (r ⊓ s) ≈ (r' ⊓ s')
+    r⊓s≈r'⊓s' = {!!}
 
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
     ⊓≈⊓⍨ r s with _≥_.jonais r s
     ... | inj₁ djm = begin
-      r ⊓ s ≈⟨ ≥⇒2 r s djm ▹ sym ▹ _≈_.≡⇒≈ ⟩
+      r ⊓ s ≈⟨ ≥⇒2 _ _ djm ▹ sym ▹ _≈_.≡⇒≈ ⟩
       s ≈⟨ ≤⇒1 s r djm ⟩
       s ⊓ r ∎
       where
@@ -1339,17 +1426,21 @@ module Veritas where
       ≤⇒1 r s = _⊎_.[_,_] (≈⇒1 ∘ _≈_.≈⇒≈⍨) $ _≈_.≡⇒≈ ∘ <⇒1 r s
     ... | inj₂ m = begin
       r ⊓ s ≈⟨ <⇒1 r s m ▹ sym ▹ _≈_.≡⇒≈ ⟩
-      r ≈⟨ ≥⇒2 s r (_≥_.>⇒≥ m) ▹ _≈_.≡⇒≈ ⟩
+      r ≈⟨ ≥⇒2 s _ (_≥_.>⇒≥ m) ▹ _≈_.≡⇒≈ ⟩
       s ⊓ r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ⊓-ass : Associative _≈_ _⊓_
-    ⊓-ass r s t with T
+    ⊓-ass r s t with _≥_.jonais r s ,′ _≥_.jonais s t
+    ... | (inj₁ djm₁ , inj₁ djm₂) = begin
+      (r ⊓ s) ⊓ t ≈⟨ ≥⇒2 _ _ djm₁ ▹ sym ▹ cong (_⊓ t) ▹ _≈_.≡⇒≈ ⟩
+      s ⊓ t ≈⟨ ≥⇒2 _ _ (_≥_.≥∧≥⇒≥ djm₁ djm₂') ▹ _≈_.≡⇒≈ ⟩
+      r ⊓ (s ⊓ t) ∎
       where
-      T : ((r ≥ s) ⊎ (r < s)) × ((s ≥ t) ⊎ (s < t))
-      T = _≥_.jonais r s , _≥_.jonais s t
-    ... | (inj₁ djm₁ , inj₁ djm₂) = {!!}
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      cong = Relation.Binary.PropositionalEquality.cong
+      djm₂' = subst (_ ≥_) (≥⇒2 _ _ djm₂) djm₂
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = {!!}
@@ -1375,6 +1466,9 @@ module Veritas where
 
 \begin{code}
   module Irrational where
+    I[r]∧r≈s⇒I[s] : (r s : ℝ) → Irrational r → r ≈ s → Irrational s
+    I[r]∧r≈s⇒I[s] = {!!}
+
     R⊎I : (r : ℝ) → Rational r ⊎ Irrational r
     R⊎I = {!!}
 \end{code}
@@ -1399,7 +1493,7 @@ module Veritas where
                   (toℚ {fromℤ z} $ Fromℤ.fromℤ-Rational z)
                   (ℚ.mkℚ z 0 C))
     toℚ∘fromℤ z = begin
-      toℚ {fromℤ z} (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
+      toℚ (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
       proj₁ (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
       ℚ.mkℚ z 0 _ ∎
       where
@@ -1436,7 +1530,7 @@ isRing = record {
       isMagma = Veritas._*_.*-magma;
       assoc = Veritas._*_.*-ass};
     identity = Veritas._*_.r≈1*r};
-  distrib = {!!};
+  distrib = Veritas._*_.dist;
   zero = Veritas._*_.0≈0*r}
 \end{code}
 \end{document}
