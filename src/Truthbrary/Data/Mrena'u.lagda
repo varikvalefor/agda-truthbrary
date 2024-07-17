@@ -1313,6 +1313,7 @@ module Veritas where
         g₁ : {s : ℝ} → r ≈ s → sign s ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
         g₁ {s} d dss = begin
           ∣ r ∣ ≈⟨ {!!} ⟩
+          r ≈⟨ {!!} ⟩
           ∣ s ∣ ∎
           where
           open import Relation.Binary.Reasoning.Setoid _≈_.setoid
