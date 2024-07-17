@@ -1291,8 +1291,7 @@ module Veritas where
     0≈∣0∣ = {!!}
 
     r≥0⇒r≈∣r∣ : (r : ℝ) → r ≥ fromℕ 0 → r ≈ ∣ r ∣
-    r≥0⇒r≈∣r∣ r (inj₁ d) = 0≈∣0∣ d
-    r≥0⇒r≈∣r∣ r (inj₂ z) = _≈_.≡⇒≈ $ +r≡∣+r∣ r $ r>0⇒s[r]≡+ r z
+    r≥0⇒r≈∣r∣ r = _⊎_.[_,_] 0≈∣0∣ (_≈_.≡⇒≈ ∘ +r≡∣+r∣ r ∘ r>0⇒s[r]≡+ r)
       where
       open SignV using (r>0⇒s[r]≡+)
 
