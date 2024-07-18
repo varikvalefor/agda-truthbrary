@@ -1444,7 +1444,11 @@ module Veritas where
       djm₂' = subst (_ ≥_) (≥⇒2 _ _ djm₂) djm₂
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
-    ... | (inj₂ m₁ , inj₂ m₂) = {!!}
+    ... | (inj₂ m₁ , inj₂ m₂) = begin
+      (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
+      r ⊓ (s ⊓ t) ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ⊓-sel : Algebra.Selective _≡_ _⊓_
     ⊓-sel r s with _≥_.jonais r s
