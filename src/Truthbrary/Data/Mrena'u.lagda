@@ -1437,13 +1437,13 @@ module Veritas where
 
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass r s t with _≥_.jonais r s ,′ _≥_.jonais s t
-    ... | (inj₁ djm₁ , inj₁ djm₂) = begin
-      (r ⊓ s) ⊓ t ≈⟨ ≥⇒2 _ _ djm₁ ▹ sym ▹ cong (_⊓ t) ▹ _≈_.≡⇒≈ ⟩
-      s ⊓ t ≈⟨ ≥⇒2 _ _ (_≥_.≥∧≥⇒≥ djm₁ djm₂') ▹ _≈_.≡⇒≈ ⟩
+    ... | (inj₁ djm₁ , inj₁ djm₂) = _≈_.≡⇒≈ $ begin
+      (r ⊓ s) ⊓ t ≡⟨ ≥⇒2 _ _ djm₁ ▹ sym ▹ cong (_⊓ t) ⟩
+      s ⊓ t ≡⟨ ≥⇒2 _ _ (_≥_.≥∧≥⇒≥ djm₁ djm₂') ⟩
       r ⊓ (s ⊓ t) ∎
       where
-      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-      cong = Relation.Binary.PropositionalEquality.cong
+      open import Relation.Binary.PropositionalEquality
+      open ≡-Reasoning
       djm₂' = subst (_ ≥_) (≥⇒2 _ _ djm₂) djm₂
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
