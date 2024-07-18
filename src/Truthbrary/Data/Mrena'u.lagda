@@ -156,7 +156,8 @@ open import Function
     _∘₂_;
     _∋_;
     _∘_;
-    _$_
+    _$_;
+    id
   )
   renaming (
     _|>_ to _▹_;
@@ -1262,10 +1263,10 @@ module Veritas where
     ≥⇒¬< = {!!}
 
     ≥∧≉⇒> : {r s : ℝ} → r ≥ s → ¬_ $ r ≈ s → r > s
-    ≥∧≉⇒> x N = _⊎_.[_,_] (_⇒⇐ N) Function.id x
+    ≥∧≉⇒> x N = _⊎_.[_,_] (_⇒⇐ N) id x
 
     ≥∧≯⇒≈ : {r s : ℝ} → r ≥ s → ¬_ $ r > s → r ≈ s
-    ≥∧≯⇒≈ x N = _⊎_.[_,_] Function.id (_⇒⇐ N) x
+    ≥∧≯⇒≈ x N = _⊎_.[_,_] id (_⇒⇐ N) x
 
     +r≥-s : {r s : ℝ} → sign r ≡ Sign.+ → sign s ≡ Sign.- → r ≥ s
     +r≥-s = {!!}
@@ -1277,7 +1278,7 @@ module Veritas where
     ... | inj₂ (inj₂ d) = inj₁ $ inj₁ d
 
     ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
-    ¬≥⇒< N = _⊎_.[_,_]′ (_⇒⇐ N) Function.id $ jonais _ _
+    ¬≥⇒< N = _⊎_.[_,_]′ (_⇒⇐ N) id $ jonais _ _
 \end{code}
 
 \subsection{\lcblm{\F{∣\AgdaUnderscore{}∣}}}
