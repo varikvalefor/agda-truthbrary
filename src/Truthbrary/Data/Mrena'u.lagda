@@ -1353,7 +1353,7 @@ module Veritas where
       f₁ : {r : ℝ} → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
       f₁ I d = subst Irrational (+r≡∣+r∣ _ d) I
       f₂ : {r : ℝ} → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
-      f₂ I d = subst Irrational {!!} $ I[r]⇒I[¯r] _ I
+      f₂ I d = subst Irrational {!!} $ ¯_.I[¯I] _ I
         where
         I[r]⇒I[¯r] : (r : ℝ) → Irrational r → Irrational $ ¯ r
         I[r]⇒I[¯r] = {!!}
