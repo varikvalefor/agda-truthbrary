@@ -1449,6 +1449,7 @@ module Veritas where
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = begin
       (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
+      s ⊓ t ≈⟨ {!!} ⟩
       r ⊓ (s ⊓ t) ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
