@@ -1448,7 +1448,7 @@ module Veritas where
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = begin
-      (r ⊓ s) ⊓ t ≈⟨ <⇒1 _ _ m₁ ▹ sym ▹ cong (_⊓ t) ▹ _≈_.≡⇒≈ ⟩
+      (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
       s ⊓ t ≈⟨ {!!} ⟩
       r ⊓ (s ⊓ t) ∎
       where
