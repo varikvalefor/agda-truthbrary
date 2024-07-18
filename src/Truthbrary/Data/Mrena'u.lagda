@@ -1154,7 +1154,7 @@ module Veritas where
           → (r : ℝ)
           → P₁ r
           → P₂ r
-    jonis f+ f- (Sign.+ , n , f) p₁ = {!!}
+    jonis f+ f- (Sign.+ , n , f) p₁ = f+ p₁ refl
     jonis f+ f- (Sign.- , n , f) p₁ = {!!}
 
     jonais : (r : ℝ) → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
