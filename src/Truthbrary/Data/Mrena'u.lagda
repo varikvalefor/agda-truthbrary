@@ -1448,11 +1448,12 @@ module Veritas where
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = begin
-      (r ⊓ s) ⊓ t ≈⟨ {!!} ⟩
+      (r ⊓ s) ⊓ t ≈⟨ <⇒1 _ _ m₁ ▹ sym ▹ cong (_⊓ t) ▹ _≈_.≡⇒≈ ⟩
       s ⊓ t ≈⟨ {!!} ⟩
       r ⊓ (s ⊓ t) ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      cong = Relation.Binary.PropositionalEquality.cong
 
     ⊓-sel : Algebra.Selective _≡_ _⊓_
     ⊓-sel r s with _≥_.jonais r s
