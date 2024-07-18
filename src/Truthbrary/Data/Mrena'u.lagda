@@ -1347,7 +1347,7 @@ module Veritas where
     R[∣r∣]⇒R[r] = SignV.jonis f₁ f₂
       where
       f₁ : {r : ℝ} → Rational ∣ r ∣ → sign r ≡ Sign.+ → Rational r
-      f₁ = {!!}
+      f₁ = λ R d → subst Rational (sym $ +r≡∣+r∣ _ d) R
       f₂ : {r : ℝ} → Rational ∣ r ∣ → sign r ≡ Sign.- → Rational r
       f₂ = {!!}
 
