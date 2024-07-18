@@ -1344,7 +1344,10 @@ module Veritas where
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     R[∣r∣]⇒R[r] : (r : ℝ) → Rational ∣ r ∣ → Rational r
-    R[∣r∣]⇒R[r] = SignV.jonis {!!} {!!}
+    R[∣r∣]⇒R[r] = SignV.jonis f₁ {!!}
+      where
+      f₁ : {r : ℝ} → Rational ∣ r ∣ → sign r ≡ Sign.+ → Rational r
+      f₁ = {!!}
 
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
     I[∣I∣] = jonis f₁ f₂
