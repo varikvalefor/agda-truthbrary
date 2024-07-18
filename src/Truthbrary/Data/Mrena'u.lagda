@@ -1439,7 +1439,7 @@ module Veritas where
     ⊓-ass r s t with _≥_.jonais r s ,′ _≥_.jonais s t
     ... | (inj₁ djm₁ , inj₁ djm₂) = _≈_.≡⇒≈ $ begin
       (r ⊓ s) ⊓ t ≡⟨ ≥⇒2 _ _ djm₁ ▹ sym ▹ cong (_⊓ t) ⟩
-      s ⊓ t ≡⟨ ≥⇒2 _ _ (_≥_.≥∧≥⇒≥ djm₁ djm₂') ⟩
+      s ⊓ t ≡⟨ ≥⇒2 _ _ $ _≥_.≥∧≥⇒≥ djm₁ djm₂' ⟩
       r ⊓ (s ⊓ t) ∎
       where
       open import Relation.Binary.PropositionalEquality
