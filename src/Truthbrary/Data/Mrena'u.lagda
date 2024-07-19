@@ -875,16 +875,23 @@ module Veritas where
               → fromℕ 0 ≈_ $ r + (0' - r)
     0≈r+[0-r] = λ r 0' d → _≈_.≈⇒≈⍨ $ begin
       r + (0' - r) ≈⟨ _≈_.r≈r ⟩
-      r + (0' + (¯ r)) ≈⟨ _+_.+-ass r 0' (¯ r) ▹ _≈_.≈⇒≈⍨ ⟩
-      (r + 0') + (¯ r) ≈⟨ _+_.+≈+⍨ r 0' ▹ (_+_.r+s≈r'+s' {s = ¯ r} ⍨) _≈_.r≈r ⟩
-      (0' + r) + (¯ r) ≈⟨ _+_.+-ass 0' r (¯ r) ⟩
+      r + (0' + (¯ r)) ≈⟨ +-ass r 0' (¯ r) ▹ _≈_.≈⇒≈⍨ ⟩
+      (r + 0') + (¯ r) ≈⟨ +≈+⍨ r 0' ▹ (r+s≈r'+s' {s = ¯ r} ⍨) _≈_.r≈r ⟩
+      (0' + r) + (¯ r) ≈⟨ +-ass 0' r (¯ r) ⟩
       0' + (r + (¯ r)) ≈⟨ _≈_.r≈r ⟩
-      0' + (r - r) ≈⟨ 0≈r-r r ▹ _≈_.≈⇒≈⍨ ▹ _+_.r+s≈r'+s' {0'} _≈_.r≈r ⟩
-      0' + fromℕ 0 ≈⟨ proj₂ _+_.id≡+0 0' ▹ _≈_.≡⇒≈ ⟩
+      0' + (r - r) ≈⟨ 0≈r-r r ▹ _≈_.≈⇒≈⍨ ▹ r+s≈r'+s' {0'} _≈_.r≈r ⟩
+      0' + fromℕ 0 ≈⟨ proj₂ id≡+0 0' ▹ _≈_.≡⇒≈ ⟩
       0' ≈⟨ d ⟩
       fromℕ 0 ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      open _+_
+        using (
+          r+s≈r'+s';
+          id≡+0;
+          +-ass;
+          +≈+⍨
+        )
 
     r>r-s : (r s : ℝ) → s > fromℕ 0 → r >_ $ r - s
     r>r-s = {!!}
