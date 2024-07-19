@@ -862,7 +862,7 @@ module Veritas where
     r≈0-[0-r] : (r : ℝ) → r ≈_ $ fromℕ 0 -_ $ fromℕ 0 - r
     r≈0-[0-r] r = _≈_.≈⇒≈⍨ $ begin
       fromℕ 0 - (fromℕ 0 - r) ≈⟨ _≈_.r≈r ⟩
-      _ ≈⟨ r-s≈r'-s' {fromℕ 0} r≈r (-r≈0-r r _ r≈r) ▹ _≈_.≈⇒≈⍨ ⟩
+      _ ≈⟨ -r≈0-r r _ r≈r ▹ r-s≈r'-s' {fromℕ 0} r≈r ▹ _≈_.≈⇒≈⍨ ⟩
       fromℕ 0 - (¯ r) ≈⟨ -r≈0-r _ _ r≈r ▹ _≈_.≈⇒≈⍨ ⟩
       ¯ (¯ r) ≈⟨ ¯_.r≈¯¯r _ ▹ _≈_.≈⇒≈⍨ ⟩
       r ∎
