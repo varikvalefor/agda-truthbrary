@@ -879,6 +879,7 @@ module Veritas where
       (0' + r) + (¯ r) ≈⟨ {!!} ⟩
       0' + (r + (¯ r)) ≈⟨ _≈_.r≈r ⟩
       0' + (r - r) ≈⟨ {!!} ⟩
+      0' + fromℕ 0 ≈⟨ {!!} ⟩
       0' ≈⟨ d ⟩
       fromℕ 0 ∎
       where
