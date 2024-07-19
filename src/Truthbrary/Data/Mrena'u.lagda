@@ -878,7 +878,7 @@ module Veritas where
       (r + 0') + (¯ r) ≈⟨ {!!} ⟩
       (0' + r) + (¯ r) ≈⟨ {!!} ⟩
       0' + (r + (¯ r)) ≈⟨ {!!} ⟩
-      0' ≈⟨ {!!} ⟩
+      0' ≈⟨ d ⟩
       fromℕ 0 ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
