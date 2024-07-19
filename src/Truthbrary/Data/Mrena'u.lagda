@@ -885,13 +885,7 @@ module Veritas where
       fromℕ 0 ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-      open _+_
-        using (
-          r+s≈r'+s';
-          id≡+0;
-          +-ass;
-          +≈+⍨
-        )
+      open _+_ using (r+s≈r'+s'; id≡+0; +-ass; +≈+⍨)
 
     r>r-s : (r s : ℝ) → s > fromℕ 0 → r >_ $ r - s
     r>r-s = {!!}
