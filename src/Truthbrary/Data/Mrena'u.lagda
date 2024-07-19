@@ -875,6 +875,7 @@ module Veritas where
     0≈r+[0-r] = λ r 0' d → _≈_.≈⇒≈⍨ $ begin
       r + (0' - r) ≈⟨ {!!} ⟩
       r + (0' + (¯ r)) ≈⟨ {!!} ⟩
+      (r + 0') + (¯ r) ≈⟨ {!!} ⟩
       fromℕ 0 ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
