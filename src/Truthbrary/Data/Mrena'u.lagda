@@ -1364,7 +1364,7 @@ module Veritas where
         ¯∣¯r∣≡r : (r : ℝ) → sign r ≡ Sign.- → (¯ ∣ r ∣ ) ≡ r
         ¯∣¯r∣≡r = λ r d → begin
           ¯ ∣ r ∣ ≡⟨ ¯r≡∣¯r∣ r d ▹ sym ▹ cong ¯_ ⟩
-          ¯ (¯ r) ≡⟨ {!!} ⟩
+          ¯ (¯ r) ≡⟨ ¯_.r≡¯¯r r ▹ sym ⟩
           r ∎
           where
           open import Relation.Binary.PropositionalEquality
