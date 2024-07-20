@@ -1356,7 +1356,10 @@ module Veritas where
       f₁ : {r : ℝ} → Rational ∣ r ∣ → sign r ≡ Sign.+ → Rational r
       f₁ R d = subst Rational (sym $ +r≡∣+r∣ _ d) R
       f₂ : {r : ℝ} → Rational ∣ r ∣ → sign r ≡ Sign.- → Rational r
-      f₂ R d = subst Rational {!!} $ ¯_.R[¯R] _ R
+      f₂ R d = subst Rational (¯∣¯r∣≡r _ d) $ ¯_.R[¯R] _ R
+        where
+        ¯∣¯r∣≡r : (r : ℝ) → sign r ≡ Sign.- → (¯ ∣ r ∣ ) ≡ r
+        ¯∣¯r∣≡r = {!!}
 
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
     I[∣I∣] = jonis f₁ f₂
