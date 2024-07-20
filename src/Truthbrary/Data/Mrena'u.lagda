@@ -1363,10 +1363,11 @@ module Veritas where
         where
         ¯∣¯r∣≡r : (r : ℝ) → sign r ≡ Sign.- → (¯ ∣ r ∣ ) ≡ r
         ¯∣¯r∣≡r = λ r d → begin
-          ¯ ∣ r ∣ ≡⟨ {!!} ⟩
+          ¯ ∣ r ∣ ≡⟨ ¯r≡∣¯r∣ r d ▹ sym ▹ cong ¯_ ⟩
           ¯ (¯ r) ≡⟨ {!!} ⟩
           r ∎
           where
+          open import Relation.Binary.PropositionalEquality
           open ≡-Reasoning
 
     I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
