@@ -921,7 +921,7 @@ module Veritas where
     id≡⌊'⁻¹∘from𝔻x : (s : Sign)
                    → (f : ℕ → Digit 10)
                    → f ≡ ⌊'⁻¹ (from𝔻 s f)
-    id≡⌊'⁻¹∘from𝔻x = λ _ _ → refl
+    id≡⌊'⁻¹∘from𝔻x _ _ = refl
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
