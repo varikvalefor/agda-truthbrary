@@ -870,9 +870,7 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       open _≈_ using (r≈r)
 
-    0≈r+[0-r] : (r 0' : ℝ)
-              → 0' ≈ fromℕ 0
-              → fromℕ 0 ≈_ $ r + (0' - r)
+    0≈r+[0-r] : (r 0' : ℝ) → 0' ≈ fromℕ 0 → fromℕ 0 ≈_ $ r + (0' - r)
     0≈r+[0-r] = λ r 0' d → _≈_.≈⇒≈⍨ $ begin
       r + (0' - r) ≈⟨ _≈_.r≈r ⟩
       r + (0' + (¯ r)) ≈⟨ +-ass r 0' (¯ r) ▹ _≈_.≈⇒≈⍨ ⟩
