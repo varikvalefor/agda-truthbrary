@@ -714,8 +714,8 @@ module Veritas where
     r≈s⇒¯r≈¯s : Algebra.Congruent₁ _≈_ ¯_
     r≈s⇒¯r≈¯s = {!!}
 
-    r≈¯¯r : (r : ℝ) → r ≈_ $ ¯ (¯ r)
-    r≈¯¯r = {!!}
+    r≡¯¯r : (r : ℝ) → r ≡_ $ ¯ (¯ r)
+    r≡¯¯r = {!!}
 
     R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
     R[¯R] = {!!}
@@ -864,7 +864,7 @@ module Veritas where
       fromℕ 0 - (fromℕ 0 - r) ≈⟨ r≈r ⟩
       _ ≈⟨ -r≈0-r r _ r≈r ▹ r-s≈r'-s' {fromℕ 0} r≈r ▹ _≈_.≈⇒≈⍨ ⟩
       fromℕ 0 - (¯ r) ≈⟨ -r≈0-r _ _ r≈r ▹ _≈_.≈⇒≈⍨ ⟩
-      ¯ (¯ r) ≈⟨ ¯_.r≈¯¯r _ ▹ _≈_.≈⇒≈⍨ ⟩
+      ¯ (¯ r) ≈⟨ ¯_.r≡¯¯r _ ▹ _≈_.≡⇒≈ ▹ _≈_.≈⇒≈⍨ ⟩
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
