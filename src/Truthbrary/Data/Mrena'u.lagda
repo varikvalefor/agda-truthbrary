@@ -1296,6 +1296,9 @@ module Veritas where
     +r≡∣+r∣ : (r : ℝ) → sign r ≡ Sign.+ → r ≡ ∣ r ∣
     +r≡∣+r∣ r refl = refl
 
+    ¯r≡∣¯r∣ : (r : ℝ) → sign r ≡ Sign.- → (¯ r) ≡ (¯ ∣ r ∣)
+    ¯r≡∣¯r∣ = {!!}
+
     0≈∣0∣ : {r : ℝ} → r ≈ fromℕ 0 → r ≈ ∣ r ∣
     0≈∣0∣ = {!!}
 
