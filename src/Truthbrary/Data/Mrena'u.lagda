@@ -1362,7 +1362,7 @@ module Veritas where
       f₂ R d = subst Rational (¯∣¯r∣≡r _ d) $ ¯_.R[¯R] _ R
         where
         ¯∣¯r∣≡r : (r : ℝ) → sign r ≡ Sign.- → (¯ ∣ r ∣ ) ≡ r
-        ¯∣¯r∣≡r = λ r d → begin
+        ¯∣¯r∣≡r r d =
           ¯ ∣ r ∣ ≡⟨ ¯r≡∣¯r∣ r d ▹ sym ▹ cong ¯_ ⟩
           ¯ (¯ r) ≡⟨ ¯_.r≡¯¯r r ▹ sym ⟩
           r ∎
