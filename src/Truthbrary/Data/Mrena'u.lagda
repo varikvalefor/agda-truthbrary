@@ -1361,6 +1361,7 @@ module Veritas where
         ¯∣¯r∣≡r : (r : ℝ) → sign r ≡ Sign.- → (¯ ∣ r ∣ ) ≡ r
         ¯∣¯r∣≡r = λ r d → begin
           ¯ ∣ r ∣ ≡⟨ {!!} ⟩
+          ¯ (¯ r) ≡⟨ {!!} ⟩
           r ∎
           where
           open ≡-Reasoning
