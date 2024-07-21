@@ -691,7 +691,7 @@ module Veritas where
     fromℤ≡+fromℕ : (z : ℤ)
                  → ℤ.sign z ≡ Sign.+
                  → fromℤ z ≡ fromℕ ℤ.∣ z ∣
-    fromℤ≡+fromℕ = {!!}
+    fromℤ≡+fromℕ = λ {(ℤ.pos z) d → refl}
 
     fromℤ≡¯fromℕ : (z : ℤ)
                  → ℤ.sign z ≡ Sign.-
