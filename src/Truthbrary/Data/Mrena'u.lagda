@@ -758,7 +758,7 @@ module Veritas where
     r≡f+z : (s : Sign)
           → (n : ℕ)
           → (f : ℕ → Digit 10)
-          → fromℝ- s n f ≡ (from𝔻 s f + fromℤ (s ℤ.◃ n))
+          → fromℝ- s n f ≡ from𝔻 s f + fromℤ (s ℤ.◃ n)
     r≡f+z = {!!}
 
     ℕ+ : (m n : ℕ) → fromℕ m + fromℕ n ≡ fromℕ (m ℕ.+ n)
