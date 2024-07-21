@@ -636,8 +636,8 @@ module Veritas where
     pav : (n : ℕ) → ℤ.+_ n ≡ ⌊' (fromℕ n)
     pav _ = refl
 
-    rel : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
-    rel _ _ = refl
+    ⌊'⁻¹fromℕ≡0 : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
+    ⌊'⁻¹fromℕ≡0 _ _ = refl
 
     ≈⇒≡ : (m n : ℕ) → fromℕ m ≈ fromℕ n → m ≡ n
     ≈⇒≡ = {!!}
