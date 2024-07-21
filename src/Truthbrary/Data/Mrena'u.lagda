@@ -752,7 +752,7 @@ module Veritas where
     r≡r₁+r₂ : (r : ℝ) → r ≡ fromℤ (⌊' r) + ⌊'⁻¹ℝ r
     r≡r₁+r₂ = {!!}
 
-    r≡r₂+r₁ : (r : ℝ) → r ≡_ $ ⌊'⁻¹ℝ r + fromℤ (⌊' r)
+    r≡r₂+r₁ : (r : ℝ) → r ≡ ⌊'⁻¹ℝ r + fromℤ (⌊' r)
     r≡r₂+r₁ = {!!}
 
     r≡f+z : (s : Sign)
