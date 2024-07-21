@@ -1541,7 +1541,7 @@ module Veritas where
 +--group = record {
   isMonoid = record {
     isSemigroup = {!!};
-    identity = {!!}};
+    identity = Veritas._+_.id≈+0};
   inverse = {!!};
   ⁻¹-cong = {!!}}
 \end{code}
