@@ -776,7 +776,7 @@ module Veritas where
     ℚ+' : (k l : ℚ) → fromℚ k + fromℚ l ≡ fromℚ (k ℚ.+ l)
     ℚ+' = {!!}
 
-    r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈_ $ r + s
+    r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈ (r + s)
     r≉r+s = {!!}
 
     r≈r+s⇒s≈0 : (r s : ℝ) → r ≈ (r + s) → s ≈ fromℕ 0
