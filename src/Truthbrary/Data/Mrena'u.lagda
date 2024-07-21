@@ -1375,8 +1375,8 @@ module Veritas where
           open import Relation.Binary.PropositionalEquality
           open ≡-Reasoning
 
-    I[∣I∣] : (r : ℝ) → Irrational r → Irrational ∣ r ∣
-    I[∣I∣] = jonis f₁ f₂
+    I[∣I∣] : {r : ℝ} → Irrational r → Irrational ∣ r ∣
+    I[∣I∣] = jonis f₁ f₂ _
       where
       jonis = SignV.jonis {P₁ = Irrational} {P₂ = Irrational ∘ ∣_∣}
       f₁ : {r : ℝ} → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
