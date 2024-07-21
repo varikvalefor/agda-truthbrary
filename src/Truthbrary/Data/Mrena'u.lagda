@@ -1322,7 +1322,7 @@ module Veritas where
     ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ ∘ ∣_∣≡∣_∣∘∣_∣
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
-    ≈⇒∣_∣≈ {r} {s} d = SignV.jonis {P₁ = _≈ s} f₁ f₂ r d
+    ≈⇒∣_∣≈ {r} {s} = SignV.jonis {P₁ = _≈ s} f₁ f₂ r
       where
       f₁ : {r : ℝ} → r ≈ s → sign r ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
       f₁ {r} d ds = SignV.jonis {P₁ = r ≈_} g₁ g₂ s d
