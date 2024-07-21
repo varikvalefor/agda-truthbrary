@@ -343,7 +343,7 @@ ni'o la'o zoi.\ \F{⌊'⁻¹ℝ} \B r\ .zoi.\ namcu du la'o zoi.\ \F{⌊'⁻¹} 
 \end{code}
 
 \section{la'oi .\F{sign}.}
-ni'o ro da poi ke'a ctaipe la'oi .\F ℝ.\ zo'u ga jonai ga je da zmadu li no gi du la'o zoi.\ \IC{Sign.+}\ .zoi.\ fa ko'a goi lo me'oi .\F{sign}.\ be da gi ko'a du la'o zoi.\ \IC{Sign.-}\ .zoi.
+ni'o ro da poi ke'a ctaipe la'oi .\F ℝ.\ zo'u ga jonai ga je da zmadu li no gi du la'o zoi.\ \IC{Sign.+}\ .zoi.\ fa ko'a goi lo me'oi .\F{sign}.\ be da gi ko'a du la'o zoi.\ \IC{Sign.-}\ .zoi.  .i ku'i .indika fa zo'e po la'o zoi.\ \AgdaModule{Veritas.SignV}\ .zoi.
 
 \begin{code}
 sign : ℝ → Sign
