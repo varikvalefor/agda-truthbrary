@@ -650,11 +650,11 @@ module Veritas where
 
     fromℕ-fromℚ : (n : ℕ)
                 → let C = Coprime.sym $ Coprime.1-coprimeTo n in
-                  fromℕ n ≈ fromℚ (ℚ.mkℚ (ℤ.+_ n) 0 C)
+                  fromℕ n ≈ fromℚ (ℚ.mkℚ (ℤ.+ n) 0 C)
     fromℕ-fromℚ = {!!}
 
     fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
-    fromℕ-Rational n = ℚ.mkℚ (ℤ.+_ n) 0 c , fromℕ-fromℚ n
+    fromℕ-Rational n = ℚ.mkℚ (ℤ.+ n) 0 c , fromℕ-fromℚ n
       where
       c = Coprime.sym $ 1-coprimeTo _
 
