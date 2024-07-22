@@ -1520,7 +1520,7 @@ module Veritas where
 
 \begin{code}
   module Toℚ where
-    id≡toℚ∘fromℚ : (k : ℚ) → k ≡ toℚ {fromℚ k} (_ , _≈_.≡⇒≈ refl)
+    id≡toℚ∘fromℚ : (k : ℚ) → k ≡ toℚ {fromℚ k} (_ , _≈_.r≈r)
     id≡toℚ∘fromℚ _ = refl
 
     toℚ∘fromℕ : (n : ℕ)
