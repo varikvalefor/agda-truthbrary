@@ -670,11 +670,15 @@ module Veritas where
 
 \begin{code}
   module Fromℤ where
+    module I where
+      ℤ→ℚ : ℤ → ℚ
+      ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
+
+    open I
+      
     fromℤ-Rational : (z : ℤ) → Rational $ fromℤ z
     fromℤ-Rational z = ℤ→ℚ z , fromℤ≈fromℚ∘ℤ→ℚ z
       where
-      ℤ→ℚ : ℤ → ℚ
-      ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
       fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
       fromℤ≈fromℚ∘ℤ→ℚ z = _≈_.≈⇒≈⍨ $ begin
         fromℚ (ℤ→ℚ z) ≈⟨ _≈_.r≈r ⟩
