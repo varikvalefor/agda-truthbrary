@@ -799,7 +799,7 @@ module Veritas where
     r+s≈r'+s' : {r r' s s' : ℝ} → r ≈ r' → s ≈ s' → (r + s) ≈ (r' + s')
     r+s≈r'+s' = {!!}
 
-    ¯r+¯s≈¯[r+s] : (r s : ℝ) → ((¯ r) + (¯ s)) ≈ (¯ (r + s))
+    ¯r+¯s≈¯[r+s] : (r s : ℝ) → ((¯ r) + (¯ s)) ≈ ¯_ (r + s)
     ¯r+¯s≈¯[r+s] = {!!}
 
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
