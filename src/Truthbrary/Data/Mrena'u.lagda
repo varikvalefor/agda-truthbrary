@@ -675,7 +675,7 @@ module Veritas where
       ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
 
     open I
-      
+
     fromℤ-Rational : (z : ℤ) → Rational $ fromℤ z
     fromℤ-Rational z = ℤ→ℚ z , fromℤ≈fromℚ∘ℤ→ℚ z
       where
