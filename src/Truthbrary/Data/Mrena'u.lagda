@@ -847,7 +847,7 @@ module Veritas where
     r-s≈r'-s' {r} {r'} {s} {s'} d₁ d₂ = begin
       r - s ≈⟨ _≈_.r≈r ⟩
       r + (¯ s) ≈⟨ ¯_.r≈s⇒¯r≈¯s d₂ ▹ _+_.r+s≈r'+s' {r} {s = ¯ s} {¯ s'} _≈_.r≈r ⟩
-      r + (¯ s') ≈⟨ {!!} ▹ (_+_.r+s≈r'+s' {r} {r'} {¯ s'} ⍨) _≈_.r≈r ⟩
+      r + (¯ s') ≈⟨ d₁ ▹ (_+_.r+s≈r'+s' {r} {r'} {¯ s'} ⍨) _≈_.r≈r ⟩
       r' + (¯ s') ≈⟨ _≈_.r≈r ⟩
       r' - s' ∎
       where
