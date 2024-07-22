@@ -755,8 +755,8 @@ module Veritas where
                   N r × N s
     dratadratas = {!!}
 
-    r≡r₁+r₂ : (r : ℝ) → r ≡ fromℤ (⌊' r) + ⌊'⁻¹ℝ r
-    r≡r₁+r₂ = {!!}
+    r≡⌊'r+⌊'⁻¹r : (r : ℝ) → r ≡ fromℤ (⌊' r) + ⌊'⁻¹ℝ r
+    r≡⌊'r+⌊'⁻¹r = {!!}
 
     r≡r₂+r₁ : (r : ℝ) → r ≡ ⌊'⁻¹ℝ r + fromℤ (⌊' r)
     r≡r₂+r₁ = {!!}
