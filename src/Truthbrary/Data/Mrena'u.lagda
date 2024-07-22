@@ -846,7 +846,7 @@ module Veritas where
     r-s≈r'-s' : Algebra.Congruent₂ _≈_ _-_
     r-s≈r'-s' {r} {r'} {s} {s'} d₁ d₂ = begin
       r - s ≈⟨ {!!} ⟩
-      (¯ r) + (¯ s) ≈⟨ {!!} ⟩
+      r + (¯ s) ≈⟨ {!!} ⟩
       r' - s' ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
