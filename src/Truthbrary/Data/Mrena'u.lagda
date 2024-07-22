@@ -824,6 +824,9 @@ module Veritas where
     r≡r-0 : Algebra.RightIdentity _≡_ (fromℕ 0) _-_
     r≡r-0 = {!!}
 
+    r≈r-0 : (r 0' : ℝ) → 0' ≈ fromℕ 0 → r ≈ (r - 0')
+    r≈r-0 = {!!}
+
     r-s-t≈r-[s+t] : (r s t : ℝ) → ((r - s) - t) ≈ (r - (s + t))
     r-s-t≈r-[s+t] r s t = begin
       (r - s) - t ≈⟨ r≈r ⟩
