@@ -1357,7 +1357,7 @@ module Veritas where
     ... | inj₂ m = inj₂ $ 0>r⇒∣r∣≈-r r m
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
-    R[∣R∣] r (r' , d) = ℚ.∣ r' ∣ ,_ Function.$′ _≈_.≈⇒≈⍨ $ begin
+    R[∣R∣] r (r' , d) = _,_ (ℚ.∣ r' ∣) $ _≈_.≈⇒≈⍨ $ begin
         fromℚ ℚ.∣ r' ∣ ≈⟨ ∣fromℚ[k]∣≈fromℚ[∣k∣] r' ▹ _≈_.≈⇒≈⍨ ⟩
         ∣ fromℚ r' ∣ ≈⟨ ≈⇒∣_∣≈ d ▹ _≈_.≈⇒≈⍨ ⟩
         ∣ r ∣ ∎
