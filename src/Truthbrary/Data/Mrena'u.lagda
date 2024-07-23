@@ -827,6 +827,9 @@ module Veritas where
     r≈r-0 : (r 0' : ℝ) → 0' ≈ fromℕ 0 → r ≈ (r - 0')
     r≈r-0 = {!!}
 
+    -r≈0-r : (r 0' : ℝ) → 0' ≈ fromℕ 0 → ¯_ r ≈ (0' - r)
+    -r≈0-r = {!!}
+
     r-s-t≈r-[s+t] : (r s t : ℝ) → ((r - s) - t) ≈ (r - (s + t))
     r-s-t≈r-[s+t] r s t = begin
       (r - s) - t ≈⟨ r≈r ⟩
@@ -839,9 +842,6 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       open _+_ using (¯r+¯s≈¯[r+s]; r+s≈r'+s')
       open _≈_ using (r≈r)
-
-    -r≈0-r : (r 0' : ℝ) → 0' ≈ fromℕ 0 → ¯_ r ≈ (0' - r)
-    -r≈0-r = {!!}
 
     r-s≈r'-s' : Algebra.Congruent₂ _≈_ _-_
     r-s≈r'-s' {r} {r'} {s} {s'} d₁ d₂ = begin
