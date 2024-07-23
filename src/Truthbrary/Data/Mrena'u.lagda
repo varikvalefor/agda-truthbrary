@@ -1349,7 +1349,9 @@ module Veritas where
       f₂ = {!!}
 
     ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ) → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
-    ∣fromℚ[k]∣≈fromℚ[∣k∣] = {!!}
+    ∣fromℚ[k]∣≈fromℚ[∣k∣] k with ℤ.sign $ ℚ.numerator k
+    ... | Sign.+ = {!!}
+    ... | Sign.- = {!!}
 
     jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ (¯ r)
     jonais r with _≥_.jonais r $ fromℕ 0
