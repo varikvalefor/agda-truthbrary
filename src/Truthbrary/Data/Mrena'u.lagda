@@ -1358,11 +1358,11 @@ module Veritas where
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
     R[∣R∣] r (r' , d) = _,_ (ℚ.∣ r' ∣) $ _≈_.≈⇒≈⍨ $ begin
-        fromℚ ℚ.∣ r' ∣ ≈⟨ ∣fromℚ[k]∣≈fromℚ[∣k∣] r' ▹ _≈_.≈⇒≈⍨ ⟩
-        ∣ fromℚ r' ∣ ≈⟨ ≈⇒∣_∣≈ d ▹ _≈_.≈⇒≈⍨ ⟩
-        ∣ r ∣ ∎
-        where
-        open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      fromℚ ℚ.∣ r' ∣ ≈⟨ ∣fromℚ[k]∣≈fromℚ[∣k∣] r' ▹ _≈_.≈⇒≈⍨ ⟩
+      ∣ fromℚ r' ∣ ≈⟨ ≈⇒∣_∣≈ d ▹ _≈_.≈⇒≈⍨ ⟩
+      ∣ r ∣ ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     R[∣r∣]⇒R[r] : (r : ℝ) → Rational ∣ r ∣ → Rational r
     R[∣r∣]⇒R[r] = SignV.jonis f₁ f₂
