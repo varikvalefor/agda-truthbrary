@@ -1352,6 +1352,7 @@ module Veritas where
     ∣fromℚ[k]∣≈fromℚ[∣k∣] k with ℤ.sign $ ℚ.numerator k
     ... | Sign.+ = begin
       ∣ fromℚ k ∣ ≈⟨ {!!} ⟩
+      fromℚ k ≈⟨ {!!} ⟩
       fromℚ ℚ.∣ k ∣ ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
