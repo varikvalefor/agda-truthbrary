@@ -887,6 +887,7 @@ module Veritas where
     0≈r+[0-r] r 0' d = _≈_.≈⇒≈⍨ $ begin
       r + (0' - r) ≈⟨ {!!} ▹ _+_.r+s≈r'+s' {r} {s = 0' - r} {¯ r} _≈_.r≈r ⟩
       r + (¯ r) ≈⟨ {!!} ⟩
+      r - r ≈⟨ {!!} ⟩
       0' ≈⟨ d ⟩
       fromℕ 0 ∎
       where
