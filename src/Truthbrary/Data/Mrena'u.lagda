@@ -1147,6 +1147,9 @@ module Veritas where
     I[⌊'⁻¹ℝ]⇒I : (r : ℝ) → Irrational $ ⌊'⁻¹ℝ r → Irrational r
     I[⌊'⁻¹ℝ]⇒I = {!!}
 
+    R⇒R[⌊'⁻¹ℝ] : (r : ℝ) → Rational r → Rational $ ⌊'⁻¹ℝ r
+    R⇒R[⌊'⁻¹ℝ] = {!!}
+
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ ⌊'⁻¹ℝ
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ _ = refl
 
