@@ -806,6 +806,9 @@ module Veritas where
     I[I+R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
 
+    I[R+I] : (r s : ℝ) → Rational r → Irrational s → Irrational $ r + s
+    I[R+I] = {!!}
+
     I[r+s]⇒I[r]∨I[s] : (r s : ℝ)
                      → Irrational $ r + s
                      → These (Irrational r) (Irrational s)
