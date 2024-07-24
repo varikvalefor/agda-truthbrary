@@ -988,6 +988,9 @@ module Veritas where
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
 
+    ℕ* : (m n : ℕ) → fromℕ m * fromℕ n ≡ fromℕ (m ℕ.* n)
+    ℕ* = {!!}
+
     dist : Algebra._DistributesOver_ _≈_ _*_ _+_
     dist = {!!}
 
