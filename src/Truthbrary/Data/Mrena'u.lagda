@@ -179,6 +179,7 @@ open import Data.List
     List
   )
 open import Data.Sign
+  as Sign
   using (
     Sign
   )
@@ -369,7 +370,7 @@ ni'o la'o zoi.\ \AgdaOperator{¯} \B r\ .zoi.\ vujnu li no la'oi .\B r.
 
 \begin{code}
 ¯_ : ℝ → ℝ
-¯_ r = Data.Sign.opposite (sign r) , ℤ.∣ ⌊' r ∣ , ⌊'⁻¹ r
+¯_ r = Sign.opposite (sign r) , ℤ.∣ ⌊' r ∣ , ⌊'⁻¹ r
 \end{code}
 
 \section{la'o zoi.\ \F{fromℝ-}\ .zoi.}
