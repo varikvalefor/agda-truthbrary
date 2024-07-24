@@ -909,7 +909,7 @@ module Veritas where
     I[I-R] = {!!}
 
     I[R-I] : {r s : ℝ} → Rational r → Irrational s → Irrational $ r - s
-    I[R-I] {r} {s} R = _+_.I[R+I] _ _ R ∘ ¯_.I[¯I] _
+    I[R-I] R = _+_.I[R+I] _ _ R ∘ ¯_.I[¯I] _
 
     R[R-R] : (r s : ℝ) → Rational r → Rational s → Rational $ r - s
     R[R-R] r s R S = _+_.R[R+R] r (¯ s) R {!!}
