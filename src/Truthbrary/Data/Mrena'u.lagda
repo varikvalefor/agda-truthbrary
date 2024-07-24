@@ -466,7 +466,7 @@ fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) 1+b $ fromℕ[s]≉0 b
 \end{code}
 
 \section{la'oi .\F{Rational}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{Rational} \B r\ .zoi.\ gi la'oi .\B r.\ me'oi .rational.  .i cadga fa lo nu li'armi  .i le velcki zo'u ro da poi ke'a co'e zo'u da me'oi .rational.\ jo cu du lo su'o frinu
+ni'o ga jo ctaipe la'o zoi.\ \F{Rational} \B r\ .zoi.\ gi la'oi .\B r.\ me'oi .rational.  .i cadga fa lo nu li'armi  .i le velcki zo'u ro da poi ke'a co'e zo'u da me'oi .rational.\ jo cu frinyna'u
 
 \begin{code}
 Rational : ℝ → Set
