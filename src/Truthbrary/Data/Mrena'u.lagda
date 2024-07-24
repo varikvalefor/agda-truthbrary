@@ -366,7 +366,7 @@ signℤ = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{¯\AgdaUnderscore}\ .zoi.}
-ni'o la'o zoi.\ \AgdaOperator{¯} \B r\ .zoi.\ vujnu li no la'oi .\B r.
+ni'o la'o zoi.\ \AgdaOperator{\AgdaFunction{¯}} \B r\ .zoi.\ vujnu li no la'oi .\B r.
 
 \begin{code}
 ¯_ : ℝ → ℝ
