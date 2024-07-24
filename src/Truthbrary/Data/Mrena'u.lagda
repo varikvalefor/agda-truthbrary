@@ -777,14 +777,14 @@ module Veritas where
     ℤ+ : (x z : ℤ) → fromℤ x + fromℤ z ≡ fromℤ (x ℤ.+ z)
     ℤ+ = {!!}
 
-    ℚ+' : (k l : ℚ) → fromℚ k + fromℚ l ≡ fromℚ (k ℚ.+ l)
-    ℚ+' = {!!}
-
-    ℚ+ : {r s : ℝ}
-       → (r' : Rational r)
-       → (s' : Rational s)
-       → r + s ≡ fromℚ (proj₁ r' ℚ.+ proj₁ s')
+    ℚ+ : (k l : ℚ) → fromℚ k + fromℚ l ≡ fromℚ (k ℚ.+ l)
     ℚ+ = {!!}
+
+    ℚ+' : {r s : ℝ}
+        → (r' : Rational r)
+        → (s' : Rational s)
+        → r + s ≡ fromℚ (proj₁ r' ℚ.+ proj₁ s')
+    ℚ+' = {!!}
 
     r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈ (r + s)
     r≉r+s = {!!}
@@ -795,7 +795,7 @@ module Veritas where
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
     R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ D
       where
-      D = ℚ+ R S
+      D = ℚ+' R S
 
     r+s≈r'+s' : {r r' s s' : ℝ} → r ≈ r' → s ≈ s' → (r + s) ≈ (r' + s')
     r+s≈r'+s' = {!!}
