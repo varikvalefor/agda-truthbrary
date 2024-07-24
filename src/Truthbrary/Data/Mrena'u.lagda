@@ -762,8 +762,8 @@ module Veritas where
     r≡⌊'r+⌊'⁻¹r : (r : ℝ) → r ≡ fromℤ (⌊' r) + ⌊'⁻¹ℝ r
     r≡⌊'r+⌊'⁻¹r = {!!}
 
-    r≡r₂+r₁ : (r : ℝ) → r ≡ ⌊'⁻¹ℝ r + fromℤ (⌊' r)
-    r≡r₂+r₁ = {!!}
+    r≡⌊'⁻¹r+⌊'r : (r : ℝ) → r ≡ ⌊'⁻¹ℝ r + fromℤ (⌊' r)
+    r≡⌊'⁻¹r+⌊'r = {!!}
 
     r≡f+z : (s : Sign)
           → (n : ℕ)
@@ -1134,7 +1134,7 @@ module Veritas where
     ⌊'∘fromℤ = {!!}
 
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
-    ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡r₂+r₁ r
+    ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡⌊'⁻¹r+⌊'r r
 \end{code}
 
 \subsection{\lcblm{\F{⌊'⁻¹ℝ}}}
