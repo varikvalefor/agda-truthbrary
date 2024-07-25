@@ -1001,6 +1001,13 @@ module Veritas where
     ℕ* : (m n : ℕ) → fromℕ m * fromℕ n ≡ fromℕ (m ℕ.* n)
     ℕ* = {!!}
 
+    n*r≈+/n/r : (n : ℕ)
+              → (r : ℝ)
+              → (_≈_
+                  (fromℕ n * r)
+                  (𝕃.foldr _+_ (fromℕ 0) $ 𝕃.replicate n r))
+    n*r≈+/n/r = {!!}
+
     dist : Algebra._DistributesOver_ _≈_ _*_ _+_
     dist = {!!}
 
