@@ -1369,7 +1369,7 @@ module Veritas where
         g₁ = {!!}
         g₂ : {s : ℝ} → r ≈ s → sign s ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
         g₂ {s} d dss = begin
-          ∣ r ∣ ≈⟨ {!!} ⟩
+          ∣ r ∣ ≈⟨ ¯r≡∣¯r∣ r ds ▹ sym ▹ _≈_.≡⇒≈ ⟩
           ¯ r ≈⟨ ¯_.r≈s⇒¯r≈¯s d ⟩
           ¯ s ≈⟨ {!!} ⟩
           ∣ s ∣ ∎
