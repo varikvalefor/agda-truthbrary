@@ -1039,7 +1039,7 @@ module Veritas where
     0≈0/r = {!!}
 
     ∣r/s∣<∣r∣ : (r s : ℝ)
-              → ¬_ $ s ≈ fromℕ 0
+              → ¬_ $ r ≈ fromℕ 0
               → (z : s > fromℕ 1)
               → ∣ r ∣ > ∣ frinu r s $ I.r>1⇒r≉0 s z ∣
     ∣r/s∣<∣r∣ = {!!}
