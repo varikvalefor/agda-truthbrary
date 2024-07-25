@@ -756,7 +756,7 @@ module Veritas where
 
     dratadratas : (r s : ℝ)
                 → ¬_ $ r ≈ fromℕ 0 × s ≈ fromℕ 0
-                → let N = ¬_ ∘ _≈_ (r + s) in
+                → let N = ¬_ ∘ _≈ (r + s) in
                   N r × N s
     dratadratas = {!!}
 
