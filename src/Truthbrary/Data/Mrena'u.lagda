@@ -475,7 +475,7 @@ Rational r = ∃ $ r ≈_ ∘ fromℚ
 \end{code}
 
 \section{la'oi .\F{Irrational}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{Irrational} \B r\ .zoi.\ gi la'oi .\B r.\ me'oi .irrational.  .i cadga fa lo nu li'armi  .i le velcki zo'u ro da poi ke'a co'e zo'u da me'oi .irrational.\ jo cu tolfrinyna'u
+ni'o ga jo ctaipe la'o zoi.\ \F{Irrational} \B r\ .zoi.\ gi la'oi .\B r.\ me'oi .irrational.  .i cadga fa lo nu li'armi  .i le velcki zo'u lo ro co'e cu me'oi .irrational.\ jo cu tolfrinyna'u
 
 \begin{code}
 Irrational : ℝ → Set
