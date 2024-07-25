@@ -1023,8 +1023,8 @@ module Veritas where
         r>1⇒r>0 : {r : ℝ} → r > fromℕ 1 → r > fromℕ 0
         r>1⇒r>0 = {!!}
 
-      r≉0⇒¯r≉0 : (r : ℝ) → ¬_ $ r ≈ fromℕ 0 → ¬_ $ (¯ r) ≈ fromℕ 0
-      r≉0⇒¯r≉0 = {!!}
+      ¯r≈0⇒r≈0 : (r : ℝ) → (¯ r) ≈ fromℕ 0 → r ≈ fromℕ 0
+      ¯r≈0⇒r≈0 = {!!}
 
     r/r≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
     r/r≡1 = {!!}
@@ -1051,7 +1051,7 @@ module Veritas where
 
     -r/-s<-r : (r s : ℝ)
              → (z : s > fromℕ 1)
-             → (¯ r) > frinu (¯ r) (¯ s) (I.r≉0⇒¯r≉0 s $ I.r>1⇒r≉0 s z)
+             → (¯ r) > frinu (¯ r) (¯ s) (I.r>1⇒r≉0 s z ∘ I.¯r≈0⇒r≈0 s)
     -r/-s<-r = {!!}
 
     r<r/s : (r s : ℝ)
