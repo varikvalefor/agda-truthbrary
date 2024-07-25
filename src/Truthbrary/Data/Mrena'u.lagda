@@ -1363,7 +1363,12 @@ module Veritas where
         g₂ : {s : ℝ} → r ≈ s → sign s ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
         g₂ = {!!}
       f₂ : {r : ℝ} → r ≈ s → sign r ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
-      f₂ = {!!}
+      f₂ {r} d ds = SignV.jonis {P₁ = r ≈_} g₁ g₂ s d
+        where
+        g₁ : {s : ℝ} → r ≈ s → sign s ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
+        g₁ = {!!}
+        g₂ : {s : ℝ} → r ≈ s → sign s ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
+        g₂ = {!!}
 
     ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ) → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
     ∣fromℚ[k]∣≈fromℚ[∣k∣] k with ℤ.sign $ ℚ.numerator k
