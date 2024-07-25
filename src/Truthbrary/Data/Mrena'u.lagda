@@ -635,8 +635,8 @@ module Veritas where
 
 \begin{code}
   module Fromℕ where
-    pav : (n : ℕ) → ℤ.+_ n ≡ ⌊' (fromℕ n)
-    pav _ = refl
+    ℤ+_≡⌊'∘fromℕ : (n : ℕ) → ℤ.+_ n ≡ ⌊' (fromℕ n)
+    ℤ+_≡⌊'∘fromℕ _ = refl
 
     ⌊'⁻¹fromℕ≡0 : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
     ⌊'⁻¹fromℕ≡0 _ _ = refl
