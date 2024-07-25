@@ -1502,12 +1502,12 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       ≤⇒1 : (r s : ℝ) → r ≤ s → r ≈ (r ⊓ s)
       ≤⇒1 r s = _⊎_.[_,_] (≈⇒1 ∘ _≈_.≈⇒≈⍨) $ _≈_.≡⇒≈ ∘ <⇒1 r s
-    ... | inj₂ m = begin
-      r ⊓ s ≈⟨ <⇒1 r s m ▹ sym ▹ _≈_.≡⇒≈ ⟩
-      r ≈⟨ ≥⇒2 s _ (_≥_.>⇒≥ m) ▹ _≈_.≡⇒≈ ⟩
+    ... | inj₂ m = _≈_.≡⇒≈ $ begin
+      r ⊓ s ≡⟨ <⇒1 r s m ▹ sym ⟩
+      r ≡⟨ ≥⇒2 s _ (_≥_.>⇒≥ m) ⟩
       s ⊓ r ∎
       where
-      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      open ≡-Reasoning
 
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass r s t with _≥_.jonais r s ,′ _≥_.jonais s t
