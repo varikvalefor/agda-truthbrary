@@ -1490,9 +1490,9 @@ module Veritas where
       s ⊓ t ≡⟨ ≥⇒2 _ _ $ _≥_.≥∧≥⇒≥ djm₁ djm₂' ⟩
       r ⊓ (s ⊓ t) ∎
       where
-      open import Relation.Binary.PropositionalEquality
       open ≡-Reasoning
       djm₂' = subst (_ ≥_) (≥⇒2 _ _ djm₂) djm₂
+      open import Relation.Binary.PropositionalEquality
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
     ... | (inj₂ m₁ , inj₂ m₂) = begin
