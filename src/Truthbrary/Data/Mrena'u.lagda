@@ -207,6 +207,7 @@ open import Data.Integer
     ℤ
   )
 open import Data.Product
+  as Σ
   using (
     proj₂;
     proj₁;
@@ -751,7 +752,7 @@ module Veritas where
     id≡+0 = {!!} , {!!}
 
     id≈+0 : Algebra.Identity _≈_ (fromℕ 0) _+_
-    id≈+0 = Data.Product.map (_≈_.≡⇒≈ ∘_)  (_≈_.≡⇒≈ ∘_) id≡+0
+    id≈+0 = Σ.map (_≈_.≡⇒≈ ∘_)  (_≈_.≡⇒≈ ∘_) id≡+0
 
     dratadratas : (r s : ℝ)
                 → ¬_ $ r ≈ fromℕ 0 × s ≈ fromℕ 0
