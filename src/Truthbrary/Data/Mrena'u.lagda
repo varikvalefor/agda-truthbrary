@@ -1371,7 +1371,7 @@ module Veritas where
         g₂ {s} d dss = begin
           ∣ r ∣ ≈⟨ ¯r≡∣¯r∣ r ds ▹ sym ▹ _≈_.≡⇒≈ ⟩
           ¯ r ≈⟨ ¯_.r≈s⇒¯r≈¯s d ⟩
-          ¯ s ≈⟨ {!!} ⟩
+          ¯ s ≈⟨ ¯r≡∣¯r∣ s dss ▹ _≈_.≡⇒≈ ⟩
           ∣ s ∣ ∎
           where
           open import Relation.Binary.Reasoning.Setoid _≈_.setoid
