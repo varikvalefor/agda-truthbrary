@@ -1092,6 +1092,12 @@ module Veritas where
               → s ≈ s'
               → frinu r s N ≈ frinu r' s' N'
     r/s≈r'/s' = {!!}
+
+    r/s≈r'/s : {r r' s : ℝ}
+             → (N : _)
+             → r ≈ r'
+             → frinu r s N ≈ frinu r' s N
+    r/s≈r'/s = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}\textasciicircum\AgdaUnderscore}}}
