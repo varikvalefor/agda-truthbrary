@@ -152,7 +152,6 @@ open import Data.Sum
   )
 open import Function
   using (
-    _-⟪_⟫-_;
     const;
     _∘₂_;
     _∋_;
