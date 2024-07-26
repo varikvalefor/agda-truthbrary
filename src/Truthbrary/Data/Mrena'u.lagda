@@ -121,9 +121,6 @@ ni'o bau la .lojban.\ joi la'oi .Agda.\ la .varik.\ cu ciksi ko'a goi lo mrena'u
 
 module Truthbrary.Data.Mrena'u where
 
-open import Level
-  using (
-  )
 open import Algebra
   using (
     LeftIdentity;
