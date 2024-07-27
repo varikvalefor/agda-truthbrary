@@ -872,7 +872,7 @@ module Veritas where
       s + (r - s) ≈⟨ _+_.+≈+⍨ s $ r - s ⟩
       (r - s) + s ≈⟨ _≈_.r≈r ⟩
       (r + (¯ s)) + s ≈⟨ +-ass r (¯ s) s ⟩
-      r + ((¯ s) + s) ≈⟨ +≈+⍨ (¯ s) s ▹ _+_.r+s≈r+s' {r} ⟩
+      r + ((¯ s) + s) ≈⟨ +≈+⍨ (¯ s) s ▹ r+s≈r+s' {r} ⟩
       r + (s + (¯ s)) ≈⟨ _≈_.r≈r ⟩
       r + (s - s) ≈⟨ 0≈r-r s ▹ _≈_.≈⇒≈⍨ ▹ r+s≈r'+s' {r} _≈_.r≈r ⟩
       r + fromℕ 0 ≈⟨ proj₂ _+_.id≈+0 r ⟩
@@ -882,6 +882,7 @@ module Veritas where
       open _+_
         using (
           r+s≈r'+s';
+          r+s≈r+s';
           +-ass;
           +≈+⍨
         )
