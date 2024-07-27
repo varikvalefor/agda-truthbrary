@@ -640,8 +640,8 @@ module Veritas where
     ℕ≡⇒fromℕ≈ : (m n : ℕ) → m ≡ n → fromℕ m ≈ fromℕ n
     ℕ≡⇒fromℕ≈ = {!!}
 
-    ≈⇒≡ : (m n : ℕ) → fromℕ m ≈ fromℕ n → m ≡ n
-    ≈⇒≡ = {!!}
+    ≈⇒fromℕ≡ : (m n : ℕ) → fromℕ m ≈ fromℕ n → m ≡ n
+    ≈⇒fromℕ≡ = {!!}
 
     fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
@@ -1152,7 +1152,7 @@ module Veritas where
                    (frinu
                      (fromℕ 1)
                      (fromℕ 2)
-                     ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒≡ 2 0)))
+                     ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0)))
     I[2^[1/2]] = {!!}
 
     r^s≈r'^s' : Algebra.Congruent₂ _≈_ _^_
