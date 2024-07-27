@@ -1560,6 +1560,10 @@ module Veritas where
   module Fromℚ where
     fromℚ-Rational : (k : ℚ) → Rational $ fromℚ k
     fromℚ-Rational k = k , _≈_.≡⇒≈ refl
+
+    id≡_∘fromℚ : (k : ℚ)
+               → k ≡ proj₁ (fromℚ-Rational k)
+    id≡_∘fromℚ = λ x → refl
 \end{code}
 
 \subsection{\lcblm{\F{Irrational}}}
