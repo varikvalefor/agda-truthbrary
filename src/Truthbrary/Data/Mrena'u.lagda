@@ -803,6 +803,9 @@ module Veritas where
     r+s≈r'+s : {r r' s : ℝ} → r ≈ r' → (r + s) ≈ (r' + s)
     r+s≈r'+s = {!!}
 
+    r+s≈r+s' : {r s s' : ℝ} → s ≈ s' → (r + s) ≈ (r + s')
+    r+s≈r+s' = {!!}
+
     ¯r+¯s≈¯[r+s] : (r s : ℝ) → (¯_ r + ¯_ s) ≈ ¯_ (r + s)
     ¯r+¯s≈¯[r+s] = {!!}
 
