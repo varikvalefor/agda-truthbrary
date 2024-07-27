@@ -1097,7 +1097,7 @@ module Veritas where
              → (N : _)
              → r ≈ r'
              → frinu r s N ≈ frinu r' s N
-    r/s≈r'/s {s = s} N d = r/s≈r'/s' {s = s} N N d _≈_.r≈r
+    r/s≈r'/s {s = s} N = ((r/s≈r'/s' {s = s} N N) ⍨) _≈_.r≈r
 
     r/s≈r/s' : {r s s' : ℝ}
              → (N : _)
