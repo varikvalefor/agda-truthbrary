@@ -798,7 +798,7 @@ module Veritas where
       where
       D = ℚ+' R S
 
-    r+s≈r'+s' : {r r' s s' : ℝ} → r ≈ r' → s ≈ s' → (r + s) ≈ (r' + s')
+    r+s≈r'+s' : Algebra.Congruent₂ _≈_ _+_
     r+s≈r'+s' = {!!}
 
     r+s≈r'+s : {r r' s : ℝ} → r ≈ r' → (r + s) ≈ (r' + s)
@@ -860,7 +860,7 @@ module Veritas where
     r-s≈r'-s' : Algebra.Congruent₂ _≈_ _-_
     r-s≈r'-s' {r} {r'} {s} {s'} d₁ d₂ = begin
       r - s ≈⟨ _≈_.r≈r ⟩
-      r + (¯ s) ≈⟨ d₁ ▹ (_+_.r+s≈r'+s' {s = ¯ s} ⍨) _≈_.r≈r ⟩
+      r + (¯ s) ≈⟨ d₁ ▹ (_+_.r+s≈r'+s' {u = ¯ s} ⍨) _≈_.r≈r ⟩
       r' + (¯ s) ≈⟨ ¯_.r≈s⇒¯r≈¯s d₂ ▹ _+_.r+s≈r'+s' {r'} _≈_.r≈r ⟩
       r' + (¯ s') ≈⟨ _≈_.r≈r ⟩
       r' - s' ∎
