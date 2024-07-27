@@ -126,6 +126,7 @@ open import Algebra
     LeftIdentity;
     Associative;
     Commutative;
+    Identity;
     IsRing;
     Zero;
     Op₂
@@ -747,10 +748,10 @@ module Veritas where
     +-ass : Associative _≈_ _+_
     +-ass = {!!}
 
-    id≡+0 : Algebra.Identity _≡_ (fromℕ 0) _+_
+    id≡+0 : Identity _≡_ (fromℕ 0) _+_
     id≡+0 = {!!} , {!!}
 
-    id≈+0 : Algebra.Identity _≈_ (fromℕ 0) _+_
+    id≈+0 : Identity _≈_ (fromℕ 0) _+_
     id≈+0 = Σ.map (_≈_.≡⇒≈ ∘_)  (_≈_.≡⇒≈ ∘_) id≡+0
 
     dratadratas : (r s : ℝ)
@@ -949,7 +950,7 @@ module Veritas where
 
 \begin{code}
   module _*_ where
-    r≈1*r : Algebra.Identity _≈_ (fromℕ 1) _*_
+    r≈1*r : Identity _≈_ (fromℕ 1) _*_
     r≈1*r = {!!}
 
     0≈0*r : Zero _≈_ (fromℕ 0) _*_
