@@ -1098,6 +1098,13 @@ module Veritas where
              → r ≈ r'
              → frinu r s N ≈ frinu r' s N
     r/s≈r'/s {r} {r'} {s} N d = r/s≈r'/s' {s = s} N N d _≈_.r≈r
+
+    r/s≈r/s' : {r s s' : ℝ}
+             → (N : _)
+             → (N' : _)
+             → s ≈ s'
+             → frinu r s N ≈ frinu r s' N'
+    r/s≈r/s' = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}\textasciicircum\AgdaUnderscore}}}
