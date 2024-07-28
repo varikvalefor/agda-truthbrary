@@ -1164,7 +1164,7 @@ module Veritas where
            → Set ∋ {!!}
            → Rational $ r ^ s
     R[R^r] = {!!}
-    
+
     I[2^[1/2]] : (Irrational $ _^_
                    (fromℕ 2)
                    (frinu
