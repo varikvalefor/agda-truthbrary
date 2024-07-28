@@ -1167,7 +1167,9 @@ module Veritas where
                  (λ (r , n) → Irrational r × Rational (r ^ fromℕ n)))
     ∃R[I^ℕ] = ((_, 2) $ √2) , {!!}
       where
-      √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0)
+      √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
+        where
+        N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0
 
     R[R^r] : (r s : ℝ)
            → Rational r
