@@ -998,7 +998,7 @@ module Veritas where
 
     r>r*s : (r s : ℝ)
           → r > fromℕ 0
-          → fromℕ 1 > ∣ s ∣
+          → ∣ s ∣ < fromℕ 1
           → r >_ $ r * s
     r>r*s = {!!}
 
