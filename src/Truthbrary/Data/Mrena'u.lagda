@@ -318,7 +318,7 @@ _≤_ = _≥_ ⍨
 \end{code}
 
 \section{la'o zoi.\ \F{⌊'}\ .zoi.}
-ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ be lo co'e be la'o zoi.\ \AgdaField{proj₂} \OpF \$ \AgdaField{proj₂} \B r\ .zoi.
+ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ bei lo pilji be lo me'oi .sign.\ namcu be la'oi .\B r.\ be'o bei lo namcu poi ke'a dubjavmau li re je cu dubme'a li pa\ldots be'o be'o noi ke'a sumji la'o zoi.\ \F{⌊'} \B r\ .zoi.\ lo co'e be la'o zoi.\ \AgdaField{proj₂} \OpF \$ \AgdaField{proj₂} \B r\ .zoi.
 
 \begin{code}
 ⌊' : ℝ → ℤ
