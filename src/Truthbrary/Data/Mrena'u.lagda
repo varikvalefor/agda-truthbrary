@@ -1205,7 +1205,7 @@ module Veritas where
     ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡⌊'⁻¹r+⌊'r r
 
     sign∘fromℤ : (z : ℤ) → ℤ.sign z ≡ sign (fromℤ z)
-    sign∘fromℤ = λ z → refl
+    sign∘fromℤ z = refl
 \end{code}
 
 \subsection{\lcblm{\F{⌊'⁻¹ℝ}}}
