@@ -1165,7 +1165,7 @@ module Veritas where
     ∃R[I^ℕ] : (Σ.Σ
                  (ℝ × ℕ)
                  (λ (r , n) → Irrational r × Rational (r ^ fromℕ n)))
-    ∃R[I^ℕ] = (_, 2 $ √2) , {!!}
+    ∃R[I^ℕ] = (√2 , 2) , {!!}
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
         where
