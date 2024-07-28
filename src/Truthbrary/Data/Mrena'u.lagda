@@ -867,6 +867,9 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
+    r-s≈r-s' : {r s s' : ℝ} → s ≈ s' → (r - s) ≈ (r - s')
+    r-s≈r-s' = {!!}
+
     r≈[r-s]+s : (r s : ℝ) → r ≈_ $ s + (r - s)
     r≈[r-s]+s r s = _≈_.≈⇒≈⍨ $ begin
       s + (r - s) ≈⟨ _+_.+≈+⍨ s $ r - s ⟩
