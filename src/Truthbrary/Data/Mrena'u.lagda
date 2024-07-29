@@ -624,9 +624,6 @@ module Veritas where
 
     setoid : Setoid _ _
     setoid = record {_≈_ = _≈_; isEquivalence = isEquivalence}
-
-    0≈-0 : fromℕ 0 ≈ (¯ fromℕ 0)
-    0≈-0 = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
@@ -737,6 +734,9 @@ module Veritas where
 
     I[¯I] : (r : ℝ) → Irrational r → Irrational $ ¯ r
     I[¯I] = {!!}
+
+    0≈-0 : fromℕ 0 ≈ (¯ fromℕ 0)
+    0≈-0 = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}+\AgdaUnderscore}}}
