@@ -1185,7 +1185,7 @@ module Veritas where
                      (fromℕ 1)
                      (fromℕ 2)
                      2≢0))
-    I[2^[1/2]] = {!!}
+    I[2^[1/2]] = proj₁ $ proj₂ ∃R[I^R]
 
     r^s≈r'^s' : Algebra.Congruent₂ _≈_ _^_
     r^s≈r'^s' = {!!}
