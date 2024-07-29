@@ -938,7 +938,7 @@ module Veritas where
 \begin{code}
   module From𝔻 where
     id≡sign∘from𝔻⍨ : (s : Sign)
-                   → (f : ℕ → Digit 10)
+                   → (f : _)
                    → s ≡ sign (from𝔻 s f)
     id≡sign∘from𝔻⍨ _ _ = refl
 
