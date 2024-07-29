@@ -1163,10 +1163,10 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     R[R^ℕ] r (ℕ.suc n) R = proj₁ R ℚ.* proj₁ (R[R^ℕ] r n R) , {!!}
 
-    ∃R[I^ℕ] : (Σ.Σ
-                 (ℝ × ℕ)
-                 (λ (r , n) → Irrational r × Rational (r ^ fromℕ n)))
-    ∃R[I^ℕ] = (√2 , 2) , {!!}
+    ∃R[I^R] : (Σ.Σ
+                 (ℝ × ℝ)
+                 (λ (r , s) → Irrational r × Rational (r ^ s)))
+    ∃R[I^R] = (√2 , fromℕ 2) , {!!}
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
         where
