@@ -1178,12 +1178,13 @@ module Veritas where
            → Rational $ r ^ s
     R[R^r] = {!!}
 
-    I[2^[1/2]] : (Irrational $ _^_
+    I[2^[1/2]] : let 2≢0 = ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0) in
+                 (Irrational $ _^_
                    (fromℕ 2)
                    (frinu
                      (fromℕ 1)
                      (fromℕ 2)
-                     ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0)))
+                     2≢0))
     I[2^[1/2]] = {!!}
 
     r^s≈r'^s' : Algebra.Congruent₂ _≈_ _^_
