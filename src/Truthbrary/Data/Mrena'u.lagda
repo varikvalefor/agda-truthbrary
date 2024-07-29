@@ -940,13 +940,13 @@ module Veritas where
     id≡sign∘from𝔻⍨ : (s : Sign) → (f : _) → s ≡ sign (from𝔻 s f)
     id≡sign∘from𝔻⍨ _ _ = refl
 
+    id≡⌊'⁻¹∘from𝔻s : (s : Sign) → (f : _) → f ≡ ⌊'⁻¹ (from𝔻 s f)
+    id≡⌊'⁻¹∘from𝔻s _ _ = refl
+
     0≡⌊'[from𝔻] : (s : Sign)
                 → (f : ℕ → Digit 10)
                 → ℤ.+ 0 ≡ ⌊' (from𝔻 s f)
     0≡⌊'[from𝔻] = λ {Sign.+ _ → refl; Sign.- _ → refl}
-
-    id≡⌊'⁻¹∘from𝔻s : (s : Sign) → (f : _) → f ≡ ⌊'⁻¹ (from𝔻 s f)
-    id≡⌊'⁻¹∘from𝔻s _ _ = refl
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
