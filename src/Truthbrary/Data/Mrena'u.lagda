@@ -613,10 +613,7 @@ module Veritas where
     ¬[r≈s⇒fr≈fs] = {!!}
 
     isEquivalence : Relation.Binary.IsEquivalence _≈_
-    isEquivalence = record {
-      refl = r≈r;
-      sym = ≈⇒≈⍨;
-      trans = ≈∧≈⇒≈}
+    isEquivalence = record {refl = r≈r; sym = ≈⇒≈⍨; trans = ≈∧≈⇒≈}
 
     setoid : Setoid _ _
     setoid = record {_≈_ = _≈_; isEquivalence = isEquivalence}
