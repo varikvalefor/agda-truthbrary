@@ -1388,7 +1388,7 @@ module Veritas where
 \begin{code}
   module ∣_∣ where
     +r≡∣+r∣ : (r : ℝ) → sign r ≡ Sign.+ → r ≡ ∣ r ∣
-    +r≡∣+r∣ r refl = refl
+    +r≡∣+r∣ _ refl = refl
 
     ¯r≡∣¯r∣ : (r : ℝ) → sign r ≡ Sign.- → (¯ r) ≡ ∣ r ∣
     ¯r≡∣¯r∣ = {!!}
