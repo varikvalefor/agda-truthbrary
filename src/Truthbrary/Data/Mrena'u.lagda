@@ -1213,10 +1213,10 @@ module Veritas where
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ ⌊'⁻¹ℝ
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ _ = refl
 
-    from𝔻≡⌊'⁻¹ℝ∘from𝔻 : (s : Sign)
-                      → (f : ℕ → Digit 10)
-                      → from𝔻 s f ≡ ⌊'⁻¹ℝ (from𝔻 s f)
-    from𝔻≡⌊'⁻¹ℝ∘from𝔻 _ _ = refl
+    from𝔻s≡⌊'⁻¹ℝ∘from𝔻s : (s : Sign)
+                        → (f : ℕ → Digit 10)
+                        → from𝔻 s f ≡ ⌊'⁻¹ℝ (from𝔻 s f)
+    from𝔻s≡⌊'⁻¹ℝ∘from𝔻s _ _ = refl
 \end{code}
 
 \subsection{\lcblm{\F{sign}}}
