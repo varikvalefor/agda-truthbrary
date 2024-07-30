@@ -616,7 +616,7 @@ module Veritas where
     isEquivalence = record {refl = r≈r; sym = ≈⇒≈⍨; trans = ≈∧≈⇒≈}
 
     setoid : Setoid _ _
-    setoid = record {_≈_ = _≈_; isEquivalence = isEquivalence}
+    setoid = record {isEquivalence = isEquivalence}
 \end{code}
 
 \subsection{\lcblm{\F{fromℕ}}}
