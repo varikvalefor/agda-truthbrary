@@ -1160,6 +1160,16 @@ module Veritas where
         where
         N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0
 
+    ∃I[R^R] : (Σ.Σ
+                 (ℝ × ℝ)
+                 (λ (r , s) →
+                   (_×_
+                     (Rational r)
+                     (_×_
+                       (Rational s)
+                       (Irrational (r ^ s))))))
+    ∃I[R^R] = {!!}
+
     R[R^r] : (r s : ℝ)
            → Rational r
            → Set ∋ {!!}
