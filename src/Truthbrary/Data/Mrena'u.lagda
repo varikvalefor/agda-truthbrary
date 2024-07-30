@@ -181,11 +181,6 @@ open import Data.Sign
   using (
     Sign
   )
-open import Data.Unit
-  using (
-    tt;
-    ⊤
-  )
 open import Data.Digit
   using (
     Digit
