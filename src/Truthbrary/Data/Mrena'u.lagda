@@ -1012,6 +1012,9 @@ module Veritas where
     ℤ* : (x z : ℤ) → fromℤ x * fromℤ z ≡ fromℤ (x ℤ.* z)
     ℤ* = {!!}
 
+    ℚ* : (k l : ℚ) → fromℚ k * fromℚ l ≡ fromℚ (k ℚ.* l)
+    ℚ* = {!!}
+
     n*r≈+/n/r : (n : ℕ)
               → (r : ℝ)
               → (_≈_
