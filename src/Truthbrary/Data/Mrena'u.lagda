@@ -1003,6 +1003,9 @@ module Veritas where
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
 
+    r*s≈r*s' : {r s s' : ℝ} → s ≈ s' → (r * s) ≈ (r * s')
+    r*s≈r*s' = {!!}
+
     ℕ* : (m n : ℕ) → fromℕ m * fromℕ n ≡ fromℕ (m ℕ.* n)
     ℕ* = {!!}
 
