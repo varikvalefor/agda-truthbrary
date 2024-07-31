@@ -1001,7 +1001,7 @@ module Veritas where
     r*s≈r'*s' = {!!}
 
     r*s≈r*s' : {r s s' : ℝ} → s ≈ s' → (r * s) ≈ (r * s')
-    r*s≈r*s' {r} {s} {s'} d = r*s≈r'*s' {r} _≈_.r≈r d
+    r*s≈r*s' {r} {s} {s'} = r*s≈r'*s' {r} _≈_.r≈r
 
     r*s≈r'*s : {r r' s : ℝ} → r ≈ r' → (r * s) ≈ (r' * s)
     r*s≈r'*s = {!!}
