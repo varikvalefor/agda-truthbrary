@@ -998,7 +998,10 @@ module Veritas where
     R[R*R] = {!!}
 
     papretis : (_⊎_
-                 ((r s : ℝ) → Irrational r → Irrational r → Irrational $ r * s)
+                 (  (r s : ℝ)
+                  → Irrational r
+                  → Irrational r
+                  → Irrational $ r * s)
                  (Σ.Σ (ℝ × ℝ) $ λ (r , s) → Irrational r × Irrational s × Rational (r * s)))
     papretis = {!!}
 
