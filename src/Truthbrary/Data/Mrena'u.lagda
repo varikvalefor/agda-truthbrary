@@ -613,7 +613,7 @@ module Veritas where
     ¬[r≈s⇒fr≈fs] = {!!} $ ¬x
       where
       ¬x : Σ.Σ (ℝ → ℝ) $ λ f → ¬ ((r s : ℝ) → r ≈ s → f r ≈ f s)
-      ¬x = {!!}
+      ¬x = {!!} , {!!}
 
     isEquivalence : Relation.Binary.IsEquivalence _≈_
     isEquivalence = record {refl = r≈r; sym = ≈⇒≈⍨; trans = ≈∧≈⇒≈}
