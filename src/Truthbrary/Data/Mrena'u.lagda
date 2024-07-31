@@ -1009,6 +1009,9 @@ module Veritas where
     ℕ* : (m n : ℕ) → fromℕ m * fromℕ n ≡ fromℕ (m ℕ.* n)
     ℕ* = {!!}
 
+    ℤ* : (x z : ℤ) → fromℤ x * fromℤ z ≡ fromℤ (x ℤ.* z)
+    ℤ* = {!!}
+
     n*r≈+/n/r : (n : ℕ)
               → (r : ℝ)
               → (_≈_
