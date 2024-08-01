@@ -1638,7 +1638,7 @@ module Veritas where
 
     id≡_∘fromℚ : (k : ℚ)
                → k ≡ proj₁ (fromℚ-Rational k)
-    id≡_∘fromℚ x = refl
+    id≡_∘fromℚ _ = refl
 \end{code}
 
 \subsection{\lcblm{\F{Irrational}}}
