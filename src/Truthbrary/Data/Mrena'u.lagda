@@ -669,7 +669,7 @@ module Veritas where
     open I
 
     id≡⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
-    id≡⌊'∘fromℤ (ℤ.+ z) = refl
+    id≡⌊'∘fromℤ (ℤ.+ _) = refl
     id≡⌊'∘fromℤ ℤ.-[1+ z ] = refl
 
     fromℤ-Rational : (z : ℤ) → Rational $ fromℤ z
