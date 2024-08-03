@@ -792,7 +792,7 @@ module Veritas where
     r≈r+s⇒s≈0 = {!!}
 
     r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈ (r + s)
-    r≉r+s = {!!}
+    r≉r+s = λ r s N → N ∘ (r≈r+s⇒s≈0 r s)
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
     R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ D
