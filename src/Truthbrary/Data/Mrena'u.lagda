@@ -192,7 +192,9 @@ open import Data.Empty
 open import Data.These
   as These
   using (
-    These
+  )
+  renaming (
+    These to _∨_
   )
 open import Data.Integer
   as ℤ
@@ -815,7 +817,7 @@ module Veritas where
 
     I[r+s]⇒I[r]∨I[s] : (r s : ℝ)
                      → Irrational $ r + s
-                     → These (Irrational r) (Irrational s)
+                     → _∨_ (Irrational r) (Irrational s)
     I[r+s]⇒I[r]∨I[s] = {!!}
 \end{code}
 
