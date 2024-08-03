@@ -696,7 +696,7 @@ module Veritas where
     fromℤ≡¯fromℕ : (z : ℤ)
                  → ℤ.sign z ≡ Sign.-
                  → fromℤ z ≡ ¯ fromℕ ℤ.∣ z ∣
-    fromℤ≡¯fromℕ ℤ.-[1+ z ] d = refl
+    fromℤ≡¯fromℕ ℤ.-[1+ _ ] _ = refl
 \end{code}
 
 \subsection{\lcblm{\F{¯\AgdaUnderscore}}}
