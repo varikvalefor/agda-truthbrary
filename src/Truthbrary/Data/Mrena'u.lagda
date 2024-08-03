@@ -782,7 +782,11 @@ module Veritas where
         → (r' : Rational r)
         → (s' : Rational s)
         → r + s ≡ fromℚ (proj₁ r' ℚ.+ proj₁ s')
-    ℚ+' = {!!}
+    ℚ+' {r} {s} R S = begin
+      r + s ≡⟨ {!!} ⟩
+      fromℚ (proj₁ R ℚ.+ proj₁ S) ∎
+      where
+      open ≡-Reasoning
 
     r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈ (r + s)
     r≉r+s = {!!}
