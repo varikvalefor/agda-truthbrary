@@ -670,7 +670,7 @@ module Veritas where
 
     id≡⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
     id≡⌊'∘fromℤ (ℤ.+ _) = refl
-    id≡⌊'∘fromℤ ℤ.-[1+ z ] = refl
+    id≡⌊'∘fromℤ ℤ.-[1+ _ ] = refl
 
     fromℤ-Rational : (z : ℤ) → Rational $ fromℤ z
     fromℤ-Rational z = ℤ→ℚ z , fromℤ≈fromℚ∘ℤ→ℚ z
