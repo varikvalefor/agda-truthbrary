@@ -822,7 +822,7 @@ module Veritas where
 
     I[r+s]⇒I[r]∨I[s] : (r s : ℝ)
                      → Irrational $ r + s
-                     → (Irrational r) ∨ (Irrational s)
+                     → Irrational r ∨ (Irrational s)
     I[r+s]⇒I[r]∨I[s] = {!!}
 \end{code}
 
