@@ -1234,9 +1234,9 @@ module Veritas where
     ℕ^ = {!!}
 
     pav : (r s : ℝ)
-        → r > fromℕ 1
+        → ∣ r ∣ > fromℕ 1
         → s > fromℕ 1
-        → r < (r ^ s)
+        → ∣ r ∣ < ∣ (r ^ s) ∣
     pav = {!!}
 
     r^s≈r'^s' : Algebra.Congruent₂ _≈_ _^_
