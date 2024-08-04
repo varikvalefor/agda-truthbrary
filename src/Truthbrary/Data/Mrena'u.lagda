@@ -1239,6 +1239,13 @@ module Veritas where
                         → ∣ r ∣ < ∣ r ^ s ∣
     ∣r∣>1∧s>1⇒∣r∣>∣r^s∣ = {!!}
 
+    r>0∧r<1∧s>1⇒r>r^s : (r s : ℝ)
+                      → r > fromℕ 0
+                      → r < fromℕ 1
+                      → s > fromℕ 1
+                      → r > (r ^ s)
+    r>0∧r<1∧s>1⇒r>r^s = {!!}
+
     rel : (r s : ℝ)
         → ∣ r ∣ < fromℕ 1
         → s > fromℕ 1
