@@ -134,6 +134,7 @@ open import Algebra
 open import Data.Fin
   as 𝔽
   using (
+    Fin
   )
 open import Data.Nat
   as ℕ
@@ -570,7 +571,7 @@ module Veritas where
        → ⌊' r ≡ ⌊' s
        → ¬_ $ 9F ≡ ⌊'⁻¹ r i
        → 𝔽.toℕ (⌊'⁻¹ s i) ≡ ℕ.suc (𝔽.toℕ $ ⌊'⁻¹ r i)
-       → (_ : (i' : 𝔽.Fin $ i ℕ.+ 1)
+       → (_ : (i' : Fin $ i ℕ.+ 1)
             → let i'' = 𝔽.toℕ i' in
               ⌊'⁻¹ r i'' ≡ ⌊'⁻¹ s i'')
        → ((n : ℕ) → ⌊'⁻¹ r (1 ℕ.+ n ℕ.+ i) ≡ 9F)
