@@ -1239,6 +1239,12 @@ module Veritas where
         → ∣ r ∣ < ∣ r ^ s ∣
     pav = {!!}
 
+    rel : (r s : ℝ)
+        → ∣ r ∣ < fromℕ 1
+        → s > fromℕ 1
+        → ∣ r ∣ < ∣ r ^ s ∣
+    rel = {!!}
+
     r^s≈r'^s' : Algebra.Congruent₂ _≈_ _^_
     r^s≈r'^s' = {!!}
 \end{code}
