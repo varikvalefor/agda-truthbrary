@@ -1446,8 +1446,8 @@ module Veritas where
     +r≡∣+r∣ : (r : ℝ) → sign r ≡ Sign.+ → r ≡ ∣ r ∣
     +r≡∣+r∣ _ refl = refl
 
-    ¯r≡∣¯r∣ : (r : ℝ) → sign r ≡ Sign.- → (¯ r) ≡ ∣ r ∣
-    ¯r≡∣¯r∣ = {!!}
+    s[r]≡-⇒¯r≡∣r∣ : (r : ℝ) → sign r ≡ Sign.- → (¯ r) ≡ ∣ r ∣
+    s[r]≡-⇒¯r≡∣r∣ = {!!}
 
     0≈∣0∣ : {r : ℝ} → r ≈ fromℕ 0 → r ≈ ∣ r ∣
     0≈∣0∣ = {!!}
@@ -1489,9 +1489,9 @@ module Veritas where
         g₁ = {!!}
         g₂ : {s : ℝ} → r ≈ s → sign s ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
         g₂ {s} d dss = begin
-          ∣ r ∣ ≈⟨ ¯r≡∣¯r∣ r ds ▹ sym ▹ _≈_.≡⇒≈ ⟩
+          ∣ r ∣ ≈⟨ s[r]≡-⇒¯r≡∣r∣ r ds ▹ sym ▹ _≈_.≡⇒≈ ⟩
           ¯ r ≈⟨ ¯_.r≈s⇒¯r≈¯s d ⟩
-          ¯ s ≈⟨ ¯r≡∣¯r∣ s dss ▹ _≈_.≡⇒≈ ⟩
+          ¯ s ≈⟨ s[r]≡-⇒¯r≡∣r∣ s dss ▹ _≈_.≡⇒≈ ⟩
           ∣ s ∣ ∎
           where
           open import Relation.Binary.Reasoning.Setoid _≈_.setoid
@@ -1524,7 +1524,7 @@ module Veritas where
         where
         ¯∣¯r∣≡r : (r : ℝ) → sign r ≡ Sign.- → (¯ ∣ r ∣ ) ≡ r
         ¯∣¯r∣≡r r d = begin
-          ¯ ∣ r ∣ ≡⟨ ¯r≡∣¯r∣ r d ▹ sym ▹ cong ¯_ ⟩
+          ¯ ∣ r ∣ ≡⟨ s[r]≡-⇒¯r≡∣r∣ r d ▹ sym ▹ cong ¯_ ⟩
           ¯ (¯ r) ≡⟨ ¯_.r≡¯¯r r ▹ sym ⟩
           r ∎
           where
