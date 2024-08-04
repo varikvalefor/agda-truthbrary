@@ -1235,9 +1235,7 @@ module Veritas where
 
 \begin{code}
   module ⌊' where
-    fromℤ∘⌊' : (r : ℝ)
-            → ⌊'⁻¹ r ≗ const 𝔽.zero
-            → r ≡ fromℤ (⌊' r)
+    fromℤ∘⌊' : (r : ℝ) → ⌊'⁻¹ r ≗ const 𝔽.zero → r ≡ fromℤ (⌊' r)
     fromℤ∘⌊' = {!!}
 
     ⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
