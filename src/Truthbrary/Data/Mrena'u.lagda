@@ -1233,11 +1233,11 @@ module Veritas where
            (fromℕ $ m ℕ.^ n))
     ℕ^ = {!!}
 
-    pav : (r s : ℝ)
-        → ∣ r ∣ > fromℕ 1
-        → s > fromℕ 1
-        → ∣ r ∣ < ∣ r ^ s ∣
-    pav = {!!}
+    ∣r∣>1∧s>1⇒∣r∣>∣r^s∣ : (r s : ℝ)
+                        → ∣ r ∣ > fromℕ 1
+                        → s > fromℕ 1
+                        → ∣ r ∣ < ∣ r ^ s ∣
+    ∣r∣>1∧s>1⇒∣r∣>∣r^s∣ = {!!}
 
     rel : (r s : ℝ)
         → ∣ r ∣ < fromℕ 1
