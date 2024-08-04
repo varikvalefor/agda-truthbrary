@@ -1227,6 +1227,12 @@ module Veritas where
                    (fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) 2≉0))
     I[2^[1/2]] = proj₁ $ proj₂ ∃R[I^R]
 
+    ℕ^ : (m n : ℕ)
+       → (_≈_
+           (fromℕ m ^ fromℕ n)
+           (fromℕ $ m ℕ.^ n))
+    ℕ^ = {!!}
+
     r^s≈r'^s' : Algebra.Congruent₂ _≈_ _^_
     r^s≈r'^s' = {!!}
 \end{code}
