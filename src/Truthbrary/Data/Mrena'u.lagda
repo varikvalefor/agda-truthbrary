@@ -786,6 +786,7 @@ module Veritas where
     ℚ+' {r} {s} R S = begin
       r + s ≡⟨ {!!} ⟩
       fromℚ (proj₁ R) + s ≡⟨ {!!} ⟩
+      fromℚ (proj₁ R) + fromℚ (proj₁ S) ≡⟨ {!!} ⟩
       fromℚ (proj₁ R ℚ.+ proj₁ S) ∎
       where
       open ≡-Reasoning
