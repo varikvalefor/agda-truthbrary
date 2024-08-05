@@ -803,8 +803,7 @@ module Veritas where
         → (r + s) ≈ fromℚ (proj₁ R ℚ.+ proj₁ S)
     ℚ+' {r} {s} R S = begin
       r + s ≈⟨ proj₂ R ▹ r+s≈r'+s {s = s} ⟩
-      fromℚ (proj₁ R) + s ≈⟨ _≈_.r≈r ⟩
-      _ ≈⟨ proj₂ S ▹ r+s≈r+s' {fromℚ $ proj₁ R} ⟩
+      fromℚ (proj₁ R) + s ≈⟨ proj₂ S ▹ r+s≈r+s' {fromℚ $ proj₁ R} ⟩
       fromℚ (proj₁ R) + fromℚ (proj₁ S) ≈⟨ _≈_.r≈r ⟩
       _ ≈⟨ ℚ+ (proj₁ R) (proj₁ S) ▹ _≈_.≡⇒≈ ⟩
       fromℚ (proj₁ R ℚ.+ proj₁ S) ∎
