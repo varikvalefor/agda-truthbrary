@@ -805,7 +805,7 @@ module Veritas where
       r + s ≈⟨ proj₂ R ▹ r+s≈r'+s {s = s} ⟩
       fromℚ (proj₁ R) + s ≈⟨ _≈_.r≈r ⟩
       _ ≈⟨ proj₂ S ▹ r+s≈r+s' {fromℚ $ proj₁ R} ⟩
-      fromℚ (proj₁ R) + fromℚ (proj₁ S) ≈⟨ {!!} ⟩
+      fromℚ (proj₁ R) + fromℚ (proj₁ S) ≈⟨ ℚ+ (proj₁ R) (proj₁ S) ▹ _≈_.≡⇒≈ ⟩
       fromℚ (proj₁ R ℚ.+ proj₁ S) ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
