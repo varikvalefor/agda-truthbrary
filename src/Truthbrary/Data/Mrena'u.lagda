@@ -783,7 +783,7 @@ module Veritas where
     r≈r+s⇒s≈0 = {!!}
 
     r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈ (r + s)
-    r≉r+s _ _ = _∘ (r≈r+s⇒s≈0 _ _)
+    r≉r+s _ _ = _∘ r≈r+s⇒s≈0 _ _
 
     r+s≈r'+s' : Algebra.Congruent₂ _≈_ _+_
     r+s≈r'+s' = {!!}
