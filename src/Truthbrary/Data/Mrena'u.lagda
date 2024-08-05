@@ -782,14 +782,14 @@ module Veritas where
     ℚ+' : {r s : ℝ}
         → (R : Rational r)
         → (S : Rational s)
-        → r + s ≡ fromℚ (proj₁ R ℚ.+ proj₁ S)
+        → (r + s) ≈ fromℚ (proj₁ R ℚ.+ proj₁ S)
     ℚ+' {r} {s} R S = begin
-      r + s ≡⟨ {!!} ⟩
-      fromℚ (proj₁ R) + s ≡⟨ {!!} ⟩
-      fromℚ (proj₁ R) + fromℚ (proj₁ S) ≡⟨ {!!} ⟩
+      r + s ≈⟨ {!!} ⟩
+      fromℚ (proj₁ R) + s ≈⟨ {!!} ⟩
+      fromℚ (proj₁ R) + fromℚ (proj₁ S) ≈⟨ {!!} ⟩
       fromℚ (proj₁ R ℚ.+ proj₁ S) ∎
       where
-      open ≡-Reasoning
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     r≈r+s⇒s≈0 : (r s : ℝ) → r ≈ (r + s) → s ≈ fromℕ 0
     r≈r+s⇒s≈0 = {!!}
@@ -798,7 +798,7 @@ module Veritas where
     r≉r+s _ _ = _∘ (r≈r+s⇒s≈0 _ _)
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
-    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , _≈_.≡⇒≈ D
+    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , D
       where
       D = ℚ+' R S
 
