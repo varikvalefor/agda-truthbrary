@@ -779,26 +779,11 @@ module Veritas where
     ℚ+ : (k l : ℚ) → fromℚ k + fromℚ l ≡ fromℚ (k ℚ.+ l)
     ℚ+ = {!!}
 
-    ℚ+' : {r s : ℝ}
-        → (R : Rational r)
-        → (S : Rational s)
-        → (r + s) ≈ fromℚ (proj₁ R ℚ.+ proj₁ S)
-    ℚ+' {r} {s} R S = begin
-      r + s ≈⟨ {!!} ⟩
-      fromℚ (proj₁ R) + s ≈⟨ {!!} ⟩
-      fromℚ (proj₁ R) + fromℚ (proj₁ S) ≈⟨ {!!} ⟩
-      fromℚ (proj₁ R ℚ.+ proj₁ S) ∎
-      where
-      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-
     r≈r+s⇒s≈0 : (r s : ℝ) → r ≈ (r + s) → s ≈ fromℕ 0
     r≈r+s⇒s≈0 = {!!}
 
     r≉r+s : (r s : ℝ) → ¬_ $ s ≈ fromℕ 0 → ¬_ $ r ≈ (r + s)
     r≉r+s _ _ = _∘ (r≈r+s⇒s≈0 _ _)
-
-    R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
-    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , ℚ+' R S
 
     r+s≈r'+s' : Algebra.Congruent₂ _≈_ _+_
     r+s≈r'+s' = {!!}
@@ -811,6 +796,21 @@ module Veritas where
 
     ¯r+¯s≈¯[r+s] : (r s : ℝ) → (¯_ r + ¯_ s) ≈ ¯_ (r + s)
     ¯r+¯s≈¯[r+s] = {!!}
+
+    ℚ+' : {r s : ℝ}
+        → (R : Rational r)
+        → (S : Rational s)
+        → (r + s) ≈ fromℚ (proj₁ R ℚ.+ proj₁ S)
+    ℚ+' {r} {s} R S = begin
+      r + s ≈⟨ {!!} ⟩
+      fromℚ (proj₁ R) + s ≈⟨ {!!} ⟩
+      fromℚ (proj₁ R) + fromℚ (proj₁ S) ≈⟨ {!!} ⟩
+      fromℚ (proj₁ R ℚ.+ proj₁ S) ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+
+    R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
+    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , ℚ+' R S
 
     I[I+R] : {r s : ℝ} → Irrational r → Rational s → Irrational $ r + s
     I[I+R] = {!!}
