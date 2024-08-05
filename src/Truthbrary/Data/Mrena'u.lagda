@@ -798,9 +798,7 @@ module Veritas where
     r≉r+s _ _ = _∘ (r≈r+s⇒s≈0 _ _)
 
     R[R+R] : (r s : ℝ) → Rational r → Rational s → Rational $ r + s
-    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , D
-      where
-      D = ℚ+' R S
+    R[R+R] r s R@(r' , _) S@(s' , _) = r' ℚ.+ s' , ℚ+' R S
 
     r+s≈r'+s' : Algebra.Congruent₂ _≈_ _+_
     r+s≈r'+s' = {!!}
