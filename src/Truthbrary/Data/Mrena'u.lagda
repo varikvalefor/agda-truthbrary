@@ -221,6 +221,10 @@ open import Relation.Unary
   using (
     Pred
   )
+open import Data.Nat.DivMod
+  as ℕ
+  using (
+  )
 open import Relation.Binary
   using (
     Irreflexive;
@@ -1121,6 +1125,14 @@ module Veritas where
           → s > fromℕ 0
           → r > frinu r s N
     r<r/s = {!!}
+
+    ℕ/ : (m n : ℕ)
+       → (N : _)
+       → (N' : _)
+       → (_≈_
+           (frinu (fromℕ m) (fromℕ n) N')
+           (fromℕ $ ℕ._/_ m n {N}))
+    ℕ/ = {!!}
 
     ℚ/ : (k l : ℚ)
        → (N : _)
