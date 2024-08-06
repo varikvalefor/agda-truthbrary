@@ -242,6 +242,10 @@ open import Data.Fin.Patterns
   using (
     9F
   )
+open import Data.Integer.DivMod
+  as ℤ
+  using (
+  )
 open import Data.Nat.Coprimality
   as Coprime
   using (
@@ -1133,6 +1137,14 @@ module Veritas where
            (frinu (fromℕ m) (fromℕ n) N')
            (fromℕ $ ℕ._/_ m n {N}))
     ℕ/ = {!!}
+
+    ℤ/ : (x z : ℤ)
+       → (N : _)
+       → (N' : _)
+       → (_≈_
+           (frinu (fromℤ x) (fromℤ z) N')
+           (fromℤ $ ℤ._div_ x z {N}))
+    ℤ/ = {!!}
 
     ℚ/ : (k l : ℚ)
        → (N : _)
