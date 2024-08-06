@@ -1627,6 +1627,8 @@ module Veritas where
           → z ≡ bool' x z true
       ⊤⇒2 _ = refl
 
+    -- | ni'o xu zmadu fa tu'a zoi zoi.
+    -- r<s⇒r≡r⊓s .zoi... fi zo'e ji le ka ce'u mabla barda
     <⇒1 : (r s : ℝ) → r < s → r ≡ r ⊓ s
     <⇒1 r s m = subst (_≡_ r ∘ _⊓_I.bool' r s) (I.<⇒⊥ r s m) 1'
       where
