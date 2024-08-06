@@ -726,7 +726,11 @@ module Veritas where
     r<0⇒¯r≈∣r∣ = {!!}
 
     r-¯s≈r+s : (r s : ℝ) → (r - (¯ s)) ≈ (r + s)
-    r-¯s≈r+s = {!!}
+    r-¯s≈r+s = λ r s → begin
+      r - (¯ s) ≈⟨ {!!} ⟩
+      r + s ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     r≈s⇒¯r≈¯s : Algebra.Congruent₁ _≈_ ¯_
     r≈s⇒¯r≈¯s = {!!}
