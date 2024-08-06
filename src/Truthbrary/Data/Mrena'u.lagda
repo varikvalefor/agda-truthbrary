@@ -1689,7 +1689,7 @@ module Veritas where
     ... | inj₂ ml = inj₁ $ sym $ <⇒1 _ s ml
 
     id≈⊓⍨ : Algebra.Idempotent _≈_ _⊓_
-    id≈⊓⍨ _ = _≈_.≈⇒≈⍨ $ ≈⇒1 $ _≈_.r≈r
+    id≈⊓⍨ _ = _≈_.≈⇒≈⍨ $ ≈⇒1 _≈_.r≈r
 \end{code}
 
 \subsection{\lcblm{\F{fromℚ}}}
