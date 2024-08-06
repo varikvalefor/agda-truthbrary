@@ -1656,7 +1656,7 @@ module Veritas where
       ≤⇒1 r s = _⊎_.[_,_] (≈⇒1 ∘ _≈_.≈⇒≈⍨) $ _≈_.≡⇒≈ ∘ <⇒1 r s
     ... | inj₂ m = _≈_.≡⇒≈ $ begin
       r ⊓ s ≡⟨ <⇒1 r s m ▹ sym ⟩
-      r ≡⟨ ≥⇒2 s _ (_≥_.>⇒≥ m) ⟩
+      r ≡⟨ ≥⇒2 s _ $ _≥_.>⇒≥ m ⟩
       s ⊓ r ∎
       where
       open ≡-Reasoning
