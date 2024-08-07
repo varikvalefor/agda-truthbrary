@@ -1480,7 +1480,7 @@ module Veritas where
     >⇒≥ = inj₂
 
     r≥r : Reflexive _≥_
-    r≥r = ≈⇒≥ $ _≈_.r≈r
+    r≥r = ≈⇒≥ _≈_.r≈r
 
     ≥⇒¬< : {r s : ℝ} → r ≥ s → ¬_ $ r < s
     ≥⇒¬< = {!!}
