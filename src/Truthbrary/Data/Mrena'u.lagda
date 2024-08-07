@@ -674,7 +674,7 @@ module Veritas where
     id≡∣_∣∘⌊'∘fromℕ _ = refl
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
-    fromℕ≥0 0 = inj₁ $ _≈_.r≈r
+    fromℕ≥0 0 = inj₁ _≈_.r≈r
     fromℕ≥0 (ℕ.suc n) = inj₂ {!!}
 \end{code}
 
