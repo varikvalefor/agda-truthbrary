@@ -553,7 +553,7 @@ module Veritas where
     r≈r : Reflexive _≈_
     r≈r = ≡⇒≈ refl
 
-    ≈⇒≈⍨ : {r s : ℝ} → r ≈ s → s ≈ r
+    ≈⇒≈⍨ : _≈_ ⇒ _≈_ ⍨
     ≈⇒≈⍨ = {!!}
 
     ≈⇒≯ : {r s : ℝ} → r ≈ s → ¬_ $ r > s
