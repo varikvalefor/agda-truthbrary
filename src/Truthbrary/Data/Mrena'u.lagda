@@ -652,7 +652,7 @@ module Veritas where
     fromℕ-fromℚ : (n : ℕ)
                 → let C = Coprime.sym $ Coprime.1-coprimeTo n in
                   fromℕ n ≈ fromℚ (ℚ.mkℚ (ℤ.+ n) 0 C)
-    fromℕ-fromℚ = λ n → _≈_.≈⇒≈⍨ $ begin
+    fromℕ-fromℚ n = _≈_.≈⇒≈⍨ $ begin
       fromℚ (ℚ.mkℚ (ℤ.+ n) 0 (Coprime.sym $ 1-coprimeTo _)) ≈⟨ {!!} ⟩
       frinu (fromℤ $ ℤ.+ n) (fromℕ $ ℕ.suc 0) (fromℕ[s]≉0 0) ≈⟨ {!!} ⟩
       fromℕ n ∎
