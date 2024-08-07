@@ -654,6 +654,7 @@ module Veritas where
                   fromℕ n ≈ fromℚ (ℚ.mkℚ (ℤ.+ n) 0 C)
     fromℕ-fromℚ = λ n → _≈_.≈⇒≈⍨ $ begin
       fromℚ (ℚ.mkℚ (ℤ.+ n) 0 _) ≈⟨ {!!} ⟩
+      frinu (fromℤ $ ℤ.+ n) (fromℕ $ ℕ.suc 0) (fromℕ[s]≉0 0) ≈⟨ {!!} ⟩
       fromℕ n ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
