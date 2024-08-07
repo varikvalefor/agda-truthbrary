@@ -153,6 +153,7 @@ open import Function
   using (
     const;
     _∘₂_;
+    _on_;
     _∋_;
     _ˢ_;
     _∘_;
@@ -1432,7 +1433,7 @@ module Veritas where
     >∧>⇒> : Transitive _>_
     >∧>⇒> = {!!}
 
-    fromℕ>fromℕ : ℕ._>_ ⇒ (_>_ Function.on fromℕ)
+    fromℕ>fromℕ : ℕ._>_ ⇒ (_>_ on fromℕ)
     fromℕ>fromℕ = {!!}
 
     >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
