@@ -1080,7 +1080,7 @@ module Veritas where
       r>1⇒r≉0 : (r : ℝ) → r > fromℕ 1 → ¬_ $ r ≈ fromℕ 0
       r>1⇒r≉0 r = >⇒≉ ∘ r>1⇒r>0 {r}
         where
-        >⇒≉ : {r s : ℝ} → r > s → ¬_ $ r ≈ s
+        >⇒≉ : _>_ ⇒ ¬_ ∘₂ _≈_
         >⇒≉ = {!!}
         r>1⇒r>0 : {r : ℝ} → r > fromℕ 1 → r > fromℕ 0
         r>1⇒r>0 = {!!}
