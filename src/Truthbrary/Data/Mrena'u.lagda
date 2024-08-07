@@ -653,11 +653,12 @@ module Veritas where
                 → let C = Coprime.sym $ Coprime.1-coprimeTo n in
                   fromℕ n ≈ fromℚ (ℚ.mkℚ (ℤ.+ n) 0 C)
     fromℕ-fromℚ n = _≈_.≈⇒≈⍨ $ begin
-      fromℚ (ℚ.mkℚ (ℤ.+ n) 0 (Coprime.sym $ 1-coprimeTo _)) ≈⟨ {!!} ⟩
+      fromℚ (ℚ.mkℚ (ℤ.+ n) 0 (C)) ≈⟨ {!!} ⟩
       frinu (fromℤ $ ℤ.+ n) (fromℕ $ ℕ.suc 0) (fromℕ[s]≉0 0) ≈⟨ {!!} ⟩
       fromℕ n ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      C = Coprime.sym $ 1-coprimeTo _
 
     fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
     fromℕ-Rational n = ℚ.mkℚ (ℤ.+ n) 0 c , fromℕ-fromℚ n
