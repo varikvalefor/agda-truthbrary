@@ -1501,7 +1501,7 @@ module Veritas where
     jonais r s with _>_.jonais r s
     ... | inj₁ z = inj₁ $ >⇒≥ z
     ... | inj₂ (inj₁ m) = inj₂ m
-    ... | inj₂ (inj₂ d) = inj₁ $ inj₁ d
+    ... | inj₂ (inj₂ d) = inj₁ $ ≈⇒≥ d
 
     ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
     ¬≥⇒< N = _⊎_.[_,_]′ (_⇒⇐ N) id $ jonais _ _
