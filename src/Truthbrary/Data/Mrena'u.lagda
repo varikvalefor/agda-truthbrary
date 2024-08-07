@@ -652,7 +652,11 @@ module Veritas where
     fromℕ-fromℚ : (n : ℕ)
                 → let C = Coprime.sym $ Coprime.1-coprimeTo n in
                   fromℕ n ≈ fromℚ (ℚ.mkℚ (ℤ.+ n) 0 C)
-    fromℕ-fromℚ = {!!}
+    fromℕ-fromℚ = λ n → _≈_.≈⇒≈⍨ $ begin
+      fromℚ (ℚ.mkℚ (ℤ.+ n) 0 _) ≈⟨ {!!} ⟩
+      fromℕ n ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
     fromℕ-Rational n = ℚ.mkℚ (ℤ.+ n) 0 c , fromℕ-fromℚ n
