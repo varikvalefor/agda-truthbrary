@@ -1497,7 +1497,7 @@ module Veritas where
     +r≥-s : {r s : ℝ} → sign r ≡ Sign.+ → sign s ≡ Sign.- → r ≥ s
     +r≥-s = {!!}
 
-    ℕ≥ : {m n : ℕ} → m ℕ.≥ n → fromℕ m ≥ fromℕ n
+    ℕ≥ : ℕ._≥_ ⇒ (_≥_ on fromℕ)
     ℕ≥ = {!!}
 
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
