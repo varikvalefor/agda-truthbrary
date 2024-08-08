@@ -1506,7 +1506,7 @@ module Veritas where
     ... | inj₂ (inj₁ m) = inj₂ m
     ... | inj₂ (inj₂ d) = inj₁ $ ≈⇒≥ d
 
-    ¬≥⇒< : {r s : ℝ} → ¬_ $ r ≥ s → r < s
+    ¬≥⇒< : ¬_ ∘₂ _≥_ ⇒ _<_
     ¬≥⇒< N = _⊎_.[_,_]′ (_⇒⇐ N) id $ jonais _ _
 \end{code}
 
