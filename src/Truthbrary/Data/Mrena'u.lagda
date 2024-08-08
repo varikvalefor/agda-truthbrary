@@ -1625,7 +1625,7 @@ module Veritas where
           bool'
         )
 
-      ≥⇒⊤ : {r s : ℝ} → r ≥ s → true ≡ _≥ᵇ_ r s
+      ≥⇒⊤ : _≥_ ⇒ ((true ≡_) ∘₂ _≥ᵇ_)
       ≥⇒⊤ = {!!}
 
       ⊤⇒≥ : (r s : ℝ) → true ≡ _≥ᵇ_ r s → r ≥ s
