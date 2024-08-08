@@ -1476,7 +1476,7 @@ module Veritas where
     ≥∧≥⍨⇒≈ : Relation.Binary.Antisymmetric _≈_ _≥_
     ≥∧≥⍨⇒≈ = {!!}
 
-    ≈⇒≥ : {r s : ℝ} → r ≈ s → r ≥ s
+    ≈⇒≥ : _≈_ ⇒ _≥_
     ≈⇒≥ = inj₁
 
     >⇒≥ : {r s : ℝ} → r > s → r ≥ s
