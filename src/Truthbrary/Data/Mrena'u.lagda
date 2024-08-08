@@ -1569,7 +1569,7 @@ module Veritas where
 
     ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ) → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
     ∣fromℚ[k]∣≈fromℚ[∣k∣] k@(ℚ.mkℚ (ℤ.pos m) n c) = begin
-      ∣ fromℚ $ k ∣ ≈⟨ {!!} ⟩
+      ∣ fromℚ k ∣ ≈⟨ {!!} ⟩
       fromℚ ℚ.∣ k ∣ ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
