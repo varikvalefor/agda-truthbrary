@@ -1491,7 +1491,7 @@ module Veritas where
     ≥∧≉⇒> x N = _⊎_.[_,_] (_⇒⇐ N) id x
 
     ≥∧≯⇒≈ : (_≥_ Σ.-×- ¬_ ∘₂ _>_) ⇒ _≈_
-    ≥∧≯⇒≈ (x ,  N) = _⊎_.[_,_] id (_⇒⇐ N) x
+    ≥∧≯⇒≈ (x , N) = _⊎_.[_,_] id (_⇒⇐ N) x
 
     +r≥-s : {r s : ℝ} → sign r ≡ Sign.+ → sign s ≡ Sign.- → r ≥ s
     +r≥-s = {!!}
