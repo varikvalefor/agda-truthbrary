@@ -220,7 +220,8 @@ open import Data.Rational
   )
 open import Relation.Unary
   using (
-    Pred
+    Pred;
+    _⊆_
   )
 open import Data.Nat.DivMod
   as ℕ
@@ -1083,7 +1084,7 @@ module Veritas where
         where
         >⇒≉ : _>_ ⇒ ¬_ ∘₂ _≈_
         >⇒≉ = {!!}
-        r>1⇒r>0 : {r : ℝ} → r > fromℕ 1 → r > fromℕ 0
+        r>1⇒r>0 : _> fromℕ 1 ⊆ _> fromℕ 0
         r>1⇒r>0 = {!!}
 
       ¯r≈0⇒r≈0 : (r : ℝ) → (¯ r) ≈ fromℕ 0 → r ≈ fromℕ 0
