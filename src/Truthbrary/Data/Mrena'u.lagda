@@ -1569,7 +1569,7 @@ module Veritas where
 
     ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ) → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
     ∣fromℚ[k]∣≈fromℚ[∣k∣] k@(ℚ.mkℚ (ℤ.pos m) n c) = begin
-      ∣ fromℚ k ∣ ≈⟨ {!!} ⟩
+      ∣ fromℚ k ∣ ≈⟨ _≈_.r≈r ⟩
       ∣ fromℚ $ ℚ.mkℚ (ℤ.pos m) n c ∣ ≈⟨ {!!} ⟩
       fromℚ ℚ.∣ k ∣ ∎
       where
