@@ -1032,6 +1032,12 @@ module Veritas where
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
 
+    papretis : (_⊎_
+                 ((r s : ℝ) → Rational r → Rational s → Rational $ r * s)
+                 (Σ.Σ (ℝ × ℝ) $ λ (r , s) →
+                   Rational r × Rational s × Irrational (r * s)))
+    papretis = {!!}
+
     ∃[R[I*I]] : (Σ.Σ (_ × _) $ λ (r , s) →
                   (Irrational r × Irrational s) × Rational (r * s))
     ∃[R[I*I]] = (√2 , _) , ((λ x → x , x) {!!}) , {!!}
