@@ -1035,7 +1035,7 @@ module Veritas where
     papretis : let I = Irrational in
                (Σ.Σ (_ × _) $ λ (r , s) →
                  I r × I s × Rational (r * s))
-    papretis = (√2 , √2) , {!!}
+    papretis = (√2 , √2) , {!!} , {!!}
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) (Fromℕ.fromℕ[s]≉0 1)
 
