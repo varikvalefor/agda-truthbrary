@@ -1032,13 +1032,14 @@ module Veritas where
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
 
-    papretis : (_⊎_
+    papretis : let I = Irrational in
+               (_⊎_
                  (  (r s : ℝ)
-                  → Irrational r
-                  → Irrational s
-                  → Irrational $ r * s)
+                  → I r
+                  → I s
+                  → I $ r * s)
                  (Σ.Σ (ℝ × ℝ) $ λ (r , s) →
-                   Irrational r × Irrational s × Rational (r * s)))
+                   I r × I s × Rational (r * s)))
     papretis = {!!}
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
