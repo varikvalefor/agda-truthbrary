@@ -1035,7 +1035,7 @@ module Veritas where
     papretis : (_⊎_
                  (  (r s : ℝ)
                   → Irrational r
-                  → Irrational r
+                  → Irrational s
                   → Irrational $ r * s)
                  (Σ.Σ (ℝ × ℝ) $ λ (r , s) →
                    Irrational r × Irrational s × Rational (r * s)))
