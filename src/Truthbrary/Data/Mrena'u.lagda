@@ -1035,7 +1035,7 @@ module Veritas where
     papretis : let I = Irrational in
                (_⊎_
                  ((r s : ℝ) → I r → I s → I $ r * s)
-                 (Σ.Σ (ℝ × ℝ) $ λ (r , s) →
+                 (Σ.Σ (_ × _) $ λ (r , s) →
                    I r × I s × Rational (r * s)))
     papretis = {!!}
 
