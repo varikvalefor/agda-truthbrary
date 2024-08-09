@@ -1425,8 +1425,8 @@ module Veritas where
     >⇒≉ : _>_ ⇒ ¬_ ∘₂ _≈_
     >⇒≉ = {!!}
 
-    ∃[>∧>⍨] : (r s : ℝ) → r > s → ∃ $ λ t → (r > t) × (t > s)
-    ∃[>∧>⍨] r s z = frinu (r + s) (fromℕ 2) N , {!!} , {!!}
+    ∃[>∧>⍨] : {r s : ℝ} → r > s → ∃ $ λ t → (r > t) × (t > s)
+    ∃[>∧>⍨] {r} {s} z = frinu (r + s) (fromℕ 2) N , {!!} , {!!}
       where
       N = Fromℕ.fromℕ[s]≉0 1
 
