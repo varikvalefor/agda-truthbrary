@@ -1037,7 +1037,9 @@ module Veritas where
                  ({r s : ℝ} → I r → I s → I $ r * s)
                  (Σ.Σ (_ × _) $ λ (r , s) →
                    I r × I s × Rational (r * s)))
-    papretis = {!!}
+    papretis = inj₂ $ (√2 , √2) , {!!}
+      where
+      √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) (Fromℕ.fromℕ[s]≉0 1)
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
