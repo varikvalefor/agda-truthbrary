@@ -1084,8 +1084,8 @@ module Veritas where
 \begin{code}
   module Frinu where
     module I where
-      r>1⇒r≉0 : (r : ℝ) → r > fromℕ 1 → ¬_ $ r ≈ fromℕ 0
-      r>1⇒r≉0 r = >⇒≉ ∘ r>1⇒r>0 {r}
+      r>1⇒r≉0 : {r : ℝ} → r > fromℕ 1 → ¬_ $ r ≈ fromℕ 0
+      r>1⇒r≉0 {r} = >⇒≉ ∘ r>1⇒r>0 {r}
         where
         >⇒≉ : _>_ ⇒ ¬_ ∘₂ _≈_
         >⇒≉ = {!!}
@@ -1126,7 +1126,7 @@ module Veritas where
     ∣r/s∣<∣r∣ : (r s : ℝ)
               → ¬_ $ r ≈ fromℕ 0
               → (z : s > fromℕ 1)
-              → ∣ r ∣ > ∣ frinu r s $ I.r>1⇒r≉0 _ z ∣
+              → ∣ r ∣ > ∣ frinu r s $ I.r>1⇒r≉0 z ∣
     ∣r/s∣<∣r∣ = {!!}
 
     ∣r∣<∣r/s∣ : (r s : ℝ)
@@ -1138,12 +1138,12 @@ module Veritas where
 
     ∣r/s∣≤∣r∣ : (r s : ℝ)
               → (z : s > fromℕ 1)
-              → ∣ r ∣ ≥ ∣ frinu r s $ I.r>1⇒r≉0 _ z ∣
+              → ∣ r ∣ ≥ ∣ frinu r s $ I.r>1⇒r≉0 z ∣
     ∣r/s∣≤∣r∣ = {!!}
 
     -r/-s<-r : (r s : ℝ)
              → (z : s > fromℕ 1)
-             → (¯ r) > frinu (¯ r) (¯ s) (I.r>1⇒r≉0 _ z ∘ I.¯r≈0⇒r≈0 s)
+             → (¯ r) > frinu (¯ r) (¯ s) (I.r>1⇒r≉0 z ∘ I.¯r≈0⇒r≈0 s)
     -r/-s<-r = {!!}
 
     r<r/s : (r s : ℝ)
