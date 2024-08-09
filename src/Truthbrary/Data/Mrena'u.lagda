@@ -1032,9 +1032,9 @@ module Veritas where
     R[R*R] : (r s : ℝ) → Rational r → Rational s → Rational $ r * s
     R[R*R] = {!!}
 
-    papretis : (Σ.Σ (_ × _) $ λ (r , s) →
-                 (Irrational r × Irrational s) × Rational (r * s))
-    papretis = (√2 , _) , ((λ x → x , x) {!!}) , {!!}
+    ∃[R[I*I]] : (Σ.Σ (_ × _) $ λ (r , s) →
+                  (Irrational r × Irrational s) × Rational (r * s))
+    ∃[R[I*I]] = (√2 , _) , ((λ x → x , x) {!!}) , {!!}
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) (Fromℕ.fromℕ[s]≉0 1)
 
