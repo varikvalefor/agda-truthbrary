@@ -20,6 +20,7 @@
 \newunicodechar{∈}{\ensuremath{\mathnormal\in}}
 \newunicodechar{∉}{\ensuremath{\mathnormal\notin}}
 \newunicodechar{∋}{\ensuremath{\mathnormal\ni}}
+\newunicodechar{⊆}{\ensuremath{\mathnormal\subseteq}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≢}{\ensuremath{\mathnormal\nequiv}}
 \newunicodechar{≟}{\ensuremath{\stackrel{?}{=}}}
@@ -51,6 +52,7 @@
 \newunicodechar{∙}{\ensuremath{\mathnormal\bullet}}
 \newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
+\newunicodechar{ˢ}{\ensuremath{\mathnormal{^\AgdaFontStyle{s}}}}
 \newunicodechar{⁻}{\ensuremath{\mathnormal{^-}}}
 \newunicodechar{≥}{\ensuremath{\mathnormal{\geq}}}
 \newunicodechar{≯}{\ensuremath{\mathnormal{\ngtr}}}
