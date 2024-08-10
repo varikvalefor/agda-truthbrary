@@ -772,7 +772,7 @@ module Veritas where
     module VI where
       I[r]∧r≈s⇒I[s] : {r s : ℝ} → Irrational r → r ≈ s → Irrational s
       I[r]∧r≈s⇒I[s] = {!!}
-      
+
     +≈+⍨ : Commutative _≈_ _+_
     +≈+⍨ = {!!}
 
