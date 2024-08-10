@@ -1245,7 +1245,7 @@ module Veritas where
 
     ∃R[I^R] : (Σ.Σ
                  (ℝ × ℝ)
-                 (λ (r , s) → Irrational r × Rational (r ^ s)))
+                 (λ (r , s) → (Irrational r × Rational s) × Rational (r ^ s)))
     ∃R[I^R] = (√2 , fromℕ 2) , {!!} , {!!}
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
@@ -1271,7 +1271,7 @@ module Veritas where
     I[2^[1/2]] : let 2≉0 = ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0) in
                  (Irrational $
                    (fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) 2≉0))
-    I[2^[1/2]] = proj₁ $ proj₂ ∃R[I^R]
+    I[2^[1/2]] = proj₁ $ proj₁ $ proj₂ ∃R[I^R]
 
     ℕ^ : (m n : ℕ)
        → (_≈_
