@@ -514,7 +514,7 @@ ni'o la'o zoi.\ \B r \OpF ⊓ \B s\ .zoi.\ nacmecrai la'oi .\B r.\ ce la'oi .\B 
 \begin{code}
 module _⊓_I where
   bool' : ∀ {a} → {A : Set a} → A → A → Bool → A
-  bool' r = _⍨ (if_then_else r)
+  bool' r = _⍨ $ if_then_else r
 
   _≥ᵇ_ : ℝ → ℝ → Bool
   _≥ᵇ_ = {!!}
