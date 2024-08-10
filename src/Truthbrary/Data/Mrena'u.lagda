@@ -1108,7 +1108,7 @@ module Veritas where
                         → (Nt : _)
                         → ∣ s ∣ > ∣ t ∣
                         → ¬_ $ r ≈ fromℕ 0
-                        → frinu r s Ns > (frinu r s Nt)
+                        → frinu r s Ns > frinu r s Nt
     ∣s∣>∣t∣⇒∣r/s∣>∣r/t∣ = {!!}
 
     0≈0/r : (r s : ℝ)
