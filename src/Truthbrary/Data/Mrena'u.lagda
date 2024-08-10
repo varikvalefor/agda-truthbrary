@@ -318,7 +318,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \OpF ≥ \B b\ .zoi.\ gi la'oi .\B a.\ dubjavm
 
 \begin{code}
 _≥_ : ℝ → ℝ → Set
-_≥_ r s = (r ≈ s) ⊎ (r > s)
+_≥_ = _≈_ -⊎- _>_
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}≤\AgdaUnderscore}\ .zoi.}
