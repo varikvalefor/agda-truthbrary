@@ -1667,14 +1667,14 @@ module Veritas where
       where
       1' = I.⊥⇒1 r s
 
-    ≥⇒2 : (r s : ℝ) → r ≥ s → s ≡ r ⊓ s
-    ≥⇒2 r s z = subst (_≡_ s ∘ _⊓_I.bool' r s) (I.≥⇒⊤ z) (I.⊤⇒2 r)
+    ≥⇒2 : {r s : ℝ} → r ≥ s → s ≡ r ⊓ s
+    ≥⇒2 {r} {s} z = subst (_≡_ s ∘ _⊓_I.bool' r s) (I.≥⇒⊤ z) (I.⊤⇒2 r)
 
     ≈⇒1 : {r s : ℝ} → r ≈ s → r ≈ (r ⊓ s)
-    ≈⇒1 = _≈_.≈∧≈⇒≈ ˢ (_≈_.≡⇒≈ ∘ ≥⇒2 _ _ ∘ _≥_.≈⇒≥)
+    ≈⇒1 = _≈_.≈∧≈⇒≈ ˢ (_≈_.≡⇒≈ ∘ ≥⇒2 ∘ _≥_.≈⇒≥)
 
     ≈⇒2 : {r s : ℝ} → r ≈ s → s ≈ (r ⊓ s)
-    ≈⇒2 = _≈_.≡⇒≈ ∘ ≥⇒2 _ _ ∘ _≥_.≈⇒≥
+    ≈⇒2 = _≈_.≡⇒≈ ∘ ≥⇒2 ∘ _≥_.≈⇒≥
 
     r⊓s≈r'⊓s' : Algebra.Congruent₂ _≈_ _⊓_
     r⊓s≈r'⊓s' = {!!}
@@ -1682,7 +1682,7 @@ module Veritas where
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
     ⊓≈⊓⍨ r s with _≥_.jonais r s
     ... | inj₁ djm = begin
-      r ⊓ s ≈⟨ ≥⇒2 _ _ djm ▹ sym ▹ _≈_.≡⇒≈ ⟩
+      r ⊓ s ≈⟨ ≥⇒2 djm ▹ sym ▹ _≈_.≡⇒≈ ⟩
       s ≈⟨ ≤⇒1 s r djm ⟩
       s ⊓ r ∎
       where
@@ -1691,7 +1691,7 @@ module Veritas where
       ≤⇒1 r s = _⊎_.[_,_] (≈⇒1 ∘ _≈_.≈⇒≈⍨) $ _≈_.≡⇒≈ ∘ <⇒1 r s
     ... | inj₂ m = _≈_.≡⇒≈ $ begin
       r ⊓ s ≡⟨ <⇒1 r s m ▹ sym ⟩
-      r ≡⟨ ≥⇒2 s _ $ _≥_.>⇒≥ m ⟩
+      r ≡⟨ ≥⇒2 {s} $ _≥_.>⇒≥ m ⟩
       s ⊓ r ∎
       where
       open ≡-Reasoning
@@ -1699,12 +1699,12 @@ module Veritas where
     ⊓-ass : Associative _≈_ _⊓_
     ⊓-ass r s t with _≥_.jonais r s ,′ _≥_.jonais s t
     ... | (inj₁ djm₁ , inj₁ djm₂) = _≈_.≡⇒≈ $ begin
-      (r ⊓ s) ⊓ t ≡⟨ ≥⇒2 _ _ djm₁ ▹ sym ▹ cong (_⊓ t) ⟩
-      s ⊓ t ≡⟨ ≥⇒2 _ _ $ _≥_.≥∧≥⇒≥ djm₁ djm₂' ⟩
+      (r ⊓ s) ⊓ t ≡⟨ ≥⇒2 djm₁ ▹ sym ▹ cong (_⊓ t) ⟩
+      s ⊓ t ≡⟨ ≥⇒2 $ _≥_.≥∧≥⇒≥ djm₁ djm₂' ⟩
       r ⊓ (s ⊓ t) ∎
       where
       open ≡-Reasoning
-      djm₂' = subst (_ ≥_) (≥⇒2 _ _ djm₂) djm₂
+      djm₂' = subst (_ ≥_) (≥⇒2 djm₂) djm₂
       open import Relation.Binary.PropositionalEquality
     ... | (inj₁ djm₁ , inj₂ m₂) = {!!}
     ... | (inj₂ m₁ , inj₁ djm₂) = {!!}
@@ -1718,7 +1718,7 @@ module Veritas where
 
     ⊓-sel : Algebra.Selective _≡_ _⊓_
     ⊓-sel r s with _≥_.jonais r s
-    ... | inj₁ djm = inj₂ $ sym $ ≥⇒2 _ _ djm
+    ... | inj₁ djm = inj₂ $ sym $ ≥⇒2 djm
     ... | inj₂ ml = inj₁ $ sym $ <⇒1 _ s ml
 
     id≈⊓⍨ : Algebra.Idempotent _≈_ _⊓_
