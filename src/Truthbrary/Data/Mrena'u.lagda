@@ -1392,7 +1392,7 @@ module Veritas where
 
 \begin{code}
   module Signℤ where
-    >⇒1 : _> fromℕ 0 ⊆ ((_≡ ℤ.1ℤ) ∘ signℤ)
+    >⇒1 : _> fromℕ 0 ⊆ (_≡ ℤ.1ℤ) ∘ signℤ
     >⇒1 = {!!}
 
     1⇒> : ((_≡ ℤ.+_ 1) ∘ signℤ) ⊆ _> fromℕ 0
