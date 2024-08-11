@@ -1412,7 +1412,7 @@ module Veritas where
 
     jonais : (r : ℝ)
            → let s = signℤ r ≡_ in
-             s (ℤ.+ 0) ⊎ s (ℤ.+ 1) ⊎ s ℤ.-[1+ 0 ]
+             s (ℤ.0ℤ) ⊎ s (ℤ.+ 1) ⊎ s ℤ.-[1+ 0 ]
     jonais = {!!}
 \end{code}
 
