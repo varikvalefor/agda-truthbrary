@@ -1736,7 +1736,7 @@ module Veritas where
     fromℚ-Rational : (k : ℚ) → Rational $ fromℚ k
     fromℚ-Rational = _, _≈_.r≈r
 
-    id≡_∘fromℚ : (k : ℚ) → k ≡ proj₁ (fromℚ-Rational k)
+    id≡_∘fromℚ : id ≗ proj₁ ∘ fromℚ-Rational
     id≡_∘fromℚ _ = refl
 \end{code}
 
