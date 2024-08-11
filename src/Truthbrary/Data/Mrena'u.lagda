@@ -1470,7 +1470,7 @@ module Veritas where
           → r > s
     +r>-s = {!!}
 
-    jonais : (r s : ℝ) → (r > s) ⊎ (s > r) ⊎ (r ≈ s)
+    jonais : (r s : ℝ) → (r > s) ⊎ (r < s) ⊎ (r ≈ s)
     jonais = {!!}
 \end{code}
 
