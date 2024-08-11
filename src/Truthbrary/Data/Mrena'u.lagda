@@ -1437,9 +1437,6 @@ module Veritas where
     >∧>⇒> : Transitive _>_
     >∧>⇒> = {!!}
 
-    fromℕ>fromℕ : ℕ._>_ ⇒ (_>_ on fromℕ)
-    fromℕ>fromℕ = {!!}
-
     >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
     >ℤ⇒> = {!!}
 
