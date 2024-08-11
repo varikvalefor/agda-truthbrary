@@ -223,6 +223,7 @@ open import Data.Rational
   )
 open import Relation.Unary
   using (
+    _⊆′_;
     Pred;
     _⊆_
   )
@@ -1394,7 +1395,7 @@ module Veritas where
     >⇒1 : _> fromℕ 0 ⊆ ((_≡ ℤ.1ℤ) ∘ signℤ)
     >⇒1 = {!!}
 
-    1⇒> : (r : ℝ) → signℤ r ≡ ℤ.+_ 1 → r > fromℕ 0
+    1⇒> : ((_≡ ℤ.+_ 1) ∘ signℤ) ⊆′ _> fromℕ 0
     1⇒> = {!!}
 
     <⇒-1 : (r : ℝ) → fromℕ 0 > r → signℤ r ≡ ℤ.-[1+ 0 ]
