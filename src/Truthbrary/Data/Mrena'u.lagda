@@ -1044,9 +1044,11 @@ module Veritas where
 
     ∃[R[I*I]] : (Σ.Σ (_ × _) $ λ (r , s) →
                   (Irrational r × Irrational s) × Rational (r * s))
-    ∃[R[I*I]] = (√2 , _) , ((λ x → x , x) {!!}) , {!!}
+    ∃[R[I*I]] = (√2 , _) , ((λ x → x , x) {!!}) , R[r]∧r≈s⇒R[s] (fromℕ 2) (√2 * √2) {!!} {!!}
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) (Fromℕ.fromℕ[s]≉0 1)
+      R[r]∧r≈s⇒R[s] : (r s : ℝ) → Rational r → r ≈ s → Rational s
+      R[r]∧r≈s⇒R[s] = {!!}
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
