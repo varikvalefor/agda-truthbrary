@@ -1049,7 +1049,13 @@ module Veritas where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) (Fromℕ.fromℕ[s]≉0 1)
       R[r]∧r≈s⇒R[s] : (r s : ℝ) → Rational r → r ≈ s → Rational s
       R[r]∧r≈s⇒R[s] = {!!}
-      R = R[r]∧r≈s⇒R[s] _ _ (Fromℕ.fromℕ-Rational 2) {!!}
+      R = R[r]∧r≈s⇒R[s] _ _ (Fromℕ.fromℕ-Rational 2) c
+        where
+        c = _≈_.≈⇒≈⍨ $ begin
+          √2 * √2 ≈⟨ {!!} ⟩
+          fromℕ 2 ∎
+          where
+          open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
