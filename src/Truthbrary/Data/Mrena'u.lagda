@@ -1047,9 +1047,9 @@ module Veritas where
     ∃[R[I*I]] = (√2 , _) , ((λ x → x , x) {!!}) , R
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) (Fromℕ.fromℕ[s]≉0 1)
-      R[r]∧r≈s⇒R[s] : (r s : ℝ) → Rational r → r ≈ s → Rational s
+      R[r]∧r≈s⇒R[s] : {r s : ℝ} → Rational r → r ≈ s → Rational s
       R[r]∧r≈s⇒R[s] = {!!}
-      R = R[r]∧r≈s⇒R[s] _ _ (Fromℕ.fromℕ-Rational 2) c
+      R = R[r]∧r≈s⇒R[s] (Fromℕ.fromℕ-Rational 2) c
         where
         c = _≈_.≈⇒≈⍨ $ begin
           √2 * √2 ≈⟨ {!!} ⟩
