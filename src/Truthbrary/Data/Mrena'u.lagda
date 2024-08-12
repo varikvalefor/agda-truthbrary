@@ -1337,7 +1337,7 @@ module Veritas where
     I⇒I[⌊'⁻¹ℝ] : Irrational ⊆ Irrational ∘ ⌊'⁻¹ℝ
     I⇒I[⌊'⁻¹ℝ] = {!!}
 
-    I[⌊'⁻¹ℝ]⇒I : {r : ℝ} → Irrational $ ⌊'⁻¹ℝ r → Irrational r
+    I[⌊'⁻¹ℝ]⇒I : Irrational ∘ ⌊'⁻¹ℝ ⊆ Irrational
     I[⌊'⁻¹ℝ]⇒I = {!!}
 
     R⇒R[⌊'⁻¹ℝ] : {r : ℝ} → Rational r → Rational $ ⌊'⁻¹ℝ r
