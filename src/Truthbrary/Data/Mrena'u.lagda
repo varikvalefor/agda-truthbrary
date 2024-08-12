@@ -1132,7 +1132,7 @@ module Veritas where
             → (N : _)
             → 0' ≈ fromℕ 0
             → 0' ≈ frinu 0' r N
-    0'≈0'/r r = (_≈_.≈∧≈⇒≈ ˢ_) ∘₂ 0≈0/r r
+    0'≈0'/r r = (_≈_.≈∧≈⇒≈ ˢ_) ∘₂ 0≈0/r _
 
     ∣r/s∣<∣r∣ : (r s : ℝ)
               → ¬_ $ r ≈ fromℕ 0
