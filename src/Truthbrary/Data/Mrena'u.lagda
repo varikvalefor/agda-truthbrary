@@ -1026,7 +1026,7 @@ module Veritas where
     r>r*s : (r s : ℝ)
           → r > fromℕ 0
           → ∣ s ∣ < fromℕ 1
-          → r >_ $ r * s
+          → r > (r * s)
     r>r*s = {!!}
 
     I[I*R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r * s
