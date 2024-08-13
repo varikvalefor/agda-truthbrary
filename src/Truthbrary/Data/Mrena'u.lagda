@@ -1374,9 +1374,9 @@ module Veritas where
     s[r]≡+⇒r≥0 : (_≡ Sign.+) ∘ sign ⊆′ _≥ fromℕ 0
     s[r]≡+⇒r≥0 = {!!}
 
-    r≈0⇒s[r]≡+⊎s[r]≡- : (r : ℝ)
-                      → r ≈ fromℕ 0
-                      → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-
+    r≈0⇒s[r]≡+⊎s[r]≡- : (_⊆′_
+                          (_≈ fromℕ 0)
+                          (λ r → sign r ≡ Sign.+ ⊎ sign r ≡ Sign.-))
     r≈0⇒s[r]≡+⊎s[r]≡- = {!!}
 
     jonis : ∀ {p₁ p₂ } → {P₁ : Pred ℝ p₁} → {P₂ : Pred ℝ p₂}
