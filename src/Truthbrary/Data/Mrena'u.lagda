@@ -1758,8 +1758,7 @@ module Veritas where
     toℚ∘fromℕ _ = refl
 
     toℚ∘fromℤ : (z : ℤ)
-              → let C = Coprime.sym $ Coprime.1-coprimeTo ℤ.∣ z ∣ in
-                toℚ (Fromℤ.fromℤ-Rational z) ≡ ℚ.mkℚ z 0 _
+              → toℚ (Fromℤ.fromℤ-Rational z) ≡ ℚ.mkℚ z 0 _
     toℚ∘fromℤ z = begin
       toℚ (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
       proj₁ (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
