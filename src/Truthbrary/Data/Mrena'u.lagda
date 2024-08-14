@@ -1751,7 +1751,7 @@ module Veritas where
 
     toℚ∘fromℕ : (_≗_
                   (toℚ ∘ Fromℕ.fromℕ-Rational)
-                  (λ n → ℚ.mkℚ (ℤ.+ n) 0 _))
+                  (λ n → ℚ.fromℤ $ ℤ.+ n))
     toℚ∘fromℕ _ = refl
 
     toℚ∘fromℤ : toℚ ∘ Fromℤ.fromℤ-Rational ≗ ℚ.fromℤ
