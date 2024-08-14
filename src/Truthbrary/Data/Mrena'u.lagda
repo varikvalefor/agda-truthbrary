@@ -1749,7 +1749,7 @@ module Veritas where
     id≡toℚ∘fromℚ : id ≗ (λ k → toℚ {fromℚ k} (_ , _≈_.r≈r))
     id≡toℚ∘fromℚ _ = refl
 
-    toℚ∘fromℕ : ((toℚ ∘ Fromℕ.fromℕ-Rational) ≗ (ℚ.fromℤ ∘ ℤ.+_))
+    toℚ∘fromℕ : (toℚ ∘ Fromℕ.fromℕ-Rational) ≗ (ℚ.fromℤ ∘ ℤ.+_)
     toℚ∘fromℕ _ = refl
 
     toℚ∘fromℤ : toℚ ∘ Fromℤ.fromℤ-Rational ≗ ℚ.fromℤ
