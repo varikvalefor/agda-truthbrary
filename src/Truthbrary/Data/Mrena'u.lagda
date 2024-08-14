@@ -272,6 +272,12 @@ open import Relation.Binary.PropositionalEquality
     refl;
     sym
   )
+
+import Data.Rational.Literals
+  as ℚ
+  using (
+    fromℤ
+  )
 \end{code}
 
 \section{la'oi .\F ℝ.}
@@ -682,7 +688,7 @@ module Veritas where
   module Fromℤ where
     module I where
       ℤ→ℚ : ℤ → ℚ
-      ℤ→ℚ z = ℚ.mkℚ z 0 (Coprime.sym $ 1-coprimeTo _)
+      ℤ→ℚ z = ℚ.fromℤ z
 
     open I
 
