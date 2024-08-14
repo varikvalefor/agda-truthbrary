@@ -686,22 +686,16 @@ module Veritas where
 
 \begin{code}
   module Fromℤ where
-    module I where
-      ℤ→ℚ : ℤ → ℚ
-      ℤ→ℚ = ℚ.fromℤ
-
-    open I
-
     id≡⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
     id≡⌊'∘fromℤ (ℤ.+ _) = refl
     id≡⌊'∘fromℤ ℤ.-[1+ _ ] = refl
 
     fromℤ-Rational : (z : ℤ) → Rational $ fromℤ z
-    fromℤ-Rational z = ℤ→ℚ z , fromℤ≈fromℚ∘ℤ→ℚ z
+    fromℤ-Rational z = ℚ.fromℤ z , fromℤ≈fromℚ∘ℤ→ℚ z
       where
-      fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℤ→ℚ z)
+      fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℚ.fromℤ z)
       fromℤ≈fromℚ∘ℤ→ℚ z = _≈_.≈⇒≈⍨ $ begin
-        fromℚ (ℤ→ℚ z) ≈⟨ _≈_.r≈r ⟩
+        fromℚ (ℚ.fromℤ z) ≈⟨ _≈_.r≈r ⟩
         fromℚ (ℚ.mkℚ z 0 C) ≈⟨ _≈_.r≈r ⟩
         frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r ⟩
         _ ≈⟨ _≈_.≡⇒≈ $ sym $ r≡r/1 $ fromℤ z ⟩
@@ -1759,7 +1753,7 @@ module Veritas where
               → toℚ (Fromℕ.fromℕ-Rational n) ≡ ℚ.mkℚ (ℤ.+ n) 0 _
     toℚ∘fromℕ _ = refl
 
-    toℚ∘fromℤ : toℚ ∘ Fromℤ.fromℤ-Rational ≗ Fromℤ.I.ℤ→ℚ
+    toℚ∘fromℤ : toℚ ∘ Fromℤ.fromℤ-Rational ≗ ℚ.fromℤ
     toℚ∘fromℤ z = begin
       toℚ (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
       proj₁ (Fromℤ.fromℤ-Rational z) ≡⟨ refl ⟩
