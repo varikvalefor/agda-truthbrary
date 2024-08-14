@@ -435,7 +435,7 @@ ni'o la'o zoi.\ \B a \OpF - \B b\ .zoi.\ vujnu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _-_ : ℝ → ℝ → ℝ
-_-_ r s = r + ¯_ s
+_-_ r = r +_ ∘ ¯_
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}*\AgdaUnderscore}\ .zoi.}
