@@ -688,7 +688,7 @@ module Veritas where
   module Fromℤ where
     module I where
       ℤ→ℚ : ℤ → ℚ
-      ℤ→ℚ z = ℚ.fromℤ z
+      ℤ→ℚ = ℚ.fromℤ
 
     open I
 
