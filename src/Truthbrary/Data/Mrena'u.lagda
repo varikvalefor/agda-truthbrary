@@ -1354,7 +1354,7 @@ module Veritas where
     r>0⇒s[r]≡+ : _> fromℕ 0 ⊆′ (_≡ Sign.+) ∘ sign
     r>0⇒s[r]≡+ = {!!}
 
-    r<0⇒s[r]≡- : (r : ℝ) → r < fromℕ 0 → sign r ≡ Sign.-
+    r<0⇒s[r]≡- : _< fromℕ 0 ⊆′ (_≡ Sign.-) ∘ sign
     r<0⇒s[r]≡- = {!!}
 
     r≉0∧s[r]≡+⇒r>0 : (_⊆′_
