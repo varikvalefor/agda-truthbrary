@@ -1180,6 +1180,13 @@ module Veritas where
            (fromℚ (ℚ._÷_ k l {N})))
     ℚ/ = {!!}
 
+    ℚ/' : (z : ℤ)
+        → (n : ℕ)
+        → (_≈_
+            (fromℚ $ z ℚ./ ℕ.suc n)
+            (frinu (fromℤ z) (fromℕ $ ℕ.suc n) $ Fromℕ.fromℕ[s]≉0 n))
+    ℚ/' = {!!}
+
     r≈s*r/s : (r s : ℝ)
             → (N : _)
             → r ≈_ $ s * frinu r s N
