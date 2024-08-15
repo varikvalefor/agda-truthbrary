@@ -1531,7 +1531,7 @@ module Veritas where
     s[r]≡-⇒¯r≡∣r∣ : (r : ℝ) → sign r ≡ Sign.- → (¯ r) ≡ ∣ r ∣
     s[r]≡-⇒¯r≡∣r∣ = {!!}
 
-    0≈∣0∣ : {r : ℝ} → r ≈ fromℕ 0 → r ≈ ∣ r ∣
+    0≈∣0∣ : _≈ fromℕ 0 ⊆ (λ r → r ≈ ∣ r ∣)
     0≈∣0∣ = {!!}
 
     r≥0⇒r≈∣r∣ : _≥ fromℕ 0 ⊆′ (λ r → r ≈ ∣ r ∣)
