@@ -1046,6 +1046,7 @@ module Veritas where
         where
         c = _≈_.≈⇒≈⍨ $ begin
           √2 * √2 ≈⟨ {!!} ⟩
+          (fromℕ 2 ^ ½) * (fromℕ 2 ^ ½) ≈⟨ {!!} ⟩
           fromℕ 2 ^ fromℕ 1 ≈⟨ {!!} ⟩
           fromℕ 2 ∎
           where
