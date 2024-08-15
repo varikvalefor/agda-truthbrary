@@ -1097,7 +1097,7 @@ module Veritas where
         r>1⇒r>0 : _> fromℕ 1 ⊆ _> fromℕ 0
         r>1⇒r>0 = {!!}
 
-      ¯r≈0⇒r≈0 : (r : ℝ) → (¯ r) ≈ fromℕ 0 → r ≈ fromℕ 0
+      ¯r≈0⇒r≈0 : (r : ℝ) → ¯_ r ≈ fromℕ 0 → r ≈ fromℕ 0
       ¯r≈0⇒r≈0 = {!!}
 
     r/r≡1 : (r : ℝ) → (N : _) → frinu r r N ≡ fromℕ 1
