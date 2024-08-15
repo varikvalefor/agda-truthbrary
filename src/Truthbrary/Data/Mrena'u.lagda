@@ -1776,7 +1776,7 @@ module Veritas where
 \section{le ctaipe be le su'u sumji mu'oi glibau.\ abelian group .glibau.}
 
 \begin{code}
-ga+ : Algebra.IsAbelianGroup _≈_ _+_ (fromℕ 0) (fromℕ 0 -_)
+ga+ : Algebra.IsAbelianGroup _≈_ _+_ (fromℕ 0) $ fromℕ 0 -_
 ga+ = record {isGroup = +--group; comm = Veritas._+_.+≈+⍨}
 \end{code}
 
