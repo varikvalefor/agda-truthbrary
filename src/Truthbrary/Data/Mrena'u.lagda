@@ -1185,7 +1185,11 @@ module Veritas where
         → (_≈_
             (fromℚ $ z ℚ./ ℕ.suc n)
             (frinu (fromℤ z) (fromℕ $ ℕ.suc n) $ Fromℕ.fromℕ[s]≉0 n))
-    ℚ/' = {!!}
+    ℚ/' = λ z n → begin
+      fromℚ (z ℚ./ ℕ.suc n) ≈⟨ {!!} ⟩
+      frinu (fromℤ z) (fromℕ $ ℕ.suc n) (Fromℕ.fromℕ[s]≉0 n) ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     r≈s*r/s : (r s : ℝ) → (N : _) → r ≈ (s * frinu r s N)
     r≈s*r/s = {!!}
