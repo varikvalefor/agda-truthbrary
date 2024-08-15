@@ -1187,9 +1187,7 @@ module Veritas where
             (frinu (fromℤ z) (fromℕ $ ℕ.suc n) $ Fromℕ.fromℕ[s]≉0 n))
     ℚ/' = {!!}
 
-    r≈s*r/s : (r s : ℝ)
-            → (N : _)
-            → r ≈ (s * frinu r s N)
+    r≈s*r/s : (r s : ℝ) → (N : _) → r ≈ (s * frinu r s N)
     r≈s*r/s = {!!}
 
     r/s≈r'/s' : {r r' s s' : ℝ}
