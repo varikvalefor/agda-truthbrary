@@ -1233,7 +1233,7 @@ module Veritas where
     0≈0^r : (r s : ℝ)
           → ¬_ $ r ≈ fromℕ 0
           → s ≈ fromℕ 0
-          → fromℕ 0 ≈_ $ s ^ r
+          → fromℕ 0 ≈ (s ^ r)
     0≈0^r = {!!}
 
     1≡0^0 : fromℕ 1 ≡ fromℕ 0 ^ fromℕ 0
