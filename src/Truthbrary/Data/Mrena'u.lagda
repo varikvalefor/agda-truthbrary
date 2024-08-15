@@ -1189,7 +1189,7 @@ module Veritas where
 
     r≈s*r/s : (r s : ℝ)
             → (N : _)
-            → r ≈_ $ s * frinu r s N
+            → r ≈ (s * frinu r s N)
     r≈s*r/s = {!!}
 
     r/s≈r'/s' : {r r' s s' : ℝ}
