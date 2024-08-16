@@ -1652,10 +1652,11 @@ module Veritas where
 
       ⊥⇒≤ : (r s : ℝ) → false ≡ _≥ᵇ_ r s → s ≥ r
       ⊥⇒≤ r s d with _≥_.jonais s r
-      ... | x = _⊎_.[_,_]′ id (λ z → d ⇒⇐ (T⇒¬F ∘ ≥⇒⊤ {r} {s} $ _≥_.>⇒≥ z)) x
+      ... | x = _⊎_.[_,_]′ id f x
         where
         T⇒¬F : _≡_ true ⊆ ¬_ ∘ _≡_ false
         T⇒¬F refl ()
+        f = λ z → d ⇒⇐ (T⇒¬F ∘ ≥⇒⊤ {r} {s} $ _≥_.>⇒≥ z)
 
       ⊥⇒1 : ∀ {a} → {A : Set a} → (x z : A) → x ≡ bool' x z false
       ⊥⇒1 _ _ = refl
