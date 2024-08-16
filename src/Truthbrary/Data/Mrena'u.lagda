@@ -1644,7 +1644,7 @@ module Veritas where
       ≥⇒⊤ : _≥_ ⇒ (_≡_ true ∘₂ _≥ᵇ_)
       ≥⇒⊤ = {!!}
 
-      ⊤⇒≥ : {r s : ℝ} → true ≡ r ≥ᵇ s → r ≥ s
+      ⊤⇒≥ : (true ≡_) ∘₂ _≥ᵇ_ ⇒ _≥_
       ⊤⇒≥ = {!!}
 
       <⇒⊥ : (r s : ℝ) → r < s → false ≡ _≥ᵇ_ r s
