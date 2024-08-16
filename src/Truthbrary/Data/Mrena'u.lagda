@@ -1655,7 +1655,7 @@ module Veritas where
       ... | inj₁ djm = djm
       ... | inj₂ z = d ⇒⇐ T⇒¬F (≥⇒⊤ {r} {s} $ _≥_.>⇒≥ z)
         where
-        T⇒¬F : {x : Bool} → true ≡ x → ¬_ $ false ≡ x
+        T⇒¬F : _≡_ true ⊆ ¬_ ∘ _≡_ false
         T⇒¬F refl ()
 
       ⊥⇒1 : ∀ {a} → {A : Set a} → (x z : A) → x ≡ bool' x z false
