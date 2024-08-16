@@ -944,7 +944,7 @@ module Veritas where
 
     r≥r-s : (r s : ℝ) → s ≥ fromℕ 0 → r ≥ (r - s)
     r≥r-s r s (inj₁ d) = inj₁ $ r≈r-0 r s d
-    r≥r-s r s (inj₂ z) = {!!}
+    r≥r-s r s (inj₂ z) = inj₂ $ r>r-s r s z
 
     I[I-R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r - s
     I[I-R] = {!!}
