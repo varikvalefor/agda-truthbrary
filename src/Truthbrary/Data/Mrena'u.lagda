@@ -1650,7 +1650,7 @@ module Veritas where
       <⇒⊥ : (r s : ℝ) → r < s → false ≡ _≥ᵇ_ r s
       <⇒⊥ = {!!}
 
-      ⊥⇒≤ : (r s : ℝ) → false ≡ _≥ᵇ_ r s → s ≥ r
+      ⊥⇒≤ : (r s : ℝ) → false ≡ _≥ᵇ_ r s → r ≤ s
       ⊥⇒≤ r s d = _≥_.jonais s r ▹ _⊎_.[_,_]′ id f
         where
         T⇒¬F : _≡_ true ⊆ ¬_ ∘ _≡_ false
