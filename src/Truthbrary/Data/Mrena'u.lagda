@@ -1655,7 +1655,7 @@ module Veritas where
         where
         T⇒¬F : _≡_ true ⊆ ¬_ ∘ _≡_ false
         T⇒¬F refl ()
-        f = λ z → d ⇒⇐ (T⇒¬F ∘ ≥⇒⊤ {r} {s} $ _≥_.>⇒≥ z)
+        f = d ⇒⇐_ Function.∘′ T⇒¬F Function.∘′ ≥⇒⊤ {r} {s} Function.∘′ _≥_.>⇒≥
 
       ⊥⇒1 : ∀ {a} → {A : Set a} → (x z : A) → x ≡ bool' x z false
       ⊥⇒1 _ _ = refl
