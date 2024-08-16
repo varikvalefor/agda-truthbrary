@@ -157,6 +157,7 @@ open import Function
     _∘₂_;
     _on_;
     _∋_;
+    _∘′_;
     _ˢ_;
     _∘_;
     _$_;
@@ -1655,7 +1656,7 @@ module Veritas where
         where
         T⇒¬F : _≡_ true ⊆ ¬_ ∘ _≡_ false
         T⇒¬F refl ()
-        f = d ⇒⇐_ Function.∘′ T⇒¬F Function.∘′ ≥⇒⊤ {r} {s} Function.∘′ _≥_.>⇒≥
+        f = d ⇒⇐_ ∘′ T⇒¬F ∘′ ≥⇒⊤ {r} {s} ∘′ _≥_.>⇒≥
 
       ⊥⇒1 : ∀ {a} → {A : Set a} → (x z : A) → x ≡ bool' x z false
       ⊥⇒1 _ _ = refl
