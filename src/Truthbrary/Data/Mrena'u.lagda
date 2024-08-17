@@ -646,8 +646,8 @@ module Veritas where
     ℕ≡⇒fromℕ≈ : _≡_ ⇒ (_≈_ on fromℕ)
     ℕ≡⇒fromℕ≈ refl = _≈_.r≈r
 
-    ≈⇒fromℕ≡ : (m n : ℕ) → fromℕ m ≈ fromℕ n → m ≡ n
-    ≈⇒fromℕ≡ = {!!}
+    fromℕ≈⇒≡ : (m n : ℕ) → fromℕ m ≈ fromℕ n → m ≡ n
+    fromℕ≈⇒≡ = {!!}
 
     fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
     fromℕ[s]≉0 = FromℚI.fromℕ[s]≉0
@@ -1262,7 +1262,7 @@ module Veritas where
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
         where
-        N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0
+        N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡ 2 0
 
     ∃I[R^R] : (Σ.Σ
                  (ℝ × ℝ)
@@ -1280,7 +1280,7 @@ module Veritas where
            → Rational $ r ^ s
     R[R^r] = {!!}
 
-    I[2^[1/2]] : let 2≉0 = ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.≈⇒fromℕ≡ 2 0) in
+    I[2^[1/2]] : let 2≉0 = ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡ 2 0) in
                  (Irrational $
                    (fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) 2≉0))
     I[2^[1/2]] = proj₁ $ proj₁ $ proj₂ ∃R[I^R]
