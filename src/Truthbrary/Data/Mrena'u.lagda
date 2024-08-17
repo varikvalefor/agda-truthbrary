@@ -1725,8 +1725,7 @@ module Veritas where
 
     ⊓-sel : Algebra.Selective _≡_ _⊓_
     ⊓-sel r s with _≥_.jonais r s
-    ... | inj₁ djm = inj₂ $ sym $ ≥⇒2 djm
-    ... | inj₂ ml = inj₁ $ sym $ <⇒1 _ s ml
+    ... | x = _⊎_.[_,_]′ (inj₂ ∘ sym ∘ ≥⇒2) (inj₁ ∘ sym ∘ <⇒1 _ s) x
 
     id≈⊓⍨ : Algebra.Idempotent _≈_ _⊓_
     id≈⊓⍨ _ = _≈_.≈⇒≈⍨ $ ≈⇒1 _≈_.r≈r
