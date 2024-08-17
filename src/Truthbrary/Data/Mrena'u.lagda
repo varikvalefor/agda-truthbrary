@@ -573,7 +573,7 @@ module Veritas where
     ≈⇒≯ = {!!}
 
     id≡[≈⇒≈⍨]² : (r s : ℝ)
-               → _≗_ {A = r ≈ s} id $ ≈⇒≈⍨ ∘ ≈⇒≈⍨
+               → _≗_ id $ ≈⇒≈⍨ ∘ ≈⇒≈⍨ {r} {s}
     id≡[≈⇒≈⍨]² = {!!}
 
     ≈∧≈⇒≈ : Transitive _≈_
