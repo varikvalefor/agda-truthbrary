@@ -614,7 +614,7 @@ module Veritas where
     ∣r-s∣>0⇒r≉s : (r s : ℝ) → ∣ r - s ∣ > fromℕ 0 → ¬_ $ r ≈ s
     ∣r-s∣>0⇒r≉s = {!!}
 
-    r≉s⇒∣r-s∣>0 : (r s : ℝ) → ¬_ $ r ≈ s → ∣ r - s ∣ > fromℕ 0
+    r≉s⇒∣r-s∣>0 : {r s : ℝ} → ¬_ $ r ≈ s → ∣ r - s ∣ > fromℕ 0
     r≉s⇒∣r-s∣>0 = {!!}
 
     r≈s⇒∣r-s∣≈0 : _≈_ ⇒ (_≈ fromℕ 0) ∘₂ ∣_∣ ∘₂ _-_
