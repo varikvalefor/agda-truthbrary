@@ -1269,7 +1269,7 @@ module Veritas where
                  (λ (r , s) →
                    (_×_
                      (Rational r × Rational s)
-                     (Irrational (r ^ s)))))
+                     (Irrational $ r ^ s))))
     ∃I[R^R] = ({!!} , {!!}) , {!!}
 
     R[R^r] : (r s : ℝ)
