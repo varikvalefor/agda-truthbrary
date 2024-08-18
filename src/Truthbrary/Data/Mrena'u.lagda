@@ -1062,7 +1062,13 @@ module Veritas where
 
     R[r]∧R[s]⇒R[r*s] : let R = Rational in
                         {r s : ℝ} → R r → R s → R $ r * s
-    R[r]∧R[s]⇒R[r*s] (R , dr) (S , ds) = R ℚ.* S , {!!}
+    R[r]∧R[s]⇒R[r*s] {r} {s} (R , dr) (S , ds) = R ℚ.* S , d
+      where
+      d = begin
+        r * s ≈⟨ {!!} ⟩
+        fromℚ (R ℚ.* S) ∎
+        where
+        open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     n*r≈+/n/r : (n : ℕ)
               → (r : ℝ)
