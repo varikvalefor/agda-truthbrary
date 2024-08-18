@@ -1025,7 +1025,7 @@ module Veritas where
     R[R*R] = {!!}
 
     papretis : let R = Rational in
-               ({r s : ℝ} → R r → R s → R $ r * s)
+               {r s : ℝ} → R r → R s → R $ r * s
     papretis = {!!}
 
     ∃[R[I*I]] : (Σ.Σ (_ × _) $ λ (r , s) →
