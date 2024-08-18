@@ -1062,7 +1062,7 @@ module Veritas where
 
     R[r]∧R[s]⇒R[r*s] : let R = Rational in
                         {r s : ℝ} → R r → R s → R $ r * s
-    R[r]∧R[s]⇒R[r*s] = λ (R , dr) (S , ds) → R ℚ.* S , {!!}
+    R[r]∧R[s]⇒R[r*s] (R , dr) (S , ds) = R ℚ.* S , {!!}
 
     n*r≈+/n/r : (n : ℕ)
               → (r : ℝ)
