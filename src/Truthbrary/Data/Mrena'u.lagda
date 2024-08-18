@@ -1035,7 +1035,7 @@ module Veritas where
       R = R[r]∧r≈s⇒R[s] (Fromℕ.fromℕ-Rational 2) c
         where
         c = _≈_.≈⇒≈⍨ $ begin
-          √2 * √2 ≈⟨ {!!} ⟩
+          √2 * √2 ≈⟨ _≈_.r≈r ⟩
           (fromℕ 2 ^ ½) * (fromℕ 2 ^ ½) ≈⟨ {!!} ⟩
           fromℕ 2 ^ fromℕ 1 ≈⟨ {!!} ⟩
           fromℕ 2 ∎
