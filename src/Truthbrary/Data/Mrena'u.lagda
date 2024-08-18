@@ -1149,7 +1149,7 @@ module Veritas where
 
     -r/-s<-r : (r s : ℝ)
              → (z : s > fromℕ 1)
-             → (¯ r) > frinu (¯ r) (¯ s) (I.r>1⇒r≉0 z ∘ I.¯r≈0⇒r≈0 s)
+             → ¯_ r > frinu (¯ r) (¯ s) (I.r>1⇒r≉0 z ∘ I.¯r≈0⇒r≈0 s)
     -r/-s<-r = {!!}
 
     r<r/s : (r s : ℝ)
