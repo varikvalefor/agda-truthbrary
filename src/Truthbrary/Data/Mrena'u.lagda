@@ -1065,7 +1065,7 @@ module Veritas where
     R[r]∧R[s]⇒R[r*s] {r} {s} (R , dr) (S , ds) = R ℚ.* S , d
       where
       d = begin
-        r * s ≈⟨ {!!} ⟩
+        r * s ≈⟨ r*s≈r'*s' dr ds ⟩
         fromℚ R * fromℚ S ≈⟨ ℚ* R S ▹ _≈_.≡⇒≈ ⟩
         fromℚ (R ℚ.* S) ∎
         where
