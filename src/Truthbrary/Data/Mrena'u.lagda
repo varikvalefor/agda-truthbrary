@@ -1066,6 +1066,7 @@ module Veritas where
       where
       d = begin
         r * s ≈⟨ {!!} ⟩
+        fromℚ R * fromℚ S ≈⟨ {!!} ⟩
         fromℚ (R ℚ.* S) ∎
         where
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
