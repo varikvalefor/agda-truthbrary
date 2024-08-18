@@ -1025,7 +1025,6 @@ module Veritas where
     R[R*R] = {!!}
 
     papretis : let R = Rational in
-               let I = Irrational in
                ({r s : ℝ} → R r → R s → R $ r * s)
     papretis = {!!}
 
