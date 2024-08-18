@@ -1029,7 +1029,7 @@ module Veritas where
                (_⊎_
                  ({r s : ℝ} → R r → R s → R $ r * s)
                  (Σ.Σ (_ × _) $ λ (r , s) → (R r × R s) × I (r * s)))
-    papretis = {!!}
+    papretis = inj₁ {!!}
 
     ∃[R[I*I]] : (Σ.Σ (_ × _) $ λ (r , s) →
                   (Irrational r × Irrational s) × Rational (r * s))
