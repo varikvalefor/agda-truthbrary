@@ -1265,7 +1265,7 @@ module Veritas where
         N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡ 2 0
 
     ∃I[R^R] : (Σ.Σ
-                 (ℝ × ℝ)
+                 (_ × _)
                  (λ (r , s) →
                    (_×_
                      (Rational r × Rational s)
