@@ -1028,8 +1028,7 @@ module Veritas where
                let I = Irrational in
                (_⊎_
                  ({r s : ℝ} → R r → R s → R $ r * s)
-                 (Σ.Σ (_ × _) $ λ (r , s) →
-                   (R r × R s) × I (r * s)))
+                 (Σ.Σ (_ × _) $ λ (r , s) → (R r × R s) × I (r * s)))
     papretis = {!!}
 
     ∃[R[I*I]] : (Σ.Σ (_ × _) $ λ (r , s) →
