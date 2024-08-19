@@ -1299,6 +1299,9 @@ module Veritas where
            (fromℕ $ m ℕ.^ n))
     ℕ^ = {!!}
 
+    R[ℤ^ℤ] : (x z : ℤ) → Rational $ fromℤ x ^ fromℤ z
+    R[ℤ^ℤ] = {!!}
+
     ∣r∣>1∧s>1⇒∣r∣>∣r^s∣ : (r s : ℝ)
                         → ∣ r ∣ > fromℕ 1
                         → s > fromℕ 1
