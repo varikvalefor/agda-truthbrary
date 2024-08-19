@@ -1599,7 +1599,7 @@ module Veritas where
     ∣fromℚ[k]∣≈fromℚ[∣k∣] k@(ℚ.mkℚ (ℤ.pos m) n c) = begin
       ∣ fromℚ k ∣ ≈⟨ _≈_.r≈r ⟩
       ∣ fromℚ $ ℚ.mkℚ (ℤ.pos m) n c ∣ ≈⟨ _≈_.r≈r ⟩
-      ∣ frinu (fromℤ $ ℤ.pos m) (fromℕ $ ℕ.suc n) $ Fromℕ.fromℕ[s]≉0 _ ∣ ≈⟨ {!!} ⟩
+      ∣ frinu (fromℤ $ ℤ.+ m) (fromℕ $ ℕ.suc n) $ Fromℕ.fromℕ[s]≉0 _ ∣ ≈⟨ {!!} ⟩
       fromℚ ℚ.∣ k ∣ ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
