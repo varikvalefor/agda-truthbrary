@@ -1231,7 +1231,7 @@ module Veritas where
     id≡_^1 : Algebra.RightIdentity _≡_ (fromℕ 1) _^_
     id≡_^1 = {!!}
 
-    1≡1^r : (r : ℝ) → fromℕ 1 ≡ fromℕ 1 ^ r
+    1≡1^r : const (fromℕ 1) ≗ fromℕ 1 ^_
     1≡1^r = {!!}
 
     1≡r^0 : (r 0' : ℝ) → 0' ≈ fromℕ 0 → fromℕ 1 ≡ r ^ 0'
