@@ -1607,7 +1607,7 @@ module Veritas where
     jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ ¯_ r
     jonais r with _≥_.jonais r $ fromℕ 0
     ... | inj₁ djm = inj₁ $ _≈_.≈⇒≈⍨ $ r≥0⇒r≈∣r∣ r djm
-    ... | inj₂ m = inj₂ $ 0>r⇒∣r∣≈-r r m
+    ... | inj₂ m = inj₂ $ 0>r⇒∣r∣≈-r _ m
 
     R[∣R∣] : (r : ℝ) → Rational r → Rational ∣ r ∣
     R[∣R∣] r (r' , d) = _,_ ℚ.∣ r' ∣ $ _≈_.≈⇒≈⍨ $ begin
