@@ -1599,7 +1599,7 @@ module Veritas where
     ∣fromℚ[k]∣≈fromℚ[∣k∣] k@(ℚ.mkℚ (ℤ.pos m) n c) = begin
       ∣ fromℚ k ∣ ≈⟨ _≈_.r≈r ⟩
       ∣ fromℚ $ ℚ.mkℚ (ℤ.pos m) n c ∣ ≈⟨ _≈_.r≈r ⟩
-      ∣ frinu (fromℤ $ ℤ.+ m) (fromℕ $ ℕ.suc n) $ N ∣ ≈⟨ {!!} ⟩
+      ∣ frinu (fromℤ $ ℤ.+ m) (fromℕ $ ℕ.suc n) N ∣ ≈⟨ {!!} ⟩
       fromℚ ℚ.∣ k ∣ ∎
       where
       N = Fromℕ.fromℕ[s]≉0 _ 
