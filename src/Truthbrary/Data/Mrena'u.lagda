@@ -665,7 +665,7 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       C = Coprime.sym $ 1-coprimeTo _
-      r≡r/1 : (r : ℝ) → r ≡ frinu r (fromℕ 1) (fromℕ[s]≉0 0)
+      r≡r/1 : id ≗ (λ r → frinu r (fromℕ 1) (fromℕ[s]≉0 0))
       r≡r/1 = {!!}
 
     fromℕ-Rational : (n : ℕ) → Rational $ fromℕ n
