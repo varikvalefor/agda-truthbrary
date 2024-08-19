@@ -1338,7 +1338,7 @@ module Veritas where
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
     ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡⌊'⁻¹r+⌊'r r
 
-    sign∘fromℤ : (z : ℤ) → ℤ.sign z ≡ sign (fromℤ z)
+    sign∘fromℤ : ℤ.sign ≗ (sign ∘ fromℤ)
     sign∘fromℤ _ = refl
 \end{code}
 
