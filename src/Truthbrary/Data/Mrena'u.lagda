@@ -1604,7 +1604,7 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     ∣fromℚ[k]∣≈fromℚ[∣k∣] (ℚ.mkℚ (ℤ.negsuc m) n c) = {!!}
 
-    jonais : (r : ℝ) → ∣ r ∣ ≈ r ⊎ ∣ r ∣ ≈ ¯_ r
+    jonais : (r : ℝ) → (∣ r ∣ ≈ r) ⊎ (∣ r ∣ ≈ ¯_ r)
     jonais r with _≥_.jonais r $ fromℕ 0
     ... | inj₁ djm = inj₁ $ _≈_.≈⇒≈⍨ $ r≥0⇒r≈∣r∣ _ djm
     ... | inj₂ m = inj₂ $ 0>r⇒∣r∣≈-r _ m
