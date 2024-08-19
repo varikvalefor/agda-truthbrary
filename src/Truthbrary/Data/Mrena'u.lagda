@@ -1542,7 +1542,7 @@ module Veritas where
     +r≡∣+r∣ : (_≡ Sign.+) ∘ sign ⊆′ (λ r → r ≡ ∣ r ∣)
     +r≡∣+r∣ _ refl = refl
 
-    s[r]≡-⇒¯r≡∣r∣ : (_≡ Sign.-) ∘ sign ⊆′ (λ r → (¯ r) ≡ ∣ r ∣)
+    s[r]≡-⇒¯r≡∣r∣ : (_≡ Sign.-) ∘ sign ⊆′ (λ r → ¯_ r ≡ ∣ r ∣)
     s[r]≡-⇒¯r≡∣r∣ = {!!}
 
     0≈∣0∣ : _≈ fromℕ 0 ⊆ (λ r → r ≈ ∣ r ∣)
