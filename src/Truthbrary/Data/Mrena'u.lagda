@@ -673,7 +673,7 @@ module Veritas where
       where
       c = Coprime.sym $ 1-coprimeTo _
 
-    id≡∣_∣∘⌊'∘fromℕ : (n : ℕ) → n ≡ ℤ.∣ ⌊' $ fromℕ n ∣
+    id≡∣_∣∘⌊'∘fromℕ : id ≗ ℤ.∣_∣ ∘ ⌊' ∘ fromℕ
     id≡∣_∣∘⌊'∘fromℕ _ = refl
 
     fromℕ≥0 : (n : ℕ) → fromℕ n ≥ fromℕ 0
