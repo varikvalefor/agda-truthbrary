@@ -1269,7 +1269,7 @@ module Veritas where
       where
       C = Coprime.sym $ 1-coprimeTo _
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-    R[R^ℕ] r (ℕ.suc n) R = proj₁ R ℚ.* proj₁ (R[R^ℕ] r n R) , {!!}
+    R[R^ℕ] r (ℕ.suc n) R = proj₁ R ℚ.* proj₁ (R[R^ℕ] _ n R) , {!!}
 
     ∃R[I^R] : (Σ.Σ
                  (ℝ × ℝ)
