@@ -754,6 +754,9 @@ module Veritas where
     I[¯I] : (r : ℝ) → Irrational r → Irrational $ ¯ r
     I[¯I] = {!!}
 
+    I[¯r]⇒I[r] : Irrational ∘ ¯_ ⊆′ Irrational
+    I[¯r]⇒I[r] = {!!}
+
     0≈-0 : fromℕ 0 ≈ (¯ fromℕ 0)
     0≈-0 = {!!}
 \end{code}
