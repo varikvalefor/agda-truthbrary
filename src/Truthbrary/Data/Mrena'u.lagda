@@ -1286,8 +1286,9 @@ module Veritas where
                    (_×_
                      (Rational r × Rational s)
                      (Irrational $ r ^ s))))
-    ∃I[R^R] = (fromℕ 2 , ½) , (Fromℕ.fromℕ-Rational 2 , {!!}) , {!!}
+    ∃I[R^R] = (fromℕ 2 , ½) , (R[ℕ] 2 , {!!}) , {!!}
       where
+      R[ℕ] = Fromℕ.fromℕ-Rational
       ½ = frinu (fromℕ 1) (fromℕ 2) N
         where
         N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡ _ _
