@@ -745,7 +745,7 @@ module Veritas where
     r≡¯¯r : id ≗ (¯_ ∘ ¯_)
     r≡¯¯r = {!!}
 
-    R[¯R] : Rational ⊆′ Rational ∘ ¯_
+    R[¯R] : Rational ⊆ Rational ∘ ¯_
     R[¯R] = {!!}
 
     R[¯r]⇒R[r] : Rational ∘ ¯_ ⊆′ Rational
@@ -1631,7 +1631,7 @@ module Veritas where
       f₁ : {r : ℝ} → Rational ∣ r ∣ → sign r ≡ Sign.+ → Rational r
       f₁ R d = subst Rational (sym $ +r≡∣+r∣ _ d) R
       f₂ : {r : ℝ} → Rational ∣ r ∣ → sign r ≡ Sign.- → Rational r
-      f₂ R d = subst Rational (¯∣¯r∣≡r _ d) $ ¯_.R[¯R] _ R
+      f₂ R d = subst Rational (¯∣¯r∣≡r _ d) $ ¯_.R[¯R] R
         where
         ¯∣¯r∣≡r : (r : ℝ) → sign r ≡ Sign.- → ¯_ ∣ r ∣ ≡ r
         ¯∣¯r∣≡r r d = begin
