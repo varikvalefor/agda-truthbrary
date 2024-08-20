@@ -745,7 +745,7 @@ module Veritas where
     r≡¯¯r : id ≗ (¯_ ∘ ¯_)
     r≡¯¯r = {!!}
 
-    R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
+    R[¯R] : Rational ⊆′ Rational ∘ ¯_
     R[¯R] = {!!}
 
     I[¯I] : (r : ℝ) → Irrational r → Irrational $ ¯ r
