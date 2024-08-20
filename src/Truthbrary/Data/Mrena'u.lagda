@@ -1278,7 +1278,7 @@ module Veritas where
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
         where
-        N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡ 2 0
+        N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡ _ _
 
     ∃I[R^R] : (Σ.Σ
                  (_ × _)
