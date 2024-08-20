@@ -728,7 +728,7 @@ module Veritas where
               → ¯_ r ≈ fromℝ- Sign.- ℤ.∣ ⌊' r ∣ (⌊'⁻¹ r)
     r>0⇒¯r≈¯r = {!!}
 
-    r<0⇒¯r≈∣r∣ : fromℕ 0 >_ ⊆′ (λ r → (¯ r) ≈ ∣ r ∣)
+    r<0⇒¯r≈∣r∣ : fromℕ 0 >_ ⊆′ (λ r → ¯_ r ≈ ∣ r ∣)
     r<0⇒¯r≈∣r∣ = {!!}
 
     r-¯s≈r+s : (r s : ℝ) → (r - (¯ s)) ≈ (r + s)
