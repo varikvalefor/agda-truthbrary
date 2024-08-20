@@ -1274,7 +1274,7 @@ module Veritas where
     ∃R[I^R] : (Σ.Σ
                  (ℝ × ℝ)
                  (λ (r , s) → (Irrational r × Rational s) × Rational (r ^ s)))
-    ∃R[I^R] = (√2 , fromℕ 2) , {!!} , {!!}
+    ∃R[I^R] = (√2 , fromℕ 2) , ({!!} , {!!}) , {!!}
       where
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
         where
