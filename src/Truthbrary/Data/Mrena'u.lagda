@@ -742,7 +742,7 @@ module Veritas where
     r≈s⇒¯r≈¯s : Algebra.Congruent₁ _≈_ ¯_
     r≈s⇒¯r≈¯s = {!!}
 
-    r≡¯¯r : (r : ℝ) → r ≡ ¯ (¯ r)
+    r≡¯¯r : id ≗ (¯_ ∘ ¯_)
     r≡¯¯r = {!!}
 
     R[¯R] : (r : ℝ) → Rational r → Rational $ ¯ r
