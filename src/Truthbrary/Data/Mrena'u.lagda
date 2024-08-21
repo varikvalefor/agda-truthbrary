@@ -1051,13 +1051,18 @@ module Veritas where
         c = _≈_.≈⇒≈⍨ $ begin
           √2 * √2 ≈⟨ _≈_.r≈r ⟩
           (fromℕ 2 ^ ½) * (fromℕ 2 ^ ½) ≈⟨ {!!} ⟩
-          fromℕ 2 ^ (½ + ½) ≈⟨ {!!} ⟩
+          fromℕ 2 ^ (½ + ½) ≈⟨ {!!} ▹ s≈s'⇒r^s≈r^s' (fromℕ 2) {½ + ½} {fromℕ 1} ⟩
           fromℕ 2 ^ fromℕ 1 ≈⟨ r≈r^1 (fromℕ 2) ▹ _≈_.≈⇒≈⍨ ⟩
           fromℕ 2 ∎
           where
           open import Relation.Binary.Reasoning.Setoid _≈_.setoid
           r≈r^1 : (r : ℝ) → r ≈ (r ^ fromℕ 1)
           r≈r^1 = {!!}
+          s≈s'⇒r^s≈r^s' : (r : ℝ)
+                        → {s s' : ℝ}
+                        → s ≈ s'
+                        → (r ^ s) ≈ (r ^ s')
+          s≈s'⇒r^s≈r^s' = {!!}
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
