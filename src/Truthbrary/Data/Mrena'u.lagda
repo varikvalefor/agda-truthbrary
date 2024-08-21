@@ -1189,7 +1189,7 @@ module Veritas where
        → (N : _)
        → (N' : _)
        → (_≈_
-           (frinu (fromℤ x) (fromℤ z) N')
+           (fromℤ $ ⌊' $ frinu (fromℤ x) (fromℤ z) N')
            (fromℤ $ ℤ._div_ x z {N}))
     ℤ/ = {!!}
 
