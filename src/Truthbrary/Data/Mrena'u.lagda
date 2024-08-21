@@ -1226,6 +1226,11 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
+    R[ℕ/ℕ] : (m n : ℕ)
+           → (N : _)
+           → Rational $ frinu (fromℕ m) (fromℕ n) N
+    R[ℕ/ℕ] = {!!}
+
     r≈s*r/s : (r s : ℝ) → (N : _) → r ≈ (s * frinu r s N)
     r≈s*r/s = {!!}
 
