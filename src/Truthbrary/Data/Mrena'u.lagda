@@ -1237,6 +1237,11 @@ module Veritas where
            → Rational $ frinu (fromℤ z) (fromℕ n) N
     R[ℤ/ℕ] = {!!}
 
+    R[ℤ/ℤ] : (x z : ℤ)
+           → (N : _)
+           → Rational $ frinu (fromℤ x) (fromℤ z) N
+    R[ℤ/ℤ] = {!!}
+
     r≈s*r/s : (r s : ℝ) → (N : _) → r ≈ (s * frinu r s N)
     r≈s*r/s = {!!}
 
