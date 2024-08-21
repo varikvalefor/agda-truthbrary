@@ -1050,7 +1050,7 @@ module Veritas where
         R[r]∧r≈s⇒R[s] = {!!}
         d = _≈_.≈⇒≈⍨ $ begin
           √2 * √2 ≈⟨ _≈_.r≈r ⟩
-          (fromℕ 2 ^ ½) * (fromℕ 2 ^ ½) ≈⟨ {!!} ⟩
+          (fromℕ 2 ^ ½) * (fromℕ 2 ^ ½) ≈⟨ [r^s]*[r^t]≈r^[s+t] (fromℕ 2) ½ ½ ⟩
           fromℕ 2 ^ (½ + ½) ≈⟨ _≈_.r≈r ⟩
           _ ≈⟨ {!!} ▹ s≈s'⇒r^s≈r^s' (fromℕ 2) {½ + ½} {fromℕ 1} ⟩
           fromℕ 2 ^ fromℕ 1 ≈⟨ r≈r^1 (fromℕ 2) ▹ _≈_.≈⇒≈⍨ ⟩
@@ -1064,6 +1064,9 @@ module Veritas where
                         → s ≈ s'
                         → (r ^ s) ≈ (r ^ s')
           s≈s'⇒r^s≈r^s' = {!!}
+          [r^s]*[r^t]≈r^[s+t] : (r s t : ℝ)
+                              → ((r ^ s) * (r ^ t)) ≈ (r ^ (s + t))
+          [r^s]*[r^t]≈r^[s+t] = {!!}
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
