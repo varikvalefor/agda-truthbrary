@@ -415,6 +415,14 @@ fromℤ : ℤ → ℝ
 fromℤ z = fromℝ- (ℤ.sign z) ℤ.∣ z ∣ $ const 𝔽.zero
 \end{code}
 
+\section{la'o zoi.\ \F{from𝔽}\ .zoi.}
+ni'o la'o zoi.\ \F{from𝔽} \B f\ .zoi.\ namcu du la'oi .\B f.
+
+\begin{code}
+from𝔽 : {n : ℕ} → Fin n → ℝ
+from𝔽 = {!!}
+\end{code}
+
 \section{la'o zoi.\ \F{from𝔻}\ .zoi.}
 ni'o la .varik.\ na birti lo du'u ma kau zabna je cu lojbo je cu velcki la'o zoi.\ \F{from𝔻}\ .zoi.  .i ku'i lakne fa lo nu la .varik.\ cu facki
 
