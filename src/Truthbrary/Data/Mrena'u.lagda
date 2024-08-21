@@ -1182,7 +1182,7 @@ module Veritas where
     ℕ/ : (m n : ℕ)
        → (N : _)
        → (N' : _)
-       → frinu (fromℕ m) (fromℕ n) N' ≈ fromℕ (ℕ._/_ m n {N})
+       → fromℤ (⌊' (frinu (fromℕ m) (fromℕ n) N')) ≈ fromℕ (ℕ._/_ m n {N})
     ℕ/ = {!!}
 
     ℤ/ : (x z : ℤ)
