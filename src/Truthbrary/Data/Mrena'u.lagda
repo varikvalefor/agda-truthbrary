@@ -1044,10 +1044,10 @@ module Veritas where
       where
       ½ = frinu (fromℕ 1) (fromℕ 2) (Fromℕ.fromℕ[s]≉0 1)
       √2 = fromℕ 2 ^ ½
-      R[r]∧r≈s⇒R[s] : {r s : ℝ} → Rational r → r ≈ s → Rational s
-      R[r]∧r≈s⇒R[s] = {!!}
       R = R[r]∧r≈s⇒R[s] (Fromℕ.fromℕ-Rational 2) c
         where
+        R[r]∧r≈s⇒R[s] : {r s : ℝ} → Rational r → r ≈ s → Rational s
+        R[r]∧r≈s⇒R[s] = {!!}
         c = _≈_.≈⇒≈⍨ $ begin
           √2 * √2 ≈⟨ _≈_.r≈r ⟩
           (fromℕ 2 ^ ½) * (fromℕ 2 ^ ½) ≈⟨ {!!} ⟩
