@@ -1229,18 +1229,16 @@ module Veritas where
     R[ℕ/ℕ] : (m n : ℕ)
            → (N : _)
            → Rational $ frinu (fromℕ m) (fromℕ $ ℕ.suc n) N
-    R[ℕ/ℕ] m n N = m' ℚ.÷ n'++ , d
+    R[ℕ/ℕ] m n N = m' ℚ.÷ n'++ , ℕ/' m n N
       where
       m' = ℚ.fromℤ $ ℤ.+ m
       n'++ = ℚ.fromℤ $ ℤ.+ ℕ.suc n
-      d = ℕ/' m n N
-        where
-        ℕ/' : (m n : ℕ)
-            → (N : _)
-            → (_≈_
-                (frinu (fromℕ m) (fromℕ $ ℕ.suc n) N)
-                (fromℚ $ ℚ.fromℤ (ℤ.+ m) ℚ.÷ ℚ.fromℤ (ℤ.+ ℕ.suc n)))
-        ℕ/' = {!!}
+      ℕ/' : (m n : ℕ)
+          → (N : _)
+          → (_≈_
+              (frinu (fromℕ m) (fromℕ $ ℕ.suc n) N)
+              (fromℚ $ ℚ.fromℤ (ℤ.+ m) ℚ.÷ ℚ.fromℤ (ℤ.+ ℕ.suc n)))
+      ℕ/' = {!!}
 
     R[ℤ/ℕ] : (z : ℤ)
            → (n : ℕ)
