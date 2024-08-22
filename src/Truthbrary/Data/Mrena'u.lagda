@@ -1231,7 +1231,7 @@ module Veritas where
            → Rational $ frinu (fromℕ m) (fromℕ $ ℕ.suc n) N
     R[ℕ/ℕ] m n N = m' ℚ.÷ n'++ , d
       where
-      m' = ℚ.fromℤ (ℤ.+ m)
+      m' = ℚ.fromℤ $ ℤ.+ m
       n'++ = ℚ.fromℤ (ℤ.+ ℕ.suc n)
       d = ℕ/' m n N
         where
