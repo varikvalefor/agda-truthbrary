@@ -1232,7 +1232,7 @@ module Veritas where
     R[ℕ/ℕ] m n N = m' ℚ.÷ n'++ , d
       where
       m' = ℚ.fromℤ $ ℤ.+ m
-      n'++ = ℚ.fromℤ (ℤ.+ ℕ.suc n)
+      n'++ = ℚ.fromℤ $ ℤ.+ ℕ.suc n
       d = ℕ/' m n N
         where
         ℕ/' : (m n : ℕ)
