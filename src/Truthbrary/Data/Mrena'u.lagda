@@ -1227,8 +1227,7 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     R[ℕ/ℕ] : (m n : ℕ)
-           → (N : _)
-           → Rational $ frinu (fromℕ m) (fromℕ $ ℕ.suc n) N
+           → Rational $ frinu (fromℕ m) (fromℕ $ ℕ.suc n) $ Fromℕ.fromℕ[s]≉0 n
     R[ℕ/ℕ] = {!!}
 
     R[ℤ/ℕ] : (z : ℤ)
@@ -1330,7 +1329,7 @@ module Veritas where
                    (_×_
                      (Rational r × Rational s)
                      (Irrational $ r ^ s))))
-    ∃I[R^R] = (fromℕ 2 , ½) , (R[ℕ] _ , Frinu.R[ℕ/ℕ] 1 1 2≉0) , I
+    ∃I[R^R] = (fromℕ 2 , ½) , (R[ℕ] _ , Frinu.R[ℕ/ℕ] 1 1) , I
       where
       I = proj₁ (proj₁ (proj₂ ∃R[I^R]))
       R[ℕ] = Fromℕ.fromℕ-Rational
