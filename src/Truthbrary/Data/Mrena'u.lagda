@@ -1714,6 +1714,9 @@ module Veritas where
 
     ∣r∣<s⇒r<s : (r s : ℝ) → ∣ r ∣ < s → r < s
     ∣r∣<s⇒r<s = {!!}
+
+    r<s⇒∣r∣<s : (r s : ℝ) → r < s → ∣ r ∣ < s
+    r<s⇒∣r∣<s = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
