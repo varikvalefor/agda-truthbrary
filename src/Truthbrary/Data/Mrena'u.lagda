@@ -1219,6 +1219,13 @@ module Veritas where
        → fromℤ (⌊' (frinu (fromℕ m) (fromℕ n) N')) ≈ fromℕ (ℕ._/_ m n {N})
     ℕ/ = {!!}
 
+    ℕ/' : (m n : ℕ)
+        → (N : _)
+        → (_≈_
+            (frinu (fromℕ m) (fromℕ $ ℕ.suc n) N)
+            (fromℚ $ ℚ.fromℤ (ℤ.+ m) ℚ.÷ ℚ.fromℤ (ℤ.+ ℕ.suc n)))
+    ℕ/' = {!!}
+
     ℤ/ : (x z : ℤ)
        → (N : _)
        → (N' : _)
@@ -1254,12 +1261,6 @@ module Veritas where
       where
       m' = ℚ.fromℤ $ ℤ.+ m
       n'++ = ℚ.fromℤ $ ℤ.+ ℕ.suc n
-      ℕ/' : (m n : ℕ)
-          → (N : _)
-          → (_≈_
-              (frinu (fromℕ m) (fromℕ $ ℕ.suc n) N)
-              (fromℚ $ ℚ.fromℤ (ℤ.+ m) ℚ.÷ ℚ.fromℤ (ℤ.+ ℕ.suc n)))
-      ℕ/' = {!!}
 
     R[ℤ/ℕ] : (z : ℤ)
            → (n : ℕ)
