@@ -884,7 +884,7 @@ module Veritas where
     r-s-t≈r-[s+t] r s t = begin
       (r - s) - t ≈⟨ r≈r ⟩
       (r - s) + (¯ t) ≈⟨ r≈r ⟩
-      (r + (¯ s)) + (¯ t) ≈⟨ _+_.+-ass r (¯ s) (¯ t) ⟩
+      (r + (¯ s)) + (¯ t) ≈⟨ _+_.+-ass r (¯ s) $ ¯ t ⟩
       r + ((¯ s) + (¯ t)) ≈⟨ ¯r+¯s≈¯[r+s] s t ▹ _+_.r+s≈r+s' {r} ⟩
       r + (¯ (s + t)) ≈⟨ r≈r ⟩
       r - (s + t) ∎
