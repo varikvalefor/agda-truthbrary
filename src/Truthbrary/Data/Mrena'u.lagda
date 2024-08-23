@@ -1711,6 +1711,9 @@ module Veritas where
 
     I[∣r∣]⇒I[r] : Irrational ∘ ∣_∣ ⊆′ Irrational
     I[∣r∣]⇒I[r] = {!!}
+
+    ∣r∣<s⇒r<s : (r s : ℝ) → ∣ r ∣ < s → r < s
+    ∣r∣<s⇒r<s = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}⊓\AgdaUnderscore}}}
