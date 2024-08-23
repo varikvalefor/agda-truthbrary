@@ -1192,6 +1192,13 @@ module Veritas where
               → frinu (¯ r) (¯ s) N ≈ frinu r s N'
     -r/-s≈r/s = {!!}
 
+    r/s≈r/s : (r s : ℝ)
+            → (N₁ N₂ : _)
+            → (_≈_
+                (frinu r s N₁)
+                (frinu r s N₂))
+    r/s≈r/s = {!!}
+
     ℕ/ : (m n : ℕ)
        → (N : _)
        → (N' : _)
