@@ -1441,7 +1441,7 @@ module Veritas where
 
     ⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
     ⌊'∘fromℤ = λ z → sym $ begin
-      ⌊' (fromℤ z) ≡⟨ {!!} ⟩
+      ⌊' (fromℤ z) ≡⟨ refl ⟩
       ⌊' (ℤ.sign z , ℤ.∣ z ∣ , const 𝔽.zero) ≡⟨ {!!} ⟩
       z ∎
       where
