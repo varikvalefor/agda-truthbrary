@@ -1630,6 +1630,9 @@ module Veritas where
     ℕ≥ : ℕ._≥_ ⇒ (_≥_ on fromℕ)
     ℕ≥ = {!!}
 
+    ℤ≥ : ℤ._≥_ ⇒ (_≥_ on fromℤ)
+    ℤ≥ = {!!}
+
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
     jonais r s with _>_.jonais r s
     ... | inj₁ z = inj₁ $ >⇒≥ z
