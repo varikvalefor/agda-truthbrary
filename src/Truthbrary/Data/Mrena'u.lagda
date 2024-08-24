@@ -1401,7 +1401,7 @@ module Veritas where
     ℕ^ = {!!}
 
     R[ℕ^ℕ] : (m n : ℕ) → Rational $ fromℕ m ^ fromℕ n
-    R[ℕ^ℕ] = λ m n → {!!} , {!!}
+    R[ℕ^ℕ] = λ m n → ℚ.fromℤ (ℤ.+_ $ m ℕ.^ n) , {!!}
 
     R[ℤ^ℤ] : (x z : ℤ) → Rational $ fromℤ x ^ fromℤ z
     R[ℤ^ℤ] = {!!}
