@@ -1343,6 +1343,7 @@ module Veritas where
     r≈[r^s]^[1/s] = λ r s N → _≈_.≈⇒≈⍨ $ begin
       (r ^ s) ^ frinu (fromℕ 1) s N ≈⟨ {!!} ⟩
       r ^ (s * frinu (fromℕ 1) s N) ≈⟨ {!!} ⟩
+      r ^ fromℕ 1 ≈⟨ {!!} ⟩
       r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
