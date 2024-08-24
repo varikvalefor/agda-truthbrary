@@ -1440,7 +1440,11 @@ module Veritas where
     fromℤ∘⌊'' = {!!}
 
     ⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
-    ⌊'∘fromℤ = {!!}
+    ⌊'∘fromℤ = λ z → sym $ begin
+      ⌊' (fromℤ z) ≡⟨ {!!} ⟩
+      z ∎
+      where
+      open ≡-Reasoning
 
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
     ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡⌊'⁻¹r+⌊'r r
