@@ -1525,7 +1525,7 @@ module Veritas where
     ≈⇒0 : (r : ℝ) → r ≈ fromℕ 0 → signℤ r ≡ ℤ.+_ 0
     ≈⇒0 = {!!}
 
-    0⇒≈ : (_≡ ℤ.+_ 0) ∘ signℤ ⊆′ _≈ fromℕ 0
+    0⇒≈ : (_≡ ℤ.+ 0) ∘ signℤ ⊆′ _≈ fromℕ 0
     0⇒≈ = {!!}
 
     jonais : (r : ℝ)
