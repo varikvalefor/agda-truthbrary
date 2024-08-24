@@ -1363,7 +1363,7 @@ module Veritas where
     ∃R[I^R] = (√2 , fromℕ 2) , ({!!} , R[ℕ] 2) , 2ℚ , {!!}
       where
       R[ℕ] = Fromℕ.fromℕ-Rational
-      2ℚ = toℚ (Fromℕ.fromℕ-Rational 2)
+      2ℚ = toℚ (R[ℕ] 2)
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
         where
         N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡ _ _
