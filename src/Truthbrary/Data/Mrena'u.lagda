@@ -1435,7 +1435,7 @@ module Veritas where
         fromℕ m ^ fromℕ n ≈⟨ ℕ^ m n ⟩
         fromℕ (m ℕ.^ n) ≈⟨ Fromℕ.fromℕ≡fromℤ∘ℤ+_ (m ℕ.^ n) ▹ _≈_.≡⇒≈ ⟩
         fromℤ (ℤ.+_ $ m ℕ.^ n) ≈⟨ fromℤ-fromℚ (ℤ.+_ $ m ℕ.^ n) ▹ _≈_.≡⇒≈ ⟩
-        fromℚ (ℚ.fromℤ $ ℤ.+ m ℕ.^ n) ∎
+        fromℚ (ℚ.fromℤ $ ℤ.+ (m ℕ.^ n)) ∎
         where
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
         fromℤ-fromℚ : (z : ℤ) → fromℤ z ≡ fromℚ (ℚ.fromℤ z)
