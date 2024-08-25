@@ -546,7 +546,7 @@ ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B
 
 \begin{code}
 _⊔_ : ℝ → ℝ → ℝ
-_⊔_ r s = _⊓_I.bool' s r $ _⊓_I._≥ᵇ_ r s
+_⊔_ r s = _⍨ _⊓_I.bool' r s $  _⊓_I._≥ᵇ_ r s
 \end{code}
 
 \section{le ctaipe be le su'u mapti}
