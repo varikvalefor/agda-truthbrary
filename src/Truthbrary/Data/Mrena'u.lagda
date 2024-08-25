@@ -1432,7 +1432,7 @@ module Veritas where
     R[ℕ^ℕ] = λ m n → ℚ.fromℤ (ℤ.+_ $ m ℕ.^ n) , d m n
       where
       d = λ m n → begin
-        fromℕ m ^ fromℕ n ≈⟨ {!!} ⟩
+        fromℕ m ^ fromℕ n ≈⟨ ℕ^ m n ⟩
         fromℕ (m ℕ.^ n) ≈⟨ {!!} ⟩
         fromℤ (ℤ.+_ $ m ℕ.^ n) ≈⟨ {!!} ⟩
         fromℚ (ℚ.fromℤ $ ℤ.+_ $ m ℕ.^ n) ∎
