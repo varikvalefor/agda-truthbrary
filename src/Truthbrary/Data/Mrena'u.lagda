@@ -100,6 +100,7 @@
 \newcommand\B\AgdaBound
 \newcommand\IC\AgdaInductiveConstructor
 \newcommand\Mod\AgdaModule
+\newcommand\Op[1]{\AgdaOperator{#1}}
 \newcommand\OpF[1]{\AgdaOperator{\F{#1}}}
 
 \title{la'o zoi.\ \texttt{Truthbrary.Data.Mrena'u}\ .zoi.}
