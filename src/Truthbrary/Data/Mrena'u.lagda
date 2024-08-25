@@ -1433,7 +1433,7 @@ module Veritas where
       where
       d = λ m n → begin
         fromℕ m ^ fromℕ n ≈⟨ ℕ^ m n ⟩
-        fromℕ (m ℕ.^ n) ≈⟨ {!!} ⟩
+        fromℕ (m ℕ.^ n) ≈⟨ Fromℕ.fromℕ≡fromℤ∘ℤ+_ (m ℕ.^ n) ▹ _≈_.≡⇒≈ ⟩
         fromℤ (ℤ.+_ $ m ℕ.^ n) ≈⟨ fromℤ-fromℚ (ℤ.+_ $ m ℕ.^ n) ▹ _≈_.≡⇒≈ ⟩
         fromℚ (ℚ.fromℤ $ ℤ.+_ $ m ℕ.^ n) ∎
         where
