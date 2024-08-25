@@ -281,6 +281,25 @@ import Data.Rational.Literals
   )
 \end{code}
 
+\section{le vrici je fancu}
+
+\subsection{la'o zoi.\ \F{\AdgaUnderscore{}ˢ₂\AgdaUnderscore}\ .zoi.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi bau la .lojban.
+
+\begin{code}
+_ˢ₂_ : ∀ {a b c d}
+      → {A : Set a}
+      → {B : Set b}
+      → {C : A → B → Set c}
+      → {D : (x : A) → (z : B) → C x z → Set d}
+      → ((v : A) → (x : B) → (z : C v x) → D v x z)
+      → (f : (x : A) → (z : B) → C x z)
+      → (x : A)
+      → (z : B)
+      → D x z $ f x z
+_ˢ₂_ g f x = g x ˢ f x
+\end{code}
+
 \section{la'oi .\F ℝ.}
 ni'o ro da zo'u da mrena'u jo cu ctaipe la'oi .\F ℝ.  .i la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B s \Sym(\IC{\AgdaUnderscore{},\AgdaUnderscore{}}\B a \B b\Sym)\ .zoi.\ poi ke'a ctaipe la'oi .\F ℝ.\ cu pilji lo sumji be la'oi .\B a.\ bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.\ zo'e poi ga jonai ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.+}\ .zoi.\ gi ke'a du li pa gi ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.-}\ .zoi.\ gi ke'a du li ni'u pa  .i ga jo la'oi .\F ℝ.\ se ctaipe ko'a goi la'o zoi.\ \AgdaUnderscore{} \AgdaOperator{\IC,} \Sym(\AgdaUnderscore{} \AgdaOperator{\IC,} \B f\Sym)\ .zoi.\ gi la'o zoi.\ \B f \B n\ .zoi.\ meirmoi la'oi .\B n.\ fo lo'i me'oi .digit.\ be lo cmalu pagbu be lo mu'oi glibau.\ decimal expansion .glibau.\ be ko'a
 
@@ -547,18 +566,6 @@ ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B
 \begin{code}
 _⊔_ : ℝ → ℝ → ℝ
 _⊔_ = _⍨ _⊓_I.bool' ˢ₂ _⊓_I._≥ᵇ_
-  where
-  _ˢ₂_ : ∀ {a b c d}
-        → {A : Set a}
-        → {B : Set b}
-        → {C : A → B → Set c}
-        → {D : (x : A) → (z : B) → C x z → Set d}
-        → ((v : A) → (x : B) → (z : C v x) → D v x z)
-        → (f : (x : A) → (z : B) → C x z)
-        → (x : A)
-        → (z : B)
-        → D x z $ f x z
-  _ˢ₂_ g f x = g x ˢ f x
 \end{code}
 
 \section{le ctaipe be le su'u mapti}
