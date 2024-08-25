@@ -1433,6 +1433,7 @@ module Veritas where
       where
       d = λ m n → begin
         fromℕ m ^ fromℕ n ≈⟨ {!!} ⟩
+        fromℕ (m ℕ.^ n) ≈⟨ {!!} ⟩
         fromℚ (ℚ.fromℤ $ ℤ.+_ $ m ℕ.^ n) ∎
         where
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
