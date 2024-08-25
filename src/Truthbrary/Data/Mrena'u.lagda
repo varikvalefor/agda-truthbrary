@@ -546,7 +546,19 @@ ni'o la'o zoi.\ \B r \OpF ⊔ \B s\ .zoi.\ nacyzmarai la'oi .\B r.\ ce la'oi .\B
 
 \begin{code}
 _⊔_ : ℝ → ℝ → ℝ
-_⊔_ r = _⍨ _⊓_I.bool' r ˢ _⊓_I._≥ᵇ_ r
+_⊔_ = _⍨ _⊓_I.bool' ˢ₂ _⊓_I._≥ᵇ_
+  where
+  _ˢ₂_ : ∀ {a b c d}
+        → {A : Set a}
+        → {B : Set b}
+        → {C : A → B → Set c}
+        → {D : (x : A) → (z : B) → C x z → Set d}
+        → ((v : A) → (x : B) → (z : C v x) → D v x z)
+        → (f : (x : A) → (z : B) → C x z)
+        → (x : A)
+        → (z : B)
+        → D x z $ f x z
+  _ˢ₂_ g f x = g x ˢ f x
 \end{code}
 
 \section{le ctaipe be le su'u mapti}
