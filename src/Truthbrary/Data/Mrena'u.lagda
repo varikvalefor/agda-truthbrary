@@ -1011,6 +1011,9 @@ module Veritas where
 
     R[R-R] : (r s : ℝ) → Rational r → Rational s → Rational $ r - s
     R[R-R] r s R S = _+_.R[R+R] r (¯ s) R {!!}
+
+    inv : (r : ℝ) → ((fromℕ 0 - r) + r) ≈ fromℕ 0
+    inv = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
