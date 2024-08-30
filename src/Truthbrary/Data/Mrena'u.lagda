@@ -1013,7 +1013,11 @@ module Veritas where
     R[R-R] r s R = _+_.R[R+R] r _ R ∘ ¯_.R[¯R]
 
     inv : (r : ℝ) → fromℕ 0 ≈ (_+ r $ fromℕ 0 - r)
-    inv = {!!}
+    inv = λ r → _≈_.≈⇒≈⍨ $ begin
+      (fromℕ 0 - r) + r ≈⟨ {!!} ⟩
+      fromℕ 0 ∎
+      where
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}*\AgdaUnderscore}}}
