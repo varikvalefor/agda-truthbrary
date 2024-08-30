@@ -762,7 +762,7 @@ module Veritas where
     id≡⌊'⁻¹∘from𝔻s : (s : Sign) → id ≗ ⌊'⁻¹ ∘ from𝔻 s
     id≡⌊'⁻¹∘from𝔻s _ _ = refl
 
-    0≡⌊'[from𝔻] : (s : Sign) → (f : _) → ℤ.0ℤ ≡ ⌊' (from𝔻 s f)
+    0≡⌊'[from𝔻] : (s : Sign) → const ℤ.0ℤ ≗ ⌊' ∘ from𝔻 s
     0≡⌊'[from𝔻] = λ {Sign.+ _ → refl; Sign.- _ → refl}
 \end{code}
 
