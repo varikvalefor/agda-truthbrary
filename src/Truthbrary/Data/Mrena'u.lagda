@@ -1004,7 +1004,7 @@ module Veritas where
     r≥r-s r s = _⊎_.map (r≈r-0 r s) (r>r-s r s)
 
     I[I-R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r - s
-    I[I-R] = {!!}
+    I[I-R] = λ r s IR RS → _+_.I[I+R] {r} {¯ s} {!!} {!!}
 
     I[R-I] : {r s : ℝ} → Rational r → Irrational s → Irrational $ r - s
     I[R-I] R = _+_.I[R+I] R ∘ ¯_.I[¯I] _
