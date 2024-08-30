@@ -1012,7 +1012,7 @@ module Veritas where
     R[R-R] : (r s : ℝ) → Rational r → Rational s → Rational $ r - s
     R[R-R] r s R = _+_.R[R+R] r _ R ∘ ¯_.R[¯R]
 
-    inv : (r : ℝ) → ((fromℕ 0 - r) + r) ≈ fromℕ 0
+    inv : (r : ℝ) → (_+ r $ fromℕ 0 - r) ≈ fromℕ 0
     inv = {!!}
 \end{code}
 
