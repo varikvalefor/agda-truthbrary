@@ -1018,7 +1018,7 @@ module Veritas where
       _ ≈⟨ -r≈0-r r _ _≈_.r≈r ▹ _≈_.≈⇒≈⍨ ▹ _+_.r+s≈r'+s {s = r} ⟩
       (¯ r) + r ≈⟨ _+_.+≈+⍨ (¯ r) r ⟩
       r + (¯ r) ≈⟨ _≈_.r≈r ⟩
-      r - r ≈⟨ {!!} ⟩
+      r - r ≈⟨ 0≈r-r r ▹ _≈_.≈⇒≈⍨  ⟩
       fromℕ 0 ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
