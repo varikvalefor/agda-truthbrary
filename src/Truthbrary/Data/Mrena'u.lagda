@@ -1115,7 +1115,9 @@ module Veritas where
                               → ((r ^ s) * (r ^ t)) ≈ (r ^ (s + t))
           [r^s]*[r^t]≈r^[s+t] = {!!}
           ½+½≈1 : (½ + ½) ≈ fromℕ 1
-          ½+½≈1 = {!!}
+          ½+½≈1 = begin
+            ½ + ½ ≈⟨ {!!} ⟩
+            fromℕ 1 ∎
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
