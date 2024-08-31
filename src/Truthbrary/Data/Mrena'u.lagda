@@ -1016,7 +1016,7 @@ module Veritas where
     inv r = _≈_.≈⇒≈⍨ $ begin
       (fromℕ 0 - r) + r ≈⟨ _≈_.r≈r ⟩
       _ ≈⟨ -r≈0-r r _ _≈_.r≈r ▹ _≈_.≈⇒≈⍨ ▹ _+_.r+s≈r'+s {s = r} ⟩
-      (¯ r) + r ≈⟨ {!!} ⟩
+      (¯ r) + r ≈⟨ _+_.+≈+⍨ (¯ r) r ⟩
       r + (¯ r) ≈⟨ _≈_.r≈r ⟩
       r - r ≈⟨ {!!} ⟩
       fromℕ 0 ∎
