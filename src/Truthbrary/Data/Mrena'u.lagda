@@ -1017,6 +1017,7 @@ module Veritas where
       (fromℕ 0 - r) + r ≈⟨ {!!} ⟩
       (¯ r) + r ≈⟨ {!!} ⟩
       r + (¯ r) ≈⟨ {!!} ⟩
+      r - r ≈⟨ {!!} ⟩
       fromℕ 0 ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
