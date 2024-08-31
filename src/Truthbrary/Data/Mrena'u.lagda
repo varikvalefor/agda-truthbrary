@@ -1117,6 +1117,7 @@ module Veritas where
           ½+½≈1 : (½ + ½) ≈ fromℕ 1
           ½+½≈1 = begin
             ½ + ½ ≈⟨ {!!} ⟩
+            (λ x → x + x) ½ ≈⟨ {!!} ⟩
             fromℕ 1 ∎
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
