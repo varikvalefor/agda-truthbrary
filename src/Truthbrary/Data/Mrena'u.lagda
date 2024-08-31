@@ -1014,11 +1014,8 @@ module Veritas where
 
     inv : (r : ℝ) → fromℕ 0 ≈ (_+ r $ fromℕ 0 - r)
     inv r = _≈_.≈⇒≈⍨ $ begin
-      (fromℕ 0 - r) + r ≈⟨ _≈_.r≈r ⟩
-      _ ≈⟨ -r≈0-r r _ _≈_.r≈r ▹ _≈_.≈⇒≈⍨ ▹ _+_.r+s≈r'+s {s = r} ⟩
-      (¯ r) + r ≈⟨ _+_.+≈+⍨ (¯ r) r ⟩
-      r + (¯ r) ≈⟨ _≈_.r≈r ⟩
-      r - r ≈⟨ 0≈r-r r ▹ _≈_.≈⇒≈⍨  ⟩
+      (fromℕ 0 - r) + r ≈⟨ _+_.+≈+⍨ (fromℕ 0 - r) r ⟩
+      r + (fromℕ 0 - r) ≈⟨ 0≈r+[0-r] r (fromℕ 0) _≈_.r≈r ▹ _≈_.≈⇒≈⍨ ⟩
       fromℕ 0 ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
