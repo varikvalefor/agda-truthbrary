@@ -1739,7 +1739,7 @@ module Veritas where
         where
         g₁ : {s : ℝ} → r ≈ s → sign s ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
         g₁ {s} d dss = begin
-          ∣ r ∣ ≈⟨ +r≡∣+r∣ r ds ▹ sym ▹ _≈_.≡⇒≈ ⟩
+          ∣ r ∣ ≈⟨ +r≡∣+r∣ _ ds ▹ sym ▹ _≈_.≡⇒≈ ⟩
           r ≈⟨ d ⟩
           s ≈⟨ +r≡∣+r∣ s dss ▹ _≈_.≡⇒≈ ⟩
           ∣ s ∣ ∎
