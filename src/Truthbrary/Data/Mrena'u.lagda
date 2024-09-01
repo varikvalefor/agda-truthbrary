@@ -652,7 +652,7 @@ module Veritas where
     ∣r-s∣≈0⇒r≈s = {!!}
 
     ¬[r≈s⇒fr≈fs] : ¬ ((f : ℝ → ℝ) → _≈_ ⇒ (_≈_ on f))
-    ¬[r≈s⇒fr≈fs] = ∃⇒¬¬ {!!}
+    ¬[r≈s⇒fr≈fs] = ∃⇒¬¬ $ {!!} , {!!}
       where
       ∃⇒¬¬ : ∀ {a b} → {A : Set a} → {B : A → Set b}
            → ∃ $ ¬_ ∘ B
