@@ -1865,7 +1865,7 @@ module Veritas where
       1' = I.⊥⇒1 r s
 
     ≥⇒2 : _≥_ ⇒ (λ r s → s ≡ r ⊓ s)
-    ≥⇒2 {r} {s} z = subst (_≡_ s ∘ _⊓_I.bool' r s) (I.≥⇒⊤ z) (I.⊤⇒2 r)
+    ≥⇒2 {r} {s} z = subst (_≡_ s ∘ _⊓_I.bool' r s) (I.≥⇒⊤ z) $ I.⊤⇒2 r
 
     ≈⇒1 : _≈_ ⇒ (λ r s → r ≈ (r ⊓ s))
     ≈⇒1 = _≈_.≈∧≈⇒≈ ˢ _≈_.≡⇒≈ ∘ ≥⇒2 ∘ _≥_.≈⇒≥
