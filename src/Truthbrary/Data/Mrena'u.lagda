@@ -679,7 +679,7 @@ module Veritas where
     ℕ≡⇒fromℕ≈ : _≡_ ⇒ (_≈_ on fromℕ)
     ℕ≡⇒fromℕ≈ refl = _≈_.r≈r
 
-    fromℕ≈⇒≡ : {m n : ℕ} → fromℕ m ≈ fromℕ n → m ≡ n
+    fromℕ≈⇒≡ : (_≈_ on fromℕ) ⇒ _≡_
     fromℕ≈⇒≡ = {!!}
 
     fromℕ[s]≉0 : (n : ℕ) → ¬_ $ fromℕ (ℕ.suc n) ≈ fromℕ 0
