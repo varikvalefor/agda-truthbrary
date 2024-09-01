@@ -1880,7 +1880,7 @@ module Veritas where
     ⊓≈⊓⍨ r s with _≥_.jonais r s
     ... | inj₁ djm = begin
       r ⊓ s ≈⟨ ≥⇒2 djm ▹ sym ▹ _≈_.≡⇒≈ ⟩
-      s ≈⟨ ≤⇒1 s r djm ⟩
+      s ≈⟨ ≤⇒1 _ _ djm ⟩
       s ⊓ r ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
