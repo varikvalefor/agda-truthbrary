@@ -657,7 +657,7 @@ module Veritas where
       ∃⇒¬¬ : ∀ {a b} → {A : Set a} → {B : A → Set b}
            → ∃ $ ¬_ ∘ B
            → ¬ ((x : A) → B x)
-      ∃⇒¬¬ = λ (x , N) M → N $ M x
+      ∃⇒¬¬ (x , N) M = N $ M x
 
     isEquivalence : Relation.Binary.IsEquivalence _≈_
     isEquivalence = record {refl = r≈r; sym = ≈⇒≈⍨; trans = ≈∧≈⇒≈}
