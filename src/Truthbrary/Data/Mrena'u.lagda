@@ -1118,6 +1118,7 @@ module Veritas where
             ½ + ½ ≈⟨ {!!} ⟩
             (λ x → x + x) ½ ≈⟨ {!!} ⟩
             (λ x → x + x) (frinu (fromℕ 1) (fromℕ 2) N) ≈⟨ {!!} ⟩
+            frinu (fromℕ 1 + fromℕ 1) (fromℕ 2) N ≈⟨ {!!} ⟩
             fromℕ 1 ∎
             where
             N = Fromℕ.fromℕ[s]≉0 1
