@@ -1117,12 +1117,12 @@ module Veritas where
           ½+½≈1 = begin
             ½ + ½ ≈⟨ {!!} ⟩
             (λ x → x + x) ½ ≈⟨ {!!} ⟩
-            (λ x → x + x) (frinu (fromℕ 1) (fromℕ 2) N) ≈⟨ {!!} ⟩
-            frinu (fromℕ 1 + fromℕ 1) (fromℕ 2) N ≈⟨ {!!} ⟩
-            frinu (fromℕ 2) (fromℕ 2) N ≈⟨ {!!} ⟩
+            (λ x → x + x) (f $ fromℕ 1) ≈⟨ {!!} ⟩
+            f (fromℕ 1 + fromℕ 1) ≈⟨ {!!} ⟩
+            f (fromℕ 2) ≈⟨ {!!} ⟩
             fromℕ 1 ∎
             where
-            N = Fromℕ.fromℕ[s]≉0 1
+            f = λ x → frinu x (fromℕ 2) $ Fromℕ.fromℕ[s]≉0 1
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
