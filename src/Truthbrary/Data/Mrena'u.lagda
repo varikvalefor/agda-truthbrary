@@ -440,7 +440,7 @@ ni'o la'o zoi.\ \F{from𝔽} \B f\ .zoi.\ namcu du la'oi .\B f.
 
 \begin{code}
 from𝔽 : {n : ℕ} → Fin n → ℝ
-from𝔽 = {!!}
+from𝔽 = fromℕ ∘ 𝔽.toℕ
 \end{code}
 
 \section{la'o zoi.\ \F{from𝔻}\ .zoi.}
