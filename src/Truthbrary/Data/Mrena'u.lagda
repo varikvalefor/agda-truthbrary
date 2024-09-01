@@ -687,6 +687,7 @@ module Veritas where
 
     fromℕ-fromℚ : (n : ℕ) → fromℕ n ≈ fromℚ (ℚ.fromℤ $ ℤ.+ n)
     fromℕ-fromℚ n = _≈_.≈⇒≈⍨ $ begin
+      fromℚ (ℚ.fromℤ $ ℤ.+ n) ≈⟨ _≈_.r≈r ⟩
       fromℚ (ℚ.mkℚ (ℤ.+ n) 0 C) ≈⟨ _≈_.r≈r ⟩
       frinu (fromℤ $ ℤ.+ n) (fromℕ $ ℕ.suc 0) (fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r ⟩
       frinu (fromℕ n) (fromℕ $ ℕ.suc 0) (fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r ⟩
