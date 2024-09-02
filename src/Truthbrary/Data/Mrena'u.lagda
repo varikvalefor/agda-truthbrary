@@ -1120,7 +1120,7 @@ module Veritas where
             (λ x → x + x) (f $ fromℕ 1) ≈⟨ _≈_.r≈r ⟩
             _ ≈⟨ r/t+s/t≈[r+s]/t {fromℕ 1} {fromℕ 1} N ⟩
             f (fromℕ 1 + fromℕ 1) ≈⟨ _≈_.r≈r ⟩
-            _ ≈⟨ _+_.ℕ+ 1 1 ▹ _≈_.≡⇒≈ ▹ r/s≈r'/s {fromℕ 1 + fromℕ 1} {fromℕ 2} N ⟩
+            _ ≈⟨ _+_.ℕ+ 1 1 ▹ _≈_.≡⇒≈ ▹ r/s≈r'/s {fromℕ 1 + fromℕ 1} N ⟩
             f (fromℕ 2) ≈⟨ r/r≈1 _ N ⟩
             fromℕ 1 ∎
             where
