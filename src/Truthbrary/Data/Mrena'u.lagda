@@ -1118,12 +1118,13 @@ module Veritas where
             ½ + ½ ≈⟨ _≈_.r≈r ⟩
             (λ x → x + x) ½ ≈⟨ _≈_.r≈r ⟩
             (λ x → x + x) (f $ fromℕ 1) ≈⟨ _≈_.r≈r ⟩
-            _ ≈⟨ r/t+s/t≈[r+s]/t {fromℕ 1} {fromℕ 1} $ Fromℕ.fromℕ[s]≉0 1 ⟩
-            f (fromℕ 1 + fromℕ 1) ≈⟨ {!!} ▹ r/s≈r'/s {r = fromℕ 1 + fromℕ 1} {r' = fromℕ 2} {s = fromℕ 2} (Fromℕ.fromℕ[s]≉0 1) ⟩
-            f (fromℕ 2) ≈⟨ r/r≈1 (fromℕ 2) $ Fromℕ.fromℕ[s]≉0 1 ⟩
+            _ ≈⟨ r/t+s/t≈[r+s]/t {fromℕ 1} {fromℕ 1} $ N ⟩
+            f (fromℕ 1 + fromℕ 1) ≈⟨ {!!} ▹ r/s≈r'/s {r = fromℕ 1 + fromℕ 1} {r' = fromℕ 2} {s = fromℕ 2} (N) ⟩
+            f (fromℕ 2) ≈⟨ r/r≈1 (fromℕ 2) $ N ⟩
             fromℕ 1 ∎
             where
-            f = λ x → frinu x (fromℕ 2) $ Fromℕ.fromℕ[s]≉0 1
+            N = Fromℕ.fromℕ[s]≉0 1
+            f = λ x → frinu x (fromℕ 2) $ N
             r/r≈1 : (r : ℝ) → (N : _) → frinu r r N ≈ fromℕ 1
             r/r≈1 = {!!}
             r/s≈r'/s : {r r' s : ℝ}
