@@ -1115,7 +1115,7 @@ module Veritas where
           [r^s]*[r^t]≈r^[s+t] = {!!}
           ½+½≈1 : (½ + ½) ≈ fromℕ 1
           ½+½≈1 = begin
-            ½ + ½ ≈⟨ {!!} ⟩
+            ½ + ½ ≈⟨ _≈_.r≈r ⟩
             (λ x → x + x) ½ ≈⟨ {!!} ⟩
             (λ x → x + x) (f $ fromℕ 1) ≈⟨ {!!} ⟩
             f (fromℕ 1 + fromℕ 1) ≈⟨ {!!} ⟩
