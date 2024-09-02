@@ -1098,7 +1098,7 @@ module Veritas where
           (fromℕ 2 ^ ½) * (fromℕ 2 ^ ½) ≈⟨ _≈_.r≈r ⟩
           _ ≈⟨ [r^s]*[r^t]≈r^[s+t] (fromℕ 2) ½ ½ ⟩
           fromℕ 2 ^ (½ + ½) ≈⟨ _≈_.r≈r ⟩
-          _ ≈⟨ ½+½≈1 ▹ r^s≈r^s' (fromℕ 2) {½ + ½} {fromℕ 1} ⟩
+          _ ≈⟨ ½+½≈1 ▹ r^s≈r^s' (fromℕ 2) {½ + ½} ⟩
           fromℕ 2 ^ fromℕ 1 ≈⟨ r≈r^1 (fromℕ 2) ▹ _≈_.≈⇒≈⍨ ⟩
           fromℕ 2 ∎
           where
