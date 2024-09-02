@@ -1087,7 +1087,7 @@ module Veritas where
                   (Irrational r × Irrational s) × Rational (r * s))
     ∃[R[I*I]] = (√2 , _) , ((λ x → x , x) {!!}) , R
       where
-      ½ = frinu (fromℕ 1) (fromℕ 2) (Fromℕ.fromℕ[s]≉0 1)
+      ½ = frinu (fromℕ 1) (fromℕ 2) $ Fromℕ.fromℕ[s]≉0 1
       √2 = fromℕ 2 ^ ½
       R = R[r]∧r≈s⇒R[s] (Fromℕ.fromℕ-Rational 2) d
         where
