@@ -1117,7 +1117,7 @@ module Veritas where
           ½+½≈1 = begin
             ½ + ½ ≈⟨ _≈_.r≈r ⟩
             (λ x → x + x) ½ ≈⟨ _≈_.r≈r ⟩
-            (λ x → x + x) (f $ fromℕ 1) ≈⟨ {!!} ⟩
+            (λ x → x + x) (f $ fromℕ 1) ≈⟨ r/t+s/t≈[r+s]/t {r = fromℕ 1} {s = fromℕ 1} $ Fromℕ.fromℕ[s]≉0 1 ⟩
             f (fromℕ 1 + fromℕ 1) ≈⟨ {!!} ▹ r/s≈r'/s {r = fromℕ 1 + fromℕ 1} {r' = fromℕ 2} {s = fromℕ 2} (Fromℕ.fromℕ[s]≉0 1) ⟩
             f (fromℕ 2) ≈⟨ r/r≈1 (fromℕ 2) $ Fromℕ.fromℕ[s]≉0 1 ⟩
             fromℕ 1 ∎
@@ -1130,6 +1130,12 @@ module Veritas where
                      → r ≈ r'
                      → frinu r s N ≈ frinu r' s N
             r/s≈r'/s = {!!}
+            r/t+s/t≈[r+s]/t : {r s t : ℝ}
+                            → (N : _)
+                            → (_≈_
+                                (frinu r t N + frinu s t N)
+                                (frinu (r + s) t N))
+            r/t+s/t≈[r+s]/t = {!!}
 
     r*s≈r'*s' : Algebra.Congruent₂ _≈_ _*_
     r*s≈r'*s' = {!!}
