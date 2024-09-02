@@ -1098,18 +1098,18 @@ module Veritas where
           (fromℕ 2 ^ ½) * (fromℕ 2 ^ ½) ≈⟨ _≈_.r≈r ⟩
           _ ≈⟨ [r^s]*[r^t]≈r^[s+t] (fromℕ 2) ½ ½ ⟩
           fromℕ 2 ^ (½ + ½) ≈⟨ _≈_.r≈r ⟩
-          _ ≈⟨ ½+½≈1 ▹ s≈s'⇒r^s≈r^s' (fromℕ 2) {½ + ½} {fromℕ 1} ⟩
+          _ ≈⟨ ½+½≈1 ▹ r^s≈r^s' (fromℕ 2) {½ + ½} {fromℕ 1} ⟩
           fromℕ 2 ^ fromℕ 1 ≈⟨ r≈r^1 (fromℕ 2) ▹ _≈_.≈⇒≈⍨ ⟩
           fromℕ 2 ∎
           where
           open import Relation.Binary.Reasoning.Setoid _≈_.setoid
           r≈r^1 : (r : ℝ) → r ≈ (r ^ fromℕ 1)
           r≈r^1 = {!!}
-          s≈s'⇒r^s≈r^s' : (r : ℝ)
-                        → {s s' : ℝ}
-                        → s ≈ s'
-                        → (r ^ s) ≈ (r ^ s')
-          s≈s'⇒r^s≈r^s' = {!!}
+          r^s≈r^s' : (r : ℝ)
+                   → {s s' : ℝ}
+                   → s ≈ s'
+                   → (r ^ s) ≈ (r ^ s')
+          r^s≈r^s' = {!!}
           [r^s]*[r^t]≈r^[s+t] : (r s t : ℝ)
                               → ((r ^ s) * (r ^ t)) ≈ (r ^ (s + t))
           [r^s]*[r^t]≈r^[s+t] = {!!}
