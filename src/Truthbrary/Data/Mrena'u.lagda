@@ -1116,7 +1116,7 @@ module Veritas where
           ½+½≈1 : (½ + ½) ≈ fromℕ 1
           ½+½≈1 = begin
             ½ + ½ ≈⟨ _≈_.r≈r ⟩
-            (λ x → x + x) ½ ≈⟨ {!!} ⟩
+            (λ x → x + x) ½ ≈⟨ _≈_.r≈r ⟩
             (λ x → x + x) (f $ fromℕ 1) ≈⟨ {!!} ⟩
             f (fromℕ 1 + fromℕ 1) ≈⟨ {!!} ⟩
             f (fromℕ 2) ≈⟨ r/r≈1 (fromℕ 2) $ Fromℕ.fromℕ[s]≉0 1 ⟩
