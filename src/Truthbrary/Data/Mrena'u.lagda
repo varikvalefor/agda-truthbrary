@@ -999,7 +999,7 @@ module Veritas where
     r>r-s : (r s : ℝ) → s > fromℕ 0 → r > (r - s)
     r>r-s = {!!}
 
-    r≥r-s : (r s : ℝ) → s ≥ fromℕ 0 → r ≥ (r - s)
+    r≥r-s : (r : ℝ) → _≥ fromℕ 0 ⊆′ r ≥_ ∘ r -_
     r≥r-s r s = _⊎_.map (r≈r-0 r s) $ r>r-s r s
 
     ∃R[I-I] : (Σ.Σ
