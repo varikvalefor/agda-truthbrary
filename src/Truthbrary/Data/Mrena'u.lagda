@@ -996,7 +996,7 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       open _+_ using (r+s≈r+s')
 
-    r>r-s : (r s : ℝ) → s > fromℕ 0 → r > (r - s)
+    r>r-s : (r : ℝ) → _> fromℕ 0 ⊆′ r >_ ∘ r -_
     r>r-s = {!!}
 
     r≥r-s : (r : ℝ) → _≥ fromℕ 0 ⊆′ r ≥_ ∘ r -_
