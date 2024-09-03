@@ -1015,7 +1015,7 @@ module Veritas where
       R = R[r]⇒R[r'] (ℚ.0ℚ , {!!}) $ 0≈r-r i
         where
         R[r]⇒R[r'] : {r r' : ℝ} → Rational r → r ≈ r' → Rational r'
-        R[r]⇒R[r'] = {!!}
+        R[r]⇒R[r'] = λ (k , d) rd → {!!} , {!!}
 
     I[I-R] : (r s : ℝ) → Irrational r → Rational s → Irrational $ r - s
     I[I-R] r s IR = _+_.I[I+R] IR ∘ ¯_.R[¯R]
