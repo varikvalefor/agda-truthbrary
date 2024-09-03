@@ -1008,7 +1008,7 @@ module Veritas where
                    (_×_
                      (Irrational r × Irrational s)
                      (Rational $ r - s))))
-    ∃R[I-I] = (i , i) , (λ x → x , x) I , R
+    ∃R[I-I] = (i , i) , (I , I) , R
       where
       i = {!!}
       I = {!!}
