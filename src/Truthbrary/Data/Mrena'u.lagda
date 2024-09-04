@@ -1089,7 +1089,7 @@ module Veritas where
 
     ∃[R[I*I]] : (Σ.Σ (_ × _) $ λ (r , s) →
                   (Irrational r × Irrational s) × Rational (r * s))
-    ∃[R[I*I]] = (√2 , _) , ((λ x → x , x) {!!}) , R
+    ∃[R[I*I]] = (√2 , _) , (λ x → x , x) {!!} , R
       where
       ½ = frinu (fromℕ 1) (fromℕ 2) $ Fromℕ.fromℕ[s]≉0 1
       √2 = fromℕ 2 ^ ½
