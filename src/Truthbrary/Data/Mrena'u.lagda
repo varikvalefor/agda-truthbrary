@@ -1015,7 +1015,7 @@ module Veritas where
       R = R[r]⇒R[r'] (ℚ.0ℚ , d) $ 0≈r-r i
         where
         R[r]⇒R[r'] : {r r' : ℝ} → Rational r → r ≈ r' → Rational r'
-        R[r]⇒R[r'] (k , d) rd = k , {!!}
+        R[r]⇒R[r'] (k , d) rd = k , _≈_.≈∧≈⇒≈ (_≈_.≈⇒≈⍨ rd) d
         d : fromℕ 0 ≈ fromℚ ℚ.0ℚ
         d = {!!}
 
