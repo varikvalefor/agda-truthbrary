@@ -1074,7 +1074,7 @@ module Veritas where
 
     r*s>r : (r s : ℝ)
           → r > fromℕ 0
-          → s > fromℕ 0
+          → s > fromℕ 1
           → (r * s) > r
     r*s>r = {!!}
 
