@@ -1072,10 +1072,7 @@ module Veritas where
                    (signℤ r ℤ.*_ $ ℤ.+_ $ 𝔽.toℕ $ ⌊'⁻¹ r 0))))
     r*10≈_ = {!!}
 
-    r*s>r : (r s : ℝ)
-          → r > fromℕ 0
-          → s > fromℕ 1
-          → (r * s) > r
+    r*s>r : (r s : ℝ) → r > fromℕ 0 → s > fromℕ 1 → (r * s) > r
     r*s>r = {!!}
 
     r>r*s : (r s : ℝ) → r > fromℕ 0 → ∣ s ∣ < fromℕ 1 → r > (r * s)
