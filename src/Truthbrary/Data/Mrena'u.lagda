@@ -1755,6 +1755,13 @@ module Veritas where
     ∣_∣≈∣_∣∘∣_∣ : Algebra.IdempotentFun _≈_ ∣_∣
     ∣_∣≈∣_∣∘∣_∣ = _≈_.≡⇒≈ ∘ ∣_∣≡∣_∣∘∣_∣
 
+    r≈s⇒r'≈s' : {r s r' s' : ℝ}
+              → r ≈ s
+              → r ≈ r'
+              → s ≈ s'
+              → r' ≈ s'
+    r≈s⇒r'≈s' = {!!}
+
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
     ≈⇒∣_∣≈ {r} {s} = SignV.jonis {P₁ = _≈ s} f₁ f₂ r
       where
