@@ -1716,6 +1716,9 @@ module Veritas where
     ℤ≥ : ℤ._≥_ ⇒ (_≥_ on fromℤ)
     ℤ≥ = {!!}
 
+    ℚ≥ : ℚ._≥_ ⇒ (_≥_ on fromℚ)
+    ℚ≥ = {!!}
+
     jonais : (r s : ℝ) → (r ≥ s) ⊎ (r < s)
     jonais r s with _>_.jonais r s
     ... | inj₁ z = inj₁ $ >⇒≥ z
