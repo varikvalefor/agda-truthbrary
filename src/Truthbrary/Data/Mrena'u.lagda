@@ -1929,7 +1929,26 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       ≤⇒1 : (r s : ℝ) → r ≤ s → r ≈ (r ⊓ s)
-      ≤⇒1 r s = _⊎_.[_,_] (≈⇒1 ∘ _≈_.≈⇒≈⍨) $ _≈_.≡⇒≈ ∘ <⇒1 r s
+      ≤⇒1 = _⊎_.[_,_] (≈⇒1 ∘ _≈_.≈⇒≈⍨) ∘₂ _≈_.≡⇒≈ ∘₃ <⇒1
+        where
+        _∘₃_ : ∀ {a₁ a₂ a₃ b c}
+             → {A₁ : Set a₁}
+             → {A₂ : A₁ → Set a₂}
+             → {A₃ : {x : A₁} → A₂ x → Set a₃}
+             → {B : (x₁ : A₁) → (x₂ : A₂ x₁) → A₃ x₂ → Set b}
+             → {C : {x₁ : A₁} → {x₂ : A₂ x₁} → {x₃ : A₃ x₂}
+                  → B x₁ x₂ x₃
+                  → Set c}
+             → (g : {x₁ : A₁} → {x₂ : A₂ x₁} → {x₃ : A₃ x₂}
+                  → (z : B x₁ x₂ x₃)
+                  → C z)
+             → (f : (x₁ : A₁) → (x₂ : A₂ x₁) → (x₃ : A₃ x₂) → B x₁ x₂ x₃)
+             → (x₁ : A₁)
+             → (x₂ : A₂ x₁)
+             → (x₃ : A₃ x₂)
+             → C $ f x₁ x₂ x₃
+        _∘₃_ = {!!}
+
     ... | inj₂ m = _≈_.≡⇒≈ $ begin
       r ⊓ s ≡⟨ <⇒1 r s m ▹ sym ⟩
       r ≡⟨ ≥⇒2 {s} $ _≥_.>⇒≥ m ⟩
