@@ -301,6 +301,29 @@ _ˢ₂_ : ∀ {a b c d}
 _ˢ₂_ g f x = g x ˢ f x
 \end{code}
 
+\subsection{la'o zoi.\ \F{\AdgaUnderscore{}∘₃\AgdaUnderscore}\ .zoi.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi bau la .lojban.
+
+\begin{code}
+_∘₃_ : ∀ {a₁ a₂ a₃ b c}
+     → {A₁ : Set a₁}
+     → {A₂ : A₁ → Set a₂}
+     → {A₃ : {x : A₁} → A₂ x → Set a₃}
+     → {B : (x₁ : A₁) → (x₂ : A₂ x₁) → A₃ x₂ → Set b}
+     → {C : {x₁ : A₁} → {x₂ : A₂ x₁} → {x₃ : A₃ x₂}
+          → B x₁ x₂ x₃
+          → Set c}
+     → (g : {x₁ : A₁} → {x₂ : A₂ x₁} → {x₃ : A₃ x₂}
+          → (z : B x₁ x₂ x₃)
+          → C z)
+     → (f : (x₁ : A₁) → (x₂ : A₂ x₁) → (x₃ : A₃ x₂) → B x₁ x₂ x₃)
+     → (x₁ : A₁)
+     → (x₂ : A₂ x₁)
+     → (x₃ : A₃ x₂)
+     → C $ f x₁ x₂ x₃
+_∘₃_ = {!!}
+\end{code}
+
 \section{la'oi .\F ℝ.}
 ni'o ro da zo'u da mrena'u jo cu ctaipe la'oi .\F ℝ.  .i la'o zoi.\ \IC{\AgdaUnderscore{},\AgdaUnderscore} \B s \Sym(\IC{\AgdaUnderscore{},\AgdaUnderscore{}}\B a \B b\Sym)\ .zoi.\ poi ke'a ctaipe la'oi .\F ℝ.\ cu pilji lo sumji be la'oi .\B a.\ bei lo mu'oi glibau.\ decimal expansion .glibau.\ namcu be la'oi .\B b.\ zo'e poi ga jonai ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.+}\ .zoi.\ gi ke'a du li pa gi ga je la'oi .\B s.\ du la'o zoi.\ \IC{Sign.-}\ .zoi.\ gi ke'a du li ni'u pa  .i ga jo la'oi .\F ℝ.\ se ctaipe ko'a goi la'o zoi.\ \AgdaUnderscore{} \AgdaOperator{\IC,} \Sym(\AgdaUnderscore{} \AgdaOperator{\IC,} \B f\Sym)\ .zoi.\ gi la'o zoi.\ \B f \B n\ .zoi.\ meirmoi la'oi .\B n.\ fo lo'i me'oi .digit.\ be lo cmalu pagbu be lo mu'oi glibau.\ decimal expansion .glibau.\ be ko'a
 
@@ -1930,24 +1953,6 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       ≤⇒1 : (r s : ℝ) → r ≤ s → r ≈ (r ⊓ s)
       ≤⇒1 = _⊎_.[_,_] (≈⇒1 ∘ _≈_.≈⇒≈⍨) ∘₂ _≈_.≡⇒≈ ∘₃ <⇒1
-        where
-        _∘₃_ : ∀ {a₁ a₂ a₃ b c}
-             → {A₁ : Set a₁}
-             → {A₂ : A₁ → Set a₂}
-             → {A₃ : {x : A₁} → A₂ x → Set a₃}
-             → {B : (x₁ : A₁) → (x₂ : A₂ x₁) → A₃ x₂ → Set b}
-             → {C : {x₁ : A₁} → {x₂ : A₂ x₁} → {x₃ : A₃ x₂}
-                  → B x₁ x₂ x₃
-                  → Set c}
-             → (g : {x₁ : A₁} → {x₂ : A₂ x₁} → {x₃ : A₃ x₂}
-                  → (z : B x₁ x₂ x₃)
-                  → C z)
-             → (f : (x₁ : A₁) → (x₂ : A₂ x₁) → (x₃ : A₃ x₂) → B x₁ x₂ x₃)
-             → (x₁ : A₁)
-             → (x₂ : A₂ x₁)
-             → (x₃ : A₃ x₂)
-             → C $ f x₁ x₂ x₃
-        _∘₃_ = {!!}
     ... | inj₂ m = _≈_.≡⇒≈ $ begin
       r ⊓ s ≡⟨ <⇒1 r s m ▹ sym ⟩
       r ≡⟨ ≥⇒2 {s} $ _≥_.>⇒≥ m ⟩
