@@ -321,7 +321,7 @@ _∘₃_ : ∀ {a₁ a₂ a₃ b c}
      → (x₂ : A₂ x₁)
      → (x₃ : A₃ x₂)
      → C $ f x₁ x₂ x₃
-_∘₃_ = λ g f x₁ → g ∘₂ f x₁
+_∘₃_ g f x₁ = g ∘₂ f x₁
 \end{code}
 
 \section{la'oi .\F ℝ.}
