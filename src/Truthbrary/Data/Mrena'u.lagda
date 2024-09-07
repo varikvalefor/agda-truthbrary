@@ -506,10 +506,10 @@ module FromℚI where
     N ()
 
 fromℚ : ℚ → ℝ
-fromℚ (ℚ.mkℚ a b N) = frinu (fromℤ a) 1+b $ fromℕ[s]≉0 b
+fromℚ k = frinu (fromℤ $ ℚ.numerator k) 1+b $ fromℕ[s]≉0 _
   where
   open FromℚI
-  1+b = fromℕ $ ℕ.suc b
+  1+b = fromℤ $ ℚ.denominator k
 \end{code}
 
 \section{la'oi .\F{Rational}.}
