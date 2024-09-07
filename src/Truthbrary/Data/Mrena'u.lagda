@@ -1760,7 +1760,7 @@ module Veritas where
               → r ≈ r'
               → s ≈ s'
               → r' ≈ s'
-    r≈s⇒r'≈s' = λ r≈s r≈r' s≈s' →
+    r≈s⇒r'≈s' r≈s r≈r' s≈s' =
       _⍨ _≈_.≈∧≈⇒≈ s≈s' $ _⍨ _≈_.≈∧≈⇒≈ r≈s $ _≈_.≈⇒≈⍨ r≈r'
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
