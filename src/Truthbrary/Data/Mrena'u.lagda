@@ -1914,6 +1914,9 @@ module Veritas where
     r⊓s≈r'⊓s' : Algebra.Congruent₂ _≈_ _⊓_
     r⊓s≈r'⊓s' = {!!}
 
+    r⊓s≈r'⊓s : {r r' s : ℝ} → r ≈ r' → (r ⊓ s) ≈ (r' ⊓ s)
+    r⊓s≈r'⊓s = {!!}
+
     ⊓≈⊓⍨ : Commutative _≈_ _⊓_
     ⊓≈⊓⍨ r s with _≥_.jonais r s
     ... | inj₁ djm = begin
