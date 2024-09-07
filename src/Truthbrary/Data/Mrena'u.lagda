@@ -1760,7 +1760,10 @@ module Veritas where
               → r ≈ r'
               → s ≈ s'
               → r' ≈ s'
-    r≈s⇒r'≈s' = {!!}
+    r≈s⇒r'≈s' = λ r≈s r≈r' s≈s' →
+      (_≈_.≈∧≈⇒≈
+        (_≈_.≈∧≈⇒≈ (_≈_.≈⇒≈⍨ r≈r') r≈s)
+        s≈s')
 
     ≈⇒∣_∣≈ : Algebra.Congruent₁ _≈_ ∣_∣
     ≈⇒∣_∣≈ {r} {s} = SignV.jonis {P₁ = _≈ s} f₁ f₂ r
