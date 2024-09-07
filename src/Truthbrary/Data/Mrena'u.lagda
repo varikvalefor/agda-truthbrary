@@ -1948,7 +1948,6 @@ module Veritas where
              → (x₃ : A₃ x₂)
              → C $ f x₁ x₂ x₃
         _∘₃_ = {!!}
-
     ... | inj₂ m = _≈_.≡⇒≈ $ begin
       r ⊓ s ≡⟨ <⇒1 r s m ▹ sym ⟩
       r ≡⟨ ≥⇒2 {s} $ _≥_.>⇒≥ m ⟩
