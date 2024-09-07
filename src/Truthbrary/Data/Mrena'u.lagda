@@ -1805,6 +1805,7 @@ module Veritas where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
     ∣fromℚ[k]∣≈fromℚ[∣k∣] k@(ℚ.mkℚ (ℤ.negsuc m) n c) = begin
       ∣ fromℚ k ∣ ≈⟨ {!!} ⟩
+      ∣ fromℚ $ ℚ.mkℚ (ℤ.negsuc m) n c ∣ ≈⟨ {!!} ⟩
       fromℚ ℚ.∣ k ∣ ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
