@@ -1510,11 +1510,12 @@ module Veritas where
         fromℤ-fromℚ z = sym $ begin
           fromℚ (ℚ.fromℤ z) ≡⟨ refl ⟩
           fromℚ (ℚ.mkℚ z 0 C) ≡⟨ {!!} ⟩
-          frinu (fromℤ z) (fromℕ $ ℕ.suc 0) (Fromℕ.fromℕ[s]≉0 _) ≡⟨ {!!} ⟩
+          frinu (fromℤ z) (fromℕ $ ℕ.suc 0) (1≉0) ≡⟨ {!!} ⟩
           fromℤ z ∎
           where
           open ≡-Reasoning
           C = Coprime.sym $ Coprime.1-coprimeTo _
+          1≉0 = Fromℕ.fromℕ[s]≉0 _
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     R[ℤ^ℤ] : (x z : ℤ) → Rational $ fromℤ x ^ fromℤ z
