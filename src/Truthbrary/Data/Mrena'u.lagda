@@ -1507,7 +1507,7 @@ module Veritas where
         fromℚ (ℚ.fromℤ $ ℤ.+ (m ℕ.^ n)) ∎
         where
         fromℤ-fromℚ : fromℤ ≗ fromℚ ∘ ℚ.fromℤ
-        fromℤ-fromℚ = λ z → sym $ begin
+        fromℤ-fromℚ z = sym $ begin
           fromℚ (ℚ.fromℤ z) ≡⟨ {!!} ⟩
           fromℤ z ∎
           where
