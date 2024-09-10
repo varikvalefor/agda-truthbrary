@@ -1506,9 +1506,13 @@ module Veritas where
         fromℤ (ℤ.+ (m ℕ.^ n)) ≈⟨ fromℤ-fromℚ _ ▹ _≈_.≡⇒≈ ⟩
         fromℚ (ℚ.fromℤ $ ℤ.+ (m ℕ.^ n)) ∎
         where
-        open import Relation.Binary.Reasoning.Setoid _≈_.setoid
         fromℤ-fromℚ : fromℤ ≗ fromℚ ∘ ℚ.fromℤ
-        fromℤ-fromℚ = {!!}
+        fromℤ-fromℚ = λ z → begin
+          fromℤ z ≡⟨ {!!} ⟩
+          fromℚ (ℚ.fromℤ z) ∎
+          where
+          open ≡-Reasoning
+        open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     R[ℤ^ℤ] : (x z : ℤ) → Rational $ fromℤ x ^ fromℤ z
     R[ℤ^ℤ] = {!!}
