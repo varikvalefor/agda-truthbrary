@@ -1510,7 +1510,7 @@ module Veritas where
         fromℤ-fromℚ z = sym $ begin
           fromℚ (ℚ.fromℤ z) ≡⟨ refl ⟩
           fromℚ (ℚ.mkℚ z 0 C) ≡⟨ {!!} ⟩
-          frinu (fromℤ z) (fromℕ $ ℕ.suc 0) {!!} ≡⟨ {!!} ⟩
+          frinu (fromℤ z) (fromℕ $ ℕ.suc 0) (Fromℕ.fromℕ[s]≉0 _) ≡⟨ {!!} ⟩
           fromℤ z ∎
           where
           open ≡-Reasoning
