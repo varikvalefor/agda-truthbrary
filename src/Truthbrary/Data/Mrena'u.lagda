@@ -1507,9 +1507,9 @@ module Veritas where
         fromℚ (ℚ.fromℤ $ ℤ.+ (m ℕ.^ n)) ∎
         where
         fromℤ-fromℚ : fromℤ ≗ fromℚ ∘ ℚ.fromℤ
-        fromℤ-fromℚ = λ z → begin
-          fromℤ z ≡⟨ {!!} ⟩
-          fromℚ (ℚ.fromℤ z) ∎
+        fromℤ-fromℚ = λ z → sym $ begin
+          fromℚ (ℚ.fromℤ z) ≡⟨ {!!} ⟩
+          fromℤ z ∎
           where
           open ≡-Reasoning
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
