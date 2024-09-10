@@ -1509,6 +1509,7 @@ module Veritas where
         fromℤ-fromℚ : fromℤ ≗ fromℚ ∘ ℚ.fromℤ
         fromℤ-fromℚ z = sym $ begin
           fromℚ (ℚ.fromℤ z) ≡⟨ {!!} ⟩
+          fromℚ (ℚ.mkℚ z 0 (Coprime.sym $ Coprime.1-coprimeTo _)) ≡⟨ {!!} ⟩
           fromℤ z ∎
           where
           open ≡-Reasoning
