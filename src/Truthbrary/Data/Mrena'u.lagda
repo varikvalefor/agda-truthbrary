@@ -284,7 +284,7 @@ import Data.Rational.Literals
 
 \section{le vrici je fancu}
 
-\subsection{la'o zoi.\ \F{\AdgaUnderscore{}ˢ₂\AgdaUnderscore}\ .zoi.}
+\subsection{la'o zoi.\ \F{\AgdaUnderscore{}ˢ₂\AgdaUnderscore}\ .zoi.}
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi bau la .lojban.
 
 \begin{code}
@@ -301,7 +301,7 @@ _ˢ₂_ : ∀ {a b c d}
 _ˢ₂_ g f x = g x ˢ f x
 \end{code}
 
-\subsection{la'o zoi.\ \F{\AdgaUnderscore{}∘₃\AgdaUnderscore}\ .zoi.}
+\subsection{la'o zoi.\ \F{\AgdaUnderscore{}∘₃\AgdaUnderscore}\ .zoi.}
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi bau la .lojban.
 
 \begin{code}
