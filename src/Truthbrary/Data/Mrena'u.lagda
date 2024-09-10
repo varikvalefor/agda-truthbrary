@@ -68,6 +68,7 @@
 \newunicodechar{σ}{\ensuremath{\mathnormal{\sigma}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
+\newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\mathsf{m}}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_\mathsf{s}}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
