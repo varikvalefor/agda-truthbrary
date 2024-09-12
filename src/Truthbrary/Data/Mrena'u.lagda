@@ -1498,7 +1498,7 @@ module Veritas where
     ℕ^ = {!!}
 
     R[ℕ^ℕ] : (m n : ℕ) → Rational $ fromℕ m ^ fromℕ n
-    R[ℕ^ℕ] m n = ℚ.fromℤ (ℤ.+_ $ m ℕ.^ n) , d m n
+    R[ℕ^ℕ] m n = (ℚ.fromℤ ∘₂ ℤ.+_ ∘₂ ℕ._^_) m n , d m n
       where
       d = λ m n → begin
         fromℕ m ^ fromℕ n ≈⟨ ℕ^ m n ⟩
