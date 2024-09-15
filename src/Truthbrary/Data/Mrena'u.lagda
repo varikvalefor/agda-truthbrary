@@ -1885,7 +1885,7 @@ module Veritas where
     I[∣r∣]⇒I[r] : Irrational ∘ ∣_∣ ⊆′ Irrational
     I[∣r∣]⇒I[r] = {!!}
 
-    ∣r∣<s⇒r<s : {r s : ℝ} → ∣ r ∣ < s → r < s
+    ∣r∣<s⇒r<s : (λ r s → ∣ r ∣ < s) ⇒ _<_
     ∣r∣<s⇒r<s = {!!}
 
     r<s⇒∣r∣<s : (r s : ℝ) → r < s → ∣ r ∣ < s
