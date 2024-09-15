@@ -1888,7 +1888,7 @@ module Veritas where
     ∣r∣<s⇒r<s : _<_ ∘ ∣_∣ ⇒ _<_
     ∣r∣<s⇒r<s = {!!}
 
-    r<s⇒∣r∣<s : _<_ ⇒ (λ r → _<_ $ ∣ r ∣)
+    r<s⇒∣r∣<s : _<_ ⇒ (λ r → _<_ $ ∣_∣ r)
     r<s⇒∣r∣<s = {!!}
 \end{code}
 
