@@ -1883,7 +1883,7 @@ module Veritas where
       f₂ I d = subst Irrational {!!} $ ¯_.I[¯I] _ I
 
     I[∣r∣]⇒I[r] : Irrational ∘ ∣_∣ ⊆′ Irrational
-    I[∣r∣]⇒I[r] = {!!}
+    I[∣r∣]⇒I[r] = SignV.jonis {P₁ = (Irrational ∘ ∣_∣)} {P₂ = Irrational} {!!} {!!}
 
     ∣r∣<s⇒r<s : _<_ ∘ ∣_∣ ⇒ _<_
     ∣r∣<s⇒r<s = {!!}
