@@ -1885,7 +1885,7 @@ module Veritas where
     I[∣r∣]⇒I[r] : Irrational ∘ ∣_∣ ⊆′ Irrational
     I[∣r∣]⇒I[r] = jonis {!!} {!!}
       where
-      jonis = SignV.jonis {P₁ = (Irrational ∘ ∣_∣)} {Irrational}
+      jonis = SignV.jonis {P₁ = Irrational ∘ ∣_∣} {Irrational}
 
     ∣r∣<s⇒r<s : _<_ ∘ ∣_∣ ⇒ _<_
     ∣r∣<s⇒r<s = {!!}
