@@ -744,7 +744,7 @@ module Veritas where
 
 \begin{code}
   module Fromℤ where
-    id≡⌊'∘fromℤ : (z : ℤ) → z ≡ ⌊' (fromℤ z)
+    id≡⌊'∘fromℤ : id ≗ (⌊' ∘ fromℤ)
     id≡⌊'∘fromℤ (ℤ.+ _) = refl
     id≡⌊'∘fromℤ ℤ.-[1+ _ ] = refl
 
