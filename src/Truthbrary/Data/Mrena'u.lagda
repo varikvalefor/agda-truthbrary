@@ -395,7 +395,7 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 
 \begin{code}
 ∣⌊' : ℝ → ℕ
-∣⌊' (s , n , f) = n
+∣⌊' (_ , n , _) = n
 \end{code}
 
 \section{la'o zoi.\ \F{⌊'⁻¹}\ .zoi.}
