@@ -818,6 +818,7 @@ module Veritas where
     r≡¯¯r : id ≗ (¯_ ∘ ¯_)
     r≡¯¯r (Sign.+ , n , f) = sym $ begin
       ¯ (¯ (Sign.+ , n , f)) ≡⟨ {!!} ⟩
+      ¯ (Sign.- , n , f) ≡⟨ {!!} ⟩
       (Sign.+ , n , f) ∎
       where
       open ≡-Reasoning
