@@ -390,6 +390,14 @@ ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ bei lo pil
 ⌊' (Sign.- , n , _) = ℤ.- (ℤ.+ n)
 \end{code}
 
+\section{la'o zoi.\ \F{∣⌊'}\ .zoi.}
+ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
+
+\begin{code}
+∣⌊' : ℝ → ℕ
+∣⌊' (s , n , f) = n
+\end{code}
+
 \section{la'o zoi.\ \F{⌊'⁻¹}\ .zoi.}
 ni'o la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'o zoi.\ \F{⌊'⁻¹}\ .zoi.\ be'o je le velcki be la'oi .\F ℝ.
 
