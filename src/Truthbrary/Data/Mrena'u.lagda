@@ -807,10 +807,12 @@ module Veritas where
     r-¯s≈r+s : (r s : ℝ) → (r - (¯ s)) ≈ (r + s)
     r-¯s≈r+s = λ r s → begin
       r - ¯_ s ≈⟨ _≈_.r≈r ⟩
-      r + (¯ ¯_ s) ≈⟨ {!!} ⟩
+      r + (¯ ¯_ s) ≈⟨ r+s≈r+s' r (¯ ¯_ s) s {!!} ⟩
       r + s ∎
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      r+s≈r+s' : (r s s' : ℝ) → s ≈ s' → (r + s) ≈ (r + s')
+      r+s≈r+s' = {!!}
 
     r≈s⇒¯r≈¯s : Algebra.Congruent₁ _≈_ ¯_
     r≈s⇒¯r≈¯s = {!!}
