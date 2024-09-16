@@ -825,7 +825,7 @@ module Veritas where
     R[¯r]⇒R[r] : Rational ∘ ¯_ ⊆′ Rational
     R[¯r]⇒R[r] = {!!}
 
-    I[¯I] : Irrational ⊆′ Irrational ∘ ¯_
+    I[¯I] : Irrational ⊆ Irrational ∘ ¯_
     I[¯I] = {!!}
 
     I[¯r]⇒I[r] : Irrational ∘ ¯_ ⊆′ Irrational
@@ -1046,7 +1046,7 @@ module Veritas where
     I[I-R] r s IR = _+_.I[I+R] IR ∘ ¯_.R[¯R]
 
     I[R-I] : {r s : ℝ} → Rational r → Irrational s → Irrational $ r - s
-    I[R-I] R = _+_.I[R+I] R ∘ ¯_.I[¯I] _
+    I[R-I] R = _+_.I[R+I] R ∘ ¯_.I[¯I]
 
     R[R-R] : (r s : ℝ) → Rational r → Rational s → Rational $ r - s
     R[R-R] r s R = _+_.R[R+R] r _ R ∘ ¯_.R[¯R]
@@ -1881,7 +1881,7 @@ module Veritas where
       f₁ : {r : ℝ} → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
       f₁ I d = subst Irrational (+r≡∣+r∣ _ d) I
       f₂ : {r : ℝ} → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
-      f₂ I d = subst Irrational {!!} $ ¯_.I[¯I] _ I
+      f₂ I d = subst Irrational {!!} $ ¯_.I[¯I] I
 
     I[∣r∣]⇒I[r] : Irrational ∘ ∣_∣ ⊆′ Irrational
     I[∣r∣]⇒I[r] = jonis {!!} {!!}
