@@ -816,7 +816,8 @@ module Veritas where
     r≈s⇒¯r≈¯s = {!!}
 
     r≡¯¯r : id ≗ (¯_ ∘ ¯_)
-    r≡¯¯r = {!!}
+    r≡¯¯r (Sign.+ , n , f) = {!!}
+    r≡¯¯r (Sign.- , n , f) = {!!}
 
     R[¯R] : Rational ⊆ Rational ∘ ¯_
     R[¯R] = {!!}
