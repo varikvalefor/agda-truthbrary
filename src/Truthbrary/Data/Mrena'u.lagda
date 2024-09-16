@@ -395,7 +395,7 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 
 \begin{code}
 ∣⌊' : ℝ → ℕ
-∣⌊' (_ , n , _) = n
+∣⌊' = proj₁ ∘ proj₂
 \end{code}
 
 \section{la'o zoi.\ \F{⌊'⁻¹}\ .zoi.}
