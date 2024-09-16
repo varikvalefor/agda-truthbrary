@@ -1876,7 +1876,7 @@ module Veritas where
         ¯∣¯r∣≡r : (r : ℝ) → sign r ≡ Sign.- → ¯_ ∣ r ∣ ≡ r
         ¯∣¯r∣≡r r d = begin
           ¯ ∣ r ∣ ≡⟨ s[r]≡-⇒¯r≡∣r∣ r d ▹ sym ▹ cong ¯_ ⟩
-          ¯ (¯ r) ≡⟨ ¯_.r≡¯¯r r ▹ sym ⟩
+          ¯ ¯_ r ≡⟨ ¯_.r≡¯¯r r ▹ sym ⟩
           r ∎
           where
           open import Relation.Binary.PropositionalEquality
