@@ -816,7 +816,11 @@ module Veritas where
     r≈s⇒¯r≈¯s = {!!}
 
     r≡¯¯r : id ≗ (¯_ ∘ ¯_)
-    r≡¯¯r (Sign.+ , n , f) = {!!}
+    r≡¯¯r (Sign.+ , n , f) = sym $ begin
+      ¯ (¯ (Sign.+ , n , f)) ≡⟨ {!!} ⟩
+      (Sign.+ , n , f) ∎
+      where
+      open ≡-Reasoning
     r≡¯¯r (Sign.- , n , f) = {!!}
 
     R[¯R] : Rational ⊆ Rational ∘ ¯_
