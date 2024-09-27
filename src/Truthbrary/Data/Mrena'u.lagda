@@ -1587,7 +1587,7 @@ module Veritas where
     ⌊'∘fromℤ = λ {(ℤ.+ z) → refl; ℤ.-[1+ z ] → refl}
 
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
-    ∃f≡ r = ⌊'⁻¹ℝ _ , _+_.r≡⌊'⁻¹r+⌊'r _
+    ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡⌊'⁻¹r+⌊'r _
 
     sign∘fromℤ : ℤ.sign ≗ (sign ∘ fromℤ)
     sign∘fromℤ _ = refl
