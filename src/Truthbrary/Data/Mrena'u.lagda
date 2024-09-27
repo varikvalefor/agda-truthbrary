@@ -1564,6 +1564,7 @@ module Veritas where
 
     rel : (r s : ℝ)
         → ∣ r ∣ < fromℕ 1
+        → ∣ r ∣ > fromℕ 0
         → s > fromℕ 1
         → ∣ r ∣ < ∣ r ^ s ∣
     rel = {!!}
