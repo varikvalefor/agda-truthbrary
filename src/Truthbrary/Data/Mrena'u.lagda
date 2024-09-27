@@ -774,7 +774,7 @@ module Veritas where
         fromℚ (ℚ.fromℤ z) ≈⟨ _≈_.r≈r ⟩
         fromℚ (ℚ.mkℚ z 0 C) ≈⟨ _≈_.r≈r ⟩
         frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r ⟩
-        _ ≈⟨ _≈_.≡⇒≈ $ sym $ r≡r/1 $ fromℤ z ⟩
+        _ ≈⟨ _≈_.≡⇒≈ $ r≡r/1 (fromℤ z) ▹ sym ⟩
         fromℤ z ∎
         where
         C = Coprime.sym $ 1-coprimeTo _
