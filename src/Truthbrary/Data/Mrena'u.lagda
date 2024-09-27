@@ -766,21 +766,21 @@ module Veritas where
     id≡⌊'∘fromℤ (ℤ.+ _) = refl
     id≡⌊'∘fromℤ ℤ.-[1+ _ ] = refl
 
+    fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℚ.fromℤ z)
+    fromℤ≈fromℚ∘ℤ→ℚ z = _≈_.≈⇒≈⍨ $ begin
+      fromℚ (ℚ.fromℤ z) ≈⟨ _≈_.r≈r ⟩
+      fromℚ (ℚ.mkℚ z 0 C) ≈⟨ _≈_.r≈r ⟩
+      frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r ⟩
+      _ ≈⟨ r≡r/1 _ ▹ sym ▹ _≈_.≡⇒≈ ⟩
+      fromℤ z ∎
+      where
+      C = Coprime.sym $ 1-coprimeTo _
+      open import Relation.Binary.Reasoning.Setoid _≈_.setoid
+      r≡r/1 : id ≗ (λ r → frinu r _ $ Fromℕ.fromℕ[s]≉0 0)
+      r≡r/1 = {!!}
+
     fromℤ-Rational : Relation.Unary.Universal $ Rational ∘ fromℤ
     fromℤ-Rational z = ℚ.fromℤ z , fromℤ≈fromℚ∘ℤ→ℚ _
-      where
-      fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℚ.fromℤ z)
-      fromℤ≈fromℚ∘ℤ→ℚ z = _≈_.≈⇒≈⍨ $ begin
-        fromℚ (ℚ.fromℤ z) ≈⟨ _≈_.r≈r ⟩
-        fromℚ (ℚ.mkℚ z 0 C) ≈⟨ _≈_.r≈r ⟩
-        frinu (fromℤ z) (fromℕ 1) (Fromℕ.fromℕ[s]≉0 0) ≈⟨ _≈_.r≈r ⟩
-        _ ≈⟨ r≡r/1 _ ▹ sym ▹ _≈_.≡⇒≈ ⟩
-        fromℤ z ∎
-        where
-        C = Coprime.sym $ 1-coprimeTo _
-        open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-        r≡r/1 : id ≗ (λ r → frinu r _ $ Fromℕ.fromℕ[s]≉0 0)
-        r≡r/1 = {!!}
 
     fromℤ≡+fromℕ : (z : ℤ)
                  → ℤ.sign z ≡ Sign.+
