@@ -766,7 +766,7 @@ module Veritas where
     id≡⌊'∘fromℤ (ℤ.+ _) = refl
     id≡⌊'∘fromℤ ℤ.-[1+ _ ] = refl
 
-    fromℤ-Rational : (z : ℤ) → Rational $ fromℤ z
+    fromℤ-Rational : Relation.Unary.Universal $ Rational ∘ fromℤ
     fromℤ-Rational z = ℚ.fromℤ z , fromℤ≈fromℚ∘ℤ→ℚ z
       where
       fromℤ≈fromℚ∘ℤ→ℚ : (z : ℤ) → fromℤ z ≈ fromℚ (ℚ.fromℤ z)
