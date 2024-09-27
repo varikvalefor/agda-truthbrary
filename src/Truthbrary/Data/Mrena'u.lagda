@@ -779,7 +779,7 @@ module Veritas where
         where
         C = Coprime.sym $ 1-coprimeTo _
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
-        r≡r/1 : id ≗ (λ r → frinu r (fromℕ 1) $ Fromℕ.fromℕ[s]≉0 0)
+        r≡r/1 : id ≗ (λ r → frinu r (fromℕ 1) $ Fromℕ.fromℕ[s]≉0 _)
         r≡r/1 = {!!}
 
     fromℤ≡+fromℕ : (z : ℤ)
