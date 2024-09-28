@@ -364,10 +364,7 @@ _≈_ = ⊎/ $ _≡_ 𝕃.∷ {!!}
 ni'o cmavlaka'i co'e  .i la .varik.\ cu pacna lo nu na sarcu fa lo nu vo'a ciksi bau la .lojban.\ fo lo zmadu
 
 \begin{code}
-_≈∘_ : ∀ {a} → {A : Set a}
-     → (A → ℝ)
-     → (A → ℝ)
-     → Set a
+_≈∘_ : ∀ {a} → {A : Set a} → (A → ℝ) → (A → ℝ) → Set a
 _≈∘_ {A = A} g f = (x : A) → g x ≈ f x
 \end{code}
 
