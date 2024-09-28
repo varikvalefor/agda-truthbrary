@@ -360,6 +360,17 @@ _≈_ = ⊎/ $ _≡_ 𝕃.∷ {!!}
   ⊎/ = 𝕃.foldr _-⊎-_ $ λ _ _ → ⊥
 \end{code}
 
+\subsection{la'o zoi.\ \F{\AgdaUnderscore{}≈∘\AgdaUnderscore}\ .zoi.}
+ni'o cmavlaka'i co'e  .i la .varik.\ cu pacna lo nu na sarcu fa lo nu vo'a ciksi bau la .lojban.\ fo lo zmadu
+
+\begin{code}
+_≈∘_ : ∀ {a} → {A : Set a}
+     → (A → ℝ)
+     → (A → ℝ)
+     → Set a
+_≈∘_ {a} {A} g f = ((x : A) → g x ≈ f x)
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
 ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{>} \B b\ .zoi.\ gi la'oi .\B a.\ dubmau la'oi .\B b.
 
