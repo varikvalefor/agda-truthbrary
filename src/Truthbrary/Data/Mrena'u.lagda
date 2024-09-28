@@ -1034,7 +1034,7 @@ module Veritas where
           +≈+⍨
         )
 
-    r≈0-[0-r] : (r : ℝ) → r ≈_ $ (fromℕ 0 -_ ∘ fromℕ 0 -_) r
+    r≈0-[0-r] : (r : ℝ) → id r ≈_ $ (fromℕ 0 -_ ∘ fromℕ 0 -_) r
     r≈0-[0-r] r = _≈_.≈⇒≈⍨ $ begin
       fromℕ 0 - (fromℕ 0 - r) ≈⟨ r≈r ⟩
       _ ≈⟨ -r≈0-r r _ r≈r ▹ r-s≈r-s' {fromℕ 0} ▹ ≈⇒≈⍨ ⟩
