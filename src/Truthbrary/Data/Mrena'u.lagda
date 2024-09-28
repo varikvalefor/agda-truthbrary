@@ -236,6 +236,7 @@ open import Data.Nat.DivMod
   )
 open import Relation.Binary
   using (
+    Antisymmetric;
     Irreflexive;
     Asymmetric;
     Transitive;
@@ -1747,7 +1748,7 @@ module Veritas where
     ≥∧≥⇒≥ : Transitive _≥_
     ≥∧≥⇒≥ = {!!}
 
-    ≥∧≥⍨⇒≈ : Relation.Binary.Antisymmetric _≈_ _≥_
+    ≥∧≥⍨⇒≈ : Antisymmetric _≈_ _≥_
     ≥∧≥⍨⇒≈ = {!!}
 
     ≈⇒≥ : _≈_ ⇒ _≥_
