@@ -1028,11 +1028,7 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
       open _+_
-        using (
-          r+s≈r+s';
-          +-ass;
-          +≈+⍨
-        )
+        using (r+s≈r+s'; +-ass; +≈+⍨)
 
     r≈0-[0-r] : id ≈∘ (fromℕ 0 -_ ∘ fromℕ 0 -_)
     r≈0-[0-r] r = _≈_.≈⇒≈⍨ $ begin
