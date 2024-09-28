@@ -368,7 +368,7 @@ _≈∘_ : ∀ {a} → {A : Set a}
      → (A → ℝ)
      → (A → ℝ)
      → Set a
-_≈∘_ {A = A} g f = ((x : A) → g x ≈ f x)
+_≈∘_ {A = A} g f = (x : A) → g x ≈ f x
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}>\AgdaUnderscore}\ .zoi.}
