@@ -1013,7 +1013,7 @@ module Veritas where
     r-s≈r-s' {r} = r-s≈r'-s' {r} _≈_.r≈r
 
     r-s≈r'-s : {r r' s : ℝ} → r ≈ r' → (r - s) ≈ (r' - s)
-    r-s≈r'-s {s = s} = λ d → r-s≈r'-s' {u = s} d _≈_.r≈r
+    r-s≈r'-s {s = s} d = r-s≈r'-s' {u = s} d _≈_.r≈r
 
     r≈[r-s]+s : (r s : ℝ) → r ≈ (s + (r - s))
     r≈[r-s]+s r s = _≈_.≈⇒≈⍨ $ begin
