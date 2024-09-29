@@ -191,6 +191,7 @@ instance
     deev _ 0 = nothing
     deev a (suc b) = just $ Data.Nat.DivMod._/_ a $ suc b
     [matrix] = 3
+
   ariℤℤ = record {
     _⊔+_ = r;
     _⊔-_ = r;
@@ -222,6 +223,7 @@ instance
       csiz : (False $ ∣b∣ ≟ₙ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
       csiz f (no q) = just $ f $ fromWitnessFalse q
       csiz _ (yes _) = nothing
+
   ariFloatFloat : Arris Float Float
   ariFloatFloat = record {
     _⊔+_ = r;
@@ -248,6 +250,7 @@ instance
     uyn = Data.Float.fromℕ 1
     zir = Data.Float.fromℕ 0
     r = const $ const Float
+
   ariℚᵘℚᵘ : Arris ℚᵘ ℚᵘ
   ariℚᵘℚᵘ = record {
     _⊔+_ = r;
