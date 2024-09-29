@@ -171,8 +171,7 @@ record Show {a} (A : Set a) : Set a
 ni'o ga janai la'o zoi.\ \F{show} \B a .zoi.\ sinxa la'o zoi.\ \B a .zoi.\ gi ga je ctaipe la'o zoi.\ \AgdaRecord{Show} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B A .zoi.
 
 \begin{code}
-show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄
-     → A → String
+show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → String
 show ⦃ boob ⦄ = Show.show boob
 \end{code}
 
