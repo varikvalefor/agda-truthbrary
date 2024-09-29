@@ -110,7 +110,6 @@ open import Data.Integer
     1ℤ;
     ℤ
   )
-import Data.Integer.DivMod
 open import Data.Nat.DivMod
   using (
     _mod_
@@ -119,6 +118,8 @@ open import Relation.Nullary
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
+
+import Data.Integer.DivMod
 \end{code}
 
 \section{la'oi .\AgdaRecord{Arris}.}
