@@ -318,7 +318,7 @@ ni'o la'o zoi.\ B a \OpF / \B b .zoi.\ dilcu la'o zoi.\ \B a .zoi.\ la'o zoi.\ \
 
 \begin{code}
 _/_ : ∀ {a b c} → {A : Set a} → {B : Set b}
-    → ⦃ Q : Arris {a} {b} {c} A B ⦄
+    → ⦃ Q : Arris {_} {b} {c} A B ⦄
     → (x : A) → (y : B) → Arris._⊔/_ Q x y
 _/_ ⦃ Q ⦄ = Arris._/_ Q
 \end{code}
