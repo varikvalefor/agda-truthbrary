@@ -102,6 +102,11 @@ open import Data.Bool
     if_then_else_
   )
 open import Data.Maybe
+  using (
+    nothing;
+    Maybe;
+    just
+  )
 open import Data.Integer
   using (
     0ℤ;
