@@ -102,13 +102,6 @@ open import Data.Bool
     if_then_else_
   )
 open import Data.Maybe
-open import Data.Rational.Unnormalised as ℚᵘ
-  using (
-    1ℚᵘ;
-    0ℚᵘ;
-    mkℚᵘ;
-    ℚᵘ
-  )
 open import Data.Integer
   using (
     0ℤ;
@@ -120,6 +113,13 @@ open import Data.Nat.DivMod
     _mod_
   )
 open import Relation.Nullary
+open import Data.Rational.Unnormalised as ℚᵘ
+  using (
+    1ℚᵘ;
+    0ℚᵘ;
+    mkℚᵘ;
+    ℚᵘ
+  )
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
