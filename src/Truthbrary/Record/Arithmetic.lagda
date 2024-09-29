@@ -129,6 +129,10 @@ open import Data.Rational.Unnormalised
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
+  using (
+    refl;
+    _≡_
+  )
 
 import Data.Integer.DivMod
 \end{code}
