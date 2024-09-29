@@ -113,7 +113,8 @@ open import Data.Nat.DivMod
     _mod_
   )
 open import Relation.Nullary
-open import Data.Rational.Unnormalised as ℚᵘ
+open import Data.Rational.Unnormalised
+  as ℚᵘ
   using (
     1ℚᵘ;
     0ℚᵘ;
