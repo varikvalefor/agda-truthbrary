@@ -242,7 +242,7 @@ instance
   readChar : Read Char
   readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
-    stedu=<< = flip _>>=_ Data.String.head
+    stedu=<< = _>>= Data.String.head
   -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
