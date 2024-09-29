@@ -118,6 +118,12 @@ open import Data.Nat.DivMod
     _mod_
   )
 open import Relation.Nullary
+  using (
+    Dec;
+    yes;
+    ¬_;
+    no
+  )
 open import Data.Rational.Unnormalised
   as ℚᵘ
   using (
