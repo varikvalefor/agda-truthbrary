@@ -138,7 +138,10 @@ ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \AgdaRecord{Arris} \B 
 record Arris {a b c} (A : Set a) (B : Set b) : Set (lsuc $ a ⊔ b ⊔ c)
   where
   field
-    _⊔+_ _⊔-_ _⊔*_ _⊔/_ : A → B → Set c
+    _⊔+_ : A → B → Set c
+    _⊔-_ : A → B → Set c
+    _⊔*_ : A → B → Set c
+    _⊔/_ : A → B → Set c
   FC : (A → B → Set c) → Set (a ⊔ b ⊔ c)
   FC f = (x : A) → (y : B) → f x y
   field
