@@ -303,8 +303,7 @@ instance
   -- be le me'oi .show. co'e pe la'oi .Fin.
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
-  readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
-           → Read $ Maybe A
+  readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄ → Read $ Maybe A
   readMayb {_} {A} = record {readMaybe = Q ∘ toList}
     where
     Q : List Char → Maybe $ Maybe A
