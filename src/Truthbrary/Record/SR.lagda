@@ -92,9 +92,7 @@ open import Data.Bool
   )
 open import Data.Char
   using (
-    Char;
-    toℕ;
-    fromℕ
+    Char
   )
 open import Data.List
   using (
