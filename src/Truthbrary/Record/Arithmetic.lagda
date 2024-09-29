@@ -185,9 +185,9 @@ record Arris {a b c} (A : Set a) (B : Set b) : Set (lsuc $ a ⊔ b ⊔ c)
 \begin{code}
 instance
   ariℕℕ = record {
-    _⊔+_ = r;
-    _⊔-_ = r;
-    _⊔*_ = r;
+    _⊔+_ = Cℕ;
+    _⊔-_ = Cℕ;
+    _⊔*_ = Cℕ;
     _⊔/_ = const $ const $ Maybe ℕ;
     _+_ = Data.Nat._+_;
     _-_ = Data.Nat._∸_;
@@ -206,7 +206,7 @@ instance
     0+0≡0 = refl;
     0-0≡0 = refl}
     where
-    r = const $ const ℕ
+    Cℕ = const $ const ℕ
     deev : ℕ → ℕ → Maybe ℕ
     deev _ 0 = nothing
     deev a (suc b) = just $ Data.Nat.DivMod._/_ a $ suc b
