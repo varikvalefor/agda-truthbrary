@@ -235,13 +235,13 @@ instance
     where
     r = const $ const ℤ
     deev : ℤ → ℤ → Maybe ℤ
-    deev a b = csiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
+    deev a b = cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
       where
       ∣b∣ = Data.Integer.∣ b ∣
       eek0 = ∣b∣ ≟ₙ 0
-      csiz : (False $ ∣b∣ ≟ₙ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
-      csiz f (no q) = just $ f $ fromWitnessFalse q
-      csiz _ (yes _) = nothing
+      cysiz : (False $ ∣b∣ ≟ₙ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
+      cysiz f (no q) = just $ f $ fromWitnessFalse q
+      cysiz _ (yes _) = nothing
 
   ariFloatFloat : Arris Float Float
   ariFloatFloat = record {
