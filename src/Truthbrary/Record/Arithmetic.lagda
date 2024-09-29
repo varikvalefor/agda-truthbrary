@@ -92,6 +92,11 @@ open import Data.Nat
     _≟_ to _≟ₙ_
   )
 open import Function
+  using (
+    const;
+    _∘_;
+    _$_
+  )
 open import Data.Bool
   using (
     if_then_else_
