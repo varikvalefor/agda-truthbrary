@@ -329,7 +329,8 @@ instance
       d5 = apf $ Data.List.drop 5
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄
-          → (A → B) → Maybe B
+          → (A → B)
+          → Maybe B
       inj f = unparens d5 >>= mapₘ f ∘ readMaybe
       inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
 \end{code}
