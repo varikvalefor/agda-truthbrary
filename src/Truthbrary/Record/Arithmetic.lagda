@@ -55,7 +55,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru zo'e poi ke'a jai filri'a tu'a lo namcu
+ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru lo jai be filri'a tu'a lo namcu
 
 .i sa'u nai ru'e ko'a vasru\ldots
 \begin{itemize}
