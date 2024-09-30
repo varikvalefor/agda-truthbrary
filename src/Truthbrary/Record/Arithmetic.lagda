@@ -105,6 +105,7 @@ open import Data.Maybe
     just
   )
 open import Data.Integer
+  as ℤ
   using (
     0ℤ;
     1ℤ;
@@ -218,9 +219,9 @@ instance
     _⊔-_ = r;
     _⊔*_ = r;
     _⊔/_ = const $ const $ Maybe ℤ;
-    _+_ = Data.Integer._+_;
-    _-_ = Data.Integer._-_;
-    _*_ = Data.Integer._*_;
+    _+_ = ℤ._+_;
+    _-_ = ℤ._-_;
+    _*_ = ℤ._*_;
     _/_ = deev;
     uyn₁ = 1ℤ;
     uyn₂ = 1ℤ;
@@ -239,7 +240,7 @@ instance
     deev : ℤ → ℤ → Maybe ℤ
     deev a b = cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
       where
-      ∣b∣ = Data.Integer.∣ b ∣
+      ∣b∣ = ℤ.∣ b ∣
       eek0 = ∣b∣ ≟ₙ 0
       cysiz : (False $ ∣b∣ ≟ₙ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
       cysiz f (no j) = just $ f $ fromWitnessFalse j
@@ -301,7 +302,7 @@ instance
     deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
     deev m n = spit (λ a → ℚᵘ._÷_ m n {a}) $ ∣↥n∣ ≟ₙ 0
       where
-      ∣↥n∣ = Data.Integer.∣ ℚᵘ.↥ n ∣
+      ∣↥n∣ = ℤ.∣ ℚᵘ.↥ n ∣
       spit : (False $ ∣↥n∣ ≟ₙ 0 → ℚᵘ) → Dec $ ∣↥n∣ ≡ 0 → Maybe ℚᵘ
       spit f (no q) = just $ f $ fromWitnessFalse q
       spit _ (yes _) = nothing
