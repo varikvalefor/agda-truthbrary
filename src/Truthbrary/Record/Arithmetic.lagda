@@ -123,9 +123,9 @@ open import Relation.Nullary
 open import Data.Rational.Unnormalised
   as ℚᵘ
   using (
+    mkℚᵘ;
     1ℚᵘ;
     0ℚᵘ;
-    mkℚᵘ;
     ℚᵘ
   )
 open import Relation.Nullary.Decidable
