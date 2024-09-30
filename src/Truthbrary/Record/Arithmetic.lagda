@@ -48,7 +48,7 @@
 
 \newcommand\cmene{Truthbrary.Record.Arithmetic}
 
-\title{la'o zoi.\ \texttt{\cmene} .zoi.}
+\title{la'o zoi.\ \texttt{\cmene}\ .zoi.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
