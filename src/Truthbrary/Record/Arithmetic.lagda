@@ -112,6 +112,7 @@ open import Data.Integer
     ℤ
   )
 open import Data.Nat.DivMod
+  as ℕ
   using (
   )
 open import Relation.Nullary
@@ -212,7 +213,7 @@ instance
     Cℕ = const $ const ℕ
     deev : ℕ → ℕ → Maybe ℕ
     deev _ 0 = nothing
-    deev a (suc b) = just $ Data.Nat.DivMod._/_ a $ suc b
+    deev a (suc b) = just $ ℕ._/_ a $ suc b
 
   ariℤℤ = record {
     _⊔+_ = r;
