@@ -84,6 +84,7 @@ open import Level
     suc to lsuc
   )
 open import Data.Nat
+  as ℕ
   using (
     suc;
     ℕ
@@ -190,9 +191,9 @@ instance
     _⊔-_ = Cℕ;
     _⊔*_ = Cℕ;
     _⊔/_ = const $ const $ Maybe ℕ;
-    _+_ = Data.Nat._+_;
-    _-_ = Data.Nat._∸_;
-    _*_ = Data.Nat._*_;
+    _+_ = ℕ._+_;
+    _-_ = ℕ._∸_;
+    _*_ = ℕ._*_;
     _/_ = deev;
     uyn₁ = 1;
     uyn₂ = 1;
