@@ -213,7 +213,7 @@ instance
     Cℕ = const $ const ℕ
     deev : ℕ → ℕ → Maybe ℕ
     deev _ 0 = nothing
-    deev a (suc b) = just $ ℕ._/_ a $ suc b
+    deev a (suc b) = just $ a ℕ./ suc b
 
   ariℤℤ = record {
     _⊔+_ = r;
