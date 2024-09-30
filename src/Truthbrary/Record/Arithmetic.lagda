@@ -241,7 +241,7 @@ instance
       ∣b∣ = Data.Integer.∣ b ∣
       eek0 = ∣b∣ ≟ₙ 0
       cysiz : (False $ ∣b∣ ≟ₙ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
-      cysiz f (no q) = just $ f $ fromWitnessFalse q
+      cysiz f (no j) = just $ f $ fromWitnessFalse j
       cysiz _ (yes _) = nothing
 
   ariFloatFloat : Arris Float Float
