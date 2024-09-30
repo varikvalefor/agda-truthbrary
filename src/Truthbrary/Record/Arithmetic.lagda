@@ -111,7 +111,6 @@ open import Data.Integer
   )
 open import Data.Nat.DivMod
   using (
-    _mod_
   )
 open import Relation.Nullary
   using (
