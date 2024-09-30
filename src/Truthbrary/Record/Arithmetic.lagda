@@ -97,9 +97,6 @@ open import Function
     _∘_;
     _$_
   )
-open import Data.Bool
-  using (
-  )
 open import Data.Maybe
   using (
     nothing;
