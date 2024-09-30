@@ -338,8 +338,8 @@ ni'o la'o zoi.\ B a \OpF * \B b .zoi.\ pilji la'o zoi.\ \B a .zoi.\ la'o zoi.\ \
 _*_ : ∀ {a b c} → {A : Set a} → {B : Set b}
     → ⦃ Q : Arris {a} {b} {c} A B ⦄
     → (x : A)
-    → (y : B)
-    → Arris._⊔*_ Q x y
+    → (z : B)
+    → Arris._⊔*_ Q x z
 _*_ ⦃ Q ⦄ = Arris._*_ Q
 \end{code}
 
