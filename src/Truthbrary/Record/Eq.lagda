@@ -226,7 +226,7 @@ instance
       -- | .i la .varik. cu jinvi le du'u na xlabebna
       -- fa le versiio be le cmene be'o poi co'e ke'a
       -- pu lo nu gubygau le ctaipe... kei kei jenai
-      -- le du'u le versiio poi tu'a ke'a cabna cu
+      -- le du'u le versiio poi ke'a jai cabna cu
       -- mutce le ka ce'u na xlabebna... kei kei je
       -- ku'i cu nelci le jalge be le nu zo'oi
       -- .messiah. cmene le ctaipe
