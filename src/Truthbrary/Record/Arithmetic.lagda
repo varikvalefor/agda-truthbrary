@@ -159,7 +159,7 @@ ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \AgdaRecord{Arris} \B 
 	\item co'e
 \end{itemize}
 
-.i la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi fo lo lojbo fe zo'e je la'o zoi.\ \AgdaField{Arris.1*1≡1} .zoi.
+.i la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi fo lo lojbo fe zo'e je la'o zoi.\ \AgdaField{Arris.1*1≡1} .zoi.
 
 \begin{code}
 record Arris {a b c} (A : Set a) (B : Set b) : Set (lsuc $ a ⊔ b ⊔ c)
