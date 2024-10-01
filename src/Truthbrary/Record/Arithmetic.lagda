@@ -311,7 +311,9 @@ instance
       where
       ∣↥n∣ = ℤ.∣ ℚᵘ.↥ n ∣
       spit : ∀ {a} → {A : Set a}
-           → (False $ ∣↥n∣ ≟ₙ 0 → A) → Dec $ ∣↥n∣ ≡ 0 → Maybe A
+           → (False $ ∣↥n∣ ≟ₙ 0 → A)
+           → Dec $ ∣↥n∣ ≡ 0
+           → Maybe A
       spit f (no q) = just $ f $ fromWitnessFalse q
       spit _ (yes _) = nothing
 \end{code}
