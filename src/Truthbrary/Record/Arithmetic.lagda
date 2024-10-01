@@ -278,7 +278,7 @@ instance
     where
     uyn = Data.Float.fromℕ 1
     zir = Data.Float.fromℕ 0
-    r = const $ const Float
+    r = λ _ _ → Float
 
   ariℚᵘℚᵘ : Arris ℚᵘ ℚᵘ
   ariℚᵘℚᵘ = record {
