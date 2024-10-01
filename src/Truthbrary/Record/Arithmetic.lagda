@@ -216,7 +216,7 @@ instance
     0+0≡0 = refl;
     0-0≡0 = refl}
     where
-    Cℕ = const $ const ℕ
+    Cℕ = λ _ _ → ℕ
     deev : ℕ → ℕ → Maybe ℕ
     deev _ 0 = nothing
     deev a (suc b) = just $ a ℕ./ suc b
