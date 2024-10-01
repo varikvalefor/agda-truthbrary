@@ -136,6 +136,8 @@ open import Relation.Nullary.Decidable
     False
   )
 open import Relation.Binary.Definitions
+  using (
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     refl;
