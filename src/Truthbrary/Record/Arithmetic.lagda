@@ -131,6 +131,10 @@ open import Data.Rational.Unnormalised
     ℚᵘ
   )
 open import Relation.Nullary.Decidable
+  using (
+    fromWitnessFalse;
+    False
+  )
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
   using (
