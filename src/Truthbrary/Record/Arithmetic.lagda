@@ -307,12 +307,17 @@ instance
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
     deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
-    deev m n = spit (λ a → ℚᵘ._÷_ m n {a}) $ ∣↥n∣ ≟ₙ 0
+    deev m n = spit {P? = _≟ₙ_ ∣↥n∣} (λ a → ℚᵘ._÷_ m n {a}) $ ∣↥n∣ ≟ₙ 0
       where
       ∣↥n∣ = ℤ.∣ ℚᵘ.↥ n ∣
-      spit : ∀ {a} → {A : Set a}
-           → (False $ ∣↥n∣ ≟ₙ 0 → A)
-           → Dec $ ∣↥n∣ ≡ 0
+      spit : ∀ {a b p}
+           → {A : Set a}
+           → {B : Set b}
+           → {P : B → Set p}
+           → {P? : (x : B) → Dec $ P x}
+           → {x : B}
+           → (False $ P? x → A)
+           → Dec $ P x
            → Maybe A
       spit f (no q) = just $ f $ fromWitnessFalse q
       spit _ (yes _) = nothing
