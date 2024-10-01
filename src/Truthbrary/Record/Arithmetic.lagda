@@ -303,7 +303,7 @@ instance
     0+0≡0 = refl;
     0-0≡0 = refl}
     where
-    r = const $ const ℚᵘ
+    r = λ _ _ → ℚᵘ
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
     deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
