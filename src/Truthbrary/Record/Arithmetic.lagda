@@ -310,7 +310,8 @@ instance
     deev m n = spit (λ a → ℚᵘ._÷_ m n {a}) $ ∣↥n∣ ≟ₙ 0
       where
       ∣↥n∣ = ℤ.∣ ℚᵘ.↥ n ∣
-      spit : (False $ ∣↥n∣ ≟ₙ 0 → ℚᵘ) → Dec $ ∣↥n∣ ≡ 0 → Maybe ℚᵘ
+      spit : ∀ {a} → {A : Set a}
+           → (False $ ∣↥n∣ ≟ₙ 0 → A) → Dec $ ∣↥n∣ ≡ 0 → Maybe A
       spit f (no q) = just $ f $ fromWitnessFalse q
       spit _ (yes _) = nothing
 \end{code}
