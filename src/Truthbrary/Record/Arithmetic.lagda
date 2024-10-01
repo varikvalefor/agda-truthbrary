@@ -155,7 +155,7 @@ ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \AgdaRecord{Arris} \B 
 	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore*\AgdaUnderscore} \B a \B x \B y .zoi.\ pilji ko'a ko'e gi
 	\item ga je la'o zoi.\ \AgdaField{Arris.\AgdaUnderscore/\AgdaUnderscore} \B a \B x \B y .zoi.\ dilcu ko'a ko'e gi
 	\item ga je la'o zoi.\ \AgdaField{Arris.uyn₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn*} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.uyn/} \B a \B x \B y .zoi.\ du li pa gi
-	\item je la'o zoi.\ \AgdaField{Arris.zir₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir+} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir-} \B a \B x \B y .zoi.\ du li no gi
+	\item ga je la'o zoi.\ \AgdaField{Arris.zir₁} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir₂} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir+} \B a \B x \B y .zoi.\ je la'o zoi.\ \AgdaField{Arris.zir-} \B a \B x \B y .zoi.\ du li no gi
 	\item co'e
 \end{itemize}
 
