@@ -243,7 +243,7 @@ instance
     0+0≡0 = refl;
     0-0≡0 = refl}
     where
-    r = const $ const ℤ
+    r = λ _ _ → ℤ
     deev : ℤ → ℤ → Maybe ℤ
     deev a b = cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
       where
