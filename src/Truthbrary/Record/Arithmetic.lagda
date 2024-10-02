@@ -332,7 +332,7 @@ _+_ ⦃ Q ⦄ = Arris._+_ Q
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore-\AgdaUnderscore}.}
-ni'o la'o zoi.\ B a \OpF - \B b .zoi.\ vujnu la'oi .\B a.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ B a \OpF - \B b .zoi.\ vujnu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _-_ : ∀ {a b c} → {A : Set a} → {B : Set b}
