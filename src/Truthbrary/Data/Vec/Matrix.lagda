@@ -111,7 +111,7 @@ lookup m n = map (flip lookupᵥ n) m
 ni'o ga jo la'o zoi.\ \F \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} I \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da du lo pilji ja co'e be da bei la'o zoi.\ \B o .zoi.
 
 \begin{code}
-I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
+I : ∀ {a n} → {A : Set a} → A → A → 𝕄 A n n
 I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
