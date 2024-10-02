@@ -108,7 +108,7 @@ ni'o la'o zoi.\
 \end{code}
 
 \section{la'oi .\F{lookup}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ bau la .lojban.
 
 \begin{code}
 lookup : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
