@@ -62,6 +62,14 @@ open import Data.Nat
     _+_
   )
 open import Data.Vec
+  using (
+    replicate;
+    updateAt;
+    allFin;
+    _++_;
+    Vec;
+    map
+  )
   renaming (
     lookup to lookupᵥ
   )
