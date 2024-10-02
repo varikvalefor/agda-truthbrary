@@ -89,9 +89,6 @@ open import Data.Nat
     suc;
     ℕ
   )
-  renaming (
-    _≟_ to _≟ₙ_
-  )
 open import Function
   using (
     _∘_;
@@ -247,8 +244,8 @@ instance
     deev a b = cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
       where
       ∣b∣ = ℤ.∣ b ∣
-      eek0 = ∣b∣ ≟ₙ 0
-      cysiz : (False $ ∣b∣ ≟ₙ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
+      eek0 = ∣b∣ ℕ.≟ 0
+      cysiz : (False $ ∣b∣ ℕ.≟ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
       cysiz f (no j) = just $ f $ fromWitnessFalse j
       cysiz _ (yes _) = nothing
 
@@ -306,7 +303,7 @@ instance
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
     deev : _ → _ → Maybe ℚᵘ
-    deev m n = spit {P? = ∣↥n∣ ≟ₙ_} (λ N → ℚᵘ._÷_ m n {N}) $ ∣↥n∣ ≟ₙ 0
+    deev m n = spit {P? = ∣↥n∣ ℕ.≟_} (λ N → ℚᵘ._÷_ m n {N}) $ ∣↥n∣ ℕ.≟ 0
       where
       ∣↥n∣ = ℤ.∣ ℚᵘ.↥ n ∣
       spit : ∀ {a b p}
