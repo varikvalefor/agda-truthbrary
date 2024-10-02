@@ -81,9 +81,6 @@ open import Function
     _∘_;
     _$_
   )
-open import Algebra.Core
-  using (
-  )
 \end{code}
 
 \section{la'o zoi.\ \F 𝕄\ .zoi.}
