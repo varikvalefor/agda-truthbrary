@@ -124,7 +124,7 @@ I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
-ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ \B a \AgdaOperator{\F ∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
 _∣_ : ∀ {a m n o} → {A : Set a}
