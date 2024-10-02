@@ -128,7 +128,9 @@ ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B 
 
 \begin{code}
 _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
-    → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m + o) n
+    → 𝕄 A m n
+    → 𝕄 A o n
+    → 𝕄 A (m + o) n
 _∣_ a b = map (λ n → lookupᵥ a n ++ lookupᵥ b n) $ allFin _
 \end{code}
 \end{document}
