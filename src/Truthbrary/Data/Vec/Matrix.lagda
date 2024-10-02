@@ -78,7 +78,6 @@ open import Function
     const;
     _∘₂_;
     flip;
-    _∘_;
     _$_
   )
 \end{code}
