@@ -92,7 +92,7 @@ ni'o la'o zoi.\
 	     \Sym(\nacmeimeiPagbu456\Sym) \InductiveOperator ∷
 	     \Sym(\nacmeimeiPagbu789\Sym) \InductiveOperator ∷
 	     \AgdaInductiveConstructor{[]}\Sym)
-.zoi.\ nacmeimei je cu du la'o cmaci.
+.zoi.\ nacmeimei je cu du la'e zoi cmaci.
 \[
 	\begin{bmatrix}
 		1 & 2 & 3 \\
