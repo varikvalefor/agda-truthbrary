@@ -127,7 +127,7 @@ I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
-_∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
+_∣_ : ∀ {a m n o} → {A : Set a}
     → 𝕄 A m n
     → 𝕄 A o n
     → 𝕄 A (m + o) n
