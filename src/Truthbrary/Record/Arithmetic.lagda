@@ -316,7 +316,7 @@ instance
            → Dec $ P x
            → Maybe A
       spit f (no q) = just $ f $ fromWitnessFalse q
-      spit _ (yes _) = nothing
+      spit _ _ = nothing
 \end{code}
 
 \section{la'oi .\F{\AgdaUnderscore+\AgdaUnderscore}.}
