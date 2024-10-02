@@ -58,8 +58,8 @@ open import Data.Fin
   )
 open import Data.Nat
   using (
-    ℕ;
-    _+_
+    _+_;
+    ℕ
   )
 open import Data.Vec
   using (
