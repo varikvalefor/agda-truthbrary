@@ -74,6 +74,13 @@ open import Data.Vec
     lookup to lookupᵥ
   )
 open import Function
+  using (
+    const;
+    _∘₂_;
+    flip;
+    _∘_;
+    _$_
+  )
 open import Algebra.Core
   using (
     Op₂
