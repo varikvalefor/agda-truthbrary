@@ -83,7 +83,6 @@ open import Function
   )
 open import Algebra.Core
   using (
-    Op₂
   )
 \end{code}
 
