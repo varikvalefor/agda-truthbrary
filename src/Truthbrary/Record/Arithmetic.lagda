@@ -306,7 +306,7 @@ instance
     r = λ _ _ → ℚᵘ
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
-    deev : ℚᵘ → ℚᵘ → Maybe ℚᵘ
+    deev : _ → _ → Maybe ℚᵘ
     deev m n = spit {P? = ∣↥n∣ ≟ₙ_} (λ N → ℚᵘ._÷_ m n {N}) $ ∣↥n∣ ≟ₙ 0
       where
       ∣↥n∣ = ℤ.∣ ℚᵘ.↥ n ∣
