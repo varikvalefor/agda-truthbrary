@@ -94,7 +94,6 @@ open import Data.Nat
   )
 open import Function
   using (
-    const;
     _∘_;
     _$_
   )
