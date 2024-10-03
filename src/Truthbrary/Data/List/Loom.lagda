@@ -185,7 +185,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
       → (z : A)
       → l ! n ≡ x
       → (z ∷ l) ! suc n ≡ x
-    p l _ = id
+    p _ _ = id
     i : ∀ {a} → {A : Set a}
       → {l : List A}
       → {m n : Fin $ length l}
