@@ -75,7 +75,7 @@ mindus : {m n : ℕ}
        → (x : m ≡ n)
        → (z : n ≡ m)
        → mink (mink a x) z ≡ a
-mindus a refl refl = refl
+mindus _ refl refl = refl
 \end{code}
 
 \section{la .\F{tomindus}.}
