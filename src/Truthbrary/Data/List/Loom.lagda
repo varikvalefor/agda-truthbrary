@@ -294,7 +294,7 @@ ualdrop : ∀ {a} → {A : Set a}
         → (x : List A)
         → (n : Fin $ length x)
         → (f : A → A)
-        → let n' = ℕ.suc $ Data.Fin.toℕ n in
+        → let n' = suc $ Data.Fin.toℕ n in
           drop n' x ≡ drop n' (proj₁ $ ual x n f)
 ualdrop (_ ∷ _) Fin.zero _ = refl
 ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
