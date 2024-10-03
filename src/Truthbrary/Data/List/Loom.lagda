@@ -161,11 +161,13 @@ lum (x ∷ xs) f (suc n) = begin
 \end{code}
 
 \section{la .\F{ual}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ual}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ual}.\ bau la .lojban.
 
 \begin{code}
 ual : ∀ {a} → {A : Set a}
-    → (l : List A) → (n : Fin $ length l) → (f : A → A)
+    → (l : List A)
+    → (n : Fin $ length l)
+    → (f : A → A)
     → Σ (List A) $ λ l'
       → Σ (length l ≡ length l') $ λ ℓ
       → l' ! mink n ℓ ≡ f (l ! n)
