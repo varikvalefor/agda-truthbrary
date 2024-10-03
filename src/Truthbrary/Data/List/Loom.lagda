@@ -135,7 +135,7 @@ lum (x ∷ xs) f zero = begin
   zil : {m n : ℕ}
       → (x : ℕ.suc m ≡ ℕ.suc n)
       → mink zero x ≡ zero
-  zil refl = refl
+  zil = Truthbrary.Data.Fin.minzero
 lum (x ∷ xs) f (suc n) = begin
   map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
   map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ 𝔦 x xs f $ mink n tryk ⟩
