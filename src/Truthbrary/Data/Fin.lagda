@@ -92,7 +92,7 @@ tomindus _ refl = refl
 \section{la .\F{tondus}.}
 \ckinas{la .\F{tondus}.}
 
-\subsection{lo ka ce'u mapti}
+\subsection{le srana be lo ka ce'u mapti}
 ni'o xu ko'a goi la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \modycme{Data.Nat}\ .zoi.
 
 \begin{code}
