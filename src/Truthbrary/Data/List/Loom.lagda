@@ -50,7 +50,7 @@
 \maketitle
 
 \begin{abstract}
-	\noindent ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru lo velcki be lo ctaipe be lo su'u dunli be'o be'o je lo velcki be lo fancu ja co'e be ko'a goi lo liste bei zo'e ja lo liste poi lo me'oi .\F{length}.\ be ke'a cu du lo me'oi .\F{length}.\ be ko'a je poi su'o da zo'u lo meirmoi be da bei fo ke'a cu frica ja co'e lo meirmoi be da bei fo ko'a
+	\noindent ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru lo velcki be lo ctaipe be lo su'u dunli be'o be'o je lo velcki be lo fancu ja co'e be ko'a goi lo liste bei zo'e ja lo liste poi lo me'oi .\F{length}.\ be ke'a cu me'oi .\F{length}.\ ko'a je poi su'o da zo'u lo meirmoi be da bei fo ke'a cu frica ja co'e lo meirmoi be da bei fo ko'a
 \end{abstract}
 
 \section{le torveki}
