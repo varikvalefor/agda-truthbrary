@@ -54,7 +54,7 @@
 \end{abstract}
 
 \section{le torveki}
-ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulmodis\ .zoi.\ kei je cu curmi lo nu cusku lo se du'u cadga fa lo nu ma kau torveki ko'a
+ni'o la .varik.\ na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulmodis\ .zoi.\ kei je cu curmi lo nu cusku lo se du'u cadga fa lo nu ma kau torveki ko'a
 
 \section{le vrici}
 
