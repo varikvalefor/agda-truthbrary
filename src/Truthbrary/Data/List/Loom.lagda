@@ -203,7 +203,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
 \end{code}
 
 \section{la .\F{ualmap}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmap}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmap}.\ bau la .lojban.
 
 \begin{code}
 ualmap : ∀ {a b} → {A : Set a} → {B : Set b}
