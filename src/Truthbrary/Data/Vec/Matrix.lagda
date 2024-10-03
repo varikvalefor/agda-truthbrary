@@ -25,6 +25,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\IC\AgdaInductiveConstructor
 
 \newcommand\cmene{Truthbrary.Data.Vec.Matrix}
 
@@ -86,14 +87,14 @@ open import Function
 ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.
 
 \subsection{le su'u me'oi .order.}
-\newcommand\InductiveOperator[1]{\AgdaOperator{\AgdaInductiveConstructor{#1}}}
-\newcommand\nacmeimeiPagbu[3]{\AgdaNumber{#1} \InductiveOperator ∷ \AgdaNumber{#2} \InductiveOperator ∷ \AgdaNumber{#3} \InductiveOperator ∷ \AgdaInductiveConstructor{[]}}
+\newcommand\InductiveOperator[1]{\AgdaOperator{\IC{#1}}}
+\newcommand\nacmeimeiPagbu[3]{\AgdaNumber{#1} \InductiveOperator ∷ \AgdaNumber{#2} \InductiveOperator ∷ \AgdaNumber{#3} \InductiveOperator ∷ \IC{[]}}
 ni'o la'o zoi.\
 \F 𝕄 \D ℕ \AgdaNumber 3 \AgdaNumber 3 \AgdaOperator{\F ∋}
 	\Sym(\Sym(\nacmeimeiPagbu123\Sym) \InductiveOperator ∷
 	     \Sym(\nacmeimeiPagbu456\Sym) \InductiveOperator ∷
 	     \Sym(\nacmeimeiPagbu789\Sym) \InductiveOperator ∷
-	     \AgdaInductiveConstructor{[]}\Sym)
+	     \IC{[]}\Sym)
 .zoi.\ nacmeimei je cu du la'e zoi cmaci.
 \[
 	\begin{bmatrix}
