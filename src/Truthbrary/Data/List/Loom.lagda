@@ -38,6 +38,9 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
+% | ni'o la .varik. na morji lo du'u cmene ki'u ma
+%
+% .i ku'i xajmi la .varik.
 \newcommand\kulmodis{\texttt{Truthbrary.Data.List.Loom}}
 
 \title{la'o zoi.\ \kulmodis\ .zoi.}
