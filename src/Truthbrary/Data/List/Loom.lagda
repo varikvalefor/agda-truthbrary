@@ -84,6 +84,15 @@ open import Function
     _$_
   )
 open import Data.List
+  using (
+    length;
+    _++_;
+    List;
+    take;
+    drop;
+    map;
+    _∷_
+  )
   renaming (
     lookup to _!_
   )
