@@ -130,7 +130,10 @@ map f = _=<<_ $ pure ∘ f
 \begin{code}
 map₂ : ∀ {a} → {A B C : Set a}
      → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-     → (A → B → C) → M A → M B → M C
+     → (A → B → C)
+     → M A
+     → M B
+     → M C
 map₂ f a b = a >>= λ a' → map (f a') b
 \end{code}
 
