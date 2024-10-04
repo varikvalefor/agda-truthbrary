@@ -107,7 +107,10 @@ _>=>_ f g = _=<<_ g ∘ f
 \begin{code}
 _<=<_ : ∀ {a} → {A B C : Set a}
       → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-      → (B → M C) → (A → M B) → A → M C
+      → (B → M C)
+      → (A → M B)
+      → A
+      → M C
 _<=<_ = flip _>=>_
 \end{code}
 
