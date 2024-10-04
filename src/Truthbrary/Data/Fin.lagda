@@ -106,8 +106,7 @@ tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 
 \begin{code}
 minzero : {m n : ℕ}
-        → (x : ℕ.suc m ≡ ℕ.suc n)
-        → mink zero x ≡ zero
+        → mink {ℕ.suc m} {ℕ.suc n} zero ≗ (λ _ → zero)
 minzero refl = refl
 \end{code}
 \end{document}
