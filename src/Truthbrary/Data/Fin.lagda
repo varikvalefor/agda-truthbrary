@@ -63,6 +63,12 @@ open import Data.Nat
     ℕ
   )
 open import Relation.Binary.PropositionalEquality
+  using (
+    cong;
+    refl;
+    _≗_;
+    _≡_
+  )
 \end{code}
 
 \section{la .\F{mink}.}
