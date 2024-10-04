@@ -55,6 +55,11 @@ open import Data.Sum
     inj₂
   )
 open import Function
+  using (
+    flip;
+    _∘_;
+    _$_
+  )
 open import Category.Monad
 \end{code}
 
