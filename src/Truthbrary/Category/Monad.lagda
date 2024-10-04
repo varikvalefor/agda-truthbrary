@@ -148,6 +148,6 @@ instance
            → A ⊎ B
            → (B → A ⊎ C)
            → A ⊎ C
-    _>>=⊎_ q f = flip ([_,_] inj₁) q f
+    _>>=⊎_ = flip ([_,_] inj₁)
 \end{code}
 \end{document}
