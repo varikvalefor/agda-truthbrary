@@ -48,6 +48,8 @@ module Truthbrary.Category.Monad where
 
 open import Level
 open import Data.Nat
+  using (
+  )
 open import Data.Sum
   using (
     [_,_];
