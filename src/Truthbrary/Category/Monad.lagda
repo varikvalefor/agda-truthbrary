@@ -145,7 +145,9 @@ instance
   ⊎Monad = record {return = inj₂; _>>=_ = _>>=⊎_}
     where
     _>>=⊎_ : ∀ {a} → {A B C : Set a}
-           → A ⊎ B → (B → A ⊎ C) → A ⊎ C
+           → A ⊎ B
+           → (B → A ⊎ C)
+           → A ⊎ C
     _>>=⊎_ q f = [_,_] inj₁ f q
 \end{code}
 \end{document}
