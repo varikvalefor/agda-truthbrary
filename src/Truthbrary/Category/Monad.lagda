@@ -37,7 +37,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le velcki be le fancu poi tu'a ke'a filri'a tu'a lo me'oi .\F{RawMonad}.
+ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le velcki be le fancu poi ke'a jai filri'a tu'a lo me'oi .\F{RawMonad}.
 
 \section{le vrici}
 
