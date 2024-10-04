@@ -65,7 +65,8 @@ open import Category.Monad
 \begin{code}
 pure : ∀ {a} → {A : Set a}
      → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-     → A → M A
+     → A
+     → M A
 pure ⦃ idiocy ⦄ = RawMonad.pure idiocy
 \end{code}
 
