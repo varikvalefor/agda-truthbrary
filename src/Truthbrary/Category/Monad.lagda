@@ -75,7 +75,9 @@ pure ⦃ idiocy ⦄ = RawMonad.pure idiocy
 \begin{code}
 _>>=_ : ∀ {a} → {A B : Set a}
       → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-      → M A → (A → M B) → M B
+      → M A
+      → (A → M B)
+      → M B
 _>>=_ ⦃ ssmw ⦄ = RawMonad._>>=_ ssmw
 \end{code}
 
