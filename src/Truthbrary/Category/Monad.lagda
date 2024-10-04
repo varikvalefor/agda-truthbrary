@@ -47,6 +47,8 @@ ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le velcki be le fancu poi tu'a ke'a
 module Truthbrary.Category.Monad where
 
 open import Level
+  using (
+  )
 open import Data.Sum
   using (
     [_,_];
