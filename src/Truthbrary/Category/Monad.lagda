@@ -61,6 +61,9 @@ open import Function
     _$_
   )
 open import Category.Monad
+  using (
+    RawMonad
+  )
 \end{code}
 
 \section{la'oi .\F{pure}.}
