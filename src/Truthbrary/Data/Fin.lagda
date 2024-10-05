@@ -31,7 +31,7 @@
 \title{la'o zoi.\ \kulmodis\ .zoi.}
 \author{la .varik.\ .VALefor.}
 
-\newcommand\ckinas[1]{ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi #1\ bau la .lojban.}
+\newcommand\ckinas[1]{ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi #1\ bau la .lojban.}
 
 \begin{document}
 \maketitle
