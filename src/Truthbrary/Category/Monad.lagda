@@ -94,7 +94,9 @@ _>>=_ ⦃ ssmw ⦄ = RawMonad._>>=_ ssmw
 \begin{code}
 _=<<_ : ∀ {a} → {A B : Set a}
       → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-      → (A → M B) → M A → M B
+      → (A → M B)
+      → M A
+      → M B
 _=<<_ = flip _>>=_
 \end{code}
 
