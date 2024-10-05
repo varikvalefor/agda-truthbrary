@@ -124,7 +124,7 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (l : List A)
     → (f : A → B)
     → (n : Fin $ length l)
-    → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
+    → map f l ! mink n (sym $ length-map f l) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
   map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs'! $ zil ℓ ⟩
   map f (x ∷ xs) ! zero ≡⟨⟩
