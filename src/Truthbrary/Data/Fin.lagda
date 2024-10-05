@@ -98,7 +98,7 @@ mindus _ refl refl = refl
 tomindus : {m n : ℕ}
          → (x : Fin m)
          → (d : m ≡ n)
-         → toℕ x ≡ (toℕ ∘ Function.flip mink d) x
+         → toℕ x ≡ toℕ (mink x d)
 tomindus _ refl = refl
 \end{code}
 
