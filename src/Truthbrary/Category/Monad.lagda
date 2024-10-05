@@ -37,7 +37,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le velcki be le fancu poi tu'a ke'a filri'a tu'a lo me'oi .\F{RawMonad}.
+ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le velcki be le fancu poi ke'a jai filri'a tu'a lo me'oi .\AgdaRecord{RawMonad}.
 
 \section{le vrici}
 
@@ -46,8 +46,6 @@ ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le velcki be le fancu poi tu'a ke'a
 
 module Truthbrary.Category.Monad where
 
-open import Level
-open import Data.Nat
 open import Data.Sum
   using (
     [_,_];
@@ -56,7 +54,15 @@ open import Data.Sum
     inj₂
   )
 open import Function
+  using (
+    flip;
+    _∘_;
+    _$_
+  )
 open import Category.Monad
+  using (
+    RawMonad
+  )
 \end{code}
 
 \section{la'oi .\F{pure}.}
@@ -65,7 +71,8 @@ open import Category.Monad
 \begin{code}
 pure : ∀ {a} → {A : Set a}
      → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-     → A → M A
+     → A
+     → M A
 pure ⦃ idiocy ⦄ = RawMonad.pure idiocy
 \end{code}
 
@@ -75,7 +82,9 @@ pure ⦃ idiocy ⦄ = RawMonad.pure idiocy
 \begin{code}
 _>>=_ : ∀ {a} → {A B : Set a}
       → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-      → M A → (A → M B) → M B
+      → M A
+      → (A → M B)
+      → M B
 _>>=_ ⦃ ssmw ⦄ = RawMonad._>>=_ ssmw
 \end{code}
 
@@ -85,7 +94,9 @@ _>>=_ ⦃ ssmw ⦄ = RawMonad._>>=_ ssmw
 \begin{code}
 _=<<_ : ∀ {a} → {A B : Set a}
       → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-      → (A → M B) → M A → M B
+      → (A → M B)
+      → M A
+      → M B
 _=<<_ = flip _>>=_
 \end{code}
 
@@ -95,7 +106,10 @@ _=<<_ = flip _>>=_
 \begin{code}
 _>=>_ : ∀ {a} → {A B C : Set a}
       → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-      → (A → M B) → (B → M C) → A → M C
+      → (A → M B)
+      → (B → M C)
+      → A
+      → M C
 _>=>_ f g = _=<<_ g ∘ f
 \end{code}
 
@@ -105,7 +119,10 @@ _>=>_ f g = _=<<_ g ∘ f
 \begin{code}
 _<=<_ : ∀ {a} → {A B C : Set a}
       → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-      → (B → M C) → (A → M B) → A → M C
+      → (B → M C)
+      → (A → M B)
+      → A
+      → M C
 _<=<_ = flip _>=>_
 \end{code}
 
@@ -115,7 +132,9 @@ _<=<_ = flip _>=>_
 \begin{code}
 map : ∀ {a} → {A B : Set a}
     → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-    → (A → B) → M A → M B
+    → (A → B)
+    → M A
+    → M B
 map f = _=<<_ $ pure ∘ f
 \end{code}
 
@@ -125,7 +144,10 @@ map f = _=<<_ $ pure ∘ f
 \begin{code}
 map₂ : ∀ {a} → {A B C : Set a}
      → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-     → (A → B → C) → M A → M B → M C
+     → (A → B → C)
+     → M A
+     → M B
+     → M C
 map₂ f a b = a >>= λ a' → map (f a') b
 \end{code}
 
@@ -137,7 +159,9 @@ instance
   ⊎Monad = record {return = inj₂; _>>=_ = _>>=⊎_}
     where
     _>>=⊎_ : ∀ {a} → {A B C : Set a}
-           → A ⊎ B → (B → A ⊎ C) → A ⊎ C
-    _>>=⊎_ q f = [_,_] inj₁ f q
+           → A ⊎ B
+           → (B → A ⊎ C)
+           → A ⊎ C
+    _>>=⊎_ = flip ([_,_] inj₁)
 \end{code}
 \end{document}

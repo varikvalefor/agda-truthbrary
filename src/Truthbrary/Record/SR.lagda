@@ -92,9 +92,7 @@ open import Data.Bool
   )
 open import Data.Char
   using (
-    Char;
-    toℕ;
-    fromℕ
+    Char
   )
 open import Data.List
   using (
@@ -173,8 +171,7 @@ record Show {a} (A : Set a) : Set a
 ni'o ga janai la'o zoi.\ \F{show} \B a .zoi.\ sinxa la'o zoi.\ \B a .zoi.\ gi ga je ctaipe la'o zoi.\ \AgdaRecord{Show} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ ctaipe la'o zoi.\ \B A .zoi.
 
 \begin{code}
-show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄
-     → A → String
+show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → String
 show ⦃ boob ⦄ = Show.show boob
 \end{code}
 
@@ -207,7 +204,7 @@ instance
   showSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Show A ⦄ → ⦃ Show B ⦄
           → Show $ A ⊎ B
-  showSum {_} {_} {A} {B} = record {show = stank}
+  showSum {A = A} {B} = record {show = stank}
     where
     stank : A ⊎ B → String
     stank (inj₁ pa) = "inj₁ " ++ parens (show pa)
@@ -245,7 +242,7 @@ instance
   readChar : Read Char
   readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
-    stedu=<< = flip _>>=_ Data.String.head
+    stedu=<< = _>>= Data.String.head
   -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
@@ -306,8 +303,7 @@ instance
   -- be le me'oi .show. co'e pe la'oi .Fin.
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
-  readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
-           → Read $ Maybe A
+  readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄ → Read $ Maybe A
   readMayb {_} {A} = record {readMaybe = Q ∘ toList}
     where
     Q : List Char → Maybe $ Maybe A
@@ -333,7 +329,8 @@ instance
       d5 = apf $ Data.List.drop 5
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄
-          → (A → B) → Maybe B
+          → (A → B)
+          → Maybe B
       inj f = unparens d5 >>= mapₘ f ∘ readMaybe
       inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
 \end{code}

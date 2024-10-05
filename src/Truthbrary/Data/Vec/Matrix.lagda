@@ -25,6 +25,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\IC\AgdaInductiveConstructor
 
 \newcommand\cmene{Truthbrary.Data.Vec.Matrix}
 
@@ -58,17 +59,27 @@ open import Data.Fin
   )
 open import Data.Nat
   using (
-    ℕ;
-    _+_
+    _+_;
+    ℕ
   )
 open import Data.Vec
+  using (
+    replicate;
+    updateAt;
+    allFin;
+    _++_;
+    Vec;
+    map
+  )
   renaming (
     lookup to lookupᵥ
   )
 open import Function
-open import Algebra.Core
   using (
-    Op₂
+    const;
+    _∘₂_;
+    flip;
+    _$_
   )
 \end{code}
 
@@ -76,15 +87,15 @@ open import Algebra.Core
 ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.
 
 \subsection{le su'u me'oi .order.}
-\newcommand\InductiveOperator[1]{\AgdaOperator{\AgdaInductiveConstructor{#1}}}
-\newcommand\nacmeimeiPagbu[3]{\AgdaNumber{#1} \InductiveOperator ∷ \AgdaNumber{#2} \InductiveOperator ∷ \AgdaNumber{#3} \InductiveOperator ∷ \AgdaInductiveConstructor{[]}}
+\newcommand\InductiveOperator[1]{\AgdaOperator{\IC{#1}}}
+\newcommand\nacmeimeiPagbu[3]{\AgdaNumber{#1} \InductiveOperator ∷ \AgdaNumber{#2} \InductiveOperator ∷ \AgdaNumber{#3} \InductiveOperator ∷ \IC{[]}}
 ni'o la'o zoi.\
-\F 𝕄 \D ℕ \AgdaNumber 3 \AgdaNumber 3 \F ∋
+\F 𝕄 \D ℕ \AgdaNumber 3 \AgdaNumber 3 \AgdaOperator{\F ∋}
 	\Sym(\Sym(\nacmeimeiPagbu123\Sym) \InductiveOperator ∷
 	     \Sym(\nacmeimeiPagbu456\Sym) \InductiveOperator ∷
 	     \Sym(\nacmeimeiPagbu789\Sym) \InductiveOperator ∷
-	     \AgdaInductiveConstructor{[]}\Sym)
-.zoi.\ nacmeimei je cu du la'o cmaci.
+	     \IC{[]}\Sym)
+.zoi.\ nacmeimei je cu du la'e zoi cmaci.
 \[
 	\begin{bmatrix}
 		1 & 2 & 3 \\
@@ -100,7 +111,7 @@ ni'o la'o zoi.\
 \end{code}
 
 \section{la'oi .\F{lookup}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ bau la .lojban.
 
 \begin{code}
 lookup : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
@@ -108,19 +119,21 @@ lookup m n = map (flip lookupᵥ n) m
 \end{code}
 
 \section{la'oi .\F I.}
-ni'o ga jo la'o zoi.\ \F \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} I \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da du lo pilji ja co'e be da bei la'o zoi.\ \B o .zoi.
+ni'o ga jo la'o zoi.\ \F I \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da pilji ja co'e da la'o zoi.\ \B o .zoi.
 
 \begin{code}
-I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
+I : ∀ {a n} → {A : Set a} → A → A → 𝕄 A n n
 I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
-ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ \B a \AgdaOperator{\F ∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
-_∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
-    → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m + o) n
+_∣_ : ∀ {a m n o} → {A : Set a}
+    → 𝕄 A m n
+    → 𝕄 A o n
+    → 𝕄 A (m + o) n
 _∣_ a b = map (λ n → lookupᵥ a n ++ lookupᵥ b n) $ allFin _
 \end{code}
 \end{document}

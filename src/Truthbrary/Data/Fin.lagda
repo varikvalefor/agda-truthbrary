@@ -31,13 +31,13 @@
 \title{la'o zoi.\ \kulmodis\ .zoi.}
 \author{la .varik.\ .VALefor.}
 
-\newcommand\ckinas[1]{ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi #1\ bau la .lojban.}
+\newcommand\ckinas[1]{ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi #1\ bau la .lojban.}
 
 \begin{document}
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru le velcki be le fancu ja co'e poi tu'a ke'a filri'a tu'a lo srana be la'o zoi.\ \F{Data.Fin.Fin} .zoi.
+ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru le velcki be le fancu ja co'e poi tu'a ke'a filri'a tu'a lo srana be la'o zoi.\ \D{Data.Fin.Fin} .zoi.
 
 \section{le vrici}
 
@@ -48,14 +48,27 @@ module Truthbrary.Data.Fin where
 
 open import Function
   using (
+    _∘_;
     _$_
   )
 open import Data.Fin
+  using (
+    fromℕ;
+    zero;
+    toℕ;
+    Fin
+  )
 open import Data.Nat
   using (
     ℕ
   )
 open import Relation.Binary.PropositionalEquality
+  using (
+    cong;
+    refl;
+    _≗_;
+    _≡_
+  )
 \end{code}
 
 \section{la .\F{mink}.}
@@ -75,7 +88,7 @@ mindus : {m n : ℕ}
        → (x : m ≡ n)
        → (z : n ≡ m)
        → mink (mink a x) z ≡ a
-mindus a refl refl = refl
+mindus _ refl refl = refl
 \end{code}
 
 \section{la .\F{tomindus}.}
@@ -92,11 +105,11 @@ tomindus _ refl = refl
 \section{la .\F{tondus}.}
 \ckinas{la .\F{tondus}.}
 
-\subsection{lo ka ce'u mapti}
+\subsection{le srana be lo du'u xu kau mapti}
 ni'o xu ko'a goi la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \modycme{Data.Nat}\ .zoi.
 
 \begin{code}
-tondus : (n : ℕ) → toℕ (fromℕ n) ≡ n
+tondus : (n : ℕ) → (toℕ ∘ fromℕ) n ≡ n
 tondus ℕ.zero = refl
 tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 \end{code}
@@ -105,9 +118,7 @@ tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 \ckinas{la .\F{minzero}.}
 
 \begin{code}
-minzero : {m n : ℕ}
-        → (x : ℕ.suc m ≡ ℕ.suc n)
-        → mink zero x ≡ zero
+minzero : {m n : ℕ} → mink {ℕ.suc m} zero ≗ (λ _ → zero {n})
 minzero refl = refl
 \end{code}
 \end{document}

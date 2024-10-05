@@ -38,6 +38,9 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
+% | ni'o la .varik. na morji lo du'u cmene ki'u ma
+%
+% .i ku'i xajmi la .varik.
 \newcommand\kulmodis{\texttt{Truthbrary.Data.List.Loom}}
 
 \title{la'o zoi.\ \kulmodis\ .zoi.}
@@ -47,11 +50,11 @@
 \maketitle
 
 \begin{abstract}
-	\noindent ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru lo velcki be lo ctaipe be lo su'u dunli be'o be'o je lo velcki be lo fancu ja co'e be ko'a goi lo liste bei zo'e ja lo liste poi lo me'oi .\F{length}.\ be ke'a cu du lo me'oi .\F{length}.\ be ko'a je poi su'o da zo'u lo meirmoi be da bei fo ke'a cu frica ja co'e lo meirmoi be da bei fo ko'a
+	\noindent ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru lo velcki be lo ctaipe be lo su'u dunli be'o be'o je lo velcki be lo fancu ja co'e be ko'a goi lo liste bei zo'e ja lo liste poi su'o da zo'u da me'oi .\F{length}.\ ke'a je ko'a je poi su'o da zo'u lo meirmoi be da bei fo ke'a cu co'e ja frica lo meirmoi be da bei fo ko'a
 \end{abstract}
 
 \section{le torveki}
-ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulmodis\ .zoi.\ kei je cu curmi lo nu cusku lo se du'u cadga fa lo nu ma kau torveki ko'a
+ni'o la .varik.\ na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulmodis\ .zoi.\ kei je cu curmi lo nu cusku lo se du'u cadga fa lo nu ma kau torveki ko'a
 
 \section{le vrici}
 
@@ -81,6 +84,15 @@ open import Function
     _$_
   )
 open import Data.List
+  using (
+    length;
+    _++_;
+    List;
+    take;
+    drop;
+    map;
+    _∷_
+  )
   renaming (
     lookup to _!_
   )
@@ -105,25 +117,25 @@ open ≡-Reasoning
 \end{code}
 
 \section{la .\F{lum}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{lum}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{lum}.\ bau la .lojban.
 
 \begin{code}
 lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (l : List A)
     → (f : A → B)
     → (n : Fin $ length l)
-    → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
+    → map f l ! mink n (sym $ length-map f l) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
-  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ zil ℓ ⟩
-  map f (x ∷ xs) ! zero ≡⟨⟩
+  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs'! $ zil ℓ ⟩
+  map f (x ∷ xs) ! zero ≡⟨ refl ⟩
   f x ∎
   where
   ℓ = sym $ length-map f $ x ∷ xs
-  x∷xs! = _!_ $ map f $ x ∷ xs
+  x∷xs'! = _!_ $ map f $ x ∷ xs
   zil : {m n : ℕ}
       → (x : ℕ.suc m ≡ ℕ.suc n)
       → mink zero x ≡ zero
-  zil refl = refl
+  zil = Truthbrary.Data.Fin.minzero
 lum (x ∷ xs) f (suc n) = begin
   map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
   map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ 𝔦 x xs f $ mink n tryk ⟩
@@ -149,11 +161,13 @@ lum (x ∷ xs) f (suc n) = begin
 \end{code}
 
 \section{la .\F{ual}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ual}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ual}.\ bau la .lojban.
 
 \begin{code}
 ual : ∀ {a} → {A : Set a}
-    → (l : List A) → (n : Fin $ length l) → (f : A → A)
+    → (l : List A)
+    → (n : Fin $ length l)
+    → (f : A → A)
     → Σ (List A) $ λ l'
       → Σ (length l ≡ length l') $ λ ℓ
       → l' ! mink n ℓ ≡ f (l ! n)
@@ -171,7 +185,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
       → (z : A)
       → l ! n ≡ x
       → (z ∷ l) ! suc n ≡ x
-    p l z = id
+    p _ _ = id
     i : ∀ {a} → {A : Set a}
       → {l : List A}
       → {m n : Fin $ length l}
@@ -185,13 +199,14 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
       where
       sukmi : {m n : ℕ}
             → (f : Fin m)
-            → (x : m ≡ n)
-            → suc (mink f x) ≡ mink (suc f) (cong ℕ.suc x)
+            → (_≗_
+                (suc ∘ mink f)
+                (mink {n = ℕ.suc n} (suc f) ∘ cong ℕ.suc))
       sukmi f refl = refl
 \end{code}
 
 \section{la .\F{ualmap}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmap}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmap}.\ bau la .lojban.
 
 \begin{code}
 ualmap : ∀ {a b} → {A : Set a} → {B : Set b}
@@ -237,7 +252,7 @@ ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
 \end{code}
 
 \section{la .\F{ualkonk}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualkonk}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualkonk}.\ bau la .lojban.
 
 \begin{code}
 ualkonk : ∀ {a} → {A : Set a}
@@ -280,7 +295,7 @@ ualdrop : ∀ {a} → {A : Set a}
         → (x : List A)
         → (n : Fin $ length x)
         → (f : A → A)
-        → let n' = ℕ.suc $ Data.Fin.toℕ n in
+        → let n' = suc $ Data.Fin.toℕ n in
           drop n' x ≡ drop n' (proj₁ $ ual x n f)
 ualdrop (_ ∷ _) Fin.zero _ = refl
 ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
@@ -360,6 +375,6 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
 mapimplant (_ ∷ _) _ _ zero = refl
 mapimplant (x ∷ xs) z f (suc n) = cong (_∷_ $ f x) mip
   where
-  mip = mapimplant xs z f n
+  mip = mapimplant xs z f _
 \end{code}
 \end{document}
