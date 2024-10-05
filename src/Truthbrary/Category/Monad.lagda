@@ -127,7 +127,9 @@ _<=<_ = flip _>=>_
 \begin{code}
 map : ∀ {a} → {A B : Set a}
     → {M : Set _ → Set _} → ⦃ RawMonad M ⦄
-    → (A → B) → M A → M B
+    → (A → B)
+    → M A
+    → M B
 map f = _=<<_ $ pure ∘ f
 \end{code}
 
