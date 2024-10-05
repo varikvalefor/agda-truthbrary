@@ -87,7 +87,7 @@ mindus : {m n : ℕ}
        → (a : Fin m)
        → (x : m ≡ n)
        → (z : n ≡ m)
-       → Function.flip mink z (Function.flip mink x a) ≡ a
+       → (Function.flip mink z ∘ Function.flip mink x) a ≡ a
 mindus _ refl refl = refl
 \end{code}
 
