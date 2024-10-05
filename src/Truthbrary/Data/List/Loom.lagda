@@ -199,7 +199,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
       where
       sukmi : {m n : ℕ}
             → (f : Fin m)
-            → _≗_ (suc ∘ mink f) (mink {n = ℕ.suc n} (suc f) ∘ cong ℕ.suc)
+            → (suc ∘ mink f) ≗ (mink {n = ℕ.suc n} (suc f) ∘ cong ℕ.suc)
       sukmi f refl = refl
 \end{code}
 
