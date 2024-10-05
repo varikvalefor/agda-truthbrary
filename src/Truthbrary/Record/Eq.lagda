@@ -105,6 +105,12 @@ open import Data.Vec
     [] to []ᵥ
   )
 open import Relation.Nullary
+  using (
+    Dec;
+    yes;
+    no;
+    ¬_
+  )
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
