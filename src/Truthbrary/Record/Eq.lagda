@@ -63,7 +63,6 @@ module Truthbrary.Record.Eq where
 
 import Level
 import Data.Fin
-import Data.Nat
 import Data.Char
 import Data.Float
 import Data.String
@@ -71,6 +70,9 @@ import Data.Maybe.Properties
 import Data.These.Properties
 import Data.Product.Properties
 
+open import Data.Nat
+  using (
+  )
 open import Data.Sum
 open import Function
 open import Data.Bool
