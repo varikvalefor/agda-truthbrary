@@ -32,6 +32,7 @@
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
+\newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -77,6 +78,9 @@ open import Data.Nat
   )
 open import Data.Sum
 open import Function
+  renaming (
+    _|>_ to _▹_
+  )
 open import Data.Bool
   using (
     Bool
@@ -294,7 +298,7 @@ instance
     where
     inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b}
              → {x y : A}
-             → inj₁ x ≡ (inj₁ y |> (A ⊎ B ∋_))
+             → inj₁ x ≡ (inj₁ y ▹ (A ⊎ B ∋_))
              → x ≡ y
     inj₁-inj refl = refl
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
