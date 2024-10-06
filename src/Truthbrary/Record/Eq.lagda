@@ -194,7 +194,8 @@ instance
     leadneck = (_∘ hillbilly)
       where
       hillbilly : ∀ {a} → {A : Set a}
-                → {x y : A} → {xs ys : List A}
+                → {x y : A}
+                → {xs ys : List A}
                 → x ∷ xs ≡ y ∷ ys
                 → x ≡ y
       hillbilly refl = refl
