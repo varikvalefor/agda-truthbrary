@@ -191,7 +191,7 @@ instance
     leadneck : ∀ {a} → {A : Set a}
              → {x y : A} → {xs ys : List A}
              → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
-    leadneck f = f ∘ hillbilly
+    leadneck f = (_∘ hillbilly) f
       where
       hillbilly : ∀ {a} → {A : Set a}
                 → {x y : A} → {xs ys : List A}
