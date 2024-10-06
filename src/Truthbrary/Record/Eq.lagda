@@ -77,6 +77,11 @@ open import Data.Nat
     ℕ
   )
 open import Data.Sum
+  using (
+    inj₂;
+    inj₁;
+    _⊎_
+  )
 open import Function
   renaming (
     _|>_ to _▹_
