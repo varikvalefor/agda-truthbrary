@@ -83,6 +83,12 @@ open import Data.Sum
     _⊎_
   )
 open import Function
+  using (
+    _∘₂_;
+    _∋_;
+    _$_;
+    _∘_
+  )
   renaming (
     _|>_ to _▹_
   )
