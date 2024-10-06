@@ -292,7 +292,8 @@ instance
         → Eq $ A ⊎ B
   EqSum = record {_≟_ = Q}
     where
-    inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : A}
+    inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b}
+             → {x y : A}
              → (A ⊎ B ∋ inj₁ x) ≡ inj₁ y → x ≡ y
     inj₁-inj refl = refl
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
