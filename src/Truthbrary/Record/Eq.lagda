@@ -195,7 +195,8 @@ instance
       where
       hillbilly : ∀ {a} → {A : Set a}
                 → {x y : A} → {xs ys : List A}
-                → x ∷ xs ≡ y ∷ ys → x ≡ y
+                → x ∷ xs ≡ y ∷ ys
+                → x ≡ y
       hillbilly refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
