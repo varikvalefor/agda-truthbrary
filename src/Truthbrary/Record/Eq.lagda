@@ -298,7 +298,7 @@ instance
     where
     inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b}
              → {x y : A}
-             → inj₁ x ≡ (inj₁ y ▹ (A ⊎ B ∋_))
+             → inj₁ x ≡_ $ inj₁ y ▹ (A ⊎ B ∋_)
              → x ≡ y
     inj₁-inj refl = refl
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
