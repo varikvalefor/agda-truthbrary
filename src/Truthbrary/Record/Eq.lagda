@@ -71,6 +71,7 @@ import Data.These.Properties
 import Data.Product.Properties
 
 open import Data.Nat
+  as ℕ
   using (
   )
 open import Data.Sum
@@ -151,8 +152,8 @@ _≡ᵇ_ = isYes ∘₂ _≟_
 
 \begin{code}
 instance
-  Eqℕ : Eq Data.Nat.ℕ
-  Eqℕ = record {_≟_ = Data.Nat._≟_}
+  Eqℕ : Eq ℕ.ℕ
+  Eqℕ = record {_≟_ = ℕ._≟_}
   Eqℚ : Eq ℚ
   Eqℚ = record {_≟_ = Data.Rational._≟_}
   Eqℤ : Eq ℤ
@@ -170,7 +171,7 @@ instance
   EqChar = record {_≟_ = Data.Char._≟_}
   EqFloat : Eq Data.Float.Float
   EqFloat = record {_≟_ = Data.Float._≟_}
-  EqFin : {n : Data.Nat.ℕ} → Eq $ Data.Fin.Fin n
+  EqFin : {n : ℕ.ℕ} → Eq $ Data.Fin.Fin n
   EqFin = record {_≟_ = Data.Fin._≟_}
   EqMaybe : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ Maybe A
   EqMaybe = record {_≟_ = Data.Maybe.Properties.≡-dec _≟_}
@@ -244,13 +245,13 @@ instance
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ leadneck quality
-  EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄
+  EqVec : ∀ {a} → {A : Set a} → {n : ℕ.ℕ} → ⦃ Eq A ⦄
         → Eq $ Vec A n
   EqVec {_} {A} {n} = record {_≟_ = f}
     where
     -- ni'o srana la'oi .EqVec. fa
     -- lo so'i pinka pe la'oi .EqList.
-    doomsday : ∀ {a} → {A : Set a} → {m : Data.Nat.ℕ}
+    doomsday : ∀ {a} → {A : Set a} → {m : ℕ.ℕ}
              → {x y : A} → {xs ys : Vec A m}
              → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
     doomsday refl refl = refl
@@ -271,13 +272,13 @@ instance
       spit (yes a) (no b) = g a b
       spit (no a) (yes b) = j a b
       spit (no a) (no b) = k a b
-    f : {n : Data.Nat.ℕ} → DecidableEquality $ Vec A n
+    f : {n : ℕ.ℕ} → DecidableEquality $ Vec A n
     f []ᵥ []ᵥ = yes refl
     f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
       where
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
-      arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
+      arm : ∀ {a} → {A : Set a} → {n : ℕ.ℕ}
           → {x y : A} → {xs ys : Vec A n}
           → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
