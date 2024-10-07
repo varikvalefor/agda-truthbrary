@@ -283,7 +283,9 @@ instance
     -- lo so'i pinka pe la'oi .EqList.
     doomsday : ∀ {a} → {A : Set a} → {m : ℕ}
              → {x y : A} → {xs ys : Vec A m}
-             → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
+             → x ≡ y
+             → xs ≡ ys
+             → x ∷ᵥ xs ≡ y ∷ᵥ ys
     doomsday refl refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
