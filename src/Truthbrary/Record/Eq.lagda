@@ -313,7 +313,9 @@ instance
       booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
       arm : ∀ {a} → {A : Set a} → {n : ℕ}
           → {x y : A} → {xs ys : Vec A n}
-          → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+          → ¬ (x ≡ y)
+          → xs ≡ ys
+          → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
