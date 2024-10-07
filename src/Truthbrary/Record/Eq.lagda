@@ -329,7 +329,7 @@ instance
     where
     inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b}
              → {x y : A}
-             → inj₁ x ≡_ $ inj₁ {B = B} y
+             → inj₁ x ≡ inj₁ {B = B} y
              → x ≡ y
     inj₁-inj refl = refl
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
