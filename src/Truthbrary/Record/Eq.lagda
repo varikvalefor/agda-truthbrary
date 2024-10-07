@@ -149,7 +149,7 @@ import Data.Vec.Properties as DVP
 ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{Eq} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ je la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi \eqq{\F{Eq.\AgdaUnderscore≟\AgdaUnderscore} \B Q \B a \B b}
 
 \begin{code}
-record Eq {a} (A : Set a) : Set (Level.suc a)
+record Eq {a} (A : Set a) : Set (a)
   where
   field
     _≟_ : DecidableEquality A
