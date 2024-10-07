@@ -62,7 +62,6 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 module Truthbrary.Record.Eq where
 
 
-import Level
 import Data.Fin
 import Data.Char
 import Data.Float
