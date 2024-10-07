@@ -202,7 +202,7 @@ instance
   EqFloat : Eq Data.Float.Float
   EqFloat = record {_≟_ = Data.Float._≟_}
   EqFin : {n : ℕ} → Eq $ Fin n
-  EqFin = record {_≟_ = Fin._≟_}
+  EqFin = record {_≟_ = Data.Fin._≟_}
   EqMaybe : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ Maybe A
   EqMaybe = record {_≟_ = Data.Maybe.Properties.≡-dec _≟_}
   EqThese : ∀ {a b} → {A : Set a} → {B : Set b}
