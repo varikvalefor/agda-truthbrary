@@ -68,6 +68,7 @@ import Data.String
 import Data.Maybe.Properties
 import Data.These.Properties
 import Data.Product.Properties
+import Data.Vec.Properties as DVP
 
 open import Data.Nat
   as ℕ
@@ -138,8 +139,6 @@ open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
 open import Relation.Binary.PropositionalEquality
-
-import Data.Vec.Properties as DVP
 \end{code}
 
 \section{la'oi .\AgdaRecord{Eq}.}
