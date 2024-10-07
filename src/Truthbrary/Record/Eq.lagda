@@ -61,7 +61,6 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.Eq where
 
-import Data.Fin
 import Data.Char
 import Data.Float
 import Data.String
@@ -70,6 +69,9 @@ import Data.These.Properties
 import Data.Product.Properties
 import Data.Vec.Properties as DVP
 
+open import Data.Fin
+  using (
+  )
 open import Data.Nat
   as ℕ
   using (
