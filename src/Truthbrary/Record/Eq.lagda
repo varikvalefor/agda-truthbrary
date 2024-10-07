@@ -106,6 +106,9 @@ open import Data.Integer
     ℤ
   )
 open import Data.Product
+  using (
+    _×_
+  )
 open import Data.Rational
   using (
     ℚ
