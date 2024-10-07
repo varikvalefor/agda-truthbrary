@@ -277,7 +277,7 @@ instance
       ltd quality _ = no $ leadneck quality
   EqVec : ∀ {a} → {A : Set a} → {n : ℕ} → ⦃ Eq A ⦄
         → Eq $ Vec A n
-  EqVec {_} {A} {n} = record {_≟_ = f}
+  EqVec {A = A} = record {_≟_ = f}
     where
     -- ni'o srana la'oi .EqVec. fa
     -- lo so'i pinka pe la'oi .EqList.
