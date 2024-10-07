@@ -71,6 +71,7 @@ import Data.Vec.Properties as DVP
 
 open import Data.Fin
   using (
+    Fin
   )
 open import Data.Nat
   as ℕ
@@ -200,8 +201,8 @@ instance
   EqChar = record {_≟_ = Data.Char._≟_}
   EqFloat : Eq Data.Float.Float
   EqFloat = record {_≟_ = Data.Float._≟_}
-  EqFin : {n : ℕ} → Eq $ Data.Fin.Fin n
-  EqFin = record {_≟_ = Data.Fin._≟_}
+  EqFin : {n : ℕ} → Eq $ Fin n
+  EqFin = record {_≟_ = Fin._≟_}
   EqMaybe : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ Maybe A
   EqMaybe = record {_≟_ = Data.Maybe.Properties.≡-dec _≟_}
   EqThese : ∀ {a b} → {A : Set a} → {B : Set b}
