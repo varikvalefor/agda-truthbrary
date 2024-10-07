@@ -97,6 +97,9 @@ open import Data.Bool
     Bool
   )
 open import Data.Maybe
+  using (
+    Maybe
+  )
 open import Data.These
   using (
     These
