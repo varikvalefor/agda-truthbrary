@@ -138,6 +138,9 @@ open import Relation.Nullary
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
+  using (
+    DecidableEquality
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     cong;
