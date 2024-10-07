@@ -145,7 +145,7 @@ import Data.Vec.Properties as DVP
 \end{code}
 
 \section{la'oi .\AgdaRecord{Eq}.}
-\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi la'oi .\AgdaInductiveConstructor{true}.\ du ko'a goi la'o zoi.\ \F{isYes} \OpF \$ #1\ .zoi.\ gi ko'a du la'o zoi.\ \F{false} .zoi.}
+\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi la'oi .\AgdaInductiveConstructor{true}.\ du ko'a goi la'o zoi.\ \F{isYes} \OpF \$ #1\ .zoi.\ gi ko'a du la'o zoi.\ \AgdaInductiveConstructor{false} .zoi.}
 ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{Eq} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ je la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi \eqq{\F{Eq.\AgdaUnderscore≟\AgdaUnderscore} \B Q \B a \B b}
 
 \begin{code}
