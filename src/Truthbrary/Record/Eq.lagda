@@ -281,9 +281,9 @@ instance
     where
     -- ni'o srana la'oi .EqVec. fa
     -- lo so'i pinka pe la'oi .EqList.
-    doomsday : ∀ {a} → {A : Set a} → {m : ℕ}
+    doomsday : ∀ {a} → {A : Set a} → {n : ℕ}
              → {x y : A}
-             → {xs ys : Vec A m}
+             → {xs ys : Vec A n}
              → x ≡ y
              → xs ≡ ys
              → x ∷ᵥ xs ≡ y ∷ᵥ ys
