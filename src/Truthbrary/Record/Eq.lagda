@@ -275,7 +275,8 @@ instance
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ leadneck quality
-  EqVec : ∀ {a} → {A : Set a} → {n : ℕ} → ⦃ Eq A ⦄
+  EqVec : ∀ {a} → {A : Set a} → {n : ℕ}
+        → ⦃ Eq A ⦄
         → Eq $ Vec A n
   EqVec {A = A} = record {_≟_ = f}
     where
