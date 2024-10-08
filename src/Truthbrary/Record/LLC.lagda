@@ -327,10 +327,10 @@ dist : ∀ {a} → {A : Set a}
      → ⦃ Bean : LL A ⦄
      → ⦃ Eq $ LL.e Bean ⦄
      → A → A → ℕ
-dist a b = 𝕃.length $ 𝕃.filter drata ziprd
+dist = 𝕃.length Function.∘₂ 𝕃.filter drata Function.∘₂ ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  ziprd = 𝕃.zip (lst a) $ lst b
+  ziprd = λ a b → 𝕃.zip (lst a) $ lst b
     where
     lst = toList ∘ vec
 \end{code}
