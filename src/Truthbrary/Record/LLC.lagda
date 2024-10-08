@@ -128,9 +128,6 @@ open import Data.Maybe
     maybe;
     just
   )
-  hiding (
-    map
-  )
 open import Data.Product
   using (
     uncurry;
