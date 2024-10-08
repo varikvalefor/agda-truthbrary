@@ -331,7 +331,7 @@ dist : ∀ {a} → {A : Set a}
 dist = 𝕃.length ∘₂ 𝕃.filter drata ∘₂ ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  ziprd = λ a b → 𝕃.zip (lst a) $ lst b
+  ziprd = λ a b → (𝕃.zip Function.on lst) a b
     where
     lst = toList ∘ vec
 \end{code}
