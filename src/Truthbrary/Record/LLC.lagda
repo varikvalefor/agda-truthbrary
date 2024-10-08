@@ -100,10 +100,6 @@ open import Data.Bool
     true;
     _∧_
   )
-  hiding (
-    _≟_;
-    T
-  )
 open import Data.Char
   hiding (
     _≟_
