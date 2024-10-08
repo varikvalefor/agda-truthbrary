@@ -122,6 +122,12 @@ open import Data.List
     [] to []ₗ
   )
 open import Data.Maybe
+  using (
+    nothing;
+    Maybe;
+    maybe;
+    just
+  )
   hiding (
     map
   )
