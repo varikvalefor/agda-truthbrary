@@ -307,7 +307,8 @@ garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
        → (LL.e Q → Maybe B) → B → CoolJ → B
 garden the west gate = g2 the west $ vec gate
   where
-  g2 : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
+  g2 : ∀ {a b} → {A : Set a} → {B : Set b}
+     → {n : ℕ}
      → (A → Maybe B) → B → Vec A n → B
   g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
   g2 _ d []ᵥ = d
