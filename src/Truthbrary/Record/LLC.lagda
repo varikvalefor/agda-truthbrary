@@ -75,8 +75,6 @@ open import Data.Fin
     Fin
   )
   renaming (
-    fromℕ to fromℕF;
-    toℕ to toℕF
   )
 open import Data.Nat
   hiding (
