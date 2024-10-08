@@ -127,8 +127,8 @@ open import Data.Product
   )
 open import Data.String
   renaming (
-    toList to toListₛ;
-    fromList to fromListₛ
+    fromList to fromListₛ;
+    toList to toListₛ
   )
   hiding (
     length;
