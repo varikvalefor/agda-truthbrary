@@ -331,7 +331,7 @@ dist : ∀ {a} → {A : Set a}
 dist = 𝕃.length ∘₂ 𝕃.filter drata ∘₂ ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  ziprd = (𝕃.zip Function.on (toList ∘ vec))
+  ziprd = 𝕃.zip Function.on (toList ∘ vec)
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore∈\AgdaUnderscore}.}
