@@ -67,6 +67,8 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 module Truthbrary.Record.LLC where
 
 open import Level
+  using (
+  )
 open import Data.Fin
   using (
     Fin
