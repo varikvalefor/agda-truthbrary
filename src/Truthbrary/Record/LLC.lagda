@@ -92,6 +92,13 @@ open import Data.Vec
     map
   )
 open import Function
+  using (
+    const;
+    flip;
+    _$_;
+    _∘_;
+    id
+  )
 open import Data.Bool
   using (
     if_then_else_;
