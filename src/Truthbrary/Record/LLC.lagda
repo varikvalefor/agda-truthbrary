@@ -103,10 +103,10 @@ open import Data.Char
   )
 open import Data.List
   renaming (
-    [] to []ₗ;
-    _∷_ to _∷ₗ_;
     filter to filterₗ;
-    length to lengthₗ
+    length to lengthₗ;
+    _∷_ to _∷ₗ_;
+    [] to []ₗ
   )
   hiding (
     reverse;
