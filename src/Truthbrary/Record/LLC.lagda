@@ -74,8 +74,6 @@ open import Data.Fin
   using (
     Fin
   )
-  renaming (
-  )
 open import Data.Nat
   hiding (
     _≟_;
