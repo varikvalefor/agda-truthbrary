@@ -111,9 +111,6 @@ open import Data.Char
   using (
     Char
   )
-  hiding (
-    _≟_
-  )
 open import Data.List
   renaming (
     filter to filterₗ;
