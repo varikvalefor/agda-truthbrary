@@ -121,11 +121,6 @@ open import Data.List
     _∷_ to _∷ₗ_;
     [] to []ₗ
   )
-  hiding (
-    reverse;
-    _++_;
-    map
-  )
 open import Data.Maybe
   hiding (
     map
