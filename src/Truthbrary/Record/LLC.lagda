@@ -50,7 +50,7 @@
 \section{le me'oi .abstract.}
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
-	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\D{Vec}.\ ku'o be'o je
+	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi ke'a jai filri'a lo nu pilno lo smimlu be la'oi .\D{Vec}.\ ku'o be'o je
         \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u vasru ku'o be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u na vasru ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∈₂\AgdaUnderscore} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore}\ .zoi.\ be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∉\AgdaUnderscore}\ .zoi.\ be'o je
