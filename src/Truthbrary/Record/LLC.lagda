@@ -95,6 +95,7 @@ open import Data.Vec
 open import Function
   using (
     const;
+    _∘₂_;
     flip;
     _$_;
     _∘_;
@@ -327,7 +328,7 @@ dist : ∀ {a} → {A : Set a}
      → ⦃ Bean : LL A ⦄
      → ⦃ Eq $ LL.e Bean ⦄
      → A → A → ℕ
-dist = 𝕃.length Function.∘₂ 𝕃.filter drata Function.∘₂ ziprd
+dist = 𝕃.length ∘₂ 𝕃.filter drata ∘₂ ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
   ziprd = λ a b → 𝕃.zip (lst a) $ lst b
