@@ -12,6 +12,7 @@
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{∃}{\ensuremath{\mathnormal{\exists}}}
@@ -112,6 +113,7 @@ open import Data.Char
     Char
   )
 open import Data.List
+  as 𝕃
   using (
     List
   )
@@ -321,10 +323,10 @@ dist : ∀ {a} → {A : Set a}
      → ⦃ Bean : LL A ⦄
      → ⦃ Eq $ LL.e Bean ⦄
      → A → A → ℕ
-dist a b = Data.List.length $ Data.List.filter drata ziprd
+dist a b = 𝕃.length $ 𝕃.filter drata ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  ziprd = Data.List.zip (lst a) $ lst b
+  ziprd = 𝕃.zip (lst a) $ lst b
     where
     lst = toList ∘ vec
 \end{code}
@@ -337,7 +339,7 @@ _∈_ : ∀ {a} → {A : Set a}
     → ⦃ Fireball : LL A ⦄
     → ⦃ Eq $ LL.e Fireball ⦄
     → LL.e Fireball → A → Set
-_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ filterₗ (_≟_ a) ∘ f
+_∈_ a = _≡_ 1 ∘ lengthₗ ∘ 𝕃.take 1 ∘ filterₗ (_≟_ a) ∘ f
   where
   -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
   -- cmavlaka'i zo'oi .from... ja cu co'e
@@ -505,7 +507,7 @@ _++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
 instance
   LCList : ∀ {a} → {A : Set a}
          → LC (List A) (List A)
-  LCList = record {_++_ = Data.List._++_}
+  LCList = record {_++_ = 𝕃._++_}
   LCString : LC String String
   LCString = record {_++_ = Data.String._++_}
   LCVec : ∀ {a} → {A : Set a} → {m n : ℕ}
