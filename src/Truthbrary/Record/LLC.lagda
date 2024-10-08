@@ -93,6 +93,13 @@ open import Data.Vec
   )
 open import Function
 open import Data.Bool
+  using (
+    if_then_else_;
+    false;
+    Bool;
+    true;
+    _∧_
+  )
   hiding (
     _≟_;
     T
