@@ -108,6 +108,9 @@ open import Data.Bool
     _∧_
   )
 open import Data.Char
+  using (
+    Char
+  )
   hiding (
     _≟_
   )
