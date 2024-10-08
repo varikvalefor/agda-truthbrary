@@ -112,6 +112,9 @@ open import Data.Char
     Char
   )
 open import Data.List
+  using (
+    List
+  )
   renaming (
     filter to filterₗ;
     length to lengthₗ;
