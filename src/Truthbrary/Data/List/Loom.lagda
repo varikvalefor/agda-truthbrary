@@ -145,7 +145,7 @@ lum (x ∷ xs) f (suc n) = begin
   𝔪 : {m n : ℕ}
     → (t : Fin m)
     → (x : m ≡ n)
-    → (d : ℕ.suc m ≡ ℕ.suc n)
+    → (d : suc m ≡ suc n)
     → mink (suc t) d ≡ suc (mink t x)
   𝔪 t refl refl = refl
 \end{code}
