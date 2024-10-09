@@ -132,10 +132,6 @@ lum (x ∷ xs) f zero = begin
   where
   ℓ = sym $ length-map f $ x ∷ xs
   x∷xs'! = _!_ $ map f $ x ∷ xs
-  zil : {m n : ℕ}
-      → (x : ℕ.suc m ≡ ℕ.suc n)
-      → mink zero x ≡ zero
-  zil = Truthbrary.Data.Fin.minzero
 lum (x ∷ xs) f (suc n) = begin
   map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
   map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ refl ⟩
