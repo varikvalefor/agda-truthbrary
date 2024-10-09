@@ -278,7 +278,7 @@ ualteik (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualteik xs n
 \end{code}
 
 \section{la .\F{ualdrop}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualdrop}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualdrop}.\ bau la .lojban.
 
 \begin{code}
 ualdrop : ∀ {a} → {A : Set a}
