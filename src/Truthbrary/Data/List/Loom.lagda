@@ -327,7 +327,7 @@ ualmapkonk x n f g = begin
   tondus _ refl = refl
   mynydus = cong p $ sym $ tondus n $ sym $ length-map f x
     where
-    p = λ n → t n ++ g ((map f x) ! m) ∷ d (ℕ.suc n)
+    p = λ n → t n ++ g ((map f x) ! m) ∷ d (suc n)
   midju = cong (λ c → t n' ++ g c ∷ d (ℕ.suc n')) $ lum x f n
 \end{code}
 
