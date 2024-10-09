@@ -323,8 +323,7 @@ ualmapkonk x n f g = begin
   d = flip drop $ map f x
   tondus : {m n : ℕ}
          → (d : m ≡ n)
-         → (x : Fin m)
-         → 𝔽.toℕ x ≡ (𝔽.toℕ ∘ flip mink d) x
+         → 𝔽.toℕ ≗ (𝔽.toℕ ∘ flip mink d)
   tondus refl _ = refl
   mynydus = cong p $ sym $ flip tondus n $ sym $ length-map f x
     where
