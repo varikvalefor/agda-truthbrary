@@ -126,7 +126,7 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (n : Fin $ length l)
     → map f l ! mink n (sym $ length-map f l) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
-  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs'! $ zil ℓ ⟩
+  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs'! $ Truthbrary.Data.Fin.minzero ℓ ⟩
   map f (x ∷ xs) ! zero ≡⟨ refl ⟩
   f x ∎
   where
