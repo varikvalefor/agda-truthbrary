@@ -312,23 +312,22 @@ ualmapkonk : ∀ {a} → {A B : Set a}
 ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
   proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
-  t m' ++ g ((map f x) ! m) ∷ d (ℕ.suc m') ≡⟨ mynydus ⟩
-  t n' ++ g ((map f x) ! m) ∷ d (ℕ.suc n') ≡⟨ midju ⟩
-  t n' ++ g (f $ x ! n) ∷ d (ℕ.suc n') ∎
+  t take m' ++ g ((map f x) ! m) ∷ t drop (ℕ.suc m') ≡⟨ mynydus ⟩
+  t take n' ++ g ((map f x) ! m) ∷ t drop (ℕ.suc n') ≡⟨ midju ⟩
+  t take n' ++ g (f $ x ! n) ∷ t drop (ℕ.suc n') ∎
   where
   m = mink n $ sym $ length-map f x
   m' = 𝔽.toℕ m
   n' = 𝔽.toℕ n
-  t = flip take $ map f x
-  d = flip drop $ map f x
+  t = λ f₂ → flip f₂ $ map f x
   tondus : {m n : ℕ}
          → (d : m ≡ n)
          → 𝔽.toℕ ≗ (𝔽.toℕ ∘ flip mink d)
   tondus refl _ = refl
   mynydus = cong p $ sym $ flip tondus n $ sym $ length-map f x
     where
-    p = λ n → t n ++ g ((map f x) ! m) ∷ d (suc n)
-  midju = cong (λ c → t n' ++ g c ∷ d (ℕ.suc n')) $ lum x f n
+    p = λ n → t take n ++ g ((map f x) ! m) ∷ t drop (suc n)
+  midju = cong (λ c → t take n' ++ g c ∷ t drop (ℕ.suc n')) $ lum x f n
 \end{code}
 
 \section{la .\F{teiklendus}.}
