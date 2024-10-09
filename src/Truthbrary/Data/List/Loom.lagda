@@ -292,7 +292,7 @@ ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
 \end{code}
 
 \section{la .\F{ualmapkonk}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmapkonk}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmapkonk}.\ bau la .lojban.
 
 \begin{code}
 ualmapkonk : ∀ {a} → {A B : Set a}
