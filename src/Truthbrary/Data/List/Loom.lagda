@@ -64,6 +64,7 @@ ni'o la .varik.\ na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulm
 module Truthbrary.Data.List.Loom where
 
 open import Data.Fin
+  as 𝔽
   using (
     Fin;
     suc;
@@ -249,7 +250,7 @@ ualkonk : ∀ {a} → {A : Set a}
         → (x : List A)
         → (n : Fin $ length x)
         → (f : A → A)
-        → let n' = Data.Fin.toℕ n in
+        → let n' = 𝔽.toℕ n in
           (_≡_
             (proj₁ $ ual x n f)
             (_++_
@@ -271,7 +272,7 @@ ualteik : ∀ {a} → {A : Set a}
         → (x : List A)
         → (n : Fin $ length x)
         → (f : A → A)
-        → let n' = Data.Fin.toℕ n in
+        → let n' = 𝔽.toℕ n in
           take n' x ≡ take n' (proj₁ $ ual x n f)
 ualteik (_ ∷ _) Fin.zero _ = refl
 ualteik (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualteik xs n
@@ -285,7 +286,7 @@ ualdrop : ∀ {a} → {A : Set a}
         → (x : List A)
         → (n : Fin $ length x)
         → (f : A → A)
-        → let n' = suc $ Data.Fin.toℕ n in
+        → let n' = suc $ 𝔽.toℕ n in
           drop n' x ≡ drop n' (proj₁ $ ual x n f)
 ualdrop (_ ∷ _) Fin.zero _ = refl
 ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
@@ -300,7 +301,7 @@ ualmapkonk : ∀ {a} → {A B : Set a}
            → (n : Fin $ length x)
            → (f : A → B)
            → (g : B → B)
-           → let n' = Data.Fin.toℕ n in
+           → let n' = 𝔽.toℕ n in
              (_≡_
                (proj₁ $ ualmap x f g n)
                (_++_
@@ -316,14 +317,14 @@ ualmapkonk x n f g = begin
   t n' ++ g (f $ x ! n) ∷ d (ℕ.suc n') ∎
   where
   m = mink n $ sym $ length-map f x
-  m' = Data.Fin.toℕ m
-  n' = Data.Fin.toℕ n
+  m' = 𝔽.toℕ m
+  n' = 𝔽.toℕ n
   t = flip take $ map f x
   d = flip drop $ map f x
   tondus : {m n : ℕ}
          → (x : Fin m)
          → (d : m ≡ n)
-         → Data.Fin.toℕ x ≡ Data.Fin.toℕ (mink x d)
+         → 𝔽.toℕ x ≡ 𝔽.toℕ (mink x d)
   tondus _ refl = refl
   mynydus = cong p $ sym $ tondus n $ sym $ length-map f x
     where
@@ -357,7 +358,7 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
            → (z : B)
            → (f : A → B)
            → (n : Fin $ length x)
-           → let n' = Data.Fin.toℕ n in
+           → let n' = 𝔽.toℕ n in
              let sin = ℕ.suc n' in
              (_≡_
                (take n' (map f x) ++ z ∷ drop sin (map f x))
