@@ -324,7 +324,7 @@ ualmapkonk x n f g = begin
   tondus : {m n : ℕ}
          → (x : Fin m)
          → (d : m ≡ n)
-         → 𝔽.toℕ x ≡ 𝔽.toℕ (mink x d)
+         → 𝔽.toℕ x ≡ 𝔽.toℕ (flip mink d x)
   tondus _ refl = refl
   mynydus = cong p $ sym $ tondus n $ sym $ length-map f x
     where
