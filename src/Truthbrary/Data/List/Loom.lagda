@@ -264,7 +264,7 @@ ualkonk (x ∷ xs) (Fin.suc n) f = cong (_∷_ x) u
 \end{code}
 
 \section{la .\F{ualteik}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualteik}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualteik}.\ bau la .lojban.
 
 \begin{code}
 ualteik : ∀ {a} → {A : Set a}
