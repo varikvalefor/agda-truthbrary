@@ -151,13 +151,6 @@ lum (x ∷ xs) f (suc n) = begin
     → (d : ℕ.suc m ≡ ℕ.suc n)
     → mink (suc t) d ≡ suc (mink t x)
   𝔪 t refl refl = refl
-  𝔦 : ∀ {a b} → {A : Set a} → {B : Set b}
-    → (x : A)
-    → (xs : List A)
-    → (f : A → B)
-    → (n : Fin $ length $ map f xs)
-    → map f xs ! n ≡ map f (x ∷ xs) ! (suc n)
-  𝔦 x xs f n = refl
 \end{code}
 
 \section{la .\F{ual}.}
