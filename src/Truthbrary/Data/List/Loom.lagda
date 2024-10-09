@@ -105,6 +105,7 @@ open import Data.Product
   )
 open import Truthbrary.Data.Fin
   using (
+    minzero;
     mink
   )
 open import Data.List.Properties
@@ -126,7 +127,7 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (n : Fin $ length l)
     → map f l ! mink n (sym $ length-map f l) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
-  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs'! $ Truthbrary.Data.Fin.minzero ℓ ⟩
+  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs'! $ minzero ℓ ⟩
   map f (x ∷ xs) ! zero ≡⟨ refl ⟩
   f x ∎
   where
