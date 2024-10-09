@@ -138,7 +138,7 @@ lum (x ∷ xs) f zero = begin
   zil = Truthbrary.Data.Fin.minzero
 lum (x ∷ xs) f (suc n) = begin
   map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
-  map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ 𝔦 x xs f $ mink n tryk ⟩
+  map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ sym $ 𝔦 x xs f $ mink n tryk ⟩
   map f xs ! mink n tryk ≡⟨ lum xs f n ⟩
   f (xs ! n) ∎
   where
@@ -156,7 +156,7 @@ lum (x ∷ xs) f (suc n) = begin
     → (xs : List A)
     → (f : A → B)
     → (n : Fin $ length $ map f xs)
-    → map f (x ∷ xs) ! (suc n) ≡ map f xs ! n
+    → map f xs ! n ≡ map f (x ∷ xs) ! (suc n)
   𝔦 x xs f n = refl
 \end{code}
 
