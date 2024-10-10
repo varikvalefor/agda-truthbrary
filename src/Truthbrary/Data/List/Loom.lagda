@@ -128,6 +128,11 @@ open import Relation.Binary.PropositionalEquality
   )
 
 open ≡-Reasoning
+  using (
+    step-≡;
+    begin_;
+    _∎
+  )
 \end{code}
 
 \section{la .\F{lum}.}
