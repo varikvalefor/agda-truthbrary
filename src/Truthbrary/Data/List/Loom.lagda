@@ -114,6 +114,14 @@ open import Data.List.Properties
     length-map
   )
 open import Relation.Binary.PropositionalEquality
+  using (
+    module ≡-Reasoning;
+    cong;
+    refl;
+    _≗_;
+    _≡_;
+    sym
+  )
 
 open ≡-Reasoning
 \end{code}
