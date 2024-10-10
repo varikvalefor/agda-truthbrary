@@ -178,7 +178,7 @@ ual (x ∷ xs) zero f = f x ∷ xs , refl , refl
 ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
   where
   r₁ = ual xs n f
-  r₂ = cong ℕ.suc $ proj₁ $ proj₂ r₁
+  r₂ = cong suc $ proj₁ $ proj₂ r₁
   r₃ = i misuk $ p (proj₁ r₁) x $ proj₂ $ proj₂ r₁
     where
     p : ∀ {a} → {A : Set a}
