@@ -348,7 +348,7 @@ teiklendus : ∀ {a} → {A : Set a}
            → n ≤ length xs
            → length (take n xs) ≡ n
 teiklendus _ 0 _ = refl
-teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc t
+teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong suc t
   where
   t = teiklendus _ _ g
 \end{code}
