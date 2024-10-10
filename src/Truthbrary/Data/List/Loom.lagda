@@ -324,7 +324,7 @@ ualmapkonk : ∀ {a} → {A B : Set a}
 ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
   proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
-  t take m' ++ g ((map f x) ! m) ∷ t drop (ℕ.suc m') ≡⟨ mynydus ⟩
+  t take m' ++ g ((map f x) ! m) ∷ t drop (suc m') ≡⟨ mynydus ⟩
   t take n' ++ g ((map f x) ! m) ∷ t drop (ℕ.suc n') ≡⟨ midju ⟩
   t take n' ++ g (f $ x ! n) ∷ t drop (ℕ.suc n') ∎
   where
