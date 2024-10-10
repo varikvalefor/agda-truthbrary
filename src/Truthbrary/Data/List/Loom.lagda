@@ -354,7 +354,7 @@ teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc t
 \end{code}
 
 \section{la .\F{mapimplant}.}
-ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{mapimplant}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{mapimplant}.\ fo lo te gerna be fi la .lojban.
 
 \begin{code}
 mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
