@@ -158,8 +158,8 @@ lum (x ∷ xs) f (suc n) = begin
   𝔪 : {m n : ℕ}
     → (t : Fin m)
     → (x : m ≡ n)
-    → (d : suc m ≡ suc n)
-    → mink (suc t) d ≡ suc (mink t x)
+    → (x₂ : suc m ≡ suc n)
+    → mink (suc t) x₂ ≡ suc (mink t x)
   𝔪 t refl refl = refl
 \end{code}
 
