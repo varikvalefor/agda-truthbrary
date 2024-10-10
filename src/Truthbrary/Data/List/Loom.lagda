@@ -32,6 +32,7 @@
 \newunicodechar{𝔦}{\ensuremath{\mathfrak{i}}}
 \newunicodechar{𝔪}{\ensuremath{\mathfrak{m}}}
 \newunicodechar{𝔭}{\ensuremath{\mathfrak{p}}}
+\newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -79,11 +80,13 @@ open import Data.Nat
   )
 open import Function
   using (
-    _|>_;
     flip;
     id;
     _∘_;
     _$_
+  )
+  renaming (
+    _|>_ to _▹_
   )
 open import Data.List
   using (
@@ -137,7 +140,7 @@ lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (n : Fin $ length l)
     → map f l ! mink n (sym $ length-map f l) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
-  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ minzero ℓ |> cong x∷xs'! ⟩
+  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ minzero ℓ ▹ cong x∷xs'! ⟩
   map f (x ∷ xs) ! zero ≡⟨ refl ⟩
   f x ∎
   where
@@ -224,7 +227,7 @@ ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
   ℓ = sym $ length-map f x
   k₂ = mink k ℓ
   l : Σ (List B) $ λ l'
-      → Σ (length mifix ≡ length l') $ λ ℓ
+      → Σ _ $ λ ℓ
       → l' ! mink k₂ ℓ ≡ g (mifix ! k₂)
   l = ual mifix k₂ g
   p₂ = begin
@@ -369,7 +372,7 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
                (take n' (map f x) ++ z ∷ drop sin (map f x))
                (map f (take n' x) ++ z ∷ map f (drop sin x)))
 mapimplant (_ ∷ _) _ _ zero = refl
-mapimplant (x ∷ xs) z f (suc _) = mip |> cong (f x ∷_)
+mapimplant (x ∷ xs) z f (suc _) = mip ▹ cong (f x ∷_)
   where
   mip = mapimplant xs _ _ _
 \end{code}
