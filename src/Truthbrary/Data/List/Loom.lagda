@@ -247,7 +247,7 @@ ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
       → (x : m ≡ n)
       → (xov : l ≡ n)
       → mink k xov ≡ mink (mink k v) x
-    M k refl refl refl = refl
+    M _ refl refl refl = refl
 \end{code}
 
 \section{la .\F{ualkonk}.}
