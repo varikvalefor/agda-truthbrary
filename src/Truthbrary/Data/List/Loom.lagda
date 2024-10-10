@@ -350,7 +350,7 @@ teiklendus : ∀ {a} → {A : Set a}
 teiklendus _ 0 _ = refl
 teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc t
   where
-  t = teiklendus _ n g
+  t = teiklendus _ _ g
 \end{code}
 
 \section{la .\F{mapimplant}.}
