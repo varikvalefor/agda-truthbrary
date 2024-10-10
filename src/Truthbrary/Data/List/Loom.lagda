@@ -363,13 +363,13 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
            → (f : A → B)
            → (n : Fin $ length x)
            → let n' = 𝔽.toℕ n in
-             let sin = ℕ.suc n' in
+             let sin = suc n' in
              (_≡_
                (take n' (map f x) ++ z ∷ drop sin (map f x))
                (map f (take n' x) ++ z ∷ map f (drop sin x)))
 mapimplant (_ ∷ _) _ _ zero = refl
-mapimplant (x ∷ xs) z f (suc n) = cong (_∷_ $ f x) mip
+mapimplant (x ∷ xs) z f (suc n) = cong (f x ∷_) mip
   where
-  mip = mapimplant xs z f _
+  mip = mapimplant xs z _ _
 \end{code}
 \end{document}
