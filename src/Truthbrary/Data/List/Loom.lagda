@@ -147,7 +147,7 @@ lum (x ∷ xs) f zero = begin
   ℓ = sym $ length-map f $ x ∷ xs
   x∷xs'! = _!_ $ map f $ x ∷ xs
 lum (x ∷ xs) f (suc n) = begin
-  map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
+  map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ 𝔪 n tryk tryks ▹ kong ⟩
   map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ refl ⟩
   map f xs ! mink n tryk ≡⟨ lum xs f n ⟩
   f (xs ! n) ∎
