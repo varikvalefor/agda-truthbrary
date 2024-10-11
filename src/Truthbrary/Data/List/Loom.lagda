@@ -278,7 +278,7 @@ ualkonk : ∀ {a} → {A : Set a}
 ualkonk (_ ∷ _) Fin.zero _ = refl
 ualkonk (x ∷ xs) (Fin.suc n) f = cong (x ∷_) u
   where
-  u = ualkonk xs n f
+  u = ualkonk xs n _
 \end{code}
 
 \section{la .\F{ualteik}.}
