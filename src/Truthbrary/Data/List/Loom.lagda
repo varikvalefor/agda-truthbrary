@@ -276,7 +276,7 @@ ualkonk : ∀ {a} → {A : Set a}
                 (f $ x ! n)
                 (drop (ℕ.suc n') x))))
 ualkonk (_ ∷ _) zero _ = refl
-ualkonk (x ∷ _) (suc _) _ = ualkonk _ _ _ ▹ cong (x ∷_) 
+ualkonk (x ∷ _) (suc _) _ = ualkonk _ _ _ ▹ cong (_ ∷_) 
 \end{code}
 
 \section{la .\F{ualteik}.}
