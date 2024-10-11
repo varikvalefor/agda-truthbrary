@@ -351,10 +351,10 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{teiklendus}.\ bau 
 
 \begin{code}
 teiklendus : ∀ {a} → {A : Set a}
-           → (xs : List A)
+           → (x : List A)
            → (n : ℕ)
-           → n ≤ length xs
-           → length (take n xs) ≡ n
+           → n ≤ length x
+           → length (take n x) ≡ n
 teiklendus _ 0 _ = refl
 teiklendus (_ ∷ _) (suc _) (s≤s g) = cong suc t
   where
