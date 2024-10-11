@@ -371,9 +371,9 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
            → (n : Fin $ length x)
            → let n' = 𝔽.toℕ n in
              let sin = suc n' in
-             (_≡_
-               (take n' (map f x) ++ z ∷ drop sin (map f x))
-               (map f (take n' x) ++ z ∷ map f (drop sin x)))
+             ((_≡_ Function.on (λ (a ,  b) → a ++ z ∷ b))
+               (take n' (map f x) , drop sin (map f x))
+               (map f (take n' x) , map f (drop sin x)))
 mapimplant (_ ∷ _) _ _ zero = refl
 mapimplant (x ∷ xs) z f (suc _) = mip ▹ cong (f x ∷_)
   where
