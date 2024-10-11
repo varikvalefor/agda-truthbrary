@@ -80,6 +80,7 @@ open import Data.Nat
   )
 open import Function
   using (
+    _on_;
     flip;
     id;
     _∘_;
@@ -371,7 +372,7 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
            → (n : Fin $ length x)
            → let n' = 𝔽.toℕ n in
              let sin = suc n' in
-             ((_≡_ Function.on (λ (a ,  b) → a ++ z ∷ b))
+             ((_≡_ on (λ (a ,  b) → a ++ z ∷ b))
                (take n' (map f x) , drop sin (map f x))
                (map f (take n' x) , map f (drop sin x)))
 mapimplant (_ ∷ _) _ _ zero = refl
