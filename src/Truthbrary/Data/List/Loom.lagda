@@ -323,7 +323,7 @@ ualmapkonk : ∀ {a} → {A B : Set a}
                  (take n' $ map f x)
                  (_∷_
                    (g $ f $ x ! n)
-                   (drop (ℕ.suc n') $ map f x))))
+                   (drop (suc n') $ map f x))))
 ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
   proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
