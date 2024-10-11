@@ -236,7 +236,7 @@ ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
       → l' ! mink k₂ ℓ ≡ g (mifix ! k₂)
   l = ual mifix k₂ g
   p₂ = begin
-    length x ≡⟨ sym $ length-map f x ⟩
+    length x ≡⟨ length-map f x ▹ sym ⟩
     length (map f x) ≡⟨ proj₁ $ proj₂ l ⟩
     length (proj₁ l) ∎
   p₃ = begin
