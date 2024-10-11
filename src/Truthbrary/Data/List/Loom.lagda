@@ -275,7 +275,7 @@ ualkonk : ∀ {a} → {A : Set a}
               (_∷_
                 (f $ x ! n)
                 (drop (ℕ.suc n') x))))
-ualkonk (_ ∷ _) Fin.zero _ = refl
+ualkonk (_ ∷ _) zero _ = refl
 ualkonk (x ∷ xs) (Fin.suc n) f = cong (x ∷_) u
   where
   u = ualkonk _ n _
