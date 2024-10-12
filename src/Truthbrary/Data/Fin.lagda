@@ -49,7 +49,8 @@ module Truthbrary.Data.Fin where
 open import Function
   using (
     _∘_;
-    _$_
+    _$_;
+    id
   )
 open import Data.Fin
   using (
@@ -109,7 +110,7 @@ tomindus _ refl = refl
 ni'o xu ko'a goi la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \modycme{Data.Nat}\ .zoi.
 
 \begin{code}
-tondus : (toℕ ∘ fromℕ) ≗ Function.id
+tondus : (toℕ ∘ fromℕ) ≗ id
 tondus ℕ.zero = refl
 tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 \end{code}
