@@ -109,7 +109,7 @@ tomindus _ refl = refl
 ni'o xu ko'a goi la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \modycme{Data.Nat}\ .zoi.
 
 \begin{code}
-tondus : (n : ℕ) → (toℕ ∘ fromℕ) n ≡ Function.id n
+tondus : (toℕ ∘ fromℕ) ≗ Function.id
 tondus ℕ.zero = refl
 tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 \end{code}
