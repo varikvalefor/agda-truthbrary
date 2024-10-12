@@ -184,7 +184,8 @@ ual (x ∷ xs) zero f = f x ∷ xs , refl , refl
 ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   where
   u = ual xs n f
-  r₂ = cong suc $ proj₁ $ proj₂ u
+  u₂ = proj₁ $ proj₂ u
+  r₂ = cong suc u₂
   r₃ = i misuk $ proj₂ $ proj₂ u
     where
     i : ∀ {a} → {A : Set a}
@@ -195,8 +196,8 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
       → l ! m ≡ k
       → l ! n ≡ k
     i refl = id
-    misuk : suc (mink n $ proj₁ $ proj₂ u) ≡ mink (suc n) r₂
-    misuk = sukmi $ proj₁ $ proj₂ u
+    misuk : suc (mink n $ u₂) ≡ mink (suc n) r₂
+    misuk = sukmi $ u₂
       where
       sukmi : {m n : ℕ}
             → {f : Fin m}
