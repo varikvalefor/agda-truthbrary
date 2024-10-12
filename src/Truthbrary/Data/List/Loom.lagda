@@ -196,7 +196,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
       → l ! m ≡ k
       → l ! n ≡ k
     i refl = id
-    misuk : suc (mink n $ u₂) ≡ mink (suc n) r₂
+    misuk : suc (mink n u₂) ≡ mink (suc n) r₂
     misuk = sukmi $ u₂
       where
       sukmi : {m n : ℕ}
