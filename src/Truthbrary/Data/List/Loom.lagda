@@ -230,7 +230,7 @@ ualmap {B = B} x f g k = proj₁ l , _ , sym p₃
   where
   mifix = map f x
   ℓ : length x ≡ length mifix
-  ℓ = sym $ length-map f x
+  ℓ = length-map f x ▹ sym
   k₂ = mink k ℓ
   l : Σ (List B) $ λ l'
       → Σ _ $ λ ℓ
