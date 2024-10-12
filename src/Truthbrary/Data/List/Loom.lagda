@@ -185,7 +185,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   where
   u = ual xs n f
   r₂ = cong suc $ proj₁ $ proj₂ u
-  r₃ = i misuk $ p (proj₁ u) x $ proj₂ $ proj₂ u
+  r₃ = i misuk $ proj₂ $ proj₂ u
     where
     p : ∀ {a} → {A : Set a}
       → {x : A}
