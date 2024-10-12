@@ -196,14 +196,14 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
       → l ! n ≡ k
     i refl = id
     misuk : suc (mink n $ proj₁ $ proj₂ u) ≡ mink (suc n) r₂
-    misuk = sukmi _ $ proj₁ $ proj₂ u
+    misuk = sukmi $ proj₁ $ proj₂ u
       where
       sukmi : {m n : ℕ}
-            → (f : Fin m)
+            → {f : Fin m}
             → (_≗_
                 (suc ∘ mink f)
                 (mink {n = suc n} (suc f) ∘ cong suc))
-      sukmi _ refl = refl
+      sukmi refl = refl
 \end{code}
 
 \section{la .\F{ualmap}.}
