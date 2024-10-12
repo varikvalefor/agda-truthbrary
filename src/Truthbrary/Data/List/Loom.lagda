@@ -268,7 +268,7 @@ ualkonk : ∀ {a} → {A : Set a}
               (take n' x)
               (_∷_
                 (f $ x ! n)
-                (drop (ℕ.suc n') x))))
+                (drop (suc n') x))))
 ualkonk (_ ∷ _) zero _ = refl
 ualkonk (_ ∷ _) (suc _) _ = ualkonk _ _ _ ▹ cong (_ ∷_) 
 \end{code}
