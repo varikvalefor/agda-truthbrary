@@ -332,7 +332,7 @@ ualmapkonk x n f g = begin
   t take n' ++ g ((map f x) ! m) ∷ t drop (suc n') ≡⟨ midju ⟩
   t take n' ++ g (f $ x ! n) ∷ t drop (suc n') ∎
   where
-  m = mink n $ sym $ length-map f x
+  m = mink n $ length-map f x ▹ sym
   m' = 𝔽.toℕ m
   n' = 𝔽.toℕ n
   t = λ f₂ → flip f₂ $ map f x
