@@ -111,7 +111,7 @@ ni'o xu la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}
 
 \begin{code}
 tondus : (toℕ ∘ fromℕ) ≗ id
-tondus ℕ.zero = refl
+tondus 0 = refl
 tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
 \end{code}
 
