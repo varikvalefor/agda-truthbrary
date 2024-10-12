@@ -12,6 +12,7 @@
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{∃}{\ensuremath{\mathnormal{\exists}}}
@@ -50,8 +51,8 @@
 \section{le me'oi .abstract.}
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
-	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\D{Vec}.\ ku'o be'o je
-        \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o be'o je
+	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je cu jai filri'a lo nu pilno lo smimlu be la'oi .\D{Vec}.\ ku'o be'o je
+        \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi ke'a jai filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u vasru ku'o be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u na vasru ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∈₂\AgdaUnderscore} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore}\ .zoi.\ be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∉\AgdaUnderscore}\ .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈₂?\AgdaUnderscore} .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∈₂\AgdaUnderscore}\ .zoi.\ co'e be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂?\AgdaUnderscore}\ .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ co'e be'o je
@@ -67,13 +68,12 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 module Truthbrary.Record.LLC where
 
 open import Level
+  using (
+  )
 open import Data.Fin
+  as 𝔽
   using (
     Fin
-  )
-  renaming (
-    fromℕ to fromℕF;
-    toℕ to toℕF
   )
 open import Data.Nat
   hiding (
@@ -93,30 +93,43 @@ open import Data.Vec
     map
   )
 open import Function
+  using (
+    const;
+    _∘₂_;
+    flip;
+    _$_;
+    _∘_;
+    id
+  )
 open import Data.Bool
-  hiding (
-    _≟_;
-    T
+  using (
+    if_then_else_;
+    false;
+    Bool;
+    true;
+    _∧_
   )
 open import Data.Char
-  hiding (
-    _≟_
+  using (
+    Char
   )
 open import Data.List
-  renaming (
-    [] to []ₗ;
-    _∷_ to _∷ₗ_;
-    filter to filterₗ;
-    length to lengthₗ
+  as 𝕃
+  using (
+    List
   )
-  hiding (
-    reverse;
-    _++_;
-    map
+  renaming (
+    filter to filterₗ;
+    length to lengthₗ;
+    _∷_ to _∷ₗ_;
+    [] to []ₗ
   )
 open import Data.Maybe
-  hiding (
-    map
+  using (
+    nothing;
+    Maybe;
+    maybe;
+    just
   )
 open import Data.Product
   using (
@@ -125,8 +138,8 @@ open import Data.Product
   )
 open import Data.String
   renaming (
-    toList to toListₛ;
-    fromList to fromListₛ
+    fromList to fromListₛ;
+    toList to toListₛ
   )
   hiding (
     length;
@@ -295,8 +308,12 @@ garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
        → (LL.e Q → Maybe B) → B → CoolJ → B
 garden the west gate = g2 the west $ vec gate
   where
-  g2 : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
-     → (A → Maybe B) → B → Vec A n → B
+  g2 : ∀ {a b} → {A : Set a} → {B : Set b}
+     → {n : ℕ}
+     → (A → Maybe B)
+     → B
+     → Vec A n
+     → B
   g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
   g2 _ d []ᵥ = d
 \end{code}
@@ -311,12 +328,10 @@ dist : ∀ {a} → {A : Set a}
      → ⦃ Bean : LL A ⦄
      → ⦃ Eq $ LL.e Bean ⦄
      → A → A → ℕ
-dist a b = Data.List.length $ Data.List.filter drata ziprd
+dist = 𝕃.length ∘₂ 𝕃.filter drata ∘₂ ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  ziprd = Data.List.zip (lst a) $ lst b
-    where
-    lst = toList ∘ vec
+  ziprd = 𝕃.zip Function.on (toList ∘ vec)
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore∈\AgdaUnderscore}.}
@@ -327,7 +342,7 @@ _∈_ : ∀ {a} → {A : Set a}
     → ⦃ Fireball : LL A ⦄
     → ⦃ Eq $ LL.e Fireball ⦄
     → LL.e Fireball → A → Set
-_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ filterₗ (_≟_ a) ∘ f
+_∈_ a = _≡_ 1 ∘ lengthₗ ∘ 𝕃.take 1 ∘ filterₗ (_≟_ a) ∘ f
   where
   -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
   -- cmavlaka'i zo'oi .from... ja cu co'e
@@ -458,7 +473,7 @@ instance
     e = Fin 1;
     l = id;
     _∷_ = const ℕ.suc;
-    vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
+    vec = λ q → replicateᵥ {_} {_} {q} $ 𝔽.fromℕ 0;
     cev = Data.Vec.length}
 \end{code}
 
@@ -495,7 +510,7 @@ _++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
 instance
   LCList : ∀ {a} → {A : Set a}
          → LC (List A) (List A)
-  LCList = record {_++_ = Data.List._++_}
+  LCList = record {_++_ = 𝕃._++_}
   LCString : LC String String
   LCString = record {_++_ = Data.String._++_}
   LCVec : ∀ {a} → {A : Set a} → {m n : ℕ}

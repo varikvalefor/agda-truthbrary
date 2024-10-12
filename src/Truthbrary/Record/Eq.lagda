@@ -32,6 +32,7 @@
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
+\newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -60,24 +61,47 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.Eq where
 
-
-import Level
-import Data.Fin
-import Data.Nat
 import Data.Char
 import Data.Float
 import Data.String
 import Data.Maybe.Properties
 import Data.These.Properties
 import Data.Product.Properties
+import Data.Vec.Properties as DVP
 
+open import Data.Fin
+  using (
+    Fin
+  )
+open import Data.Nat
+  as ℕ
+  using (
+    ℕ
+  )
 open import Data.Sum
+  using (
+    inj₂;
+    inj₁;
+    _⊎_
+  )
 open import Function
+  using (
+    _∘₂_;
+    _∋_;
+    _$_;
+    _∘_
+  )
+  renaming (
+    _|>_ to _▹_
+  )
 open import Data.Bool
   using (
     Bool
   )
 open import Data.Maybe
+  using (
+    Maybe
+  )
 open import Data.These
   using (
     These
@@ -87,6 +111,9 @@ open import Data.Integer
     ℤ
   )
 open import Data.Product
+  using (
+    _×_
+  )
 open import Data.Rational
   using (
     ℚ
@@ -105,20 +132,32 @@ open import Data.Vec
     [] to []ᵥ
   )
 open import Relation.Nullary
+  using (
+    Dec;
+    yes;
+    no;
+    ¬_
+  )
 open import Relation.Nullary.Decidable
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
+  using (
+    DecidableEquality
+  )
 open import Relation.Binary.PropositionalEquality
-
-import Data.Vec.Properties as DVP
+  using (
+    cong;
+    refl;
+    _≡_
+  )
 \end{code}
 
 \section{la'oi .\AgdaRecord{Eq}.}
-\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi la'oi .\F{true}.\ du ko'a goi la'o zoi.\ \F{isYes} \OpF \$ #1\ .zoi.\ gi ko'a du la'o zoi.\ \F{false} .zoi.}
+\newcommand\eqq[1]{ga jonai ga je la'o zoi.\ \B a .zoi.\ du la'o zoi.\ \B b .zoi.\ gi la'oi .\AgdaInductiveConstructor{true}.\ du ko'a goi la'o zoi.\ \F{isYes} \OpF \$ #1\ .zoi.\ gi ko'a du la'o zoi.\ \AgdaInductiveConstructor{false} .zoi.}
 ni'o ga jo ga je la'o zoi.\ \B Q .zoi.\ ctaipe la'o zoi.\ \AgdaRecord{Eq} \B A .zoi.\ gi la'o zoi.\ \B a .zoi.\ je la'o zoi.\ \B b .zoi.\ ctaipe la'o zoi.\ \B A .zoi.\ gi \eqq{\F{Eq.\AgdaUnderscore≟\AgdaUnderscore} \B Q \B a \B b}
 
 \begin{code}
-record Eq {a} (A : Set a) : Set (Level.suc a)
+record Eq {a} (A : Set a) : Set a
   where
   field
     _≟_ : DecidableEquality A
@@ -143,8 +182,8 @@ _≡ᵇ_ = isYes ∘₂ _≟_
 
 \begin{code}
 instance
-  Eqℕ : Eq Data.Nat.ℕ
-  Eqℕ = record {_≟_ = Data.Nat._≟_}
+  Eqℕ : Eq ℕ
+  Eqℕ = record {_≟_ = ℕ._≟_}
   Eqℚ : Eq ℚ
   Eqℚ = record {_≟_ = Data.Rational._≟_}
   Eqℤ : Eq ℤ
@@ -162,7 +201,7 @@ instance
   EqChar = record {_≟_ = Data.Char._≟_}
   EqFloat : Eq Data.Float.Float
   EqFloat = record {_≟_ = Data.Float._≟_}
-  EqFin : {n : Data.Nat.ℕ} → Eq $ Data.Fin.Fin n
+  EqFin : {n : ℕ} → Eq $ Fin n
   EqFin = record {_≟_ = Data.Fin._≟_}
   EqMaybe : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ Maybe A
   EqMaybe = record {_≟_ = Data.Maybe.Properties.≡-dec _≟_}
@@ -171,7 +210,7 @@ instance
           → Eq $ These A B
   EqThese = record {_≟_ = Data.These.Properties.≡-dec _≟_ _≟_}
   EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
-  EqList {_} {A} ⦃ Q ⦄ = record {_≟_ = f}
+  EqList {A = A} ⦃ Q ⦄ = record {_≟_ = f}
     where
     -- | Tick-tock, tick-tock, tick-tock!
     doomsday : ∀ {a} → {A : Set a}
@@ -185,11 +224,13 @@ instance
     leadneck : ∀ {a} → {A : Set a}
              → {x y : A} → {xs ys : List A}
              → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
-    leadneck f = f ∘ hillbilly
+    leadneck = _∘ hillbilly
       where
       hillbilly : ∀ {a} → {A : Set a}
-                → {x y : A} → {xs ys : List A}
-                → x ∷ xs ≡ y ∷ ys → x ≡ y
+                → {x y : A}
+                → {xs ys : List A}
+                → x ∷ xs ≡ y ∷ ys
+                → x ≡ y
       hillbilly refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
@@ -201,7 +242,7 @@ instance
          → (¬ (t ≡ v) → x ≡ z → C)
          → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
          → C
-    bork {_} {_} {_} {_} {_} {C} t v x z d f g j k = spit (t ≟ v) d
+    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
       where
       spit : Dec $ t ≡ v → Dec $ x ≡ z → C
       spit (yes a) (yes b) = f a b
@@ -234,15 +275,19 @@ instance
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ leadneck quality
-  EqVec : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ} → ⦃ Eq A ⦄
+  EqVec : ∀ {a} → {A : Set a} → {n : ℕ}
+        → ⦃ Eq A ⦄
         → Eq $ Vec A n
-  EqVec {_} {A} {n} ⦃ Q ⦄ = record {_≟_ = f}
+  EqVec {A = A} = record {_≟_ = f}
     where
     -- ni'o srana la'oi .EqVec. fa
     -- lo so'i pinka pe la'oi .EqList.
-    doomsday : ∀ {a} → {A : Set a} → {m : Data.Nat.ℕ}
-             → {x y : A} → {xs ys : Vec A m}
-             → x ≡ y → xs ≡ ys → x ∷ᵥ xs ≡ y ∷ᵥ ys
+    doomsday : ∀ {a} → {A : Set a} → {n : ℕ}
+             → {x y : A}
+             → {xs ys : Vec A n}
+             → x ≡ y
+             → xs ≡ ys
+             → x ∷ᵥ xs ≡ y ∷ᵥ ys
     doomsday refl refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
@@ -261,15 +306,18 @@ instance
       spit (yes a) (no b) = g a b
       spit (no a) (yes b) = j a b
       spit (no a) (no b) = k a b
-    f : {n : Data.Nat.ℕ} → DecidableEquality $ Vec A n
+    f : {n : ℕ} → DecidableEquality $ Vec A n
     f []ᵥ []ᵥ = yes refl
     f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
       where
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
-      arm : ∀ {a} → {A : Set a} → {n : Data.Nat.ℕ}
-          → {x y : A} → {xs ys : Vec A n}
-          → ¬ (x ≡ y) → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      arm : ∀ {a} → {A : Set a} → {n : ℕ}
+          → {x y : A}
+          → {xs ys : Vec A n}
+          → ¬ (x ≡ y)
+          → xs ≡ ys
+          → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
@@ -280,8 +328,10 @@ instance
         → Eq $ A ⊎ B
   EqSum = record {_≟_ = Q}
     where
-    inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : A}
-             → (A ⊎ B ∋ inj₁ x) ≡ inj₁ y → x ≡ y
+    inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b}
+             → {x y : A}
+             → inj₁ x ≡ inj₁ {B = B} y
+             → x ≡ y
     inj₁-inj refl = refl
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
              → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
