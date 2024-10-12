@@ -181,11 +181,11 @@ ual : ∀ {a} → {A : Set a}
       → Σ (length l ≡ length l') $ λ ℓ
       → l' ! mink n ℓ ≡ f (l ! n)
 ual (x ∷ xs) zero f = f x ∷ xs , refl , refl
-ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
+ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   where
-  r₁ = ual xs n f
-  r₂ = cong suc $ proj₁ $ proj₂ r₁
-  r₃ = i misuk $ p (proj₁ r₁) x $ proj₂ $ proj₂ r₁
+  u = ual xs n f
+  r₂ = cong suc $ proj₁ $ proj₂ u
+  r₃ = i misuk $ p (proj₁ u) x $ proj₂ $ proj₂ u
     where
     p : ∀ {a} → {A : Set a}
       → {x : A}
@@ -203,8 +203,8 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
       → l ! m ≡ k
       → l ! n ≡ k
     i refl = id
-    misuk : suc (mink n $ proj₁ $ proj₂ r₁) ≡ mink (suc n) r₂
-    misuk = sukmi n $ proj₁ $ proj₂ r₁
+    misuk : suc (mink n $ proj₁ $ proj₂ u) ≡ mink (suc n) r₂
+    misuk = sukmi n $ proj₁ $ proj₂ u
       where
       sukmi : {m n : ℕ}
             → (f : Fin m)
