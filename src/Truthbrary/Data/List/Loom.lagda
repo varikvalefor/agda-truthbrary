@@ -187,14 +187,6 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   r₂ = cong suc $ proj₁ $ proj₂ u
   r₃ = i misuk $ proj₂ $ proj₂ u
     where
-    p : ∀ {a} → {A : Set a}
-      → {x : A}
-      → (l : List A)
-      → {n : Fin $ length l}
-      → (z : A)
-      → l ! n ≡ x
-      → (z ∷ l) ! suc n ≡ x
-    p _ _ = id
     i : ∀ {a} → {A : Set a}
       → {l : List A}
       → {m n : Fin $ length l}
