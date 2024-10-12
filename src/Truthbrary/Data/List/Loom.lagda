@@ -243,7 +243,7 @@ ualmap {B = B} x f g k = proj₁ l , _ , sym p₃
   p₃ = begin
     proj₁ l ! mink k p₂ ≡⟨ M k ℓ ℓ₂ xul ▹ cong (proj₁ l !_) ⟩
     proj₁ l ! mink k₂ (proj₁ $ proj₂ l) ≡⟨ proj₂ $ proj₂ l ⟩
-    g (map f x ! k₂) ≡⟨ cong g $ lum x f k ⟩
+    g (map f x ! k₂) ≡⟨ lum x f k ▹ cong g ⟩
     g (f $ x ! k) ∎
     where
     ℓ₂ = proj₁ $ proj₂ l
