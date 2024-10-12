@@ -203,7 +203,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
             → (_≗_
                 (suc ∘ mink f)
                 (mink {n = suc n} (suc f) ∘ cong suc))
-      sukmi f refl = refl
+      sukmi _ refl = refl
 \end{code}
 
 \section{la .\F{ualmap}.}
