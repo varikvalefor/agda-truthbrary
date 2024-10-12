@@ -341,7 +341,7 @@ ualmapkonk x n f g = begin
   mynydus = tondus _ n ▹ sym ▹ cong p
     where
     p = λ n → t take n ++ g ((map f x) ! m) ∷ t drop (suc n)
-  midju = cong (λ c → t take n' ++ g c ∷ t drop (ℕ.suc n')) $ lum x f n
+  midju = lum x f n ▹ cong (λ c → t take n' ++ g c ∷ t drop (suc n'))
 \end{code}
 
 \section{la .\F{teiklendus}.}
