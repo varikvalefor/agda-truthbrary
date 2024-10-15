@@ -84,7 +84,7 @@ open import Function
 \end{code}
 
 \section{la'o zoi.\ \F 𝕄\ .zoi.}
-ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.
+ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru pe'a lo ctaipe be la'o zoi.\ \B A .zoi.
 
 \subsection{le su'u me'oi .order.}
 \newcommand\InductiveOperator[1]{\AgdaOperator{\IC{#1}}}
