@@ -315,7 +315,7 @@ instance
            → (False $ P? x → A)
            → Dec $ P x
            → Maybe A
-      spit f (no q) = just $ f $ fromWitnessFalse q
+      spit f (no N) = just $ f $ fromWitnessFalse N
       spit _ _ = nothing
 \end{code}
 
