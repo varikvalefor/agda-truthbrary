@@ -240,7 +240,6 @@ instance
     0-0≡0 = refl}
     where
     r = λ _ _ → ℤ
-    divys : _ → _ → Maybe ℤ
     divys = λ a b → cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) $ _ ℕ.≟ _
       where
       cysiz : {n : ℕ} → (False $ n ℕ.≟ 0 → ℤ) → Dec $ n ≡ 0 → Maybe ℤ
