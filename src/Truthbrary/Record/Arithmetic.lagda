@@ -141,6 +141,7 @@ open import Relation.Binary.PropositionalEquality
   )
 
 import Data.Integer.DivMod
+  as ℤ
 \end{code}
 
 \section{la'oi .\AgdaRecord{Arris}.}
@@ -240,7 +241,7 @@ instance
     0-0≡0 = refl}
     where
     r = λ _ _ → ℤ
-    divys = λ a b → cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) $ _ ℕ.≟ _
+    divys = λ a b → cysiz (λ x → ℤ._div_ a b {x}) $ _ ℕ.≟ _
       where
       cysiz : {n : ℕ} → (False $ n ℕ.≟ 0 → ℤ) → Dec $ n ≡ 0 → Maybe ℤ
       cysiz f (no j) = just $ f $ fromWitnessFalse j
