@@ -225,7 +225,7 @@ instance
     _+_ = ℤ._+_;
     _-_ = ℤ._-_;
     _*_ = ℤ._*_;
-    _/_ = deev;
+    _/_ = divys;
     uyn₁ = 1ℤ;
     uyn₂ = 1ℤ;
     uyn* = 1ℤ;
@@ -240,8 +240,8 @@ instance
     0-0≡0 = refl}
     where
     r = λ _ _ → ℤ
-    deev : _ → _ → Maybe ℤ
-    deev a b = cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) $ _ ℕ.≟ _
+    divys : _ → _ → Maybe ℤ
+    divys a b = cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) $ _ ℕ.≟ _
       where
       cysiz : {n : ℕ} → (False $ n ℕ.≟ 0 → ℤ) → Dec $ n ≡ 0 → Maybe ℤ
       cysiz f (no j) = just $ f $ fromWitnessFalse j
