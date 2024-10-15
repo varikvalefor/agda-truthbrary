@@ -246,7 +246,7 @@ instance
       ∣b∣ = ℤ.∣ b ∣
       eek0 = ∣b∣ ℕ.≟ 0
       cysiz : (n : ℕ) → (False $ n ℕ.≟ 0 → ℤ) → Dec $ n ≡ 0 → Maybe ℤ
-      cysiz n f (no j) = just $ f $ fromWitnessFalse j
+      cysiz _ f (no j) = just $ f $ fromWitnessFalse j
       cysiz n _ (yes _) = nothing
 
   ariFloatFloat : Arris Float Float
