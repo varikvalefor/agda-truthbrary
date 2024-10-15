@@ -243,7 +243,7 @@ instance
     deev : _ → _ → Maybe ℤ
     deev a b = cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
       where
-      eek0 = ℤ.∣ b ∣ ℕ.≟ 0
+      eek0 = _ ℕ.≟ 0
       cysiz : {n : ℕ} → (False $ n ℕ.≟ 0 → ℤ) → Dec $ n ≡ 0 → Maybe ℤ
       cysiz f (no j) = just $ f $ fromWitnessFalse j
       cysiz _ (yes _) = nothing
