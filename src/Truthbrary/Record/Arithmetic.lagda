@@ -241,7 +241,7 @@ instance
     where
     r = λ _ _ → ℤ
     deev : _ → _ → Maybe ℤ
-    deev a b = cysiz ∣b∣ (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
+    deev a b = cysiz _ (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
       where
       ∣b∣ = ℤ.∣ b ∣
       eek0 = ∣b∣ ℕ.≟ 0
