@@ -10,7 +10,7 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
-\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℕ}{\ensuremath{\mathbb N}}
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
