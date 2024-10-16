@@ -110,7 +110,7 @@ ni'o xu la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}
 \begin{code}
 tondus : (toℕ ∘ fromℕ) ≗ id
 tondus 0 = refl
-tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
+tondus (ℕ.suc n) = tondus n Function.|> cong ℕ.suc
 \end{code}
 
 \section{la .\F{minzero}.}
