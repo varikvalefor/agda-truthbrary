@@ -22,9 +22,7 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
-\newcommand\modycme[1]{\AgdaModule{#1}}
-
-\newcommand\kulmodis{\modycme{Truthbrary.Data.Fin}}
+\newcommand\kulmodis{\AgdaModule{Truthbrary.Data.Fin}}
 
 \title{la'o zoi.\ \kulmodis\ .zoi.}
 \author{la .varik.\ .VALefor.}
