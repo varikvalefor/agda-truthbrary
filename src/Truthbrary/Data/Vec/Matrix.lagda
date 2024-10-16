@@ -29,7 +29,7 @@
 
 \newcommand\cmene{Truthbrary.Data.Vec.Matrix}
 
-\title{la'o zoi.\ \texttt{\cmene} .zoi.}
+\title{la'o zoi.\ \AgdaModule{\cmene} .zoi.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
@@ -37,7 +37,7 @@
 \maketitle
 
 \section{le torveki}
-ni'o klesi lo'i ro co'e poi su'o da zo'u da selvau pe'a la'o zoi.\ \texttt{\cmene} .zoi.\ je cu velcki ke'a ku'o fa\ldots
+ni'o klesi lo'i ro co'e poi su'o da zo'u da selvau pe'a la'o zoi.\ \AgdaModule{\cmene} .zoi.\ je cu velcki ke'a ku'o fa\ldots
 \begin{itemize}
 	\item la'oi .\F 𝕄.\ noi ke'a jai filri'a tu'a lo nacmeimei be'o ce
 	\item la'oi .\F{lookup}.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o ce
