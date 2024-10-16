@@ -22,7 +22,7 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
-\newcommand\modycme[1]{\texttt{#1}}
+\newcommand\modycme[1]{\AgdaModule{#1}}
 
 \newcommand\kulmodis{\modycme{Truthbrary.Data.Fin}}
 
