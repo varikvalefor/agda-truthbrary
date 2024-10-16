@@ -13,7 +13,7 @@
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb M}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
-\newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
+\newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{∋}{\ensuremath{\mathnormal{\ni}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
