@@ -37,12 +37,12 @@
 \maketitle
 
 \section{le torveki}
-ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru pe'a\ldots
+ni'o klesi lo'i ro co'e poi su'o da zo'u da selvau pe'a la'o zoi.\ \texttt{\cmene} .zoi.\ je cu velcki ke'a ku'o fa\ldots
 \begin{itemize}
-	\item le velcki be la'oi .\F 𝕄.\ noi ke'a jai filri'a tu'a lo nacmeimei be'o je
-	\item le velcki be la'o zoi.\ \F{lookup} .zoi.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o je
-	\item le velcki be la'o zoi.\ \F I .zoi.\ noi tu'a ke'a filri'a tu'a lo me'oi .identity.\ nacmeimei be'o je
-	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo nacmeimei bei lo nacmeimei
+	\item la'oi .\F 𝕄.\ noi ke'a jai filri'a tu'a lo nacmeimei be'o ce
+	\item la'o zoi.\ \F{lookup} .zoi.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o ce
+	\item la'o zoi.\ \F I .zoi.\ noi tu'a ke'a filri'a tu'a lo me'oi .identity.\ nacmeimei be'o ce
+	\item la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo nacmeimei bei lo nacmeimei
 \end{itemize}
 
 \section{le vrici}
