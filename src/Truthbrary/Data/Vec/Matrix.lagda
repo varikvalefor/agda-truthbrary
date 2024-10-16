@@ -37,7 +37,7 @@
 \maketitle
 
 \section{le torveki}
-ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru\ldots
+ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru pe'a\ldots
 \begin{itemize}
 	\item le velcki be la'o zoi.\ \F 𝕄 .zoi.\ noi tu'a ke'a filri'a tu'a lo nacmeimei be'o je
 	\item le velcki be la'o zoi.\ \F{lookup} .zoi.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o je
