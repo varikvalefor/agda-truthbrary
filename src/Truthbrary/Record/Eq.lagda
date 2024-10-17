@@ -337,7 +337,8 @@ instance
              → inj₁ x ≡ inj₁ {B = B} y
              → x ≡ y
     inj₁-inj refl = refl
-    inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
+    inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b}
+             → {x y : B}
              → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
     inj₂-inj refl = refl
     Q : DecidableEquality $ _ ⊎ _
