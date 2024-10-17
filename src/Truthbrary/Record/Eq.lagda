@@ -312,7 +312,7 @@ instance
       spit (no a) (no b) = k a b
     f : {n : ℕ} → DecidableEquality $ Vec A n
     f []ᵥ []ᵥ = yes refl
-    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs _ (f xs ys) booty messiah arm ltd
+    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y _ _ (f xs ys) booty messiah arm ltd
       where
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
