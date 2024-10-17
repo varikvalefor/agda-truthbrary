@@ -226,7 +226,8 @@ instance
                → x ∷ xs ≡ y ∷ ys → xs ≡ ys
     notBigInto refl = refl
     leadneck : ∀ {a} → {A : Set a}
-             → {x y : A} → {xs ys : List A}
+             → {x y : A}
+             → {xs ys : List A}
              → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
     leadneck = _∘ hillbilly
       where
