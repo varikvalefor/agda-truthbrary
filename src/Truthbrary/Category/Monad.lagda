@@ -28,7 +28,7 @@
 \newcommand\B\AgdaBound
 
 \newcommand\cmene{Truthbrary.Category.Monad}
-\newcommand\liharmi{ni'o la .varik. cu jinvi le du'u le se ctaipe cu xamgu velcki}
+\newcommand\liharmi{ni'o la .varik. cu jinvi le du'u le se ctaipe cu zabna velcki}
 
 \title{la'o zoi.\ \texttt{\cmene} .zoi.}
 \author{la .varik.\ .VALefor.}
