@@ -222,7 +222,8 @@ instance
              → x ≡ y → xs ≡ ys → x ∷ xs ≡ y ∷ ys
     doomsday refl refl = refl
     notBigInto : ∀ {a} → {A : Set a}
-               → {x y : A} → {xs ys : List A}
+               → {x y : A}
+               → {xs ys : List A}
                → x ∷ xs ≡ y ∷ ys → xs ≡ ys
     notBigInto refl = refl
     leadneck : ∀ {a} → {A : Set a}
