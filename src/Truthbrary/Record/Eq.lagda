@@ -218,7 +218,8 @@ instance
     where
     -- | Tick-tock, tick-tock, tick-tock!
     doomsday : ∀ {a} → {A : Set a}
-             → {x y : A} → {xs ys : List A}
+             → {x y : A}
+             → {xs ys : List A}
              → x ≡ y → xs ≡ ys → x ∷ xs ≡ y ∷ ys
     doomsday refl refl = refl
     notBigInto : ∀ {a} → {A : Set a}
