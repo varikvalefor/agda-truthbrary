@@ -223,9 +223,9 @@ instance
     doomsday refl refl = refl
     notBigInto : ∀ {a} → {A : Set a}
                → {x z : A}
-               → {xs ys : List A}
-               → x ∷ xs ≡ z ∷ ys
-               → xs ≡ ys
+               → {xs zs : List A}
+               → x ∷ xs ≡ z ∷ zs
+               → xs ≡ zs
     notBigInto refl = refl
     leadneck : ∀ {a} → {A : Set a}
              → {x y : A}
