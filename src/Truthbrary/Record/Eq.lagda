@@ -296,14 +296,14 @@ instance
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
          → {t v : A}
-         → (x z : B)
+         → {x z : B}
          → Dec $ x ≡ z
          → (t ≡ v → x ≡ z → C)
          → (t ≡ v → ¬ (x ≡ z) → C)
          → (¬ (t ≡ v) → x ≡ z → C)
          → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
          → C
-    bork {C = C} {t} {v} x z d f g j k = spit (t ≟ v) d
+    bork {C = C} {t} {v} {x} {z} d f g j k = spit (t ≟ v) d
       where
       spit : Dec $ t ≡ v → Dec $ x ≡ z → C
       spit (yes a) (yes b) = f a b
@@ -312,7 +312,7 @@ instance
       spit (no a) (no b) = k a b
     f : {n : ℕ} → DecidableEquality $ Vec A n
     f []ᵥ []ᵥ = yes refl
-    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork _ _ (f xs ys) booty messiah arm ltd
+    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork (f xs ys) booty messiah arm ltd
       where
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
