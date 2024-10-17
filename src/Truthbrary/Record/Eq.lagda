@@ -139,6 +139,10 @@ open import Relation.Nullary
     ¬_
   )
 open import Relation.Nullary.Decidable
+  using (
+    isYes;
+    map′
+  )
 open import Relation.Binary.Structures
 open import Relation.Binary.Definitions
   using (
