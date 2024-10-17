@@ -224,7 +224,8 @@ instance
     notBigInto : ∀ {a} → {A : Set a}
                → {x y : A}
                → {xs ys : List A}
-               → x ∷ xs ≡ y ∷ ys → xs ≡ ys
+               → x ∷ xs ≡ y ∷ ys
+               → xs ≡ ys
     notBigInto refl = refl
     leadneck : ∀ {a} → {A : Set a}
              → {x y : A}
