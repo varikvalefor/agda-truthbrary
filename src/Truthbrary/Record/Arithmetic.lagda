@@ -131,9 +131,6 @@ open import Relation.Nullary.Decidable
     fromWitnessFalse;
     False
   )
-open import Relation.Binary.Definitions
-  using (
-  )
 open import Relation.Binary.PropositionalEquality
   using (
     refl;
