@@ -144,6 +144,8 @@ open import Relation.Nullary.Decidable
     map′
   )
 open import Relation.Binary.Structures
+  using (
+  )
 open import Relation.Binary.Definitions
   using (
     DecidableEquality
