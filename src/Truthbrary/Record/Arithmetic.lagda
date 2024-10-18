@@ -242,7 +242,7 @@ instance
       where
       cysiz : {n : ℕ} → (False $ n ℕ.≟ 0 → ℤ) → Dec $ n ≡ 0 → Maybe ℤ
       cysiz f (no j) = just $ f $ fromWitnessFalse j
-      cysiz _ (yes _) = nothing
+      cysiz _ (_) = nothing
 
   ariFloatFloat : Arris Float Float
   ariFloatFloat = record {
