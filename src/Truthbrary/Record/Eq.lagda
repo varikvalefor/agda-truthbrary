@@ -10,6 +10,7 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
+\newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb Z}}}
 \newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
