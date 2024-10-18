@@ -280,8 +280,7 @@ instance
       -- pu lo nu gubni ciksi le ctaipe... kei kei jenai
       -- le du'u le versiio poi ke'a jai cabna cu
       -- mutce le ka ce'u na xlabebna... kei kei je
-      -- ku'i cu nelci le jalge be le nu zo'oi
-      -- .messiah. cmene le ctaipe
+      -- ku'i cu nelci le jalge be tu'a zo'oi .messiah.
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
