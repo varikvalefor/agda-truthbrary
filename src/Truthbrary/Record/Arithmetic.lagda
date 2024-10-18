@@ -227,7 +227,7 @@ instance
     uyn₁ = 1ℤ;
     uyn₂ = 1ℤ;
     uyn* = 1ℤ;
-    uyn/ = just _;
+    uyn/ = _;
     zir₁ = 0ℤ;
     zir₂ = 0ℤ;
     zir+ = 0ℤ;
