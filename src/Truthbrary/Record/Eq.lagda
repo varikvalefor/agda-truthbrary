@@ -62,7 +62,6 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.Eq where
 
-import Data.Char
 import Data.Float
 import Data.String
 import Data.Maybe.Properties
@@ -99,6 +98,9 @@ open import Function
 open import Data.Bool
   using (
     Bool
+  )
+open import Data.Char
+  using (
   )
 open import Data.Maybe
   using (
