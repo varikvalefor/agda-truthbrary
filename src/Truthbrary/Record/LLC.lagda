@@ -92,11 +92,6 @@ open import Data.Vec
     _∷_ to _∷ᵥ_;
     [] to []ᵥ
   )
-  hiding (
-    reverse;
-    _++_;
-    map
-  )
 open import Function
   using (
     const;
