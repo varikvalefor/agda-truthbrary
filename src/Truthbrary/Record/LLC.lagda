@@ -178,7 +178,7 @@ import Data.Vec.Relation.Unary.Any
     any?;
     Any
   )
-import Data.Vec.Relation.Unary.All
+open import Data.Vec.Relation.Unary.All
   as DVRUL
   using (
     all?;
