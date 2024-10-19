@@ -171,7 +171,6 @@ open import Relation.Binary.PropositionalEquality
     _≢_;
     _≡_
   )
-
 open import Data.Vec.Relation.Unary.Any
   as DVRUA
   using (
