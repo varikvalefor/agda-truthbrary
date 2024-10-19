@@ -248,23 +248,6 @@ instance
                 → x ∷ xs ≡ y ∷ ys
                 → x ≡ y
       hillbilly refl = refl
-    bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-         → ⦃ Eq A ⦄
-         → (t v : A)
-         → (x z : B)
-         → Dec $ x ≡ z
-         → (t ≡ v → x ≡ z → C)
-         → (t ≡ v → ¬ (x ≡ z) → C)
-         → (¬ (t ≡ v) → x ≡ z → C)
-         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
-         → C
-    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
-      where
-      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
-      spit (yes a) (yes b) = f a b
-      spit (yes a) (no b) = g a b
-      spit (no a) (yes b) = j a b
-      spit (no a) (no b) = k a b
     f : DecidableEquality $ List A
     f List.[] List.[] = yes refl
     f (_ ∷ _) List.[] = no $ λ ()
@@ -290,6 +273,23 @@ instance
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ leadneck quality
+      bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+           → ⦃ Eq A ⦄
+           → (t v : A)
+           → (x z : B)
+           → Dec $ x ≡ z
+           → (t ≡ v → x ≡ z → C)
+           → (t ≡ v → ¬ (x ≡ z) → C)
+           → (¬ (t ≡ v) → x ≡ z → C)
+           → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
+           → C
+      bork {C = C} t v x z d f g j k = spit (t ≟ v) d
+        where
+        spit : Dec $ t ≡ v → Dec $ x ≡ z → C
+        spit (yes a) (yes b) = f a b
+        spit (yes a) (no b) = g a b
+        spit (no a) (yes b) = j a b
+        spit (no a) (no b) = k a b
   EqVec : ∀ {a} → {A : Set a} → {n : ℕ}
         → ⦃ Eq A ⦄
         → Eq $ Vec A n
