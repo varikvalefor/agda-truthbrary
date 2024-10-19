@@ -83,10 +83,10 @@ open import Data.Nat
   )
 open import Data.Vec
   renaming (
-    [] to []ᵥ;
-    _∷_ to _∷ᵥ_;
     replicate to replicateᵥ;
-    length to lengthᵥ
+    length to lengthᵥ;
+    _∷_ to _∷ᵥ_;
+    [] to []ᵥ
   )
   hiding (
     reverse;
