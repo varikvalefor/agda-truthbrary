@@ -166,11 +166,6 @@ open import Relation.Nullary.Decidable
   using (
     isYes
   )
-open import Relation.Binary.PropositionalEquality
-  using (
-    _≢_;
-    _≡_
-  )
 open import Data.Vec.Relation.Unary.Any
   as DVRUA
   using (
@@ -182,6 +177,11 @@ open import Data.Vec.Relation.Unary.All
   using (
     all?;
     All
+  )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≢_;
+    _≡_
   )
 \end{code}
 
