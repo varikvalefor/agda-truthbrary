@@ -232,9 +232,7 @@ _∷_ ⦃ Q ⦄ = LL._∷_ Q
 ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 
 \begin{code}
-[] : ∀ {a} → {A : Set a}
-   → ⦃ Q : LL A ⦄
-   → LL.olen Q 0
+[] : ∀ {a} → {A : Set a} → ⦃ Q : LL A ⦄ → LL.olen Q 0
 [] ⦃ Q ⦄ = LL.[] Q
 \end{code}
 
