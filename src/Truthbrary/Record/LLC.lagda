@@ -158,6 +158,10 @@ open import Relation.Nullary
     ¬_
   )
 open import Truthbrary.Record.Eq
+  using (
+    _≟_;
+    Eq
+  )
 open import Relation.Nullary.Decidable
   using (
     isYes
