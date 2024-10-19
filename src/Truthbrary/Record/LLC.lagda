@@ -164,6 +164,12 @@ open import Relation.Unary
     Pred
   )
 open import Relation.Nullary
+  using (
+    ofⁿ;
+    ofʸ;
+    Dec;
+    ¬_
+  )
 open import Truthbrary.Record.Eq
 open import Relation.Nullary.Decidable
   using (
