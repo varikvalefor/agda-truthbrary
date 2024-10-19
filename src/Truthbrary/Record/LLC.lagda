@@ -172,7 +172,7 @@ open import Relation.Binary.PropositionalEquality
     _≡_
   )
 
-import Data.Vec.Relation.Unary.Any
+open import Data.Vec.Relation.Unary.Any
   as DVRUA
   using (
     any?;
