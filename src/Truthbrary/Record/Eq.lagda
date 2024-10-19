@@ -68,7 +68,8 @@ import Data.Maybe.Properties
 import Data.These.Properties
 import Data.Product.Properties
   as ΣP
-import Data.Vec.Properties as DVP
+import Data.Vec.Properties
+  as DVP
 
 open import Data.Fin
   as 𝔽
