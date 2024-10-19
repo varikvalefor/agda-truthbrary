@@ -81,10 +81,6 @@ open import Data.Nat
     _∸_;
     ℕ
   )
-  hiding (
-    _≟_;
-    _≡ᵇ_
-  )
 open import Data.Vec
   renaming (
     [] to []ᵥ;
