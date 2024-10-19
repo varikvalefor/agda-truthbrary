@@ -144,11 +144,6 @@ open import Data.String
   using (
     String
   )
-  hiding (
-    length;
-    _≟_;
-    _++_
-  )
 open import Data.Product
   using (
     ∃;
