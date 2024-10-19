@@ -131,13 +131,6 @@ open import Data.Maybe
     maybe;
     just
   )
-open import Data.Product
-  using (
-    uncurry;
-    _,_;
-    ∃;
-    Σ
-  )
 open import Data.String
   renaming (
     fromList to fromListₛ;
@@ -145,6 +138,13 @@ open import Data.String
   )
   using (
     String
+  )
+open import Data.Product
+  using (
+    uncurry;
+    _,_;
+    ∃;
+    Σ
   )
 open import Relation.Unary
   using (
