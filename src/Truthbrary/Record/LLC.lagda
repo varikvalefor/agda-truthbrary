@@ -134,7 +134,9 @@ open import Data.Maybe
 open import Data.Product
   using (
     uncurry;
-    _,_
+    _,_;
+    ∃;
+    Σ
   )
 open import Data.String
   renaming (
@@ -143,11 +145,6 @@ open import Data.String
   )
   using (
     String
-  )
-open import Data.Product
-  using (
-    ∃;
-    Σ
   )
 open import Relation.Unary
   using (
