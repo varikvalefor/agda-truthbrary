@@ -67,6 +67,7 @@ import Data.String
 import Data.Maybe.Properties
 import Data.These.Properties
 import Data.Product.Properties
+  as ΣP
 import Data.Vec.Properties as DVP
 
 open import Data.Fin
@@ -201,7 +202,7 @@ instance
   EqProd : ∀ {a b} → {A : Set a} → {B : Set b}
          → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
          → Eq $ A × B
-  EqProd = record {_≟_ = Data.Product.Properties.≡-dec _≟_ _≟_}
+  EqProd = record {_≟_ = ΣP.≡-dec _≟_ _≟_}
   EqString : Eq Data.String.String
   EqString = record {_≟_ = Data.String._≟_}
   EqChar : Eq Data.Char.Char
