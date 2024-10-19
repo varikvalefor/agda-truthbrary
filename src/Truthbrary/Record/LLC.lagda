@@ -82,6 +82,10 @@ open import Data.Nat
     ℕ
   )
 open import Data.Vec
+  using (
+    toList;
+    Vec
+  )
   renaming (
     replicate to replicateᵥ;
     length to lengthᵥ;
