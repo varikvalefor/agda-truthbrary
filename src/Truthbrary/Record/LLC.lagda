@@ -146,6 +146,9 @@ open import Data.String
     fromList to fromListₛ;
     toList to toListₛ
   )
+  using (
+    String
+  )
   hiding (
     length;
     _≟_;
