@@ -311,7 +311,10 @@ ni'o ga jonai la'o zoi.\ \B q\ .zoi.\ du ko'a goi la'o zoi.\ \F{garden} \B f \B 
 \begin{code}
 garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
        → ⦃ Q : LL CoolJ ⦄
-       → (LL.e Q → Maybe B) → B → CoolJ → B
+       → (LL.e Q → Maybe B)
+       → B
+       → CoolJ
+       → B
 garden the west gate = g2 the west $ vec gate
   where
   g2 : ∀ {a b} → {A : Set a} → {B : Set b}
