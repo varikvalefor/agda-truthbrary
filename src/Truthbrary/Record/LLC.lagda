@@ -273,7 +273,9 @@ ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\
 decaf : ∀ {a} → {Bean : Set a}
       → ⦃ Q : LL Bean ⦄
       → ⦃ Eq $ LL.e Q ⦄
-      → LL.e Q → LL.e Q → (j : Bean)
+      → LL.e Q
+      → LL.e Q
+      → (j : Bean)
       → Maybe $ LL.olen Q $ LL.l Q j ∸ 2
 decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   where
