@@ -323,8 +323,8 @@ garden the west gate = g2 the west $ vec gate
      → B
      → Vec A n
      → B
-  g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
   g2 _ d []ᵥ = d
+  g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
 \end{code}
 
 \subsection{la'oi .\F{dist}.}
