@@ -221,10 +221,10 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 infixr 5 _∷_
 
 _∷_ : ∀ {a} → {A : Set a}
-     → ⦃ ALL : LL A ⦄
-     → LL.e ALL
-     → (q : A)
-     → LL.olen ALL $ ℕ.suc $ LL.l ALL q
+    → ⦃ ALL : LL A ⦄
+    → LL.e ALL
+    → (q : A)
+    → LL.olen ALL $ ℕ.suc $ LL.l ALL q
 _∷_ ⦃ Q ⦄ = LL._∷_ Q
 \end{code}
 
