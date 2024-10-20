@@ -525,7 +525,7 @@ instance
   LCString : LC String String
   LCString = record {_++_ = Data.String._++_}
   LCVec : ∀ {a} → {A : Set a} → {m n : ℕ}
-        → LC (Vec A m) (Vec A n)
+        → LC (Vec A m) $ Vec A n
   LCVec = record {_++_ = 𝕍._++_}
   LCℕ : LC ℕ ℕ
   LCℕ = record {_++_ = Data.Nat._+_}
