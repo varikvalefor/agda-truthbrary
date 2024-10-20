@@ -83,6 +83,7 @@ open import Data.Nat
     ℕ
   )
 open import Data.Vec
+  as 𝕍
   using (
     toList;
     Vec
@@ -286,13 +287,13 @@ decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   f (x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet q) else nothing
     where
     q = x ∷ᵥ y ∷ᵥ z
-    r = Data.Vec.reverse
+    r = 𝕍.reverse
     delet = r ∘ t ∘ r ∘ t
       where
-      t = Data.Vec.drop 1
+      t = 𝕍.drop 1
     conteven = (pamoi a q) ∧ (pamoi b $ r q)
       where
-      pamoi = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
+      pamoi = λ n → isYes ∘ _≟_ n ∘ 𝕍.head
 \end{code}
 
 \subsection{la .\F{map}.}
@@ -303,7 +304,7 @@ map : ∀ {a b} → {A : Set a} → {B : Set b}
     → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
     → (f : LL.e Q → LL.e R) → (x : A)
     → LL.olen R $ length x
-map f = cev ∘ Data.Vec.map f ∘ vec
+map f = cev ∘ 𝕍.map f ∘ vec
 \end{code}
 
 \subsection{la .\F{garden}.}
@@ -428,7 +429,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la
 nu,iork : ∀ {a} → {Bean : Set a}
         → ⦃ Q : LL Bean ⦄ → ⦃ Eq $ LL.e Q ⦄
         → Bean → Set a
-nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
+nu,iork = nu,iork' ∘ 𝕍.toList ∘ vec
   where
   nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
     where
@@ -456,8 +457,8 @@ instance
     [] = []ₗ;
     l = lengthₗ;
     _∷_ = _∷ₗ_;
-    vec = Data.Vec.fromList;
-    cev = Data.Vec.toList}
+    vec = 𝕍.fromList;
+    cev = 𝕍.toList}
   liliString : LL String
   liliString = record {
     e = Char;
@@ -465,8 +466,8 @@ instance
     [] = "";
     l = Data.String.length;
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
-    vec = Data.Vec.fromList ∘ Data.String.toList;
-    cev = Data.String.fromList ∘ Data.Vec.toList}
+    vec = 𝕍.fromList ∘ Data.String.toList;
+    cev = Data.String.fromList ∘ 𝕍.toList}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
@@ -484,7 +485,7 @@ instance
     l = id;
     _∷_ = const ℕ.suc;
     vec = λ _ → replicateᵥ 𝔽.zero;
-    cev = Data.Vec.length}
+    cev = 𝕍.length}
 \end{code}
 
 \section{la'oi .\AgdaRecord{LC}.}
@@ -525,7 +526,7 @@ instance
   LCString = record {_++_ = Data.String._++_}
   LCVec : ∀ {a} → {A : Set a} → {m n : ℕ}
         → LC (Vec A m) (Vec A n)
-  LCVec = record {_++_ = Data.Vec._++_}
+  LCVec = record {_++_ = 𝕍._++_}
   LCℕ : LC ℕ ℕ
   LCℕ = record {_++_ = Data.Nat._+_}
 \end{code}
