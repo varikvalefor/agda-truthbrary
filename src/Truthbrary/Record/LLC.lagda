@@ -351,7 +351,7 @@ _∈_ : ∀ {a} → {A : Set a}
     → ⦃ Fireball : LL A ⦄
     → ⦃ Eq $ LL.e Fireball ⦄
     → LL.e Fireball → A → Set
-_∈_ a = _≡_ 1 ∘ lengthₗ ∘ 𝕃.take 1 ∘ filterₗ (_≟_ a) ∘ f
+_∈_ a = _≡_ 1 ∘ lengthₗ ∘ 𝕃.take 1 ∘ filterₗ (a ≟_) ∘ f
   where
   -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
   -- cmavlaka'i zo'oi .from... ja cu co'e
