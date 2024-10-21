@@ -393,7 +393,7 @@ _∈₂?_ ⦃ Q ⦄ x xs = DVRUA.any? (x ≟_) $ LL.vec Q xs
 \end{code}
 
 \subsubsection{la'oi .\F{\AgdaUnderscore{}∉₂\AgdaUnderscore}.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∉₂}} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ na cmima la'o zoi.\ \B b\ .zoi.
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{∉₂} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ na cmima la'o zoi.\ \B b\ .zoi.
 
 \begin{code}
 _∉₂_ : ∀ {a} → {Bean : Set a}
