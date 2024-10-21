@@ -398,7 +398,9 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{∉₂} \B b\ .zoi.\ gi la'o zoi.\ \B a\ 
 \begin{code}
 _∉₂_ : ∀ {a} → {Bean : Set a}
      → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
-     → LL.e Jeans → Bean → Set a
+     → LL.e Jeans
+     → Bean
+     → Set a
 _∉₂_ ⦃ Q ⦄ a b = DVRUL.All (a ≢_) $ LL.vec Q b
 \end{code}
 
