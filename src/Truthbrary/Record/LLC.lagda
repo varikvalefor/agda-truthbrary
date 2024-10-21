@@ -259,7 +259,7 @@ vec ⦃ Q ⦄ = LL.vec Q
 \end{code}
 
 \subsubsection{la'oi .\F{cev}.}
-ni'o la'o zoi.\ \F{cev} \B a .zoi.\ me'oi .equivalent.\ la'oi .\B a.
+ni'o la'o zoi.\ \F{cev} \B a .zoi.\ co'e du la'oi .\B a.
 
 \begin{code}
 cev : ∀ {a} → {Bean : Set a}
