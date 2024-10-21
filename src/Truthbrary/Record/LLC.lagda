@@ -266,7 +266,7 @@ ni'o la'o zoi.\ \F{cev} \B a .zoi.\ co'e du la'oi .\B a.
 \begin{code}
 cev : ∀ {a} → {Bean : Set a}
     → ⦃ Q : LL Bean ⦄
-    → _⊆_ (Vec $ LL.e Q) (LL.olen Q)
+    → (Vec $ LL.e Q) ⊆ (LL.olen Q)
 cev ⦃ Q ⦄ = LL.cev Q
 \end{code}
 
