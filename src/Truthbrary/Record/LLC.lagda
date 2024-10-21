@@ -286,14 +286,14 @@ decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
   f []ᵥ = nothing
   f (_ ∷ᵥ []ᵥ) = nothing
-  f (x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet q) else nothing
+  f (x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet k) else nothing
     where
-    q = x ∷ᵥ y ∷ᵥ z
+    k = x ∷ᵥ y ∷ᵥ z
     r = 𝕍.reverse
     delet = r ∘ t ∘ r ∘ t
       where
       t = 𝕍.drop 1
-    conteven = (pamoi a q) ∧ (pamoi b $ r q)
+    conteven = (pamoi a k) ∧ (pamoi b $ r k)
       where
       pamoi = λ n → isYes ∘ _≟_ n ∘ 𝕍.head
 \end{code}
