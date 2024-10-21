@@ -89,7 +89,6 @@ open import Data.Vec
     Vec
   )
   renaming (
-    length to lengthᵥ;
     _∷_ to _∷ᵥ_;
     [] to []ᵥ
   )
