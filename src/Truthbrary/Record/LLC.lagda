@@ -490,7 +490,7 @@ instance
     e = Fin 1;
     l = id;
     _∷_ = const ℕ.suc;
-    vec = λ _ → replicateᵥ 𝔽.zero;
+    vec = λ _ → 𝕍.replicate 𝔽.zero;
     cev = 𝕍.length}
 \end{code}
 
