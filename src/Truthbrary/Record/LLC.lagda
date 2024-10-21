@@ -80,6 +80,7 @@ open import Data.Nat
   using (
     _+_;
     _∸_;
+    suc;
     ℕ
   )
 open import Data.Vec
@@ -208,7 +209,7 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     olen : ℕ → Set a
     [] : olen 0
     l : A → ℕ
-    _∷_ : e → (q : A) → olen $ ℕ.suc $ l q
+    _∷_ : e → (q : A) → olen $ suc $ l q
     vec : (q : A) → Vec e $ l q
     cev : {n : ℕ} → Vec e n → olen n
 \end{code}
@@ -225,7 +226,7 @@ _∷_ : ∀ {a} → {A : Set a}
     → ⦃ ALL : LL A ⦄
     → LL.e ALL
     → (q : A)
-    → LL.olen ALL $ ℕ.suc $ LL.l ALL q
+    → LL.olen ALL $ suc $ LL.l ALL q
 _∷_ ⦃ Q ⦄ = LL._∷_ Q
 \end{code}
 
@@ -487,7 +488,7 @@ instance
     olen = const ℕ;
     e = Fin 1;
     l = id;
-    _∷_ = const ℕ.suc;
+    _∷_ = const suc;
     vec = λ _ → 𝕍.replicate 𝔽.zero;
     cev = 𝕍.length}
 \end{code}
