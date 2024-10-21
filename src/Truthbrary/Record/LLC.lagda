@@ -249,7 +249,7 @@ length ⦃ T ⦄ = LL.l T
 \end{code}
 
 \subsubsection{la'oi .\F{vec}.}
-ni'o la'o zoi.\ \F{vec} \B a .zoi.\ me'oi .equivalent.\ la'oi .\B a.
+ni'o la'o zoi.\ \F{vec} \B a .zoi.\ co'e du la'oi .\B a.
 
 \begin{code}
 vec : ∀ {a} → {Bean : Set a}
