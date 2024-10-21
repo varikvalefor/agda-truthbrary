@@ -150,6 +150,7 @@ open import Data.Product
   )
 open import Relation.Unary
   using (
+    _⊆_;
     Pred
   )
 open import Relation.Nullary
@@ -265,7 +266,7 @@ ni'o la'o zoi.\ \F{cev} \B a .zoi.\ co'e du la'oi .\B a.
 \begin{code}
 cev : ∀ {a} → {Bean : Set a}
     → ⦃ Q : LL Bean ⦄
-    → (Relation.Unary._⊆_
+    → (_⊆_
         (Vec $ LL.e Q)
         (LL.olen Q))
 cev ⦃ Q ⦄ = LL.cev Q
