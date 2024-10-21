@@ -264,12 +264,14 @@ ni'o la'o zoi.\ \F{cev} \B a .zoi.\ me'oi .equivalent.\ la'oi .\B a.
 \begin{code}
 cev : ∀ {a} → {Bean : Set a}
     → ⦃ Q : LL Bean ⦄
-    → {n : ℕ} → Vec (LL.e Q) n → LL.olen Q n
+    → {n : ℕ}
+    → Vec (LL.e Q) n
+    → LL.olen Q n
 cev ⦃ Q ⦄ = LL.cev Q
 \end{code}
 
 \subsection{la'oi .\F{decaf}.}
-ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \F{decaf} \B a \B b \B c .zoi.\ gi ga je la'oi .\B c.\ konkatena ja co'e la'oi .\B a.\ la'oi .\B x.\ la'oi .\B b.\ gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ la'oi .\B x.
+ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \F{decaf} \B a \B b \B c .zoi.\ gi ga je la'oi .\B c.\ co'e ja konkatena la'oi .\B a.\ la'oi .\B x.\ la'oi .\B b.\ gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ la'oi .\B x.
 
 \begin{code}
 decaf : ∀ {a} → {Bean : Set a}
