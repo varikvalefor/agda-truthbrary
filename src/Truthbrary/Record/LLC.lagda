@@ -22,7 +22,7 @@
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\hspace{-0.3em}|}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
-\newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
+\newunicodechar{ₛ}{\ensuremath{\mathnormal{_\AgdaFontStyle{s}}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{ⁿ}{\ensuremath{\mathnormal{^n}}}
 \newunicodechar{ʸ}{\ensuremath{\mathnormal{^y}}}
