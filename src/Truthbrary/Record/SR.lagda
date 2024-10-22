@@ -124,6 +124,12 @@ open import Data.Maybe
     map to mapₘ
   )
 open import Data.String
+  using (
+    fromList;
+    toList;
+    parens;
+    String
+  )
   hiding (
     _≟_;
     show;
