@@ -78,10 +78,6 @@ open import Data.Nat
     _∸_;
     ℕ
   )
-  hiding (
-    _≡ᵇ_;
-    _≟_
-  )
 open import Data.Sum
   using (
     _⊎_;
