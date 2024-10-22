@@ -130,12 +130,6 @@ open import Data.String
     parens;
     String
   )
-  hiding (
-    _≟_;
-    show;
-    length;
-    _++_
-  )
 open import Data.Integer
   using (
     +_;
