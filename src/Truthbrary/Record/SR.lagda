@@ -312,7 +312,7 @@ instance
       where
       -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
-      rM = λ q → if null q then just (+_ 0) else readMaybe (fromList q)
+      rM = λ q → if null q then just (+ 0) else readMaybe (fromList q)
       comb = liftM2 $ λ x y → _+f_ (n2f x) $ n2f y ÷ sf b
         where
         pos = not $ Data.List.head a ≡ᵇ just '-'
