@@ -353,7 +353,9 @@ ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B a \OpF 
 _∈_ : ∀ {a} → {A : Set a}
     → ⦃ Fireball : LL A ⦄
     → ⦃ Eq $ LL.e Fireball ⦄
-    → LL.e Fireball → A → Set
+    → LL.e Fireball
+    → A
+    → Set
 _∈_ a = _≡_ 1 ∘ lengthₗ ∘ 𝕃.take 1 ∘ filterₗ (a ≟_) ∘ f
   where
   -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
