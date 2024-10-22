@@ -98,9 +98,6 @@ open import Data.Bool
     Bool;
     not
   )
-  hiding (
-    _≟_
-  )
 open import Data.Char
   using (
     Char
