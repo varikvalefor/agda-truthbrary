@@ -152,6 +152,8 @@ open import Data.Nat.Show
   using (
   )
 open import Data.Maybe.Instances
+  using (
+  )
 open import Truthbrary.Record.Eq
 open import Truthbrary.Record.LLC
   hiding (
