@@ -140,7 +140,8 @@ open import Data.Rational
     mkℚ;
     ℚ
   )
-open import Data.Rational.Unnormalised as ℚᵘ
+open import Data.Rational.Unnormalised
+  as ℚᵘ
   using (
     ℚᵘ;
     mkℚᵘ
