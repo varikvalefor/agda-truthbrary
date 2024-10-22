@@ -73,10 +73,6 @@ open import Data.Fin
   using (
     Fin
   )
-  hiding (
-    _≟_;
-    toℕ
-  )
 open import Data.Nat
   hiding (
     _≡ᵇ_;
