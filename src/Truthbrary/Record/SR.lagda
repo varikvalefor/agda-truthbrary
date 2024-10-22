@@ -174,6 +174,9 @@ open import Relation.Nullary.Decidable
     isNo
   )
 open import Truthbrary.Data.List.Split
+  using (
+    splitOn
+  )
 open import Relation.Binary.PropositionalEquality
 \end{code}
 
