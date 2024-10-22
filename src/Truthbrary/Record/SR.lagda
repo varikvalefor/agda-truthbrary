@@ -140,12 +140,6 @@ open import Data.Rational
     mkℚ;
     ℚ
   )
-open import Data.Rational.Unnormalised
-  as ℚᵘ
-  using (
-    ℚᵘ;
-    mkℚᵘ
-  )
 open import Data.Fin.Show
   using (
   )
@@ -169,6 +163,12 @@ open import Truthbrary.Category.Monad
   )
   renaming (
     map₂ to liftM2
+  )
+open import Data.Rational.Unnormalised
+  as ℚᵘ
+  using (
+    ℚᵘ;
+    mkℚᵘ
   )
 open import Relation.Nullary.Decidable
   using (
