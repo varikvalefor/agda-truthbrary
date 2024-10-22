@@ -70,6 +70,9 @@ import Data.Integer.Show
 import Data.Rational.Show
 
 open import Data.Fin
+  using (
+    Fin
+  )
   hiding (
     _≟_;
     toℕ
