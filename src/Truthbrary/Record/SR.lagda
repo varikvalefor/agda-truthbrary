@@ -155,6 +155,9 @@ open import Data.Maybe.Instances
   using (
   )
 open import Truthbrary.Record.Eq
+  using (
+    _≡ᵇ_
+  )
 open import Truthbrary.Record.LLC
   hiding (
     _∷_
