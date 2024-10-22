@@ -326,7 +326,7 @@ instance
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
           → Read $ A ⊎ B
-  readSum {_} {_} {A} {B} = record {readMaybe = inj₁?}
+  readSum {A = A} {B} = record {readMaybe = inj₁?}
     where
     inj₁? : String → Maybe $ A ⊎ B
     inj₁? q = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
