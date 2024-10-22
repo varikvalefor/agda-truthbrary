@@ -178,6 +178,9 @@ open import Truthbrary.Data.List.Split
     splitOn
   )
 open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'oi .\AgdaRecord{Show}.}
