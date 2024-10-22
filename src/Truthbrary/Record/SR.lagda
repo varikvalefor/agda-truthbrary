@@ -91,6 +91,13 @@ open import Function
     _∘_
   )
 open import Data.Bool
+  using (
+    if_then_else_;
+    false;
+    true;
+    Bool;
+    not
+  )
   hiding (
     _≟_
   )
