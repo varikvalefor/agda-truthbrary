@@ -89,6 +89,11 @@ open import Data.Sum
     inj₂
   )
 open import Function
+  using (
+    flip;
+    _$_;
+    _∘_
+  )
 open import Data.Bool
   hiding (
     _≟_
