@@ -225,7 +225,7 @@ instance
   showMaybe : ∀ {a} → {A : Set a}
             → ⦃ Show A ⦄
             → Show $ Maybe A
-  showMaybe {_} {A} = record {show = funk}
+  showMaybe {A = A} = record {show = funk}
     where
     funk : Maybe A → String
     funk = λ {nothing → "nothing"; (just t) → "just " ++ parens (show t)}
