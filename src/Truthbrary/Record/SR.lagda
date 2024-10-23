@@ -223,7 +223,7 @@ instance
     f : ℚᵘ → String
     f k = show (ℚᵘ.numerator k) ++ "/" ++ show (ℚᵘ.denominator k)
   showMaybe : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → Show $ Maybe A
-  showMaybe {A = A} = record {show = funk}
+  showMaybe {A = _} = record {show = funk}
     where
     funk = maybe (("just " ++_) ∘ parens ∘ show) "nothing"
   showSum : ∀ {a b} → {A : Set a} → {B : Set b}
