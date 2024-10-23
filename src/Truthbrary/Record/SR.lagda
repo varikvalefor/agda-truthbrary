@@ -229,7 +229,7 @@ instance
   showSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Show A ⦄ → ⦃ Show B ⦄
           → Show $ A ⊎ B
-  showSum {A = A} = record {show = stank}
+  showSum {A = _} = record {show = stank}
     where
     stank : _ → String
     stank (inj₁ pa) = "inj₁ " ++ parens (show pa)
