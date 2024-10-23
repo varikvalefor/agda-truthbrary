@@ -251,7 +251,8 @@ record Read {a} (A : Set a) : Set a
 ni'o \rmvvc
 
 \begin{code}
-readMaybe : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
+readMaybe : ∀ {a} → {A : Set a}
+          → ⦃ Read A ⦄
           → String
           → Maybe A
 readMaybe ⦃ drivel ⦄ = Read.readMaybe drivel
