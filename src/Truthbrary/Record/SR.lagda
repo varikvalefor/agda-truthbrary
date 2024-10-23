@@ -264,12 +264,12 @@ private
   unparens = decaf '(' ')'
 
 instance
-  readChar : Read Char
   readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
     stedu=<< = _>>= Data.String.head
   -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
+  readℕ : Read ℕ
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
   readℤ : Read ℤ
   readℤ = record {readMaybe = f ∘ toList}
