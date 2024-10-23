@@ -13,7 +13,7 @@
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb Z}}}
-\newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
+\newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb Q}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
