@@ -289,9 +289,9 @@ instance
     where
     f : List $ List Char → Maybe ℚᵘ
     f (x ∷ List.[]) = mapₘ (flip mkℚᵘ 1) $ readMaybe $ fromList x
-    f (x ∷ y ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) y'
+    f (x ∷ z ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) y'
       where
-      rm = readMaybe $ fromList y
+      rm = readMaybe $ fromList z
       rmy = if rm ≡ᵇ just 0 then nothing else rm
       y' = maybe (just ∘ flip _∸_ 1) nothing rmy
     f _ = nothing
