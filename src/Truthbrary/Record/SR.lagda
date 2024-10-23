@@ -231,7 +231,7 @@ instance
           → Show $ A ⊎ B
   showSum {A = A} {B} = record {show = stank}
     where
-    stank : A ⊎ B → String
+    stank : _ → String
     stank (inj₁ pa) = "inj₁ " ++ parens (show pa)
     stank (inj₂ re) = "inj₂ " ++ parens (show re)
 \end{code}
