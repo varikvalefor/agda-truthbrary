@@ -221,7 +221,7 @@ instance
   showℚᵘ = record {show = f}
     where
     f : ℚᵘ → String
-    f q = show (ℚᵘ.numerator q) ++ "/" ++ show (ℚᵘ.denominator q)
+    f k = show (ℚᵘ.numerator k) ++ "/" ++ show (ℚᵘ.denominator k)
   showMaybe : ∀ {a} → {A : Set a}
             → ⦃ Show A ⦄
             → Show $ Maybe A
