@@ -252,7 +252,8 @@ ni'o \rmvvc
 
 \begin{code}
 readMaybe : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
-          → String → Maybe A
+          → String
+          → Maybe A
 readMaybe ⦃ drivel ⦄ = Read.readMaybe drivel
 \end{code}
 
