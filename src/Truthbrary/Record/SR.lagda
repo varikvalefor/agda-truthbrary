@@ -159,9 +159,6 @@ open import Truthbrary.Record.LLC
     decaf;
     _++_
   )
-  hiding (
-    _∷_
-  )
 open import Truthbrary.Category.Monad
   using (
     _>=>_
