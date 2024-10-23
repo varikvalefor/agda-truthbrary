@@ -154,6 +154,11 @@ open import Truthbrary.Record.Eq
     _≡ᵇ_
   )
 open import Truthbrary.Record.LLC
+  using (
+    length;
+    decaf;
+    _++_
+  )
   hiding (
     _∷_
   )
