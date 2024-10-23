@@ -228,7 +228,7 @@ instance
   showMaybe {A = A} = record {show = funk}
     where
     funk : Maybe A → String
-    funk = maybe (λ t → "just " ++ parens (show t)) "nothing"
+    funk = maybe (("just " ++_) ∘ parens ∘ show) "nothing"
   showSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Show A ⦄ → ⦃ Show B ⦄
           → Show $ A ⊎ B
