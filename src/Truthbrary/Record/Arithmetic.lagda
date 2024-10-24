@@ -318,7 +318,7 @@ ni'o la'o zoi.\ B a \OpF + \B b .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _+_ : ∀ {a b c} → {A : Set a} → {B : Set b}
-    → ⦃ Q : Arris {_} {b} {c} A B ⦄
+    → ⦃ Q : Arris {b = b} {c} A B ⦄
     → (x : A)
     → (y : B)
     → Arris._⊔+_ Q x y
