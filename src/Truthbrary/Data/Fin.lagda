@@ -70,7 +70,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la .\F{mink}.}
-ni'o la'o zoi.\ \F{toℕ} \Sym \$ \F{mink} \B f \B t\ .zoi.\ du la'o zoi.\ \F{toℕ} \B f\ .zoi.
+ni'o la'o zoi.\ \F{toℕ} \AgdaOperator{\AgdaFunction{\$}} \F{mink} \B f \B t\ .zoi.\ du la'o zoi.\ \F{toℕ} \B f\ .zoi.
 
 \begin{code}
 mink : {m n : ℕ} → Fin m → m ≡ n → Fin n
