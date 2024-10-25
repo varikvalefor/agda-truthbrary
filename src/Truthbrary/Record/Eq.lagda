@@ -23,7 +23,7 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
-\newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
+\newunicodechar{ˡ}{\ensuremath{\mathnormal{^\AgdaFontStyle{l}}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
