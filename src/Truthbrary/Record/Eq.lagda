@@ -340,7 +340,7 @@ instance
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
-  EqSum = record {_≟_ = Q}
+  EqSum = record {_≟_ = D}
     where
     inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b}
              → {x y : A}
@@ -351,10 +351,10 @@ instance
              → {x y : B}
              → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
     inj₂-inj refl = refl
-    Q : DecidableEquality _
-    Q (inj₁ t) (inj₁ l) = t ≟ l ▹ map′ (cong inj₁) inj₁-inj
-    Q (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
-    Q (inj₁ _) (inj₂ _) = no $ λ ()
-    Q (inj₂ _) (inj₁ _) = no $ λ ()
+    D : DecidableEquality _
+    D (inj₁ t) (inj₁ l) = t ≟ l ▹ map′ (cong inj₁) inj₁-inj
+    D (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
+    D (inj₁ _) (inj₂ _) = no $ λ ()
+    D (inj₂ _) (inj₁ _) = no $ λ ()
 \end{code}
 \end{document}
