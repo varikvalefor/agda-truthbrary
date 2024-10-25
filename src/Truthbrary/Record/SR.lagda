@@ -349,10 +349,10 @@ instance
   readSum {A = A} {B} = record {readMaybe = inj₁?}
     where
     inj₁? : String → Maybe $ A ⊎ B
-    inj₁? q = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
+    inj₁? s = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
       where
       apf : (List Char → List Char) → String
-      apf f = fromList $ f $ toList q
+      apf f = fromList $ f $ toList s
       t5 = apf $ 𝕃.take 5
       d5 = apf $ 𝕃.drop 5
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
