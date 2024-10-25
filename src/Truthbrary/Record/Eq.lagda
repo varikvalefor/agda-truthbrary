@@ -313,7 +313,7 @@ instance
          → (¬ (t ≡ v) → x ≡ z → C)
          → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
          → C
-    bork {C = C} {t} {v} {x} {z} d f g j k = spit (_ ≟ v) d
+    bork {C = C} {t} {v} {x} {z} d f g j k = spit (_ ≟ _) d
       where
       spit : Dec $ t ≡ v → Dec $ x ≡ z → C
       spit (yes a) (yes b) = f a b
