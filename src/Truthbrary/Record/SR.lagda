@@ -24,6 +24,7 @@
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_\AgdaFontStyle{l}}}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^b}}}
 \newunicodechar{ᵘ}{\ensuremath{\mathnormal{^u}}}
+\newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
@@ -31,7 +32,6 @@
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
-\newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal{\divdot}}}
 
