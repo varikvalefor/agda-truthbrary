@@ -42,7 +42,7 @@
 
 \newcommand\cmene{Truthbrary.Record.SR}
 
-\title{la'o zoi.\ \texttt{\cmene} .zoi.}
+\title{la'o zoi.\ \AgdaModule{\cmene} .zoi.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
