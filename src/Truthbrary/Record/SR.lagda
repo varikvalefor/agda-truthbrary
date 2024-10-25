@@ -80,9 +80,9 @@ open import Data.Nat
   )
 open import Data.Sum
   using (
-    _⊎_;
     inj₁;
-    inj₂
+    inj₂;
+    _⊎_
   )
 open import Function
   using (
