@@ -353,8 +353,9 @@ instance
       where
       apf : (List Char → List Char) → String
       apf f = fromList $ f $ toList s
-      t5 = apf $ 𝕃.take 5
-      d5 = apf $ 𝕃.drop 5
+      L = length "inj₁ " -- .i du la'o zoi. length "inj₂ " .zoi.
+      t5 = apf $ 𝕃.take L
+      d5 = apf $ 𝕃.drop L
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄
           → (A → B)
