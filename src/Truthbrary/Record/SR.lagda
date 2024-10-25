@@ -21,9 +21,9 @@
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
-\newunicodechar{ₗ}{\ensuremath{\mathnormal{_\AgdaFontStyle{l}}}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{ᵘ}{\ensuremath{\mathnormal{^u}}}
+\newunicodechar{ₗ}{\ensuremath{\mathnormal{_\AgdaFontStyle{l}}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
