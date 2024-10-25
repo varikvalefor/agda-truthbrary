@@ -170,8 +170,8 @@ open import Truthbrary.Category.Monad
 open import Data.Rational.Unnormalised
   as ℚᵘ
   using (
-    ℚᵘ;
-    mkℚᵘ
+    mkℚᵘ;
+    ℚᵘ
   )
 open import Relation.Nullary.Decidable
   using (
