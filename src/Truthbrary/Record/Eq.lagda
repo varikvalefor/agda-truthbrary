@@ -351,7 +351,7 @@ instance
              → {x y : B}
              → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
     inj₂-inj refl = refl
-    Q : DecidableEquality $ _ ⊎ _
+    Q : DecidableEquality $ _
     Q (inj₁ t) (inj₁ l) = t ≟ l ▹ map′ (cong inj₁) inj₁-inj
     Q (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
     Q (inj₁ _) (inj₂ _) = no $ λ ()
