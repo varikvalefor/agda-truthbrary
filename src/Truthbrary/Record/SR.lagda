@@ -103,6 +103,7 @@ open import Data.Char
     Char
   )
 open import Data.List
+  as 𝕃
   using (
     List;
     null;
@@ -304,7 +305,7 @@ instance
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
-    spit = Data.List.map (splitOn '.') ∘ splitOn 'e'
+    spit = 𝕃.map (splitOn '.') ∘ splitOn 'e'
     n2f = Data.Float.fromℤ
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
@@ -315,7 +316,7 @@ instance
       rM = λ q → if null q then just (+ 0) else readMaybe (fromList q)
       comb = liftM2 $ λ x y → _+f_ (n2f x) $ n2f y ÷ sf b
         where
-        pos = not $ Data.List.head a ≡ᵇ just '-'
+        pos = not $ 𝕃.head a ≡ᵇ just '-'
         _+f_ = if pos then Data.Float._+_ else Data.Float._-_
         _÷_ = Data.Float._÷_
         sf = Data.Float._**_ (n2f $ +_ 10) ∘ n2f ∘ +_ ∘ length
@@ -336,8 +337,8 @@ instance
     Q : List Char → Maybe $ Maybe A
     Q t = if justice then just (t' >>= readMaybe) else nada
       where
-      justice = fromList (Data.List.take 5 t) ≡ᵇ "just "
-      t' = unparens $ fromList $ Data.List.drop 5 t
+      justice = fromList (𝕃.take 5 t) ≡ᵇ "just "
+      t' = unparens $ fromList $ 𝕃.drop 5 t
       nada = if tim then just nothing else nothing
         where
         -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
@@ -352,8 +353,8 @@ instance
       where
       apf : (List Char → List Char) → String
       apf f = fromList $ f $ toList q
-      t5 = apf $ Data.List.take 5
-      d5 = apf $ Data.List.drop 5
+      t5 = apf $ 𝕃.take 5
+      d5 = apf $ 𝕃.drop 5
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄
           → (A → B)
