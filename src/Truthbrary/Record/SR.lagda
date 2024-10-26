@@ -336,7 +336,7 @@ instance
   readMayb {A = A} = record {readMaybe = Q ∘ toList }
     where
     Q : List Char → Maybe $ Maybe A
-    Q ('n' ∷ 'o' ∷ 't' ∷ 'h' ∷ 'i' ∷ 'n' ∷ 'g' ∷ List.[]) = just nothing
+    Q ('n' ∷ 'o' ∷ 't' ∷ 'h' ∷ 'i' ∷ 'n' ∷ 'g' ∷ 𝕃.[]) = just nothing
     Q ('j' ∷ 'u' ∷ 's' ∷ 't' ∷ ' ' ∷ x) = ？.map readMaybe $ unparens x'
       where
       x' = fromList x
