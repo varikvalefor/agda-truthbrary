@@ -314,7 +314,7 @@ instance
       -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
       rM = λ q → if null q then just (+ 0) else readMaybe (fromList q)
-      comb = liftM2 $ λ x y → _+f_ (n2f x) $ n2f y ÷ sf b
+      comb = liftM2 $ λ x y → (n2f x) +f_ $ n2f y ÷ sf b
         where
         pos = not $ 𝕃.head a ≡ᵇ just '-'
         _+f_ = if pos then Data.Float._+_ else Data.Float._-_
