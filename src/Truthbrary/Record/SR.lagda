@@ -138,6 +138,7 @@ open import Data.Integer
     ℤ
   )
 open import Data.Rational
+  as ℚ
   using (
     mkℚ;
     ℚ
@@ -300,8 +301,8 @@ instance
   readℚ : Read ℚ
   readℚ = record {readMaybe = readMaybe >=> f}
     where
-    fuk = Data.Rational.fromℚᵘ
-    norm = show ∘ Data.Rational.toℚᵘ ∘ fuk
+    fuk = ℚ.fromℚᵘ
+    norm = show ∘ ℚ.toℚᵘ ∘ fuk
     f = λ x → if norm x ≡ᵇ show x then just (fuk x) else nothing
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
