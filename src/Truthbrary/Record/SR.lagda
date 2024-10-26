@@ -11,9 +11,9 @@
 \usepackage{newunicodechar}
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
-\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
-\newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{Z}}}}
-\newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb Z}}}
+\newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb Q}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
@@ -21,17 +21,17 @@
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\!\lbrace}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{\rbrace\!\rbrace}}}
-\newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
+\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
+\newunicodechar{ᵘ}{\ensuremath{\mathnormal{^\AgdaFontStyle{u}}}}
+\newunicodechar{ₗ}{\ensuremath{\mathnormal{_\AgdaFontStyle{l}}}}
+\newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
-\newunicodechar{ᵘ}{\ensuremath{\mathnormal{^u}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 \newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
-\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^b}}}
-\newunicodechar{ₘ}{\ensuremath{\mathnormal{_m}}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{∸}{\ensuremath{\mathnormal{\divdot}}}
 
@@ -42,14 +42,14 @@
 
 \newcommand\cmene{Truthbrary.Record.SR}
 
-\title{la'o zoi.\ \texttt{\cmene} .zoi.}
+\title{la'o zoi.\ \AgdaModule{\cmene} .zoi.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\AgdaPostulate{String}.\ kei je lo nu lo ctaipe be la'oi .\AgdaPostulate{String}.\ cu binxo pe'a ru'e
+ni'o sa'u ko'a goi la'o zoi.\ \AgdaModule\cmene .zoi.\ vasru zo'e poi ke'a jai filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\AgdaPostulate{String}.\ kei je lo nu lo ctaipe be la'oi .\AgdaPostulate{String}.\ cu binxo pe'a ru'e
 
 .i sa'u nai ru'e vasru\ldots
 \begin{itemize}
@@ -70,31 +70,40 @@ import Data.Integer.Show
 import Data.Rational.Show
 
 open import Data.Fin
-  hiding (
-    _≟_;
-    toℕ
+  using (
+    Fin
   )
 open import Data.Nat
-  hiding (
-    _≡ᵇ_;
-    _≟_
+  using (
+    _∸_;
+    ℕ
   )
 open import Data.Sum
   using (
-    _⊎_;
     inj₁;
-    inj₂
+    inj₂;
+    _⊎_
   )
 open import Function
+  using (
+    flip;
+    _$_;
+    _∘_
+  )
 open import Data.Bool
-  hiding (
-    _≟_
+  using (
+    if_then_else_;
+    false;
+    true;
+    Bool;
+    not
   )
 open import Data.Char
   using (
     Char
   )
 open import Data.List
+  as 𝕃
   using (
     List;
     null;
@@ -105,15 +114,22 @@ open import Data.Float
     Float
   )
 open import Data.Maybe
+  using (
+    nothing;
+    _>>=_;
+    Maybe;
+    maybe;
+    just
+  )
   renaming (
     map to mapₘ
   )
 open import Data.String
-  hiding (
-    _≟_;
-    show;
-    length;
-    _++_
+  using (
+    fromList;
+    toList;
+    parens;
+    String
   )
 open import Data.Integer
   using (
@@ -125,11 +141,6 @@ open import Data.Rational
     mkℚ;
     ℚ
   )
-open import Data.Rational.Unnormalised as ℚᵘ
-  using (
-    ℚᵘ;
-    mkℚᵘ
-  )
 open import Data.Fin.Show
   using (
   )
@@ -137,10 +148,17 @@ open import Data.Nat.Show
   using (
   )
 open import Data.Maybe.Instances
+  using (
+  )
 open import Truthbrary.Record.Eq
+  using (
+    _≡ᵇ_
+  )
 open import Truthbrary.Record.LLC
-  hiding (
-    _∷_
+  using (
+    length;
+    decaf;
+    _++_
   )
 open import Truthbrary.Category.Monad
   using (
@@ -149,12 +167,24 @@ open import Truthbrary.Category.Monad
   renaming (
     map₂ to liftM2
   )
+open import Data.Rational.Unnormalised
+  as ℚᵘ
+  using (
+    mkℚᵘ;
+    ℚᵘ
+  )
 open import Relation.Nullary.Decidable
   using (
     isNo
   )
 open import Truthbrary.Data.List.Split
+  using (
+    splitOn
+  )
 open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'oi .\AgdaRecord{Show}.}
@@ -192,21 +222,17 @@ instance
   showℚᵘ = record {show = f}
     where
     f : ℚᵘ → String
-    f q = show (ℚᵘ.numerator q) ++ "/" ++ show (ℚᵘ.denominator q)
-  showMaybe : ∀ {a} → {A : Set a}
-            → ⦃ Show A ⦄
-            → Show $ Maybe A
-  showMaybe {_} {A} = record {show = funk}
+    f k = show (ℚᵘ.numerator k) ++ "/" ++ show (ℚᵘ.denominator k)
+  showMaybe : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → Show $ Maybe A
+  showMaybe = record {show = funk}
     where
-    funk : Maybe A → String
-    funk nothing = "nothing"
-    funk (just t) = "just " ++ parens (show t)
+    funk = maybe (("just " ++_) ∘ parens ∘ show) "nothing"
   showSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Show A ⦄ → ⦃ Show B ⦄
           → Show $ A ⊎ B
-  showSum {A = A} {B} = record {show = stank}
+  showSum = record {show = stank}
     where
-    stank : A ⊎ B → String
+    stank : _ → String
     stank (inj₁ pa) = "inj₁ " ++ parens (show pa)
     stank (inj₂ re) = "inj₂ " ++ parens (show re)
 \end{code}
@@ -226,8 +252,10 @@ record Read {a} (A : Set a) : Set a
 ni'o \rmvvc
 
 \begin{code}
-readMaybe : ∀ {a} → {A : Set a} → ⦃ Read A ⦄
-          → String → Maybe A
+readMaybe : ∀ {a} → {A : Set a}
+          → ⦃ Read A ⦄
+          → String
+          → Maybe A
 readMaybe ⦃ drivel ⦄ = Read.readMaybe drivel
 \end{code}
 
@@ -239,12 +267,12 @@ private
   unparens = decaf '(' ')'
 
 instance
-  readChar : Read Char
   readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
     stedu=<< = _>>= Data.String.head
-  -- | .i pilno li pano ki'u le nu pruce lo te pruce
+  -- | .i pilno li pano ki'u le su'u pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .ℕ.
+  readℕ : Read ℕ
   readℕ = record {readMaybe = Data.Nat.Show.readMaybe 10}
   readℤ : Read ℤ
   readℤ = record {readMaybe = f ∘ toList}
@@ -262,22 +290,22 @@ instance
     where
     f : List $ List Char → Maybe ℚᵘ
     f (x ∷ List.[]) = mapₘ (flip mkℚᵘ 1) $ readMaybe $ fromList x
-    f (x ∷ y ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) y'
+    f (x ∷ z ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) y'
       where
-      rm = readMaybe $ fromList y
+      rm = readMaybe $ fromList z
       rmy = if rm ≡ᵇ just 0 then nothing else rm
       y' = maybe (just ∘ flip _∸_ 1) nothing rmy
     f _ = nothing
   readℚ : Read ℚ
   readℚ = record {readMaybe = readMaybe >=> f}
     where
-    fq = Data.Rational.fromℚᵘ
-    norm = show ∘ Data.Rational.toℚᵘ ∘ fq
-    f = λ x → if norm x ≡ᵇ show x then just (fq x) else nothing
+    fuq = Data.Rational.fromℚᵘ
+    norm = show ∘ Data.Rational.toℚᵘ ∘ fuq
+    f = λ x → if norm x ≡ᵇ show x then just (fuq x) else nothing
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
-    spit = Data.List.map (splitOn '.') ∘ splitOn 'e'
+    spit = 𝕃.map (splitOn '.') ∘ splitOn 'e'
     n2f = Data.Float.fromℤ
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
@@ -285,10 +313,10 @@ instance
       where
       -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
-      rM = λ q → if null q then just (+_ 0) else readMaybe (fromList q)
+      rM = λ q → if null q then just (+ 0) else readMaybe (fromList q)
       comb = liftM2 $ λ x y → _+f_ (n2f x) $ n2f y ÷ sf b
         where
-        pos = not $ Data.List.head a ≡ᵇ just '-'
+        pos = not $ 𝕃.head a ≡ᵇ just '-'
         _+f_ = if pos then Data.Float._+_ else Data.Float._-_
         _÷_ = Data.Float._÷_
         sf = Data.Float._**_ (n2f $ +_ 10) ∘ n2f ∘ +_ ∘ length
@@ -309,8 +337,8 @@ instance
     Q : List Char → Maybe $ Maybe A
     Q t = if justice then just (t' >>= readMaybe) else nada
       where
-      justice = fromList (Data.List.take 5 t) ≡ᵇ "just "
-      t' = unparens $ fromList $ Data.List.drop 5 t
+      justice = fromList (𝕃.take 5 t) ≡ᵇ "just "
+      t' = unparens $ fromList $ 𝕃.drop 5 t
       nada = if tim then just nothing else nothing
         where
         -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
@@ -318,15 +346,16 @@ instance
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
           → Read $ A ⊎ B
-  readSum {_} {_} {A} {B} = record {readMaybe = inj₁?}
+  readSum {A = A} {B} = record {readMaybe = inj₁?}
     where
     inj₁? : String → Maybe $ A ⊎ B
-    inj₁? q = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
+    inj₁? s = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
       where
       apf : (List Char → List Char) → String
-      apf f = fromList $ f $ toList q
-      t5 = apf $ Data.List.take 5
-      d5 = apf $ Data.List.drop 5
+      apf f = fromList $ f $ toList s
+      L = length "inj₁ " -- .i du la'o zoi. length "inj₂ " .zoi.
+      t5 = apf $ 𝕃.take L
+      d5 = apf $ 𝕃.drop L
       inj : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄
           → (A → B)

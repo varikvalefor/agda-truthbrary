@@ -48,14 +48,14 @@
 
 \newcommand\cmene{Truthbrary.Record.Arithmetic}
 
-\title{la'o zoi.\ \texttt{\cmene}\ .zoi.}
+\title{la'o zoi.\ \AgdaModule{\cmene}\ .zoi.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru lo jai be filri'a tu'a lo namcu
+ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene\ .zoi.\ vasru lo jai filri'a be tu'a lo namcu
 
 .i sa'u nai ru'e ko'a vasru\ldots
 \begin{itemize}
@@ -131,9 +131,6 @@ open import Relation.Nullary.Decidable
     fromWitnessFalse;
     False
   )
-open import Relation.Binary.Definitions
-  using (
-  )
 open import Relation.Binary.PropositionalEquality
   using (
     refl;
@@ -141,6 +138,7 @@ open import Relation.Binary.PropositionalEquality
   )
 
 import Data.Integer.DivMod
+  as ℤ
 \end{code}
 
 \section{la'oi .\AgdaRecord{Arris}.}
@@ -155,7 +153,7 @@ ni'o ga jo ga je la'o zoi.\ \B a .zoi.\ drani mu'oi zoi.\ \AgdaRecord{Arris} \B 
 	\item co'e
 \end{itemize}
 
-.i la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi fo lo lojbo fe zo'e je la'o zoi.\ \AgdaField{Arris.1*1≡1} .zoi.
+.i la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi fo lo lojbo fe zo'e ja la'o zoi.\ \AgdaField{Arris.1*1≡1} .zoi.
 
 \begin{code}
 record Arris {a b c} (A : Set a) (B : Set b) : Set (lsuc $ a ⊔ b ⊔ c)
@@ -219,17 +217,16 @@ instance
 
   ariℤℤ = record {
     _⊔+_ = r;
-    _⊔-_ = r;
-    _⊔*_ = r;
+    _⊔-_ = _;
+    _⊔*_ = _;
     _⊔/_ = _;
     _+_ = ℤ._+_;
     _-_ = ℤ._-_;
     _*_ = ℤ._*_;
-    _/_ = deev;
+    _/_ = divys;
     uyn₁ = 1ℤ;
     uyn₂ = 1ℤ;
     uyn* = 1ℤ;
-    uyn/ = just 1ℤ;
     zir₁ = 0ℤ;
     zir₂ = 0ℤ;
     zir+ = 0ℤ;
@@ -240,14 +237,11 @@ instance
     0-0≡0 = refl}
     where
     r = λ _ _ → ℤ
-    deev : ℤ → ℤ → Maybe ℤ
-    deev a b = cysiz (λ x → Data.Integer.DivMod._div_ a b {x}) eek0
+    divys = λ a b → cysiz (λ x → ℤ._div_ a b {x}) $ _ ℕ.≟ _
       where
-      ∣b∣ = ℤ.∣ b ∣
-      eek0 = ∣b∣ ℕ.≟ 0
-      cysiz : (False $ ∣b∣ ℕ.≟ 0 → ℤ) → Dec $ ∣b∣ ≡ 0 → Maybe ℤ
+      cysiz : {n : ℕ} → (False $ n ℕ.≟ 0 → ℤ) → Dec $ n ≡ 0 → Maybe ℤ
       cysiz f (no j) = just $ f $ fromWitnessFalse j
-      cysiz _ (yes _) = nothing
+      cysiz _ _ = nothing
 
   ariFloatFloat : Arris Float Float
   ariFloatFloat = record {
@@ -315,7 +309,7 @@ instance
            → (False $ P? x → A)
            → Dec $ P x
            → Maybe A
-      spit f (no q) = just $ f $ fromWitnessFalse q
+      spit f (no N) = just $ f $ fromWitnessFalse N
       spit _ _ = nothing
 \end{code}
 
@@ -324,7 +318,7 @@ ni'o la'o zoi.\ B a \OpF + \B b .zoi.\ sumji la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _+_ : ∀ {a b c} → {A : Set a} → {B : Set b}
-    → ⦃ Q : Arris {a} {b} {c} A B ⦄
+    → ⦃ Q : Arris {c = c} A B ⦄
     → (x : A)
     → (y : B)
     → Arris._⊔+_ Q x y
@@ -336,8 +330,10 @@ ni'o la'o zoi.\ B a \OpF - \B b .zoi.\ vujnu la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
 _-_ : ∀ {a b c} → {A : Set a} → {B : Set b}
-    → ⦃ Q : Arris {a} {b} {c} A B ⦄
-    → (x : A) → (y : B) → Arris._⊔-_ Q x y
+    → ⦃ Q : Arris {c = c} A B ⦄
+    → (x : A)
+    → (y : B)
+    → Arris._⊔-_ Q x y
 _-_ ⦃ Q ⦄ = Arris._-_ Q
 \end{code}
 

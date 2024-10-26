@@ -10,8 +10,9 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
-\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
-\newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb{N}}}}
+\newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb Z}}}
 \newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb{Q}}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
@@ -22,16 +23,15 @@
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal{\uplus}}}
-\newunicodechar{ˡ}{\ensuremath{\mathnormal{^l}}}
-\newunicodechar{ʳ}{\ensuremath{\mathnormal{^r}}}
-\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
+\newunicodechar{ˡ}{\ensuremath{\mathnormal{^\AgdaFontStyle{l}}}}
+\newunicodechar{ʳ}{\ensuremath{\mathnormal{^\AgdaFontStyle{r}}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{′}{\ensuremath{\mathnormal{\prime}}}
 \newunicodechar{∋}{\ensuremath{\mathnormal{\ni}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
-\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_\AgdaFontStyle{v}}}}
 \newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 
 \newcommand\Sym\AgdaSymbol
@@ -61,15 +61,17 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Eq} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.Eq where
 
-import Data.Char
 import Data.Float
 import Data.String
 import Data.Maybe.Properties
 import Data.These.Properties
 import Data.Product.Properties
-import Data.Vec.Properties as DVP
+  as ΣP
+import Data.Vec.Properties
+  as DVP
 
 open import Data.Fin
+  as 𝔽
   using (
     Fin
   )
@@ -97,6 +99,9 @@ open import Function
 open import Data.Bool
   using (
     Bool
+  )
+open import Data.Char
+  using (
   )
 open import Data.Maybe
   using (
@@ -139,7 +144,10 @@ open import Relation.Nullary
     ¬_
   )
 open import Relation.Nullary.Decidable
-open import Relation.Binary.Structures
+  using (
+    isYes;
+    map′
+  )
 open import Relation.Binary.Definitions
   using (
     DecidableEquality
@@ -194,7 +202,7 @@ instance
   EqProd : ∀ {a b} → {A : Set a} → {B : Set b}
          → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
          → Eq $ A × B
-  EqProd = record {_≟_ = Data.Product.Properties.≡-dec _≟_ _≟_}
+  EqProd = record {_≟_ = ΣP.≡-dec _≟_ _≟_}
   EqString : Eq Data.String.String
   EqString = record {_≟_ = Data.String._≟_}
   EqChar : Eq Data.Char.Char
@@ -202,7 +210,7 @@ instance
   EqFloat : Eq Data.Float.Float
   EqFloat = record {_≟_ = Data.Float._≟_}
   EqFin : {n : ℕ} → Eq $ Fin n
-  EqFin = record {_≟_ = Data.Fin._≟_}
+  EqFin = record {_≟_ = 𝔽._≟_}
   EqMaybe : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ Maybe A
   EqMaybe = record {_≟_ = Data.Maybe.Properties.≡-dec _≟_}
   EqThese : ∀ {a b} → {A : Set a} → {B : Set b}
@@ -210,20 +218,27 @@ instance
           → Eq $ These A B
   EqThese = record {_≟_ = Data.These.Properties.≡-dec _≟_ _≟_}
   EqList : ∀ {a} → {A : Set a} → ⦃ Eq A ⦄ → Eq $ List A
-  EqList {A = A} ⦃ Q ⦄ = record {_≟_ = f}
+  EqList {A = A} = record {_≟_ = f}
     where
     -- | Tick-tock, tick-tock, tick-tock!
     doomsday : ∀ {a} → {A : Set a}
-             → {x y : A} → {xs ys : List A}
-             → x ≡ y → xs ≡ ys → x ∷ xs ≡ y ∷ ys
+             → {x y : A}
+             → {xs ys : List A}
+             → x ≡ y
+             → xs ≡ ys
+             → x ∷ xs ≡ y ∷ ys
     doomsday refl refl = refl
     notBigInto : ∀ {a} → {A : Set a}
-               → {x y : A} → {xs ys : List A}
-               → x ∷ xs ≡ y ∷ ys → xs ≡ ys
+               → {x z : A}
+               → {xs zs : List A}
+               → x ∷ xs ≡ z ∷ zs
+               → xs ≡ zs
     notBigInto refl = refl
     leadneck : ∀ {a} → {A : Set a}
-             → {x y : A} → {xs ys : List A}
-             → ¬ (x ≡ y) → ¬ (x ∷ xs ≡ y ∷ ys)
+             → {x y : A}
+             → {xs ys : List A}
+             → ¬ (x ≡ y)
+             → ¬ (x ∷ xs ≡ y ∷ ys)
     leadneck = _∘ hillbilly
       where
       hillbilly : ∀ {a} → {A : Set a}
@@ -232,23 +247,6 @@ instance
                 → x ∷ xs ≡ y ∷ ys
                 → x ≡ y
       hillbilly refl = refl
-    bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-         → ⦃ Eq A ⦄
-         → (t v : A)
-         → (x z : B)
-         → Dec $ x ≡ z
-         → (t ≡ v → x ≡ z → C)
-         → (t ≡ v → ¬ (x ≡ z) → C)
-         → (¬ (t ≡ v) → x ≡ z → C)
-         → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
-         → C
-    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
-      where
-      spit : Dec $ t ≡ v → Dec $ x ≡ z → C
-      spit (yes a) (yes b) = f a b
-      spit (yes a) (no b) = g a b
-      spit (no a) (yes b) = j a b
-      spit (no a) (no b) = k a b
     f : DecidableEquality $ List A
     f List.[] List.[] = yes refl
     f (_ ∷ _) List.[] = no $ λ ()
@@ -266,15 +264,31 @@ instance
       arm wrestling _ = no $ leadneck wrestling
       -- | .i la .varik. cu jinvi le du'u na xlabebna
       -- fa le versiio be le cmene be'o poi co'e ke'a
-      -- pu lo nu gubygau le ctaipe... kei kei jenai
+      -- pu lo nu gubni ciksi le ctaipe... kei kei jenai
       -- le du'u le versiio poi ke'a jai cabna cu
       -- mutce le ka ce'u na xlabebna... kei kei je
-      -- ku'i cu nelci le jalge be le nu zo'oi
-      -- .messiah. cmene le ctaipe
+      -- ku'i cu nelci le jalge be tu'a zo'oi .messiah.
       messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       messiah eek = map′ (doomsday eek) notBigInto ∘ no
       ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ leadneck quality
+      bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+           → ⦃ Eq A ⦄
+           → (t v : A)
+           → (x z : B)
+           → Dec $ x ≡ z
+           → (t ≡ v → x ≡ z → C)
+           → (t ≡ v → ¬ (x ≡ z) → C)
+           → (¬ (t ≡ v) → x ≡ z → C)
+           → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
+           → C
+      bork {C = C} t v x z d f g j k = spit (t ≟ v) d
+        where
+        spit : Dec $ t ≡ v → Dec $ x ≡ z → C
+        spit (yes a) (yes b) = f a b
+        spit (yes a) (no b) = g a b
+        spit (no a) (yes b) = j a b
+        spit (no a) (no b) = k a b
   EqVec : ∀ {a} → {A : Set a} → {n : ℕ}
         → ⦃ Eq A ⦄
         → Eq $ Vec A n
@@ -291,15 +305,15 @@ instance
     doomsday refl refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
-         → (t v : A)
-         → (x z : B)
+         → {t v : A}
+         → {x z : B}
          → Dec $ x ≡ z
          → (t ≡ v → x ≡ z → C)
          → (t ≡ v → ¬ (x ≡ z) → C)
          → (¬ (t ≡ v) → x ≡ z → C)
          → (¬ (t ≡ v) → ¬ (x ≡ z) → C)
          → C
-    bork {C = C} t v x z d f g j k = spit (t ≟ v) d
+    bork {C = C} {t} {v} {x} {z} d f g j k = spit (_ ≟ _) d
       where
       spit : Dec $ t ≡ v → Dec $ x ≡ z → C
       spit (yes a) (yes b) = f a b
@@ -308,7 +322,7 @@ instance
       spit (no a) (no b) = k a b
     f : {n : ℕ} → DecidableEquality $ Vec A n
     f []ᵥ []ᵥ = yes refl
-    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork x y xs ys (f xs ys) booty messiah arm ltd
+    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork (f xs ys) booty messiah arm ltd
       where
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
       booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
@@ -326,20 +340,21 @@ instance
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
         → Eq $ A ⊎ B
-  EqSum = record {_≟_ = Q}
+  EqSum = record {_≟_ = D}
     where
     inj₁-inj : ∀ {a b} → {A : Set a} → {B : Set b}
              → {x y : A}
              → inj₁ x ≡ inj₁ {B = B} y
              → x ≡ y
     inj₁-inj refl = refl
-    inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b} → {x y : B}
+    inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b}
+             → {x y : B}
              → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y → x ≡ y
     inj₂-inj refl = refl
-    Q : DecidableEquality $ _ ⊎ _
-    Q (inj₁ t) (inj₁ l) = map′ (cong inj₁) inj₁-inj $ t ≟ l
-    Q (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
-    Q (inj₁ _) (inj₂ _) = no $ λ ()
-    Q (inj₂ _) (inj₁ _) = no $ λ ()
+    D : DecidableEquality _
+    D (inj₁ t) (inj₁ l) = t ≟ l ▹ map′ (cong inj₁) inj₁-inj
+    D (inj₂ t) (inj₂ l) = map′ (cong inj₂) inj₂-inj $ t ≟ l
+    D (inj₁ _) (inj₂ _) = no $ λ ()
+    D (inj₂ _) (inj₁ _) = no $ λ ()
 \end{code}
 \end{document}

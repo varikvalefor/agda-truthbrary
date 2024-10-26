@@ -11,10 +11,10 @@
 \usepackage{newunicodechar}
 
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
-\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb{N}}}}
-\newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
+\newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb M}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{∋}{\ensuremath{\mathnormal{\ni}}}
-\newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb{M}}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
@@ -29,7 +29,7 @@
 
 \newcommand\cmene{Truthbrary.Data.Vec.Matrix}
 
-\title{la'o zoi.\ \texttt{\cmene} .zoi.}
+\title{la'o zoi.\ \AgdaModule{\cmene} .zoi.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
@@ -37,12 +37,12 @@
 \maketitle
 
 \section{le torveki}
-ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru\ldots
+ni'o klesi lo'i ro co'e poi su'o da zo'u da selvau pe'a la'o zoi.\ \AgdaModule{\cmene} .zoi.\ je cu velcki ke'a ku'o fa\ldots
 \begin{itemize}
-	\item le velcki be la'o zoi.\ \F 𝕄 .zoi.\ noi tu'a ke'a filri'a tu'a lo nacmeimei be'o je
-	\item le velcki be la'o zoi.\ \F{lookup} .zoi.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o je
-	\item le velcki be la'o zoi.\ \F I .zoi.\ noi tu'a ke'a filri'a tu'a lo me'oi .identity.\ nacmeimei be'o je
-	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo nacmeimei bei lo nacmeimei
+	\item la'oi .\F 𝕄.\ noi ke'a jai filri'a tu'a lo nacmeimei be'o ce
+	\item la'oi .\F{lookup}.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o ce
+	\item la'oi .\F I.\ noi ke'a jai filri'a tu'a lo me'oi .identity.\ nacmeimei be'o ce
+	\item la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo nacmeimei bei lo nacmeimei
 \end{itemize}
 
 \section{le vrici}
@@ -83,8 +83,8 @@ open import Function
   )
 \end{code}
 
-\section{la'o zoi.\ \F 𝕄\ .zoi.}
-ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da nacmeimei la'o zoi.\ \B b .zoi.\ la'o zoi.\ \B c .zoi.\ je cu vasru lo ctaipe be la'o zoi.\ \B A .zoi.
+\section{la'oi .\F 𝕄.}
+ni'o ro da zo'u ga jo da ctaipe la'o zoi.\ \F 𝕄 \B A \B c \B b .zoi.\ gi da nacmeimei la'oi .\B b.\ la'oi .\B c.\ je cu vasru pe'a lo ctaipe be la'oi .\B A.
 
 \subsection{le su'u me'oi .order.}
 \newcommand\InductiveOperator[1]{\AgdaOperator{\IC{#1}}}
@@ -111,7 +111,7 @@ ni'o la'o zoi.\
 \end{code}
 
 \section{la'oi .\F{lookup}.}
-ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ fo lo te gerna be fi la .lojban.
 
 \begin{code}
 lookup : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o

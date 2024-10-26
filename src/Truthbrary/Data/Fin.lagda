@@ -10,23 +10,19 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
-\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℕ}{\ensuremath{\mathbb N}}
 \newunicodechar{∀}{\ensuremath{\forall}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 \newunicodechar{∎}{\ensuremath{\mathnormal{\blacksquare}}}
-\newunicodechar{⟨}{\ensuremath{\mathnormal{\langle}}}
-\newunicodechar{⟩}{\ensuremath{\mathnormal{\rangle}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
-\newcommand\modycme[1]{\texttt{#1}}
-
-\newcommand\kulmodis{\modycme{Truthbrary.Data.Fin}}
+\newcommand\kulmodis{\AgdaModule{Truthbrary.Data.Fin}}
 
 \title{la'o zoi.\ \kulmodis\ .zoi.}
 \author{la .varik.\ .VALefor.}
@@ -37,7 +33,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru le velcki be le fancu ja co'e poi tu'a ke'a filri'a tu'a lo srana be la'o zoi.\ \D{Data.Fin.Fin} .zoi.
+ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru le velcki be le fancu ja co'e poi tu'a ke'a filri'a tu'a lo srana be la'o zoi.\ \D{Fin} .zoi.
 
 \section{le vrici}
 
@@ -48,6 +44,7 @@ module Truthbrary.Data.Fin where
 
 open import Function
   using (
+    _|>_;
     _∘_;
     _$_;
     id
@@ -73,7 +70,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la .\F{mink}.}
-ni'o la'o zoi.\ \F{toℕ} \Sym \$ \F{mink} \B f \B t\ .zoi.\ du la'o zoi.\ \F{toℕ} \B f\ .zoi.
+ni'o la'o zoi.\ \F{toℕ} \AgdaOperator{\AgdaFunction{\$}} \F{mink} \B f \B t\ .zoi.\ du la'o zoi.\ \F{toℕ} \B f\ .zoi.
 
 \begin{code}
 mink : {m n : ℕ} → Fin m → m ≡ n → Fin n
@@ -107,12 +104,12 @@ tomindus _ refl = refl
 \ckinas{la .\F{tondus}.}
 
 \subsection{le srana be lo du'u xu kau mapti}
-ni'o xu la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \modycme{Data.Nat}\ .zoi.
+ni'o xu la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \AgdaModule{Data.Nat}\ .zoi.
 
 \begin{code}
 tondus : (toℕ ∘ fromℕ) ≗ id
 tondus 0 = refl
-tondus (ℕ.suc n) = cong ℕ.suc $ tondus n
+tondus (ℕ.suc n) = tondus n |> cong ℕ.suc
 \end{code}
 
 \section{la .\F{minzero}.}
