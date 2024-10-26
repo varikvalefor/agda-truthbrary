@@ -338,7 +338,7 @@ instance
     Q t = if justice then just (t' >>= readMaybe) else nada
       where
       justice = 𝕃.take (length "just ") t ≡ᵇ toList "just "
-      t' = unparens $ fromList $ 𝕃.drop 5 t
+      t' = unparens $ fromList $ 𝕃.drop (length "just ") t
       nada = if tim then just nothing else nothing
         where
         -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
