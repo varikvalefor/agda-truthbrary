@@ -337,7 +337,7 @@ instance
     Q : List Char → Maybe $ Maybe A
     Q t = if justice then just (t' >>= readMaybe) else nada
       where
-      justice = (𝕃.take 5 t) ≡ᵇ toList "just "
+      justice = 𝕃.take 5 t ≡ᵇ toList "just "
       t' = unparens $ fromList $ 𝕃.drop 5 t
       nada = if tim then just nothing else nothing
         where
