@@ -332,16 +332,13 @@ instance
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
   readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄ → Read $ Maybe A
-  readMayb {_} {A} = record {readMaybe = Q ∘ toList }
+  readMayb {_} {A} ⦃ R ⦄ = record {readMaybe = Q ∘ toList }
     where
     Q : List Char → Maybe $ Maybe A
     Q ('n' ∷ 'o' ∷ 't' ∷ 'h' ∷ 'i' ∷ 'n' ∷ 'g' ∷ List.[]) = just nothing
-    Q t = if justice then just (t' >>= readMaybe) else nada
-      where
-      justice = 𝕃.take (length "just ") t ≡ᵇ toList "just "
-      t' = unparens $ fromList $ 𝕃.drop (length "just ") t
-      -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
-      nada = nothing
+    Q ('j' ∷ 'u' ∷ 's' ∷ 't' ∷ ' ' ∷ x) = Data.Maybe.map readMaybe $ unparens $ fromList x
+    -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
+    Q x = nothing
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
           → Read $ A ⊎ B
