@@ -319,7 +319,7 @@ instance
         pos = not $ 𝕃.head a ≡ᵇ just '-'
         _+f_ = if pos then Data.Float._+_ else Data.Float._-_
         _÷_ = Data.Float._÷_
-        sf = Data.Float._**_ (n2f $ +_ 10) ∘ n2f ∘ +_ ∘ length
+        sf = Data.Float._**_ (n2f $ + 10) ∘ n2f ∘ +_ ∘ length
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ List.[]) = p t
