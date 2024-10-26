@@ -300,9 +300,9 @@ instance
   readℚ : Read ℚ
   readℚ = record {readMaybe = readMaybe >=> f}
     where
-    fuq = Data.Rational.fromℚᵘ
-    norm = show ∘ Data.Rational.toℚᵘ ∘ fuq
-    f = λ x → if norm x ≡ᵇ show x then just (fuq x) else nothing
+    fuk = Data.Rational.fromℚᵘ
+    norm = show ∘ Data.Rational.toℚᵘ ∘ fuk
+    f = λ x → if norm x ≡ᵇ show x then just (fuk x) else nothing
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
