@@ -340,7 +340,7 @@ instance
       where
       x' = fromList x
     -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
-    Q x = nothing
+    Q _ = nothing
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
           → Read $ A ⊎ B
