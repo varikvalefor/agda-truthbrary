@@ -114,6 +114,7 @@ open import Data.Float
     Float
   )
 open import Data.Maybe
+  as ？
   using (
     nothing;
     _>>=_;
@@ -137,6 +138,7 @@ open import Data.Integer
     ℤ
   )
 open import Data.Rational
+  as ℚ
   using (
     mkℚ;
     ℚ
@@ -299,9 +301,8 @@ instance
   readℚ : Read ℚ
   readℚ = record {readMaybe = readMaybe >=> f}
     where
-    fuq = Data.Rational.fromℚᵘ
-    norm = show ∘ Data.Rational.toℚᵘ ∘ fuq
-    f = λ x → if norm x ≡ᵇ show x then just (fuq x) else nothing
+    norm = show ∘ ℚ.toℚᵘ ∘ ℚ.fromℚᵘ
+    f = λ x → if norm x ≡ᵇ show x then just (ℚ.fromℚᵘ x) else nothing
   readFloat : Read Float
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
@@ -314,12 +315,12 @@ instance
       -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
       rM = λ q → if null q then just (+ 0) else readMaybe (fromList q)
-      comb = liftM2 $ λ x y → _+f_ (n2f x) $ n2f y ÷ sf b
+      comb = liftM2 $ λ x y → (n2f x) +f_ $ n2f y ÷ sf b
         where
         pos = not $ 𝕃.head a ≡ᵇ just '-'
         _+f_ = if pos then Data.Float._+_ else Data.Float._-_
         _÷_ = Data.Float._÷_
-        sf = Data.Float._**_ (n2f $ +_ 10) ∘ n2f ∘ +_ ∘ length
+        sf = Data.Float._**_ (n2f $ + 10) ∘ n2f ∘ +_ ∘ length
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ List.[]) = p t
@@ -332,17 +333,15 @@ instance
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
   readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄ → Read $ Maybe A
-  readMayb {_} {A} = record {readMaybe = Q ∘ toList}
+  readMayb {A = A} = record {readMaybe = Q ∘ toList }
     where
     Q : List Char → Maybe $ Maybe A
-    Q t = if justice then just (t' >>= readMaybe) else nada
+    Q ('n' ∷ 'o' ∷ 't' ∷ 'h' ∷ 'i' ∷ 'n' ∷ 'g' ∷ 𝕃.[]) = just nothing
+    Q ('j' ∷ 'u' ∷ 's' ∷ 't' ∷ ' ' ∷ x) = ？.map readMaybe $ unparens x'
       where
-      justice = fromList (𝕃.take 5 t) ≡ᵇ "just "
-      t' = unparens $ fromList $ 𝕃.drop 5 t
-      nada = if tim then just nothing else nothing
-        where
-        -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
-        tim = fromList t ≡ᵇ "nothing"
+      x' = fromList x
+    -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
+    Q _ = nothing
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
           → Read $ A ⊎ B
