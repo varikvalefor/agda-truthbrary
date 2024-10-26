@@ -340,6 +340,7 @@ instance
       where
       justice = 𝕃.take (length "just ") (toList t) ≡ᵇ toList "just "
       t' = unparens $ fromList $ 𝕃.drop (length "just ") (toList t)
+      -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
       nada = nothing
   readSum : ∀ {a b} → {A : Set a} → {B : Set b}
           → ⦃ Read A ⦄ → ⦃ Read B ⦄
