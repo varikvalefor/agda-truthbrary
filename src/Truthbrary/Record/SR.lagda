@@ -332,7 +332,7 @@ instance
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {readMaybe = Data.Fin.Show.readMaybe 10}
   readMayb : ∀ {a} → {A : Set a} → ⦃ Read A ⦄ → Read $ Maybe A
-  readMayb {_} {A} ⦃ R ⦄ = record {readMaybe = Q ∘ toList }
+  readMayb {_} {A} ⦃ _ ⦄ = record {readMaybe = Q ∘ toList }
     where
     Q : List Char → Maybe $ Maybe A
     Q ('n' ∷ 'o' ∷ 't' ∷ 'h' ∷ 'i' ∷ 'n' ∷ 'g' ∷ List.[]) = just nothing
