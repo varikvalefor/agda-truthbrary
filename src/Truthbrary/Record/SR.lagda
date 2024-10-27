@@ -281,9 +281,13 @@ instance
     where
     f : List Char → Maybe ℤ
     f 𝕃.[] = nothing
-    f (x ∷ xs) = if x ≡ᵇ '-' then mapₘ n r else mapₘ p r'
+    f ('-' ∷ xs) = mapₘ n r
       where
       r = readMaybe $ fromList xs
+      p = Data.Integer.+_
+      n = Data.Integer.-_ ∘ p
+    f (x ∷ xs) = mapₘ p r'
+      where
       r' = readMaybe $ fromList $ x ∷ xs
       p = Data.Integer.+_
       n = Data.Integer.-_ ∘ p
