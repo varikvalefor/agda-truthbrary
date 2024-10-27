@@ -287,7 +287,7 @@ instance
     f ('-' ∷ xs) = mapₘ n $ readMaybe $ fromList xs
       where
       n = Data.Integer.-_ ∘ +_
-    f X@(_ ∷ _) = mapₘ +_ $ readMaybe $ fromList X
+    f x@(_ ∷ _) = mapₘ +_ $ readMaybe $ fromList x
   readℚᵘ : Read ℚᵘ
   readℚᵘ = record {readMaybe = f ∘ splitOn '/' ∘ toList}
     where
