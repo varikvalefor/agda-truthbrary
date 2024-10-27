@@ -290,7 +290,6 @@ instance
       where
       r' = readMaybe $ fromList $ x ∷ xs
       p = Data.Integer.+_
-      n = Data.Integer.-_ ∘ p
   readℚᵘ : Read ℚᵘ
   readℚᵘ = record {readMaybe = f ∘ splitOn '/' ∘ toList}
     where
