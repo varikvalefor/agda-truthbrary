@@ -269,6 +269,7 @@ private
   unparens = decaf '(' ')'
 
 instance
+  readChar : Read Char
   readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
     stedu=<< = _>>= Data.String.head
