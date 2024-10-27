@@ -280,7 +280,7 @@ instance
   readℤ = record {readMaybe = f ∘ toList}
     where
     f : List Char → Maybe ℤ
-    f List.[] = nothing
+    f 𝕃.[] = nothing
     f (x ∷ xs) = if x ≡ᵇ '-' then mapₘ n r else mapₘ p r'
       where
       r = readMaybe $ fromList xs
