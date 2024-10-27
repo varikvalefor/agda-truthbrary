@@ -86,6 +86,7 @@ open import Data.Sum
   )
 open import Function
   using (
+    _on_;
     flip;
     _$_;
     _∘_
@@ -110,6 +111,7 @@ open import Data.List
     _∷_
   )
 open import Data.Float
+  as Flot
   using (
     Float
   )
@@ -212,7 +214,7 @@ show ⦃ boob ⦄ = Show.show boob
 \begin{code}
 instance
   showℕ = record {show = Data.Nat.Show.show}
-  showFloat = record {show = Data.Float.show}
+  showFloat = record {show = Flot.show}
   showFin : {n : ℕ} → Show $ Fin n
   showFin = record {show = Data.Fin.Show.show}
   showChar = record {show = Data.Char.show}
@@ -269,6 +271,7 @@ private
   unparens = decaf '(' ')'
 
 instance
+  readChar : Read Char
   readChar = record {readMaybe = stedu=<< ∘ decaf '\'' '\''}
     where
     stedu=<< = _>>= Data.String.head
@@ -280,13 +283,11 @@ instance
   readℤ = record {readMaybe = f ∘ toList}
     where
     f : List Char → Maybe ℤ
-    f List.[] = nothing
-    f (x ∷ xs) = if x ≡ᵇ '-' then mapₘ n r else mapₘ p r'
+    f 𝕃.[] = nothing
+    f ('-' ∷ xs) = mapₘ n $ readMaybe $ fromList xs
       where
-      r = readMaybe $ fromList xs
-      r' = readMaybe $ fromList $ x ∷ xs
-      p = Data.Integer.+_
-      n = Data.Integer.-_ ∘ p
+      n = Data.Integer.-_ ∘ +_
+    f x@(_ ∷ _) = mapₘ +_ $ readMaybe $ fromList x
   readℚᵘ : Read ℚᵘ
   readℚᵘ = record {readMaybe = f ∘ splitOn '/' ∘ toList}
     where
@@ -307,10 +308,10 @@ instance
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
     spit = 𝕃.map (splitOn '.') ∘ splitOn 'e'
-    n2f = Data.Float.fromℤ
+    n2f = Flot.fromℤ
     p : List $ List Char → Maybe Float
-    p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
-    p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
+    p (a ∷ List.[]) = mapₘ Flot.fromℕ $ readMaybe $ fromList a
+    p (a ∷ b ∷ List.[]) = (comb on rM) a b
       where
       -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
@@ -318,15 +319,15 @@ instance
       comb = liftM2 $ λ x y → (n2f x) +f_ $ n2f y ÷ sf b
         where
         pos = not $ 𝕃.head a ≡ᵇ just '-'
-        _+f_ = if pos then Data.Float._+_ else Data.Float._-_
-        _÷_ = Data.Float._÷_
-        sf = Data.Float._**_ (n2f $ + 10) ∘ n2f ∘ +_ ∘ length
+        _+f_ = if pos then Flot._+_ else Flot._-_
+        _÷_ = Flot._÷_
+        sf = Flot._**_ (n2f $ + 10) ∘ n2f ∘ +_ ∘ length
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ List.[]) = p t
-    exp (t ∷ x ∷ List.[]) = liftM2 dt10 (p t) $ p x
+    exp (t ∷ x ∷ List.[]) = (liftM2 dt10 on p) t x
       where
-      dt10 = λ a b → a Data.Float.* n2f (+_ 10) Data.Float.** b
+      dt10 = λ a b → a Flot.* n2f (+_ 10) Flot.** b
     exp _ = nothing
   -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .Fin.
@@ -348,19 +349,19 @@ instance
   readSum {A = A} {B} = record {readMaybe = inj₁?}
     where
     inj₁? : String → Maybe $ A ⊎ B
-    inj₁? s = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
+    inj₁? s = if t5 ≡ᵇ "inj₁ " then rmap inj₁ else inj2?
       where
       apf : (List Char → List Char) → String
       apf f = fromList $ f $ toList s
       L = length "inj₁ " -- .i du la'o zoi. length "inj₂ " .zoi.
       t5 = apf $ 𝕃.take L
       d5 = apf $ 𝕃.drop L
-      inj : ∀ {a b} → {A : Set a} → {B : Set b}
-          → ⦃ Read A ⦄
-          → (A → B)
-          → Maybe B
-      inj f = unparens d5 >>= mapₘ f ∘ readMaybe
-      inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
+      rmap : ∀ {a b} → {A : Set a} → {B : Set b}
+           → ⦃ Read A ⦄
+           → (A → B)
+           → Maybe B
+      rmap f = unparens d5 >>= mapₘ f ∘ readMaybe
+      inj2? = if t5 ≡ᵇ "inj₂ " then rmap inj₂ else nothing
 \end{code}
 
 \section{la'oi .\AgdaRecord{SR}.}
