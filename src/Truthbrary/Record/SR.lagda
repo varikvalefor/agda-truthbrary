@@ -111,6 +111,7 @@ open import Data.List
     _∷_
   )
 open import Data.Float
+  as Flot
   using (
     Float
   )
@@ -213,7 +214,7 @@ show ⦃ boob ⦄ = Show.show boob
 \begin{code}
 instance
   showℕ = record {show = Data.Nat.Show.show}
-  showFloat = record {show = Data.Float.show}
+  showFloat = record {show = Flot.show}
   showFin : {n : ℕ} → Show $ Fin n
   showFin = record {show = Data.Fin.Show.show}
   showChar = record {show = Data.Char.show}
@@ -307,9 +308,9 @@ instance
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
     spit = 𝕃.map (splitOn '.') ∘ splitOn 'e'
-    n2f = Data.Float.fromℤ
+    n2f = Flot.fromℤ
     p : List $ List Char → Maybe Float
-    p (a ∷ List.[]) = mapₘ Data.Float.fromℕ $ readMaybe $ fromList a
+    p (a ∷ List.[]) = mapₘ Flot.fromℕ $ readMaybe $ fromList a
     p (a ∷ b ∷ List.[]) = comb (rM a) (rM b)
       where
       -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
@@ -318,15 +319,15 @@ instance
       comb = liftM2 $ λ x y → (n2f x) +f_ $ n2f y ÷ sf b
         where
         pos = not $ 𝕃.head a ≡ᵇ just '-'
-        _+f_ = if pos then Data.Float._+_ else Data.Float._-_
-        _÷_ = Data.Float._÷_
-        sf = Data.Float._**_ (n2f $ + 10) ∘ n2f ∘ +_ ∘ length
+        _+f_ = if pos then Flot._+_ else Flot._-_
+        _÷_ = Flot._÷_
+        sf = Flot._**_ (n2f $ + 10) ∘ n2f ∘ +_ ∘ length
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ List.[]) = p t
     exp (t ∷ x ∷ List.[]) = (liftM2 dt10 on p) t x
       where
-      dt10 = λ a b → a Data.Float.* n2f (+_ 10) Data.Float.** b
+      dt10 = λ a b → a Flot.* n2f (+_ 10) Flot.** b
     exp _ = nothing
   -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .Fin.
