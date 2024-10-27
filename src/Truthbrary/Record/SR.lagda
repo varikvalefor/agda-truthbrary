@@ -311,7 +311,7 @@ instance
     n2f = Flot.fromℤ
     p : List $ List Char → Maybe Float
     p (a ∷ List.[]) = mapₘ Flot.fromℕ $ readMaybe $ fromList a
-    p (a ∷ b ∷ List.[]) = comb (rM a) $ rM b
+    p (a ∷ b ∷ List.[]) = (comb on rM) a b
       where
       -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
