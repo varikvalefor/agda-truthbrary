@@ -347,19 +347,19 @@ instance
   readSum {A = A} {B} = record {readMaybe = inj₁?}
     where
     inj₁? : String → Maybe $ A ⊎ B
-    inj₁? s = if t5 ≡ᵇ "inj₁ " then inj inj₁ else inj2?
+    inj₁? s = if t5 ≡ᵇ "inj₁ " then rmap inj₁ else inj2?
       where
       apf : (List Char → List Char) → String
       apf f = fromList $ f $ toList s
       L = length "inj₁ " -- .i du la'o zoi. length "inj₂ " .zoi.
       t5 = apf $ 𝕃.take L
       d5 = apf $ 𝕃.drop L
-      inj : ∀ {a b} → {A : Set a} → {B : Set b}
-          → ⦃ Read A ⦄
-          → (A → B)
-          → Maybe B
-      inj f = unparens d5 >>= mapₘ f ∘ readMaybe
-      inj2? = if t5 ≡ᵇ "inj₂ " then inj inj₂ else nothing
+      rmap : ∀ {a b} → {A : Set a} → {B : Set b}
+           → ⦃ Read A ⦄
+           → (A → B)
+           → Maybe B
+      rmap f = unparens d5 >>= mapₘ f ∘ readMaybe
+      inj2? = if t5 ≡ᵇ "inj₂ " then rmap inj₂ else nothing
 \end{code}
 
 \section{la'oi .\AgdaRecord{SR}.}
