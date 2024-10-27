@@ -284,8 +284,7 @@ instance
     f ('-' ∷ xs) = mapₘ n r
       where
       r = readMaybe $ fromList xs
-      p = +_
-      n = Data.Integer.-_ ∘ p
+      n = Data.Integer.-_ ∘ +_
     f (x ∷ xs) = mapₘ p r'
       where
       r' = readMaybe $ fromList $ x ∷ xs
