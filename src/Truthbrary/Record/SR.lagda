@@ -61,7 +61,6 @@ ni'o sa'u ko'a goi la'o zoi.\ \AgdaModule\cmene .zoi.\ vasru lo jai filri'a be l
 
 \begin{code}
 {-# OPTIONS --safe #-}
-{-# OPTIONS --overlapping-instances #-}
 {-# OPTIONS --instance-search-depth=2 #-}
 {-# OPTIONS --backtracking-instance-search #-}
 
