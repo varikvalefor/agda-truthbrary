@@ -292,7 +292,7 @@ instance
   readℚᵘ = record {readMaybe = f ∘ splitOn '/' ∘ toList}
     where
     f : List $ List Char → Maybe ℚᵘ
-    f (x ∷ List.[]) = mapₘ (flip mkℚᵘ 1) $ readMaybe $ fromList x
+    f (x ∷ 𝕃.[]) = mapₘ (flip mkℚᵘ 1) $ readMaybe $ fromList x
     f (x ∷ z ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) z'
       where
       rm = readMaybe $ fromList z
