@@ -177,9 +177,6 @@ open import Data.Rational.Unnormalised
     mkℚᵘ;
     ℚᵘ
   )
-open import Relation.Nullary.Decidable
-  using (
-  )
 open import Truthbrary.Data.List.Split
   using (
     splitOn
