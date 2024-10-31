@@ -49,7 +49,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o sa'u ko'a goi la'o zoi.\ \AgdaModule\cmene .zoi.\ vasru zo'e poi ke'a jai filri'a lo nu binxo pe'a ru'e lo ctaipe be la'oi .\AgdaPostulate{String}.\ kei je lo nu lo ctaipe be la'oi .\AgdaPostulate{String}.\ cu binxo pe'a ru'e
+ni'o sa'u ko'a goi la'o zoi.\ \AgdaModule\cmene .zoi.\ vasru lo jai filri'a be lo nu binxo pe'a ru'e lo ctaipe be la'oi .\AgdaPostulate{String}.\ kei je lo nu lo ctaipe be la'oi .\AgdaPostulate{String}.\ cu binxo pe'a ru'e
 
 .i sa'u nai ru'e vasru\ldots
 \begin{itemize}
