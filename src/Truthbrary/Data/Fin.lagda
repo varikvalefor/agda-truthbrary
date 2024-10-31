@@ -44,10 +44,12 @@ module Truthbrary.Data.Fin where
 
 open import Function
   using (
-    _|>_;
     _∘_;
     _$_;
     id
+  )
+  renaming (
+    _|>_ to _▹_
   )
 open import Data.Fin
   using (
@@ -109,7 +111,7 @@ ni'o xu la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}
 \begin{code}
 tondus : (toℕ ∘ fromℕ) ≗ id
 tondus 0 = refl
-tondus (ℕ.suc n) = tondus n |> cong ℕ.suc
+tondus (ℕ.suc n) = tondus n ▹ cong ℕ.suc
 \end{code}
 
 \section{la .\F{minzero}.}
