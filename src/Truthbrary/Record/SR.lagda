@@ -338,7 +338,7 @@ instance
     where
     Q : List Char → Maybe $ Maybe A
     Q ('n' ∷ 'o' ∷ 't' ∷ 'h' ∷ 'i' ∷ 'n' ∷ 'g' ∷ 𝕃.[]) = just nothing
-    Q ('j' ∷ 'u' ∷ 's' ∷ 't' ∷ ' ' ∷ x) = ？.map readMaybe $ unparens x'
+    Q ('j' ∷ 'u' ∷ 's' ∷ 't' ∷ ' ' ∷ x) = mapₘ readMaybe $ unparens x'
       where
       x' = fromList x
     -- | ni'o su'o da zo'u nandu fa lo nu jimpe fi da
