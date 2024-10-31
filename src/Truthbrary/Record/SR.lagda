@@ -304,7 +304,7 @@ instance
   readFloat = record {readMaybe = exp ∘ spit ∘ Data.String.toList}
     where
     spit = 𝕃.map (splitOn '.') ∘ splitOn 'e'
-    n2f = Flot.fromℤ
+    z2f = Flot.fromℤ
     p : List $ List Char → Maybe Float
     p (a ∷ 𝕃.[]) = mapₘ Flot.fromℕ $ readMaybe $ fromList a
     p (a ∷ b ∷ 𝕃.[]) = (comb on rM) a b
@@ -312,18 +312,18 @@ instance
       -- | .i filri'a lo nu genturfa'i pe'a ru'e zoi zoi.
       -- .1 .zoi. je zoi zoi. 1. .zoi. je zoi zoi. . .zoi.
       rM = λ q → if null q then just (+ 0) else readMaybe (fromList q)
-      comb = liftM2 $ λ x y → (n2f x) +f_ $ n2f y ÷ sf b
+      comb = liftM2 $ λ x y → (z2f x) +f_ $ z2f y ÷ sf b
         where
         pos = not $ 𝕃.head a ≡ᵇ just '-'
         _+f_ = if pos then Flot._+_ else Flot._-_
         _÷_ = Flot._÷_
-        sf = Flot._**_ (n2f $ + 10) ∘ Flot.fromℤ ∘ +_ ∘ length
+        sf = Flot._**_ (z2f $ + 10) ∘ Flot.fromℤ ∘ +_ ∘ length
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ 𝕃.[]) = p t
     exp (t ∷ x ∷ List.[]) = (liftM2 dt10 on p) t x
       where
-      dt10 = λ a b → a Flot.* n2f (+_ 10) Flot.** b
+      dt10 = λ a b → a Flot.* z2f (+_ 10) Flot.** b
     exp _ = nothing
   -- | .i pilno li pano ki'u le nu pruce lo te pruce
   -- be le me'oi .show. co'e pe la'oi .Fin.
