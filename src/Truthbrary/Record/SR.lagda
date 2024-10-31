@@ -179,7 +179,6 @@ open import Data.Rational.Unnormalised
   )
 open import Relation.Nullary.Decidable
   using (
-    isNo
   )
 open import Truthbrary.Data.List.Split
   using (
