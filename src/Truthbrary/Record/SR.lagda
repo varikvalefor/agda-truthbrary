@@ -320,7 +320,7 @@ instance
         sf = Flot._**_ (n2f $ + 10) ∘ n2f ∘ +_ ∘ length
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
-    exp (t ∷ List.[]) = p t
+    exp (t ∷ 𝕃.[]) = p t
     exp (t ∷ x ∷ List.[]) = (liftM2 dt10 on p) t x
       where
       dt10 = λ a b → a Flot.* n2f (+_ 10) Flot.** b
