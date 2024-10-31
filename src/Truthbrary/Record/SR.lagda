@@ -317,7 +317,7 @@ instance
         pos = not $ 𝕃.head a ≡ᵇ just '-'
         _+f_ = if pos then Flot._+_ else Flot._-_
         _÷_ = Flot._÷_
-        sf = Flot._**_ (n2f $ + 10) ∘ n2f ∘ +_ ∘ length
+        sf = Flot._**_ (n2f $ + 10) ∘ Flot.fromℤ ∘ +_ ∘ length
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ 𝕃.[]) = p t
