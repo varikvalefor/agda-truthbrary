@@ -297,7 +297,7 @@ instance
       where
       rm = readMaybe $ fromList z
       rmy = if rm ≡ᵇ just 0 then nothing else rm
-      z' = maybe (just ∘ flip _∸_ 1) nothing rmy
+      z' = maybe (just ∘ (_∸ 1)) nothing rmy
     f _ = nothing
   readℚ : Read ℚ
   readℚ = record {readMaybe = readMaybe >=> f}
