@@ -76,6 +76,7 @@ open import Relation.Nullary
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    module ≡-Reasoning;
     _≡_
   )
 \end{code}
@@ -136,7 +137,7 @@ module IVeritas where
     Data.Vec.lookup (lookup (I z o) f) f ≡⟨ {!!} ⟩
     o ∎
     where
-    open Relation.Binary.PropositionalEquality.≡-Reasoning
+    open ≡-Reasoning
 
   0≡n,n : ∀ {a} → {A : Set a}
         → (n : ℕ)
@@ -148,7 +149,7 @@ module IVeritas where
     Data.Vec.lookup (lookup (I z o) f) g ≡⟨ {!!} ⟩
     z ∎
     where
-    open Relation.Binary.PropositionalEquality.≡-Reasoning
+    open ≡-Reasoning
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
