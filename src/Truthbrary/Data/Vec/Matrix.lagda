@@ -79,6 +79,7 @@ open import Function
     const;
     _∘₂_;
     flip;
+    _ˢ_;
     _∘_;
     _$_
   )
@@ -135,6 +136,6 @@ _∣_ : ∀ {a m n o} → {A : Set a}
     → 𝕄 A m n
     → 𝕄 A o n
     → 𝕄 A (m + o) n
-_∣_ a b = map ((_++_ ∘ lookupᵥ a) Function.ˢ lookupᵥ b) $ allFin _
+_∣_ a b = map ((_++_ ∘ lookupᵥ a) ˢ lookupᵥ b) $ allFin _
 \end{code}
 \end{document}
