@@ -134,6 +134,6 @@ _∣_ : ∀ {a m n o} → {A : Set a}
     → 𝕄 A m n
     → 𝕄 A o n
     → 𝕄 A (m + o) n
-_∣_ a b = map (λ n → lookupᵥ a n ++ lookupᵥ b n) $ allFin _
+_∣_ a b = map ((_++_ Function.∘ lookupᵥ a) Function.ˢ lookupᵥ b) $ allFin _
 \end{code}
 \end{document}
