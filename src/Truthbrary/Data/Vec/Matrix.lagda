@@ -127,7 +127,7 @@ module IVeritas where
         → (n : ℕ)
         → (f : Fin n)
         → (z o : A)
-        → Data.Vec.lookup (lookup (I z o) f) f ≡ o
+        → (_≡ o) $ Data.Vec.lookup (lookup (I z o) f) f
   n,n≡1 = {!!}
 \end{code}
 
