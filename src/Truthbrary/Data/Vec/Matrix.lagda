@@ -123,12 +123,12 @@ I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 
 \begin{code}
 module IVeritas where
-  n,n≡1 : ∀ {a} → {A : Set a}
+  1≡n,n : ∀ {a} → {A : Set a}
         → (n : ℕ)
         → (f : Fin n)
         → (z o : A)
         → o ≡ Data.Vec.lookup (lookup (I z o) f) f
-  n,n≡1 = {!!}
+  1≡n,n = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
