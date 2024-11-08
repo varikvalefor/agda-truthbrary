@@ -77,7 +77,8 @@ open import Relation.Nullary
 open import Relation.Binary.PropositionalEquality
   using (
     module ≡-Reasoning;
-    _≡_
+    _≡_;
+    sym
   )
 \end{code}
 
@@ -133,7 +134,7 @@ module IVeritas where
         → (f : Fin n)
         → (z o : A)
         → o ≡ Data.Vec.lookup (lookup (I z o) f) f
-  1≡n,n = λ n f z o → Relation.Binary.PropositionalEquality.sym $ begin
+  1≡n,n = λ n f z o → sym $ begin
     Data.Vec.lookup (lookup (I z o) f) f ≡⟨ {!!} ⟩
     o ∎
     where
@@ -145,7 +146,7 @@ module IVeritas where
         → (z o : A)
         → ¬_ $ f ≡ g
         → z ≡ Data.Vec.lookup (lookup (I z o) f) g
-  0≡n,n = λ n f g z o N → Relation.Binary.PropositionalEquality.sym $ begin
+  0≡n,n = λ n f g z o N → sym $ begin
     Data.Vec.lookup (lookup (I z o) f) g ≡⟨ {!!} ⟩
     z ∎
     where
