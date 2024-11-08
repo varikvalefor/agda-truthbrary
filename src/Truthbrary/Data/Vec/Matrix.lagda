@@ -70,6 +70,10 @@ open import Algebra.Core
   using (
     Op₂
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'o zoi.\ \F 𝕄\ .zoi.}
@@ -113,6 +117,18 @@ ni'o ga jo la'o zoi.\ \F \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} I \B z \B 
 \begin{code}
 I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
 I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module IVeritas where
+  n,n≡1 : ∀ {a} → {A : Set a}
+        → (n : ℕ)
+        → (f : Fin n)
+        → (z o : A)
+        → Data.Vec.lookup (lookup (I z o) f) f ≡ o
+  n,n≡1 = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
