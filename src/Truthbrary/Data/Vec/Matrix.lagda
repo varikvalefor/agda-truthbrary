@@ -70,6 +70,10 @@ open import Algebra.Core
   using (
     Op₂
   )
+open import Relation.Nullary
+  using (
+    ¬_
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     _≡_
@@ -129,6 +133,14 @@ module IVeritas where
         → (z o : A)
         → o ≡ Data.Vec.lookup (lookup (I z o) f) f
   1≡n,n = {!!}
+
+  0≡n,n : ∀ {a} → {A : Set a}
+        → (n : ℕ)
+        → (f g : Fin n)
+        → (z o : A)
+        → ¬_ $ f ≡ g
+        → z ≡ Data.Vec.lookup (lookup (I z o) f) g
+  0≡n,n = {!!}
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
