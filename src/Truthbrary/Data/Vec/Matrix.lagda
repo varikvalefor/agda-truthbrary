@@ -140,7 +140,11 @@ module IVeritas where
         → (z o : A)
         → ¬_ $ f ≡ g
         → z ≡ Data.Vec.lookup (lookup (I z o) f) g
-  0≡n,n = {!!}
+  0≡n,n = λ n f g z o N → Relation.Binary.PropositionalEquality.sym $ begin
+    Data.Vec.lookup (lookup (I z o) f) g ≡⟨ {!!} ⟩
+    z ∎
+    where
+    open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
