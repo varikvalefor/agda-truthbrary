@@ -132,7 +132,11 @@ module IVeritas where
         → (f : Fin n)
         → (z o : A)
         → o ≡ Data.Vec.lookup (lookup (I z o) f) f
-  1≡n,n = {!!}
+  1≡n,n = λ n f z o → Relation.Binary.PropositionalEquality.sym $ begin
+    Data.Vec.lookup (lookup (I z o) f) f ≡⟨ {!!} ⟩
+    o ∎
+    where
+    open Relation.Binary.PropositionalEquality.≡-Reasoning
 
   0≡n,n : ∀ {a} → {A : Set a}
         → (n : ℕ)
