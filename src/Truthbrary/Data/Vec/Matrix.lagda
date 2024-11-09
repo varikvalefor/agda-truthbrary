@@ -77,6 +77,7 @@ open import Relation.Nullary
 open import Relation.Binary.PropositionalEquality
   using (
     module ≡-Reasoning;
+    cong;
     _≡_;
     sym
   )
@@ -179,7 +180,7 @@ module _∣_Veritas where
   ind x₁ x₂ i = begin
     lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
     lookupᵥ (map L $ allFin _) i ≡⟨ DVP.lookup-map i L (allFin _) ⟩
-    L (lookupᵥ (tabulate id) i) ≡⟨ Relation.Binary.PropositionalEquality.cong L {!!} ⟩
+    L (lookupᵥ (tabulate id) i) ≡⟨ cong L {!!} ⟩
     L i ≡⟨ {!!} ⟩
     (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
     where
