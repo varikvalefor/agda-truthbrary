@@ -80,6 +80,10 @@ open import Relation.Binary.PropositionalEquality
     _≡_;
     sym
   )
+open import Data.Vec.Properties
+  as DVP
+  using (
+  )
 \end{code}
 
 \section{la'o zoi.\ \F 𝕄\ .zoi.}
@@ -174,7 +178,7 @@ module _∣_Veritas where
       → lookupᵥ (x₁ ∣ x₂) i ≡ (lookupᵥ x₁ i ++ lookupᵥ x₂ i)
   ind = λ x₁ x₂ i → begin
     lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
-    lookupᵥ (map (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) $ allFin _) i ≡⟨ {!!} ⟩
+    lookupᵥ (map (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) $ allFin _) i ≡⟨ DVP.lookup-map i (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) (allFin _) ⟩
     (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) (lookupᵥ (tabulate id) i) ≡⟨ {!!} ⟩
     (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
     where
