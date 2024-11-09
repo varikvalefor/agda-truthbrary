@@ -107,6 +107,18 @@ lookup : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
 lookup m n = map (flip lookupᵥ n) m
 \end{code}
 
+\section{la'oi .\F{lookupₓ}.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi fo lo te gerna be la .lojban.
+
+\begin{code}
+lookupₓ : ∀ {a n o} → {A : Set a}
+        → Fin n
+        → Fin o
+        → 𝕄 A n o
+        → A
+lookupₓ = {!!}
+\end{code}
+
 \section{la'oi .\F I.}
 ni'o ga jo la'o zoi.\ \F \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} I \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da du lo pilji ja co'e be da bei la'o zoi.\ \B o .zoi.
 
