@@ -179,7 +179,7 @@ module _∣_Veritas where
   ind = λ x₁ x₂ i → begin
     lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
     lookupᵥ (map (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) $ allFin _) i ≡⟨ DVP.lookup-map i (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) (allFin _) ⟩
-    (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) (lookupᵥ (tabulate id) i) ≡⟨ {!!} ⟩
+    (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) (lookupᵥ (tabulate id) i) ≡⟨ Relation.Binary.PropositionalEquality.cong (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) {!!} ⟩
     (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) i ≡⟨ {!!} ⟩
     (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
     where
