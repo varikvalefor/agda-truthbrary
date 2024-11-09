@@ -173,7 +173,7 @@ module _∣_Veritas where
       → (i : Fin n)
       → lookupᵥ (x₁ ∣ x₂) i ≡ (lookupᵥ x₁ i ++ lookupᵥ x₂ i)
   ind = λ x₁ x₂ i → begin
-    lookupᵥ (x₁ ∣ x₂) i ≡⟨ {!!} ⟩
+    lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
     lookupᵥ (map (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n) $ allFin _) i ≡⟨ {!!} ⟩
     (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
     where
