@@ -181,7 +181,7 @@ module _∣_Veritas where
     lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
     lookupᵥ (map L $ allFin _) i ≡⟨ DVP.lookup-map i L (allFin _) ⟩
     L (lookupᵥ (tabulate id) i) ≡⟨ cong L {!!} ⟩
-    L i ≡⟨ {!!} ⟩
+    L i ≡⟨ _≡_.refl ⟩
     (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
     where
     L = λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n
