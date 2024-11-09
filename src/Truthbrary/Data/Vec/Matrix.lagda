@@ -172,6 +172,10 @@ module _∣_Veritas where
       → (x₂ : 𝕄 A o n)
       → (i : Fin n)
       → lookupᵥ (x₁ ∣ x₂) i ≡ (lookupᵥ x₁ i ++ lookupᵥ x₂ i)
-  ind = {!!}
+  ind = λ x₁ x₂ i → begin
+    lookupᵥ (x₁ ∣ x₂) i ≡⟨ {!!} ⟩
+    (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
+    where
+    open ≡-Reasoning
 \end{code}
 \end{document}
