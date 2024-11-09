@@ -117,7 +117,7 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ fo lo
 
 \begin{code}
 lookup : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
-lookup = flip $ λ n → map $ flip lookupᵥ n
+lookup = flip $ map ∘ flip lookupᵥ
 \end{code}
 
 \section{la'oi .\F I.}
