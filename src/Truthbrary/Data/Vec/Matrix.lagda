@@ -40,7 +40,7 @@
 ni'o klesi lo'i ro co'e poi su'o da zo'u da selvau pe'a la'o zoi.\ \AgdaModule{\cmene} .zoi.\ je cu velcki ke'a ku'o fa\ldots
 \begin{itemize}
 	\item la'oi .\F 𝕄.\ noi ke'a jai filri'a tu'a lo nacmeimei be'o ce
-	\item la'oi .\F{lookup}.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o ce
+	\item la'oi .\F{lookup}.\ noi ke'a jai filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o ce
 	\item la'oi .\F I.\ noi ke'a jai filri'a tu'a lo me'oi .identity.\ nacmeimei be'o ce
 	\item la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo nacmeimei bei lo nacmeimei
 \end{itemize}
