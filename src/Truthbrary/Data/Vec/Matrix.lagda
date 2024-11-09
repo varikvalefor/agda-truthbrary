@@ -83,6 +83,21 @@ open import Function
     _∘_;
     _$_
   )
+open import Relation.Nullary
+  using (
+    ¬_
+  )
+open import Relation.Binary.PropositionalEquality
+  using (
+    module ≡-Reasoning;
+    cong;
+    _≡_;
+    sym
+  )
+open import Data.Vec.Properties
+  as DVP
+  using (
+  )
 \end{code}
 
 \section{la'oi .\F 𝕄.}
@@ -128,6 +143,34 @@ I : ∀ {a n} → {A : Set a} → A → A → 𝕄 A n n
 I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module IVeritas where
+  1≡n,n : ∀ {a} → {A : Set a}
+        → (n : ℕ)
+        → (f : Fin n)
+        → (z o : A)
+        → o ≡ Data.Vec.lookup (lookup (I z o) f) f
+  1≡n,n = λ n f z o → sym $ begin
+    Data.Vec.lookup (lookup (I z o) f) f ≡⟨ {!!} ⟩
+    o ∎
+    where
+    open ≡-Reasoning
+
+  0≡n,n : ∀ {a} → {A : Set a}
+        → (n : ℕ)
+        → (f g : Fin n)
+        → (z o : A)
+        → ¬_ $ f ≡ g
+        → z ≡ Data.Vec.lookup (lookup (I z o) f) g
+  0≡n,n = λ n f g z o N → sym $ begin
+    Data.Vec.lookup (lookup (I z o) f) g ≡⟨ {!!} ⟩
+    z ∎
+    where
+    open ≡-Reasoning
+\end{code}
+
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
 ni'o la'o zoi.\ \B a \AgdaOperator{\F ∣} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
@@ -137,5 +180,26 @@ _∣_ : ∀ {a m n o} → {A : Set a}
     → 𝕄 A o n
     → 𝕄 A (m + o) n
 _∣_ a b = map ((_++_ ∘ lookupᵥ a) ˢ lookupᵥ b) $ allFin _
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module _∣_Veritas where
+  ind : ∀ {a} → {A : Set a}
+      → {m n o : ℕ}
+      → (x₁ : 𝕄 A m n)
+      → (x₂ : 𝕄 A o n)
+      → (i : Fin n)
+      → lookupᵥ (x₁ ∣ x₂) i ≡ (lookupᵥ x₁ i ++ lookupᵥ x₂ i)
+  ind x₁ x₂ i = begin
+    lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
+    lookupᵥ (map L $ allFin _) i ≡⟨ DVP.lookup-map i L (allFin _) ⟩
+    L (lookupᵥ (tabulate id) i) ≡⟨ cong L {!!} ⟩
+    L i ≡⟨ _≡_.refl ⟩
+    (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
+    where
+    L = λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n
+    open ≡-Reasoning
 \end{code}
 \end{document}
