@@ -40,7 +40,7 @@
 ni'o klesi lo'i ro co'e poi su'o da zo'u da selvau pe'a la'o zoi.\ \AgdaModule{\cmene} .zoi.\ je cu velcki ke'a ku'o fa\ldots
 \begin{itemize}
 	\item la'oi .\F 𝕄.\ noi ke'a jai filri'a tu'a lo nacmeimei be'o ce
-	\item la'oi .\F{lookup}.\ noi tu'a ke'a filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o ce
+	\item la'oi .\F{lookup}.\ noi ke'a jai filri'a tu'a lo pinpau ja co'e be lo nacmeimei ku'o be'o ce
 	\item la'oi .\F I.\ noi ke'a jai filri'a tu'a lo me'oi .identity.\ nacmeimei be'o ce
 	\item la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ noi tu'a ke'a filri'a tu'a lo konkatena bei lo nacmeimei bei lo nacmeimei
 \end{itemize}
@@ -79,6 +79,8 @@ open import Function
     const;
     _∘₂_;
     flip;
+    _ˢ_;
+    _∘_;
     _$_
   )
 \end{code}
@@ -115,11 +117,11 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ fo lo
 
 \begin{code}
 lookup : ∀ {a n o} → {A : Set a} → 𝕄 A n o → Fin n → Vec A o
-lookup m n = map (flip lookupᵥ n) m
+lookup = flip $ map ∘ flip lookupᵥ
 \end{code}
 
 \section{la'oi .\F I.}
-ni'o ga jo la'o zoi.\ \F I \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da pilji ja co'e da la'o zoi.\ \B o .zoi.
+ni'o ga jo la'o zoi.\ \F I \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da pilji ja co'e da la'oi .\B o.
 
 \begin{code}
 I : ∀ {a n} → {A : Set a} → A → A → 𝕄 A n n
@@ -134,6 +136,6 @@ _∣_ : ∀ {a m n o} → {A : Set a}
     → 𝕄 A m n
     → 𝕄 A o n
     → 𝕄 A (m + o) n
-_∣_ a b = map (λ n → lookupᵥ a n ++ lookupᵥ b n) $ allFin _
+_∣_ a b = map ((_++_ ∘ lookupᵥ a) ˢ lookupᵥ b) $ allFin _
 \end{code}
 \end{document}

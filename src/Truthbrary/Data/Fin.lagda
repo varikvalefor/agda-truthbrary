@@ -10,8 +10,8 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
-\newunicodechar{ℕ}{\ensuremath{\mathbb N}}
-\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
 \newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
@@ -33,7 +33,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru le velcki be le fancu ja co'e poi tu'a ke'a filri'a tu'a lo srana be la'o zoi.\ \D{Fin} .zoi.
+ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru le velcki be le co'e ja fancu poi tu'a ke'a filri'a tu'a lo srana be la'o zoi.\ \D{Fin} .zoi.
 
 \section{le vrici}
 
@@ -87,7 +87,7 @@ mindus : {m n : ℕ}
        → (a : Fin m)
        → (x : m ≡ n)
        → (z : n ≡ m)
-       → mink (mink a x) z ≡ a
+       → (_≡ a) $ mink (mink a x) z
 mindus _ refl refl = refl
 \end{code}
 
@@ -106,12 +106,12 @@ tomindus _ refl = refl
 \ckinas{la .\F{tondus}.}
 
 \subsection{le srana be lo du'u xu kau mapti}
-ni'o xu la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \texttt{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \AgdaModule{Data.Nat}\ .zoi.
+ni'o xu la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \AgdaModule{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \AgdaModule{Data.Nat}\ .zoi.
 
 \begin{code}
 tondus : (toℕ ∘ fromℕ) ≗ id
 tondus 0 = refl
-tondus (ℕ.suc n) = tondus n ▹ cong ℕ.suc
+tondus (ℕ.suc n) = tondus _ ▹ cong ℕ.suc
 \end{code}
 
 \section{la .\F{minzero}.}
