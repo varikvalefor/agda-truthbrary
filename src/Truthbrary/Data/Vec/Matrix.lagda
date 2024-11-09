@@ -183,7 +183,7 @@ module _∣_Veritas where
     L i ≡⟨ {!!} ⟩
     (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
     where
-    L = (λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n)
+    L = λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n
     open ≡-Reasoning
 \end{code}
 \end{document}
