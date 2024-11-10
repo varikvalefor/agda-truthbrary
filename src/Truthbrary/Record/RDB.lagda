@@ -10,6 +10,10 @@ open import Function
     _$_
   )
 open import Data.List
+  using (
+    _∷ʳ_;
+    List
+  )
 open import Data.String
   using (
     String
