@@ -1,9 +1,6 @@
 \begin{code}
 module Truthbrary.Record.RDB where
 
-open import Data.Vec
-  using (
-  )
 open import Function
   using (
     _$_
