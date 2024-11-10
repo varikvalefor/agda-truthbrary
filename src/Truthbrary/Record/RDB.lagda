@@ -14,7 +14,7 @@
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
-\newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
+\newunicodechar{→}{\ensuremath{\mathnormal\rightarrow}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 \newunicodechar{∎}{\ensuremath{\mathnormal{\blacksquare}}}
 \newunicodechar{ᵣ}{\ensuremath{\mathnormal{_\AgdaFontStyle{r}}}}
