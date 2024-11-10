@@ -24,5 +24,5 @@ jmina : ∀ {a}
       → (r : Table.SCᵣ t)
       → Table.guuar t $ Table.r t ∷ʳ r
       → Table a
-jmina t r c = record t {r = Table.r t ∷ʳ _; ctaipe = c}
+jmina t r c = record t {r = _ ∷ʳ _; ctaipe = c}
 \end{code}
