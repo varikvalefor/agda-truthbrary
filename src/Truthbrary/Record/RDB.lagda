@@ -10,9 +10,6 @@ open import Data.List
     _∷ʳ_;
     List
   )
-open import Data.String
-  using (
-  )
 
 record Table a : Set (Agda.Primitive.lsuc a)
   where
