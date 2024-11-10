@@ -3,7 +3,6 @@ module Truthbrary.Record.RDB where
 
 open import Data.Vec
   using (
-    Vec
   )
 open import Function
   using (
