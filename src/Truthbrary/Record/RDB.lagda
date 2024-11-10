@@ -52,6 +52,10 @@ open import Data.List
     _∷ʳ_;
     List
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'oi .\AgdaRecord{Table}.}
@@ -75,5 +79,17 @@ jmina : ∀ {a}
       → Table.guuar t $ Table.r t ∷ʳ r
       → Table a
 jmina t _ c = record t {r = _; ctaipe = c}
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module jminaVeritas where
+  kk : ∀ {a}
+     → (t : Table a)
+     → (r : Table.SCᵣ t)
+     → (g : Table.guuar t $ Table.r t ∷ʳ r)
+     → Table.r (jmina t r g) ≡ (Table.r t ∷ʳ r)
+  kk = {!!}
 \end{code}
 \end{document}
