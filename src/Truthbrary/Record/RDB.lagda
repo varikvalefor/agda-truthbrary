@@ -6,6 +6,9 @@ open import Data.Vec
     Vec
   )
 open import Function
+  using (
+    _$_
+  )
 open import Data.List
 open import Data.String
   using (
