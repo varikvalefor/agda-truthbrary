@@ -90,6 +90,6 @@ module jminaVeritas where
      → (r : Table.SCᵣ t)
      → (g : Table.guuar t $ Table.r t ∷ʳ r)
      → Table.r (jmina t r g) ≡ (Table.r t ∷ʳ r)
-  kk = λ r t g → _≡_.refl
+  kk r t g = _≡_.refl
 \end{code}
 \end{document}
