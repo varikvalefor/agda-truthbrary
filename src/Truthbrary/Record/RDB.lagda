@@ -8,6 +8,8 @@ open import Data.Vec
 open import Function
 open import Data.List
 open import Data.Maybe
+  using (
+  )
 open import Data.String
   using (
     String
