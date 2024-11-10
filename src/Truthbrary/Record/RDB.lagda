@@ -10,7 +10,9 @@ open import Data.List
     _∷ʳ_;
     List
   )
+\end{code}
 
+\begin{code}
 record Table a : Set (Agda.Primitive.lsuc a)
   where
   field
@@ -18,7 +20,9 @@ record Table a : Set (Agda.Primitive.lsuc a)
     r : List SCᵣ
     guuar : List SCᵣ → Set a
     ctaipe : guuar r
+\end{code}
 
+\begin{code}
 jmina : ∀ {a}
       → (t : Table a)
       → (r : Table.SCᵣ t)
