@@ -1,3 +1,43 @@
+\documentclass{article}
+
+\usepackage{ar}
+\usepackage[bw]{agda}
+\usepackage{ifsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\usepackage{mathabx}
+\usepackage{unicode-math}
+\usepackage{newunicodechar}
+
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
+\newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
+\newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
+\newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
+\newunicodechar{∎}{\ensuremath{\mathnormal{\blacksquare}}}
+\newunicodechar{ᵣ}{\ensuremath{\mathnormal{_\AgdaFontStyle{r}}}}
+
+\newcommand\Sym\AgdaSymbol
+\newcommand\D\AgdaDatatype
+\newcommand\F\AgdaFunction
+\newcommand\B\AgdaBound
+
+\newcommand\kulmodis{\AgdaModule{Truthbrary.Data.Fin}}
+
+\title{la'o zoi.\ \kulmodis\ .zoi.}
+\author{la .varik.\ .VALefor.}
+
+\newcommand\ckinas[1]{ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi #1\ bau la .lojban.}
+
+\begin{document}
+\maketitle
+
+\section{le me'oi .abstract.}
+ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru zo'e je le velcki be la'oi .\AgdaRecord{Table}.
+
+\section{le vrici}
+
 \begin{code}
 {-# OPTIONS --safe #-}
 
@@ -14,6 +54,8 @@ open import Data.List
   )
 \end{code}
 
+\section{la'oi .\AgdaRecord{Table}.}
+
 \begin{code}
 record Table a : Set (Agda.Primitive.lsuc a)
   where
@@ -24,6 +66,8 @@ record Table a : Set (Agda.Primitive.lsuc a)
     ctaipe : guuar r
 \end{code}
 
+\section{la'oi .\F{jmina}.}
+
 \begin{code}
 jmina : ∀ {a}
       → (t : Table a)
@@ -32,3 +76,4 @@ jmina : ∀ {a}
       → Table a
 jmina t r c = record t {r = _; ctaipe = c}
 \end{code}
+\end{document}
