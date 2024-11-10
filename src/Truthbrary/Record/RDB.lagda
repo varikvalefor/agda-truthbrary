@@ -12,7 +12,6 @@ open import Data.List
   )
 open import Data.String
   using (
-    String
   )
 
 record Table a : Set (Agda.Primitive.lsuc a)
