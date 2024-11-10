@@ -1,4 +1,6 @@
 \begin{code}
+{-# OPTIONS --safe #-}
+
 module Truthbrary.Record.RDB where
 
 open import Function
