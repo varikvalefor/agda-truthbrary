@@ -55,6 +55,7 @@ open import Data.List
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    refl;
     _≡_
   )
 \end{code}
@@ -91,6 +92,6 @@ module jminaVeritas where
      → (r : Table.SCᵣ t)
      → (g : Table.guuar t $ Table.r t ∷ʳ r)
      → Table.r (jmina t r g) ≡ (Table.r t ∷ʳ r)
-  kk _ _ _ = _≡_.refl
+  kk _ _ _ = refl
 \end{code}
 \end{document}
