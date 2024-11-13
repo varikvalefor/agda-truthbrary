@@ -121,8 +121,20 @@ module jminaVeritas where
 vimcu : ∀ {a}
       → (t : Table a)
       → (r : Table.SCᵣ t)
-      → (Table.tcek t {!!})
+      → Table.tcek t {!!}
       → Table a
 vimcu = {!!}
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module vimcuVeritas where
+  subtable : ∀ {a}
+           → (t : Table a)
+           → (r : Table.SCᵣ t)
+           → (T : Table.tcek t {!!})
+           → Subtable (vimcu t r T) t
+  subtable = {!!}
 \end{code}
 \end{document}
