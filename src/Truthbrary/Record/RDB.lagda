@@ -83,7 +83,7 @@ Subtable : ∀ {a} → Table a → Table a → Set a
 Subtable = {!!}
 \end{code}
 
-\section{la'oi .\F{jmina}.}
+\section{la \F{jmina}}
 ni'o xu sarcu fa lo nu ciksi bau la .lojban.
 
 \begin{code}
