@@ -26,7 +26,7 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
-\newcommand\kulmodis{\AgdaModule{Truthbrary.Data.Fin}}
+\newcommand\kulmodis{\AgdaModule{Truthbrary.Record.RDB}}
 
 \title{la'o zoi.\ \kulmodis\ .zoi.}
 \author{la .varik.\ .VALefor.}
