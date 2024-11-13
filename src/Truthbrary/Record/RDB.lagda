@@ -133,7 +133,7 @@ module vimcuVeritas where
   subtable : ∀ {a}
            → (t : Table a)
            → (r : Table.SCᵣ t)
-           → (T : Table.tcek t {!!})
+           → (T : Table.tcek t _)
            → Subtable (vimcu t r T) t
   subtable = {!!}
 \end{code}
