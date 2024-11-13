@@ -76,7 +76,15 @@ record Table a : Set (Agda.Primitive.lsuc a)
     ctaipe : tcek r
 \end{code}
 
+\section{la'oi .\F{Subtable}.}
+
+\begin{code}
+Subtable : ∀ {a} → Table a → Table a → Set a
+Subtable = {!!}
+\end{code}
+
 \section{la'oi .\F{jmina}.}
+ni'o xu sarcu fa lo nu ciksi bau la .lojban.
 
 \begin{code}
 jmina : ∀ {a}
