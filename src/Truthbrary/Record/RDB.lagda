@@ -68,8 +68,8 @@ record Table a : Set (Agda.Primitive.lsuc a)
   field
     SCᵣ : Set a
     r : List SCᵣ
-    guuar : List SCᵣ → Set a
-    ctaipe : guuar r
+    tcek : List SCᵣ → Set a
+    ctaipe : tcek r
 \end{code}
 
 \section{la'oi .\F{jmina}.}
@@ -78,7 +78,7 @@ record Table a : Set (Agda.Primitive.lsuc a)
 jmina : ∀ {a}
       → (t : Table a)
       → (r : Table.SCᵣ t)
-      → Table.guuar t $ Table.r t ∷ʳ r
+      → Table.tcek t $ Table.r t ∷ʳ r
       → Table a
 jmina t _ c = record t {r = _; ctaipe = c}
 \end{code}
@@ -90,7 +90,7 @@ module jminaVeritas where
   kk : ∀ {a}
      → (t : Table a)
      → (r : Table.SCᵣ t)
-     → (g : Table.guuar t $ Table.r t ∷ʳ r)
+     → (g : Table.tcek t $ Table.r t ∷ʳ r)
      → Table.r (jmina t r g) ≡ (Table.r t ∷ʳ r)
   kk _ _ _ = refl
 \end{code}
