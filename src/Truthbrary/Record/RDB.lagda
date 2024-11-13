@@ -77,6 +77,7 @@ record Table a : Set (Agda.Primitive.lsuc a)
 \end{code}
 
 \section{la'oi .\F{Subtable}.}
+ni'o ga jo ctaipe la'o zoi.\ \F{Subtable} \B a \B b\ .zoi.\ gi lo'i ro co'e ja selvau be la'oi .\B a.\ cu klesi lo'i ro co'e ja selvau be la'oi .\B b.
 
 \begin{code}
 Subtable : ∀ {a} → Table a → Table a → Set a
