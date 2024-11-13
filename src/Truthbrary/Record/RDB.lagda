@@ -87,6 +87,8 @@ Subtable = {!!}
 \section{la'oi .\F{SCD}.}
 ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'o zoi.\ \AgdaField{Table.SCᵣ} \B a\ .zoi.\ fa'u la'o zoi.\ \AgdaField{Table.tcek} \B a\ .zoi.\ cu du la'o zoi.\ \AgdaField{Table.SCᵣ} \B b\ .zoi.\ fa'u la'o zoi.\ \AgdaField{Table.tcek} \B b\ .zoi.\
 
+.i racli fa lo nu sruma zo'e ja le du'u zoi zoi.\ \F{SCD}\ .zoi.\ cmavlaka'i lu se ctaipe dunli li'u
+
 \begin{code}
 SCD : ∀ {a} → Table a → Table a → Set a
 SCD = {!!}
