@@ -106,6 +106,13 @@ module jminaVeritas where
      → (g : Table.tcek t $ Table.r t ∷ʳ r)
      → Table.r (jmina t r g) ≡ Table.r t ∷ʳ r
   kk _ _ _ = refl
+
+  subtable : ∀ {a}
+           → (t : Table a)
+           → (r : Table.SCᵣ t)
+           → (g : Table.tcek t $ Table.r t ∷ʳ r)
+           → Subtable (jmina t r g) t
+  subtable = {!!}
 \end{code}
 
 \section{la \F{vimcu}}
