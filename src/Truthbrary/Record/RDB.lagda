@@ -17,6 +17,7 @@
 \newunicodechar{→}{\ensuremath{\mathnormal\rightarrow}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{∎}{\ensuremath{\mathnormal{\blacksquare}}}
+\newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
 \newunicodechar{ᵣ}{\ensuremath{\mathnormal{_\AgdaFontStyle{r}}}}
 
 \newcommand\Sym\AgdaSymbol
