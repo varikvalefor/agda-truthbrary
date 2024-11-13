@@ -106,4 +106,15 @@ module jminaVeritas where
      → Table.r (jmina t r g) ≡ Table.r t ∷ʳ r
   kk _ _ _ = refl
 \end{code}
+
+\section{la'oi .\F{vimcu}.}
+
+\begin{code}
+vimcu : ∀ {a}
+      → (t : Table a)
+      → (r : Table.SCᵣ t)
+      → (Table.tcek t {!!})
+      → Table a
+vimcu = {!!}
+\end{code}
 \end{document}
