@@ -43,6 +43,7 @@ ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru zo'e je le velcki be la'oi .\AgdaRecord{
 
 \begin{code}
 {-# OPTIONS --safe #-}
+{-# OPTIONS --cubical-compatible #-}
 
 module Truthbrary.Record.RDB where
 
