@@ -84,6 +84,14 @@ Subtable : ∀ {a} → Table a → Table a → Set a
 Subtable = {!!}
 \end{code}
 
+\section{la'oi .\F{SCD}.}
+ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'o zoi.\ \AgdaField{Table.SCᵣ} \B a\ .zoi.\ fa'u la'o zoi.\ \AgdaField{Table.tcek} \B a\ .zoi.\ cu du la'o zoi.\ \AgdaField{Table.SCᵣ} \B b\ .zoi.\ fa'u la'o zoi.\ \AgdaField{Table.tcek} \B b\ .zoi.\
+
+\begin{code}
+SCD : ∀ {a} → Table a → Table a → Set a
+SCD = {!!}
+\end{code}
+
 \section{la \F{jmina}}
 ni'o xu sarcu fa lo nu ciksi bau la .lojban.
 
