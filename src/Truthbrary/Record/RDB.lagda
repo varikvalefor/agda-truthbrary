@@ -107,7 +107,7 @@ module jminaVeritas where
   kk _ _ _ = refl
 \end{code}
 
-\section{la'oi .\F{vimcu}.}
+\section{la \F{vimcu}}
 
 \begin{code}
 vimcu : ∀ {a}
