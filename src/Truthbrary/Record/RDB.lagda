@@ -64,6 +64,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{la'oi .\AgdaRecord{Table}.}
+ni'o la'oi .\AgdaRecord{Table}.\ se ctaipe lo ro me'oi .database.\ me'oi .table.
 
 \begin{code}
 record Table a : Set (Agda.Primitive.lsuc a)
