@@ -111,7 +111,7 @@ module jminaVeritas where
            → (t : Table a)
            → (r : Table.SCᵣ t)
            → (g : Table.tcek t $ Table.r t ∷ʳ r)
-           → Subtable (jmina t r g) t
+           → Subtable t (jmina t r g)
   subtable = {!!}
 \end{code}
 
