@@ -2070,7 +2070,7 @@ module Veritas where
       open ≡-Reasoning
 \end{code}
 
-\section{le ctaipe be le su'u sumji joi co'e me'oi .group.}
+\section{le ctaipe be le su'u me'oi .group.\ Coke sumji joi co'e}
 
 \begin{code}
 +--group : Algebra.IsGroup _≈_ _+_ (fromℕ 0) (fromℕ 0 -_)
