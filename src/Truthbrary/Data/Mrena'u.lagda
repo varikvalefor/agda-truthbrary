@@ -2044,8 +2044,8 @@ module Veritas where
 
 \begin{code}
   module Irrational where
-    I[r]∧r≈s⇒I[s] : {r s : ℝ} → Irrational r → r ≈ s → Irrational s
-    I[r]∧r≈s⇒I[s] = _+_.VI.I[r]∧r≈s⇒I[s]
+    I[r]⇒I[r'] : {r s : ℝ} → Irrational r → r ≈ s → Irrational s
+    I[r]⇒I[r'] = _+_.VI.I[r]∧r≈s⇒I[s]
 
     R⊎I : (r : ℝ) → Rational r ⊎ Irrational r
     R⊎I = {!!}
