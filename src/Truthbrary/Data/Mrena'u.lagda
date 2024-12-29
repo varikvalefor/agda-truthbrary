@@ -1845,7 +1845,11 @@ module Veritas where
       f₂ {r} d ds = SignV.jonis {P₁ = r ≈_} g₁ g₂ s d
         where
         g₁ : {s : ℝ} → r ≈ s → sign s ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
-        g₁ = {!!}
+        g₁ {s} = λ d₁ d₂ → begin
+          ∣ r ∣ ≈⟨ {!!} ⟩
+          ∣ s ∣ ∎
+          where
+          open import Relation.Binary.Reasoning.Setoid _≈_.setoid
         g₂ : {s : ℝ} → r ≈ s → sign s ≡ Sign.- → ∣ r ∣ ≈ ∣ s ∣
         g₂ {s} d dss = begin
           ∣ r ∣ ≈⟨ s[r]≡-⇒¯r≡∣r∣ r ds ▹ sym ▹ _≈_.≡⇒≈ ⟩
