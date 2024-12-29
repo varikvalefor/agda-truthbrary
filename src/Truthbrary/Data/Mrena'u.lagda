@@ -928,9 +928,9 @@ module Veritas where
     ¯r+¯s≈¯[r+s] = {!!}
 
     ℚ+' : {r s : ℝ}
-        → (R : Rational r)
-        → (S : Rational s)
-        → (r + s) ≈ fromℚ (proj₁ R ℚ.+ proj₁ S)
+        → (Rᵣ : Rational r)
+        → (Rₛ : Rational s)
+        → (r + s) ≈ fromℚ (proj₁ Rᵣ ℚ.+ proj₁ Rₛ)
     ℚ+' {r} {s} R S = begin
       r + s ≈⟨ r+s≈r'+s' (proj₂ R) $ proj₂ S ⟩
       fromℚ (proj₁ R) + fromℚ (proj₁ S) ≈⟨ _≈_.r≈r ⟩
