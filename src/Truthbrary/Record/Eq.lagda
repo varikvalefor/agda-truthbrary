@@ -88,11 +88,11 @@ open import Data.Sum
   )
 open import Data.Vec
   using (
+    [];
     _∷_;
     Vec
   )
   renaming (
-    [] to []ᵥ
   )
 open import Function
   using (
@@ -321,7 +321,7 @@ instance
       spit (no a) (yes b) = j a b
       spit (no a) (no b) = k a b
     f : {n : ℕ} → DecidableEquality $ Vec A n
-    f []ᵥ []ᵥ = yes refl
+    f [] [] = yes refl
     f (x ∷ xs) (y ∷ ys) = bork (f xs ys) booty messiah arm ltd
       where
       booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
