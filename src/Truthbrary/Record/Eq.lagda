@@ -86,6 +86,14 @@ open import Data.Sum
     inj₁;
     _⊎_
   )
+open import Data.Vec
+  using (
+    Vec
+  )
+  renaming (
+    _∷_ to _∷ᵥ_;
+    [] to []ᵥ
+  )
 open import Function
   using (
     _∘₂_;
@@ -123,14 +131,6 @@ open import Data.List
   using (
     List;
     _∷_
-  )
-open import Data.Vec
-  using (
-    Vec
-  )
-  renaming (
-    _∷_ to _∷ᵥ_;
-    [] to []ᵥ
   )
 open import Data.Rational
   using (
