@@ -88,10 +88,10 @@ open import Data.Sum
   )
 open import Data.Vec
   using (
+    _∷_;
     Vec
   )
   renaming (
-    _∷_ to _∷ᵥ_;
     [] to []ᵥ
   )
 open import Function
@@ -301,7 +301,7 @@ instance
              → {xs ys : Vec A n}
              → x ≡ y
              → xs ≡ ys
-             → x ∷ᵥ xs ≡ y ∷ᵥ ys
+             → x ∷ xs ≡ y ∷ ys
     doomsday refl refl = refl
     bork : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → ⦃ Eq A ⦄
@@ -322,20 +322,20 @@ instance
       spit (no a) (no b) = k a b
     f : {n : ℕ} → DecidableEquality $ Vec A n
     f []ᵥ []ᵥ = yes refl
-    f (x ∷ᵥ xs) (y ∷ᵥ ys) = bork (f xs ys) booty messiah arm ltd
+    f (x ∷ xs) (y ∷ ys) = bork (f xs ys) booty messiah arm ltd
       where
-      booty : x ≡ y → xs ≡ ys → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      booty : x ≡ y → xs ≡ ys → Dec $ x ∷ xs ≡ y ∷ ys
       booty jorts _ = map′ (doomsday jorts) DVP.∷-injectiveʳ $ f xs ys
       arm : ∀ {a} → {A : Set a} → {n : ℕ}
           → {x y : A}
           → {xs ys : Vec A n}
           → ¬ (x ≡ y)
           → xs ≡ ys
-          → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+          → Dec $ x ∷ xs ≡ y ∷ ys
       arm wrestling _ = no $ wrestling ∘ DVP.∷-injectiveˡ
-      messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      messiah : x ≡ y → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       messiah eek = map′ (doomsday eek) DVP.∷-injectiveʳ ∘ no
-      ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ᵥ xs ≡ y ∷ᵥ ys
+      ltd : ¬ (x ≡ y) → ¬ (xs ≡ ys) → Dec $ x ∷ xs ≡ y ∷ ys
       ltd quality _ = no $ quality ∘ DVP.∷-injectiveˡ
   EqSum : ∀ {a b} → {A : Set a} → {B : Set b}
         → ⦃ Eq A ⦄ → ⦃ Eq B ⦄
