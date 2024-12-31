@@ -119,10 +119,6 @@ open import Data.Product
   using (
     _×_
   )
-open import Data.Rational
-  using (
-    ℚ
-  )
 open import Data.List
   using (
     List;
@@ -135,6 +131,10 @@ open import Data.Vec
   renaming (
     _∷_ to _∷ᵥ_;
     [] to []ᵥ
+  )
+open import Data.Rational
+  using (
+    ℚ
   )
 open import Relation.Nullary
   using (
