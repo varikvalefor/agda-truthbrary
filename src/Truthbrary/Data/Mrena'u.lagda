@@ -1919,7 +1919,10 @@ module Veritas where
       f₁ : {r : ℝ} → Irrational r → sign r ≡ Sign.+ → Irrational ∣ r ∣
       f₁ I d = subst Irrational (+r≡∣+r∣ _ d) I
       f₂ : {r : ℝ} → Irrational r → sign r ≡ Sign.- → Irrational ∣ r ∣
-      f₂ I d = subst Irrational {!!} $ ¯_.I[¯I] I
+      f₂ {r} I d = subst Irrational -r≡∣r∣ $ ¯_.I[¯I] I
+        where
+        -r≡∣r∣ : ¯_ r ≡ ∣ r ∣
+        -r≡∣r∣ = {!!}
 
     I[∣r∣]⇒I[r] : Irrational ∘ ∣_∣ ⊆′ Irrational
     I[∣r∣]⇒I[r] = jonis {!!} {!!}
