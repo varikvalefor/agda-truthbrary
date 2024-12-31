@@ -1246,6 +1246,7 @@ module Veritas where
 
 \begin{code}
   module Frinu where
+    -- | ni'o zo'oi .S. cmavlaka'i zo'oi .Sivni.
     module S where
       r>1⇒r≉0 : _> fromℕ 1 ⊆ ¬_ ∘ _≈ fromℕ 0
       r>1⇒r≉0 {r} = >⇒≉ ∘ r>1⇒r>0 {r}
