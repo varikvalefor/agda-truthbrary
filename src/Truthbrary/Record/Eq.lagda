@@ -111,6 +111,11 @@ open import Data.Bool
 open import Data.Char
   using (
   )
+open import Data.List
+  using (
+    List;
+    _∷_
+  )
 open import Data.Maybe
   using (
     Maybe
@@ -126,11 +131,6 @@ open import Data.Integer
 open import Data.Product
   using (
     _×_
-  )
-open import Data.List
-  using (
-    List;
-    _∷_
   )
 open import Data.Rational
   using (
