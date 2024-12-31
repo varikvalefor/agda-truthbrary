@@ -410,7 +410,7 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 \end{code}
 
 \section{la'o zoi.\ \F{⌊'⁻¹}\ .zoi.}
-ni'o la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'o zoi.\ \F{⌊'⁻¹}\ .zoi.\ be'o je le velcki be la'oi .\F ℝ.
+ni'o la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'oi .\F ℝ.\ be'o je le velcki be la'o zoi.\ \F{⌊'⁻¹}\ .zoi.
 
 \begin{code}
 ⌊'⁻¹ : ℝ → ℕ → Digit 10
