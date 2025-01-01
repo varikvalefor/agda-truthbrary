@@ -33,7 +33,7 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru le velcki be le co'e ja fancu poi tu'a ke'a filri'a tu'a lo srana be la'o zoi.\ \D{Fin} .zoi.
+ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru le velcki be le co'e ja fancu poi tu'a ke'a filri'a tu'a lo srana be la'oi .\D{Fin}.
 
 \section{le vrici}
 
