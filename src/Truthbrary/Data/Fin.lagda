@@ -87,7 +87,7 @@ mindus : {m n : ℕ}
        → (a : Fin m)
        → (x : m ≡ n)
        → (z : n ≡ m)
-       → (_≡ a) $ mink (mink a x) z
+       → _≡ a $ mink (mink a x) z
 mindus _ refl refl = refl
 \end{code}
 
