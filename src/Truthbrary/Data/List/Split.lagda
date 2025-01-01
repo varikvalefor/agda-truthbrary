@@ -80,6 +80,8 @@ open import Truthbrary.Record.Eq
     Eq
   )
 open import Truthbrary.Record.LLC
+  using (
+  )
 open import Relation.Nullary.Decidable
   using (
     isYes
