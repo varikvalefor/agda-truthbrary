@@ -111,5 +111,11 @@ splitOn a = rev ∘ Data.List.map rev ∘ sob a []ₗ []ₗ
                  → (a : A)
                  → splitOn a []ₗ ≡ []ₗ
     splitOn[]≡[] = {!!}
+
+    splitOn[x]≡[[],[]] : ∀ {a} → {A : Set a}
+                       → ⦃ _ : Eq A ⦄
+                       → (a : A)
+                       → splitOn a (a ∷ₗ []ₗ) ≡ ([]ₗ ∷ₗ []ₗ ∷ₗ []ₗ)
+    splitOn[x]≡[[],[]] = {!!}
 \end{code}
 \end{document}
