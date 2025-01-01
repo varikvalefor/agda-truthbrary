@@ -58,6 +58,10 @@ ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le fancu poi tu'a ke'a filri'a lo n
 module Truthbrary.Data.List.Split where
 
 open import Function
+  using (
+    _∘_;
+    _$_
+  )
 open import Data.Bool
   using (
     if_then_else_
