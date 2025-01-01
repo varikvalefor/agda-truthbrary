@@ -75,6 +75,10 @@ open import Data.List
     [] to []ₗ
   )
 open import Truthbrary.Record.Eq
+  using (
+    _≡ᵇ_;
+    Eq
+  )
 open import Truthbrary.Record.LLC
 open import Relation.Nullary.Decidable
   using (
