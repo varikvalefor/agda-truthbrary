@@ -15,7 +15,7 @@
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{→}{\ensuremath{\mathnormal\rightarrow}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
-\newunicodechar{∎}{\ensuremath{\mathnormal{\blacksquare}}}
+\newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
