@@ -81,7 +81,6 @@ open import Truthbrary.Record.Eq
   )
 open import Relation.Nullary.Decidable
   using (
-    isYes
   )
 \end{code}
 
