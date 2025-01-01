@@ -79,9 +79,6 @@ open import Truthbrary.Record.Eq
     _≡ᵇ_;
     Eq
   )
-open import Relation.Nullary.Decidable
-  using (
-  )
 \end{code}
 
 \section{la'oi .\F{splitOn}.}
