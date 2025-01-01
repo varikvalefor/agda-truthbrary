@@ -76,6 +76,10 @@ open import Relation.Nullary.Decidable
   using (
     isYes
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'oi .\F{splitOn}.}
@@ -96,5 +100,16 @@ splitOn a = rev ∘ Data.List.map rev ∘ sob a []ₗ []ₗ
     where
     hitit = sob a (g ∷ₗ b) []ₗ xs
     add = sob a b (f ∷ₗ g) xs
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+  module Veritas where
+    splitOn[]≡[] : ∀ {a} → {A : Set a}
+                 → ⦃ _ : Eq A ⦄
+                 → (a : A)
+                 → splitOn a []ₗ ≡ []ₗ
+    splitOn[]≡[] = {!!}
 \end{code}
 \end{document}
