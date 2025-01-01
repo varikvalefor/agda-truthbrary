@@ -79,9 +79,6 @@ open import Truthbrary.Record.Eq
     _≡ᵇ_;
     Eq
   )
-open import Truthbrary.Record.LLC
-  using (
-  )
 open import Relation.Nullary.Decidable
   using (
     isYes
