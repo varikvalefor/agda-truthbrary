@@ -273,7 +273,7 @@ ualteik : ∀ {a} → {A : Set a}
         → (n : Fin $ length x)
         → (f : A → A)
         → let n' = 𝔽.toℕ n in
-          take n' x ≡ take n' (proj₁ $ ual x n f)
+          take n' x ≡ take n' (ual x n f ▹ proj₁)
 ualteik (_ ∷ _) zero _ = refl
 ualteik (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualteik xs n
 \end{code}
