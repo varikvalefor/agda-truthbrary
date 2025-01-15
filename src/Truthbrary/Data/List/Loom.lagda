@@ -121,6 +121,7 @@ open import Data.List.Properties
 open import Relation.Binary.PropositionalEquality
   using (
     module ≡-Reasoning;
+    subst;
     cong;
     refl;
     _≗_;
