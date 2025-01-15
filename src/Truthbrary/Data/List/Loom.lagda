@@ -186,7 +186,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   u = ual xs n f
   u₂ = proj₁ $ proj₂ u
   r₂ = cong suc u₂
-  r₃ = i misuk $ proj₂ $ proj₂ u
+  r₃ = Relation.Binary.PropositionalEquality.subst (λ i → (x ∷ proj₁ u) ! i ≡ f ((x ∷ xs) ! suc n)) misuk $ proj₂ $ proj₂ u
     where
     i : ∀ {a} → {A : Set a}
       → {l : List A}
