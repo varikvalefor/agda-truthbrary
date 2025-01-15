@@ -321,12 +321,12 @@ ualmapkonk : ∀ {a} → {A B : Set a}
 ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
   proj₁ (ual (map f x) n₂ g) ≡⟨ ualkonk (map f x) n₂ g ⟩
-  t take m' ++ g ((map f x) ! n₂) ∷ t drop (suc m') ≡⟨ mynydus ⟩
+  t take n₂' ++ g ((map f x) ! n₂) ∷ t drop (suc n₂') ≡⟨ mynydus ⟩
   t take n' ++ g ((map f x) ! n₂) ∷ t drop (suc n') ≡⟨ midju ⟩
   t take n' ++ g (f $ x ! n) ∷ t drop (suc n') ∎
   where
   n₂ = mink n $ length-map f x ▹ sym
-  m' = 𝔽.toℕ n₂
+  n₂' = 𝔽.toℕ n₂
   n' = 𝔽.toℕ n
   t = λ f₂ → flip f₂ $ map f x
   tondus : {m n : ℕ} → (d : m ≡ n) → 𝔽.toℕ ≗ (𝔽.toℕ ∘ flip mink d)
