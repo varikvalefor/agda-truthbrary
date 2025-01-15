@@ -275,7 +275,7 @@ ualteik : ∀ {a} → {A : Set a}
         → let n' = 𝔽.toℕ n in
           take n' x ≡ take n' (ual x n f ▹ proj₁)
 ualteik (_ ∷ _) zero _ = refl
-ualteik (x ∷ xs) (Fin.suc n) = cong (x ∷_) ∘ ualteik xs n
+ualteik (x ∷ xs) (suc n) = cong (x ∷_) ∘ ualteik xs n
 \end{code}
 
 \section{la .\F{ualdrop}.}
