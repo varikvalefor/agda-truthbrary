@@ -333,7 +333,6 @@ ualmapkonk x n f g = begin
   tondus refl _ = refl
   p = λ n c → t take n ++ g c ∷ t drop (suc n)
   mynydus = tondus _ n ▹ sym ▹ cong (flip p $ map f x ! n₂)
-  midju = lum x f n ▹ cong (p n')
 \end{code}
 
 \section{la .\F{teiklendus}.}
