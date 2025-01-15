@@ -189,14 +189,6 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   r₂ = cong suc u₂
   r₃ = subst (λ i → (x ∷ proj₁ u) ! i ≡ f ((x ∷ xs) ! suc n)) misuk $ proj₂ $ proj₂ u
     where
-    i : ∀ {a} → {A : Set a}
-      → {l : List A}
-      → {m n : Fin $ length l}
-      → {k : A}
-      → m ≡ n
-      → l ! m ≡ k
-      → l ! n ≡ k
-    i refl = id
     misuk : suc (mink n u₂) ≡ mink (suc n) r₂
     misuk = sukmi u₂
       where
