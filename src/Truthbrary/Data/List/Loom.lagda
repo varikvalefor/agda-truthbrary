@@ -322,7 +322,7 @@ ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
   proj₁ (ual (map f x) n₂ g) ≡⟨ ualkonk (map f x) n₂ g ⟩
   t take n₂' ++ g ((map f x) ! n₂) ∷ t drop (suc n₂') ≡⟨ mynydus ⟩
-  t take n' ++ g ((map f x) ! n₂) ∷ t drop (suc n') ≡⟨ midju ⟩
+  t take n' ++ g ((map f x) ! n₂) ∷ t drop (suc n') ≡⟨ lum x f n ▹ cong (p n') ⟩
   t take n' ++ g (f $ x ! n) ∷ t drop (suc n') ∎
   where
   n₂ = mink n $ length-map f x ▹ sym
