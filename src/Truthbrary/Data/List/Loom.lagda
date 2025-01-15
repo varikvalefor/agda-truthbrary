@@ -190,15 +190,14 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   r₃ = subst i misuk $ proj₂ $ proj₂ u
     where
     i = λ i → (x ∷ proj₁ u) ! i ≡ f ((x ∷ xs) ! suc n)
+    sukmi : {m n : ℕ}
+          → {f : Fin m}
+          → (_≗_
+              (suc ∘ mink f)
+              (mink {n = suc n} (suc f) ∘ cong suc))
+    sukmi refl = refl
     misuk : suc (mink n u₂) ≡ mink (suc n) r₂
     misuk = sukmi u₂
-      where
-      sukmi : {m n : ℕ}
-            → {f : Fin m}
-            → (_≗_
-                (suc ∘ mink f)
-                (mink {n = suc n} (suc f) ∘ cong suc))
-      sukmi refl = refl
 \end{code}
 
 \section{la .\F{ualmap}.}
