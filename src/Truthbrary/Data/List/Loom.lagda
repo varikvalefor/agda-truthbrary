@@ -332,7 +332,7 @@ ualmapkonk x n f g = begin
   tondus : {m n : ℕ} → (d : m ≡ n) → 𝔽.toℕ ≗ (𝔽.toℕ ∘ flip mink d)
   tondus refl _ = refl
   p = λ n c → t take n ++ g c ∷ t drop (suc n)
-  mynydus = tondus _ n ▹ sym ▹ cong (flip p $ (map f x) ! n₂)
+  mynydus = tondus _ n ▹ sym ▹ cong (flip p $ map f x ! n₂)
   midju = lum x f n ▹ cong (p n')
 \end{code}
 
