@@ -320,20 +320,20 @@ ualmapkonk : ∀ {a} → {A B : Set a}
                    (drop (suc n') $ map f x))))
 ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
-  proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
-  t take m' ++ g ((map f x) ! m) ∷ t drop (suc m') ≡⟨ mynydus ⟩
-  t take n' ++ g ((map f x) ! m) ∷ t drop (suc n') ≡⟨ midju ⟩
+  proj₁ (ual (map f x) n₂ g) ≡⟨ ualkonk (map f x) n₂ g ⟩
+  t take m' ++ g ((map f x) ! n₂) ∷ t drop (suc m') ≡⟨ mynydus ⟩
+  t take n' ++ g ((map f x) ! n₂) ∷ t drop (suc n') ≡⟨ midju ⟩
   t take n' ++ g (f $ x ! n) ∷ t drop (suc n') ∎
   where
-  m = mink n $ length-map f x ▹ sym
-  m' = 𝔽.toℕ m
+  n₂ = mink n $ length-map f x ▹ sym
+  m' = 𝔽.toℕ n₂
   n' = 𝔽.toℕ n
   t = λ f₂ → flip f₂ $ map f x
   tondus : {m n : ℕ} → (d : m ≡ n) → 𝔽.toℕ ≗ (𝔽.toℕ ∘ flip mink d)
   tondus refl _ = refl
   mynydus = tondus _ n ▹ sym ▹ cong p
     where
-    p = λ n → t take n ++ g ((map f x) ! m) ∷ t drop (suc n)
+    p = λ n → t take n ++ g ((map f x) ! n₂) ∷ t drop (suc n)
   midju = lum x f n ▹ cong (λ c → t take n' ++ g c ∷ t drop (suc n'))
 \end{code}
 
