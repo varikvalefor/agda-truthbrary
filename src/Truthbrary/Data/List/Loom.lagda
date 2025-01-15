@@ -185,7 +185,7 @@ ual (x ∷ xs) zero f = f x ∷ xs , refl , refl
 ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   where
   u = ual xs n f
-  u₂ = proj₁ $ proj₂ u
+  u₂ = u ▹ (λ (v , x , z) → x)
   r₂ = cong suc u₂
   r₃ = subst i (sukmi u₂) $ proj₂ $ proj₂ u
     where
