@@ -189,7 +189,7 @@ ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   r₂ = cong suc u₂
   r₃ = subst i misuk $ proj₂ $ proj₂ u
     where
-    i = (λ i → (x ∷ proj₁ u) ! i ≡ f ((x ∷ xs) ! suc n))
+    i = λ i → (x ∷ proj₁ u) ! i ≡ f ((x ∷ xs) ! suc n)
     misuk : suc (mink n u₂) ≡ mink (suc n) r₂
     misuk = sukmi u₂
       where
