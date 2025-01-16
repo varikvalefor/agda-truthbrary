@@ -116,7 +116,6 @@ open import Data.Float
     Float
   )
 open import Data.Maybe
-  as ？
   using (
     nothing;
     _>>=_;
