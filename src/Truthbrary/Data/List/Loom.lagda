@@ -316,7 +316,7 @@ ualmapkonk x n f g = begin
   t take n' ++ g ((map f x) ! n₂) ∷ t drop (suc n') ≡⟨ lum x f n ▹ cong (p n') ⟩
   t take n' ++ g (f $ x ! n) ∷ t drop (suc n') ∎
   where
-  n₂ = mink n $ length-map f x ▹ sym
+  n₂ = n ▹_ $ flip mink $ length-map f x ▹ sym
   n₂' = 𝔽.toℕ n₂
   n' = 𝔽.toℕ n
   t = flip flip $ map f x
