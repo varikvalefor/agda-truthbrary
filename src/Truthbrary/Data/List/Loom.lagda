@@ -121,6 +121,7 @@ open import Data.List.Properties
 open import Relation.Binary.PropositionalEquality
   using (
     module ≡-Reasoning;
+    subst;
     cong;
     refl;
     _≗_;
@@ -184,27 +185,17 @@ ual (x ∷ xs) zero f = f x ∷ xs , refl , refl
 ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   where
   u = ual xs n f
-  u₂ = proj₁ $ proj₂ u
+  u₂ = u ▹ λ (_ , x , _) → x
   r₂ = cong suc u₂
-  r₃ = i misuk $ proj₂ $ proj₂ u
+  r₃ = subst i (sukmi u₂) $ proj₂ $ proj₂ u
     where
-    i : ∀ {a} → {A : Set a}
-      → {l : List A}
-      → {m n : Fin $ length l}
-      → {k : A}
-      → m ≡ n
-      → l ! m ≡ k
-      → l ! n ≡ k
-    i refl = id
-    misuk : suc (mink n u₂) ≡ mink (suc n) r₂
-    misuk = sukmi u₂
-      where
-      sukmi : {m n : ℕ}
-            → {f : Fin m}
-            → (_≗_
-                (suc ∘ mink f)
-                (mink {n = suc n} (suc f) ∘ cong suc))
-      sukmi refl = refl
+    i = λ i → (x ∷ proj₁ u) ! i ≡ f ((x ∷ xs) ! suc n)
+    sukmi : {m n : ℕ}
+          → {f : Fin m}
+          → (_≗_
+              (suc ∘ mink f)
+              (mink {n = suc n} (suc f) ∘ cong suc))
+    sukmi refl = refl
 \end{code}
 
 \section{la .\F{ualmap}.}
@@ -282,9 +273,9 @@ ualteik : ∀ {a} → {A : Set a}
         → (n : Fin $ length x)
         → (f : A → A)
         → let n' = 𝔽.toℕ n in
-          take n' x ≡ take n' (proj₁ $ ual x n f)
+          take n' x ≡ take n' (ual x n f ▹ proj₁)
 ualteik (_ ∷ _) zero _ = refl
-ualteik (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualteik xs n
+ualteik (x ∷ xs) (suc n) = cong (x ∷_) ∘ ualteik xs n
 \end{code}
 
 \section{la .\F{ualdrop}.}
@@ -320,21 +311,19 @@ ualmapkonk : ∀ {a} → {A B : Set a}
                    (drop (suc n') $ map f x))))
 ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
-  proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
-  t take m' ++ g ((map f x) ! m) ∷ t drop (suc m') ≡⟨ mynydus ⟩
-  t take n' ++ g ((map f x) ! m) ∷ t drop (suc n') ≡⟨ midju ⟩
+  proj₁ (ual (map f x) n₂ g) ≡⟨ ualkonk (map f x) n₂ g ⟩
+  t take n₂' ++ g ((map f x) ! n₂) ∷ t drop (suc n₂') ≡⟨ mynydus ⟩
+  t take n' ++ g ((map f x) ! n₂) ∷ t drop (suc n') ≡⟨ lum x f n ▹ cong (p n') ⟩
   t take n' ++ g (f $ x ! n) ∷ t drop (suc n') ∎
   where
-  m = mink n $ length-map f x ▹ sym
-  m' = 𝔽.toℕ m
+  n₂ = n ▹_ $ flip mink $ length-map f x ▹ sym
+  n₂' = 𝔽.toℕ n₂
   n' = 𝔽.toℕ n
-  t = λ f₂ → flip f₂ $ map f x
+  t = flip flip $ map f x
   tondus : {m n : ℕ} → (d : m ≡ n) → 𝔽.toℕ ≗ (𝔽.toℕ ∘ flip mink d)
   tondus refl _ = refl
-  mynydus = tondus _ n ▹ sym ▹ cong p
-    where
-    p = λ n → t take n ++ g ((map f x) ! m) ∷ t drop (suc n)
-  midju = lum x f n ▹ cong (λ c → t take n' ++ g c ∷ t drop (suc n'))
+  p = λ n c → t take n ++ g c ∷ t drop (suc n)
+  mynydus = tondus _ n ▹ sym ▹ cong (flip p $ map f x ! n₂)
 \end{code}
 
 \section{la .\F{teiklendus}.}

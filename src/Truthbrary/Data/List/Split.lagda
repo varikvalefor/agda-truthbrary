@@ -58,6 +58,10 @@ ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le fancu poi tu'a ke'a filri'a lo n
 module Truthbrary.Data.List.Split where
 
 open import Function
+  using (
+    _∘_;
+    _$_
+  )
 open import Data.Bool
   using (
     if_then_else_
@@ -71,10 +75,9 @@ open import Data.List
     [] to []ₗ
   )
 open import Truthbrary.Record.Eq
-open import Truthbrary.Record.LLC
-open import Relation.Nullary.Decidable
   using (
-    isYes
+    _≡ᵇ_;
+    Eq
   )
 open import Relation.Binary.PropositionalEquality
   using (
@@ -88,7 +91,9 @@ ni'o ga jo ko'a goi la'o zoi\ \B a .zoi.\ ctaipe la'o zoi.\ \F{List} \B A .zoi.\
 \begin{code}
 splitOn : ∀ {a} → {A : Set a}
         → ⦃ Eq A ⦄
-        → A → List A → List $ List A
+        → A
+        → List A
+        → List $ List A
 splitOn a = rev ∘ Data.List.map rev ∘ sob a []ₗ []ₗ
   where
   rev = Data.List.reverse

@@ -116,7 +116,6 @@ open import Data.Float
     Float
   )
 open import Data.Maybe
-  as ？
   using (
     nothing;
     _>>=_;
@@ -135,6 +134,7 @@ open import Data.String
     String
   )
 open import Data.Integer
+  as ℤ
   using (
     +_;
     ℤ
@@ -282,13 +282,13 @@ instance
     f 𝕃.[] = nothing
     f ('-' ∷ xs) = mapₘ n $ readMaybe $ fromList xs
       where
-      n = Data.Integer.-_ ∘ +_
+      n = ℤ.-_ ∘ +_
     f x@(_ ∷ _) = mapₘ +_ $ readMaybe $ fromList x
   readℚᵘ : Read ℚᵘ
   readℚᵘ = record {readMaybe = f ∘ splitOn '/' ∘ toList}
     where
     f : List $ List Char → Maybe ℚᵘ
-    f (x ∷ List.[]) = mapₘ (flip mkℚᵘ 1) $ readMaybe $ fromList x
+    f (x ∷ 𝕃.[]) = mapₘ (flip mkℚᵘ 1) $ readMaybe $ fromList x
     f (x ∷ z ∷ List.[]) = liftM2 mkℚᵘ (readMaybe $ fromList x) z'
       where
       rm = readMaybe $ fromList z
@@ -317,7 +317,7 @@ instance
         pos = not $ 𝕃.head a ≡ᵇ just '-'
         _+f_ = if pos then Flot._+_ else Flot._-_
         _÷_ = Flot._÷_
-        sf = Flot._**_ (z2f $ + 10) ∘ Flot.fromℤ ∘ +_ ∘ length
+        sf = Flot._**_ (z2f $ + 10) ∘ z2f ∘ +_ ∘ length
     p _ = nothing
     exp : List $ List $ List Char → Maybe Float
     exp (t ∷ 𝕃.[]) = p t
