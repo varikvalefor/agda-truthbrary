@@ -134,6 +134,7 @@ open import Data.String
     String
   )
 open import Data.Integer
+  as ℤ
   using (
     +_;
     ℤ
@@ -281,7 +282,7 @@ instance
     f 𝕃.[] = nothing
     f ('-' ∷ xs) = mapₘ n $ readMaybe $ fromList xs
       where
-      n = Data.Integer.-_ ∘ +_
+      n = ℤ.-_ ∘ +_
     f x@(_ ∷ _) = mapₘ +_ $ readMaybe $ fromList x
   readℚᵘ : Read ℚᵘ
   readℚᵘ = record {readMaybe = f ∘ splitOn '/' ∘ toList}
