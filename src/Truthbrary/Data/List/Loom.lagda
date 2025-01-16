@@ -319,7 +319,7 @@ ualmapkonk x n f g = begin
   n₂ = mink n $ length-map f x ▹ sym
   n₂' = 𝔽.toℕ n₂
   n' = 𝔽.toℕ n
-  t = λ f₂ → flip f₂ $ map f x
+  t = flip flip $ map f x
   tondus : {m n : ℕ} → (d : m ≡ n) → 𝔽.toℕ ≗ (𝔽.toℕ ∘ flip mink d)
   tondus refl _ = refl
   p = λ n c → t take n ++ g c ∷ t drop (suc n)
