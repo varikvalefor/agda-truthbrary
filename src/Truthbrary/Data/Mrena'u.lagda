@@ -1295,7 +1295,6 @@ module Veritas where
             → (N : _)
             → ¬_ $ r ≈ fromℕ 0
             → ∣ s ∣ < fromℕ 1
-            → ∣ s ∣ > fromℕ 0
             → ∣ r ∣ < ∣ frinu r s N ∣
     ∣r∣<∣r/s∣ = {!!}
 
