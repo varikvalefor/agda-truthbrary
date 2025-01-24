@@ -1300,7 +1300,7 @@ module Veritas where
 
     ∣r/s∣≤∣r∣' : (r s : ℝ)
                → (z : ∣ s ∣ > fromℕ 1)
-               → ∣ r ∣ ≥ ∣ frinu r s $ S.r>1⇒r≉0 z ∣
+               → ∣ r ∣ ≥ ∣ frinu r s $ S.r>1⇒r≉0 {!!} ∣
     ∣r/s∣≤∣r∣' = {!!}
 
     ∣r/s∣≤∣r∣ : (r s : ℝ)
