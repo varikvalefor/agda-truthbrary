@@ -1266,11 +1266,11 @@ module Veritas where
     r≡r/1 = {!!}
 
     ∣s∣>∣t∣⇒∣r/s∣>∣r/t∣ : (r s t : ℝ)
-                        → (Ns : _)
+                        → (Nₛ : _)
                         → (Nt : _)
                         → ∣ s ∣ > ∣ t ∣
                         → ¬_ $ r ≈ fromℕ 0
-                        → frinu r s Ns > frinu r s Nt
+                        → frinu r s Nₛ > frinu r s Nt
     ∣s∣>∣t∣⇒∣r/s∣>∣r/t∣ = {!!}
 
     0≈0/r : (r s : ℝ)
