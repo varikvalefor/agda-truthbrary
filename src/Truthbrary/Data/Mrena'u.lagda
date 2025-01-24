@@ -1306,7 +1306,7 @@ module Veritas where
     ∣r/s∣≤∣r∣ : (r s : ℝ)
               → (z : s > fromℕ 1)
               → ∣ r ∣ ≥ ∣ frinu r s $ S.r>1⇒r≉0 z ∣
-    ∣r/s∣≤∣r∣ = {!!}
+    ∣r/s∣≤∣r∣ = λ r s z → ∣r/s∣≤∣r∣' r s {!!}
 
     -r/-s<-r : (r s : ℝ)
              → (z : s > fromℕ 1)
