@@ -714,7 +714,7 @@ module Veritas where
 
 \begin{code}
   module Fromℕ where
-    ℤ+_≡⌊'∘fromℕ : (n : ℕ) → ℤ.+_ n ≡ (⌊' ∘ fromℕ) n
+    ℤ+_≡⌊'∘fromℕ : ℤ.+_ ≗ (⌊' ∘ fromℕ)
     ℤ+_≡⌊'∘fromℕ _ = refl
 
     ⌊'⁻¹fromℕ≡0 : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
