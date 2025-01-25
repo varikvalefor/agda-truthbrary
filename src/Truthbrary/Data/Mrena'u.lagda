@@ -334,7 +334,7 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi bau la .lojban.
 _≗₂_ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
      → (g f : A → B → C)
      → Set _
-_≗₂_ g f = (x : _) → (z : _) → g x z ≡ f x z
+_≗₂_ g f = (x : _) → g x ≗ f x
 \end{code}
 
 \section{la'oi .\F ℝ.}
