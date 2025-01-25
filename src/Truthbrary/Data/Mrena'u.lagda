@@ -72,6 +72,7 @@
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\mathsf{m}}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_\mathsf{s}}}}
+\newunicodechar{ₜ}{\ensuremath{\mathnormal{_\mathsf{t}}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{⊥}{\ensuremath{\mathnormal{\bot}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
