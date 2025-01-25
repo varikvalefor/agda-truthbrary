@@ -756,7 +756,7 @@ module Veritas where
     fromℕ≥0 0 = inj₁ _≈_.r≈r
     fromℕ≥0 (ℕ.suc n) = inj₂ {!!}
 
-    fromℕ≡fromℤ∘ℤ+_ : (n : ℕ) → fromℕ n ≡ fromℤ (ℤ.+ n)
+    fromℕ≡fromℤ∘ℤ+_ : (n : ℕ) → fromℕ n ≡ (fromℤ $ ℤ.+ n)
     fromℕ≡fromℤ∘ℤ+_ = {!!}
 \end{code}
 
