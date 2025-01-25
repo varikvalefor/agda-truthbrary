@@ -700,7 +700,7 @@ module Veritas where
       where
       ∃⇒¬¬ : ∀ {a b} → {A : Set a} → {B : A → Set b}
            → ∃ $ ¬_ ∘ B
-           → ¬ ((x : A) → B x)
+           → ¬_ $ (x : A) → B x
       ∃⇒¬¬ (x , N) M = N $ M x
 
     isEquivalence : Relation.Binary.IsEquivalence _≈_
