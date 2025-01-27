@@ -360,6 +360,6 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
 mapimplant (_ ∷ _) _ _ zero = refl
 mapimplant (x ∷ xs) z f (suc _) = mip ▹ cong (f x ∷_)
   where
-  mip = mapimplant xs _ _ _
+  mip = mapimplant _ _ _ _
 \end{code}
 \end{document}
