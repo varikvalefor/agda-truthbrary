@@ -283,7 +283,7 @@ decaf : ∀ {a} → {Bean : Set a}
       → Maybe $ LL.olen Q $ LL.l Q j ∸ 2
 decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   where
-  f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
+  f : {n : ℕ} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
   f []ᵥ = nothing
   f (_ ∷ᵥ []ᵥ) = nothing
   f k@(x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet k) else nothing
@@ -302,9 +302,9 @@ ni'o la .varik.\ cu pacna lo nu banzuka fa zo'e je le se ctaipe  .i ku'i la .\F{
 
 \begin{code}
 map : ∀ {a b} → {A : Set a} → {B : Set b}
-    → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
-    → (f : LL.e Q → LL.e R) → (x : A)
-    → LL.olen R $ length x
+    → ⦃ L₁ : LL A ⦄ → ⦃ L₂ : LL B ⦄
+    → (f : LL.e L₁ → LL.e L₂) → (x : A)
+    → LL.olen L₂ $ length x
 map f = cev ∘ 𝕍.map f ∘ vec
 \end{code}
 
