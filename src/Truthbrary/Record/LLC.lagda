@@ -513,7 +513,7 @@ infixr 5 _++_
 _++_ : ∀ {a} → {Bean CoolJ : Set a}
      → ⦃ T : LL Bean ⦄
      → ⦃ U : LL CoolJ ⦄
-     → ⦃ LC Bean CoolJ ⦄
+     → ⦃ K : LC Bean CoolJ ⦄
      → (BN : Bean)
      → (CJ : CoolJ)
      → LL.olen T $ LL.l T BN + LL.l U CJ
