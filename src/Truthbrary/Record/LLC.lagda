@@ -77,6 +77,7 @@ open import Data.Fin
     Fin
   )
 open import Data.Nat
+  as ℕ
   using (
     _+_;
     _∸_;
@@ -533,6 +534,6 @@ instance
         → LC (Vec A m) $ Vec A n
   LCVec = record {_++_ = 𝕍._++_}
   LCℕ : LC ℕ ℕ
-  LCℕ = record {_++_ = Data.Nat._+_}
+  LCℕ = record {_++_ = ℕ._+_}
 \end{code}
 \end{document}
