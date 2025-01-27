@@ -477,7 +477,7 @@ instance
     [] = []ᵥ;
     olen = Vec A;
     e = A;
-    l = const n';
+    l = const _;
     _∷_ = _∷ᵥ_;
     vec = id;
     cev = id}
