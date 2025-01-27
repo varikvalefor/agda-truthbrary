@@ -96,7 +96,11 @@ splitOn a = rev ∘ 𝕃.map rev ∘ sob a []ₗ []ₗ
   rev = 𝕃.reverse
   sob : ∀ {a} → {A : Set a}
       → ⦃ Eq A ⦄
-      → A → List $ List A → List A → List A → List $ List A
+      → A
+      → List $ List A
+      → List A
+      → List A
+      → List $ List A
   sob a b g []ₗ = g ∷ₗ b
   sob a b g (x ∷ₗ xs) = if x ≡ᵇ a then hitit else add
     where
