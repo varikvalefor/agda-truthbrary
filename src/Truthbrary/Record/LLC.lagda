@@ -77,6 +77,7 @@ open import Data.Fin
     Fin
   )
 open import Data.Nat
+  as ℕ
   using (
     _+_;
     _∸_;
@@ -473,11 +474,11 @@ instance
     vec = 𝕍.fromList ∘ Data.String.toList;
     cev = Data.String.fromList ∘ 𝕍.toList}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
-  liliVec {_} {A} {n'} = record {
+  liliVec {A = A} = record {
     [] = []ᵥ;
     olen = Vec A;
     e = A;
-    l = const n';
+    l = const _;
     _∷_ = _∷ᵥ_;
     vec = id;
     cev = id}
@@ -513,11 +514,11 @@ infixr 5 _++_
 _++_ : ∀ {a} → {Bean CoolJ : Set a}
      → ⦃ T : LL Bean ⦄
      → ⦃ U : LL CoolJ ⦄
-     → ⦃ LC Bean CoolJ ⦄
+     → ⦃ K : LC Bean CoolJ ⦄
      → (BN : Bean)
      → (CJ : CoolJ)
      → LL.olen T $ LL.l T BN + LL.l U CJ
-_++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
+_++_ ⦃ K = Q ⦄ = LC._++_ Q
 \end{code}
 
 \subsection{le me'oi .\AgdaKeyword{instance}.}
@@ -533,6 +534,6 @@ instance
         → LC (Vec A m) $ Vec A n
   LCVec = record {_++_ = 𝕍._++_}
   LCℕ : LC ℕ ℕ
-  LCℕ = record {_++_ = Data.Nat._+_}
+  LCℕ = record {_++_ = ℕ._+_}
 \end{code}
 \end{document}
