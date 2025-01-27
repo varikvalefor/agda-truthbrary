@@ -285,9 +285,8 @@ decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
   f []ᵥ = nothing
   f (_ ∷ᵥ []ᵥ) = nothing
-  f (x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet k) else nothing
+  f k@(x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet k) else nothing
     where
-    k = x ∷ᵥ y ∷ᵥ z
     r = 𝕍.reverse
     delet = r ∘ t ∘ r ∘ t
       where
