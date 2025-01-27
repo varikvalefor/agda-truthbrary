@@ -72,6 +72,7 @@
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{_\mathsf{m}}}}
 \newunicodechar{ₛ}{\ensuremath{\mathnormal{_\mathsf{s}}}}
+\newunicodechar{ₜ}{\ensuremath{\mathnormal{_\mathsf{t}}}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
 \newunicodechar{⊥}{\ensuremath{\mathnormal{\bot}}}
 \newunicodechar{≤}{\ensuremath{\mathnormal{\leq}}}
@@ -334,7 +335,7 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu vo'a ciksi bau la .lojban.
 _≗₂_ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
      → (g f : A → B → C)
      → Set _
-_≗₂_ {A = A} {B} g f = (x : A) → (z : B) → g x z ≡ f x z
+_≗₂_ g f = (x : _) → g x ≗ f x
 \end{code}
 
 \section{la'oi .\F ℝ.}
@@ -703,6 +704,9 @@ module Veritas where
     ∣r-s∣≈0⇒r≈s : {r s : ℝ} → ∣ r - s ∣ ≈ fromℕ 0 → r ≈ s
     ∣r-s∣≈0⇒r≈s = {!!}
 
+    r-s≈0⇒r≈s : {r s : ℝ} → (r - s) ≈ fromℕ 0 → r ≈ s
+    r-s≈0⇒r≈s = {!!}
+
     ¬[r≈s⇒fr≈fs] : ¬ ((f : ℝ → ℝ) → _≈_ ⇒ (_≈_ on f))
     ¬[r≈s⇒fr≈fs] = ∃⇒¬¬ $ (from𝔽 ∘ (⌊'⁻¹ ⍨) 5) , {!!}
       where
@@ -722,7 +726,7 @@ module Veritas where
 
 \begin{code}
   module Fromℕ where
-    ℤ+_≡⌊'∘fromℕ : (n : ℕ) → ℤ.+ n ≡ ⌊' (fromℕ n)
+    ℤ+_≡⌊'∘fromℕ : ℤ.+_ ≗ (⌊' ∘ fromℕ)
     ℤ+_≡⌊'∘fromℕ _ = refl
 
     ⌊'⁻¹fromℕ≡0 : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
@@ -1270,11 +1274,11 @@ module Veritas where
     r≡r/1 = {!!}
 
     ∣s∣>∣t∣⇒∣r/s∣>∣r/t∣ : (r s t : ℝ)
-                        → (Ns : _)
-                        → (Nt : _)
+                        → (Nₛ : _)
+                        → (Nₜ : _)
                         → ∣ s ∣ > ∣ t ∣
                         → ¬_ $ r ≈ fromℕ 0
-                        → frinu r s Ns > frinu r s Nt
+                        → frinu r s Nₛ > frinu r s Nₜ
     ∣s∣>∣t∣⇒∣r/s∣>∣r/t∣ = {!!}
 
     0≈0/r : (r s : ℝ)
@@ -1302,10 +1306,15 @@ module Veritas where
             → ∣ r ∣ < ∣ frinu r s N ∣
     ∣r∣<∣r/s∣ = {!!}
 
+    ∣r/s∣≤∣r∣' : (r s : ℝ)
+               → (z : ∣ s ∣ > fromℕ 1)
+               → ∣ r ∣ ≥ ∣ frinu r s $ S.r>1⇒r≉0 {!!} ∣
+    ∣r/s∣≤∣r∣' = {!!}
+
     ∣r/s∣≤∣r∣ : (r s : ℝ)
               → (z : s > fromℕ 1)
               → ∣ r ∣ ≥ ∣ frinu r s $ S.r>1⇒r≉0 z ∣
-    ∣r/s∣≤∣r∣ = {!!}
+    ∣r/s∣≤∣r∣ r s z = {!!}
 
     -r/-s<-r : (r s : ℝ)
              → (z : s > fromℕ 1)
@@ -1328,15 +1337,13 @@ module Veritas where
 
     r/-s≈-[r/s] : (r s : ℝ)
                 → (N : _)
-                → (_≈_
-                    (frinu r (¯ s) N)
-                    (¯_ $ frinu r s {!!}))
+                → frinu r (¯ s) N ≈ (¯_ $ frinu r s {!!})
     r/-s≈-[r/s] = {!!}
 
     -r/-s≈r/s : (r s : ℝ)
               → (N : _)
               → (N' : _)
-              → frinu (¯ r) (¯ s) N ≈ frinu r s N'
+              → frinu (¯ r) (¯ s) N' ≈ frinu r s N
     -r/-s≈r/s = {!!}
 
     r/s≈r/s : (r s : ℝ)
