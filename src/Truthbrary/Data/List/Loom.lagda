@@ -358,8 +358,8 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
                (take n' (map f x) , drop sin (map f x))
                (map f (take n' x) , map f (drop sin x)))
 mapimplant (_ ∷ _) _ _ zero = refl
-mapimplant (x ∷ xs) z f (suc _) = mip ▹ cong (f x ∷_)
+mapimplant (x ∷ _) _ f (suc _) = mip ▹ cong (f x ∷_)
   where
-  mip = mapimplant xs _ _ _
+  mip = mapimplant _ _ _ _
 \end{code}
 \end{document}

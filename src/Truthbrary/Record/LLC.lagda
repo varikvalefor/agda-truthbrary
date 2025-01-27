@@ -285,9 +285,8 @@ decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
   f []ᵥ = nothing
   f (_ ∷ᵥ []ᵥ) = nothing
-  f (x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet k) else nothing
+  f k@(x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet k) else nothing
     where
-    k = x ∷ᵥ y ∷ᵥ z
     r = 𝕍.reverse
     delet = r ∘ t ∘ r ∘ t
       where
@@ -438,9 +437,7 @@ nu,iork : ∀ {a} → {Bean : Set a}
         → Bean → Set a
 nu,iork = nu,iork' ∘ 𝕍.toList ∘ vec
   where
-  nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
-    where
-    []' = flip List._∷_ List.[]
+  nu,iork' = λ a → a ≡ filterₗ (λ b → 𝕃.[ b ] ≟ filterₗ (b ≟_) a) a
 \end{code}
 
 \section{la'oi .\F{UL}.}
@@ -458,7 +455,7 @@ UL A = Σ A nu,iork
 \begin{code}
 instance
   liliList : ∀ {a} → {A : Set a} → LL $ List A
-  liliList {_} {A} = record {
+  liliList {A = A} = record {
     e = A;
     olen = const $ List A;
     [] = []ₗ;
