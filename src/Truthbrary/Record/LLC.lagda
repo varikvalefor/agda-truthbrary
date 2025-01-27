@@ -302,8 +302,8 @@ ni'o la .varik.\ cu pacna lo nu banzuka fa zo'e je le se ctaipe  .i ku'i la .\F{
 
 \begin{code}
 map : ∀ {a b} → {A : Set a} → {B : Set b}
-    → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
-    → (f : LL.e Q → LL.e R) → (x : A)
+    → ⦃ L₁ : LL A ⦄ → ⦃ R : LL B ⦄
+    → (f : LL.e L₁ → LL.e R) → (x : A)
     → LL.olen R $ length x
 map f = cev ∘ 𝕍.map f ∘ vec
 \end{code}
