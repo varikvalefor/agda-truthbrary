@@ -517,7 +517,7 @@ _++_ : ∀ {a} → {Bean CoolJ : Set a}
      → (BN : Bean)
      → (CJ : CoolJ)
      → LL.olen T $ LL.l T BN + LL.l U CJ
-_++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
+_++_ ⦃ K = Q ⦄ = LC._++_ Q
 \end{code}
 
 \subsection{le me'oi .\AgdaKeyword{instance}.}
