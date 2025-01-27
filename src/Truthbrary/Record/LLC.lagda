@@ -439,7 +439,7 @@ nu,iork = nu,iork' ∘ 𝕍.toList ∘ vec
   where
   nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
     where
-    []' = flip _∷ₗ_ []ₗ
+    []' = _∷ₗ []ₗ
 \end{code}
 
 \section{la'oi .\F{UL}.}
