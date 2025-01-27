@@ -67,6 +67,7 @@ open import Data.Bool
     if_then_else_
   )
 open import Data.List
+  as 𝕃
   using (
     List
   )
@@ -90,9 +91,9 @@ splitOn : ∀ {a} → {A : Set a}
         → A
         → List A
         → List $ List A
-splitOn a = rev ∘ Data.List.map rev ∘ sob a []ₗ []ₗ
+splitOn a = rev ∘ 𝕃.map rev ∘ sob a []ₗ []ₗ
   where
-  rev = Data.List.reverse
+  rev = 𝕃.reverse
   sob : ∀ {a} → {A : Set a}
       → ⦃ Eq A ⦄
       → A → List $ List A → List A → List A → List $ List A
