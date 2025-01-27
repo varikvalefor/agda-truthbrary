@@ -455,7 +455,7 @@ UL A = Σ A nu,iork
 \begin{code}
 instance
   liliList : ∀ {a} → {A : Set a} → LL $ List A
-  liliList {_} {A} = record {
+  liliList {A = A} = record {
     e = A;
     olen = const $ List A;
     [] = []ₗ;
