@@ -473,7 +473,7 @@ instance
     vec = 𝕍.fromList ∘ Data.String.toList;
     cev = Data.String.fromList ∘ 𝕍.toList}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
-  liliVec {A = A} {n'} = record {
+  liliVec {A = A} {_} = record {
     [] = []ᵥ;
     olen = Vec A;
     e = A;
