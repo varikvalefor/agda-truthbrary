@@ -437,7 +437,7 @@ nu,iork : ∀ {a} → {Bean : Set a}
         → Bean → Set a
 nu,iork = nu,iork' ∘ 𝕍.toList ∘ vec
   where
-  nu,iork' = λ a → a ≡ filterₗ (λ b → 𝕃.[_] b ≟ filterₗ (_≟_ b) a) a
+  nu,iork' = λ a → a ≡ filterₗ (λ b → 𝕃.[ b ] ≟ filterₗ (_≟_ b) a) a
 \end{code}
 
 \section{la'oi .\F{UL}.}
