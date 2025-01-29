@@ -398,7 +398,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{∉₂} \B b\ .zoi.\ gi la'o zoi.\ \B a\ 
 
 \begin{code}
 _∉₂_ : ∀ {a} → {Bean : Set a}
-     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+     → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
      → LL.e Jeans
      → Bean
      → Set a
