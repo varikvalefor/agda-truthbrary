@@ -296,7 +296,6 @@ instance
     r = λ _ _ → ℚᵘ
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
-    deev : _
     deev = λ m n → spit {P? = ∣↥ n ∣ ℕ.≟_} (λ N → ℚᵘ._÷_ m n {N}) $ _ ℕ.≟ _
       where
       ∣↥_∣ = ℤ.∣_∣ ∘ ℚᵘ.↥_
