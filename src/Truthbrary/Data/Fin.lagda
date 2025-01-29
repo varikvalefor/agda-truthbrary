@@ -109,7 +109,7 @@ tomindus _ refl = refl
 ni'o xu la .\F{tondus}.\ cu mapti la'o zoi.\ \kulmodis\ .zoi.  .i la .\F{tondus}.\ cu srana le fancu pe la'o zoi.\ \AgdaModule{Data.Fin}\ .zoi\ldots ge'u je ku'i zo'e pe la'o zoi.\ \AgdaModule{Data.Nat}\ .zoi.
 
 \begin{code}
-tondus : (toℕ ∘ fromℕ) ≗ id
+tondus : (_≗ id) (toℕ ∘ fromℕ)
 tondus 0 = refl
 tondus (ℕ.suc n) = tondus _ ▹ cong ℕ.suc
 \end{code}
