@@ -415,7 +415,7 @@ _∉₂?_ : ∀ {a} → {Bean : Set a}
        → (x : LL.e Jeans)
        → (xs : Bean)
        → Dec $ x ∉₂ xs
-_∉₂?_ ⦃ _ ⦄ x = DVRUL.all? (inv {P = x ≡_} ∘ _≟_ x) ∘ vec
+_∉₂?_ x = DVRUL.all? (inv {P = x ≡_} ∘ _≟_ x) ∘ vec
   where
   inv : ∀ {a p} → {A : Set a} → {P : Pred A p}
       → {x : A}
