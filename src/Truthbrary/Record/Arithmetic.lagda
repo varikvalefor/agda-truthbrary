@@ -213,7 +213,7 @@ instance
     Cℕ = λ _ _ → ℕ
     deev : ℕ → ℕ → Maybe ℕ
     deev _ 0 = nothing
-    deev a (suc b) = just $ a ℕ./ suc b
+    deev a B@(suc b) = just $ a ℕ./ B
 
   ariℤℤ = record {
     _⊔+_ = r;
