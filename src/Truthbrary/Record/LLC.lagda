@@ -368,7 +368,7 @@ ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B x \OpF 
 
 \begin{code}
 _∉_ : ∀ {a} → {Bean : Set a}
-    → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+    → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
     → LL.e Jeans → Bean → Set
 _∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (x ≟_) ∘ toList ∘ vec
 \end{code}
