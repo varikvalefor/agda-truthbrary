@@ -368,7 +368,7 @@ ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B x \OpF 
 
 \begin{code}
 _∉_ : ∀ {a} → {Bean : Set a}
-    → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+    → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
     → LL.e Jeans → Bean → Set
 _∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (x ≟_) ∘ toList ∘ vec
 \end{code}
@@ -380,7 +380,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∈₂}} \B b\ .zoi.\ gi la'o
 _∈₂_ : ∀ {a} → {Bean : Set a}
      → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
      → LL.e Jeans → Bean → Set a
-_∈₂_ ⦃ Q ⦄ a b = DVRUA.Any (a ≡_) $ LL.vec Q b
+_∈₂_ a = DVRUA.Any (a ≡_) ∘ vec
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore{}∈₂?\AgdaUnderscore}.}
@@ -390,7 +390,7 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 _∈₂?_ : ∀ {a} → {Bean : Set a}
        → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
        → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∈₂ xs
-_∈₂?_ ⦃ Q ⦄ x xs = DVRUA.any? (x ≟_) $ LL.vec Q xs
+_∈₂?_ x = DVRUA.any? (x ≟_) ∘ vec
 \end{code}
 
 \subsubsection{la'oi .\F{\AgdaUnderscore{}∉₂\AgdaUnderscore}.}
@@ -402,7 +402,7 @@ _∉₂_ : ∀ {a} → {Bean : Set a}
      → LL.e Jeans
      → Bean
      → Set a
-_∉₂_ ⦃ Q ⦄ a b = DVRUL.All (a ≢_) $ LL.vec Q b
+_∉₂_ a = DVRUL.All (a ≢_) ∘ vec
 \end{code}
 
 
