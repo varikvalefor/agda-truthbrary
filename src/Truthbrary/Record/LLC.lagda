@@ -402,7 +402,7 @@ _∉₂_ : ∀ {a} → {Bean : Set a}
      → LL.e Jeans
      → Bean
      → Set a
-_∉₂_ ⦃ _ ⦄ a = DVRUL.All (a ≢_) ∘ vec
+_∉₂_ a = DVRUL.All (a ≢_) ∘ vec
 \end{code}
 
 
