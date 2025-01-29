@@ -390,7 +390,7 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 _∈₂?_ : ∀ {a} → {Bean : Set a}
        → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
        → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∈₂ xs
-_∈₂?_ ⦃ Q ⦄ x = DVRUA.any? (x ≟_) ∘ LL.vec Q
+_∈₂?_ ⦃ Q ⦄ x = DVRUA.any? (x ≟_) ∘ vec
 \end{code}
 
 \subsubsection{la'oi .\F{\AgdaUnderscore{}∉₂\AgdaUnderscore}.}
