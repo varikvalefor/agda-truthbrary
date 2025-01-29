@@ -380,7 +380,7 @@ ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∈₂}} \B b\ .zoi.\ gi la'o
 _∈₂_ : ∀ {a} → {Bean : Set a}
      → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
      → LL.e Jeans → Bean → Set a
-_∈₂_ ⦃ Q ⦄ a b = DVRUA.Any (a ≡_) $ LL.vec Q b
+_∈₂_ ⦃ Q ⦄ a = DVRUA.Any (a ≡_) ∘ vec
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore{}∈₂?\AgdaUnderscore}.}
