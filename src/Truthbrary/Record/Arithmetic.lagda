@@ -297,7 +297,7 @@ instance
     uyn = 1ℚᵘ
     zir = 0ℚᵘ
     deev : _ → _ → Maybe ℚᵘ
-    deev m n = spit {P? = ∣↥ n ∣ ℕ.≟_} (λ N → ℚᵘ._÷_ m n {N}) $ _ ℕ.≟ _
+    deev = λ m n → spit {P? = ∣↥ n ∣ ℕ.≟_} (λ N → ℚᵘ._÷_ m n {N}) $ _ ℕ.≟ _
       where
       ∣↥_∣ = ℤ.∣_∣ ∘ ℚᵘ.↥_
       spit : ∀ {a b p}
