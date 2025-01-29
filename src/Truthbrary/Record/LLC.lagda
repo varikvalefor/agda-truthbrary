@@ -411,7 +411,7 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 
 \begin{code}
 _∉₂?_ : ∀ {a} → {Bean : Set a}
-       → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+       → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
        → (x : LL.e Jeans)
        → (xs : Bean)
        → Dec $ x ∉₂ xs
