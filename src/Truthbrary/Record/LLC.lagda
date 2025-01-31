@@ -340,7 +340,9 @@ ni'o ko'a goi la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distan
 dist : ∀ {a} → {A : Set a}
      → ⦃ Bean : LL A ⦄
      → ⦃ Eq $ LL.e Bean ⦄
-     → A → A → ℕ
+     → A
+     → A
+     → ℕ
 dist = 𝕃.length ∘₂ 𝕃.filter drata ∘₂ ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
@@ -352,8 +354,7 @@ ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B a \OpF 
 
 \begin{code}
 _∈_ : ∀ {a} → {A : Set a}
-    → ⦃ Fireball : LL A ⦄
-    → ⦃ Eq $ LL.e Fireball ⦄
+    → ⦃ Fireball : LL A ⦄ → ⦃ Eq $ LL.e Fireball ⦄
     → LL.e Fireball
     → A
     → Set
