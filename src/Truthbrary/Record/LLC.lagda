@@ -340,7 +340,9 @@ ni'o ko'a goi la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distan
 dist : ∀ {a} → {A : Set a}
      → ⦃ Bean : LL A ⦄
      → ⦃ Eq $ LL.e Bean ⦄
-     → A → A → ℕ
+     → A
+     → A
+     → ℕ
 dist = 𝕃.length ∘₂ 𝕃.filter drata ∘₂ ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
