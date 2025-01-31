@@ -467,7 +467,8 @@ ni'o ga jo la'oi .\B Q.\ drani gi la'o zoi.\ \AgdaField{LC.\AgdaUnderscore++\Agd
 
 \begin{code}
 record LC {a b}
-       (A : Set a) (B : Set b) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ :
+       (A : Set a) (B : Set b)
+       ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ :
        Set (a Level.⊔ b)
   where
   field
