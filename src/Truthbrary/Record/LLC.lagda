@@ -354,8 +354,7 @@ ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B a \OpF 
 
 \begin{code}
 _∈_ : ∀ {a} → {A : Set a}
-    → ⦃ Fireball : LL A ⦄
-    → ⦃ Eq $ LL.e Fireball ⦄
+    → ⦃ Fireball : LL A ⦄ → ⦃ Eq $ LL.e Fireball ⦄
     → LL.e Fireball
     → A
     → Set
