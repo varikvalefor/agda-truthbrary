@@ -501,7 +501,7 @@ ni'o ga jo la'oi .\B Q.\ drani gi la'o zoi.\ \AgdaField{LC.\AgdaUnderscore++\Agd
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
   where
   field
-    _++_ : (C : A) → (D : B) → LL.olen Q $ LL.l Q C + LL.l R D
+    _++_ : (c : A) → (D : B) → LL.olen Q $ LL.l Q c + LL.l R D
 \end{code}
 
 \subsection{le fancu}
