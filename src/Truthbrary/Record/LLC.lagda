@@ -497,7 +497,10 @@ instance
 ni'o ga jo la'oi .\B Q.\ drani gi la'o zoi.\ \AgdaField{LC.\AgdaUnderscore++\AgdaUnderscore} \B Q \B a \B b .zoi.\ konkatena la'oi .\B a.\ la'oi .\B b.
 
 \begin{code}
-record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
+record LC {a b}
+       (A : Set a) (B : Set b)
+       ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ :
+       Set (a Level.⊔ b)
   where
   field
     _++_ : (C : A) → (D : B) → LL.olen Q $ LL.l Q C + LL.l R D
