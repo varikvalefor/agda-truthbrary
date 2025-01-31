@@ -303,7 +303,8 @@ ni'o la .varik.\ cu pacna lo nu banzuka fa zo'e je le se ctaipe  .i ku'i la .\F{
 \begin{code}
 map : ∀ {a b} → {A : Set a} → {B : Set b}
     → ⦃ L₁ : LL A ⦄ → ⦃ L₂ : LL B ⦄
-    → (f : LL.e L₁ → LL.e L₂) → (x : A)
+    → (f : LL.e L₁ → LL.e L₂)
+    → (x : A)
     → LL.olen L₂ $ length x
 map f = cev ∘ 𝕍.map f ∘ vec
 \end{code}
@@ -411,7 +412,7 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 
 \begin{code}
 _∉₂?_ : ∀ {a} → {Bean : Set a}
-       → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
+       → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
        → (x : LL.e Jeans)
        → (xs : Bean)
        → Dec $ x ∉₂ xs
@@ -503,7 +504,7 @@ record LC {a b}
        Set (a Level.⊔ b)
   where
   field
-    _++_ : (C : A) → (D : B) → LL.olen Q $ LL.l Q C + LL.l R D
+    _++_ : (c : A) → (d : B) → LL.olen Q $ LL.l Q c + LL.l R d
 \end{code}
 
 \subsection{le fancu}
