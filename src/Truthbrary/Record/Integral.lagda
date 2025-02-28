@@ -73,6 +73,8 @@ ni'o la'oi .\AgdaRecord{Integral}.\ jai filri'a tu'a lo kacna'u co'e
 
 .i ga jo la'oi .\B q.\ ctaipe la'o zoi.\ \AgdaRecord{Integral} \B A .zoi.\ je cu ba'e drani gi\ldots
 \begin{itemize}
+	\item ga je la'o zoi.\ \AgdaField{Integral.fromℤ} \B q \B z \B p\ .zoi.\ namcu du la'o zoi.\ \B z\ .zoi.\ gi
+	\item ga je la'o zoi.\ \AgdaField{Integral.P} \B q .zoi.\ co'e gi
 	\item la'o zoi.\ \AgdaField{Integral.toℤ} \B q \B x\ .zoi.\ namcu du la'o zoi.\ \B x\ .zoi.
 \end{itemize}
 
