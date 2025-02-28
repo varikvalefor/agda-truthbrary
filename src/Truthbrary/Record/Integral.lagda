@@ -59,10 +59,6 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Integral} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.Integral where
 
-open import Data.Nat
-  using (
-    ℕ
-  )
 open import Data.Integer
   using (
     ℤ
