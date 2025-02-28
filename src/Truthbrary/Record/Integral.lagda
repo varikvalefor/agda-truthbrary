@@ -70,6 +70,10 @@ open import Data.Integer
   using (
     ℤ
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'oi .\AgdaRecord{Integral}.}
@@ -89,5 +93,6 @@ record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
     P : ℤ → Set p
     toℤ : A → ℤ
     fromℤ : (z : ℤ) → P z → A
+    toℤ∘fromℤ : (z : ℤ) → (p : P z) → toℤ (fromℤ z p) ≡ z
 \end{code}
 \end{document}
