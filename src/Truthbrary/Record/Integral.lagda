@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\usepackage{ar}
+\usepackage[bw]{agda}
+\usepackage{ifsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\usepackage{mathabx}
+\usepackage{unicode-math}
+\usepackage{newunicodechar}
+
+\newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
+\newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
+\newunicodechar{∃}{\ensuremath{\mathnormal{\exists}}}
+\newunicodechar{⊤}{\ensuremath{\mathnormal{\top}}}
+\newunicodechar{λ}{\ensuremath{\mathnormal{\lambda}}}
+\newunicodechar{→}{\ensuremath{\mathnormal{\rightarrow}}}
+\newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\hspace{-0.3em}|}}}
+\newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
+\newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
+\newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
+\newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
+\newunicodechar{ⁿ}{\ensuremath{\mathnormal{^n}}}
+\newunicodechar{ʸ}{\ensuremath{\mathnormal{^y}}}
+\newunicodechar{∸}{\ensuremath{\mathnormal\dotdiv}}
+\newunicodechar{∧}{\ensuremath{\mathnormal{\land}}}
+\newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{≢}{\ensuremath{\mathnormal\nequiv}}
+\newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
+\newunicodechar{≟}{\ensuremath{\mathnormal{\stackrel{?}{=}}}}
+\newunicodechar{∈}{\ensuremath{\mathnormal{\in}}}
+\newunicodechar{∉}{\ensuremath{\mathnormal{\notin}}}
+\newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
+
+\newcommand\Sym\AgdaSymbol
+\newcommand\D\AgdaDatatype
+\newcommand\F\AgdaFunction
+\newcommand\B\AgdaBound
+\newcommand\OpF[1]{\AgdaOperator{\F{#1}}}
+
+\title{la'o zoi.\ \texttt{Truthbrary.Record.Integral} .zoi.}
+\author{la .varik.\ .VALefor.}
+
+\begin{document}
+\maketitle
+
+\section{le me'oi .abstract.}
+ni'o la'o zoi.\ \texttt{Truthbrary.Record.Integral} .zoi.\ vasru\ldots
+\begin{itemize}
+	\item le velcki be la'o zoi.\ \AgdaRecord{Integral} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a tu'a lo kacna'u co'e
+\end{itemize}
+
+\section{le me'oi .preamble.}
+\begin{code}
+{-# OPTIONS --safe #-}
+
+module Truthbrary.Record.Integral where
+
+open import Data.Nat
+  using (
+    ℕ
+  )
+\end{code}
+
+\section{la'oi .\AgdaRecord{Integral}.}
+ni'o la'oi .\AgdaRecord{Integral}.\ jai filri'a tu'a lo kacna'u co'e
+
+.i ga jo la'oi .\B q.\ ctaipe la'o zoi.\ \AgdaRecord{Integral} \B A .zoi.\ je cu ba'e drani gi\ldots
+\begin{itemize}
+	\item la'o zoi.\ \AgdaField{Integral.toℕ} \B q \B x\ .zoi.\ namcu du la'o zoi.\ \B x\ .zoi.
+\end{itemize}
+
+\begin{code}
+record Integral {a} (A : Set a) : Set a
+  where
+  field
+    toℕ : A → ℕ
+\end{code}
+\end{document}
