@@ -61,9 +61,9 @@ module Truthbrary.Record.Integral where
 
 open import Level
   using (
+    suc
   )
   renaming (
-    suc to lsuc
   )
 open import Data.Integer
   using (
