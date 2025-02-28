@@ -63,6 +63,10 @@ open import Data.Nat
   using (
     ℕ
   )
+open import Data.Integer
+  using (
+    ℤ
+  )
 \end{code}
 
 \section{la'oi .\AgdaRecord{Integral}.}
@@ -70,13 +74,13 @@ ni'o la'oi .\AgdaRecord{Integral}.\ jai filri'a tu'a lo kacna'u co'e
 
 .i ga jo la'oi .\B q.\ ctaipe la'o zoi.\ \AgdaRecord{Integral} \B A .zoi.\ je cu ba'e drani gi\ldots
 \begin{itemize}
-	\item la'o zoi.\ \AgdaField{Integral.toℕ} \B q \B x\ .zoi.\ namcu du la'o zoi.\ \B x\ .zoi.
+	\item la'o zoi.\ \AgdaField{Integral.toℤ} \B q \B x\ .zoi.\ namcu du la'o zoi.\ \B x\ .zoi.
 \end{itemize}
 
 \begin{code}
 record Integral {a} (A : Set a) : Set a
   where
   field
-    toℕ : A → ℕ
+    toℤ : A → ℤ
 \end{code}
 \end{document}
