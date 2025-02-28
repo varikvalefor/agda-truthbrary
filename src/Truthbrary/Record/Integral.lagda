@@ -54,6 +54,7 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Integral} .zoi.\ vasru\ldots
 \end{itemize}
 
 \section{le me'oi .preamble.}
+
 \begin{code}
 {-# OPTIONS --safe #-}
 
