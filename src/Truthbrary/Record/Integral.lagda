@@ -83,10 +83,10 @@ ni'o la'oi .\AgdaRecord{Integral}.\ jai filri'a tu'a lo kacna'u co'e
 \end{itemize}
 
 \begin{code}
-record Integral {a} (A : Set a) : Set (suc zero Level.⊔ a)
+record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
   where
   field
-    P : ℤ → Set
+    P : ℤ → Set p
     toℤ : A → ℤ
     fromℤ : (z : ℤ) → P z → A
 \end{code}
