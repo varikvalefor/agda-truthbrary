@@ -12,6 +12,7 @@
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb Z}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{∃}{\ensuremath{\mathnormal{\exists}}}
