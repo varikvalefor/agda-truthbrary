@@ -65,8 +65,6 @@ open import Level
     zero;
     suc
   )
-  renaming (
-  )
 open import Data.Integer
   using (
     ℤ
