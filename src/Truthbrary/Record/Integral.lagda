@@ -59,6 +59,9 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.Integral} .zoi.\ vasru\ldots
 
 module Truthbrary.Record.Integral where
 
+open import Level
+  using (
+  )
 open import Data.Integer
   using (
     ℤ
@@ -74,9 +77,11 @@ ni'o la'oi .\AgdaRecord{Integral}.\ jai filri'a tu'a lo kacna'u co'e
 \end{itemize}
 
 \begin{code}
-record Integral {a} (A : Set a) : Set a
+record Integral {a} (A : Set a) : Set (Level.suc Level.zero Level.⊔ a)
   where
   field
+    P : ℤ → Set
     toℤ : A → ℤ
+    fromℤ : (z : ℤ) → P z → A
 \end{code}
 \end{document}
