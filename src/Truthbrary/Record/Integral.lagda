@@ -51,7 +51,7 @@
 \section{le me'oi .abstract.}
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.Integral} .zoi.\ vasru\ldots
 \begin{itemize}
-	\item le velcki be la'o zoi.\ \AgdaRecord{Integral} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a tu'a lo kacna'u co'e
+	\item le velcki be la'o zoi.\ \AgdaRecord{Integral} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je cu jai filri'a tu'a lo kacna'u co'e
 \end{itemize}
 
 \section{le me'oi .preamble.}
