@@ -512,7 +512,7 @@ record LLR {a} (A : Set a) : Set (Level.suc a) where
   field
     ll : LL A
     ⊃⌽ : (x : A)
-       → (zm : Maybe $ LL.l ll x > 0)
+       → (zm : Maybe $ Σ ℕ $ λ n → LL.l ll x ≡ ℕ.suc n)
        → if is-just zm then LL.e ll else Maybe (LL.e ll)
 \end{code}
 \end{document}
