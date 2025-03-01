@@ -128,6 +128,11 @@ instance
     }
 
   _ : {n : ℕ} → Integral {p = {!!}} (Fin n)
-  _ = {!!}
+  _ = record {
+    P = {!!};
+    toℤ = {!!};
+    fromℤ = {!!};
+    toℤ∘fromℤ = {!!}
+    }
 \end{code}
 \end{document}
