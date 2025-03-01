@@ -184,6 +184,7 @@ open import Data.Vec.Relation.Unary.All
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    sym;
     _≢_;
     _≡_
   )
@@ -546,11 +547,32 @@ instance
 \section{la'oi .\AgdaRecord{LLR}.}
 
 \begin{code}
+private
+  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+  coerce _≡_.refl x = x
+
 record LLR {a} (A : Set a) : Set (Level.suc a) where
   field
     ll : LL A
+    lc : LC A A ⦃ ll ⦄ ⦃ ll ⦄
     ⊃⌽ : (x : A)
        → (zm : Maybe $ Σ ℕ $ (LL.l ll x ≡_) ∘ ℕ.suc)
        → if is-just zm then LL.e ll else Maybe (LL.e ll)
+
+record LLRD {a} (A : Set a) : Set (Level.suc a) where
+  field
+    llr : LLR A
+  ll = LLR.ll llr
+  field
+    ll₀ : LL $ LL.olen ll 0
+    olen1≡olen0+ : LL.olen ll 1 ≡ LL.olen ll₀ _
+    lr₁ : LLR $ LL.olen ll 1
+    e₀≡elr₁ : LL.e ll₀ ≡ LL.e (LLR.ll lr₁)
+    [x]⊥ : (x : LL.e ll₀)
+         → let [x] = LL._∷_ ll₀ x (LL.[] ll) in
+           let [x]' = ([x] Function.|> coerce (sym olen1≡olen0+)) in
+           (_≡_
+             (just (coerce e₀≡elr₁ x))
+             (LLR.⊃⌽ lr₁ [x]' nothing))
 \end{code}
 \end{document}
