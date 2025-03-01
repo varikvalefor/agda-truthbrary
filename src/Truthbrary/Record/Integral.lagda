@@ -106,7 +106,7 @@ record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
 instance
   _ : Integral {p = {!!}} ℤ
   _ = record {
-    P = {!!};
+    P = λ x → x ≡ x;
     toℤ = λ x → x;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
