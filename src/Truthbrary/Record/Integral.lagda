@@ -79,6 +79,10 @@ open import Function
     _$_;
     _∘_
   )
+open import Data.Unit
+  using (
+    ⊤
+  )
 open import Data.Integer
   as ℤ
   using (
@@ -121,7 +125,7 @@ record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
 instance
   _ : Integral ℤ
   _ = record {
-    P = λ x → x ≡ x;
+    P = λ x → ⊤;
     fromℤ = λ x d → x;
     toℤ∘fromℤ = λ x d → _≡_.refl
     }
