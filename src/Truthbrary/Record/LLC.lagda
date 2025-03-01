@@ -509,7 +509,7 @@ instance
 
 record LLR {a} (A : Set a) : Set (Level.suc a) where
   field
-    ll : LL A
+    ll : LC A
     ⊃⌽ : (x : A)
        → (zm : Maybe $ LL.l ll x > 0)
        → ⊃⌽t zm $ LL.e ll
