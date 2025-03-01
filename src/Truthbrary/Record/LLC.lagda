@@ -535,9 +535,6 @@ record LLRD {a} (A : Set a) : Set (Level.suc a) where
            let [x]' = ([x] Function.|> coerce (sym olen1≡olen0+)) in
            (_≡_
              (just (coerce e₀≡elr₁ x))
-             (LLR.⊃⌽
-               lr₁
-               [x]'
-               nothing))
+             (LLR.⊃⌽ lr₁ [x]' nothing))
 \end{code}
 \end{document}
