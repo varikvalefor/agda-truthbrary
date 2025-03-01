@@ -76,6 +76,7 @@ open import Data.Nat
   )
 open import Function
   using (
+    _$_;
     _∘_
   )
 open import Data.Integer
@@ -133,7 +134,7 @@ instance
     toℤ∘fromℤ = λ _ d → d
     }
 
-  IntegralFin : {n : ℕ} → Integral (Fin n)
+  IntegralFin : {n : ℕ} → Integral $ Fin n
   IntegralFin {n} = record {
     P = λ z → (z ℤ.≥ 0ℤ) × (ℤ.∣ z ∣ Data.Nat.< n );
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
