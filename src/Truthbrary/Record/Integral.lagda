@@ -119,7 +119,7 @@ instance
     toℤ∘fromℤ = λ x d → _≡_.refl
     }
 
-  _ : Integral {p = {!!}} ℕ
+  _ : Integral {p = zero} ℕ
   _ = record {
     P = λ z → z Data.Integer.≥ Data.Integer.0ℤ;
     toℤ = Data.Integer.+_;
