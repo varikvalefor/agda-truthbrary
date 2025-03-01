@@ -507,11 +507,17 @@ instance
 
 \section{la'oi .\AgdaRecord{LLR}.}
 
+\begin{code}
+private
+  ⊃⌽t : ∀ {a b} → {A : Set a} → Maybe A → Set b → Set b
+  ⊃⌽t nothing = Maybe
+  ⊃⌽t (just _) T = T
+
 record LLR {a} (A : Set a) : Set (Level.suc a) where
   field
-    lc : LC A
+    ll : LL A
     ⊃⌽ : (x : A)
-       → (zm : Maybe $ LL.l lc x > 0)
-       → ⊃⌽t zm $ LL.e lc
+       → (zm : Maybe $ LL.l ll x > 0)
+       → ⊃⌽t zm $ LL.e ll
 \end{code}
 \end{document}
