@@ -150,6 +150,7 @@ open import Relation.Nullary.Decidable
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    sym;
     _≢_;
     _≡_
   )
@@ -535,7 +536,7 @@ record LLRD {a} (A : Set a) : Set (Level.suc a) where
              (just (coerce e₀≡elr₁ x))
              (LLR.⊃⌽
                lr₁
-               (coerce (Relation.Binary.PropositionalEquality.sym olen1≡olen0+) [x])
+               (coerce (sym olen1≡olen0+) [x])
                nothing))
 \end{code}
 \end{document}
