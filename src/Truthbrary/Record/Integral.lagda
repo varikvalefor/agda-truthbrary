@@ -105,7 +105,12 @@ record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
 \begin{code}
 instance
   _ : Integral {p = {!!}} ℤ
-  _ = {!!}
+  _ = record {
+    P = {!!};
+    toℤ = {!!};
+    fromℤ = {!!};
+    toℤ∘fromℤ = {!!}
+    }
 
   _ : Integral {p = {!!}} ℕ
   _ = {!!}
