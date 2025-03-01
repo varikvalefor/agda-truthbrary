@@ -29,7 +29,7 @@ record Plos₁ {a b}
        → (x : A)
        → (z : B)
        → let x' = coerce d x in
-         let z' = coerce {!!} z in
+         let z' = coerce (sym d) z in
          (dc : C x z ≡ C z' x')
        → (x + z) ≡ coerce (sym dc) (z' + x')
 
