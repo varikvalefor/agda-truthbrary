@@ -76,7 +76,6 @@ open import Data.Nat
   )
 open import Function
   using (
-    id
   )
 open import Data.Integer
   using (
