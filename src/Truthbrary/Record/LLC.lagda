@@ -509,9 +509,9 @@ instance
 
 record LLR {a} (A : Set a) : Set (Level.suc a) where
   field
-    ll : LC A
+    lc : LC A
     ⊃⌽ : (x : A)
-       → (zm : Maybe $ LL.l ll x > 0)
-       → ⊃⌽t zm $ LL.e ll
+       → (zm : Maybe $ LL.l lc x > 0)
+       → ⊃⌽t zm $ LL.e lc
 \end{code}
 \end{document}
