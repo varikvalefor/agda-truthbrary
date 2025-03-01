@@ -107,7 +107,7 @@ instance
   _ : Integral {p = {!!}} ℤ
   _ = record {
     P = {!!};
-    toℤ = {!!};
+    toℤ = λ x → x;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
     }
