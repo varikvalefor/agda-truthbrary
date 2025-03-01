@@ -504,4 +504,14 @@ instance
   LCℕ : LC ℕ ℕ
   LCℕ = record {_++_ = Data.Nat._+_}
 \end{code}
+
+\section{la'oi .\AgdaRecord{LLR}.}
+
+record LLR {a} (A : Set a) : Set (Level.suc a) where
+  field
+    ll : LL A
+    ⊃⌽ : (x : A)
+       → (zm : Maybe $ LL.l ll x > 0)
+       → ⊃⌽t zm $ LL.e ll
+\end{code}
 \end{document}
