@@ -129,8 +129,8 @@ instance
     toℤ∘fromℤ = λ _ d → d
     }
 
-  _ : {n : ℕ} → Integral {p = {!!}} (Fin n)
-  _ = record {
+  IntegralFin : {n : ℕ} → Integral {p = {!!}} (Fin n)
+  IntegralFin = record {
     P = {!!};
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
     fromℤ = {!!};
