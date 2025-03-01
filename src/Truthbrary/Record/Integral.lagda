@@ -122,7 +122,7 @@ instance
   _ : Integral {p = {!!}} ℕ
   _ = record {
     P = {!!};
-    toℤ = {!!};
+    toℤ = Data.Integer.+_;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
     }
