@@ -536,7 +536,7 @@ record LLRD {a} (A : Set a) : Set (Level.suc a) where
              (just (coerce e₀≡elr₁ x))
              (LLR.⊃⌽
                lr₁
-               (coerce (sym olen1≡olen0+) [x])
+               ([x] Function.|> coerce (sym olen1≡olen0+))
                nothing))
 \end{code}
 \end{document}
