@@ -220,7 +220,7 @@ record LL {a} (A : Set a) : Set (Level.suc a)
 \subsection{le fancu}
 
 \subsubsection{la'oi .\F{\AgdaUnderscore∷\AgdaUnderscore}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
+ni'o la .varik.\ cu sorpa'a lo nu banzuka fa le se ctaipe je zo'e
 
 \begin{code}
 infixr 5 _∷_
