@@ -81,6 +81,7 @@ open import Function
 open import Data.Integer
   as ℤ
   using (
+    0ℤ;
     ℤ
   )
 open import Relation.Binary.PropositionalEquality
@@ -122,7 +123,7 @@ instance
 
   _ : Integral ℕ
   _ = record {
-    P = λ z → z ℤ.≥ ℤ.0ℤ;
+    P = λ z → z ℤ.≥ 0ℤ;
     toℤ = ℤ.+_;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
