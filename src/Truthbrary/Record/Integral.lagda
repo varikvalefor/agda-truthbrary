@@ -123,7 +123,7 @@ instance
 
   _ : Integral ℕ
   _ = record {
-    P = λ z → z ℤ.≥ 0ℤ;
+    P = λ z → z ≡ ℤ.+_ (ℤ.∣ z ∣);
     toℤ = ℤ.+_;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
