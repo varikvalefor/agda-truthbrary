@@ -5,6 +5,11 @@ open import Level
   using (
     _⊔_
   )
+open import Function
+  using (
+    _∋_
+  )
+
 record Plos {a b c}
             (A : Set a)
             (B : A → Set b)
@@ -12,6 +17,7 @@ record Plos {a b c}
             Set (a ⊔ b ⊔ c) where
   field
     _+_ : (x : A) → (z : B x) → C x z
+    ⍨! : (x : A) → (z : B x) → {!!}
 
 record Min {a b c}
            (A : Set a)
