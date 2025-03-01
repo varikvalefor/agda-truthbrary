@@ -129,6 +129,7 @@ open import Data.List
 open import Data.Maybe
   using (
     nothing;
+    is-just;
     Maybe;
     maybe;
     just
@@ -540,5 +541,16 @@ instance
   LCVec = record {_++_ = 𝕍._++_}
   LCℕ : LC ℕ ℕ
   LCℕ = record {_++_ = ℕ._+_}
+\end{code}
+
+\section{la'oi .\AgdaRecord{LLR}.}
+
+\begin{code}
+record LLR {a} (A : Set a) : Set (Level.suc a) where
+  field
+    ll : LL A
+    ⊃⌽ : (x : A)
+       → (zm : Maybe $ Σ ℕ $ (LL.l ll x ≡_) ∘ ℕ.suc)
+       → if is-just zm then LL.e ll else Maybe (LL.e ll)
 \end{code}
 \end{document}
