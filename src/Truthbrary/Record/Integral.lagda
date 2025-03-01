@@ -133,7 +133,7 @@ instance
     toℤ∘fromℤ = λ _ d → d
     }
 
-  IntegralFin : {n : ℕ} → Integral {p = {!!}} (Fin n)
+  IntegralFin : {n : ℕ} → Integral {p = zero} (Fin n)
   IntegralFin {n} = record {
     P = λ z → (z ℤ.≥ 0ℤ) × (ℤ.∣ z ∣ Data.Nat.< n );
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
