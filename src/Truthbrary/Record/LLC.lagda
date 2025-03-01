@@ -508,11 +508,29 @@ instance
 \section{la'oi .\AgdaRecord{LLR}.}
 
 \begin{code}
+private
+  coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+  coerce _≡_.refl x = x
+
 record LLR {a} (A : Set a) : Set (Level.suc a) where
   field
     ll : LL A
+    lc : LC A A ⦃ ll ⦄ ⦃ ll ⦄
     ⊃⌽ : (x : A)
        → (zm : Maybe $ Σ ℕ $ (LL.l ll x ≡_) ∘ ℕ.suc)
        → if is-just zm then LL.e ll else Maybe (LL.e ll)
+
+record LLRD {a} (A : Set a) : Set (Level.suc a) where
+  field
+    llr : LLR A
+  ll = LLR.ll llr
+  field
+    ll₀ : LL $ LL.olen ll 0
+    olen1≡olen0+ : LL.olen ll 1 ≡ _
+    lr₁ : LLR $ LL.olen ll 1
+    e₀≡elr₁ : LL.e ll₀ ≡ LL.e (LLR.ll lr₁)
+    [x]⊥ : (x : LL.e ll₀)
+         → let [x] = LL._∷_ ll₀ x (LL.[] ll) in
+           LLR.⊃⌽ lr₁ (coerce (Relation.Binary.PropositionalEquality.sym olen1≡olen0+) [x]) nothing ≡ just (coerce e₀≡elr₁ x)
 \end{code}
 \end{document}
