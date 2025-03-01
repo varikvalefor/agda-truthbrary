@@ -135,7 +135,7 @@ instance
 
   IntegralFin : {n : ℕ} → Integral {p = {!!}} (Fin n)
   IntegralFin {n} = record {
-    P = λ z → (ℤ.∣ z ∣ Data.Nat.≥ 0) × (ℤ.∣ z ∣ Data.Nat.< n );
+    P = λ z → (z ℤ.≥ 0ℤ) × (ℤ.∣ z ∣ Data.Nat.< n );
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
