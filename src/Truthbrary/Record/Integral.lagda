@@ -79,6 +79,7 @@ open import Function
     _∘_
   )
 open import Data.Integer
+  as ℤ
   using (
     ℤ
   )
@@ -121,8 +122,8 @@ instance
 
   _ : Integral ℕ
   _ = record {
-    P = λ z → z Data.Integer.≥ Data.Integer.0ℤ;
-    toℤ = Data.Integer.+_;
+    P = λ z → z ℤ.≥ ℤ.0ℤ;
+    toℤ = ℤ.+_;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
     }
@@ -130,7 +131,7 @@ instance
   _ : {n : ℕ} → Integral {p = {!!}} (Fin n)
   _ = record {
     P = {!!};
-    toℤ = Data.Integer.+_ ∘ Data.Fin.toℕ;
+    toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
     }
