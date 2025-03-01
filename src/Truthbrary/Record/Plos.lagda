@@ -16,7 +16,7 @@ record Plos₁ {a b}
              Set (a ⊔ b) where
   field
     _+_ : (x : A) (z : B) → C x z
-    ⍨! : (x : A) (z : B) → {!!}
+    ⍨! : (x : A) → (z : B) → {!!}
 
 record Plos {a b c}
             (A : Set a)
