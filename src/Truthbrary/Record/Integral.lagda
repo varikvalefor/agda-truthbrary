@@ -108,7 +108,7 @@ instance
   _ = record {
     P = λ x → x ≡ x;
     toℤ = λ x → x;
-    fromℤ = {!!};
+    fromℤ = λ x d → x;
     toℤ∘fromℤ = {!!}
     }
 
