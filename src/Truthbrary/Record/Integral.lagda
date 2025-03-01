@@ -109,7 +109,7 @@ instance
     P = λ x → x ≡ x;
     toℤ = λ x → x;
     fromℤ = λ x d → x;
-    toℤ∘fromℤ = {!!}
+    toℤ∘fromℤ = λ x d → _≡_.refl
     }
 
   _ : Integral {p = {!!}} ℕ
