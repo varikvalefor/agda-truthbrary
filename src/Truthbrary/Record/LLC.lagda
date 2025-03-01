@@ -532,11 +532,12 @@ record LLRD {a} (A : Set a) : Set (Level.suc a) where
     e₀≡elr₁ : LL.e ll₀ ≡ LL.e (LLR.ll lr₁)
     [x]⊥ : (x : LL.e ll₀)
          → let [x] = LL._∷_ ll₀ x (LL.[] ll) in
+           let [x]' = ([x] Function.|> coerce (sym olen1≡olen0+)) in
            (_≡_
              (just (coerce e₀≡elr₁ x))
              (LLR.⊃⌽
                lr₁
-               ([x] Function.|> coerce (sym olen1≡olen0+))
+               [x]'
                nothing))
 \end{code}
 \end{document}
