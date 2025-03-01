@@ -532,7 +532,10 @@ record LLRD {a} (A : Set a) : Set (Level.suc a) where
     [x]⊥ : (x : LL.e ll₀)
          → let [x] = LL._∷_ ll₀ x (LL.[] ll) in
            (_≡_
-             (LLR.⊃⌽ lr₁ (coerce (Relation.Binary.PropositionalEquality.sym olen1≡olen0+) [x]) nothing)
+             (LLR.⊃⌽
+               lr₁
+               (coerce (Relation.Binary.PropositionalEquality.sym olen1≡olen0+) [x])
+               nothing)
              (just (coerce e₀≡elr₁ x)))
 \end{code}
 \end{document}
