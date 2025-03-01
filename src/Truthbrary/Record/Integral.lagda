@@ -66,6 +66,10 @@ open import Level
     zero;
     suc
   )
+open import Data.Fin
+  using (
+    Fin
+  )
 open import Data.Nat
   using (
     ℕ
@@ -116,6 +120,9 @@ instance
     }
 
   _ : Integral {p = {!!}} ℕ
+  _ = {!!}
+
+  _ : {n : ℕ} → Integral {p = {!!}} (Fin n)
   _ = {!!}
 \end{code}
 \end{document}
