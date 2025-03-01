@@ -137,7 +137,7 @@ instance
   IntegralFin {n} = record {
     P = λ z → (z ℤ.≥ 0ℤ) × (ℤ.∣ z ∣ Data.Nat.< n );
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
-    fromℤ = λ z p → Data.Fin.fromℕ< (Data.Product.proj₂ p);
+    fromℤ = λ z p → (Data.Fin.fromℕ< ∘ Data.Product.proj₂) p;
     toℤ∘fromℤ = {!!}
     }
 \end{code}
