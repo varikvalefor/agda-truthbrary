@@ -70,6 +70,10 @@ open import Data.Nat
   using (
     ℕ
   )
+open import Function
+  using (
+    id
+  )
 open import Data.Integer
   using (
     ℤ
@@ -107,7 +111,7 @@ instance
   _ : Integral ℤ
   _ = record {
     P = λ x → x ≡ x;
-    toℤ = λ x → x;
+    toℤ = _;
     fromℤ = λ x d → x;
     toℤ∘fromℤ = λ x d → _≡_.refl
     }
