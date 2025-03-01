@@ -95,4 +95,12 @@ record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
     fromℤ : (z : ℤ) → P z → A
     toℤ∘fromℤ : (z : ℤ) → (p : P z) → z ≡ toℤ (fromℤ z p)
 \end{code}
+
+\section{le'i me'oi .instance.}
+
+\begin{code}
+instance
+  _ : Integral {p = {!!}} ℤ
+  _ = {!!}
+\end{code}
 \end{document}
