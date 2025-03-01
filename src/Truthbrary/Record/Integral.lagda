@@ -126,7 +126,7 @@ instance
     P = λ z → z ≡ ℤ.+_ (ℤ.∣ z ∣);
     toℤ = ℤ.+_;
     fromℤ = λ z refl → ℤ.∣ z ∣;
-    toℤ∘fromℤ = {!!}
+    toℤ∘fromℤ = λ z d → d
     }
 
   _ : {n : ℕ} → Integral {p = {!!}} (Fin n)
