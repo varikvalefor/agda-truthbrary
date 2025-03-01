@@ -126,7 +126,7 @@ instance
   _ : Integral ℤ
   _ = record {
     P = λ x → ⊤;
-    fromℤ = λ x d → x;
+    fromℤ = λ x _ → x;
     toℤ∘fromℤ = λ x d → _≡_.refl
     }
 
