@@ -125,7 +125,7 @@ instance
   _ = record {
     P = λ z → z ≡ ℤ.+_ (ℤ.∣ z ∣);
     toℤ = ℤ.+_;
-    fromℤ = {!!};
+    fromℤ = λ z refl → ℤ.∣ z ∣;
     toℤ∘fromℤ = {!!}
     }
 
