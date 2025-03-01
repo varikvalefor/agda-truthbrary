@@ -127,7 +127,7 @@ instance
   _ = record {
     P = λ x → ⊤;
     fromℤ = λ x _ → x;
-    toℤ∘fromℤ = λ x _ → _≡_.refl
+    toℤ∘fromℤ = λ _ _ → _≡_.refl
     }
 
   _ : Integral ℕ
