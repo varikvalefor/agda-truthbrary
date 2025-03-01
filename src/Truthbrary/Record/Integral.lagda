@@ -76,6 +76,7 @@ open import Data.Nat
   )
 open import Function
   using (
+    _∘_
   )
 open import Data.Integer
   using (
