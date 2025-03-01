@@ -121,7 +121,7 @@ instance
 
   _ : Integral {p = {!!}} ℕ
   _ = record {
-    P = {!!};
+    P = λ z → z Data.Integer.≥ Data.Integer.0ℤ;
     toℤ = Data.Integer.+_;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
