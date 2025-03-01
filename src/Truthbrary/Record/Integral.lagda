@@ -84,6 +84,10 @@ open import Data.Integer
     0ℤ;
     ℤ
   )
+open import Data.Product
+  using (
+    _×_
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     _≡_
@@ -130,8 +134,8 @@ instance
     }
 
   IntegralFin : {n : ℕ} → Integral {p = {!!}} (Fin n)
-  IntegralFin = record {
-    P = {!!};
+  IntegralFin {n} = record {
+    P = λ z → (ℤ.∣ z ∣ Data.Nat.≥ 0) × (ℤ.∣ z ∣ Data.Nat.< n );
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
