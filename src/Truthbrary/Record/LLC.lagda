@@ -508,8 +508,6 @@ instance
 \section{la'oi .\AgdaRecord{LLR}.}
 
 \begin{code}
-private
-
 record LLR {a} (A : Set a) : Set (Level.suc a) where
   field
     ll : LL A
