@@ -9,14 +9,27 @@ open import Function
   using (
     _∋_
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    refl;
+    sym;
+    _≡_
+  )
+
+coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+coerce refl A = A
 
 record Plos₁ {a b}
              (A B : Set a)
              (C : A → B → Set b) :
-             Set (a ⊔ b) where
+             Set (Level.suc a ⊔ Level.suc b) where
   field
     _+_ : (x : A) (z : B) → C x z
-    ⍨! : (x : A) → (z : B) → {!!}
+    ⍨! : (d : A ≡ B)
+       → (x : A)
+       → (z : B)
+       → (dc : C x z ≡ C (coerce {!!} z) (coerce {!!} x))
+       → (x + z) ≡ coerce (sym dc) (coerce {!!} z + coerce {!!} x)
 
 record Plos {a b c}
             (A : Set a)
