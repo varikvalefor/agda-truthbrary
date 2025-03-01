@@ -130,7 +130,7 @@ instance
   _ : {n : ℕ} → Integral {p = {!!}} (Fin n)
   _ = record {
     P = {!!};
-    toℤ = (Data.Integer.+_ ∘ Data.Fin.toℕ);
+    toℤ = Data.Integer.+_ ∘ Data.Fin.toℕ;
     fromℤ = {!!};
     toℤ∘fromℤ = {!!}
     }
