@@ -90,6 +90,7 @@ open import Data.Integer
     ℤ
   )
 open import Data.Product
+  as Σ
   using (
     _×_
   )
@@ -142,7 +143,7 @@ instance
   IntegralFin {n} = record {
     P = λ z → (z ℤ.≥ 0ℤ) × (ℤ.∣ z ∣ Data.Nat.< n );
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
-    fromℤ = λ _ → Data.Fin.fromℕ< ∘ Data.Product.proj₂;
+    fromℤ = λ _ → Data.Fin.fromℕ< ∘ Σ.proj₂;
     toℤ∘fromℤ = {!!}
     }
 \end{code}
