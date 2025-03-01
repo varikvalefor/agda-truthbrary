@@ -66,6 +66,10 @@ open import Level
     zero;
     suc
   )
+open import Data.Nat
+  using (
+    ℕ
+  )
 open import Data.Integer
   using (
     ℤ
@@ -101,6 +105,9 @@ record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
 \begin{code}
 instance
   _ : Integral {p = {!!}} ℤ
+  _ = {!!}
+
+  _ : Integral {p = {!!}} ℕ
   _ = {!!}
 \end{code}
 \end{document}
