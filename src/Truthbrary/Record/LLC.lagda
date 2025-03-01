@@ -509,9 +509,6 @@ instance
 
 \begin{code}
 private
-  ⊃⌽t : ∀ {a b} → {A : Set a} → Maybe A → Set b → Set b
-  ⊃⌽t nothing = Maybe
-  ⊃⌽t (just _) = id
 
 record LLR {a} (A : Set a) : Set (Level.suc a) where
   field
