@@ -120,7 +120,12 @@ instance
     }
 
   _ : Integral {p = {!!}} ℕ
-  _ = {!!}
+  _ = record {
+    P = {!!};
+    toℤ = {!!};
+    fromℤ = {!!};
+    toℤ∘fromℤ = {!!}
+    }
 
   _ : {n : ℕ} → Integral {p = {!!}} (Fin n)
   _ = {!!}
