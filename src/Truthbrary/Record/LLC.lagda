@@ -527,7 +527,7 @@ record LLRD {a} (A : Set a) : Set (Level.suc a) where
   ll = LLR.ll llr
   field
     ll₀ : LL $ LL.olen ll 0
-    olen1≡olen0+ : LL.olen ll 1 ≡ _
+    olen1≡olen0+ : LL.olen ll 1 ≡ LL.olen ll₀ _
     lr₁ : LLR $ LL.olen ll 1
     e₀≡elr₁ : LL.e ll₀ ≡ LL.e (LLR.ll lr₁)
     [x]⊥ : (x : LL.e ll₀)
