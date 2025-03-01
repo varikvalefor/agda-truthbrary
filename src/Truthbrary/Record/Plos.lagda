@@ -28,8 +28,9 @@ record Plos₁ {a b}
     ⍨! : (d : A ≡ B)
        → (x : A)
        → (z : B)
-       → (dc : C x z ≡ C (coerce {!!} z) (coerce {!!} x))
-       → (x + z) ≡ coerce (sym dc) (coerce {!!} z + coerce {!!} x)
+       → let z' = coerce {!!} z in
+         (dc : C x z ≡ C z' (coerce {!!} x))
+       → (x + z) ≡ coerce (sym dc) (z' + coerce {!!} x)
 
 record Plos {a b c}
             (A : Set a)
