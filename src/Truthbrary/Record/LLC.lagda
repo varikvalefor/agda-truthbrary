@@ -228,7 +228,7 @@ _∷_ : ∀ {a} → {A : Set a}
     → LL.e ALL
     → (q : A)
     → LL.olen ALL $ suc $ LL.l ALL q
-_∷_ ⦃ Q ⦄ = LL._∷_ Q
+_∷_ ⦃ K ⦄ = LL._∷_ K
 \end{code}
 
 \subsubsection{la'oi .\F{[]}.}
