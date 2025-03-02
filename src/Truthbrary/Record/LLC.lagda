@@ -434,7 +434,7 @@ instance
     _∷_ = _∷ₗ_;
     vec = Data.Vec.fromList;
     cev = Data.Vec.toList;
-    1↓_ = {!!}}
+    1↓_ = Data.List.drop 1}
   liliString : LL String
   liliString = record {
     e = Char;
