@@ -231,7 +231,7 @@ _∷_ : ∀ {a} → {A : Set a}
     → LL.e ALL
     → (q : A)
     → LL.olen ALL $ suc $ LL.l ALL q
-_∷_ ⦃ Q ⦄ = LL._∷_ Q
+_∷_ ⦃ K ⦄ = LL._∷_ K
 \end{code}
 
 \subsubsection{la'oi .\F{[]}.}
@@ -239,16 +239,14 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 
 \begin{code}
 [] : ∀ {a} → {A : Set a} → ⦃ Q : LL A ⦄ → LL.olen Q 0
-[] ⦃ Q ⦄ = LL.[] Q
+[] ⦃ K ⦄ = LL.[] K
 \end{code}
 
 \subsubsection{la'oi .\F{length}.}
 ni'o la'o zoi.\ \F{length} \B q .zoi.\ nilzilcmi la'oi .\B q.
 
 \begin{code}
-length : ∀ {a} → {A : Set a}
-       → ⦃ LL A ⦄
-       → A → ℕ
+length : ∀ {a} → {A : Set a} → ⦃ LL A ⦄ → A → ℕ
 length ⦃ T ⦄ = LL.l T
 \end{code}
 
