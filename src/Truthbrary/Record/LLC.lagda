@@ -243,9 +243,7 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 ni'o la'o zoi.\ \F{length} \B q .zoi.\ nilzilcmi la'oi .\B q.
 
 \begin{code}
-length : ∀ {a} → {A : Set a}
-       → ⦃ LL A ⦄
-       → A → ℕ
+length : ∀ {a} → {A : Set a} → ⦃ LL A ⦄ → A → ℕ
 length ⦃ T ⦄ = LL.l T
 \end{code}
 
