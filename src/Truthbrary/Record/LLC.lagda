@@ -455,7 +455,6 @@ instance
     vec = id;
     cev = id;
     1↓_ = λ {(_ ∷ᵥ xz) → xz; []ᵥ → []ᵥ}}
-    where
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
