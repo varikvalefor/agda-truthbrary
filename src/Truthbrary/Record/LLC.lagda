@@ -444,7 +444,7 @@ instance
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
     vec = Data.Vec.fromList ∘ Data.String.toList;
     cev = Data.String.fromList ∘ Data.Vec.toList;
-    1↓_ = {!!}}
+    1↓_ = Data.String.fromList ∘ Data.List.drop 1 ∘ Data.String.toList}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
@@ -454,7 +454,10 @@ instance
     _∷_ = _∷ᵥ_;
     vec = id;
     cev = id;
-    1↓_ = {!!}}
+    1↓_ = v↓}
+    where
+    v↓ : Vec A n' → Vec A $ n' ∸ 1
+    v↓ = {!!}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
