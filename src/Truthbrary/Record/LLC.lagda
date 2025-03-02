@@ -464,7 +464,7 @@ instance
     _∷_ = const ℕ.suc;
     vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
     cev = Data.Vec.length;
-    1↓_ = {!!}}
+    1↓_ = 1 ∸_}
 \end{code}
 
 \section{la'oi .\AgdaRecord{LC}.}
