@@ -215,6 +215,7 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     _∷_ : e → (q : A) → olen $ suc $ l q
     vec : (q : A) → Vec e $ l q
     cev : {n : ℕ} → Vec e n → olen n
+    1↓_ : (x : A) → olen $ l x ∸ 1
 \end{code}
 
 \subsection{le fancu}
@@ -467,7 +468,8 @@ instance
     l = lengthₗ;
     _∷_ = _∷ₗ_;
     vec = 𝕍.fromList;
-    cev = 𝕍.toList}
+    cev = 𝕍.toList;
+    1↓_ = 𝕃.drop 1}
   liliString : LL String
   liliString = record {
     e = Char;
@@ -476,7 +478,8 @@ instance
     l = Data.String.length;
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
     vec = 𝕍.fromList ∘ Data.String.toList;
-    cev = Data.String.fromList ∘ 𝕍.toList}
+    cev = Data.String.fromList ∘ 𝕍.toList;
+    1↓_ = Data.String.fromList ∘ 𝕃.drop 1 ∘ Data.String.toList}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {A = A} = record {
     [] = []ᵥ;
@@ -485,16 +488,18 @@ instance
     l = const _;
     _∷_ = _∷ᵥ_;
     vec = id;
-    cev = id}
+    cev = id;
+    1↓_ = λ {(_ ∷ᵥ xz) → xz; []ᵥ → []ᵥ}}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
     olen = const ℕ;
     e = Fin 1;
     l = id;
-    _∷_ = const suc;
-    vec = λ _ → 𝕍.replicate 𝔽.zero;
-    cev = 𝕍.length}
+    _∷_ = const ℕ.suc;
+    vec = λ q → 𝕍.replicate {_} {_} {q} $ 𝔽.fromℕ 0;
+    cev = 𝕍.length;
+    1↓_ = 1 ∸_}
 \end{code}
 
 \section{la'oi .\AgdaRecord{LC}.}
