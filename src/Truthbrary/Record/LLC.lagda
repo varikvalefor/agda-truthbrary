@@ -456,10 +456,6 @@ instance
     cev = id;
     1↓_ = λ {(_ ∷ᵥ xz) → xz; []ᵥ → []ᵥ}}
     where
-    v↓ : ∀ {a} → {A : Set a} → {n : ℕ}
-       → Vec A n
-       → Vec A $ n ∸ 1
-    v↓ = λ {(_ ∷ᵥ xz) → xz; []ᵥ → []ᵥ}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
