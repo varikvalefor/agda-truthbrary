@@ -456,7 +456,9 @@ instance
     cev = id;
     1↓_ = v↓}
     where
-    v↓ : Vec A n' → Vec A $ n' ∸ 1
+    v↓ : ∀ {a} → {A : Set a} → {n : ℕ}
+       → Vec A n
+       → Vec A $ n ∸ 1
     v↓ = {!!}
   liliℕ : LL ℕ
   liliℕ = record {
