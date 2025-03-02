@@ -236,7 +236,7 @@ ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 
 \begin{code}
 [] : ∀ {a} → {A : Set a} → ⦃ Q : LL A ⦄ → LL.olen Q 0
-[] ⦃ Q ⦄ = LL.[] Q
+[] ⦃ K ⦄ = LL.[] K
 \end{code}
 
 \subsubsection{la'oi .\F{length}.}
