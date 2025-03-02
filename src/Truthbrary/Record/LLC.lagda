@@ -454,12 +454,12 @@ instance
     _∷_ = _∷ᵥ_;
     vec = id;
     cev = id;
-    1↓_ = v↓}
+    1↓_ = λ {(_ ∷ᵥ xz) → xz; []ᵥ → []ᵥ}}
     where
     v↓ : ∀ {a} → {A : Set a} → {n : ℕ}
        → Vec A n
        → Vec A $ n ∸ 1
-    v↓ = λ {(x ∷ᵥ xz) → xz; []ᵥ → []ᵥ}
+    v↓ = λ {(_ ∷ᵥ xz) → xz; []ᵥ → []ᵥ}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
