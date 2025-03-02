@@ -459,7 +459,7 @@ instance
     v↓ : ∀ {a} → {A : Set a} → {n : ℕ}
        → Vec A n
        → Vec A $ n ∸ 1
-    v↓ = {!!}
+    v↓ = λ {(x ∷ᵥ xz) → {!!}; []ᵥ → {!!}}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
