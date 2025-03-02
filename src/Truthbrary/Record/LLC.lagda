@@ -193,6 +193,7 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     _∷_ : e → (q : A) → olen $ ℕ.suc $ l q
     vec : (q : A) → Vec e $ l q
     cev : {n : ℕ} → Vec e n → olen n
+    1↓_ : (x : A) → olen $ l x ∸ 1
 \end{code}
 
 \subsection{le fancu}
@@ -432,7 +433,8 @@ instance
     l = lengthₗ;
     _∷_ = _∷ₗ_;
     vec = Data.Vec.fromList;
-    cev = Data.Vec.toList}
+    cev = Data.Vec.toList;
+    1↓_ = {!!}}
   liliString : LL String
   liliString = record {
     e = Char;
@@ -441,7 +443,8 @@ instance
     l = Data.String.length;
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
     vec = Data.Vec.fromList ∘ Data.String.toList;
-    cev = Data.String.fromList ∘ Data.Vec.toList}
+    cev = Data.String.fromList ∘ Data.Vec.toList;
+    1↓_ = {!!}}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
   liliVec {_} {A} {n'} = record {
     [] = []ᵥ;
@@ -450,7 +453,8 @@ instance
     l = const n';
     _∷_ = _∷ᵥ_;
     vec = id;
-    cev = id}
+    cev = id;
+    1↓_ = {!!}}
   liliℕ : LL ℕ
   liliℕ = record {
     [] = 0;
@@ -459,7 +463,8 @@ instance
     l = id;
     _∷_ = const ℕ.suc;
     vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
-    cev = Data.Vec.length}
+    cev = Data.Vec.length;
+    1↓_ = {!!}}
 \end{code}
 
 \section{la'oi .\AgdaRecord{LC}.}
