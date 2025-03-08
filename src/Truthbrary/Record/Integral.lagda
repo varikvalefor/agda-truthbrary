@@ -150,6 +150,7 @@ instance
     fromℤ = λ _ → 𝔽.fromℕ< ∘ Σ.proj₂;
     toℤ∘fromℤ = λ z p → sym $ begin
       ℤ.+ (𝔽.toℕ $ 𝔽.fromℕ< $ Σ.proj₂ p) ≡⟨ {!!} ⟩
+      ℤ.+ ℤ.∣ z ∣ ≡⟨ {!!} ⟩
       z ∎
     }
     where
