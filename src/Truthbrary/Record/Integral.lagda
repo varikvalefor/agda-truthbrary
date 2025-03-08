@@ -67,6 +67,7 @@ open import Level
     suc
   )
 open import Data.Fin
+  as 𝔽
   using (
     Fin
   )
@@ -144,10 +145,10 @@ instance
   IntegralFin : {n : ℕ} → Integral $ Fin n
   IntegralFin {n} = record {
     P = λ z → (z ℤ.≥ 0ℤ) × (ℤ.∣ z ∣ Data.Nat.< n );
-    toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
-    fromℤ = λ _ → Data.Fin.fromℕ< ∘ Σ.proj₂;
+    toℤ = ℤ.+_ ∘ 𝔽.toℕ;
+    fromℤ = λ _ → 𝔽.fromℕ< ∘ Σ.proj₂;
     toℤ∘fromℤ = λ z p → sym $ begin
-      ℤ.+ (Data.Fin.toℕ $ Data.Fin.fromℕ< $ Σ.proj₂ p) ≡⟨ {!!} ⟩
+      ℤ.+ (𝔽.toℕ $ 𝔽.fromℕ< $ Σ.proj₂ p) ≡⟨ {!!} ⟩
       z ∎
     }
     where
