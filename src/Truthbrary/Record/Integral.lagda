@@ -96,7 +96,8 @@ open import Data.Product
   )
 open import Relation.Binary.PropositionalEquality
   using (
-    _≡_
+    _≡_;
+    sym
   )
 \end{code}
 
@@ -145,7 +146,7 @@ instance
     P = λ z → (z ℤ.≥ 0ℤ) × (ℤ.∣ z ∣ Data.Nat.< n );
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
     fromℤ = λ _ → Data.Fin.fromℕ< ∘ Σ.proj₂;
-    toℤ∘fromℤ = λ z p → Relation.Binary.PropositionalEquality.sym $ begin
+    toℤ∘fromℤ = λ z p → sym $ begin
       ℤ.+ (Data.Fin.toℕ $ Data.Fin.fromℕ< $ Σ.proj₂ p) ≡⟨ {!!} ⟩
       z ∎
     }
