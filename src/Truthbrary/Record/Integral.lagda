@@ -107,7 +107,8 @@ ni'o la'oi .\AgdaRecord{Integral}.\ jai filri'a tu'a lo kacna'u co'e
 \begin{itemize}
 	\item ga je la'o zoi.\ \AgdaField{Integral.fromℤ} \B k \B z \B p\ .zoi.\ namcu du la'o zoi.\ \B z\ .zoi.\ gi
 	\item ga je la'o zoi.\ \AgdaField{Integral.P} \B k .zoi.\ co'e gi
-	\item la'o zoi.\ \AgdaField{Integral.toℤ} \B k \B x\ .zoi.\ namcu du la'o zoi.\ \B x\ .zoi.
+	\item ga je la'o zoi.\ \AgdaField{Integral.toℤ} \B k \B x\ .zoi.\ namcu du la'o zoi.\ \B x\ .zoi.\ gi
+        \item la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi tu'a la'o zoi.\ \AgdaField{Integral.toℤ∘fromℤ} \B k\ .zoi.
 \end{itemize}
 
 \begin{code}
