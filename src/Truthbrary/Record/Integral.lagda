@@ -145,7 +145,11 @@ instance
     P = λ z → (z ℤ.≥ 0ℤ) × (ℤ.∣ z ∣ Data.Nat.< n );
     toℤ = ℤ.+_ ∘ Data.Fin.toℕ;
     fromℤ = λ _ → Data.Fin.fromℕ< ∘ Σ.proj₂;
-    toℤ∘fromℤ = {!!}
+    toℤ∘fromℤ = λ z p → begin
+      z ≡⟨ {!!} ⟩
+      ℤ.+ (Data.Fin.toℕ $ Data.Fin.fromℕ< $ Σ.proj₂ p) ∎
     }
+    where
+    open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 \end{document}
