@@ -149,11 +149,15 @@ instance
     toℤ = ℤ.+_ ∘ 𝔽.toℕ;
     fromℤ = λ _ → 𝔽.fromℕ< ∘ Σ.proj₂;
     toℤ∘fromℤ = λ z p → sym $ begin
-      ℤ.+ (𝔽.toℕ $ 𝔽.fromℕ< $ Σ.proj₂ p) ≡⟨ Relation.Binary.PropositionalEquality.cong ℤ.+_ {!!} ⟩
+      ℤ.+ (𝔽.toℕ $ 𝔽.fromℕ< $ Σ.proj₂ p) ≡⟨ Relation.Binary.PropositionalEquality.cong ℤ.+_ (toℕ-fromℕ< $ Σ.proj₂ p) ⟩
       ℤ.+ ℤ.∣ z ∣ ≡⟨ {!!} ⟩
       z ∎
     }
     where
+    open import Data.Fin.Properties
+      using (
+        toℕ-fromℕ<
+      )
     open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 \end{document}
