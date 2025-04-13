@@ -1685,7 +1685,7 @@ module Veritas where
     -1⇒< : (r : ℝ) → signℤ r ≡ ℤ.-[1+ 0 ] → fromℕ 0 > r
     -1⇒< = {!!}
 
-    ≈⇒0 : (r : ℝ) → r ≈ fromℕ 0 → signℤ r ≡ ℤ.+_ 0
+    ≈⇒0 : (r : ℝ) → (_≈ fromℕ 0) r → signℤ r ≡ ℤ.+_ 0
     ≈⇒0 = {!!}
 
     0⇒≈ : (_≡ ℤ.0ℤ) ∘ signℤ ⊆′ _≈ fromℕ 0
