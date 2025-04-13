@@ -1718,7 +1718,7 @@ module Veritas where
     >∧>⇒> : Transitive _>_
     >∧>⇒> = {!!}
 
-    >ℤ⇒> : (r s : ℝ) → ⌊' r ℤ.> ⌊' s → r > s
+    >ℤ⇒> : (r s : ℝ) → (ℤ._>_ on ⌊') r s → r > s
     >ℤ⇒> = {!!}
 
     ℕ> : ℕ._>_ ⇒ (_>_ on fromℕ)
