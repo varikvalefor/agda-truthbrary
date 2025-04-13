@@ -402,12 +402,12 @@ ni'o du la'oi .\B r.\ fa lo sumji be la'o zoi.\ \F{⌊'} \B r\ .zoi.\ bei lo pil
 ⌊' (Sign.- , n , _) = ℤ.- (ℤ.+ n)
 \end{code}
 
-\section{la'o zoi.\ \F{∣⌊'}\ .zoi.}
+\section{la'o zoi.\ \F{⌊|}\ .zoi.}
 ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 
 \begin{code}
-∣⌊' : ℝ → ℕ
-∣⌊' = proj₁ ∘ proj₂
+⌊| : ℝ → ℕ
+⌊| = proj₁ ∘ proj₂
 \end{code}
 
 \section{la'o zoi.\ \F{⌊'⁻¹}\ .zoi.}
