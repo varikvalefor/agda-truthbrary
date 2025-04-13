@@ -1506,7 +1506,11 @@ module Veritas where
         where
         N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡
       √2^2≈2 : (√2 ^ fromℕ 2) ≈ fromℚ 2ℚ
-      √2^2≈2 = {!!}
+      √2^2≈2 = begin
+        (√2 ^ fromℕ 2) ≈⟨ {!!} ⟩
+        fromℚ 2ℚ ∎
+        where
+        open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ∃I[R^R] : (Σ.Σ
                  (_ × _)
