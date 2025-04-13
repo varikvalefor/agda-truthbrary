@@ -1508,11 +1508,15 @@ module Veritas where
       √2^2≈2 : (√2 ^ fromℕ 2) ≈ fromℚ 2ℚ
       √2^2≈2 = begin
         (√2 ^ fromℕ 2) ≈⟨ _≈_.≡⇒≈ refl ⟩
-        ((fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N) ^ fromℕ 2) ≈⟨ {!!} ⟩
+        ((fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N) ^ fromℕ 2) ≈⟨ _≈_.≈⇒≈⍨ $ r≈[r^[1/s]]^s (fromℕ 2) (fromℕ 2) N ⟩
         fromℕ 2 ≈⟨ Fromℕ.fromℕ-fromℚ 2 ⟩
         fromℚ 2ℚ ∎
         where
         N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡
+        r≈[r^[1/s]]^s : (r s : ℝ)
+                      → (N : _)
+                      → r ≈_ $ (r ^ frinu (fromℕ 1) s N) ^ s
+        r≈[r^[1/s]]^s = {!!}
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ∃I[R^R] : (Σ.Σ
