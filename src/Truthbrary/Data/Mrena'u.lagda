@@ -1620,10 +1620,10 @@ module Veritas where
     sign∘fromℤ _ = refl
 \end{code}
 
-\subsection{\lcblm{\F{⌊'⁻¹ℝ}}}
+\subsection{\lcblm{\F{|-[⌊|]ℝ}}}
 
 \begin{code}
-  module ⌊'⁻¹ℝ where
+  module |-[⌊|]ℝ where
     I⇒I[⌊'⁻¹ℝ] : Irrational ⊆ Irrational ∘ |-[⌊|]ℝ
     I⇒I[⌊'⁻¹ℝ] = {!!}
 
