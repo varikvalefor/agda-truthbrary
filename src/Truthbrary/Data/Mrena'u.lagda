@@ -414,8 +414,8 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 ni'o la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'oi .\F ℝ.\ be'o je le velcki be la'o zoi.\ \F{⌊'⁻¹}\ .zoi.
 
 \begin{code}
-⌊'⁻¹ : ℝ → ℕ → Digit 10
-⌊'⁻¹ = proj₂ ∘ proj₂
+|-[⌊|] : ℝ → ℕ → Digit 10
+|-[⌊|] = proj₂ ∘ proj₂
 \end{code}
 
 \section{la'o zoi.\ \F{⌊'⁻¹ℝ}\ .zoi.}
@@ -452,7 +452,7 @@ ni'o la'o zoi.\ \OpF{¯} \B r\ .zoi.\ vujnu li no la'oi .\B r.
 
 \begin{code}
 ¯_ : ℝ → ℝ
-¯_ r = Sign.opposite (sign r) , ℤ.∣ ⌊' r ∣ , ⌊'⁻¹ r
+¯_ r = Sign.opposite (sign r) , ℤ.∣ ⌊' r ∣ , |-[⌊|] r
 \end{code}
 
 \section{la'o zoi.\ \F{fromℝ-}\ .zoi.}
@@ -585,7 +585,7 @@ ni'o cu'alni la'oi .\B r.\ fa la'o zoi.\ \F{∣\AgdaUnderscore{}∣} \B r\ .zoi.
 
 \begin{code}
 ∣_∣ : ℝ → ℝ
-∣_∣ r = fromℝ- Sign.+ ℤ.∣ ⌊' r ∣ $ ⌊'⁻¹ r
+∣_∣ r = fromℝ- Sign.+ ℤ.∣ ⌊' r ∣ $ |-[⌊|] r
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore{}⊓\AgdaUnderscore}\ .zoi.}
@@ -628,7 +628,7 @@ module Veritas where
   module _≈_ where
     ≡∧≗⇒≈ : {r s : ℝ}
           → ⌊' r ≡ ⌊' s
-          → ⌊'⁻¹ r ≗ ⌊'⁻¹ s
+          → |-[⌊|] r ≗ |-[⌊|] s
           → r ≈ s
     ≡∧≗⇒≈ = {!!}
 
@@ -660,12 +660,12 @@ module Veritas where
     9≈ : (r s : ℝ)
        → (i : ℕ)
        → ⌊' r ≡ ⌊' s
-       → ¬_ $ 9F ≡ ⌊'⁻¹ r i
-       → 𝔽.toℕ (⌊'⁻¹ s i) ≡ ℕ.suc (𝔽.toℕ $ ⌊'⁻¹ r i)
+       → ¬_ $ 9F ≡ |-[⌊|] r i
+       → 𝔽.toℕ (|-[⌊|] s i) ≡ ℕ.suc (𝔽.toℕ $ |-[⌊|] r i)
        → (_ : (i' : Fin $ i ℕ.+ 1)
             → let i'' = 𝔽.toℕ i' in
-              ⌊'⁻¹ r i'' ≡ ⌊'⁻¹ s i'')
-       → ((n : ℕ) → ⌊'⁻¹ r (1 ℕ.+ n ℕ.+ i) ≡ 9F)
+              |-[⌊|] r i'' ≡ |-[⌊|] s i'')
+       → ((n : ℕ) → |-[⌊|] r (1 ℕ.+ n ℕ.+ i) ≡ 9F)
        → r ≈ s
     9≈ = {!!}
 
@@ -699,7 +699,7 @@ module Veritas where
     r-s≈0⇒r≈s = {!!}
 
     ¬[r≈s⇒fr≈fs] : ¬ ((f : ℝ → ℝ) → _≈_ ⇒ (_≈_ on f))
-    ¬[r≈s⇒fr≈fs] = ∃⇒¬¬ $ (from𝔽 ∘ (⌊'⁻¹ ⍨) 5) , {!!}
+    ¬[r≈s⇒fr≈fs] = ∃⇒¬¬ $ (from𝔽 ∘ (|-[⌊|] ⍨) 5) , {!!}
       where
       ∃⇒¬¬ : ∀ {a b} → {A : Set a} → {B : A → Set b}
            → ∃ $ ¬_ ∘ B
@@ -720,7 +720,7 @@ module Veritas where
     ℤ+_≡⌊'∘fromℕ : ℤ.+_ ≗ (⌊' ∘ fromℕ)
     ℤ+_≡⌊'∘fromℕ _ = refl
 
-    ⌊'⁻¹fromℕ≡0 : (m n : ℕ) → 𝔽.zero ≡ ⌊'⁻¹ (fromℕ m) n
+    ⌊'⁻¹fromℕ≡0 : (m n : ℕ) → 𝔽.zero ≡ |-[⌊|] (fromℕ m) n
     ⌊'⁻¹fromℕ≡0 _ _ = refl
 
     ℕ≡⇒fromℕ≈ : _≡_ ⇒ (_≈_ on fromℕ)
@@ -805,7 +805,7 @@ module Veritas where
     id≡sign∘from𝔻⍨ : (s : _) → id ≗ (sign ∘ _⍨ from𝔻 s)
     id≡sign∘from𝔻⍨ _ _ = refl
 
-    id≡⌊'⁻¹∘from𝔻s : (s : Sign) → id ≗ ⌊'⁻¹ ∘ from𝔻 s
+    id≡⌊'⁻¹∘from𝔻s : (s : Sign) → id ≗ |-[⌊|] ∘ from𝔻 s
     id≡⌊'⁻¹∘from𝔻s _ _ = refl
 
     0≡⌊'[from𝔻] : (s : Sign) → const ℤ.0ℤ ≗ ⌊' ∘ from𝔻 s
@@ -824,7 +824,7 @@ module Veritas where
 
     r>0⇒¯r≈¯r : (r : ℝ)
               → r > fromℕ 0
-              → ¯_ r ≈ fromℝ- Sign.- ℤ.∣ ⌊' r ∣ (⌊'⁻¹ r)
+              → ¯_ r ≈ fromℝ- Sign.- ℤ.∣ ⌊' r ∣ (|-[⌊|] r)
     r>0⇒¯r≈¯r = {!!}
 
     r<0⇒¯r≈∣r∣ : fromℕ 0 >_ ⊆′ (λ r → ¯_ r ≈ ∣ r ∣)
@@ -1125,10 +1125,10 @@ module Veritas where
            → (_≈_
                (r * fromℕ 10)
                (_+_
-                 (sign r , 0 , ⌊'⁻¹ r ∘ ℕ.suc)
+                 (sign r , 0 , |-[⌊|] r ∘ ℕ.suc)
                  (fromℤ $ ℤ._+_
                    (⌊' r ℤ.* ℤ.+ 10)
-                   (signℤ r ℤ.*_ $ ℤ.+_ $ 𝔽.toℕ $ ⌊'⁻¹ r 0))))
+                   (signℤ r ℤ.*_ $ ℤ.+_ $ 𝔽.toℕ $ |-[⌊|] r 0))))
     r*10≈_ = {!!}
 
     r*s>r : (r s : ℝ) → r > fromℕ 0 → s > fromℕ 1 → (r * s) > r
@@ -1589,10 +1589,10 @@ module Veritas where
 
 \begin{code}
   module ⌊' where
-    fromℤ∘⌊' : (r : ℝ) → ⌊'⁻¹ r ≗ const 𝔽.zero → r ≡ fromℤ (⌊' r)
+    fromℤ∘⌊' : (r : ℝ) → |-[⌊|] r ≗ const 𝔽.zero → r ≡ fromℤ (⌊' r)
     fromℤ∘⌊' = {!!}
 
-    fromℤ∘⌊'' : (r : ℝ) → r ≡ fromℤ (⌊' r) → ⌊'⁻¹ r ≗ const 𝔽.zero
+    fromℤ∘⌊'' : (r : ℝ) → r ≡ fromℤ (⌊' r) → |-[⌊|] r ≗ const 𝔽.zero
     fromℤ∘⌊'' = {!!}
 
     ⌊'∘fromℤ : (z : ℤ) → z ≡ (⌊' ∘ fromℤ) z
