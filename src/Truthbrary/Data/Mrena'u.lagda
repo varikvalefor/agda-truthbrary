@@ -419,7 +419,7 @@ ni'o la'o zoi.\ \F{|-[⌊|]} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glib
 \end{code}
 
 \section{la'o zoi.\ \F{⌊'⁻¹ℝ}\ .zoi.}
-ni'o la'o zoi.\ \F{⌊'⁻¹ℝ} \B r\ .zoi.\ namcu du la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.
+ni'o la'o zoi.\ \F{⌊'⁻¹ℝ} \B r\ .zoi.\ namcu du la'o zoi.\ \F{|-[⌊|]} \B r\ .zoi.
 
 \begin{code}
 ⌊'⁻¹ℝ : ℝ → ℝ
