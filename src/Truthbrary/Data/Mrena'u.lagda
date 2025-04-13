@@ -1750,6 +1750,13 @@ module Veritas where
           → r > s
     +r>-s = {!!}
 
+    r>s⇒r'>s' : (r s r' s' : ℝ)
+              → r > s
+              → r ≈ r'
+              → s ≈ s'
+              → r' > s'
+    r>s⇒r'>s' = {!!}
+
     jonais : (r s : ℝ) → (r > s) ⊎ (r < s) ⊎ (r ≈ s)
     jonais = {!!}
 \end{code}
