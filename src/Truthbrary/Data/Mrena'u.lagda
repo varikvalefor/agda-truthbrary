@@ -1484,6 +1484,11 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
+    r≈[r^[1/s]]^s : (r s : ℝ)
+                  → (N : _)
+                  → r ≈_ $ (r ^ frinu (fromℕ 1) s N) ^ s
+    r≈[r^[1/s]]^s = {!!}
+
     R[R^ℕ] : (r : ℝ) → (n : ℕ) → Rational r → Rational $ r ^ fromℕ n
     R[R^ℕ] r 0 R = _,_ ℚ.1ℚ $ begin
       r ^ fromℕ 0 ≈⟨ 1≡r^0 r _ _≈_.r≈r ▹ sym ▹ _≈_.≡⇒≈ ⟩
@@ -1514,10 +1519,6 @@ module Veritas where
         fromℚ 2ℚ ∎
         where
         N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡
-        r≈[r^[1/s]]^s : (r s : ℝ)
-                      → (N : _)
-                      → r ≈_ $ (r ^ frinu (fromℕ 1) s N) ^ s
-        r≈[r^[1/s]]^s = {!!}
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ∃I[R^R] : (Σ.Σ
