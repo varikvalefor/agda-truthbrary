@@ -410,8 +410,8 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 ⌊| = proj₁ ∘ proj₂
 \end{code}
 
-\section{la'o zoi.\ \F{⌊'⁻¹}\ .zoi.}
-ni'o la'o zoi.\ \F{⌊'⁻¹} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'oi .\F ℝ.\ be'o je le velcki be la'o zoi.\ \F{⌊'⁻¹}\ .zoi.
+\section{la'o zoi.\ \F{|-[⌊|]}\ .zoi.}
+ni'o la'o zoi.\ \F{|-[⌊|]} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glibau.\ co'e la'oi .\B r.  .i la .varik.\ cu stidi lo nu lo na jimpe cu tcidu le velcki be la'oi .\F ℝ.\ be'o je le velcki be la'o zoi.\ \F{|-[⌊|]}\ .zoi.
 
 \begin{code}
 |-[⌊|] : ℝ → ℕ → Digit 10
