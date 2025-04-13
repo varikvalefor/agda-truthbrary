@@ -418,12 +418,12 @@ ni'o la'o zoi.\ \F{|-[⌊|]} \B r\ .zoi.\ mu'oi glibau.\ decimal expansion .glib
 |-[⌊|] = proj₂ ∘ proj₂
 \end{code}
 
-\section{la'o zoi.\ \F{⌊'⁻¹ℝ}\ .zoi.}
-ni'o la'o zoi.\ \F{⌊'⁻¹ℝ} \B r\ .zoi.\ namcu du la'o zoi.\ \F{|-[⌊|]} \B r\ .zoi.
+\section{la'o zoi.\ \F{|-[⌊|]ℝ}\ .zoi.}
+ni'o la'o zoi.\ \F{|-[⌊|]ℝ} \B r\ .zoi.\ namcu du la'o zoi.\ \F{|-[⌊|]} \B r\ .zoi.
 
 \begin{code}
-⌊'⁻¹ℝ : ℝ → ℝ
-⌊'⁻¹ℝ (s , _ , r) = s , 0 , r
+|-[⌊|]ℝ : ℝ → ℝ
+|-[⌊|]ℝ (s , _ , r) = s , 0 , r
 \end{code}
 
 \section{la'oi .\F{sign}.}
@@ -896,10 +896,10 @@ module Veritas where
                   N r × N s
     dratadratas = {!!}
 
-    r≡⌊'r+⌊'⁻¹r : (r : ℝ) → r ≡ fromℤ (⌊' r) + ⌊'⁻¹ℝ r
+    r≡⌊'r+⌊'⁻¹r : (r : ℝ) → r ≡ fromℤ (⌊' r) + |-[⌊|]ℝ r
     r≡⌊'r+⌊'⁻¹r = {!!}
 
-    r≡⌊'⁻¹r+⌊'r : id ≗ (λ r → ⌊'⁻¹ℝ r + fromℤ (⌊' r))
+    r≡⌊'⁻¹r+⌊'r : id ≗ (λ r → |-[⌊|]ℝ r + fromℤ (⌊' r))
     r≡⌊'⁻¹r+⌊'r = {!!}
 
     r≡f+z : (s : Sign)
@@ -1599,7 +1599,7 @@ module Veritas where
     ⌊'∘fromℤ = λ {(ℤ.+ z) → refl; ℤ.-[1+ z ] → refl}
 
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
-    ∃f≡ r = ⌊'⁻¹ℝ r , _+_.r≡⌊'⁻¹r+⌊'r _
+    ∃f≡ r = |-[⌊|]ℝ r , _+_.r≡⌊'⁻¹r+⌊'r _
 
     sign∘fromℤ : ℤ.sign ≗ (sign ∘ fromℤ)
     sign∘fromℤ _ = refl
@@ -1609,27 +1609,27 @@ module Veritas where
 
 \begin{code}
   module ⌊'⁻¹ℝ where
-    I⇒I[⌊'⁻¹ℝ] : Irrational ⊆ Irrational ∘ ⌊'⁻¹ℝ
+    I⇒I[⌊'⁻¹ℝ] : Irrational ⊆ Irrational ∘ |-[⌊|]ℝ
     I⇒I[⌊'⁻¹ℝ] = {!!}
 
-    I[⌊'⁻¹ℝ]⇒I : Irrational ∘ ⌊'⁻¹ℝ ⊆ Irrational
+    I[⌊'⁻¹ℝ]⇒I : Irrational ∘ |-[⌊|]ℝ ⊆ Irrational
     I[⌊'⁻¹ℝ]⇒I = {!!}
 
-    R⇒R[⌊'⁻¹ℝ] : Rational ⊆ Rational ∘ ⌊'⁻¹ℝ
+    R⇒R[⌊'⁻¹ℝ] : Rational ⊆ Rational ∘ |-[⌊|]ℝ
     R⇒R[⌊'⁻¹ℝ] = {!!}
 
-    R[⌊'⁻¹ℝ]⇒R : (r : ℝ) → Rational $ ⌊'⁻¹ℝ r → Rational r
+    R[⌊'⁻¹ℝ]⇒R : (r : ℝ) → Rational $ |-[⌊|]ℝ r → Rational r
     R[⌊'⁻¹ℝ]⇒R = {!!}
 
-    ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ ⌊'⁻¹ℝ
+    ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ |-[⌊|]ℝ
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ _ = refl
 
-    ⌊'⁻¹ℝ∘fromℕ : (n : ℕ) → ⌊'⁻¹ℝ (fromℕ n) ≈ fromℕ 0
+    ⌊'⁻¹ℝ∘fromℕ : (n : ℕ) → |-[⌊|]ℝ (fromℕ n) ≈ fromℕ 0
     ⌊'⁻¹ℝ∘fromℕ = {!!}
 
     from𝔻s≡⌊'⁻¹ℝ∘from𝔻s : (s : Sign)
                         → (f : ℕ → Digit 10)
-                        → from𝔻 s f ≡ ⌊'⁻¹ℝ (from𝔻 s f)
+                        → from𝔻 s f ≡ |-[⌊|]ℝ (from𝔻 s f)
     from𝔻s≡⌊'⁻¹ℝ∘from𝔻s _ _ = refl
 \end{code}
 
@@ -1731,7 +1731,7 @@ module Veritas where
     ℚ> = {!!}
 
     >F∧≥ℤ⇒> : (r s : ℝ)
-            → ⌊'⁻¹ℝ r > ⌊'⁻¹ℝ s
+            → |-[⌊|]ℝ r > |-[⌊|]ℝ s
             → ⌊' r ℤ.≥ ⌊' s
             → r > s
     >F∧≥ℤ⇒> = {!!}
