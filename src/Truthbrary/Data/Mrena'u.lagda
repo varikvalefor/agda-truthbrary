@@ -1694,7 +1694,9 @@ module Veritas where
     jonais : (r : ℝ)
            → let s = signℤ r ≡_ in
              s ℤ.0ℤ ⊎ s ℤ.1ℤ ⊎ s ℤ.-[1+ 0 ]
-    jonais = {!!}
+    jonais r with sign r
+    ... | Sign.+ = {!!}
+    ... | Sign.- = {!!}
 \end{code}
 
 \subsection{\lcblm{\F{\AgdaUnderscore{}>\AgdaUnderscore}}}
