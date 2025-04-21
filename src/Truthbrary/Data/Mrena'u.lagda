@@ -1401,9 +1401,8 @@ module Veritas where
 
     R[ℤ/ℕ] : (z : ℤ)
            → (n : ℕ)
-           → (N : _)
-           → Rational $ frinu (fromℤ z) (fromℕ n) N
-    R[ℤ/ℕ] z n N = (ℚ._/_ z n {{!!}}) , {!!}
+           → Rational $ frinu (fromℤ z) (fromℕ $ ℕ.suc n) {!!}
+    R[ℤ/ℕ] z n = (ℚ._/_ z (ℕ.suc n) {{!!}}) , {!!}
 
     R[ℚ/ℕ] : (k : ℚ)
            → (n : ℕ)
