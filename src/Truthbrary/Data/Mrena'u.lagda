@@ -1518,7 +1518,7 @@ module Veritas where
         N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡
       √2^2≈2 : (√2 ^ fromℕ 2) ≈ fromℚ 2ℚ
       √2^2≈2 = begin
-        (√2 ^ fromℕ 2) ≈⟨ _≈_.≡⇒≈ refl ⟩
+        (√2 ^ fromℕ 2) ≈⟨ _≈_.r≈r ⟩
         ((fromℕ 2 ^ frinu (fromℕ 1) _ N) ^ fromℕ 2) ≈⟨ _≈_.r≈r ⟩
         _ ≈⟨ r≈[r^[1/s]]^s (fromℕ 2) _ N ▹ _≈_.≈⇒≈⍨ ⟩
         fromℕ 2 ≈⟨ Fromℕ.fromℕ-fromℚ 2 ⟩
