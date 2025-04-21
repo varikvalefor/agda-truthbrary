@@ -1507,7 +1507,7 @@ module Veritas where
     R[R^ℕ] r (ℕ.suc n) R = proj₁ R ℚ.* proj₁ (R[R^ℕ] _ n R) , {!!}
 
     ∃R[I^R] : (Σ.Σ
-                 (ℝ × ℝ)
+                 (ℝ × _)
                  (λ (r , s) → (Irrational r × Rational s) × Rational (r ^ s)))
     ∃R[I^R] = (√2 , fromℕ 2) , ({!!} , R[ℕ] 2) , 2ℚ , √2^2≈2
       where
