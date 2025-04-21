@@ -1405,7 +1405,7 @@ module Veritas where
     R[ℤ/ℕ] : (z : ℤ)
            → (n : ℕ)
            → let N = Fromℕ.fromℕ[s]≉0 n in
-             (Rational (frinu (fromℤ z) (fromℕ $ ℕ.suc n) (N)))
+             Rational (frinu (fromℤ z) (fromℕ $ ℕ.suc n) (N))
     R[ℤ/ℕ] z n = (z ℚ./ ℕ.suc n) , _≈_.≈⇒≈⍨ (ℚ/' z n)
 
     R[ℚ/ℕ] : (k : ℚ)
