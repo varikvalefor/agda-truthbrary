@@ -1610,7 +1610,7 @@ module Veritas where
     fromℤ∘⌊'' : (r : ℝ) → r ≡ fromℤ (⌊' r) → |-[⌊|] r ≗ const 𝔽.zero
     fromℤ∘⌊'' = {!!}
 
-    ⌊'∘fromℤ : (z : ℤ) → z ≡ (⌊' ∘ fromℤ) z
+    ⌊'∘fromℤ : (z : ℤ) → id z ≡ (⌊' ∘ fromℤ) z
     ⌊'∘fromℤ = λ {(ℤ.+ z) → refl; ℤ.-[1+ z ] → refl}
 
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
