@@ -1344,7 +1344,7 @@ module Veritas where
 
     r/s≈r/s : (r s : ℝ)
             → (N₁ N₂ : _)
-            → ((_≈_ on frinu r s) (N₁) (N₂))
+            → (_≈_ on frinu r s) (N₁) (N₂)
     r/s≈r/s = {!!}
 
     ℕ/ : (m n : ℕ)
