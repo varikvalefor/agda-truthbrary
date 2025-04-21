@@ -1633,7 +1633,7 @@ module Veritas where
     R⇒R[⌊'⁻¹ℝ] : Rational ⊆ Rational ∘ |-[⌊|]ℝ
     R⇒R[⌊'⁻¹ℝ] = {!!}
 
-    R[⌊'⁻¹ℝ]⇒R : (r : ℝ) → (Rational ∘ |-[⌊|]ℝ) r → Rational r
+    R[⌊'⁻¹ℝ]⇒R : (Rational ∘ |-[⌊|]ℝ) ⊆′ Rational
     R[⌊'⁻¹ℝ]⇒R = {!!}
 
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ |-[⌊|]ℝ
