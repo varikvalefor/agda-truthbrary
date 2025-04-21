@@ -1386,10 +1386,12 @@ module Veritas where
             (fromℚ $ z ℚ./ ℕ.suc n)
             (frinu (fromℤ z) (fromℕ _) $ Fromℕ.fromℕ[s]≉0 n))
     ℚ/' z n = begin
-      fromℚ (z ℚ./ ℕ.suc n) ≈⟨ {!!} ▹ _≈_.≡⇒≈ ⟩
+      fromℚ (z ℚ./ ℕ.suc n) ≈⟨ k ▹ Relation.Binary.PropositionalEquality.cong fromℚ ▹ _≈_.≡⇒≈ ⟩
       fromℚ (ℚ.fromℤ z ℚ.÷ (ℚ.fromℤ $ ℤ.+ ℕ.suc n)) ≈⟨ {!!} ⟩
       frinu (fromℤ z) (fromℕ $ ℕ.suc n) (Fromℕ.fromℕ[s]≉0 n) ∎
       where
+      k : z ℚ./ ℕ.suc n ≡ ℚ.fromℤ z ℚ.÷ (ℚ.fromℤ $ ℤ.+ ℕ.suc n)
+      k = {!!}
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     R[ℕ/ℕ] : (m n : ℕ)
