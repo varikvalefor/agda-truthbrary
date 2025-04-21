@@ -1403,7 +1403,7 @@ module Veritas where
            → (n : ℕ)
            → (N : _)
            → Rational $ frinu (fromℤ z) (fromℕ n) N
-    R[ℤ/ℕ] z n N = ({!!} ℚ.÷ {!!}) , {!!}
+    R[ℤ/ℕ] z n N = (ℚ.fromℤ z ℚ.÷ {!!}) , {!!}
 
     R[ℚ/ℕ] : (k : ℚ)
            → (n : ℕ)
