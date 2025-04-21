@@ -1384,7 +1384,10 @@ module Veritas where
         → (n : ℕ)
         → (_≈_
             (fromℚ $ z ℚ./ ℕ.suc n)
-            (frinu (fromℤ z) (fromℕ $ ℕ.suc n) (Fromℕ.fromℕ[s]≉0 n)))
+            (frinu
+              (fromℤ z)
+              (fromℕ $ ℕ.suc n)
+              (Fromℕ.fromℕ[s]≉0 n)))
     ℚ/' z n = begin
       fromℚ (z ℚ./ ℕ.suc n) ≈⟨ {!!} ⟩
       fromℚ (ℚ.fromℤ z ℚ.÷ (ℚ.fromℤ $ ℤ.+ ℕ.suc n)) ≈⟨ {!!} ⟩
