@@ -910,7 +910,7 @@ module Veritas where
     ℕ+ : (m n : ℕ) → fromℕ m + fromℕ n ≡ fromℕ (m ℕ.+ n)
     ℕ+ = {!!}
 
-    ℤ+ : (x z : ℤ) → fromℤ x + fromℤ z ≡ fromℤ (x ℤ.+ z)
+    ℤ+ : (_+_ on fromℤ) ≗₂ (fromℤ ∘₂ ℤ._+_)
     ℤ+ = {!!}
 
     ℚ+ : (k l : ℚ) → fromℚ k + fromℚ l ≡ fromℚ (k ℚ.+ l)
