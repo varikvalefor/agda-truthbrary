@@ -1896,7 +1896,7 @@ module Veritas where
         g₁ {s} d₁ d₂ = begin
           ∣ r ∣ ≈⟨ {!!} ⟩
           r ≈⟨ d₁ ⟩
-          s ≈⟨ {!!} ⟩
+          s ≈⟨ +r≡∣+r∣ s d₂ ▹ _≈_.≡⇒≈ ⟩
           ∣ s ∣ ∎
           where
           open import Relation.Binary.Reasoning.Setoid _≈_.setoid
