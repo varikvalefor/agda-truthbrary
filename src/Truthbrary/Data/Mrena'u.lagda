@@ -2127,6 +2127,8 @@ module Veritas where
       ℚ.mkℚ z 0 _ ∎
       where
       open ≡-Reasoning
+      -- ^ ni'o la'oi .begin_. jai sarcu na ku'i je cu jai
+      -- filri'a lo nu binxo pe'a
 \end{code}
 
 \section{le ctaipe be le su'u me'oi .group.\ Coke sumji joi co'e}
