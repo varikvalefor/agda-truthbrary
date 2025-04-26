@@ -1763,6 +1763,9 @@ module Veritas where
     r<r+s : (r s : ℝ) → s > fromℕ 0 → r < (r + s)
     r<r+s = {!!}
 
+    s<r+s : (r s : ℝ) → r > fromℕ 0 → s < (r + s)
+    s<r+s = {!!}
+
     +r>-s : {r s : ℝ}
           → sign r ≡ Sign.+
           → sign s ≡ Sign.-
