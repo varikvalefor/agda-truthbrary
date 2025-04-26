@@ -1896,6 +1896,7 @@ module Veritas where
         g₁ {s} d₁ d₂ = begin
           ∣ r ∣ ≈⟨ s[r]≡-⇒¯r≡∣r∣ r ds ▹ _≈_.≡⇒≈ ▹ _≈_.≈⇒≈⍨ ⟩
           ¯_ r ≈⟨ {!!} ⟩
+          fromℕ 0 ≈⟨ {!!} ⟩
           ¯_ s ≈⟨ {!!} ⟩
           ∣ s ∣ ∎
           where
@@ -1910,7 +1911,7 @@ module Veritas where
           open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ∣fromℚ[k]∣≈fromℚ[∣k∣] : (k : ℚ) → ∣ fromℚ k ∣ ≈ fromℚ ℚ.∣ k ∣
-    ∣fromℚ[k]∣≈fromℚ[∣k∣] k@(ℚ.mkℚ (ℤ.pos m) n c) = begin
+    ∣fromℚ[k]∣≈fromℚ[∣k∣] k@(ℚ.mkℚ (ℤ.+ m) n c) = begin
       ∣ fromℚ k ∣ ≈⟨ _≈_.r≈r ⟩
       ∣ fromℚ $ ℚ.mkℚ (ℤ.pos m) n c ∣ ≈⟨ _≈_.r≈r ⟩
       ∣ frinu (fromℤ $ ℤ.+ m) (fromℕ $ ℕ.suc n) N ∣ ≈⟨ _≈_.r≈r ⟩
