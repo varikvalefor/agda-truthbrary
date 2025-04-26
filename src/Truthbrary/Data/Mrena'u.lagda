@@ -1780,7 +1780,7 @@ module Veritas where
     r>s⇒r'>s' = {!!}
 
     s<r+s : (r s : ℝ) → r > fromℕ 0 → s < (r + s)
-    s<r+s r s x = r>s⇒r'>s' _ s _ s (r<r+s s r x) (_+_.+≈+⍨ s r) _≈_.r≈r
+    s<r+s r s z = r>s⇒r'>s' _ s _ s (r<r+s s r z) (_+_.+≈+⍨ s r) _≈_.r≈r
 
     jonais : (r s : ℝ) → (r > s) ⊎ (r < s) ⊎ (r ≈ s)
     jonais = {!!}
