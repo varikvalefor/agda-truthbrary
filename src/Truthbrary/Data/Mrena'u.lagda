@@ -1898,6 +1898,7 @@ module Veritas where
           ¯_ r ≈⟨ {!!} ⟩
           fromℕ 0 ≈⟨ {!!} ⟩
           ¯_ s ≈⟨ {!!} ⟩
+          s ≈⟨ {!!} ⟩
           ∣ s ∣ ∎
           where
           open import Relation.Binary.Reasoning.Setoid _≈_.setoid
@@ -2080,8 +2081,8 @@ module Veritas where
       cong = Relation.Binary.PropositionalEquality.cong
 
     ⊓-sel : Algebra.Selective _≡_ _⊓_
-    ⊓-sel r s with _≥_.jonais r s
-    ... | x = _⊎_.[_,_]′ (inj₂ ∘ sym ∘ ≥⇒2) (inj₁ ∘ sym ∘ <⇒1 _ s) x
+    ⊓-sel r s = let x = _≥_.jonais r s in
+      _⊎_.[_,_]′ (inj₂ ∘ sym ∘ ≥⇒2) (inj₁ ∘ sym ∘ <⇒1 _ s) x
 
     id≈⊓⍨ : Algebra.Idempotent _≈_ _⊓_
     id≈⊓⍨ _ = _≈_.≈⇒≈⍨ $ ≈⇒1 _≈_.r≈r
