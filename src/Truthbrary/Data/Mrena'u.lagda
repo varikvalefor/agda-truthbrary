@@ -1894,7 +1894,7 @@ module Veritas where
         where
         g₁ : {s : ℝ} → r ≈ s → sign s ≡ Sign.+ → ∣ r ∣ ≈ ∣ s ∣
         g₁ {s} d₁ d₂ = begin
-          ∣ r ∣ ≈⟨ {!!} ⟩
+          ∣ r ∣ ≈⟨ s[r]≡-⇒¯r≡∣r∣ r ds ▹ _≈_.≡⇒≈ ▹ _≈_.≈⇒≈⍨ ⟩
           ¯_ r ≈⟨ {!!} ⟩
           ¯_ s ≈⟨ {!!} ⟩
           ∣ s ∣ ∎
