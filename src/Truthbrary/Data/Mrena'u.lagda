@@ -1548,7 +1548,7 @@ module Veritas where
     R[R^r] = {!!}
 
     I[2^[1/2]] : let 2≉0 = ((¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡) in
-                 (Irrational $
+                 (Irrational
                    (fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) 2≉0))
     I[2^[1/2]] = proj₁ $ proj₁ $ proj₂ ∃R[I^R]
 
