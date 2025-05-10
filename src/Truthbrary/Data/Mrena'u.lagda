@@ -1623,7 +1623,12 @@ module Veritas where
       open ≡-Reasoning
 
     fromℤ∘⌊'' : (r : ℝ) → r ≡ fromℤ (⌊' r) → |-[⌊|] r ≗ const 𝔽.zero
-    fromℤ∘⌊'' = {!!}
+    fromℤ∘⌊'' = λ r d i → begin
+      |-[⌊|] r i ≡⟨ {!!} ⟩
+      𝔽.zero ∎
+      where
+      open import Relation.Binary.PropositionalEquality
+      open ≡-Reasoning
 
     ⌊'∘fromℤ : id ≗ (⌊' ∘ fromℤ)
     ⌊'∘fromℤ = λ {(ℤ.+ z) → refl; ℤ.-[1+ z ] → refl}
