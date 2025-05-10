@@ -1615,6 +1615,7 @@ module Veritas where
     fromℤ∘⌊' = λ r d → begin
       r ≡⟨ {!!} ⟩
       fromℤ (⌊' r) + from𝔻 (sign r) (|-[⌊|] r) ≡⟨ {!!} ⟩
+      fromℤ (⌊' r) + fromℕ 0 ≡⟨ {!!} ⟩
       fromℤ (⌊' r) ∎
       where
       open import Relation.Binary.PropositionalEquality
