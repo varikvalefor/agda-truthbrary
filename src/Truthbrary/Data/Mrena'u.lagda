@@ -1631,7 +1631,7 @@ module Veritas where
       open ≡-Reasoning
 
     ⌊'∘fromℤ : id ≗ (⌊' ∘ fromℤ)
-    ⌊'∘fromℤ = λ {(ℤ.+ z) → refl; ℤ.-[1+ z ] → refl}
+    ⌊'∘fromℤ = λ {(ℤ.+ _) → refl; ℤ.-[1+ z ] → refl}
 
     ∃f≡ : (r : ℝ) → ∃ $ _≡_ r ∘ _+ fromℤ (⌊' r)
     ∃f≡ r = |-[⌊|]ℝ r , _+_.r≡⌊'⁻¹r+⌊'r _
