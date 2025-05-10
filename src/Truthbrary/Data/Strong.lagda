@@ -91,7 +91,7 @@
 \maketitle
 
 \begin{abstract}
-ni'o skicu bau la'oi .Agda.\ fe ko'a goi la'oi .\AgdaFunction{Strong}.\ noi ke'a smimlu ko'e goi la'o zoi.\ \AgdaPostulate{Data.String.String}\ .zoi.\ po la'o zoi.\ agda-stdlib .zoi.\ je ku'i cu zmadu fi le ka ce'u jai filri'a tu'a lo ctaipe\ldots ku'o ge'u je lo fancu pe ko'a\sds  .i troci lo nu frili fa lo nu basygau pe'a lo ctaipe pe ko'e lo ctaipe pe ko'a
+ni'o skicu bau la'oi .Agda.\ fe ko'a goi la'oi .\F{Strong}.\ noi ke'a smimlu ko'e goi la'o zoi.\ \AgdaPostulate{Data.String.String}\ .zoi.\ po la'o zoi.\ agda-stdlib .zoi.\ je ku'i cu zmadu fi le ka ce'u jai filri'a tu'a lo ctaipe\ldots ku'o ge'u je lo fancu pe ko'a\sds  .i troci lo nu frili fa lo nu basygau pe'a lo ctaipe pe ko'e lo ctaipe pe ko'a
 \end{abstract}
 
 \section{le vrici}
@@ -130,8 +130,8 @@ open import Truthbrary.Data.List.Split
 import Data.String as 𝕊
 \end{code}
 
-\section{la'oi .\AgdaFunction{Strong}.}
-ni'o ko'a goi la'oi .\AgdaFunction{Strong}.\ smimlu la'o zoi.\ \AgdaPostulate{Data.String.String}\ .zoi.\ po la'o zoi.\ agda-stdlib\ .zoi.\ldots noi ku'i la .varik.\ cu tolnei tu'a lo ctaipe pe ke'a ki'u le su'u ke'a me'oi .\AgdaKeyword{postulate}.\ldots ku'o le ka ce'u ctaipe zo'e je lo se tcidu
+\section{la'oi .\F{Strong}.}
+ni'o ko'a goi la'oi .\F{Strong}.\ smimlu la'o zoi.\ \AgdaPostulate{Data.String.String}\ .zoi.\ po la'o zoi.\ agda-stdlib\ .zoi.\ldots noi ku'i la .varik.\ cu tolnei tu'a lo ctaipe pe ke'a ki'u le su'u ke'a me'oi .\AgdaKeyword{postulate}.\ldots ku'o le ka ce'u ctaipe zo'e je lo se tcidu
 
 \begin{code}
 Strong : Set
@@ -150,15 +150,15 @@ fromList : List Char → Strong
 fromList = id
 \end{code}
 
-\section{la'oi .\AgdaFunction{unwords}.}
+\section{la'oi .\F{unwords}.}
 
 \begin{code}
 unwords : List Strong → Strong
 unwords x = 𝕃.concat $ 𝕃.intersperse 𝕃.[ ' ' ] x
 \end{code}
 
-\section{la'oi .\AgdaFunction{words}.}
-ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \AgdaFunction{words} \AgdaBound{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'o zoi.\ \AgdaFunction{concat} \OpF{\$} \AgdaFunction{words} \AgdaBound{x}\ .zoi.\ du la'oi .\AgdaBound{x}.
+\section{la'oi .\F{words}.}
+ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'o zoi.\ \F{concat} \OpF{\$} \F{words} \AgdaBound{x}\ .zoi.\ du la'oi .\B{x}.
 
 \begin{code}
 words : Strong → List Strong
