@@ -139,8 +139,8 @@ toList = id
 \end{code}
 
 \begin{code}
-toStrong : List Char → Strong
-toStrong = id
+fromList : List Char → Strong
+fromList = id
 \end{code}
 
 \section{la'oi .\AgdaFunction{unwords}.}
