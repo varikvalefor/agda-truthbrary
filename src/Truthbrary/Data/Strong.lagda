@@ -140,4 +140,11 @@ fromStrong = id
 toStrong : List Char → Strong
 toStrong = id
 \end{code}
+
+\section{la'oi .\AgdaFunction{unwords}.}
+
+\begin{code}
+unwords : List Strong → Strong
+unwords = {!!}
+\end{code}
 \end{document}
