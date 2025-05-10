@@ -98,7 +98,6 @@ ni'o skicu bau la'oi .Agda.\ fe ko'a goi la'oi .\AgdaFunction{Strong}.\ noi ke'a
 
 \begin{code}
 {-# OPTIONS --safe #-}
-{-# OPTIONS --cubical-compatible #-}
 \end{code}
 
 \begin{code}
@@ -108,6 +107,7 @@ module Truthbrary.Data.Strong where
 \begin{code}
 open import Function
   using (
+    _$_;
     id
   )
 open import Data.List
@@ -118,6 +118,13 @@ open import Data.List
 open import Data.Char
   using (
     Char
+  )
+open import Truthbrary.Record.Eq
+  using (
+  )
+open import Truthbrary.Data.List.Split
+  using (
+    splitOn
   )
 
 import Data.String as 𝕊
@@ -147,8 +154,13 @@ fromList = id
 
 \begin{code}
 unwords : List Strong → Strong
-unwords 𝕃.[] = 𝕃.[]
-unwords (x 𝕃.∷ 𝕃.[]) = x
-unwords (x 𝕃.∷ xs) = x 𝕃.++ 𝕃.[ ' ' ] 𝕃.++ unwords xs
+unwords x = 𝕃.concat $ 𝕃.intersperse 𝕃.[ ' ' ] x
+\end{code}
+
+\section{la'oi .\AgdaFunction{words}.}
+
+\begin{code}
+words : Strong → List Strong
+words = splitOn ' '
 \end{code}
 \end{document}
