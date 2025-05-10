@@ -122,6 +122,7 @@ open import Data.Char
 \end{code}
 
 \section{la'oi .\AgdaFunction{Strong}.}
+ni'o ko'a goi la'oi .\AgdaFunction{Strong}.\ smimlu la'o zoi.\ \AgdaPostulate{Data.String.String}\ .zoi.\ po la'o zoi.\ agda-stdlib\ .zoi.\ldots noi ku'i la .varik.\ cu tolnei tu'a lo ctaipe pe ke'a ki'u le su'u ke'a me'oi .\AgdaKeyword{postulate}.\ldots ku'o le ka ce'u ctaipe zo'e je lo se tcidu
 
 \begin{code}
 Strong : Set
