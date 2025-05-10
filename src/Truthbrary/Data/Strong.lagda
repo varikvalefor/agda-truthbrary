@@ -148,6 +148,7 @@ fromList = id
 \begin{code}
 unwords : List Strong → Strong
 unwords 𝕃.[] = 𝕃.[]
+unwords (x 𝕃.∷ 𝕃.[]) = x
 unwords (x 𝕃.∷ xs) = x 𝕃.++ 𝕃.[ ' ' ] 𝕃.++ unwords xs
 \end{code}
 \end{document}
