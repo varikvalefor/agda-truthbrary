@@ -106,6 +106,10 @@ module Truthbrary.Data.Strong where
 \end{code}
 
 \begin{code}
+open import Function
+  using (
+    id
+  )
 open import Data.List
   as 𝕃
   using (
@@ -122,5 +126,17 @@ open import Data.Char
 \begin{code}
 Strong : Set
 Strong = List Char
+\end{code}
+
+\section{le mapti fancu}
+
+\begin{code}
+fromStrong : Strong → List Char
+fromStrong = id
+\end{code}
+
+\begin{code}
+toStrong : List Char → Strong
+toStrong = id
 \end{code}
 \end{document}
