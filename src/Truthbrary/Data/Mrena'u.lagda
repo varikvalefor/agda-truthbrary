@@ -1616,7 +1616,7 @@ module Veritas where
       r ≡⟨ _+_.r≡⌊'⁻¹r+⌊'r r ⟩
       |-[⌊|]ℝ r + fromℤ (⌊' r) ≡⟨ {!!} ⟩
       fromℤ (⌊' r) + |-[⌊|]ℝ r ≡⟨ {!!} ⟩
-      fromℤ (⌊' r) + fromℕ 0 ≡⟨ {!!} ⟩
+      fromℤ (⌊' r) + fromℕ 0 ≡⟨ proj₂ _+_.id≡+0 $ fromℤ $ ⌊' r ⟩
       fromℤ (⌊' r) ∎
       where
       open import Relation.Binary.PropositionalEquality
