@@ -91,7 +91,7 @@
 \maketitle
 
 \begin{abstract}
-ni'o skicu bau la'oi .Agda.\ fe ko'a goi la'oi .\AgdaFunction{Strong}.\ noi ke'a smimlu ko'e goi la'o zoi.\ \AgdaPostulate{Data.String.String}\ .zoi.\ po la'o zoi.\ agda-stdlib .zoi.\ je ku'i cu zmadu fi le ka ce'u jai filri'a tu'a lo ctaipe\ldots{} ku'o ge'u je lo fancu pe ko'a\sds  .i troci lo nu frili fa lo nu basygau pe'a lo ctaipe pe ko'e lo ctaipe pe ko'a
+ni'o skicu bau la'oi .Agda.\ fe ko'a goi la'oi .\AgdaFunction{Strong}.\ noi ke'a smimlu ko'e goi la'o zoi.\ \AgdaPostulate{Data.String.String}\ .zoi.\ po la'o zoi.\ agda-stdlib .zoi.\ je ku'i cu zmadu fi le ka ce'u jai filri'a tu'a lo ctaipe\ldots ku'o ge'u je lo fancu pe ko'a\sds  .i troci lo nu frili fa lo nu basygau pe'a lo ctaipe pe ko'e lo ctaipe pe ko'a
 \end{abstract}
 
 \section{le vrici}
