@@ -158,9 +158,11 @@ unwords x = 𝕃.concat $ 𝕃.intersperse 𝕃.[ ' ' ] x
 \end{code}
 
 \section{la'oi .\AgdaFunction{words}.}
+ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \AgdaFunction{words} \AgdaBound{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'o zoi.\ \AgdaFunction{concat} \OpF{\$} \AgdaFunction{words} \AgdaBound{x}\ .zoi.\ du la'oi .\AgdaBound{x}.
 
 \begin{code}
 words : Strong → List Strong
 words = splitOn ' '
 \end{code}
+
 \end{document}
