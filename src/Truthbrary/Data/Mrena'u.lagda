@@ -1659,7 +1659,7 @@ module Veritas where
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ : Algebra.IdempotentFun _≡_ |-[⌊|]ℝ
     ⌊'⁻¹ℝ≡⌊'⁻¹ℝ∘⌊'⁻¹ℝ _ = refl
 
-    ⌊'⁻¹ℝ∘fromℕ : (n : ℕ) → |-[⌊|]ℝ (fromℕ n) ≈ fromℕ 0
+    ⌊'⁻¹ℝ∘fromℕ : (n : ℕ) → |-[⌊|]ℝ (fromℕ n) ≡ fromℕ 0
     ⌊'⁻¹ℝ∘fromℕ = {!!}
 
     from𝔻s≡⌊'⁻¹ℝ∘from𝔻s : (s : Sign)
