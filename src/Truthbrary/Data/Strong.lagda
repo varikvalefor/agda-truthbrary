@@ -119,6 +119,8 @@ open import Data.Char
   using (
     Char
   )
+
+import Data.String as 𝕊
 \end{code}
 
 \section{la'oi .\AgdaFunction{Strong}.}
@@ -132,8 +134,8 @@ Strong = List Char
 \section{le mapti fancu}
 
 \begin{code}
-fromStrong : Strong → List Char
-fromStrong = id
+toList : Strong → List Char
+toList = id
 \end{code}
 
 \begin{code}
