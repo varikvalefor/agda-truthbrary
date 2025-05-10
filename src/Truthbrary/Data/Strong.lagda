@@ -130,6 +130,10 @@ open import Truthbrary.Data.List.Split
   using (
     splitOn
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 
 import Data.String as 𝕊
 import Data.List.Relation.Unary.All
@@ -177,6 +181,9 @@ module words where
   module Veritas where
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
     nocan = {!!}
+
+    konk : (x : Strong) → x ≡ unwords (words x)
+    konk = {!!}
 
 words : Strong → List Strong
 words = words.words
