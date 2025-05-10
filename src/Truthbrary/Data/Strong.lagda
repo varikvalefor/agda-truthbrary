@@ -122,12 +122,21 @@ open import Data.Char
 open import Truthbrary.Record.Eq
   using (
   )
+open import Truthbrary.Record.LLC
+  using (
+    _∉_
+  )
 open import Truthbrary.Data.List.Split
   using (
     splitOn
   )
 
 import Data.String as 𝕊
+import Data.List.Relation.Unary.All
+  as 𝕃
+  using (
+    All
+  )
 \end{code}
 
 \section{la'oi .\F{Strong}.}
@@ -164,6 +173,10 @@ ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo 
 module words where
   words : Strong → List Strong
   words = splitOn ' '
+
+  module Veritas where
+    nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
+    nocan = {!!}
 
 words : Strong → List Strong
 words = words.words
