@@ -161,8 +161,12 @@ unwords x = 𝕃.concat $ 𝕃.intersperse 𝕃.[ ' ' ] x
 ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'oi .\B x.\ du la'o zoi.\ \F{concat} \OpF{\$} \F{words} \AgdaBound{x}\ .zoi.
 
 \begin{code}
+module words where
+  words : Strong → List Strong
+  words = splitOn ' '
+
 words : Strong → List Strong
-words = splitOn ' '
+words = words.words
 \end{code}
 
 \end{document}
