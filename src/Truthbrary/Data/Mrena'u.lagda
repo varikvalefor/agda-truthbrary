@@ -1612,7 +1612,12 @@ module Veritas where
 \begin{code}
   module ⌊' where
     fromℤ∘⌊' : (r : ℝ) → |-[⌊|] r ≗ const 𝔽.zero → r ≡ fromℤ (⌊' r)
-    fromℤ∘⌊' = {!!}
+    fromℤ∘⌊' = λ r d → begin
+      r ≡⟨ {!!} ⟩
+      fromℤ (⌊' r) ∎
+      where
+      open import Relation.Binary.PropositionalEquality
+      open ≡-Reasoning
 
     fromℤ∘⌊'' : (r : ℝ) → r ≡ fromℤ (⌊' r) → |-[⌊|] r ≗ const 𝔽.zero
     fromℤ∘⌊'' = {!!}
@@ -2097,6 +2102,9 @@ module Veritas where
 
     id≡_∘fromℚ : id ≗ proj₁ ∘ fromℚ-Rational
     id≡_∘fromℚ _ = refl
+
+  mids : ℝ → Set
+  mids x = x ≥ fromℕ 500 × x ≤ fromℕ 2000
 \end{code}
 
 \subsection{\lcblm{\F{Irrational}}}
