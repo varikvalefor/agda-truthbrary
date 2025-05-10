@@ -14,6 +14,6 @@ open import Data.Char
     Char
   )
 
-String : Set
-String = List Char
+Strong : Set
+Strong = List Char
 \end{code}
