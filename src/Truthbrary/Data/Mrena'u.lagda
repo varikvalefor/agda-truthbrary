@@ -1613,7 +1613,7 @@ module Veritas where
   module ⌊' where
     fromℤ∘⌊' : (r : ℝ) → |-[⌊|] r ≗ const 𝔽.zero → r ≡ fromℤ (⌊' r)
     fromℤ∘⌊' = λ r d → begin
-      r ≡⟨ {!!} ⟩
+      r ≡⟨ _+_.r≡⌊'⁻¹r+⌊'r r ⟩
       |-[⌊|]ℝ r + fromℤ (⌊' r) ≡⟨ {!!} ⟩
       fromℤ (⌊' r) + |-[⌊|]ℝ r ≡⟨ {!!} ⟩
       fromℤ (⌊' r) + fromℕ 0 ≡⟨ {!!} ⟩
