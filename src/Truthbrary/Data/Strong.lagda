@@ -145,6 +145,7 @@ toStrong = id
 
 \begin{code}
 unwords : List Strong → Strong
-unwords = {!!}
+unwords 𝕃.[] = {!!}
+unwords (x 𝕃.∷ xs) = {!!}
 \end{code}
 \end{document}
