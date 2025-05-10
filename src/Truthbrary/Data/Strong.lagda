@@ -158,7 +158,7 @@ unwords x = 𝕃.concat $ 𝕃.intersperse 𝕃.[ ' ' ] x
 \end{code}
 
 \section{la'oi .\F{words}.}
-ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'o zoi.\ \F{concat} \OpF{\$} \F{words} \AgdaBound{x}\ .zoi.\ du la'oi .\B{x}.
+ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'oi .\B x.\ du la'o zoi.\ \F{concat} \OpF{\$} \F{words} \AgdaBound{x}\ .zoi.
 
 \begin{code}
 words : Strong → List Strong
