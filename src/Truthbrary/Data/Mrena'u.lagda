@@ -1614,6 +1614,7 @@ module Veritas where
     fromℤ∘⌊' : (r : ℝ) → |-[⌊|] r ≗ const 𝔽.zero → r ≡ fromℤ (⌊' r)
     fromℤ∘⌊' = λ r d → begin
       r ≡⟨ {!!} ⟩
+      from𝔻 (sign r) (|-[⌊|] r) + fromℤ (⌊' r) ≡⟨ {!!} ⟩
       fromℤ (⌊' r) + from𝔻 (sign r) (|-[⌊|] r) ≡⟨ {!!} ⟩
       fromℤ (⌊' r) + fromℕ 0 ≡⟨ {!!} ⟩
       fromℤ (⌊' r) ∎
