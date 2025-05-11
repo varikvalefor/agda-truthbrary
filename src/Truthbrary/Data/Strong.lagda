@@ -110,6 +110,12 @@ open import Function
     _$_;
     id
   )
+open import Data.Bool
+  using (
+  )
+  renaming (
+    if_then_else_ to if
+  )
 open import Data.List
   as 𝕃
   using (
@@ -126,6 +132,7 @@ open import Relation.Nullary
   )
 open import Truthbrary.Record.Eq
   using (
+    _≡ᵇ_;
     _≟_
   )
 open import Truthbrary.Record.LLC
@@ -185,7 +192,10 @@ module words where
   soi buf 𝕃.[] s 𝕃.[] = 𝕃.reverse buf
   soi buf c s 𝕃.[] = 𝕃.reverse $ c 𝕃.∷ buf
   soi buf c s (' ' 𝕃.∷ xs) = soi (c 𝕃.∷ buf) 𝕃.[] s xs
-  soi buf c s (x 𝕃.∷ xs) = soi buf (c 𝕃.++ 𝕃.[ x ]) s xs
+  soi buf c s (x 𝕃.∷ xs) = if (x ≡ᵇ s) S K
+    where
+    S = soi (c 𝕃.∷ buf) 𝕃.[] s xs
+    K = soi buf (c 𝕃.++ 𝕃.[ x ]) s xs
 
   splitOn' : Char → Strong → List Strong
   splitOn' = soi 𝕃.[] 𝕃.[]
@@ -194,6 +204,15 @@ module words where
   words = splitOn' ' '
 
   module Veritas where
+    module soi where
+      sxs : (buf : List Strong)
+          → (c ss : Strong)
+          → (x : Char)
+          → (_≡_
+              (soi buf c x (x 𝕃.∷ ss))
+              (soi (c 𝕃.∷ buf) 𝕃.[] x ss))
+      sxs = {!!}
+
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
     nocan = {!!}
 
