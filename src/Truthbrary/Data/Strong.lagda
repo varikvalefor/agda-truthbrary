@@ -119,8 +119,14 @@ open import Data.Char
   using (
     Char
   )
+open import Relation.Nullary
+  using (
+    yes;
+    no
+  )
 open import Truthbrary.Record.Eq
   using (
+    _≟_
   )
 open import Truthbrary.Record.LLC
   using (
@@ -175,8 +181,17 @@ ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo 
 
 \begin{code}
 module words where
+  soi : List Strong → Strong → Char → Strong → List Strong
+  soi buf 𝕃.[] s 𝕃.[] = 𝕃.reverse buf
+  soi buf c s 𝕃.[] = 𝕃.reverse $ c 𝕃.∷ buf
+  soi buf c s (' ' 𝕃.∷ xs) = soi (c 𝕃.∷ buf) 𝕃.[] s xs
+  soi buf c s (x 𝕃.∷ xs) = soi buf (c 𝕃.++ 𝕃.[ x ]) s xs
+
+  splitOn' : Char → Strong → List Strong
+  splitOn' = soi 𝕃.[] 𝕃.[]
+
   words : Strong → List Strong
-  words = splitOn ' '
+  words = splitOn' ' '
 
   module Veritas where
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
