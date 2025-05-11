@@ -177,7 +177,7 @@ unwords x = 𝕃.concat $ 𝕃.intersperse 𝕃.[ ' ' ] x
 \end{code}
 
 \section{la'oi .\F{words}.}
-ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'oi .\B x.\ du la'o zoi.\ \F{𝕃.concat} \OpF{\$} \F{𝕃.intersperse} \OpF{𝕃.[} \AgdaString{" "} \OpF{]} \OpF{\$} \F{words} \AgdaBound{x}\ .zoi.
+ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'oi .\B x.\ du la'o zoi.\ \F{𝕃.concat} \OpF{\$} \F{𝕃.intersperse} \OpF{𝕃.[} \AgdaString{' '} \OpF{]} \OpF{\$} \F{words} \AgdaBound{x}\ .zoi.
 
 \begin{code}
 module words where
@@ -211,6 +211,4 @@ ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo 
 lines : Strong → List Strong
 lines = words.splitOn' '\n'
 \end{code}
-
-
 \end{document}
