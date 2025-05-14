@@ -8,6 +8,7 @@ open import Level
   )
 open import Function
   using (
+    _∘_;
     _$_
   )
 open import Data.Char
@@ -81,5 +82,5 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
   readMaybe = apDec (Read.read rr) P?
 
   field
-    justys : Read.P rr ⊆ (Is-just Function.∘ readMaybe)
+    justys : Read.P rr ⊆ (Is-just ∘ readMaybe)
 \end{code}
