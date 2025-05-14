@@ -106,7 +106,7 @@ instance
   readNat : Read {p = Level.zero} ℕ
   readNat = record {
     P = λ n →
-      (_⊎_ {Level.zero}
+      (_⊎_ {_}
         (𝕃.All {!!} n) -- +
         {!!} {- - -});
     read = {!!}
