@@ -197,7 +197,7 @@ module apDec where
          → (x : A)
          → Dec $ P x
          → Maybe B
-  apDec' f x p = Data.Maybe.map (f x) $ Data.Maybe.decToMaybe p
+  apDec' f x = Data.Maybe.map (f x) ∘ Data.Maybe.decToMaybe
 
   apDec : ∀ {a b p}
         → {A : Set a} → {B : Set b}
