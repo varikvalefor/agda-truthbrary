@@ -138,7 +138,8 @@ open import Data.Maybe
   )
 open import Data.Product
   using (
-    _×_
+    _×_;
+    _,_
   )
 open import Relation.Unary
   using (
@@ -243,9 +244,9 @@ module readNat where
     djm0 = 𝕃All.All IsDigit
 
     read' : {x : Strong} → djm0 x → ℕ × ℕ
-    read' 𝕃All.[] = 0 Data.Product., 0
+    read' 𝕃All.[] = 0 , 0
     read' (p 𝕃All.∷ ps) =
-      n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
+      n ℕ.+ cℕ ℕ.* 10 ℕ.^ e , ℕ.suc e
       where
       n = Data.Product.proj₁ $ read' ps
       e = Data.Product.proj₂ $ read' ps
