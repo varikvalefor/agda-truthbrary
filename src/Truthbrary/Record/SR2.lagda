@@ -197,8 +197,7 @@ module apDec where
          → (x : A)
          → Dec $ P x
          → Maybe B
-  apDec' f x (yes p) = just $ f x p
-  apDec' _ _ _ = nothing
+  apDec' f x p = Data.Maybe.map (f x) $ Data.Maybe.decToMaybe p
 
   apDec : ∀ {a b p}
         → {A : Set a} → {B : Set b}
@@ -301,7 +300,7 @@ instance
       dij x p = begin
         apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
         apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ _≡_.refl ⟩
-        _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' _ x) ⟩
+        _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' (Read.read readNat) x) ⟩
         apDec.apDec' (Read.read readNat) x (yes $ proj₁ D) ∎
         where
         D = Relation.Nullary.Decidable.dec-yes (P? x) p
