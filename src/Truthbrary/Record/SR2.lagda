@@ -6,6 +6,10 @@ open import Level
     _⊔_;
     suc
   )
+open import Function
+  using (
+    _$_
+  )
 open import Data.Char
   using (
     Char
@@ -17,6 +21,22 @@ open import Data.List
     _∷_;
     []
   )
+open import Data.Maybe
+  using (
+    nothing;
+    Maybe;
+    just
+  )
+open import Relation.Unary
+  using (
+    Decidable
+  )
+open import Relation.Nullary
+  using (
+    Dec;
+    yes;
+    no
+  )
 open import Truthbrary.Data.Strong
   using (
     Strong
@@ -27,4 +47,19 @@ record Read {a p} (A : Set a) : Set (a ⊔ suc p)
   field
     P : Strong → Set p
     read : (x : Strong) → P x → A
+
+record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
+  where
+  field
+    rr : Read {p = p} A
+    P? : Decidable $ Read.P rr
+
+  readMaybePrivate : (x : Strong)
+                   → Dec $ Read.P rr x
+                   → Maybe A
+  readMaybePrivate x (yes p) = just $ Read.read rr x p
+  readMaybePrivate _ _ = nothing
+
+  readMaybe : Strong → Maybe A
+  readMaybe x = readMaybePrivate x $ P? x
 \end{code}
