@@ -300,7 +300,8 @@ instance
           → apDec (Read.read readNat) P? x ≡ just _
       dij x p = begin
         apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
-        apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ proj₂ D ▹ cong (apDec.apDec' _ x) ⟩
+        apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ _≡_.refl ⟩
+        _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' _ x) ⟩
         apDec.apDec' (Read.read readNat) x (yes $ proj₁ D) ∎
         where
         D = Relation.Nullary.Decidable.dec-yes (P? x) p
