@@ -318,6 +318,11 @@ instance
     }
 
   readMaybeFin : {n : ℕ} → ReadMaybe {p = {!!}} $ Fin n
-  readMaybeFin = {!!}
+  readMaybeFin = record {
+    rr = {!!};
+    P? = {!!};
+    justys = {!!};
+    nad = {!!}
+    }
 \end{code}
 \end{document}
