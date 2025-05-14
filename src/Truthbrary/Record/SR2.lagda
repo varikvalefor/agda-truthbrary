@@ -276,7 +276,7 @@ instance
   readMaybeNat = record {
     rr = readNat;
     P? = P?;
-    justys = λ p → J⇒IJ _ _ $ dij _ p;
+    justys = justys;
     nad = {!!}}
     where
     P? : Decidable readNat.djm0
@@ -284,22 +284,27 @@ instance
     ... | yes p | yes l = yes $ p , l
     ... | no p | _ = no $ p ∘ proj₁
     ... | _ | no l = no $ l ∘ proj₂
-    J⇒IJ : ∀ {a} → {A : Set a}
-         → (x : Maybe A)
-         → (z : A)
-         → x ≡ just z
-         → Is-just x
-    J⇒IJ (just x) f _≡_.refl = DMRN.just _
-    dij : (x : Strong)
-        → (p : readNat.djm0 x)
-        → apDec (Read.read readNat) P? x ≡ just _
-    dij x p = begin
-      apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
-      apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ proj₂ D ▹ cong (apDec.apDec' _ x) ⟩
-      apDec.apDec' (Read.read readNat) x (yes $ proj₁ D) ∎
+
+    open Read readNat
+    justys : P ⊆ (Is-just ∘ apDec (Read.read readNat) P?)
+    justys = λ p → J⇒IJ _ _ $ dij _ p
       where
-      D = Relation.Nullary.Decidable.dec-yes (P? x) p
-      open Relation.Binary.PropositionalEquality.≡-Reasoning
+      J⇒IJ : ∀ {a} → {A : Set a}
+           → (x : Maybe A)
+           → (z : A)
+           → x ≡ just z
+           → Is-just x
+      J⇒IJ (just x) f _≡_.refl = DMRN.just _
+      dij : (x : Strong)
+          → (p : readNat.djm0 x)
+          → apDec (Read.read readNat) P? x ≡ just _
+      dij x p = begin
+        apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
+        apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ proj₂ D ▹ cong (apDec.apDec' _ x) ⟩
+        apDec.apDec' (Read.read readNat) x (yes $ proj₁ D) ∎
+        where
+        D = Relation.Nullary.Decidable.dec-yes (P? x) p
+        open Relation.Binary.PropositionalEquality.≡-Reasoning
 
   readInt : Read {p = {!!}} ℤ
   readInt = {!!}
