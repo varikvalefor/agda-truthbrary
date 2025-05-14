@@ -215,19 +215,23 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
     nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
 
 module readNat where
+    private
+      j : {m n : ℕ} → m ℕ.< n → Maybe $ Fin n
+      j = just ∘ 𝔽.fromℕ<
+
     IsDigit : Char → Set
     toFin10 : Char → Maybe $ Fin 10
     IsDigit = Is-just ∘ toFin10
     toFin10 '0' = just 𝔽.zero
-    toFin10 '1' = just $ 𝔽.fromℕ< $ from-yes $ 1 ℕ.<? 10
-    toFin10 '2' = just $ 𝔽.fromℕ< $ from-yes $ 2 ℕ.<? 10
-    toFin10 '3' = just $ 𝔽.fromℕ< $ from-yes $ 3 ℕ.<? 10
-    toFin10 '4' = just $ 𝔽.fromℕ< $ from-yes $ 4 ℕ.<? 10
-    toFin10 '5' = just $ 𝔽.fromℕ< $ from-yes $ 5 ℕ.<? 10
-    toFin10 '6' = just $ 𝔽.fromℕ< $ from-yes $ 6 ℕ.<? 10
-    toFin10 '7' = just $ 𝔽.fromℕ< $ from-yes $ 7 ℕ.<? 10
-    toFin10 '8' = just $ 𝔽.fromℕ< $ from-yes $ 8 ℕ.<? 10
-    toFin10 '9' = just $ 𝔽.fromℕ< $ from-yes $ 9 ℕ.<? 10
+    toFin10 '1' = j $ from-yes $ 1 ℕ.<? 10
+    toFin10 '2' = j $ from-yes $ 2 ℕ.<? 10
+    toFin10 '3' = j $ from-yes $ 3 ℕ.<? 10
+    toFin10 '4' = j $ from-yes $ 4 ℕ.<? 10
+    toFin10 '5' = j $ from-yes $ 5 ℕ.<? 10
+    toFin10 '6' = j $ from-yes $ 6 ℕ.<? 10
+    toFin10 '7' = j $ from-yes $ 7 ℕ.<? 10
+    toFin10 '8' = j $ from-yes $ 8 ℕ.<? 10
+    toFin10 '9' = j $ from-yes $ 9 ℕ.<? 10
     toFin10 _ = nothing
 
     IsDigit? : Decidable IsDigit
