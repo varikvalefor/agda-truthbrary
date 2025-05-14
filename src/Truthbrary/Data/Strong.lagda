@@ -220,7 +220,7 @@ module words where
           → let f = isYes Function.∘ (x ≟_) in
             (_≡_
               (soi buf c f (x 𝕃.∷ ss))
-              (soi (c 𝕃.∷ buf) 𝕃.[] (f) ss))
+              (soi (c 𝕃.∷ buf) 𝕃.[] f ss))
       sxs = {!!}
 
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
