@@ -24,6 +24,7 @@ open import Data.List
   )
 open import Data.Maybe
   using (
+    Is-nothing;
     Is-just;
     nothing;
     Maybe;
@@ -84,5 +85,5 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   field
     justys : Read.P rr ⊆ (Is-just ∘ readMaybe)
-    nad : (¬_ ∘ Read.P rr) ⊆ (Data.Maybe.Is-nothing ∘ readMaybe)
+    nad : (¬_ ∘ Read.P rr) ⊆ (Is-nothing ∘ readMaybe)
 \end{code}
