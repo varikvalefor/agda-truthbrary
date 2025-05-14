@@ -299,8 +299,6 @@ instance
       apDec.apDec' (Read.read readNat) x (yes $ proj₁ D) ∎
       where
       D = Relation.Nullary.Decidable.dec-yes (P? x) p
-      yp : P? x ≡ yes (proj₁ D)
-      yp = proj₂ D
       open Relation.Binary.PropositionalEquality.≡-Reasoning
 
   readInt : Read {p = {!!}} ℤ
