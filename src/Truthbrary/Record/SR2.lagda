@@ -262,8 +262,14 @@ instance
   readMaybeNat : ReadMaybe ℕ
   readMaybeNat = record {
     rr = readNat;
-    P? = {!!};
+    P? = P?;
     justys = {!!};
     nad = {!!}}
+    where
+    P? : Decidable readNat.djm0
+    P? x with 𝕃All.all? readNat.IsDigit? x | 𝕃.length x ℕ.>? 0
+    ... | yes p | yes l = yes $ p , l
+    ... | no p | _ = no $ p ∘ proj₁
+    ... | _ | no l = no $ l ∘ proj₂
 \end{code}
 \end{document}
