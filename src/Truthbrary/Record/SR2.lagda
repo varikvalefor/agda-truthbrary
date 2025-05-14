@@ -321,8 +321,11 @@ instance
         (_×_
           (𝕃.head s ≡ just '-')
           (readNat.djm0 $ 𝕃.drop 1 s)));
-    read = {!!}
+    read = read
     }
+    where
+    read : (x : Strong) → _ ⊎ _ → ℤ
+    read = {!!}
 
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {
