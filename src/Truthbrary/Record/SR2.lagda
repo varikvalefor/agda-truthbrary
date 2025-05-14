@@ -113,7 +113,7 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 instance
   readNat : Read {p = Level.zero} ℕ
   readNat = record {
-    P = λ n → djm0 n;
+    P = djm0;
     read = read
     }
     where
