@@ -320,9 +320,12 @@ instance
   readMaybeFin : {n : ℕ} → ReadMaybe $ Fin n
   readMaybeFin = record {
     rr = readFin;
-    P? = {!!};
+    P? = P?;
     justys = {!!};
     nad = {!!}
     }
+    where
+    P? : Decidable _
+    P? = {!!}
 \end{code}
 \end{document}
