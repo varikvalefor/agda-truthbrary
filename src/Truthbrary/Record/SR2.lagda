@@ -130,6 +130,7 @@ open import Data.List
   )
 open import Data.Maybe
   using (
+    to-witness;
     Is-nothing;
     Is-just;
     nothing;
@@ -250,7 +251,7 @@ module readNat where
       where
       tenfa = λ (b , e) → b ℕ.* 10 ℕ.^ e
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
-      namste = 𝕃.map (𝔽.toℕ ∘ Data.Maybe.to-witness ∘ proj₂) $ 𝕃All.toList ps
+      namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) $ 𝕃All.toList ps
 
 instance
   readNat : Read ℕ
