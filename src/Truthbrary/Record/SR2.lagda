@@ -81,9 +81,9 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
     rr : Read {p = p} A
     P? : Decidable $ Read.P rr
 
-  readMaybe = apDec (Read.read rr) P?
-
   open Read rr
+
+  readMaybe = apDec read P?
 
   field
     justys : P ⊆ (Is-just ∘ readMaybe)
