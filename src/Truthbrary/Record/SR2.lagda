@@ -245,22 +245,13 @@ module readNat where
     djm0 : Strong → Set
     djm0 = λ n → 𝕃All.All IsDigit n × 𝕃.length n ℕ.> 0
 
-    read' : {x : Strong} → djm0 x → ℕ × ℕ
-    read' (𝕃All.[] Data.Product., ())
-    read' (p 𝕃All.∷ 𝕃All.[] , x) =
-      𝔽.toℕ (Data.Maybe.to-witness p) , 1
-    read' (p 𝕃All.∷ ps@(p₁ 𝕃All.∷ _) , (ℕ.s≤s z)) =
-      n ℕ.+ pℕ ℕ.* 10 ℕ.^ e , ℕ.suc e
-      where
-      ne = read' $ ps , ℕ.s≤s ℕ.z≤n
-      n = proj₁ ne
-      e = proj₂ ne
-      pℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
+    read' : {x : Strong} → djm0 x → ℕ
+    read' (ps , z) = 𝕃.sum $ 𝕃.map (λ (b , e) → b ℕ.* 10 ℕ.^ e) $ (λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x) $ 𝕃.map (𝔽.toℕ ∘ Data.Maybe.to-witness ∘ proj₂) $ 𝕃All.toList ps
 
 instance
   readNat : Read ℕ
   readNat = record {
-    read = λ x → proj₁ ∘ readNat.read' {x}
+    read = λ x → readNat.read' {x}
     }
 
   readMaybeNat : ReadMaybe ℕ
