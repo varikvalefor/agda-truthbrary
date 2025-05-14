@@ -197,7 +197,6 @@ ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo 
 \begin{code}
 module words where
   soi : ∀ {a b} → {A : Set a} → {B : A → Set b}
-      → ⦃ Truthbrary.Record.Eq.Eq A ⦄
       → List $ List A
       → List A
       → Decidable B
