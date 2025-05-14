@@ -314,7 +314,7 @@ instance
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {
     P = λ s → Σ _ $ λ p → Read.read readNat s p ℕ.< _;
-    read = λ x (p , m) → 𝔽.fromℕ< m
+    read = λ x (_ , m) → 𝔽.fromℕ< m
     }
 
   readMaybeFin : {n : ℕ} → ReadMaybe $ Fin n
