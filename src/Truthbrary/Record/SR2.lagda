@@ -149,5 +149,5 @@ instance
       read' x [] p = 0
       read' x (c ∷ cs) (p 𝕃All.∷ ps) = cℕ ℕ.+ (read' x cs ps ℕ.* 10)
         where
-        cℕ = {!!}
+        cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 \end{code}
