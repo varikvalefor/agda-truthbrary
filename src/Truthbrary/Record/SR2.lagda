@@ -311,6 +311,9 @@ instance
   readInt = {!!}
 
   readFin : {n : ℕ} → Read {p = {!!}} $ Fin n
-  readFin = {!!}
+  readFin = record {
+    P = {!!};
+    read = {!!}
+    }
 \end{code}
 \end{document}
