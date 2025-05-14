@@ -143,6 +143,10 @@ open import Truthbrary.Data.List.Split
   using (
     splitOn
   )
+open import Relation.Nullary.Decidable
+  using (
+    isYes
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     _≡_
@@ -192,18 +196,18 @@ module words where
       → ⦃ Truthbrary.Record.Eq.Eq A ⦄
       → List $ List A
       → List A
-      → A
+      → (A → Data.Bool.Bool)
       → List A
       → List $ List A
   soi buf 𝕃.[] s 𝕃.[] = 𝕃.reverse buf
   soi buf c s 𝕃.[] = 𝕃.reverse $ c 𝕃.∷ buf
-  soi buf c s (x 𝕃.∷ xs) = if (x ≡ᵇ s) S K
+  soi buf c s (x 𝕃.∷ xs) = if (s x) S K
     where
     S = soi (c 𝕃.∷ buf) 𝕃.[] s xs
     K = soi buf (c 𝕃.++ 𝕃.[ x ]) s xs
 
   splitOn' : Char → Strong → List Strong
-  splitOn' = soi 𝕃.[] 𝕃.[]
+  splitOn' x = soi 𝕃.[] 𝕃.[] $ isYes Function.∘ (x ≟_)
 
   words : Strong → List Strong
   words = splitOn' ' '
@@ -214,8 +218,8 @@ module words where
           → (c ss : Strong)
           → (x : Char)
           → (_≡_
-              (soi buf c x (x 𝕃.∷ ss))
-              (soi (c 𝕃.∷ buf) 𝕃.[] x ss))
+              (soi buf c (isYes Function.∘ (x ≟_)) (x 𝕃.∷ ss))
+              (soi (c 𝕃.∷ buf) 𝕃.[] (isYes Function.∘ (x ≟_)) ss))
       sxs = {!!}
 
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
