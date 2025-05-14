@@ -95,7 +95,7 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
     nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
 
 instance
-  readNat : Read {p = {!!}} ℕ
+  readNat : Read {p = Level.zero} ℕ
   readNat = record {
     P = {!!};
     read = {!!}
