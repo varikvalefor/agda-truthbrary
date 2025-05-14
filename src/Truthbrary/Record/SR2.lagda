@@ -316,5 +316,8 @@ instance
     P = λ s → Σ _ $ λ p → Read.read readNat s p ℕ.< _;
     read = λ x (p , m) → 𝔽.fromℕ< m
     }
+
+  readMaybeFin : {n : ℕ} → ReadMaybe {p = {!!}} $ Fin n
+  readMaybeFin = {!!}
 \end{code}
 \end{document}
