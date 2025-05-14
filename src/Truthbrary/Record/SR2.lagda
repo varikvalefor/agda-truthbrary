@@ -332,6 +332,9 @@ instance
     ... | no j = no $ j ∘ proj₁
     ... | yes p with Read.read readNat x p ℕ.<? n
     ... | yes p₁ = yes $ p , p₁
-    ... | no j = no $ Relation.Binary.PropositionalEquality.subst (¬_ ∘ (ℕ._< n)) {!!} j ∘ proj₂
+    ... | no j = no $ λ x₁ → Relation.Binary.PropositionalEquality.subst (¬_ ∘ (ℕ._< n)) (d p $ proj₁ x₁) j $ proj₂ x₁
+      where
+      d : (p₁ p₂ : _) → Read.read readNat x p₁ ≡ Read.read readNat x p₂
+      d = {!!}
 \end{code}
 \end{document}
