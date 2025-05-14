@@ -313,8 +313,7 @@ instance
 
   readFin : {n : ℕ} → Read {p = {!!}} $ Fin n
   readFin {n} = record {
-    P = λ s →
-      (Σ _ $ λ p → Read.read readNat s p ℕ.< n);
+    P = λ s → (Σ _ $ λ p → Read.read readNat s p ℕ.< n);
     read = {!!}
     }
 \end{code}
