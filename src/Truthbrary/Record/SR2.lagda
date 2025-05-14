@@ -312,7 +312,8 @@ instance
 
   readFin : {n : ℕ} → Read {p = {!!}} $ Fin n
   readFin {n} = record {
-    P = {!!};
+    P = λ s →
+      (Data.Product.Σ (_) (λ p → Read.read readNat s p ℕ.< n));
     read = {!!}
     }
 \end{code}
