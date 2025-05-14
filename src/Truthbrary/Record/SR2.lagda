@@ -142,5 +142,5 @@ instance
       where
       read' : ℕ → Strong → ℕ
       read' x [] = 0
-      read' x (c ∷ cs) = {!!}
+      read' x (c ∷ cs) = {!!} ℕ.+ (read' x cs ℕ.* 10)
 \end{code}
