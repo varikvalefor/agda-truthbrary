@@ -153,4 +153,11 @@ instance
         n = Data.Product.proj₁ $ read' cs ps
         e = Data.Product.proj₂ $ read' cs ps
         cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
+
+  readMaybeNat : ReadMaybe ℕ
+  readMaybeNat = record {
+    rr = readNat;
+    P? = {!!};
+    justys = {!!};
+    nad = {!!}}
 \end{code}
