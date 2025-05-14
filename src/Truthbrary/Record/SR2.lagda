@@ -325,7 +325,8 @@ instance
     }
     where
     read : (x : Strong) → _ ⊎ _ → ℤ
-    read = {!!}
+    read x (_⊎_.inj₁ z) = {!!}
+    read x (_⊎_.inj₂ m) = {!!}
 
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {
