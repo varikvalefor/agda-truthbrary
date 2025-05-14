@@ -80,7 +80,5 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
   readMaybe = apDec (Read.read rr) P?
 
   field
-    justys : (x : Strong)
-           → Read.P rr x
-           → Is-just $ readMaybe x
+    justys : Read.P rr Relation.Unary.⊆ (Is-just Function.∘ readMaybe)
 \end{code}
