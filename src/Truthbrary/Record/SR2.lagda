@@ -137,6 +137,11 @@ open import Data.Maybe
     Maybe;
     just
   )
+open import Data.Integer
+  as ℤ
+  using (
+    ℤ
+  )
 open import Data.Product
   using (
     proj₂;
@@ -155,6 +160,10 @@ open import Relation.Nullary
     yes;
     ¬_;
     no
+  )
+open import Data.Nat.Properties
+  as DNP
+  using (
   )
 open import Truthbrary.Data.Strong
   using (
@@ -247,11 +256,11 @@ module readNat where
     djm0 = λ n → 𝕃All.All IsDigit n × 𝕃.length n ℕ.> 0
 
     read' : {x : Strong} → djm0 x → ℕ
-    read' (ps , z) = 𝕃.sum $ 𝕃.map tenfa $ indice namste
+    read' = 𝕃.sum ∘ 𝕃.map tenfa ∘ indice ∘ namste ∘ proj₁
       where
       tenfa = λ (b , e) → b ℕ.* 10 ℕ.^ e
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
-      namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) $ 𝕃All.toList ps
+      namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃All.toList
 
 instance
   readNat : Read ℕ
@@ -263,7 +272,7 @@ instance
   readMaybeNat = record {
     rr = readNat;
     P? = P?;
-    justys = {!!};
+    justys = λ p → J⇒IJ {!!} {!!} {!!};
     nad = {!!}}
     where
     P? : Decidable readNat.djm0
@@ -271,5 +280,14 @@ instance
     ... | yes p | yes l = yes $ p , l
     ... | no p | _ = no $ p ∘ proj₁
     ... | _ | no l = no $ l ∘ proj₂
+    J⇒IJ : ∀ {a} → {A : Set a}
+         → (x : Maybe A)
+         → (z : A)
+         → x ≡ just z
+         → Is-just x
+    J⇒IJ (just x) f _≡_.refl = DMRN.just _
+
+  readInt : Read {p = {!!}} ℤ
+  readInt = {!!}
 \end{code}
 \end{document}
