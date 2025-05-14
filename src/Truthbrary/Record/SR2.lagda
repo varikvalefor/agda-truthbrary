@@ -119,13 +119,7 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
     justys : P ⊆ (Is-just ∘ readMaybe)
     nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
 
-instance
-  readNat : Read {p = Level.zero} ℕ
-  readNat = record {
-    P = djm0;
-    read = read
-    }
-    where
+module readNat where
     IsDigit : Char → Set
     djm0 : Strong → Set
     djm0 n = 𝕃All.All IsDigit n
@@ -153,6 +147,15 @@ instance
         n = Data.Product.proj₁ $ read' cs ps
         e = Data.Product.proj₂ $ read' cs ps
         cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
+
+instance
+  readNat : Read {p = Level.zero} ℕ
+  readNat = record {
+    P = djm0;
+    read = read
+    }
+    where
+    open readNat
 
   readMaybeNat : ReadMaybe ℕ
   readMaybeNat = record {
