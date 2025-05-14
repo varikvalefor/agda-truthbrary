@@ -30,7 +30,8 @@ open import Data.Maybe
   )
 open import Relation.Unary
   using (
-    Decidable
+    Decidable;
+    _⊆_
   )
 open import Relation.Nullary
   using (
@@ -80,5 +81,5 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
   readMaybe = apDec (Read.read rr) P?
 
   field
-    justys : Read.P rr Relation.Unary.⊆ (Is-just Function.∘ readMaybe)
+    justys : Read.P rr ⊆ (Is-just Function.∘ readMaybe)
 \end{code}

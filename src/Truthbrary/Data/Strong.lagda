@@ -97,7 +97,7 @@ ni'o skicu bau la'oi .Agda.\ fe ko'a goi la'oi .\F{Strong}.\ noi ke'a smimlu ko'
 \section{le vrici}
 
 \begin{code}
-{-# OPTIONS --safe #-}
+{-# OPTIONS --allow-unsolved-metas #-}
 \end{code}
 
 \begin{code}
