@@ -151,7 +151,8 @@ open import Data.Product
     proj₂;
     proj₁;
     _×_;
-    _,_
+    _,_;
+    Σ
   )
 open import Relation.Unary
   using (
@@ -313,7 +314,7 @@ instance
   readFin : {n : ℕ} → Read {p = {!!}} $ Fin n
   readFin {n} = record {
     P = λ s →
-      (Data.Product.Σ (_) (λ p → Read.read readNat s p ℕ.< n));
+      (Σ (_) (λ p → Read.read readNat s p ℕ.< n));
     read = {!!}
     }
 \end{code}
