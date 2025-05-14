@@ -231,16 +231,6 @@ module readNat where
     toFin10 '8' = just $ 𝔽.fromℕ< $ from-yes $ 8 ℕ.<? 10
     toFin10 '9' = just $ 𝔽.fromℕ< $ from-yes $ 9 ℕ.<? 10
     toFin10 _ = nothing
-    read' : (x : Strong) → djm0 x → ℕ × ℕ
-    read' [] p = 0 Data.Product., 0
-    read' (c ∷ cs) (p 𝕃All.∷ ps) =
-      n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
-      where
-      n = Data.Product.proj₁ $ read' cs ps
-      e = Data.Product.proj₂ $ read' cs ps
-      cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
-    read : (x : Strong) → djm0 x → ℕ
-    read x p = Data.Product.proj₁ $ read' x p
 
     IsDigit? : Decidable IsDigit
     IsDigit? '0' = yes $ DMRN.just _
@@ -254,6 +244,17 @@ module readNat where
     IsDigit? '8' = yes $ DMRN.just _
     IsDigit? '9' = yes $ DMRN.just _
     IsDigit? _ = no {!!}
+
+    read' : (x : Strong) → djm0 x → ℕ × ℕ
+    read' [] p = 0 Data.Product., 0
+    read' (c ∷ cs) (p 𝕃All.∷ ps) =
+      n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
+      where
+      n = Data.Product.proj₁ $ read' cs ps
+      e = Data.Product.proj₂ $ read' cs ps
+      cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
+    read : (x : Strong) → djm0 x → ℕ
+    read x p = Data.Product.proj₁ $ read' x p
 
 instance
   readNat : Read {p = Level.zero} ℕ
