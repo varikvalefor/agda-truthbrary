@@ -315,7 +315,12 @@ instance
 
   readInt : Read {p = {!!}} ℤ
   readInt = record {
-    P = {!!};
+    P = λ s → 
+      (_⊎_
+        (readNat.djm0 s)
+        (_×_
+          (𝕃.head s ≡ just '-')
+          (readNat.djm0 $ 𝕃.drop 1 s)));
     read = {!!}
     }
 
