@@ -143,11 +143,14 @@ instance
     toFin10 _ = nothing
     IsDigit = λ x → Is-just $ toFin10 x
     read : (x : Strong) → djm0 x → ℕ
-    read x p = read' 0 (𝕃.reverse x) {!!}
+    read x p = Data.Product.proj₁ $ read' x p
       where
-      read' : ℕ → (x : Strong) → djm0 x → ℕ
-      read' x [] p = 0
-      read' x (c ∷ cs) (p 𝕃All.∷ ps) = cℕ ℕ.+ (read' x cs ps ℕ.* 10)
+      read' : (x : Strong) → djm0 x → ℕ × ℕ
+      read' [] p = 0 Data.Product., 0
+      read' (c ∷ cs) (p 𝕃All.∷ ps) =
+        n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
         where
+        n = Data.Product.proj₁ $ read' cs ps
+        e = Data.Product.proj₂ $ read' cs ps
         cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 \end{code}
