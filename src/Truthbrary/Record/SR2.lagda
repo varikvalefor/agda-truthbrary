@@ -131,6 +131,10 @@ open import Data.List
     _∷_;
     []
   )
+open import Data.Empty
+  using (
+    ⊥-elim
+  )
 open import Data.Maybe
   as ？
   using (
@@ -328,6 +332,6 @@ instance
     ... | no j = no $ j ∘ proj₁
     ... | yes p with Read.read readNat x p ℕ.<? n
     ... | yes p₁ = yes $ p , p₁
-    ... | no j = no {!!}
+    ... | no j = no $ Relation.Binary.PropositionalEquality.subst (¬_ ∘ (ℕ._< n)) {!!} j ∘ proj₂
 \end{code}
 \end{document}
