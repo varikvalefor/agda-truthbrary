@@ -107,8 +107,11 @@ instance
   readNat = record {
     P = λ n →
       (_⊎_ {_}
-        (𝕃.All {!!} n) -- +
+        (𝕃.All IsDigit n) -- +
         {!!} {- - -});
     read = {!!}
     }
+    where
+    IsDigit : Char → Set
+    IsDigit = {!!}
 \end{code}
