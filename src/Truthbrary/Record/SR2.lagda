@@ -261,7 +261,7 @@ module readNat where
 instance
   readNat : Read {p = Level.zero} ℕ
   readNat = record {
-    P = readNat.djm0;
+    P = _;
     read = readNat.read
     }
 
