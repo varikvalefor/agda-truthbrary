@@ -217,9 +217,10 @@ module words where
       sxs : (buf : List Strong)
           → (c ss : Strong)
           → (x : Char)
-          → (_≡_
-              (soi buf c (isYes Function.∘ (x ≟_)) (x 𝕃.∷ ss))
-              (soi (c 𝕃.∷ buf) 𝕃.[] (isYes Function.∘ (x ≟_)) ss))
+          → let f = isYes Function.∘ (x ≟_) in
+            (_≡_
+              (soi buf c (f) (x 𝕃.∷ ss))
+              (soi (c 𝕃.∷ buf) 𝕃.[] (f) ss))
       sxs = {!!}
 
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
