@@ -335,7 +335,8 @@ instance
     ... | yes p₁ = yes $ p , p₁
     ... | no j = no $ λ (z₁ , z₂) → subst (¬_ ∘ (ℕ._< n)) (d p z₁) j z₂
       where
-      d : (p₁ p₂ : _) → Read.read readNat x p₁ ≡ Read.read readNat x p₂
+      d : (p₁ p₂ : _)
+        → Read.read readNat x p₁ ≡ Read.read readNat x p₂
       d = {!!}
 \end{code}
 \end{document}
