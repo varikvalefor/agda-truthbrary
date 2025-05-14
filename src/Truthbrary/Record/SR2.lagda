@@ -251,13 +251,10 @@ module readNat where
       e = Data.Product.proj₂ $ read' ps
       cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
-    read : (x : Strong) → djm0 x → ℕ
-    read _ = Data.Product.proj₁ ∘ read'
-
 instance
   readNat : Read ℕ
   readNat = record {
-    read = readNat.read
+    read = λ x → Data.Product.proj₁ ∘ readNat.read' {x}
     }
 
   readMaybeNat : ReadMaybe ℕ
