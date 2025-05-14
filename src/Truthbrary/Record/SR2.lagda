@@ -317,7 +317,7 @@ instance
     read = λ x (p , m) → 𝔽.fromℕ< m
     }
 
-  readMaybeFin : {n : ℕ} → ReadMaybe {p = {!!}} $ Fin n
+  readMaybeFin : {n : ℕ} → ReadMaybe {p = Level.zero} $ Fin n
   readMaybeFin = record {
     rr = readFin;
     P? = {!!};
