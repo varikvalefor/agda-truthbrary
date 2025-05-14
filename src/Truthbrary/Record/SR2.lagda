@@ -138,6 +138,7 @@ open import Data.Maybe
   )
 open import Data.Product
   using (
+    proj₂;
     proj₁;
     _×_;
     _,_
@@ -250,7 +251,7 @@ module readNat where
       n ℕ.+ cℕ ℕ.* 10 ℕ.^ e , ℕ.suc e
       where
       n = proj₁ $ read' ps
-      e = Data.Product.proj₂ $ read' ps
+      e = proj₂ $ read' ps
       cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
 instance
