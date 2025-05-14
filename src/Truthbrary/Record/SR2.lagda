@@ -169,6 +169,9 @@ open import Relation.Binary.PropositionalEquality
     _≡_
   )
 
+import Data.Maybe.Relation.Unary.Any
+  as DMRN
+
 module apDec where
   apDec' : ∀ {a b p}
          → {A : Set a} → {B : Set b}
@@ -241,7 +244,17 @@ module readNat where
         cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
     IsDigit? : Decidable IsDigit
-    IsDigit? = {!!}
+    IsDigit? '0' = yes $ DMRN.just _
+    IsDigit? '1' = yes $ DMRN.just _
+    IsDigit? '2' = yes $ DMRN.just _
+    IsDigit? '3' = yes $ DMRN.just _
+    IsDigit? '4' = yes $ DMRN.just _
+    IsDigit? '5' = yes $ DMRN.just _
+    IsDigit? '6' = yes $ DMRN.just _
+    IsDigit? '7' = yes $ DMRN.just _
+    IsDigit? '8' = yes $ DMRN.just _
+    IsDigit? '9' = yes $ DMRN.just _
+    IsDigit? _ = no {!!}
 
 instance
   readNat : Read {p = Level.zero} ℕ
