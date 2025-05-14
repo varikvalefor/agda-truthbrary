@@ -326,6 +326,8 @@ instance
     }
     where
     P? : Decidable _
-    P? = {!!}
+    P? x with ReadMaybe.P? readMaybeNat x
+    ... | yes p = {!!}
+    ... | no j = {!!}
 \end{code}
 \end{document}
