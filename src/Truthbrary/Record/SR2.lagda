@@ -325,7 +325,7 @@ instance
     }
     where
     read : (x : Strong) → _ ⊎ _ → ℤ
-    read x (_⊎_.inj₁ z) = ℤ.+ Read.read readNat _ z
+    read _ (_⊎_.inj₁ z) = ℤ.+ Read.read readNat _ z
     read x (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+_ $ Read.read readNat _ m
 
   readFin : {n : ℕ} → Read $ Fin n
