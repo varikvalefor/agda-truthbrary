@@ -228,9 +228,30 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   readMaybe = apDec read P?
 
-  field
-    justys : P ⊆ (Is-just ∘ readMaybe)
-    nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
+  justys : P ⊆ (Is-just ∘ readMaybe)
+  nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
+
+  justys = J⇒IJ _ _ ∘ dij _
+    where
+    J⇒IJ : ∀ {a} → {A : Set a}
+         → (x : Maybe A)
+         → (z : A)
+         → x ≡ just z
+         → Is-just x
+    J⇒IJ (just x) f _≡_.refl = DMRN.just _
+    dij : (x : Strong)
+        → (_ : P x)
+        → apDec read P? x ≡ just _
+    dij x p = begin
+      apDec read P? x ≡⟨ _≡_.refl ⟩
+      apDec.apDec' read x (P? x) ≡⟨ _≡_.refl ⟩
+      _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' read x) ⟩
+      apDec.apDec' read x (yes $ proj₁ D) ∎
+      where
+      D = Relation.Nullary.Decidable.dec-yes (P? x) p
+      open Relation.Binary.PropositionalEquality.≡-Reasoning
+
+  nad = {!!}
 
 module readNat where
     private
@@ -276,9 +297,8 @@ instance
   readMaybeNat : ReadMaybe ℕ
   readMaybeNat = record {
     rr = readNat;
-    P? = P?;
-    justys = justys;
-    nad = {!!}}
+    P? = P?
+    }
     where
     P? : Decidable readNat.djm0
     P? x with 𝕃All.all? readNat.IsDigit? x | 𝕃.length x ℕ.>? 0
@@ -287,26 +307,6 @@ instance
     ... | _ | no l = no $ l ∘ proj₂
 
     open Read readNat
-    justys : P ⊆ (Is-just ∘ apDec (Read.read readNat) P?)
-    justys = J⇒IJ _ _ ∘ dij _
-      where
-      J⇒IJ : ∀ {a} → {A : Set a}
-           → (x : Maybe A)
-           → (z : A)
-           → x ≡ just z
-           → Is-just x
-      J⇒IJ (just x) f _≡_.refl = DMRN.just _
-      dij : (x : Strong)
-          → (_ : readNat.djm0 x)
-          → apDec (Read.read readNat) P? x ≡ just _
-      dij x p = begin
-        apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
-        apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ _≡_.refl ⟩
-        _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' (Read.read readNat) x) ⟩
-        apDec.apDec' (Read.read readNat) x (yes $ proj₁ D) ∎
-        where
-        D = Relation.Nullary.Decidable.dec-yes (P? x) p
-        open Relation.Binary.PropositionalEquality.≡-Reasoning
 
   readInt : Read {p = {!!}} ℤ
   readInt = {!!}
@@ -320,9 +320,7 @@ instance
   readMaybeFin : {n : ℕ} → ReadMaybe $ Fin n
   readMaybeFin {n} = record {
     rr = readFin;
-    P? = P?;
-    justys = {!!};
-    nad = {!!}
+    P? = P?
     }
     where
     P? : Decidable _
