@@ -218,8 +218,6 @@ module readNat where
     IsDigit : Char → Set
     toFin10 : Char → Maybe $ Fin 10
     IsDigit = Is-just ∘ toFin10
-    djm0 : Strong → Set
-    djm0 n = 𝕃All.All IsDigit n
     toFin10 '0' = just 𝔽.zero
     toFin10 '1' = just $ 𝔽.fromℕ< $ from-yes $ 1 ℕ.<? 10
     toFin10 '2' = just $ 𝔽.fromℕ< $ from-yes $ 2 ℕ.<? 10
@@ -244,6 +242,9 @@ module readNat where
     IsDigit? '8' = yes $ DMRN.just _
     IsDigit? '9' = yes $ DMRN.just _
     IsDigit? _ = no {!!}
+
+    djm0 : Strong → Set
+    djm0 n = 𝕃All.All IsDigit n
 
     read' : (x : Strong) → djm0 x → ℕ × ℕ
     read' [] p = 0 Data.Product., 0
