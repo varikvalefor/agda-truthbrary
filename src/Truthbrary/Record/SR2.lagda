@@ -132,6 +132,7 @@ open import Data.List
     []
   )
 open import Data.Maybe
+  as ？
   using (
     to-witness;
     Is-nothing;
@@ -197,7 +198,7 @@ module apDec where
          → (x : A)
          → Dec $ P x
          → Maybe B
-  apDec' f x = Data.Maybe.map (f x) ∘ Data.Maybe.decToMaybe
+  apDec' f x = ？.map (f x) ∘ ？.decToMaybe
 
   apDec : ∀ {a b p}
         → {A : Set a} → {B : Set b}
