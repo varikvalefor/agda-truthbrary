@@ -115,12 +115,12 @@ instance
   readNat = record {
     P = λ n →
       (_⊎_ {_}
-        (𝕃All.All IsDigit n) -- +
+        (𝕃All.All IsDigit n)
         (_×_
           (𝕃.head n ≡ just '-')
           (_×_
             (¬_ $ 𝕃.head (𝕃.drop 1 n) ≡ nothing)
-            (𝕃All.All IsDigit $ 𝕃.drop 1 n))) {- - -});
+            (𝕃All.All IsDigit $ 𝕃.drop 1 n))));
     read = {!!}
     }
     where
