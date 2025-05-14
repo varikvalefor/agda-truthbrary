@@ -246,17 +246,17 @@ module readNat where
     djm0 : Strong → Set
     djm0 = 𝕃All.All IsDigit
 
-    read' : (x : Strong) → djm0 x → ℕ × ℕ
-    read' _ 𝕃All.[] = 0 Data.Product., 0
-    read' _ (p 𝕃All.∷ ps) =
+    read' : {x : Strong} → djm0 x → ℕ × ℕ
+    read' 𝕃All.[] = 0 Data.Product., 0
+    read' (p 𝕃All.∷ ps) =
       n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
       where
-      n = Data.Product.proj₁ $ read' _ ps
-      e = Data.Product.proj₂ $ read' _ ps
+      n = Data.Product.proj₁ $ read' ps
+      e = Data.Product.proj₂ $ read' ps
       cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
     read : (x : Strong) → djm0 x → ℕ
-    read x p = Data.Product.proj₁ $ read' x p
+    read x p = Data.Product.proj₁ $ read' p
 
 instance
   readNat : Read ℕ
