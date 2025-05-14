@@ -251,7 +251,7 @@ module readNat where
     read' (c ∷ cs) (p 𝕃All.∷ ps) =
       n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
       where
-      n = Data.Product.proj₁ $ read' cs ps
+      n = Data.Product.proj₁ $ read' _ ps
       e = Data.Product.proj₂ $ read' cs ps
       cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
