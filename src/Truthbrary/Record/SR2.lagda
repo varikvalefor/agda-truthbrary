@@ -272,7 +272,7 @@ instance
   readMaybeNat = record {
     rr = readNat;
     P? = P?;
-    justys = λ p → J⇒IJ _ {!!} {!!};
+    justys = λ p → J⇒IJ _ _ $ dij _ p;
     nad = {!!}}
     where
     P? : Decidable readNat.djm0
@@ -286,6 +286,10 @@ instance
          → x ≡ just z
          → Is-just x
     J⇒IJ (just x) f _≡_.refl = DMRN.just _
+    dij : (x : Strong)
+        → readNat.djm0 x
+        → apDec (Read.read readNat) P? x ≡ just {!!}
+    dij = {!!}
 
   readInt : Read {p = {!!}} ℤ
   readInt = {!!}
