@@ -319,7 +319,7 @@ instance
 
   readMaybeFin : {n : ℕ} → ReadMaybe {p = {!!}} $ Fin n
   readMaybeFin = record {
-    rr = {!!};
+    rr = readFin;
     P? = {!!};
     justys = {!!};
     nad = {!!}
