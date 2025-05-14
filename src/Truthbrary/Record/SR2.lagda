@@ -330,6 +330,6 @@ instance
     ... | no j = no $ j ∘ proj₁
     ... | yes p with Read.read readNat x p ℕ.<? n
     ... | yes p₁ = yes $ p , p₁
-    ... | no j = {!!}
+    ... | no j = no {!!}
 \end{code}
 \end{document}
