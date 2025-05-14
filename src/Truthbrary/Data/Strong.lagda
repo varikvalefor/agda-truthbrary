@@ -193,7 +193,7 @@ module words where
       → List (List A)
       → List A
       → A
-      → (List A)
+      → List A
       → List (List A)
   soi buf 𝕃.[] s 𝕃.[] = 𝕃.reverse buf
   soi buf c s 𝕃.[] = 𝕃.reverse $ c 𝕃.∷ buf
