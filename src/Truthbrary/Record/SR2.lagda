@@ -233,7 +233,7 @@ module readNat where
     IsDigit? : Decidable IsDigit
     IsDigit? x with toFin10 x
     ... | just _ = yes $ DMRN.just _
-    ... | nothing = no {!!}
+    ... | nothing = no $ λ ()
 
     djm0 : Strong → Set
     djm0 = 𝕃All.All IsDigit
