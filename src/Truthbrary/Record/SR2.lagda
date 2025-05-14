@@ -314,7 +314,10 @@ instance
     open Read readNat
 
   readInt : Read {p = {!!}} ℤ
-  readInt = {!!}
+  readInt = record {
+    P = {!!};
+    read = {!!}
+    }
 
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {
