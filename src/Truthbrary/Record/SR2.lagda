@@ -289,7 +289,7 @@ instance
     dij : (x : Strong)
         → (p : readNat.djm0 x)
         → apDec (Read.read readNat) P? x ≡ just (Read.read readNat x p)
-    dij = λ x p → begin
+    dij x p = begin
       apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
       apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ {!!} ⟩
       apDec.apDec' (Read.read readNat) x (yes p) ≡⟨ _≡_.refl ⟩
