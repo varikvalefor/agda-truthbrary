@@ -272,7 +272,7 @@ instance
   readMaybeNat = record {
     rr = readNat;
     P? = P?;
-    justys = λ p → J⇒IJ {!!} {!!} {!!};
+    justys = λ p → J⇒IJ _ {!!} {!!};
     nad = {!!}}
     where
     P? : Decidable readNat.djm0
