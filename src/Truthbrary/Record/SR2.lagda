@@ -78,7 +78,7 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
     P? : Decidable $ Read.P rr
 
   readMaybe : Strong → Maybe A
-  readMaybe x = apDec (Read.read rr) P? x
+  readMaybe = apDec (Read.read rr) P?
 
 record ReadMaybe! {a p} (A : Set a) : Set (a ⊔ suc p)
   where
