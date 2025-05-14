@@ -254,6 +254,7 @@ module readNat where
       n = Data.Product.proj₁ $ read' cs ps
       e = Data.Product.proj₂ $ read' cs ps
       cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
+
     read : (x : Strong) → djm0 x → ℕ
     read x p = Data.Product.proj₁ $ read' x p
 
