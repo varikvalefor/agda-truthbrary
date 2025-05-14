@@ -311,7 +311,7 @@ instance
   readInt = {!!}
 
   readFin : {n : ℕ} → Read {p = {!!}} $ Fin n
-  readFin = record {
+  readFin {n} = record {
     P = {!!};
     read = {!!}
     }
