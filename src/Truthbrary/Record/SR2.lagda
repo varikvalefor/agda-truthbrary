@@ -79,16 +79,8 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   readMaybe = apDec (Read.read rr) P?
 
-record ReadMaybe! {a p} (A : Set a) : Set (a ⊔ suc p)
-  where
-  field
-    rm : ReadMaybe {p = p} A
-
-  open ReadMaybe rm
-  open Read (ReadMaybe.rr rm)
-
   field
     justys : (x : Strong)
-           → P x
+           → Read.P rr x
            → Is-just $ readMaybe x
 \end{code}
