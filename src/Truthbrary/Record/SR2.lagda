@@ -329,7 +329,7 @@ instance
     P? x with ReadMaybe.P? readMaybeNat x
     ... | no j = no $ j ∘ proj₁
     ... | yes p with Read.read readNat x p ℕ.<? n
-    ... | yes p₁ = {!!}
+    ... | yes p₁ = yes $ p , p₁
     ... | no j = {!!}
 \end{code}
 \end{document}
