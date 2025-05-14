@@ -311,7 +311,7 @@ instance
   readInt : Read {p = {!!}} ℤ
   readInt = {!!}
 
-  readFin : {n : ℕ} → Read {p = _} $ Fin n
+  readFin : {n : ℕ} → Read $ Fin n
   readFin = record {
     P = λ s → Σ _ $ λ p → Read.read readNat s p ℕ.< _;
     read = λ x (p , m) → 𝔽.fromℕ< m
