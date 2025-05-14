@@ -160,7 +160,8 @@ instance
   readMaybeNat : ReadMaybe ℕ
   readMaybeNat = record {
     rr = readNat;
-    P? = {!!};
+    P? = 𝕃All.all? {!!};
     justys = {!!};
     nad = {!!}}
 \end{code}
+\end{document}
