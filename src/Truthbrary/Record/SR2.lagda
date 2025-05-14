@@ -290,7 +290,8 @@ instance
         → (p : readNat.djm0 x)
         → apDec (Read.read readNat) P? x ≡ just (Read.read readNat x p)
     dij = λ x p → begin
-      apDec (Read.read readNat) P? x ≡⟨ {!!} ⟩
+      apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
+      apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ {!!} ⟩
       just (Read.read readNat x p) ∎
       where
       open Relation.Binary.PropositionalEquality.≡-Reasoning
