@@ -292,15 +292,15 @@ instance
     J⇒IJ (just x) f _≡_.refl = DMRN.just _
     dij : (x : Strong)
         → (p : readNat.djm0 x)
-        → apDec (Read.read readNat) P? x ≡ just (Read.read readNat x p)
+        → apDec (Read.read readNat) P? x ≡ just _
     dij x p = begin
       apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
       apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ yp ▹ cong (apDec.apDec' _ x) ⟩
-      apDec.apDec' (Read.read readNat) x (yes p) ≡⟨ _≡_.refl ⟩
-      just (Read.read readNat x p) ∎
+      apDec.apDec' (Read.read readNat) x (yes $ proj₁ D) ∎
       where
-      yp : P? x ≡ yes p
-      yp = {!!}
+      D = Relation.Nullary.Decidable.dec-yes (P? x) p
+      yp : P? x ≡ yes (proj₁ D)
+      yp = proj₂ D
       open Relation.Binary.PropositionalEquality.≡-Reasoning
 
   readInt : Read {p = {!!}} ℤ
