@@ -295,7 +295,7 @@ instance
            → Is-just x
       J⇒IJ (just x) f _≡_.refl = DMRN.just _
       dij : (x : Strong)
-          → (p : readNat.djm0 x)
+          → (_ : readNat.djm0 x)
           → apDec (Read.read readNat) P? x ≡ just _
       dij x p = begin
         apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
