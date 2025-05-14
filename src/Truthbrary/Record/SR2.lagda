@@ -114,7 +114,7 @@ instance
   readNat : Read {p = Level.zero} ℕ
   readNat = record {
     P = λ n → _⊎_ (djm0 n) $ ml0 n;
-    read = {!!}
+    read = read
     }
     where
     IsDigit : Char → Set
@@ -144,4 +144,6 @@ instance
            '8' ∷
            '9' ∷
            [])))
+    read : (x : Strong) → djm0 x ⊎ ml0 x → ℕ
+    read = {!!}
 \end{code}
