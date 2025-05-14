@@ -6,6 +6,11 @@ open import Level
     _⊔_;
     suc
   )
+open import Data.Fin
+  as 𝔽
+  using (
+    Fin
+  )
 open import Data.Nat
   as ℕ
   using (
@@ -58,6 +63,10 @@ open import Relation.Nullary
 open import Truthbrary.Data.Strong
   using (
     Strong
+  )
+open import Relation.Nullary.Decidable
+  using (
+    from-yes
   )
 open import Data.List.Relation.Unary.All
   as 𝕃All
@@ -120,23 +129,19 @@ instance
     IsDigit : Char → Set
     djm0 : Strong → Set
     djm0 n = 𝕃All.All IsDigit n
-    IsDigit = λ x →
-      (𝕃.foldr
-        _⊎_
-        (x ≡ x)
-        (𝕃.map
-          (x ≡_)
-          ('0' ∷
-           '1' ∷
-           '2' ∷
-           '3' ∷
-           '4' ∷
-           '5' ∷
-           '6' ∷
-           '7' ∷
-           '8' ∷
-           '9' ∷
-           [])))
+    toFin10 : Char → Maybe $ Fin 10
+    toFin10 '0' = just 𝔽.zero
+    toFin10 '1' = just $ 𝔽.fromℕ< $ from-yes $ 1 ℕ.<? 10
+    toFin10 '2' = just $ 𝔽.fromℕ< $ from-yes $ 2 ℕ.<? 10
+    toFin10 '3' = just $ 𝔽.fromℕ< $ from-yes $ 3 ℕ.<? 10
+    toFin10 '4' = just $ 𝔽.fromℕ< $ from-yes $ 4 ℕ.<? 10
+    toFin10 '5' = just $ 𝔽.fromℕ< $ from-yes $ 5 ℕ.<? 10
+    toFin10 '6' = just $ 𝔽.fromℕ< $ from-yes $ 6 ℕ.<? 10
+    toFin10 '7' = just $ 𝔽.fromℕ< $ from-yes $ 7 ℕ.<? 10
+    toFin10 '8' = just $ 𝔽.fromℕ< $ from-yes $ 8 ℕ.<? 10
+    toFin10 '9' = just $ 𝔽.fromℕ< $ from-yes $ 9 ℕ.<? 10
+    toFin10 _ = nothing
+    IsDigit = λ x → Is-just $ toFin10 x
     read : (x : Strong) → djm0 x → ℕ
     read x p = read' 0 $ 𝕃.reverse x
       where
