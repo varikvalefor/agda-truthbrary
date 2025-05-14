@@ -287,7 +287,7 @@ instance
 
     open Read readNat
     justys : P ⊆ (Is-just ∘ apDec (Read.read readNat) P?)
-    justys = λ p → J⇒IJ _ _ $ dij _ p
+    justys = J⇒IJ _ _ ∘ dij _
       where
       J⇒IJ : ∀ {a} → {A : Set a}
            → (x : Maybe A)
