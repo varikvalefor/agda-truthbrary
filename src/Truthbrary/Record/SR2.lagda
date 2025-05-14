@@ -39,6 +39,10 @@ open import Data.Maybe
     Maybe;
     just
   )
+open import Data.Product
+  using (
+    _×_
+  )
 open import Relation.Unary
   using (
     Decidable;
@@ -56,8 +60,12 @@ open import Truthbrary.Data.Strong
     Strong
   )
 open import Data.List.Relation.Unary.All
-  as 𝕃
+  as 𝕃All
   using (
+  )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
   )
 
 module apDec where
@@ -107,8 +115,12 @@ instance
   readNat = record {
     P = λ n →
       (_⊎_ {_}
-        (𝕃.All IsDigit n) -- +
-        {!!} {- - -});
+        (𝕃All.All IsDigit n) -- +
+        (_×_
+          (𝕃.head n ≡ just '-')
+          (_×_
+            (¬_ $ 𝕃.head (𝕃.drop 1 n) ≡ nothing)
+            (𝕃All.All IsDigit $ 𝕃.drop 1 n))) {- - -});
     read = {!!}
     }
     where
