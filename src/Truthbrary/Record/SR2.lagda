@@ -313,8 +313,20 @@ instance
 
     open Read readNat
 
-  readInt : Read {p = {!!}} ℤ
-  readInt = {!!}
+  readInt : Read ℤ
+  readInt = record {
+    P = λ s → 
+      (_⊎_
+        (readNat.djm0 s)
+        (_×_
+          (𝕃.head s ≡ just '-')
+          (readNat.djm0 $ 𝕃.drop 1 s)));
+    read = λ x → read {x}
+    }
+    where
+    read : {x : Strong} → _ ⊎ _ → ℤ
+    read (_⊎_.inj₁ z) = ℤ.+ Read.read readNat _ z
+    read (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+ Read.read readNat _ m
 
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {
