@@ -38,6 +38,7 @@ open import Relation.Nullary
   using (
     Dec;
     yes;
+    ¬_;
     no
   )
 open import Truthbrary.Data.Strong
@@ -83,5 +84,5 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   field
     justys : Read.P rr ⊆ (Is-just ∘ readMaybe)
-    nad : (Relation.Nullary.¬_ ∘ Read.P rr) ⊆ (Data.Maybe.Is-nothing ∘ readMaybe)
+    nad : (¬_ ∘ Read.P rr) ⊆ (Data.Maybe.Is-nothing ∘ readMaybe)
 \end{code}
