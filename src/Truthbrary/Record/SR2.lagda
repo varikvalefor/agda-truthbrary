@@ -289,7 +289,11 @@ instance
     dij : (x : Strong)
         → readNat.djm0 x
         → apDec (Read.read readNat) P? x ≡ just {!!}
-    dij = {!!}
+    dij = λ x p → begin
+      apDec (Read.read readNat) P? x ≡⟨ {!!} ⟩
+      {!!} ∎
+      where
+      open Relation.Binary.PropositionalEquality.≡-Reasoning
 
   readInt : Read {p = {!!}} ℤ
   readInt = {!!}
