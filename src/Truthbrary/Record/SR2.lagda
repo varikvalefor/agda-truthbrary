@@ -247,7 +247,7 @@ module readNat where
     djm0 = 𝕃All.All IsDigit
 
     read' : (x : Strong) → djm0 x → ℕ × ℕ
-    read' [] 𝕃All.[] = 0 Data.Product., 0
+    read' _ 𝕃All.[] = 0 Data.Product., 0
     read' (_ ∷ _) (p 𝕃All.∷ ps) =
       n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
       where
