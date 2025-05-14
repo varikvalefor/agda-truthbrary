@@ -138,5 +138,8 @@ instance
            '9' ∷
            [])))
     read : (x : Strong) → djm0 x → ℕ
-    read = {!!}
+    read x p = read' 0 $ 𝕃.reverse x
+      where
+      read' : ℕ → Strong → ℕ
+      read' = {!!}
 \end{code}
