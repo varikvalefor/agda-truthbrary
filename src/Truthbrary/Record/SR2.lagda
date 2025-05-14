@@ -244,7 +244,7 @@ module readNat where
     IsDigit? _ = no {!!}
 
     djm0 : Strong → Set
-    djm0 n = 𝕃All.All IsDigit n
+    djm0 = 𝕃All.All IsDigit
 
     read' : (x : Strong) → djm0 x → ℕ × ℕ
     read' [] p = 0 Data.Product., 0
