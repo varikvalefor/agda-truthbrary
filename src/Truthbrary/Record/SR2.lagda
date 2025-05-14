@@ -246,7 +246,7 @@ module readNat where
     djm0 = λ n → 𝕃All.All IsDigit n × 𝕃.length n ℕ.> 0
 
     read' : {x : Strong} → djm0 x → ℕ
-    read' (ps , z) = 𝕃.sum $ 𝕃.map tenfa $ (indice) $ 𝕃.map (𝔽.toℕ ∘ Data.Maybe.to-witness ∘ proj₂) $ 𝕃All.toList ps
+    read' (ps , z) = 𝕃.sum $ 𝕃.map tenfa $ indice $ 𝕃.map (𝔽.toℕ ∘ Data.Maybe.to-witness ∘ proj₂) $ 𝕃All.toList ps
       where
       tenfa = λ (b , e) → b ℕ.* 10 ℕ.^ e
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
