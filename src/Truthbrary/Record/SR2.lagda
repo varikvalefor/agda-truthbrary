@@ -143,9 +143,9 @@ instance
     toFin10 _ = nothing
     IsDigit = λ x → Is-just $ toFin10 x
     read : (x : Strong) → djm0 x → ℕ
-    read x p = read' 0 $ 𝕃.reverse x
+    read x p = read' 0 (𝕃.reverse x) {!!}
       where
-      read' : ℕ → Strong → ℕ
-      read' x [] = 0
-      read' x (c ∷ cs) = {!!} ℕ.+ (read' x cs ℕ.* 10)
+      read' : ℕ → (x : Strong) → djm0 x → ℕ
+      read' x [] p = 0
+      read' x (c ∷ cs) (p 𝕃All.∷ ps) = {!!} ℕ.+ (read' x cs ps ℕ.* 10)
 \end{code}
