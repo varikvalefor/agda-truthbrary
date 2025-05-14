@@ -107,6 +107,7 @@ module Truthbrary.Data.Strong where
 \begin{code}
 open import Function
   using (
+    _∘_;
     _$_;
     id
   )
@@ -216,7 +217,7 @@ module words where
   soi₁ = soi 𝕃.[] 𝕃.[]
 
   splitOn' : Char → Strong → List Strong
-  splitOn' = soi₁ Function.∘ _≟_
+  splitOn' = soi₁ ∘ _≟_
 
   words : Strong → List Strong
   words = splitOn' ' '
