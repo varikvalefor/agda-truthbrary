@@ -217,7 +217,7 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 module readNat where
     IsDigit : Char → Set
     toFin10 : Char → Maybe $ Fin 10
-    IsDigit = λ x → Is-just $ toFin10 x
+    IsDigit = Is-just ∘ toFin10
     djm0 : Strong → Set
     djm0 n = 𝕃All.All IsDigit n
     toFin10 '0' = just 𝔽.zero
