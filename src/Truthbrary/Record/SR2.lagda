@@ -248,11 +248,11 @@ module readNat where
     read' : {x : Strong} → djm0 x → ℕ × ℕ
     read' 𝕃All.[] = 0 , 0
     read' (p 𝕃All.∷ ps) =
-      n ℕ.+ cℕ ℕ.* 10 ℕ.^ e , ℕ.suc e
+      n ℕ.+ pℕ ℕ.* 10 ℕ.^ e , ℕ.suc e
       where
       n = proj₁ $ read' ps
       e = proj₂ $ read' ps
-      cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
+      pℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
 instance
   readNat : Read ℕ
