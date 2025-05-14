@@ -83,7 +83,9 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   readMaybe = apDec (Read.read rr) P?
 
+  open Read rr
+
   field
-    justys : Read.P rr ⊆ (Is-just ∘ readMaybe)
-    nad : (¬_ ∘ Read.P rr) ⊆ (Is-nothing ∘ readMaybe)
+    justys : P ⊆ (Is-just ∘ readMaybe)
+    nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
 \end{code}
