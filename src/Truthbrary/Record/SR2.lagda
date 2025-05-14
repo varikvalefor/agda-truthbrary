@@ -120,13 +120,6 @@ instance
     IsDigit : Char → Set
     djm0 : Strong → Set
     djm0 n = 𝕃All.All IsDigit n
-    ml0 : Strong → Set
-    ml0 n = 
-      (_×_
-        (𝕃.head n ≡ just '-')
-        (_×_
-          (¬_ $ 𝕃.head (𝕃.drop 1 n) ≡ nothing)
-          (𝕃All.All IsDigit $ 𝕃.drop 1 n)))
     IsDigit = λ x →
       (𝕃.foldr
         _⊎_
