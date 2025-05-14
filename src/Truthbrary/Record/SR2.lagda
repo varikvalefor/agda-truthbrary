@@ -295,7 +295,7 @@ instance
         → apDec (Read.read readNat) P? x ≡ just (Read.read readNat x p)
     dij x p = begin
       apDec (Read.read readNat) P? x ≡⟨ _≡_.refl ⟩
-      apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ yp ▹ cong (apDec.apDec' (Read.read _) x) ⟩
+      apDec.apDec' (Read.read readNat) x (P? x) ≡⟨ yp ▹ cong (apDec.apDec' (_) x) ⟩
       apDec.apDec' (Read.read readNat) x (yes p) ≡⟨ _≡_.refl ⟩
       just (Read.read readNat x p) ∎
       where
