@@ -145,5 +145,6 @@ instance
            '9' ∷
            [])))
     read : (x : Strong) → djm0 x ⊎ ml0 x → ℕ
-    read = {!!}
+    read x (_⊎_.inj₁ z) = {!!}
+    read x (_⊎_.inj₂ m) = {!!}
 \end{code}
