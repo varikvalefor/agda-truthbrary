@@ -248,7 +248,7 @@ module readNat where
 
     read' : (x : Strong) → djm0 x → ℕ × ℕ
     read' _ 𝕃All.[] = 0 Data.Product., 0
-    read' (_ ∷ _) (p 𝕃All.∷ ps) =
+    read' _ (p 𝕃All.∷ ps) =
       n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
       where
       n = Data.Product.proj₁ $ read' _ ps
