@@ -216,10 +216,10 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
 module readNat where
     IsDigit : Char → Set
-    djm0 : Strong → Set
-    djm0 n = 𝕃All.All IsDigit n
     toFin10 : Char → Maybe $ Fin 10
     IsDigit = λ x → Is-just $ toFin10 x
+    djm0 : Strong → Set
+    djm0 n = 𝕃All.All IsDigit n
     toFin10 '0' = just 𝔽.zero
     toFin10 '1' = just $ 𝔽.fromℕ< $ from-yes $ 1 ℕ.<? 10
     toFin10 '2' = just $ 𝔽.fromℕ< $ from-yes $ 2 ℕ.<? 10
