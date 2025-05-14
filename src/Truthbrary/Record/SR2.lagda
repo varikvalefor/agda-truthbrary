@@ -141,5 +141,6 @@ instance
     read x p = read' 0 $ 𝕃.reverse x
       where
       read' : ℕ → Strong → ℕ
-      read' = {!!}
+      read' x [] = {!!}
+      read' x (c ∷ cs) = {!!}
 \end{code}
