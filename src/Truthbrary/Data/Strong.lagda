@@ -209,8 +209,14 @@ module words where
     S = soi (c 𝕃.∷ buf) 𝕃.[] s xs
     K = soi buf (c 𝕃.++ 𝕃.[ x ]) s xs
 
+  soi₁ : ∀ {a b} → {A : Set a} → {B : A → Set b}
+       → Decidable B
+       → List A
+       → List $ List A
+  soi₁ = soi 𝕃.[] 𝕃.[]
+
   splitOn' : Char → Strong → List Strong
-  splitOn' x = soi 𝕃.[] 𝕃.[] $ x ≟_
+  splitOn' x = soi₁ $ x ≟_
 
   words : Strong → List Strong
   words = splitOn' ' '
