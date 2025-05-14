@@ -221,7 +221,7 @@ module words where
       sxs : (buf : List Strong)
           → (c ss : Strong)
           → (x : Char)
-          → let f = (x ≟_) in
+          → let f = x ≟_ in
             (_≡_
               (soi buf c f (x 𝕃.∷ ss))
               (soi (c 𝕃.∷ buf) 𝕃.[] f ss))
