@@ -252,7 +252,7 @@ module readNat where
       n ℕ.+ cℕ ℕ.* 10 ℕ.^ e Data.Product., ℕ.suc e
       where
       n = Data.Product.proj₁ $ read' _ ps
-      e = Data.Product.proj₂ $ read' cs ps
+      e = Data.Product.proj₂ $ read' _ ps
       cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
     read : (x : Strong) → djm0 x → ℕ
