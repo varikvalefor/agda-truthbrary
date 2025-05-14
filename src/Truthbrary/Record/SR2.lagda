@@ -313,7 +313,7 @@ instance
 
     open Read readNat
 
-  readInt : Read {p = Level.zero} ℤ
+  readInt : Read {p = _} ℤ
   readInt = record {
     P = λ s → 
       (_⊎_
