@@ -309,5 +309,8 @@ instance
 
   readInt : Read {p = {!!}} ℤ
   readInt = {!!}
+
+  readFin : {n : ℕ} → Read {p = {!!}} $ Fin n
+  readFin = {!!}
 \end{code}
 \end{document}
