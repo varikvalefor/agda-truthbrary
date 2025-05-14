@@ -11,6 +11,10 @@ open import Data.Nat
   using (
     ℕ
   )
+open import Data.Sum
+  using (
+    _⊎_
+  )
 open import Function
   using (
     _∘_;
@@ -34,6 +38,10 @@ open import Data.Maybe
     nothing;
     Maybe;
     just
+  )
+open import Data.List.All
+  as 𝕃
+  using (
   )
 open import Relation.Unary
   using (
@@ -97,7 +105,10 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 instance
   readNat : Read {p = Level.zero} ℕ
   readNat = record {
-    P = {!!};
+    P = λ n →
+      (_⊎_ {Level.zero}
+        (𝕃.All {!!} n) -- +
+        {!!} {- - -});
     read = {!!}
     }
 \end{code}
