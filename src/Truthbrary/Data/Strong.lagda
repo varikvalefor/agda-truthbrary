@@ -216,7 +216,7 @@ module words where
   soi₁ = soi 𝕃.[] 𝕃.[]
 
   splitOn' : Char → Strong → List Strong
-  splitOn' x = soi₁ $ x ≟_
+  splitOn' = soi₁ Function.∘ _≟_
 
   words : Strong → List Strong
   words = splitOn' ' '
