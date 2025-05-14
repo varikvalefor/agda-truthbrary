@@ -148,6 +148,9 @@ module readNat where
         e = Data.Product.proj₂ $ read' cs ps
         cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
+    IsDigit? : Decidable IsDigit
+    IsDigit? = {!!}
+
 instance
   readNat : Read {p = Level.zero} ℕ
   readNat = record {
@@ -160,7 +163,7 @@ instance
   readMaybeNat : ReadMaybe ℕ
   readMaybeNat = record {
     rr = readNat;
-    P? = 𝕃All.all? {!!};
+    P? = 𝕃All.all? readNat.IsDigit?;
     justys = {!!};
     nad = {!!}}
 \end{code}
