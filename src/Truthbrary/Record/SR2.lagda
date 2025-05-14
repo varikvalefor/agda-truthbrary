@@ -259,7 +259,7 @@ module readNat where
     read x p = Data.Product.proj₁ $ read' x p
 
 instance
-  readNat : Read {p = _} ℕ
+  readNat : Read ℕ
   readNat = record {
     read = readNat.read
     }
