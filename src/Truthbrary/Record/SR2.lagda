@@ -113,7 +113,7 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 instance
   readNat : Read {p = Level.zero} ℕ
   readNat = record {
-    P = λ n → _⊎_ (djm0 n) $ ml0 n;
+    P = λ n → djm0 n;
     read = read
     }
     where
@@ -144,7 +144,6 @@ instance
            '8' ∷
            '9' ∷
            [])))
-    read : (x : Strong) → djm0 x ⊎ ml0 x → ℕ
-    read x (_⊎_.inj₁ z) = {!!}
-    read x (_⊎_.inj₂ m) = {!!}
+    read : (x : Strong) → djm0 x → ℕ
+    read = {!!}
 \end{code}
