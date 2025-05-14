@@ -39,10 +39,6 @@ open import Data.Maybe
     Maybe;
     just
   )
-open import Data.List.Relation.Unary.All
-  as 𝕃
-  using (
-  )
 open import Relation.Unary
   using (
     Decidable;
@@ -58,6 +54,10 @@ open import Relation.Nullary
 open import Truthbrary.Data.Strong
   using (
     Strong
+  )
+open import Data.List.Relation.Unary.All
+  as 𝕃
+  using (
   )
 
 module apDec where
