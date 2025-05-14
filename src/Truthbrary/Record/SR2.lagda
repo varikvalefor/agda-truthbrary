@@ -138,6 +138,7 @@ open import Data.Maybe
   )
 open import Data.Product
   using (
+    proj₁;
     _×_;
     _,_
   )
@@ -248,14 +249,14 @@ module readNat where
     read' (p 𝕃All.∷ ps) =
       n ℕ.+ cℕ ℕ.* 10 ℕ.^ e , ℕ.suc e
       where
-      n = Data.Product.proj₁ $ read' ps
+      n = proj₁ $ read' ps
       e = Data.Product.proj₂ $ read' ps
       cℕ = 𝔽.toℕ $ Data.Maybe.to-witness p
 
 instance
   readNat : Read ℕ
   readNat = record {
-    read = λ x → Data.Product.proj₁ ∘ readNat.read' {x}
+    read = λ x → proj₁ ∘ readNat.read' {x}
     }
 
   readMaybeNat : ReadMaybe ℕ
