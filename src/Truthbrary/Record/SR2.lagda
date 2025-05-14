@@ -39,7 +39,7 @@ open import Data.Maybe
     Maybe;
     just
   )
-open import Data.List.All
+open import Data.List.Relation.Unary.All
   as 𝕃
   using (
   )
