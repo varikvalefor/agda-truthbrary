@@ -23,6 +23,7 @@ open import Data.List
   )
 open import Data.Maybe
   using (
+    Is-just;
     nothing;
     Maybe;
     just
@@ -62,4 +63,17 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   readMaybe : Strong → Maybe A
   readMaybe x = readMaybePrivate x $ P? x
+
+record ReadMaybe! {a p} (A : Set a) : Set (a ⊔ suc p)
+  where
+  field
+    rm : ReadMaybe {p = p} A
+
+  open ReadMaybe rm
+  open Read (ReadMaybe.rr rm)
+
+  field
+    justys : (x : Strong)
+           → P x
+           → Is-just $ readMaybe x
 \end{code}
