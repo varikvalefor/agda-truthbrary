@@ -287,11 +287,11 @@ instance
          → Is-just x
     J⇒IJ (just x) f _≡_.refl = DMRN.just _
     dij : (x : Strong)
-        → readNat.djm0 x
-        → apDec (Read.read readNat) P? x ≡ just {!!}
+        → (p : readNat.djm0 x)
+        → apDec (Read.read readNat) P? x ≡ just (Read.read readNat x p)
     dij = λ x p → begin
       apDec (Read.read readNat) P? x ≡⟨ {!!} ⟩
-      {!!} ∎
+      just (Read.read readNat x p) ∎
       where
       open Relation.Binary.PropositionalEquality.≡-Reasoning
 
