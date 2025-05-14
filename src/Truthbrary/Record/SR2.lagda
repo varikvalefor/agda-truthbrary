@@ -6,6 +6,11 @@ open import Level
     _⊔_;
     suc
   )
+open import Data.Nat
+  as ℕ
+  using (
+    ℕ
+  )
 open import Function
   using (
     _∘_;
@@ -88,4 +93,8 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
   field
     justys : P ⊆ (Is-just ∘ readMaybe)
     nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
+
+instance
+  readNat : Read {p = {!!}} ℕ
+  readNat = {!!}
 \end{code}
