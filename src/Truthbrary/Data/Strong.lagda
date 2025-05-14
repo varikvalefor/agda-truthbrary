@@ -190,7 +190,7 @@ ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo 
 module words where
   soi : ∀ {a} → {A : Set a}
       → ⦃ Truthbrary.Record.Eq.Eq A ⦄
-      → List (List A)
+      → List $ List A
       → List A
       → A
       → List A
