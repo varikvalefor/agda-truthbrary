@@ -96,5 +96,8 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
 instance
   readNat : Read {p = {!!}} ℕ
-  readNat = {!!}
+  readNat = record {
+    P = {!!};
+    read = {!!}
+    }
 \end{code}
