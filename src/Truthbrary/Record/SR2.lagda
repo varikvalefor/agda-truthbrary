@@ -43,6 +43,28 @@ open import Truthbrary.Data.Strong
     Strong
   )
 
+module apDec where
+  apDec' : ∀ {a b p}
+         → {A : Set a} → {B : Set b}
+         → {P : A → Set p}
+         → (f : (x : A) → P x → B)
+         → (x : A)
+         → Dec $ P x
+         → Maybe B
+  apDec' f x (yes p) = just $ f x p
+  apDec' _ _ _ = nothing
+
+  apDec : ∀ {a b p}
+        → {A : Set a} → {B : Set b}
+        → {P : A → Set p}
+        → (f : (x : A) → P x → B)
+        → (P? : Decidable P)
+        → A
+        → Maybe B
+  apDec f P? x = apDec' f x $ P? x
+
+apDec = apDec.apDec
+
 record Read {a p} (A : Set a) : Set (a ⊔ suc p)
   where
   field
@@ -55,14 +77,8 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
     rr : Read {p = p} A
     P? : Decidable $ Read.P rr
 
-  readMaybePrivate : (x : Strong)
-                   → Dec $ Read.P rr x
-                   → Maybe A
-  readMaybePrivate x (yes p) = just $ Read.read rr x p
-  readMaybePrivate _ _ = nothing
-
   readMaybe : Strong → Maybe A
-  readMaybe x = readMaybePrivate x $ P? x
+  readMaybe x = apDec (Read.read rr) P? x
 
 record ReadMaybe! {a p} (A : Set a) : Set (a ⊔ suc p)
   where
