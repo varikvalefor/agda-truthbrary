@@ -327,7 +327,7 @@ instance
     where
     P? : Decidable _
     P? x with ReadMaybe.P? readMaybeNat x
-    ... | no j = {!!}
+    ... | no j = no $ j ∘ proj₁
     ... | yes p = {!!}
 \end{code}
 \end{document}
