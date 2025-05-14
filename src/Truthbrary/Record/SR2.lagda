@@ -326,7 +326,7 @@ instance
     where
     read : (x : Strong) → _ ⊎ _ → ℤ
     read x (_⊎_.inj₁ z) = ℤ.+ Read.read readNat x z
-    read x (_⊎_.inj₂ m) = ℤ.-_ $ ℤ.+_ $ Read.read readNat (𝕃.drop 1 x) $ proj₂ m
+    read x (_⊎_.inj₂ m) = ℤ.-_ $ ℤ.+_ $ Read.read readNat (_) $ proj₂ m
 
   readFin : {n : ℕ} → Read $ Fin n
   readFin = record {
