@@ -147,5 +147,7 @@ instance
       where
       read' : ℕ → (x : Strong) → djm0 x → ℕ
       read' x [] p = 0
-      read' x (c ∷ cs) (p 𝕃All.∷ ps) = {!!} ℕ.+ (read' x cs ps ℕ.* 10)
+      read' x (c ∷ cs) (p 𝕃All.∷ ps) = cℕ ℕ.+ (read' x cs ps ℕ.* 10)
+        where
+        cℕ = {!!}
 \end{code}
