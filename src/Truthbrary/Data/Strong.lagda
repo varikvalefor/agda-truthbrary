@@ -125,6 +125,10 @@ open import Data.Char
   using (
     Char
   )
+open import Relation.Unary
+  using (
+    Decidable
+  )
 open import Relation.Nullary
   using (
     yes;
@@ -192,22 +196,22 @@ ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo 
 
 \begin{code}
 module words where
-  soi : ∀ {a} → {A : Set a}
+  soi : ∀ {a b} → {A : Set a} → {B : A → Set b}
       → ⦃ Truthbrary.Record.Eq.Eq A ⦄
       → List $ List A
       → List A
-      → (A → Data.Bool.Bool)
+      → Decidable B
       → List A
       → List $ List A
   soi buf 𝕃.[] s 𝕃.[] = 𝕃.reverse buf
   soi buf c s 𝕃.[] = 𝕃.reverse $ c 𝕃.∷ buf
-  soi buf c s (x 𝕃.∷ xs) = if (s x) S K
+  soi buf c s (x 𝕃.∷ xs) = if (isYes $ s x) S K
     where
     S = soi (c 𝕃.∷ buf) 𝕃.[] s xs
     K = soi buf (c 𝕃.++ 𝕃.[ x ]) s xs
 
   splitOn' : Char → Strong → List Strong
-  splitOn' x = soi 𝕃.[] 𝕃.[] $ isYes Function.∘ (x ≟_)
+  splitOn' x = soi 𝕃.[] 𝕃.[] $ x ≟_
 
   words : Strong → List Strong
   words = splitOn' ' '
@@ -217,7 +221,7 @@ module words where
       sxs : (buf : List Strong)
           → (c ss : Strong)
           → (x : Char)
-          → let f = isYes Function.∘ (x ≟_) in
+          → let f = (x ≟_) in
             (_≡_
               (soi buf c f (x 𝕃.∷ ss))
               (soi (c 𝕃.∷ buf) 𝕃.[] f ss))
