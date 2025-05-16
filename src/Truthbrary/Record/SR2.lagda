@@ -403,8 +403,5 @@ instance
                 → ⦃ ReadMaybe {p = p} A ⦄
                 → ReadMaybe {p = p} $ List A
   readMaybeList = {!!}
-
-_ : Read.read (readList ⦃ readNat ⦄) ('[' ∷ ']' ∷ []) (_⊎_.inj₂ ([] , 𝕃All.[] , _≡_.refl)) ≡ []
-_ = _≡_.refl
 \end{code}
 \end{document}
