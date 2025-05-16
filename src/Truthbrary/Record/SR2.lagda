@@ -404,4 +404,11 @@ instance
                 → ReadMaybe {p = p} $ List A
   readMaybeList = {!!}
 \end{code}
+
+\begin{code}
+record Show {a} (A : Set a) : Set a
+  where
+  field
+    show : A → Strong
+\end{code}
 \end{document}
