@@ -121,6 +121,7 @@ open import Data.Vec
 open import Function
   using (
     _∘_;
+    _ˢ_;
     _$_
   )
   renaming (
@@ -434,7 +435,7 @@ instance
     }
     where
     show : ℕ → Strong
-    show = show' Function.ˢ (ℕ._<? 10)
+    show = show' ˢ (ℕ._<? 10)
       where
       show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
       show' n (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
