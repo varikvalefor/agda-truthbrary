@@ -356,7 +356,7 @@ instance
            → Read {p = {!!}} $ List A
   readList {a} {p} {A} ⦃ R ⦄ = record {
     P = xaste;
-    read = {!!}
+    read = read
     }
     where
     xaste : Strong → Set p -- [1,2,3]
@@ -370,5 +370,7 @@ instance
               x
               ((λ x → ('[' ∷ []) 𝕃.++ x 𝕃.++ (']' ∷ []))
                 (𝕃.intercalate (',' ∷ []) s))))))
+    read : (x : Strong) → xaste x → List A
+    read = {!!}
 \end{code}
 \end{document}
