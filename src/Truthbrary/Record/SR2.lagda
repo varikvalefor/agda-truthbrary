@@ -384,7 +384,7 @@ instance
     where
     data P (x : Strong) : Set p
       where
-      xaste :
+      xaste : -- [1,2,3]
         (Σ
           (List Strong)
           (λ s →
