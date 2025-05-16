@@ -416,7 +416,7 @@ instance
 
   readChar : Read {p = {!!}} Char
   readChar = record {
-    P = {!!};
+    P = λ s → Σ Char $ λ c → s ≡ '\'' ∷ c ∷ '\'' ∷ [];
     read = {!!}
     }
 
