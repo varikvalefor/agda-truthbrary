@@ -199,7 +199,8 @@ open import Truthbrary.Data.Strong
   )
 open import Relation.Nullary.Decidable
   using (
-    from-yes
+    from-yes;
+    isYes
   )
 open import Data.List.Relation.Unary.All
   as 𝕃All
@@ -457,6 +458,6 @@ instance
     }
     where
     s : ℤ → Strong
-    s = λ z → if Relation.Nullary.Decidable.isYes (z ℤ.<? ℤ.0ℤ) then ('-' ∷ []) else []
+    s = λ z → if isYes (z ℤ.<? ℤ.0ℤ) then ('-' ∷ []) else []
 \end{code}
 \end{document}
