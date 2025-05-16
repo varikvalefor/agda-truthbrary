@@ -370,10 +370,13 @@ instance
               x
               (let S = 𝕃.intercalate (',' ∷ []) s in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+    xastes : Strong → Set p -- [1, 2,   3]
+    xastes = {!!}
     P : Strong → Set p
-    P = xaste
+    P = λ x → xaste x ⊎ xastes x
     read : (x : Strong) → P x → List A
-    read x (s , (r , d)) =
+    read x (_⊎_.inj₁ (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    read x (_⊎_.inj₂ p) = {!!}
 \end{code}
 \end{document}
