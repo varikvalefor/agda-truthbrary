@@ -376,7 +376,7 @@ instance
               x
               (let S = 𝕃.intercalate (',' ∷ []) s in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-    xastes : Strong → Set p -- [1, 2,   3]
+    xastes : Strong → Set p -- [1, 2 ,   3 ]
     xastes x =
       (Σ
         (List $ Strong × ℕ × ℕ)
