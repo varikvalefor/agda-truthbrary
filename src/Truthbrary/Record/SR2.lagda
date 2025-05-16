@@ -379,13 +379,13 @@ instance
     xastes : Strong → Set p -- [1, 2,   3]
     xastes = λ x →
       (Σ
-        (Σ ℕ $ Vec $ Strong × ℕ × ℕ)
-        (λ (n , xs) →
+        (List $ Strong × ℕ × ℕ)
+        (λ xs →
           (_×_
-            (𝕃All.All (Read.P R) $ 𝕍.toList $ 𝕍.map proj₁ xs)
+            (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
             (_≡_
               x
-              (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) $ 𝕍.toList xs in
+              (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
       where
       int : ∀ {a} → {A : Set a} → {n : ℕ}
