@@ -436,7 +436,7 @@ instance
         s 𝔽.5F = '5'
         s 𝔽.6F = '6'
         s 𝔽.7F = '7'
-        s 𝔽.8F = {!!}
+        s 𝔽.8F = '8'
         s 𝔽.9F = {!!}
       show' n (no N) = {!!}
 \end{code}
