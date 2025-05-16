@@ -379,7 +379,7 @@ instance
     xastes : Strong → Set p -- [1, 2,   3]
     xastes = λ x →
       (Σ
-        (Σ ℕ (Vec (Strong × ℕ × ℕ)))
+        (Σ ℕ (Vec $ Strong × ℕ × ℕ))
         (λ (n , xs) →
           (_×_
             (𝕃All.All (Read.P R) $ 𝕍.toList $ 𝕍.map proj₁ xs)
