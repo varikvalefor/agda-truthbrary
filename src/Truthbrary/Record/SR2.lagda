@@ -428,7 +428,7 @@ instance
       show' n (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
         where
         s : Fin 10 → Char
-        s 𝔽.zero = {!!}
+        s 𝔽.zero = '0'
         s 𝔽.1F = {!!}
         s 𝔽.2F = {!!}
         s 𝔽.3F = {!!}
