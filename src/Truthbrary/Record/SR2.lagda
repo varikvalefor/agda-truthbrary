@@ -421,7 +421,10 @@ instance
     }
 
   readMaybeChar : ReadMaybe Char
-  readMaybeChar = {!!}
+  readMaybeChar = record {
+    rr = {!!};
+    P? = {!!}
+    }
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
