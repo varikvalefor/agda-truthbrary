@@ -126,6 +126,10 @@ open import Function
   renaming (
     _|>_ to _▹_
   )
+open import Data.Bool
+  using (
+    if_then_else_
+  )
 open import Data.Char
   using (
     Char
@@ -453,6 +457,6 @@ instance
     }
     where
     s : ℤ → Strong
-    s = {!!}
+    s = λ z → if {!!} then ('-' ∷ []) else []
 \end{code}
 \end{document}
