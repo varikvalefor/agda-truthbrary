@@ -484,7 +484,7 @@ instance
     }
     where
     s : ℤ → Strong
-    s z = if (isYes (z ℤ.<? ℤ.0ℤ)) ('-' ∷ []) []
+    s z = if (isYes $ z ℤ.<? ℤ.0ℤ) ('-' ∷ []) []
 \end{code}
 
 \begin{code}
