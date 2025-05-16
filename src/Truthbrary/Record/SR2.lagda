@@ -414,7 +414,7 @@ instance
         → Read.read readNat x p₁ ≡ Read.read readNat x p₂
       d = {!!}
 
-  readChar : Read {p = {!!}} Char
+  readChar : Read {p = Level.zero} Char
   readChar = record {
     P = λ s → Σ Char $ λ c → s ≡ '\'' ∷ c ∷ '\'' ∷ [];
     read = λ _ → proj₁
