@@ -493,6 +493,6 @@ readMaybe : ∀ {a p} → {A : Set a}
 readMaybe = {!!}
 
 show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → Strong
-show = {!!}
+show ⦃ Q ⦄ = Show.show Q
 \end{code}
 \end{document}
