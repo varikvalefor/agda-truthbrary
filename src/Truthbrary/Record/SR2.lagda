@@ -414,7 +414,10 @@ record Show {a} (A : Set a) : Set a
 instance
   showNat : Show ℕ
   showNat = record {
-    show = {!!}
+    show = show
     }
+    where
+    show : ℕ → Strong
+    show = {!!}
 \end{code}
 \end{document}
