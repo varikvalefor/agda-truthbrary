@@ -366,7 +366,7 @@ instance
     }
     where
     xaste : Strong → Set p -- [1,2,3]
-    xaste = λ x →
+    xaste x =
       (Σ
         (List Strong)
         (λ s →
