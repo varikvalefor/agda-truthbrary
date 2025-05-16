@@ -360,7 +360,7 @@ instance
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
-           → Read {p = _} $ List A
+           → Read $ List A
   readList {p = p} {A} ⦃ R ⦄ = record {
     P = P;
     read = Σ.curry read
