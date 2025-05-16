@@ -408,7 +408,7 @@ instance
                  ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
         → Ste x
     P : Strong → Set p
-    P = λ x → Ste x
+    P x = Ste x
     read : Σ.∃ P → List A
     read (x , xaste (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
