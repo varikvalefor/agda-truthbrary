@@ -434,7 +434,7 @@ instance
     }
     where
     show : ℕ → Strong
-    show x = show' x $ x ℕ.<? 10
+    show x = (show' Function.ˢ (ℕ._<? 10)) x
       where
       show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
       show' n (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
