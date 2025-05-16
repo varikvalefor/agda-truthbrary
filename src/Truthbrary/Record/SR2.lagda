@@ -355,7 +355,7 @@ instance
            → ⦃ Read {p = p} A ⦄
            → Read {p = p} $ List A
   readList {p = p} {A} ⦃ R ⦄ = record {
-    P = xaste;
+    P = P;
     read = read
     }
     where
@@ -370,7 +370,9 @@ instance
               x
               (let S = 𝕃.intercalate (',' ∷ []) s in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-    read : (x : Strong) → xaste x → List A
+    P : Strong → Set p
+    P = xaste
+    read : (x : Strong) → P x → List A
     read x (s , (r , d)) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 \end{code}
