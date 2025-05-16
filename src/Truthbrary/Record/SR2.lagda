@@ -410,5 +410,9 @@ record Show {a} (A : Set a) : Set a
   where
   field
     show : A → Strong
+
+instance
+  showNat : Show ℕ
+  showNat = {!!}
 \end{code}
 \end{document}
