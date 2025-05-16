@@ -368,8 +368,8 @@ instance
             (𝕃All.All (Read.P R) s)
             (_≡_
               x
-              ((λ x → ('[' ∷ []) 𝕃.++ x 𝕃.++ (']' ∷ []))
-                (𝕃.intercalate (',' ∷ []) s))))))
+              (let S = 𝕃.intercalate (',' ∷ []) s in
+               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
     read : (x : Strong) → xaste x → List A
     read x (s , (r , d)) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
