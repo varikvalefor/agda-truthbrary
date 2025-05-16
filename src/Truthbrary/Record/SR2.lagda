@@ -144,9 +144,6 @@ open import Data.List
     _∷_;
     []
   )
-open import Data.Empty
-  using (
-  )
 open import Data.Maybe
   as ？
   using (
