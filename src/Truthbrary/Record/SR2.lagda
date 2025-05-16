@@ -354,6 +354,9 @@ instance
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
            → Read {p = {!!}} $ List A
-  readList = {!!}
+  readList = record {
+    P = {!!};
+    read = {!!}
+    }
 \end{code}
 \end{document}
