@@ -359,14 +359,16 @@ instance
     read = {!!}
     }
     where
-    xaste : Strong → Set -- [1,2,3]
+    xaste : Strong → Set p -- [1,2,3]
     xaste = λ x →
       (Σ
         (List Strong)
         (λ s →
-          (_≡_
-            x
-            ((λ x → ('[' ∷ []) 𝕃.++ x 𝕃.++ (']' ∷ []))
-              (𝕃.intercalate (',' ∷ []) s)))))
+          (_×_
+            (𝕃All.All (Read.P R) s)
+            (_≡_
+              x
+              ((λ x → ('[' ∷ []) 𝕃.++ x 𝕃.++ (']' ∷ []))
+                (𝕃.intercalate (',' ∷ []) s))))))
 \end{code}
 \end{document}
