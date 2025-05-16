@@ -16,6 +16,7 @@
 \newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb S}}}
+\newunicodechar{𝕍}{\ensuremath{\mathnormal{\mathbb V}}}
 \newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb Z}}}
 \newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb Q}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal\circ}}
@@ -111,6 +112,11 @@ open import Data.Nat
 open import Data.Sum
   using (
     _⊎_
+  )
+open import Data.Vec
+  as 𝕍
+  using (
+    Vec
   )
 open import Function
   using (
@@ -350,5 +356,46 @@ instance
       d : (p₁ p₂ : _)
         → Read.read readNat x p₁ ≡ Read.read readNat x p₂
       d = {!!}
+
+  readList : ∀ {a p} → {A : Set a}
+           → ⦃ Read {p = p} A ⦄
+           → Read {p = p} $ List A
+  readList {p = p} {A} ⦃ R ⦄ = record {
+    P = P;
+    read = read
+    }
+    where
+    xaste : Strong → Set p -- [1,2,3]
+    xaste x =
+      (Σ
+        (List Strong)
+        (λ s →
+          (_×_
+            (𝕃All.All (Read.P R) s)
+            (_≡_
+              x
+              (let S = 𝕃.intercalate (',' ∷ []) s in
+               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+    xastes : Strong → Set p -- [1, 2 ,   3 ]
+    xastes x =
+      (Σ
+        (List $ Strong × ℕ × ℕ)
+        (λ xs →
+          (_×_
+            (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+            (_≡_
+              x
+              (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
+               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+      where
+      cbs : ℕ → Strong
+      cbs = Function.flip 𝕃.replicate ' '
+    P : Strong → Set p
+    P = λ x → xaste x ⊎ xastes x
+    read : (x : Strong) → P x → List A
+    read x (_⊎_.inj₁ (s , (r , d))) =
+      𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    read x (_⊎_.inj₂ (s , (r , d))) =
+      𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 \end{code}
 \end{document}
