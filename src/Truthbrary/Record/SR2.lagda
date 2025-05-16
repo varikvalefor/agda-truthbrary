@@ -382,6 +382,18 @@ instance
     read = Σ.curry read
     }
     where
+    Ps : Strong → Strong → Set p
+    Ps s x =
+        let cbs = Function.flip 𝕃.replicate ' ' in
+        (Σ
+          (List $ Strong × ℕ × ℕ)
+          (λ xs →
+            (_×_
+              (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+              (_≡_
+                x
+                (let S = 𝕃.intercalate s $ 𝕃.map (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
+                 ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
     data P (x : Strong) : Set p
       where
       xaste : -- [1,2,3]
@@ -396,29 +408,9 @@ instance
                  ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
         → P x
       xastes : -- [1,  2  ,    3 ]
-        let cbs = Function.flip 𝕃.replicate ' ' in
-        (Σ
-          (List $ Strong × ℕ × ℕ)
-          (λ xs →
-            (_×_
-              (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
-              (_≡_
-                x
-                (let S = 𝕃.intercalate (',' ∷ []) $ 𝕃.map (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
-                 ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-        → P x
+        Ps (',' ∷ []) x → P x
       agasp : -- 1 ∷ 2 ∷ 3 ∷ []
-        let cbs = Function.flip 𝕃.replicate ' ' in
-        (Σ
-          (List $ Strong × ℕ × ℕ)
-          (λ xs →
-            (_×_
-              (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
-              (_≡_
-                x
-                (let S = 𝕃.map (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
-                 ('[' ∷ []) 𝕃.++ (𝕃.intercalate (' ' ∷ '∷' ∷ ' ' ∷ []) S) 𝕃.++ (']' ∷ []))))))
-        → P x
+        Ps (' ' ∷ '∷' ∷ ' ' ∷ []) x → P x
         
     read : Σ.∃ P → List A
     read (x , xaste (s , (r , d))) =
