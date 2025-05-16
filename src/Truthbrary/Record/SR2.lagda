@@ -413,6 +413,8 @@ record Show {a} (A : Set a) : Set a
 
 instance
   showNat : Show ℕ
-  showNat = {!!}
+  showNat = record {
+    show = {!!}
+    }
 \end{code}
 \end{document}
