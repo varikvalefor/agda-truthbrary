@@ -407,11 +407,25 @@ instance
                 (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
                  ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
         → P x
+      agasp : -- 1 ∷ 2 ∷ 3 ∷ []
+        let cbs = Function.flip 𝕃.replicate ' ' in
+        (Σ
+          (List $ Strong × ℕ × ℕ)
+          (λ xs →
+            (_×_
+              (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+              (_≡_
+                x
+                (let S = 𝕃.map (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
+                 ('[' ∷ []) 𝕃.++ (𝕃.intercalate (' ' ∷ '∷' ∷ ' ' ∷ []) S) 𝕃.++ (']' ∷ []))))))
+        → P x
+        
     read : Σ.∃ P → List A
     read (x , xaste (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
     read (x , xastes (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    read (x , agasp (s , (r , d))) = {!!}
 
   readMaybeList : ∀ {a p} → {A : Set a}
                 → ⦃ ReadMaybe {p = p} A ⦄
