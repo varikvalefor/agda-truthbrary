@@ -371,6 +371,7 @@ instance
               ((λ x → ('[' ∷ []) 𝕃.++ x 𝕃.++ (']' ∷ []))
                 (𝕃.intercalate (',' ∷ []) s))))))
     read : (x : Strong) → xaste x → List A
-    read = {!!}
+    read x (s , (r , d)) =
+      𝕃.map (λ (x , z) → Read.read R x z) $ 𝕃All.toList r
 \end{code}
 \end{document}
