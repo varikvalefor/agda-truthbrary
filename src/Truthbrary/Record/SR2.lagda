@@ -427,6 +427,7 @@ instance
     }
     where
     P? : (x : Strong) → Dec $ Read.P readChar x
+    P? ('\'' ∷ c ∷ '\'' ∷ []) = {!!}
     P? x = {!!}
 
   readList : ∀ {a p} → {A : Set a}
