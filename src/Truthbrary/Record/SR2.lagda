@@ -388,13 +388,6 @@ instance
               (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
       where
-      int : ∀ {a} → {A : Set a} → {n : ℕ}
-          → Vec A n
-          → Vec A $ n ℕ.∸ 1
-          → Vec A $ n ℕ.* 2 ℕ.∸ 1
-      int 𝕍.[] 𝕍.[] = 𝕍.[]
-      int (x 𝕍.∷ 𝕍.[]) 𝕍.[] = x 𝕍.∷ 𝕍.[]
-      int (x₁ 𝕍.∷ xs) (z 𝕍.∷ zs) = x₁ 𝕍.∷ z 𝕍.∷ int xs zs
       cbs : ℕ → Strong
       cbs = Function.flip 𝕃.replicate ' '
     P : Strong → Set p
