@@ -490,7 +490,7 @@ readMaybe : ∀ {a p} → {A : Set a}
           → ⦃ ReadMaybe {p = p} A ⦄
           → Strong
           → Maybe A
-readMaybe = {!!}
+readMaybe ⦃ Q ⦄ = ReadMaybe.readMaybe Q
 
 show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → Strong
 show ⦃ Q ⦄ = Show.show Q
