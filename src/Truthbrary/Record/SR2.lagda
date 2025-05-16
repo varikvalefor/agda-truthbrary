@@ -420,6 +420,9 @@ instance
     read = λ _ → proj₁
     }
 
+  readMaybeChar : ReadMaybe Char
+  readMaybeChar = {!!}
+
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
            → Read $ List A
