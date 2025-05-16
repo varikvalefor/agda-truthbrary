@@ -484,4 +484,12 @@ instance
     s : ℤ → Strong
     s = λ z → if isYes (z ℤ.<? ℤ.0ℤ) then ('-' ∷ []) else []
 \end{code}
+
+\begin{code}
+readMaybe : ∀ {a p} → {A : Set a}
+          → ⦃ ReadMaybe {p = p} A ⦄
+          → Strong
+          → Maybe A
+readMaybe = {!!}
+\end{code}
 \end{document}
