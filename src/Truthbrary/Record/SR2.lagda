@@ -360,6 +360,13 @@ instance
     }
     where
     xaste : Strong → Set {!!} -- [1,2,3]
-    xaste = {!!}
+    xaste = λ x →
+      (Σ
+        (List Strong)
+        (λ s →
+          (_≡_
+            x
+            ((λ x → ('[' ∷ []) 𝕃.++ x 𝕃.++ (']' ∷ []))
+              (𝕃.intercalate (',' ∷ []) s)))))
 \end{code}
 \end{document}
