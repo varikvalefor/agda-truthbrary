@@ -418,7 +418,9 @@ instance
     }
     where
     show : ℕ → Strong
-    show 0 = '0' ∷ []
-    show (ℕ.suc n) = {!!}
+    show x = show' x $ x ℕ.<? 10
+      where
+      show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
+      show' = {!!}
 \end{code}
 \end{document}
