@@ -379,13 +379,13 @@ instance
     xastes : Strong → Set p -- [1, 2,   3]
     xastes = λ x →
       (Σ
-        (Σ ℕ (λ n → Vec Strong n × Vec ℕ (n ℕ.∸ 1)))
+        (Σ ℕ (λ n → Vec Strong n × Vec (ℕ × ℕ) n))
         (λ (n , xs , cb) →
           (_×_
             (𝕃All.All (Read.P R) $ 𝕍.toList xs)
             (_≡_
               x
-              (let S = 𝕃.intercalate (',' ∷ []) $ 𝕍.toList $ int xs $ cbs cb in
+              (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) $ 𝕍.toList $ 𝕍.zip xs cb in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
       where
       int : ∀ {a} → {A : Set a} → {n : ℕ}
@@ -395,8 +395,8 @@ instance
       int 𝕍.[] 𝕍.[] = 𝕍.[]
       int (x 𝕍.∷ 𝕍.[]) 𝕍.[] = x 𝕍.∷ 𝕍.[]
       int (x₁ 𝕍.∷ xs) (z 𝕍.∷ zs) = x₁ 𝕍.∷ z 𝕍.∷ int xs zs
-      cbs : {n : ℕ} → Vec ℕ n → Vec Strong n
-      cbs = 𝕍.map $ Function.flip 𝕃.replicate ' '
+      cbs : ℕ → Strong
+      cbs = Function.flip 𝕃.replicate ' '
     P : Strong → Set p
     P = λ x → xaste x ⊎ xastes x
     read : (x : Strong) → P x → List A
