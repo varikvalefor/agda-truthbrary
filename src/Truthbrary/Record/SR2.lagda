@@ -457,6 +457,6 @@ instance
     }
     where
     s : ℤ → Strong
-    s = λ z → if {!!} then ('-' ∷ []) else []
+    s = λ z → if Relation.Nullary.Decidable.isYes (z ℤ.<? ℤ.0ℤ) then ('-' ∷ []) else []
 \end{code}
 \end{document}
