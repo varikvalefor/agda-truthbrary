@@ -429,7 +429,7 @@ instance
         where
         s : Fin 10 → Char
         s 𝔽.zero = '0'
-        s 𝔽.1F = {!!}
+        s 𝔽.1F = '1'
         s 𝔽.2F = {!!}
         s 𝔽.3F = {!!}
         s 𝔽.4F = {!!}
