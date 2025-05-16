@@ -397,5 +397,13 @@ instance
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
     read (x , _⊎_.inj₂ (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+
+  readMaybeList : ∀ {a p} → {A : Set a}
+                → ⦃ ReadMaybe {p = p} A ⦄
+                → ReadMaybe {p = p} $ List A
+  readMaybeList = {!!}
+
+_ : Read.read (readList ⦃ readNat ⦄) ('[' ∷ ']' ∷ []) (_⊎_.inj₂ ([] , 𝕃All.[] , _≡_.refl)) ≡ []
+_ = _≡_.refl
 \end{code}
 \end{document}
