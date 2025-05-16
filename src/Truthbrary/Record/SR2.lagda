@@ -382,7 +382,7 @@ instance
     read = Σ.curry read
     }
     where
-    data Ste (x : Strong) : Set p
+    data P (x : Strong) : Set p
       where
       xaste :
         (Σ
@@ -394,7 +394,7 @@ instance
                 x
                 (let S = 𝕃.intercalate (',' ∷ []) s in
                  ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-        → Ste x
+        → P x
       xastes :
         let cbs = Function.flip 𝕃.replicate ' ' in
         (Σ
@@ -406,9 +406,7 @@ instance
                 x
                 (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
                  ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-        → Ste x
-    P : Strong → Set p
-    P = Ste
+        → P x
     read : Σ.∃ P → List A
     read (x , xaste (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
