@@ -466,8 +466,5 @@ instance
     where
     s : ℤ → Strong
     s = λ z → if isYes (z ℤ.<? ℤ.0ℤ) then ('-' ∷ []) else []
-
-_ : Read.read readList (Data.String.toList "[5,4]") {!!} ≡ (5 ∷ 4 ∷ [])
-_ = {!!}
 \end{code}
 \end{document}
