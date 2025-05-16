@@ -384,8 +384,16 @@ instance
             (𝕃All.All (Read.P R) $ 𝕍.toList xs)
             (_≡_
               x
-              (let S = 𝕃.intercalate (',' ∷ []) {!!} in
+              (let S = 𝕃.intercalate (',' ∷ []) $ 𝕍.toList $ int xs $ cbs cb in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+      where
+      int : ∀ {a} → {A : Set a} → {n : ℕ}
+          → Vec A n
+          → Vec A $ n ℕ.∸ 1
+          → Vec A $ n ℕ.* 2 ℕ.∸ 1
+      int = {!!}
+      cbs : {n : ℕ} → Vec ℕ n → Vec Strong n
+      cbs = 𝕍.map $ Function.flip 𝕃.replicate ' '
     P : Strong → Set p
     P = λ x → xaste x ⊎ xastes x
     read : (x : Strong) → P x → List A
