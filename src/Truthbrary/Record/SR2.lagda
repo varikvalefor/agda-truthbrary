@@ -157,6 +157,7 @@ open import Data.Integer
     ℤ
   )
 open import Data.Product
+  as Σ
   using (
     proj₂;
     proj₁;
@@ -362,7 +363,7 @@ instance
            → Read {p = p} $ List A
   readList {p = p} {A} ⦃ R ⦄ = record {
     P = P;
-    read = Data.Product.curry read
+    read = Σ.curry read
     }
     where
     xaste : Strong → Set p -- [1,2,3]
@@ -392,7 +393,7 @@ instance
       cbs = Function.flip 𝕃.replicate ' '
     P : Strong → Set p
     P = λ x → xaste x ⊎ xastes x
-    read : Data.Product.∃ P → List A
+    read : Σ.∃ P → List A
     read (x , _⊎_.inj₁ (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
     read (x , _⊎_.inj₂ (s , (r , d))) =
