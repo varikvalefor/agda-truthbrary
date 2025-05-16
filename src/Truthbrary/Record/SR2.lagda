@@ -112,6 +112,11 @@ open import Data.Sum
   using (
     _⊎_
   )
+open import Data.Vec
+  as 𝕍
+  using (
+    Vec
+  )
 open import Function
   using (
     _∘_;
@@ -371,7 +376,16 @@ instance
               (let S = 𝕃.intercalate (',' ∷ []) s in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
     xastes : Strong → Set p -- [1, 2,   3]
-    xastes = {!!}
+    xastes = λ x →
+      (Σ
+        (Σ ℕ (λ n → Vec Strong n × Vec ℕ (n ℕ.∸ 1)))
+        (λ (n , xs , cb) →
+          (_×_
+            (𝕃All.All (Read.P R) $ 𝕍.toList xs)
+            (_≡_
+              x
+              (let S = 𝕃.intercalate (',' ∷ []) {!!} in
+               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
     P : Strong → Set p
     P = λ x → xaste x ⊎ xastes x
     read : (x : Strong) → P x → List A
