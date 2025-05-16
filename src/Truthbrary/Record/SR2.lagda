@@ -448,6 +448,8 @@ instance
       show' n (no N) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ show' (n ℕ.% 10) (yes {!!})
 
   showInt : Show ℤ
-  showInt = {!!}
+  showInt = record {
+    show = {!!}
+    }
 \end{code}
 \end{document}
