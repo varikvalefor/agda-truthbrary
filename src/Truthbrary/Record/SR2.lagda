@@ -422,7 +422,7 @@ instance
 
   readMaybeChar : ReadMaybe Char
   readMaybeChar = record {
-    rr = {!!};
+    rr = readChar;
     P? = {!!}
     }
 
