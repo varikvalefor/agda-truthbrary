@@ -393,7 +393,7 @@ instance
           → Vec A $ n ℕ.* 2 ℕ.∸ 1
       int 𝕍.[] 𝕍.[] = 𝕍.[]
       int (x 𝕍.∷ 𝕍.[]) 𝕍.[] = x 𝕍.∷ 𝕍.[]
-      int (x₁ 𝕍.∷ x₂ 𝕍.∷ xs) (z 𝕍.∷ zs) = x₁ 𝕍.∷ z 𝕍.∷ int (x₂ 𝕍.∷ xs) zs
+      int (x₁ 𝕍.∷ xs) (z 𝕍.∷ zs) = x₁ 𝕍.∷ z 𝕍.∷ int (xs) zs
       cbs : {n : ℕ} → Vec ℕ n → Vec Strong n
       cbs = 𝕍.map $ Function.flip 𝕃.replicate ' '
     P : Strong → Set p
