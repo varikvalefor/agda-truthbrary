@@ -382,37 +382,37 @@ instance
     read = Σ.curry read
     }
     where
-    xaste : Strong → Set p -- [1,2,3]
-    xaste x =
-      (Σ
-        (List Strong)
-        (λ s →
-          (_×_
-            (𝕃All.All (Read.P R) s)
-            (_≡_
-              x
-              (let S = 𝕃.intercalate (',' ∷ []) s in
-               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-    xastes : Strong → Set p -- [1, 2 ,   3 ]
-    xastes x =
-      (Σ
-        (List $ Strong × ℕ × ℕ)
-        (λ xs →
-          (_×_
-            (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
-            (_≡_
-              x
-              (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
-               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+    data Ste (x : Strong) : Set p
       where
-      cbs : ℕ → Strong
-      cbs = Function.flip 𝕃.replicate ' '
+      xaste :
+        (Σ
+          (List Strong)
+          (λ s →
+            (_×_
+              (𝕃All.All (Read.P R) s)
+              (_≡_
+                x
+                (let S = 𝕃.intercalate (',' ∷ []) s in
+                 ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+        → Ste x
+      xastes :
+        let cbs = Function.flip 𝕃.replicate ' ' in
+        (Σ
+          (List $ Strong × ℕ × ℕ)
+          (λ xs →
+            (_×_
+              (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+              (_≡_
+                x
+                (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
+                 ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+        → Ste x
     P : Strong → Set p
-    P = λ x → xaste x ⊎ xastes x
+    P = λ x → Ste x
     read : Σ.∃ P → List A
-    read (x , _⊎_.inj₁ (s , (r , d))) =
+    read (x , xaste (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-    read (x , _⊎_.inj₂ (s , (r , d))) =
+    read (x , xastes (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 
   readMaybeList : ∀ {a p} → {A : Set a}
