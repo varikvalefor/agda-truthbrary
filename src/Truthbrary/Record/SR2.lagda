@@ -449,7 +449,10 @@ instance
 
   showInt : Show ℤ
   showInt = record {
-    show = {!!}
+    show = λ z → s z 𝕃.++ Show.show showNat ℤ.∣ z ∣
     }
+    where
+    s : ℤ → Strong
+    s = {!!}
 \end{code}
 \end{document}
