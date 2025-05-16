@@ -422,6 +422,7 @@ record Show {a} (A : Set a) : Set a
     show : A → Strong
 
 instance
+  {-# TERMINATING #-}
   showNat : Show ℕ
   showNat = record {
     show = show
