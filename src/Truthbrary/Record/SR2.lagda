@@ -129,7 +129,9 @@ open import Function
   )
 open import Data.Bool
   using (
-    if_then_else_
+  )
+  renaming (
+    if_then_else_ to if
   )
 open import Data.Char
   using (
@@ -482,7 +484,7 @@ instance
     }
     where
     s : ℤ → Strong
-    s z = if isYes (z ℤ.<? ℤ.0ℤ) then ('-' ∷ []) else []
+    s z = if (isYes (z ℤ.<? ℤ.0ℤ)) ('-' ∷ []) []
 \end{code}
 
 \begin{code}
