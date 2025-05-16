@@ -417,7 +417,7 @@ instance
   readChar : Read {p = {!!}} Char
   readChar = record {
     P = λ s → Σ Char $ λ c → s ≡ '\'' ∷ c ∷ '\'' ∷ [];
-    read = λ x → proj₁
+    read = λ _ → proj₁
     }
 
   readList : ∀ {a p} → {A : Set a}
