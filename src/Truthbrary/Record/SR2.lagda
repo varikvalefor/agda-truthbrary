@@ -350,5 +350,10 @@ instance
       d : (p₁ p₂ : _)
         → Read.read readNat x p₁ ≡ Read.read readNat x p₂
       d = {!!}
+
+  readList : ∀ {a p} → {A : Set a}
+           → ⦃ Read {p = p} A ⦄
+           → Read {p = {!!}} $ List A
+  readList = {!!}
 \end{code}
 \end{document}
