@@ -359,7 +359,7 @@ instance
     read = {!!}
     }
     where
-    xaste : Strong → Set Level.zero -- [1,2,3]
+    xaste : Strong → Set -- [1,2,3]
     xaste = λ x →
       (Σ
         (List Strong)
