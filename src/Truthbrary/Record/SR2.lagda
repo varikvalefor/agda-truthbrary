@@ -16,6 +16,7 @@
 \newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb S}}}
+\newunicodechar{𝕍}{\ensuremath{\mathnormal{\mathbb V}}}
 \newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb Z}}}
 \newunicodechar{ℚ}{\ensuremath{\mathnormal{\mathbb Q}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal\circ}}
