@@ -355,8 +355,11 @@ instance
            → ⦃ Read {p = p} A ⦄
            → Read {p = {!!}} $ List A
   readList {a} {p} {A} ⦃ R ⦄ = record {
-    P = {!!};
+    P = xaste;
     read = {!!}
     }
+    where
+    xaste : Strong → Set {!!} -- [1,2,3]
+    xaste = {!!}
 \end{code}
 \end{document}
