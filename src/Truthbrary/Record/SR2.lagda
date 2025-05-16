@@ -170,6 +170,10 @@ open import Relation.Unary
     Decidable;
     _⊆_
   )
+open import Data.Nat.DivMod
+  as ℕ
+  using (
+  )
 open import Relation.Nullary
   using (
     Dec;
@@ -438,6 +442,6 @@ instance
         s 𝔽.7F = '7'
         s 𝔽.8F = '8'
         s 𝔽.9F = '9'
-      show' n (no N) = {!!}
+      show' n (no N) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ show' (n ℕ.% 10) (yes {!!})
 \end{code}
 \end{document}
