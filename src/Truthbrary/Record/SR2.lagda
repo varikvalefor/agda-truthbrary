@@ -353,7 +353,8 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
   read (x , xastes (s , (r , d))) =
     𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-  read (x , agasp (s , (r , d))) = 𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+  read (x , agasp (s , (r , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 
 instance
   readNat : Read ℕ
