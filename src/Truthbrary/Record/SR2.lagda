@@ -418,7 +418,7 @@ instance
     }
     where
     show : ℕ → Strong
-    show 0 = {!!}
+    show 0 = '0' ∷ []
     show (ℕ.suc n) = {!!}
 \end{code}
 \end{document}
