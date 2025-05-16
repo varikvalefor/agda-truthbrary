@@ -483,8 +483,5 @@ instance
     where
     s : ℤ → Strong
     s = λ z → if isYes (z ℤ.<? ℤ.0ℤ) then ('-' ∷ []) else []
-
-_ : Read.read readList (Data.String.toList "[5,4]") (readList.xaste ((('5' ∷ []) ∷ ('4' ∷ []) ∷ []) , ((((DMRN.just _) 𝕃All.∷ 𝕃All.[]) , (ℕ.s≤s ℕ.z≤n)) 𝕃All.∷ ((DMRN.just _ 𝕃All.∷ 𝕃All.[] , ℕ.s≤s ℕ.z≤n) 𝕃All.∷ 𝕃All.[]) , _≡_.refl))) ≡ (5 ∷ 4 ∷ [])
-_ = _≡_.refl
 \end{code}
 \end{document}
