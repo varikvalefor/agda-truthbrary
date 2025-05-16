@@ -395,7 +395,7 @@ instance
                 (let S = 𝕃.intercalate (',' ∷ []) s in
                  ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
         → P x
-      xastes :
+      xastes : -- [1,  2  ,    3 ]
         let cbs = Function.flip 𝕃.replicate ' ' in
         (Σ
           (List $ Strong × ℕ × ℕ)
