@@ -208,6 +208,8 @@ open import Relation.Binary.PropositionalEquality
     _≡_
   )
 
+import Data.String
+
 import Data.Maybe.Relation.Unary.Any
   as DMRN
 
@@ -443,5 +445,8 @@ instance
         s 𝔽.8F = '8'
         s 𝔽.9F = '9'
       show' n (no N) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ show' (n ℕ.% 10) (yes {!!})
+
+  showInt : Show ℤ
+  showInt = {!!}
 \end{code}
 \end{document}
