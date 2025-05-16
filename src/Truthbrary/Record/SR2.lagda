@@ -395,6 +395,7 @@ instance
     read : (x : Strong) → P x → List A
     read x (_⊎_.inj₁ (s , (r , d))) =
       𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-    read x (_⊎_.inj₂ p) = {!!}
+    read x (_⊎_.inj₂ (s , (r , d))) =
+      𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 \end{code}
 \end{document}
