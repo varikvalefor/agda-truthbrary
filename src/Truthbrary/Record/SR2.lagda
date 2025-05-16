@@ -177,6 +177,10 @@ open import Relation.Nullary
     ¬_;
     no
   )
+open import Data.Fin.Patterns
+  as 𝔽
+  using (
+  )
 open import Data.Nat.Properties
   as DNP
   using (
@@ -424,7 +428,16 @@ instance
       show' n (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
         where
         s : Fin 10 → Char
-        s = {!!}
+        s 𝔽.zero = {!!}
+        s 𝔽.1F = {!!}
+        s 𝔽.2F = {!!}
+        s 𝔽.3F = {!!}
+        s 𝔽.4F = {!!}
+        s 𝔽.5F = {!!}
+        s 𝔽.6F = {!!}
+        s 𝔽.7F = {!!}
+        s 𝔽.8F = {!!}
+        s 𝔽.9F = {!!}
       show' n (no N) = {!!}
 \end{code}
 \end{document}
