@@ -421,7 +421,10 @@ instance
     show x = show' x $ x ℕ.<? 10
       where
       show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
-      show' n (yes p) = {!!}
+      show' n (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
+        where
+        s : Fin 10 → Char
+        s = {!!}
       show' n (no N) = {!!}
 \end{code}
 \end{document}
