@@ -372,6 +372,6 @@ instance
                 (𝕃.intercalate (',' ∷ []) s))))))
     read : (x : Strong) → xaste x → List A
     read x (s , (r , d)) =
-      𝕃.map (λ x → Read.read R _ $ proj₂ x) $ 𝕃All.toList r
+      𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 \end{code}
 \end{document}
