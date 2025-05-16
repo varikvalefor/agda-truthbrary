@@ -353,7 +353,7 @@ instance
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
-           → Read {p = {!!}} $ List A
+           → Read {p = p} $ List A
   readList {a} {p} {A} ⦃ R ⦄ = record {
     P = xaste;
     read = read
