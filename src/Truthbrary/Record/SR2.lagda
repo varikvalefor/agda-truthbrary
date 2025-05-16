@@ -146,7 +146,6 @@ open import Data.List
   )
 open import Data.Empty
   using (
-    ⊥-elim
   )
 open import Data.Maybe
   as ？
