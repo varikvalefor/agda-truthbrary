@@ -438,7 +438,7 @@ instance
     show = show' ˢ (ℕ._<? 10)
       where
       show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
-      show' n (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
+      show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
         where
         s : Fin 10 → Char
         s 𝔽.zero = '0'
