@@ -353,7 +353,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
   read (x , xastes (s , (r , d))) =
     𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-  read (x , agasp (s , (r , d))) = {!!}
+  read (x , agasp (s , (r , d))) = 𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 
 instance
   readNat : Read ℕ
@@ -466,5 +466,8 @@ instance
     where
     s : ℤ → Strong
     s = λ z → if isYes (z ℤ.<? ℤ.0ℤ) then ('-' ∷ []) else []
+
+_ : Read.read readList (Data.String.toList "[5,4]") (readList.xaste ([] , (𝕃All.[] , {!!}))) ≡ (5 ∷ 4 ∷ [])
+_ = {!!}
 \end{code}
 \end{document}
