@@ -230,7 +230,7 @@ module apDec where
   apDec : ∀ {a b p}
         → {A : Set a} → {B : Set b}
         → {P : A → Set p}
-        → (f : (x : A) → P x → B)
+        → (_ : (x : A) → P x → B)
         → (_ : Decidable P)
         → A
         → Maybe B
