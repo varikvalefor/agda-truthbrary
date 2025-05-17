@@ -213,7 +213,6 @@ open import Relation.Binary.PropositionalEquality
   )
 
 import Data.String
-
 import Data.Maybe.Relation.Unary.Any
   as DMRN
 
