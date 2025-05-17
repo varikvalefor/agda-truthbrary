@@ -231,7 +231,7 @@ module apDec where
         → {A : Set a} → {B : Set b}
         → {P : A → Set p}
         → (f : (x : A) → P x → B)
-        → (P? : Decidable P)
+        → (_ : Decidable P)
         → A
         → Maybe B
   apDec f = apDec' f ˢ_
