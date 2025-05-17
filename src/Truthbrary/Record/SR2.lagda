@@ -426,7 +426,7 @@ instance
     P? : (x : Strong) → Dec $ Read.P readChar x
     P? ('\'' ∷ c ∷ '\'' ∷ []) = yes $ c , _≡_.refl
     P? (x₁ ∷ z ∷ x₂ ∷ []) = {!!}
-    P? [] = {!!}
+    P? [] = no {!!}
     P? (x ∷ []) = {!!}
     P? (x₁ ∷ x₂ ∷ []) = {!!}
     P? (x₁ ∷ x₂ ∷ x₃ ∷ x₄ ∷ xs) = {!!}
