@@ -234,7 +234,7 @@ module apDec where
         → (P? : Decidable P)
         → A
         → Maybe B
-  apDec f P? = apDec' f ˢ P?
+  apDec f P? = (apDec' f ˢ_) P?
 
 apDec = apDec.apDec
 
