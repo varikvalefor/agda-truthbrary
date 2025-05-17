@@ -428,7 +428,7 @@ instance
     P? (x₁ ∷ z ∷ x₂ ∷ []) = {!!}
     P? [] = no $ λ ()
     P? (x ∷ []) = no $ λ ()
-    P? (x₁ ∷ x₂ ∷ []) = {!!}
+    P? (x₁ ∷ x₂ ∷ []) = no $ λ ()
     P? (x₁ ∷ x₂ ∷ x₃ ∷ x₄ ∷ xs) = {!!}
 
   readList : ∀ {a p} → {A : Set a}
