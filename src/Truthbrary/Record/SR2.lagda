@@ -286,7 +286,7 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   nad = {!!}
 
-module readNat where
+module readℕ where
     private
       j : {m n : ℕ} → m ℕ.< n → Maybe $ Fin n
       j = just ∘ 𝔽.fromℕ<
@@ -377,43 +377,43 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 
 instance
-  readNat : Read ℕ
-  readNat = record {
-    read = λ x → readNat.read' {x}
+  readℕ : Read ℕ
+  readℕ = record {
+    read = λ x → readℕ.read' {x}
     }
 
   readMaybeNat : ReadMaybe ℕ
   readMaybeNat = record {
-    rr = readNat;
+    rr = readℕ;
     P? = P?
     }
     where
-    P? : Decidable readNat.djm0
-    P? x with 𝕃All.all? readNat.IsDigit? x | 𝕃.length x ℕ.>? 0
+    P? : Decidable readℕ.djm0
+    P? x with 𝕃All.all? readℕ.IsDigit? x | 𝕃.length x ℕ.>? 0
     ... | yes p | yes l = yes $ p , l
     ... | no p | _ = no $ p ∘ proj₁
     ... | _ | no l = no $ l ∘ proj₂
 
-    open Read readNat
+    open Read readℕ
 
   readℤ : Read ℤ
   readℤ = record {
     P = λ s → 
       (_⊎_
-        (readNat.djm0 s)
+        (readℕ.djm0 s)
         (_×_
           (𝕃.head s ≡ just '-')
-          (readNat.djm0 $ 𝕃.drop 1 s)));
+          (readℕ.djm0 $ 𝕃.drop 1 s)));
     read = λ x → read {x}
     }
     where
     read : {x : Strong} → _ ⊎ _ → ℤ
-    read (_⊎_.inj₁ z) = ℤ.+ Read.read readNat _ z
-    read (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+ Read.read readNat _ m
+    read (_⊎_.inj₁ z) = ℤ.+ Read.read readℕ _ z
+    read (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+ Read.read readℕ _ m
 
   read𝔽 : {n : ℕ} → Read $ Fin n
   read𝔽 = record {
-    P = λ s → Σ.∃ $ (ℕ._< _) ∘ Read.read readNat s;
+    P = λ s → Σ.∃ $ (ℕ._< _) ∘ Read.read readℕ s;
     read = λ _ (_ , m) → 𝔽.fromℕ< m
     }
 
@@ -426,12 +426,12 @@ instance
     P? : Decidable _
     P? x with ReadMaybe.P? readMaybeNat x
     ... | no j = no $ j ∘ proj₁
-    ... | yes p with Read.read readNat x p ℕ.<? n
+    ... | yes p with Read.read readℕ x p ℕ.<? n
     ... | yes p₁ = yes $ p , p₁
     ... | no j = no $ λ (z₁ , z₂) → subst (¬_ ∘ (ℕ._< n)) (d p z₁) j z₂
       where
       d : (p₁ p₂ : _)
-        → Read.read readNat x p₁ ≡ Read.read readNat x p₂
+        → Read.read readℕ x p₁ ≡ Read.read readℕ x p₂
       d = {!!}
 
   readChar : Read Char
