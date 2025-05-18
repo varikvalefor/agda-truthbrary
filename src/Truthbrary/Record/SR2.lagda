@@ -324,7 +324,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
             (_≡_
               x
               (let f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂ in
-               let S = 𝕃.intercalate s $ 𝕃.map (f) xs in
+               let S = 𝕃.intercalate s $ 𝕃.map f xs in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
     where
     cbs = Function.flip 𝕃.replicate ' '
