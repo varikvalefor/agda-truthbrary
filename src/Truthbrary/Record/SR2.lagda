@@ -43,6 +43,7 @@
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
+\newunicodechar{₄}{\ensuremath{\mathnormal{_4}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal\uplus}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≢}{\ensuremath{\mathnormal\nequiv}}
