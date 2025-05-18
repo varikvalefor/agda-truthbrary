@@ -455,7 +455,10 @@ instance
     P? (x₁ ∷ x₂ ∷ x₃ ∷ x₄ ∷ xs) = no $ λ ()
 
   readℚ : Read {p = {!!}} ℚ
-  readℚ = {!!}
+  readℚ = record {
+    P = {!!};
+    read = {!!}
+    }
 
   readMaybeℚ : ReadMaybe {p = {!!}} ℚ
   readMaybeℚ = {!!}
