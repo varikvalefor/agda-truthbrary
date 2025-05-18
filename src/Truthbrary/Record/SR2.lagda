@@ -417,8 +417,8 @@ instance
     read = λ _ (_ , m) → 𝔽.fromℕ< m
     }
 
-  readMaybeFin : {n : ℕ} → ReadMaybe $ Fin n
-  readMaybeFin {n} = record {
+  readMaybe𝔽 : {n : ℕ} → ReadMaybe $ Fin n
+  readMaybe𝔽 {n} = record {
     rr = read𝔽;
     P? = P?
     }
