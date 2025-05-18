@@ -171,6 +171,11 @@ open import Data.Product
     _,_;
     Σ
   )
+open import Data.Rational
+  as ℚ
+  using (
+    ℚ
+  )
 open import Relation.Unary
   using (
     Decidable;
@@ -448,6 +453,9 @@ instance
     P? (x ∷ []) = no $ λ ()
     P? (x₁ ∷ x₂ ∷ []) = no $ λ ()
     P? (x₁ ∷ x₂ ∷ x₃ ∷ x₄ ∷ xs) = no $ λ ()
+
+  readℚ : Read {p = {!!}} ℚ
+  readℚ = {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
