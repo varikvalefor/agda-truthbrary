@@ -411,15 +411,15 @@ instance
     read (_⊎_.inj₁ z) = ℤ.+ Read.read readNat _ z
     read (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+ Read.read readNat _ m
 
-  readFin : {n : ℕ} → Read $ Fin n
-  readFin = record {
+  read𝔽 : {n : ℕ} → Read $ Fin n
+  read𝔽 = record {
     P = λ s → Σ.∃ $ (ℕ._< _) ∘ Read.read readNat s;
     read = λ _ (_ , m) → 𝔽.fromℕ< m
     }
 
   readMaybeFin : {n : ℕ} → ReadMaybe $ Fin n
   readMaybeFin {n} = record {
-    rr = readFin;
+    rr = read𝔽;
     P? = P?
     }
     where
