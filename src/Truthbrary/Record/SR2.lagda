@@ -489,8 +489,10 @@ instance
            → ⦃ Show A ⦄
            → Show $ List A
   showList {a} {A} ⦃ S ⦄ = record {
-    show = {!!}
+    show = λ x → 𝕃.[ '[' ] 𝕃.++ s x 𝕃.++ 𝕃.[ ']' ]
     }
+    where
+    s = 𝕃.intercalate 𝕃.[ ',' ] ∘ 𝕃.map (Show.show S)
 \end{code}
 
 \begin{code}
