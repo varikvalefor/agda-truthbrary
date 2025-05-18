@@ -457,6 +457,9 @@ instance
   readℚ : Read {p = {!!}} ℚ
   readℚ = {!!}
 
+  readMaybeℚ : ReadMaybe {p = {!!}} ℚ
+  readMaybeℚ = {!!}
+
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
            → Read $ List A
