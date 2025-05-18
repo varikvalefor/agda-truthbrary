@@ -382,8 +382,8 @@ instance
     read = λ x → readℕ.read' {x}
     }
 
-  readMaybeNat : ReadMaybe ℕ
-  readMaybeNat = record {
+  readMaybeℕ : ReadMaybe ℕ
+  readMaybeℕ = record {
     rr = readℕ;
     P? = P?
     }
@@ -424,7 +424,7 @@ instance
     }
     where
     P? : Decidable _
-    P? x with ReadMaybe.P? readMaybeNat x
+    P? x with ReadMaybe.P? readMaybeℕ x
     ... | no j = no $ j ∘ proj₁
     ... | yes p with Read.read readℕ x p ℕ.<? n
     ... | yes p₁ = yes $ p , p₁
