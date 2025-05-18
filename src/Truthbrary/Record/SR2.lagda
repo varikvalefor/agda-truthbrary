@@ -331,7 +331,9 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     (Σ
       (ℕ × ℕ)
       (λ (n₁ , n₂) →
-        x ≡ 𝕃.replicate n₁ ' ' 𝕃.++ ('∷' ∷ []) 𝕃.++ 𝕃.replicate n₂ ' ' 𝕃.++ ('[' ∷ ']' ∷ [])))
+        (_≡_
+          x
+          (𝕃.replicate n₁ ' ' 𝕃.++ ('∷' ∷ []) 𝕃.++ 𝕃.replicate n₂ ' ' 𝕃.++ ('[' ∷ ']' ∷ [])))))
 
   data P (x : Strong) : Set p
     where
