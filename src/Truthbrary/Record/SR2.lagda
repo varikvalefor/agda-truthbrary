@@ -488,7 +488,7 @@ instance
   showList : ∀ {a} → {A : Set a}
            → ⦃ Show A ⦄
            → Show $ List A
-  showList = record {
+  showList {a} {A} ⦃ S ⦄ = record {
     show = {!!}
     }
 \end{code}
