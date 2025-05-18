@@ -341,7 +341,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
       → P x
     xastes : -- [1,  2  ,    3 ]
-      Ps (',' ∷ []) {!!} x → P x
+      Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
     agasp : -- 1 ∷ 2 ∷ 3 ∷ []
       Ps (' ' ∷ '∷' ∷ ' ' ∷ []) {!!} x → P x
       
