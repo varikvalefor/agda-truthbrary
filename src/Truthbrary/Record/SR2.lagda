@@ -396,8 +396,8 @@ instance
 
     open Read readNat
 
-  readInt : Read ℤ
-  readInt = record {
+  readℤ : Read ℤ
+  readℤ = record {
     P = λ s → 
       (_⊎_
         (readNat.djm0 s)
