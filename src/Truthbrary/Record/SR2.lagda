@@ -327,7 +327,11 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
               (let S = 𝕃.intercalate s $ 𝕃.map (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
   ≡∷[]? : Strong → Set
-  ≡∷[]? = {!!}
+  ≡∷[]? = λ x →
+    (Σ
+      (ℕ × ℕ)
+      (λ (n₁ , n₂) →
+        x ≡ 𝕃.replicate n₁ ' ' 𝕃.++ ('∷' ∷ []) 𝕃.++ 𝕃.replicate n₂ ' ' 𝕃.++ ('[' ∷ ']' ∷ [])))
 
   data P (x : Strong) : Set p
     where
