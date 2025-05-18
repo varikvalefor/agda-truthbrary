@@ -484,6 +484,11 @@ instance
     where
     s : ℤ → Strong
     s z = if (isYes $ z ℤ.<? ℤ.0ℤ) ('-' ∷ []) []
+
+  showList : ∀ {a} → {A : Set a}
+           → ⦃ Show A ⦄
+           → Show $ List A
+  showList = {!!}
 \end{code}
 
 \begin{code}
