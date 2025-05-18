@@ -326,6 +326,8 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
               x
               (let S = 𝕃.intercalate s $ 𝕃.map (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
+  ≡∷[]? : Strong → Set
+  ≡∷[]? = {!!}
 
   data P (x : Strong) : Set p
     where
@@ -343,7 +345,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     xastes : -- [1,  2  ,    3 ]
       Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
     agasp : -- 1 ∷ 2 ∷ 3 ∷ []
-      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) {!!} x → P x
+      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[]? x → P x
       
   read : Σ.∃ P → List A
   read (x , xaste (s , (r , d))) =
