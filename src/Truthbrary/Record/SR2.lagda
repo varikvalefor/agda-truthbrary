@@ -314,18 +314,18 @@ module readNat where
       namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃All.toList
 
 module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
-  Ps : Strong → Strong → Set p
-  Ps s x =
+  Ps : Strong → (Strong → Set) → Strong → Set p
+  Ps s P x =
       let cbs = Function.flip 𝕃.replicate ' ' in
       (Σ
-        (List $ Strong × ℕ × ℕ)
-        (λ xs →
+        (Strong ×_ $ List $ Strong × ℕ × ℕ)
+        (λ (s , xs) →
           (_×_
-            (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+            (P s ×_ $ 𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
             (_≡_
               x
               (let S = 𝕃.intercalate s $ 𝕃.map (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
-               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
 
   data P (x : Strong) : Set p
     where
@@ -341,16 +341,16 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
       → P x
     xastes : -- [1,  2  ,    3 ]
-      Ps (',' ∷ []) x → P x
+      Ps (',' ∷ []) {!!} x → P x
     agasp : -- 1 ∷ 2 ∷ 3 ∷ []
-      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) x → P x
+      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) {!!} x → P x
       
   read : Σ.∃ P → List A
   read (x , xaste (s , (r , d))) =
     𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-  read (x , xastes (s , (r , d))) =
+  read (x , xastes (s , ((p , r) , d))) =
     𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-  read (x , agasp (s , (r , d))) =
+  read (x , agasp (s , ((p , r) , d))) =
     𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 
 instance
