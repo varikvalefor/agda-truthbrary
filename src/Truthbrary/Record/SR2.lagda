@@ -70,6 +70,7 @@
 \newunicodechar{𝓫}{\ensuremath{\mathnormal{\mathcal b}}}
 \newunicodechar{𝓰}{\ensuremath{\mathnormal{\mathcal g}}}
 \newunicodechar{𝓵}{\ensuremath{\mathnormal{\mathcal l}}}
+\newunicodechar{？}{\ensuremath{\texttt{?}}}
 
 \newfontface{\ayyplcihartai}{APL333}
 \DeclareTextFontCommand{\ayypl}{\ayyplcihartai}
