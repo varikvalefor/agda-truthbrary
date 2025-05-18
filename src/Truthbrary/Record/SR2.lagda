@@ -316,7 +316,6 @@ module readNat where
 module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
   Ps : Strong → (Strong → Set) → Strong → Set p
   Ps s P x =
-      let cbs = Function.flip 𝕃.replicate ' ' in
       (Σ
         (Strong ×_ $ List $ Strong × ℕ × ℕ)
         (λ (s , xs) →
@@ -327,6 +326,8 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
               (let f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂ in
                let S = 𝕃.intercalate s $ 𝕃.map (f) xs in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
+    where
+    cbs = Function.flip 𝕃.replicate ' '
   ≡∷[]? : Strong → Set
   ≡∷[]? x =
     (Σ
