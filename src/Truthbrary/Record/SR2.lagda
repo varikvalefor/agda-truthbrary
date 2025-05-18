@@ -490,7 +490,9 @@ instance
         s 𝔽.7F = '7'
         s 𝔽.8F = '8'
         s 𝔽.9F = '9'
-      show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
+      show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ romoi
+        where
+        romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
 
   showInt : Show ℤ
   showInt = record {
