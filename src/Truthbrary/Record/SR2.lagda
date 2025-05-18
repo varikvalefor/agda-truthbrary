@@ -200,6 +200,11 @@ open import Data.Nat.Properties
   as DNP
   using (
   )
+open import Data.Nat.Coprimality
+  as OCP
+  using (
+    Coprime
+  )
 open import Truthbrary.Data.Strong
   using (
     Strong
@@ -456,7 +461,16 @@ instance
 
   readℚ : Read {p = {!!}} ℚ
   readℚ = record {
-    P = {!!};
+    P = λ s →
+      (Σ
+        (Σ
+          (Strong × Strong)
+          (λ (s₁ , s₂) →
+            Read.P readℕ s₁ × Read.P readℕ s₂))
+        (λ ((s₁ , s₂) , (p₁ , p₂)) →
+          let n₁ = Read.read readℕ s₁ p₁ in
+          let n₂ = Read.read readℕ s₂ p₂ in
+          Coprime n₁ n₂ × ¬ (n₂ ≡ 0)));
     read = {!!}
     }
 
