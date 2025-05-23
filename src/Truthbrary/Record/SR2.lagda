@@ -480,8 +480,11 @@ instance
   readMaybeℚ : ReadMaybe ℚ
   readMaybeℚ = record {
     rr = readℚ;
-    P? = {!!}
+    P? = f
     }
+    where
+    f : (x : Strong) → Dec $ Read.P readℚ x
+    f = {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
