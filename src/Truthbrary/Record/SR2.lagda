@@ -474,7 +474,7 @@ instance
             (Coprime ℤ.∣ n₁ ∣ n₂ × ¬ (n₂ ≡ 0))
             (s ≡ s₁ 𝕃.++ 𝕃.[ '/' ] 𝕃.++ s₂))));
     read = (λ s (((s₁ , s₂) , p₁ , p₂) , ((cpr , nd0) , d)) →
-      ℚ.mkℚ (Read.read readℤ s₁ p₁) {!!} {!!})
+      ℚ.mkℚ (Read.read readℤ s₁ p₁) (Read.read readℕ s₂ p₂) {!!})
     }
 
   readMaybeℚ : ReadMaybe {p = {!!}} ℚ
