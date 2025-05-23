@@ -259,7 +259,61 @@ record Read {a p} (A : Set a) : Set (a ⊔ suc p)
   field
     P : Strong → Set p
     read : (x : Strong) → P x → A
+\end{code}
 
+\begin{code}
+record Show {a} (A : Set a) : Set a
+  where
+  field
+    show : A → Strong
+
+instance
+  {-# TERMINATING #-}
+  showNat : Show ℕ
+  showNat = record {
+    show = show
+    }
+    where
+    show : ℕ → Strong
+    show = show' ˢ (ℕ._<? 10)
+      where
+      show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
+      show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
+        where
+        s : Fin 10 → Char
+        s 𝔽.zero = '0'
+        s 𝔽.1F = '1'
+        s 𝔽.2F = '2'
+        s 𝔽.3F = '3'
+        s 𝔽.4F = '4'
+        s 𝔽.5F = '5'
+        s 𝔽.6F = '6'
+        s 𝔽.7F = '7'
+        s 𝔽.8F = '8'
+        s 𝔽.9F = '9'
+      show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ romoi
+        where
+        romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
+
+  showInt : Show ℤ
+  showInt = record {
+    show = λ z → s z 𝕃.++ Show.show showNat ℤ.∣ z ∣
+    }
+    where
+    s : ℤ → Strong
+    s z = if (isYes $ z ℤ.<? ℤ.0ℤ) ('-' ∷ []) []
+
+  showList : ∀ {a} → {A : Set a}
+           → ⦃ Show A ⦄
+           → Show $ List A
+  showList {a} {A} ⦃ S ⦄ = record {
+    show = λ x → 𝕃.[ '[' ] 𝕃.++ s x 𝕃.++ 𝕃.[ ']' ]
+    }
+    where
+    s = 𝕃.intercalate 𝕃.[ ',' ] ∘ 𝕃.map (Show.show S)
+\end{code}
+
+\begin{code}
 record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
   where
   field
@@ -295,6 +349,17 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   nad = {!!}
 
+readMaybe : ∀ {a p} → {A : Set a}
+          → ⦃ ReadMaybe {p = p} A ⦄
+          → Strong
+          → Maybe A
+readMaybe ⦃ Q ⦄ = ReadMaybe.readMaybe Q
+
+show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → Strong
+show ⦃ Q ⦄ = Show.show Q
+\end{code}
+
+\begin{code}
 module readℕ where
     private
       j : {m n : ℕ} → m ℕ.< n → Maybe $ Fin n
@@ -518,66 +583,4 @@ instance
   readMaybeList = {!!}
 \end{code}
 
-\begin{code}
-record Show {a} (A : Set a) : Set a
-  where
-  field
-    show : A → Strong
-
-instance
-  {-# TERMINATING #-}
-  showNat : Show ℕ
-  showNat = record {
-    show = show
-    }
-    where
-    show : ℕ → Strong
-    show = show' ˢ (ℕ._<? 10)
-      where
-      show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
-      show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
-        where
-        s : Fin 10 → Char
-        s 𝔽.zero = '0'
-        s 𝔽.1F = '1'
-        s 𝔽.2F = '2'
-        s 𝔽.3F = '3'
-        s 𝔽.4F = '4'
-        s 𝔽.5F = '5'
-        s 𝔽.6F = '6'
-        s 𝔽.7F = '7'
-        s 𝔽.8F = '8'
-        s 𝔽.9F = '9'
-      show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ romoi
-        where
-        romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
-
-  showInt : Show ℤ
-  showInt = record {
-    show = λ z → s z 𝕃.++ Show.show showNat ℤ.∣ z ∣
-    }
-    where
-    s : ℤ → Strong
-    s z = if (isYes $ z ℤ.<? ℤ.0ℤ) ('-' ∷ []) []
-
-  showList : ∀ {a} → {A : Set a}
-           → ⦃ Show A ⦄
-           → Show $ List A
-  showList {a} {A} ⦃ S ⦄ = record {
-    show = λ x → 𝕃.[ '[' ] 𝕃.++ s x 𝕃.++ 𝕃.[ ']' ]
-    }
-    where
-    s = 𝕃.intercalate 𝕃.[ ',' ] ∘ 𝕃.map (Show.show S)
-\end{code}
-
-\begin{code}
-readMaybe : ∀ {a p} → {A : Set a}
-          → ⦃ ReadMaybe {p = p} A ⦄
-          → Strong
-          → Maybe A
-readMaybe ⦃ Q ⦄ = ReadMaybe.readMaybe Q
-
-show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → Strong
-show ⦃ Q ⦄ = Show.show Q
-\end{code}
 \end{document}
