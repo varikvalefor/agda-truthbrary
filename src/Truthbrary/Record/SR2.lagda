@@ -563,7 +563,7 @@ instance
     ... | x ∷ [] = {!!}
     ... | [] = {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = {!!}
-    ... | zp ∷ np ∷ [] with ReadMaybe.readMaybe readMaybeℤ zp | ReadMaybe.readMaybe readMaybeℕ np
+    ... | zp ∷ np ∷ [] with readMaybe {A = ℤ} zp | ReadMaybe.readMaybe readMaybeℕ np
     ... | just z | just n = {!!}
     ... | nothing | just n = {!!}
     ... | just z | nothing = {!!}
