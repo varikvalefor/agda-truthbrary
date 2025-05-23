@@ -422,7 +422,7 @@ instance
 
   readMaybeℤ : ReadMaybe {p = {!!}} ℤ
   readMaybeℤ = record {
-    rr = {!!};
+    rr = readℤ;
     P? = {!!}
     }
 
