@@ -420,7 +420,7 @@ instance
     read (_⊎_.inj₁ z) = ℤ.+ Read.read readℕ _ z
     read (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+ Read.read readℕ _ m
 
-  readMaybeℤ : ReadMaybe {p = {!!}} ℤ
+  readMaybeℤ : ReadMaybe {p = Level.zero} ℤ
   readMaybeℤ = record {
     rr = readℤ;
     P? = {!!}
