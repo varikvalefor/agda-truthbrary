@@ -489,10 +489,10 @@ instance
     where
     f : (x : Strong) → Dec $ Read.P readℚ x
     f x with 𝕃.linesBy (_≟ '/') x
-    ... | zp ∷ np ∷ [] = {!!}
     ... | x ∷ [] = {!!}
     ... | [] = {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = {!!}
+    ... | zp ∷ np ∷ [] = {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
