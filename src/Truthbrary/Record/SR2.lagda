@@ -477,7 +477,7 @@ instance
       ℚ.mkℚ (Read.read readℤ s₁ p₁) (Read.read readℕ s₂ p₂) cpr)
     }
 
-  readMaybeℚ : ReadMaybe {p = _} ℚ
+  readMaybeℚ : ReadMaybe ℚ
   readMaybeℚ = record {
     rr = readℚ;
     P? = {!!}
