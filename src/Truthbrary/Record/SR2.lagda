@@ -479,7 +479,7 @@ instance
 
   readMaybeℚ : ReadMaybe {p = {!!}} ℚ
   readMaybeℚ = record {
-    rr = {!!};
+    rr = readℚ;
     P? = {!!}
     }
 
