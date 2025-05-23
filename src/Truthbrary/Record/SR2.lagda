@@ -492,7 +492,11 @@ instance
     ... | x ∷ [] = {!!}
     ... | [] = {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = {!!}
-    ... | zp ∷ np ∷ [] = {!!}
+    ... | zp ∷ np ∷ [] with ReadMaybe.readMaybe {!!} zp | ReadMaybe.readMaybe readMaybeℕ np
+    ... | just z | just n = {!!}
+    ... | nothing | just n = {!!}
+    ... | just z | nothing = {!!}
+    ... | nothing | nothing = {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
