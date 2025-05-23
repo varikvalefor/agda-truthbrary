@@ -471,9 +471,9 @@ instance
           let n₁ = Read.read readℤ s₁ p₁ in
           let n₂ = Read.read readℕ s₂ p₂ in
           (_×_
-            (Coprime ℤ.∣ n₁ ∣ n₂ × ¬ (n₂ ≡ 0))
+            (Coprime ℤ.∣ n₁ ∣ (ℕ.suc n₂))
             (s ≡ s₁ 𝕃.++ 𝕃.[ '/' ] 𝕃.++ s₂))));
-    read = (λ s (((s₁ , s₂) , p₁ , p₂) , ((cpr , nd0) , d)) →
+    read = (λ s (((s₁ , s₂) , p₁ , p₂) , (cpr) , d) →
       ℚ.mkℚ (Read.read readℤ s₁ p₁) (Read.read readℕ s₂ p₂ ℕ.∸ 1) {!!})
     }
 
