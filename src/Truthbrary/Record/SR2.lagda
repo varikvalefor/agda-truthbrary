@@ -466,11 +466,11 @@ instance
         (Σ
           (Strong × Strong)
           (λ (s₁ , s₂) →
-            Read.P readℕ s₁ × Read.P readℕ s₂))
+            Read.P readℤ s₁ × Read.P readℕ s₂))
         (λ ((s₁ , s₂) , (p₁ , p₂)) →
-          let n₁ = Read.read readℕ s₁ p₁ in
+          let n₁ = Read.read readℤ s₁ p₁ in
           let n₂ = Read.read readℕ s₂ p₂ in
-          Coprime n₁ n₂ × ¬ (n₂ ≡ 0)));
+          Coprime ℤ.∣ n₁ ∣ n₂ × ¬ (n₂ ≡ 0)));
     read = {!!}
     }
 
