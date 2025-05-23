@@ -470,7 +470,9 @@ instance
         (λ ((s₁ , s₂) , (p₁ , p₂)) →
           let n₁ = Read.read readℤ s₁ p₁ in
           let n₂ = Read.read readℕ s₂ p₂ in
-          Coprime ℤ.∣ n₁ ∣ n₂ × ¬ (n₂ ≡ 0)));
+          (_×_
+            (Coprime ℤ.∣ n₁ ∣ n₂ × ¬ (n₂ ≡ 0))
+            (s ≡ s₁ 𝕃.++ 𝕃.[ '/' ] 𝕃.++ s₂))));
     read = {!!}
     }
 
