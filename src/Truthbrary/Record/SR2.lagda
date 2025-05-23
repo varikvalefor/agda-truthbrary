@@ -205,6 +205,10 @@ open import Data.Nat.Coprimality
   using (
     Coprime
   )
+open import Truthbrary.Record.Eq
+  using (
+    _≟_
+  )
 open import Truthbrary.Data.Strong
   using (
     Strong
@@ -484,7 +488,11 @@ instance
     }
     where
     f : (x : Strong) → Dec $ Read.P readℚ x
-    f = {!!}
+    f x with 𝕃.linesBy (_≟ '/') x
+    ... | zp ∷ np ∷ [] = {!!}
+    ... | x ∷ [] = {!!}
+    ... | [] = {!!}
+    ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
