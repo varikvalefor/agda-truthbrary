@@ -420,6 +420,9 @@ instance
     read (_⊎_.inj₁ z) = ℤ.+ Read.read readℕ _ z
     read (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+ Read.read readℕ _ m
 
+  readMaybeℤ : ReadMaybe {p = {!!}} ℤ
+  readMaybeℤ = {!!}
+
   read𝔽 : {n : ℕ} → Read $ Fin n
   read𝔽 = record {
     P = λ s → Σ.∃ $ (ℕ._< _) ∘ Read.read readℕ s;
@@ -492,7 +495,7 @@ instance
     ... | x ∷ [] = {!!}
     ... | [] = {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = {!!}
-    ... | zp ∷ np ∷ [] with ReadMaybe.readMaybe {!!} zp | ReadMaybe.readMaybe readMaybeℕ np
+    ... | zp ∷ np ∷ [] with ReadMaybe.readMaybe readMaybeℤ zp | ReadMaybe.readMaybe readMaybeℕ np
     ... | just z | just n = {!!}
     ... | nothing | just n = {!!}
     ... | just z | nothing = {!!}
