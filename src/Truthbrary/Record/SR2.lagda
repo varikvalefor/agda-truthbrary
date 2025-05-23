@@ -473,7 +473,8 @@ instance
           (_×_
             (Coprime ℤ.∣ n₁ ∣ n₂ × ¬ (n₂ ≡ 0))
             (s ≡ s₁ 𝕃.++ 𝕃.[ '/' ] 𝕃.++ s₂))));
-    read = λ s (((s₁ , s₂) , p₁ , p₂) , ((cpr , nd0) , d)) → ℚ.mkℚ {!!} {!!} {!!}
+    read = (λ s (((s₁ , s₂) , p₁ , p₂) , ((cpr , nd0) , d)) →
+      ℚ.mkℚ {!!} {!!} {!!})
     }
 
   readMaybeℚ : ReadMaybe {p = {!!}} ℚ
