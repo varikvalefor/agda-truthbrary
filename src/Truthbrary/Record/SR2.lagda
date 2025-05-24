@@ -558,9 +558,6 @@ instance
         (s₁ , s₂) , (donk , /∉ℤ s₁ p₁  , /∉ℕ s₂ p₂)
         where
         open readℚ.P p
-        /∉ℤ : (s : Strong) → Read.P readℤ s → '/' ∉ s
-        /∉ℤ s (_⊎_.inj₁ djm) = {!!}
-        /∉ℤ s (_⊎_.inj₂ m) = {!!}
         /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
         /∉ℕ [] = λ ()
         /∉ℕ (x ∷ xs) = allDeg readℕ.IsDigit? (x ∷ xs) '/' (λ ()) ∘ proj₁
@@ -590,6 +587,9 @@ instance
                 → ¬ P z
                 → ¬_ $ z ≡ x
             P¬≡ {P = P} {x = x} {z} p N d = N $ subst P (sym d) p
+        /∉ℤ : (s : Strong) → Read.P readℤ s → '/' ∉ s
+        /∉ℤ s (_⊎_.inj₁ djm) = {!!}
+        /∉ℤ s (_⊎_.inj₂ m) = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
