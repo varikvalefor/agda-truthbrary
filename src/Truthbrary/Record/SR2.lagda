@@ -557,7 +557,9 @@ instance
         ... | yes d = {!!}
         ... | no N0 with x ≟ '1'
         ... | yes d = {!!}
-        ... | no N1 = {!!}
+        ... | no N1 with x ≟ '2'
+        ... | yes d = {!!}
+        ... | no N2 = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
