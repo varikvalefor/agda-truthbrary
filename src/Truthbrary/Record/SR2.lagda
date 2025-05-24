@@ -564,7 +564,7 @@ instance
           allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = Relation.Binary.PropositionalEquality.sym $ begin
              𝕃.length (𝕃.filter (c ≟_) $ id' $ s ∷ ss) ≡⟨ {!!} ⟩
              𝕃.length (𝕃.filter (c ≟_) $ s ∷ ss) ≡⟨ {!!} ⟩
-             𝕃.length (𝕃.filter (c ≟_) $ ss) ≡⟨ {!!} ⟩
+             𝕃.length (𝕃.filter (c ≟_) ss) ≡⟨ {!!} ⟩
              0 ∎
             where
             id' = 𝕍.toList ∘ 𝕍.fromList
