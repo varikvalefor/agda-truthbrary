@@ -598,7 +598,7 @@ instance
       where
       z = Read.read readℤ _ zp
       n = ℕ.suc $ Read.read readℕ _ np
-    ... | yes cpr = yes (p)
+    ... | yes cpr = yes p
       where
       p = record {p₁ = zp; p₂ = np; cpr = cpr; donk = d}
     ... | no Npr = no (Npr ∘ {!!})
