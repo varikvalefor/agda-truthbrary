@@ -555,13 +555,26 @@ instance
         /∉ℕ [] = λ ()
         /∉ℕ (x ∷ xs) = allDeg (x ∷ xs) '/' (λ ()) ∘ proj₁
           where
+
+          -- : (x₁
+          --    : 0 ≡
+          --      𝕃.length
+          --      (𝕃.filter (Truthbrary.Record.Eq.EqChar Truthbrary.Record.Eq.Eq.≟ c)
+          --       (𝕍.toList
+          --        (Truthbrary.Record.LLC.LL.vec Truthbrary.Record.LLC.liliList
+          --         ss)))) →
           allDeg : (s : Strong)
                  → (c : Char)
                  → ¬ readℕ.IsDigit c
                  → 𝕃All.All readℕ.IsDigit s
                  → c ∉ s
           allDeg [] c z z₁ = _≡_.refl
-          allDeg (s ∷ ss) = {!!}
+          allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = Relation.Binary.PropositionalEquality.sym $ begin
+             𝕃.length (𝕃.filter (Truthbrary.Record.Eq.EqChar Truthbrary.Record.Eq.Eq.≟ c) $ id' $ s ∷ ss) ≡⟨ {!!} ⟩
+             0 ∎
+            where
+            id' = 𝕍.toList ∘ 𝕍.fromList
+            open Relation.Binary.PropositionalEquality.≡-Reasoning
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
