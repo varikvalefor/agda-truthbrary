@@ -560,7 +560,7 @@ instance
                  → ¬ readℕ.IsDigit c
                  → 𝕃All.All readℕ.IsDigit s
                  → c ∉ s
-          allDeg [] = {!!}
+          allDeg [] = λ c z z₁ → _≡_.refl
           allDeg (s ∷ ss) = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
