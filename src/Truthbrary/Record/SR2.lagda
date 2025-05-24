@@ -546,11 +546,11 @@ instance
       where
       projₓ : Read.P readℚ ⊆ PFrinu
       projₓ p =
-        (s₁ , s₂) , (donk , {!!} , {!!})
+        (s₁ , s₂) , (donk , /∉ℤ s₁ p₁  , {!!})
         where
         open readℚ.P p
-        /∉ : (z : ℤ) → '/' ∉ show z
-        /∉ = {!!}
+        /∉ℤ : (s : Strong) → Read.P readℤ s → '/' ∉ s
+        /∉ℤ = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
