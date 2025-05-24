@@ -568,7 +568,9 @@ instance
     ... | just z | nothing = no {!!}
     ... | nothing | nothing = no {!!}
     ... | just z | just 0 = {!!}
-    ... | just z | just (ℕ.suc n) = {!!}
+    ... | just z | just (ℕ.suc n) with OCP.coprime? ℤ.∣ z ∣ n
+    ... | yes cpr = {!!}
+    ... | no Npr = {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
