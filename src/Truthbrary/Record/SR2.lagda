@@ -588,9 +588,10 @@ instance
         (s₁ , s₂) , (donk , {!!})
         where
         open readℚ.P p
-    ... | yes ((s₁ , s₂) , (d , _)) with zp? | ReadMaybe.P? readMaybeℕ s₂
+    ... | yes ((s₁ , s₂) , (d , _)) with zp? | np?
       where
       zp? = ReadMaybe.P? readMaybeℤ s₁
+      np? = ReadMaybe.P? readMaybeℕ s₂
     ... | no zN | _ = no {!!}
     ... | yes zp | no nN = no {!!}
     ... | yes zp | yes np with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ (ℕ.suc $ Read.read readℕ _ np)
