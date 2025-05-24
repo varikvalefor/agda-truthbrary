@@ -566,7 +566,7 @@ instance
     ... | zp ∷ np ∷ [] with readMaybe {A = ℤ} zp | readMaybe {A = ℕ} np
     ... | just z | just n = {!!}
     ... | nothing | just n = no {!!}
-    ... | just z | nothing = {!!}
+    ... | just z | nothing = no {!!}
     ... | nothing | nothing = {!!}
 
   readList : ∀ {a p} → {A : Set a}
