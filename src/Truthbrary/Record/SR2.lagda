@@ -585,7 +585,7 @@ instance
                 → P x
                 → ¬ P z
                 → ¬_ $ z ≡ x
-            P¬≡ {P = P} {x = x} {z} p N d = N $ Relation.Binary.PropositionalEquality.subst P (sym d) p
+            P¬≡ {P = P} {x = x} {z} p N d = N $ subst P (sym d) p
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
