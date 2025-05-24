@@ -38,11 +38,13 @@
 \newunicodechar{ₒ}{\ensuremath{\mathnormal{_\AgdaFontStyle{o}}}}
 \newunicodechar{ᵇ}{\ensuremath{\mathnormal{^\AgdaFontStyle{b}}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^\AgdaFontStyle{r}}}}
+\newunicodechar{ˢ}{\ensuremath{\mathnormal{^\AgdaFontStyle{s}}}}
 \newunicodechar{ᵘ}{\ensuremath{\mathnormal{^\AgdaFontStyle{u}}}}
 \newunicodechar{₋}{\ensuremath{\mathnormal{_-}}}
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{₃}{\ensuremath{\mathnormal{_3}}}
+\newunicodechar{₄}{\ensuremath{\mathnormal{_4}}}
 \newunicodechar{⊎}{\ensuremath{\mathnormal\uplus}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{≢}{\ensuremath{\mathnormal\nequiv}}
@@ -68,6 +70,7 @@
 \newunicodechar{𝓫}{\ensuremath{\mathnormal{\mathcal b}}}
 \newunicodechar{𝓰}{\ensuremath{\mathnormal{\mathcal g}}}
 \newunicodechar{𝓵}{\ensuremath{\mathnormal{\mathcal l}}}
+\newunicodechar{？}{\ensuremath{\texttt{?}}}
 
 \newfontface{\ayyplcihartai}{APL333}
 \DeclareTextFontCommand{\ayypl}{\ayyplcihartai}
@@ -121,10 +124,17 @@ open import Data.Vec
 open import Function
   using (
     _∘_;
+    _ˢ_;
     _$_
   )
   renaming (
     _|>_ to _▹_
+  )
+open import Data.Bool
+  using (
+  )
+  renaming (
+    if_then_else_ to if
   )
 open import Data.Char
   using (
@@ -136,10 +146,6 @@ open import Data.List
     List;
     _∷_;
     []
-  )
-open import Data.Empty
-  using (
-    ⊥-elim
   )
 open import Data.Maybe
   as ？
@@ -157,6 +163,7 @@ open import Data.Integer
     ℤ
   )
 open import Data.Product
+  as Σ
   using (
     proj₂;
     proj₁;
@@ -164,10 +171,19 @@ open import Data.Product
     _,_;
     Σ
   )
+open import Data.Rational
+  as ℚ
+  using (
+    ℚ
+  )
 open import Relation.Unary
   using (
     Decidable;
     _⊆_
+  )
+open import Data.Nat.DivMod
+  as ℕ
+  using (
   )
 open import Relation.Nullary
   using (
@@ -176,9 +192,22 @@ open import Relation.Nullary
     ¬_;
     no
   )
+open import Data.Fin.Patterns
+  as 𝔽
+  using (
+  )
 open import Data.Nat.Properties
   as DNP
   using (
+  )
+open import Data.Nat.Coprimality
+  as OCP
+  using (
+    Coprime
+  )
+open import Truthbrary.Record.Eq
+  using (
+    _≟_
   )
 open import Truthbrary.Data.Strong
   using (
@@ -186,7 +215,8 @@ open import Truthbrary.Data.Strong
   )
 open import Relation.Nullary.Decidable
   using (
-    from-yes
+    from-yes;
+    isYes
   )
 open import Data.List.Relation.Unary.All
   as 𝕃All
@@ -199,6 +229,7 @@ open import Relation.Binary.PropositionalEquality
     _≡_
   )
 
+import Data.String
 import Data.Maybe.Relation.Unary.Any
   as DMRN
 
@@ -215,11 +246,11 @@ module apDec where
   apDec : ∀ {a b p}
         → {A : Set a} → {B : Set b}
         → {P : A → Set p}
-        → (f : (x : A) → P x → B)
-        → (P? : Decidable P)
+        → ((x : A) → P x → B)
+        → Decidable P
         → A
         → Maybe B
-  apDec f P? x = apDec' f x $ P? x
+  apDec f = apDec' f ˢ_
 
 apDec = apDec.apDec
 
@@ -228,7 +259,61 @@ record Read {a p} (A : Set a) : Set (a ⊔ suc p)
   field
     P : Strong → Set p
     read : (x : Strong) → P x → A
+\end{code}
 
+\begin{code}
+record Show {a} (A : Set a) : Set a
+  where
+  field
+    show : A → Strong
+
+instance
+  {-# TERMINATING #-}
+  showNat : Show ℕ
+  showNat = record {
+    show = show
+    }
+    where
+    show : ℕ → Strong
+    show = show' ˢ (ℕ._<? 10)
+      where
+      show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
+      show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
+        where
+        s : Fin 10 → Char
+        s 𝔽.zero = '0'
+        s 𝔽.1F = '1'
+        s 𝔽.2F = '2'
+        s 𝔽.3F = '3'
+        s 𝔽.4F = '4'
+        s 𝔽.5F = '5'
+        s 𝔽.6F = '6'
+        s 𝔽.7F = '7'
+        s 𝔽.8F = '8'
+        s 𝔽.9F = '9'
+      show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ romoi
+        where
+        romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
+
+  showInt : Show ℤ
+  showInt = record {
+    show = λ z → s z 𝕃.++ Show.show showNat ℤ.∣ z ∣
+    }
+    where
+    s : ℤ → Strong
+    s z = if (isYes $ z ℤ.<? ℤ.0ℤ) ('-' ∷ []) []
+
+  showList : ∀ {a} → {A : Set a}
+           → ⦃ Show A ⦄
+           → Show $ List A
+  showList {a} {A} ⦃ S ⦄ = record {
+    show = λ x → 𝕃.[ '[' ] 𝕃.++ s x 𝕃.++ 𝕃.[ ']' ]
+    }
+    where
+    s = 𝕃.intercalate 𝕃.[ ',' ] ∘ 𝕃.map (Show.show S)
+\end{code}
+
+\begin{code}
 record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
   where
   field
@@ -264,7 +349,18 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   nad = {!!}
 
-module readNat where
+readMaybe : ∀ {a p} → {A : Set a}
+          → ⦃ ReadMaybe {p = p} A ⦄
+          → Strong
+          → Maybe A
+readMaybe ⦃ Q ⦄ = ReadMaybe.readMaybe Q
+
+show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → Strong
+show ⦃ Q ⦄ = Show.show Q
+\end{code}
+
+\begin{code}
+module readℕ where
     private
       j : {m n : ℕ} → m ℕ.< n → Maybe $ Fin n
       j = just ∘ 𝔽.fromℕ<
@@ -299,74 +395,38 @@ module readNat where
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
       namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃All.toList
 
-instance
-  readNat : Read ℕ
-  readNat = record {
-    read = λ x → readNat.read' {x}
-    }
-
-  readMaybeNat : ReadMaybe ℕ
-  readMaybeNat = record {
-    rr = readNat;
-    P? = P?
-    }
+module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
+  Ps : Strong → (Strong → Set) → Strong → Set p
+  Ps s P x =
+      (Σ
+        (Strong ×_ $ List $ Strong × ℕ × ℕ)
+        (λ (s , xs) →
+          (_×_
+            (P s ×_ $ 𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+            (_≡_
+              x
+              (let im = λ s f → 𝕃.intercalate s ∘ 𝕃.map f in
+               ('[' ∷ []) 𝕃.++ im s f xs 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
     where
-    P? : Decidable readNat.djm0
-    P? x with 𝕃All.all? readNat.IsDigit? x | 𝕃.length x ℕ.>? 0
-    ... | yes p | yes l = yes $ p , l
-    ... | no p | _ = no $ p ∘ proj₁
-    ... | _ | no l = no $ l ∘ proj₂
+    cbs = Function.flip 𝕃.replicate ' '
+    f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂
+  ≡∷[]? : Strong → Set
+  ≡∷[]? x =
+    (Σ
+      (ℕ × ℕ)
+      (λ (n₁ , n₂) →
+        (_≡_
+          x
+          (𝕃.concat $
+            𝕃.replicate n₁ ' ' ∷
+            ('∷' ∷ []) ∷
+            𝕃.replicate n₂ ' ' ∷
+            ('[' ∷ ']' ∷ []) ∷
+            []))))
 
-    open Read readNat
-
-  readInt : Read ℤ
-  readInt = record {
-    P = λ s → 
-      (_⊎_
-        (readNat.djm0 s)
-        (_×_
-          (𝕃.head s ≡ just '-')
-          (readNat.djm0 $ 𝕃.drop 1 s)));
-    read = λ x → read {x}
-    }
+  data P (x : Strong) : Set p
     where
-    read : {x : Strong} → _ ⊎ _ → ℤ
-    read (_⊎_.inj₁ z) = ℤ.+ Read.read readNat _ z
-    read (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+ Read.read readNat _ m
-
-  readFin : {n : ℕ} → Read $ Fin n
-  readFin = record {
-    P = λ s → Σ _ $ λ p → Read.read readNat s p ℕ.< _;
-    read = λ _ (_ , m) → 𝔽.fromℕ< m
-    }
-
-  readMaybeFin : {n : ℕ} → ReadMaybe $ Fin n
-  readMaybeFin {n} = record {
-    rr = readFin;
-    P? = P?
-    }
-    where
-    P? : Decidable _
-    P? x with ReadMaybe.P? readMaybeNat x
-    ... | no j = no $ j ∘ proj₁
-    ... | yes p with Read.read readNat x p ℕ.<? n
-    ... | yes p₁ = yes $ p , p₁
-    ... | no j = no $ λ (z₁ , z₂) → subst (¬_ ∘ (ℕ._< n)) (d p z₁) j z₂
-      where
-      d : (p₁ p₂ : _)
-        → Read.read readNat x p₁ ≡ Read.read readNat x p₂
-      d = {!!}
-
-  readList : ∀ {a p} → {A : Set a}
-           → ⦃ Read {p = p} A ⦄
-           → Read {p = p} $ List A
-  readList {p = p} {A} ⦃ R ⦄ = record {
-    P = P;
-    read = read
-    }
-    where
-    xaste : Strong → Set p -- [1,2,3]
-    xaste x =
+    xaste : -- [1,2,3]
       (Σ
         (List Strong)
         (λ s →
@@ -376,26 +436,151 @@ instance
               x
               (let S = 𝕃.intercalate (',' ∷ []) s in
                ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-    xastes : Strong → Set p -- [1, 2 ,   3 ]
-    xastes x =
-      (Σ
-        (List $ Strong × ℕ × ℕ)
-        (λ xs →
-          (_×_
-            (𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
-            (_≡_
-              x
-              (let S = 𝕃.concatMap (λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂) xs in
-               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+      → P x
+    xastes : -- [1,  2  ,    3 ]
+      Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
+    agasp : -- 1 ∷ 2 ∷ 3 ∷ []
+      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[]? x → P x
+      
+  read : Σ.∃ P → List A
+  read (x , xaste (s , (r , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+  read (x , xastes (s , ((p , r) , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+  read (x , agasp (s , ((p , r) , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+
+instance
+  readℕ : Read ℕ
+  readℕ = record {
+    read = λ x → readℕ.read' {x}
+    }
+
+  readMaybeℕ : ReadMaybe ℕ
+  readMaybeℕ = record {
+    rr = readℕ;
+    P? = P?
+    }
+    where
+    P? : Decidable readℕ.djm0
+    P? x with 𝕃All.all? readℕ.IsDigit? x | 𝕃.length x ℕ.>? 0
+    ... | yes p | yes l = yes $ p , l
+    ... | no p | _ = no $ p ∘ proj₁
+    ... | _ | no l = no $ l ∘ proj₂
+
+    open Read readℕ
+
+  readℤ : Read ℤ
+  readℤ = record {
+    P = λ s → 
+      (_⊎_
+        (readℕ.djm0 s)
+        (_×_
+          (𝕃.head s ≡ just '-')
+          (readℕ.djm0 $ 𝕃.drop 1 s)));
+    read = λ x → read {x}
+    }
+    where
+    read : {x : Strong} → _ ⊎ _ → ℤ
+    read (_⊎_.inj₁ z) = ℤ.+ Read.read readℕ _ z
+    read (_⊎_.inj₂ (_ , m)) = ℤ.-_ $ ℤ.+ Read.read readℕ _ m
+
+  readMaybeℤ : ReadMaybe ℤ
+  readMaybeℤ = record {
+    rr = readℤ;
+    P? = {!!}
+    }
+
+  read𝔽 : {n : ℕ} → Read $ Fin n
+  read𝔽 = record {
+    P = λ s → Σ.∃ $ (ℕ._< _) ∘ Read.read readℕ s;
+    read = λ _ (_ , m) → 𝔽.fromℕ< m
+    }
+
+  readMaybe𝔽 : {n : ℕ} → ReadMaybe $ Fin n
+  readMaybe𝔽 {n} = record {
+    rr = read𝔽;
+    P? = P?
+    }
+    where
+    P? : Decidable _
+    P? x with ReadMaybe.P? readMaybeℕ x
+    ... | no j = no $ j ∘ proj₁
+    ... | yes p with Read.read readℕ x p ℕ.<? n
+    ... | yes p₁ = yes $ p , p₁
+    ... | no j = no $ λ (z₁ , z₂) → subst (¬_ ∘ (ℕ._< n)) (d p z₁) j z₂
       where
-      cbs : ℕ → Strong
-      cbs = Function.flip 𝕃.replicate ' '
-    P : Strong → Set p
-    P = λ x → xaste x ⊎ xastes x
-    read : (x : Strong) → P x → List A
-    read x (_⊎_.inj₁ (s , (r , d))) =
-      𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-    read x (_⊎_.inj₂ (s , (r , d))) =
-      𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+      d : (p₁ p₂ : _)
+        → Read.read readℕ x p₁ ≡ Read.read readℕ x p₂
+      d = {!!}
+
+  readChar : Read Char
+  readChar = record {
+    P = λ s → Σ Char $ λ c → s ≡ '\'' ∷ c ∷ '\'' ∷ [];
+    read = λ _ → proj₁
+    }
+
+  readMaybeChar : ReadMaybe Char
+  readMaybeChar = record {
+    rr = readChar;
+    P? = P?
+    }
+    where
+    P? : (x : Strong) → Dec $ Read.P readChar x
+    P? ('\'' ∷ c ∷ '\'' ∷ []) = yes $ c , _≡_.refl
+    P? (x₁ ∷ z ∷ x₂ ∷ []) = {!!}
+    P? [] = no $ λ ()
+    P? (x ∷ []) = no $ λ ()
+    P? (x₁ ∷ x₂ ∷ []) = no $ λ ()
+    P? (x₁ ∷ x₂ ∷ x₃ ∷ x₄ ∷ xs) = no $ λ ()
+
+  readℚ : Read {p = {!!}} ℚ
+  readℚ = record {
+    P = λ s →
+      (Σ
+        (Σ
+          (Strong × Strong)
+          (λ (s₁ , s₂) →
+            Read.P readℤ s₁ × Read.P readℕ s₂))
+        (λ ((s₁ , s₂) , (p₁ , p₂)) →
+          let n₁ = Read.read readℤ s₁ p₁ in
+          let n₂ = Read.read readℕ s₂ p₂ in
+          (_×_
+            (Coprime ℤ.∣ n₁ ∣ (ℕ.suc n₂))
+            (s ≡ s₁ 𝕃.++ 𝕃.[ '/' ] 𝕃.++ s₂))));
+    read = (λ s (((s₁ , s₂) , p₁ , p₂) , (cpr) , d) →
+      ℚ.mkℚ (Read.read readℤ s₁ p₁) (Read.read readℕ s₂ p₂) cpr)
+    }
+
+  readMaybeℚ : ReadMaybe ℚ
+  readMaybeℚ = record {
+    rr = readℚ;
+    P? = f
+    }
+    where
+    f : (x : Strong) → Dec $ Read.P readℚ x
+    f x with 𝕃.linesBy (_≟ '/') x
+    ... | x ∷ [] = {!!}
+    ... | [] = {!!}
+    ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = {!!}
+    ... | zp ∷ np ∷ [] with readMaybe {A = ℤ} zp | readMaybe {A = ℕ} np
+    ... | just z | just n = {!!}
+    ... | nothing | just n = {!!}
+    ... | just z | nothing = {!!}
+    ... | nothing | nothing = {!!}
+
+  readList : ∀ {a p} → {A : Set a}
+           → ⦃ Read {p = p} A ⦄
+           → Read $ List A
+  readList {p = p} {A} ⦃ R ⦄ = record {
+    P = readList.P;
+    read = Σ.curry readList.read
+    }
+
+  readMaybeList : ∀ {a p} → {A : Set a}
+                → ⦃ ReadMaybe {p = p} A ⦄
+                → ReadMaybe {p = p} $ List A
+  readMaybeList = {!!}
 \end{code}
+
 \end{document}
