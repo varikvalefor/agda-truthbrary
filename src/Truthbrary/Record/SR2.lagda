@@ -564,7 +564,7 @@ instance
     ... | x ∷ [] = no {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = no {!!}
     ... | zp ∷ np ∷ [] with readMaybe {A = ℤ} zp | readMaybe {A = ℕ} np
-    ... | just z | just n = {!!}
+    ... | just z | just n = yes {!!}
     ... | nothing | just n = no {!!}
     ... | just z | nothing = no {!!}
     ... | nothing | nothing = no {!!}
