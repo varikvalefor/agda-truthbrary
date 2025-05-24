@@ -562,19 +562,22 @@ instance
         /∉ℤ = {!!}
         /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
         /∉ℕ [] = λ ()
-        /∉ℕ (x ∷ xs) = allDeg (x ∷ xs) '/' (λ ()) ∘ proj₁
+        /∉ℕ (x ∷ xs) = allDeg readℕ.IsDigit? (x ∷ xs) '/' (λ ()) ∘ proj₁
           where
-          allDeg : (s : Strong)
-                 → (c : Char)
-                 → ¬ readℕ.IsDigit c
-                 → 𝕃All.All readℕ.IsDigit s
-                 → c ∉ s
-          allDeg [] c z z₁ = _≡_.refl
-          allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
+          allDeg : ∀ {a p} → {A : Set a} → {P : A → Set p}
+                 → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+                 → Decidable P
+                 → (xs : List A)
+                 → (x : A)
+                 → ¬ P x
+                 → 𝕃All.All P xs
+                 → x ∉ xs
+          allDeg P? [] c z z₁ = _≡_.refl
+          allDeg P? (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
              lf (id' $ s ∷ ss) ≡⟨ 𝕍P.toList∘fromList (s ∷ ss) ▹ cong lf ⟩
              lf (s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) (P¬≡ p N) ▹ cong 𝕃.length ⟩
              lf ss ≡⟨ 𝕍P.toList∘fromList ss ▹ sym ▹ cong lf ⟩
-             lf (id' ss) ≡⟨ allDeg ss c N ps ▹ sym ⟩
+             lf (id' ss) ≡⟨ allDeg P? ss c N ps ▹ sym ⟩
              0 ∎
             where
             id' = 𝕍.toList ∘ 𝕍.fromList
