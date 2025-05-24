@@ -209,6 +209,10 @@ open import Truthbrary.Record.Eq
   using (
     _≟_
   )
+open import Truthbrary.Record.LLC
+  using (
+    _∉_
+  )
 open import Truthbrary.Data.Strong
   using (
     Strong
@@ -563,29 +567,25 @@ instance
     PFrinu : Strong → Set
     PFrinu x =
       (Σ
-        (ℤ × ℕ)
-        (λ (z , n) →
+        (Strong × Strong)
+        (λ (s , t) →
           (_×_
-            (Read.P readℤ (show z) × Read.P readℕ (show n))
-            (x ≡ show z 𝕃.++ 𝕃.[ '/' ] 𝕃.++ show n))))
+            (x ≡ s 𝕃.++ 𝕃.[ '/' ] 𝕃.++ t)
+            (('/' ∉ s) × ('/' ∉ t)))))
     PFrinu? : Decidable PFrinu
-    PFrinu? x with 𝕃.linesBy (_≟ '/') x
-    ... | [] = no {!!}
-    ... | x ∷ [] = no {!!}
-    ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = no {!!}
-    ... | zp ∷ np ∷ [] with ReadMaybe.P? readMaybeℤ zp | ReadMaybe.P? readMaybeℕ np
-    ... | no Nz | yes pn = no {!!}
-    ... | yes pz | no Nn = no {!!}
-    ... | no Nz | no Nn = no {!!}
-    ... | yes pz | yes pn = yes {!!}
+    PFrinu? = {!!}
     f : Decidable $ Read.P readℚ
     f x with PFrinu? x
     ... | no N = no $ N ∘ projₓ
       where
       projₓ : Read.P readℚ ⊆ PFrinu
       projₓ (((s₁ , s₂) , (p₁ , p₂)) , (cpr , d)) =
-        (Read.read readℤ s₁ p₁ , Read.read readℕ s₂ p₂) , {!!}
-    ... | yes ((z , n) , (zp , np) , d) with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
+        {!!}
+    ... | yes ((s₁ , s₂) , (d , _)) with ReadMaybe.P? readMaybeℤ s₁ | ReadMaybe.P? readMaybeℕ s₂
+    ... | no zN | no nN = {!!}
+    ... | no zN | yes np = {!!}
+    ... | yes zp | no nN = {!!}
+    ... | yes zp | yes np with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
     ... | yes cpr = yes (((_ , _) , zp , np) , cpr , {!!})
     ... | no Npr = {!!}
 
