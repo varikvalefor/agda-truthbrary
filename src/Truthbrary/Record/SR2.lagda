@@ -359,6 +359,11 @@ readMaybe : ∀ {a p} → {A : Set a}
           → Maybe A
 readMaybe ⦃ Q ⦄ = ReadMaybe.readMaybe Q
 
+PR? : ∀ {a p} → {A : Set a}
+    → ⦃ Q : ReadMaybe {p = p} A ⦄
+    → Decidable $ Read.P $ ReadMaybe.rr Q
+PR? ⦃ Q ⦄ = ReadMaybe.P? Q
+
 show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → Strong
 show ⦃ Q ⦄ = Show.show Q
 \end{code}
