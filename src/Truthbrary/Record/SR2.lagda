@@ -568,7 +568,7 @@ instance
     ... | just z | nothing = no {!!}
     ... | nothing | nothing = no {!!}
     ... | just z | just 0 = {!!}
-    ... | just z | just (ℕ.suc n) with OCP.coprime? ℤ.∣ z ∣ n
+    ... | just z | just (ℕ.suc n) with OCP.coprime? ℤ.∣ z ∣ (ℕ.suc n)
     ... | yes cpr = yes (((zp , np) , {!!}) , {!!} , {!!})
     ... | no Npr = {!!}
 
