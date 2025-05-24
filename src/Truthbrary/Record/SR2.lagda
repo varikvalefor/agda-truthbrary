@@ -569,8 +569,8 @@ instance
     ... | no Nz | no Nn = no {!!}
     ... | yes pz | yes pn with Read.read readℤ zp pz | Read.read readℕ np pn
     ... | z | 0 = no {!!}
-    ... | z | ℕ.suc n with OCP.coprime? ℤ.∣ Read.read readℤ zp pz ∣ (ℕ.suc n)
-    ... | yes cpr = yes (((zp , np) , pz , pn) , {!!} , {!!})
+    ... | z | ℕ.suc n with OCP.coprime? ℤ.∣ Read.read readℤ zp pz ∣ _
+    ... | yes cpr = yes (((zp , np) , pz , pn) , cpr , {!!})
     ... | no Npr = {!!}
 
   readList : ∀ {a p} → {A : Set a}
