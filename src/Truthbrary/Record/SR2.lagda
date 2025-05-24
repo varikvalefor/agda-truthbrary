@@ -566,6 +566,7 @@ instance
              𝕃.length (𝕃.filter (c ≟_) $ id' $ s ∷ ss) ≡⟨ {!!} ⟩
              𝕃.length (𝕃.filter (c ≟_) $ s ∷ ss) ≡⟨ {!!} ⟩
              𝕃.length (𝕃.filter (c ≟_) ss) ≡⟨ {!!} ⟩
+             𝕃.length (𝕃.filter (c ≟_) $ id' ss) ≡⟨ {!!} ⟩
              0 ∎
             where
             id' = 𝕍.toList ∘ 𝕍.fromList
