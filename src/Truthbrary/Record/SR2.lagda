@@ -558,7 +558,7 @@ instance
     P? = f
     }
     where
-    f : (x : Strong) → Dec $ Read.P readℚ x
+    f : Decidable $ Read.P readℚ
     f x with 𝕃.linesBy (_≟ '/') x
     ... | x ∷ [] = {!!}
     ... | [] = {!!}
