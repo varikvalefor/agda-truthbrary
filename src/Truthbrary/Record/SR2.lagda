@@ -580,7 +580,7 @@ instance
       where
       projₓ : Read.P readℚ ⊆ PFrinu
       projₓ (((s₁ , s₂) , (p₁ , p₂)) , (cpr , d)) =
-        (s₁ , s₂) , {!!}
+        (s₁ , s₂) , ({!!} , {!!})
     ... | yes ((s₁ , s₂) , (d , _)) with ReadMaybe.P? readMaybeℤ s₁ | ReadMaybe.P? readMaybeℕ s₂
     ... | no zN | no nN = no {!!}
     ... | no zN | yes np = no {!!}
