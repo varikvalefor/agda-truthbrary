@@ -489,7 +489,7 @@ instance
       where
       d : x₁ ∷ c ∷ x₂ ∷ [] ≡ '\'' ∷ c ∷ '\'' ∷ []
       d = begin
-        x₁ ∷ c ∷ x₂ ∷ [] ≡⟨ {!!} ⟩
+        x₁ ∷ c ∷ x₂ ∷ [] ≡⟨ d₁ ▹ cong (λ z → z ∷ c ∷ x₂ ∷ []) ⟩
         '\'' ∷ c ∷ x₂ ∷ [] ≡⟨ {!!} ⟩
         '\'' ∷ c ∷ '\'' ∷ [] ∎
         where
