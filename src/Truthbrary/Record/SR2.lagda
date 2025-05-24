@@ -552,7 +552,7 @@ instance
       field
         cpr : Coprime ℤ.∣ n₁ ∣ (ℕ.suc n₂)
         
-  readℚ : Read {p = {!!}} ℚ
+  readℚ : Read {p = Level.zero} ℚ
   readℚ = record {
     P = readℚ.P;
     read = read
