@@ -359,10 +359,11 @@ readMaybe : ∀ {a p} → {A : Set a}
           → Maybe A
 readMaybe ⦃ Q ⦄ = ReadMaybe.readMaybe Q
 
-PR? : ∀ {a p} → {A : Set a}
+PR? : ∀ {a p}
+    → (A : Set a)
     → ⦃ Q : ReadMaybe {p = p} A ⦄
     → Decidable $ Read.P $ ReadMaybe.rr Q
-PR? ⦃ Q ⦄ = ReadMaybe.P? Q
+PR? _ ⦃ Q ⦄ = ReadMaybe.P? Q
 
 show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → Strong
 show ⦃ Q ⦄ = Show.show Q
@@ -515,7 +516,7 @@ instance
     PFrinu : Strong → Set
     PFrinu s = Σ (ℤ × ℕ) $ λ (z , n) → s ≡ show z 𝕃.++ 𝕃.[ '/' ] 𝕃.++ show n
     P? : Decidable _
-    P? x with PR? {A = ℕ} x
+    P? x with PR? ℕ x
     ... | no j = no $ j ∘ proj₁
     ... | yes p with Read.read readℕ x p ℕ.<? n
     ... | yes p₁ = yes $ p , p₁
@@ -595,8 +596,8 @@ instance
         open readℚ.P p
     ... | yes ((s₁ , s₂) , (d , _)) with zp? | np?
       where
-      zp? = PR? {A = ℤ} s₁
-      np? = PR? {A = ℕ} s₂
+      zp? = PR? ℤ s₁
+      np? = PR? ℕ s₂
     ... | no zN | _ = no {!!}
     ... | yes zp | no nN = no {!!}
     ... | yes zp | yes np with OCP.coprime? ℤ.∣ z ∣ n
