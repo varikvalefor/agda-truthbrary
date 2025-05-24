@@ -553,21 +553,14 @@ instance
         /∉ℤ = {!!}
         /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
         /∉ℕ [] = λ ()
-        /∉ℕ (x ∷ xs) with x ≟ '0'
-        ... | yes d = {!!}
-        ... | no N0 with x ≟ '1'
-        ... | yes d = {!!}
-        ... | no N1 with x ≟ '2'
-        ... | yes d = {!!}
-        ... | no N2 with x ≟ '3'
-        ... | yes d = {!!}
-        ... | no N3 with x ≟ '4'
-        ... | yes d = {!!}
-        ... | no N4 with x ≟ '5'
-        ... | yes d = {!!}
-        ... | no N5 with x ≟ '6'
-        ... | yes d = {!!}
-        ... | no N6 = {!!}
+        /∉ℕ (x ∷ xs) = allDeg (x ∷ xs) '/' {!!} ∘ proj₁
+          where
+          allDeg : (s : Strong)
+                 → (c : Char)
+                 → ¬ readℕ.IsDigit c
+                 → 𝕃All.All readℕ.IsDigit s
+                 → c ∉ s
+          allDeg = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
