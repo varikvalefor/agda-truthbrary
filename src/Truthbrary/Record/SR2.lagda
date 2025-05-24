@@ -594,9 +594,8 @@ instance
         (s₁ , s₂) , (donk , {!!})
         where
         open readℚ.P p
-    ... | yes ((s₁ , s₂) , (d , _)) with zp? | np?
+    ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | np?
       where
-      zp? = PR? ℤ s₁
       np? = PR? ℕ s₂
     ... | no zN | _ = no {!!}
     ... | yes zp | no nN = no {!!}
