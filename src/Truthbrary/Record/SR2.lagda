@@ -205,6 +205,10 @@ open import Data.Nat.Coprimality
   using (
     Coprime
   )
+open import Data.List.Properties
+  as 𝕃P
+  using (
+  )
 open import Truthbrary.Record.Eq
   using (
     _≟_
@@ -564,7 +568,7 @@ instance
           allDeg [] c z z₁ = _≡_.refl
           allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
              𝕃.length (𝕃.filter (c ≟_) $ id' $ s ∷ ss) ≡⟨ {!!} ⟩
-             𝕃.length (𝕃.filter (c ≟_) $ s ∷ ss) ≡⟨ {!!} ⟩
+             𝕃.length (𝕃.filter (c ≟_) $ s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) {!!} ▹ cong 𝕃.length ⟩
              𝕃.length (𝕃.filter (c ≟_) ss) ≡⟨ {!!} ⟩
              𝕃.length (𝕃.filter (c ≟_) $ id' ss) ≡⟨ allDeg ss c N ps ▹ sym ⟩
              0 ∎
