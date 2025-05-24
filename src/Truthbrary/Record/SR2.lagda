@@ -559,7 +559,8 @@ instance
         where
         open readℚ.P p
         /∉ℤ : (s : Strong) → Read.P readℤ s → '/' ∉ s
-        /∉ℤ = {!!}
+        /∉ℤ s (_⊎_.inj₁ djm) = {!!}
+        /∉ℤ s (_⊎_.inj₂ m) = {!!}
         /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
         /∉ℕ [] = λ ()
         /∉ℕ (x ∷ xs) = allDeg readℕ.IsDigit? (x ∷ xs) '/' (λ ()) ∘ proj₁
