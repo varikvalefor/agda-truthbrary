@@ -552,7 +552,7 @@ instance
         /∉ℤ : (s : Strong) → Read.P readℤ s → '/' ∉ s
         /∉ℤ = {!!}
         /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
-        /∉ℕ [] = {!!}
+        /∉ℕ [] = λ ()
         /∉ℕ (x ∷ xs) = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
