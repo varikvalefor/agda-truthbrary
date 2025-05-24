@@ -552,7 +552,6 @@ instance
       field
         cpr : Coprime ℤ.∣ n₁ ∣ (ℕ.suc n₂)
         
-
   readℚ : Read {p = {!!}} ℚ
   readℚ = record {
     P = readℚ.P;
@@ -560,9 +559,10 @@ instance
     }
     where
     read : (x : Strong) → readℚ.P x → ℚ
-    read s p = ℚ.mkℚ (Read.read readℤ s₁ p₁) (Read.read readℕ s₂ p₂) cpr
+    read s p = ℚ.mkℚ (z) (Read.read readℕ s₂ p₂) cpr
       where
       open readℚ.P p
+      z = Read.read readℤ s₁ p₁
 
   readMaybeℚ : ReadMaybe ℚ
   readMaybeℚ = record {
