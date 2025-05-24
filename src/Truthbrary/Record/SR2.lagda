@@ -580,7 +580,9 @@ instance
     ... | yes pz | yes pn = yes {!!}
     f : Decidable $ Read.P readℚ
     f x with PFrinu? x
-    ... | no N = no (N ∘ (λ (((s₁ , s₂) , (p₁ , p₂)) , (cpr , d)) → ((Read.read readℤ s₁ p₁ , Read.read readℕ s₂ p₂) , {!!})))
+    ... | no N = no (N ∘ projₓ)
+      where
+      projₓ = (λ (((s₁ , s₂) , (p₁ , p₂)) , (cpr , d)) → ((Read.read readℤ s₁ p₁ , Read.read readℕ s₂ p₂) , {!!}))
     ... | yes ((z , n) , (zp , np) , d) with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
     ... | yes cpr = yes (((_ , _) , zp , np) , cpr , {!!})
     ... | no Npr = {!!}
