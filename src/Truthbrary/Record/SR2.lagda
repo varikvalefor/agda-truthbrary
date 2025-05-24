@@ -563,12 +563,12 @@ instance
     ... | [] = no {!!}
     ... | x ∷ [] = no {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = no {!!}
-    ... | zp ∷ np ∷ [] with readMaybe {A = ℤ} zp | readMaybe {A = ℕ} np
-    ... | nothing | just n = no {!!}
-    ... | just z | nothing = no {!!}
-    ... | nothing | nothing = no {!!}
-    ... | just z | just 0 = {!!}
-    ... | just z | just (ℕ.suc n) with OCP.coprime? ℤ.∣ z ∣ (ℕ.suc n)
+    ... | zp ∷ np ∷ [] with ReadMaybe.P? readMaybeℤ zp | readMaybe {A = ℕ} np
+    ... | no Nz | just n = no {!!}
+    ... | yes pz | nothing = no {!!}
+    ... | no Nz | nothing = no {!!}
+    ... | yes pz | just 0 = {!!}
+    ... | yes pz | just (ℕ.suc n) with OCP.coprime? ℤ.∣ Read.read readℤ zp pz ∣ (ℕ.suc n)
     ... | yes cpr = yes (((zp , np) , {!!}) , {!!} , {!!})
     ... | no Npr = {!!}
 
