@@ -583,7 +583,7 @@ instance
         {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with ReadMaybe.P? readMaybeℤ s₁ | ReadMaybe.P? readMaybeℕ s₂
     ... | no zN | no nN = no {!!}
-    ... | no zN | yes np = {!!}
+    ... | no zN | yes np = no {!!}
     ... | yes zp | no nN = {!!}
     ... | yes zp | yes np with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
     ... | yes cpr = yes (((_ , _) , zp , np) , cpr , {!!})
