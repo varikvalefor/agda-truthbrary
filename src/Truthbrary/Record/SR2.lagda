@@ -487,7 +487,7 @@ instance
     P? (x₁ ∷ c ∷ x₂ ∷ []) with x₁ ≟ '\'' | x₂ ≟ '\''
     ... | yes d₁ | yes d₂ = yes $ c , {!!}
     ... | no N₁ | _ = no $ N₁ ∘ {!!}
-    ... | _ | no N₂ = no {!!}
+    ... | _ | no N₂ = no $ N₂ ∘ {!!}
     P? [] = no $ λ ()
     P? (x ∷ []) = no $ λ ()
     P? (x₁ ∷ x₂ ∷ []) = no $ λ ()
