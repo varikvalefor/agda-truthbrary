@@ -595,7 +595,7 @@ instance
         open readℚ.P p
     ... | yes ((s₁ , s₂) , (d , _)) with zp? | np?
       where
-      zp? = ReadMaybe.P? readMaybeℤ s₁
+      zp? = PR? {A = ℤ} s₁
       np? = ReadMaybe.P? readMaybeℕ s₂
     ... | no zN | _ = no {!!}
     ... | yes zp | no nN = no {!!}
