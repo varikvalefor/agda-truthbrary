@@ -594,7 +594,9 @@ instance
       np? = ReadMaybe.P? readMaybeℕ s₂
     ... | no zN | _ = no {!!}
     ... | yes zp | no nN = no {!!}
-    ... | yes zp | yes np with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ (ℕ.suc $ Read.read readℕ _ np)
+    ... | yes zp | yes np with OCP.coprime? ℤ.∣ z ∣ (ℕ.suc $ Read.read readℕ _ np)
+      where
+      z = Read.read readℤ _ zp
     ... | yes cpr = yes (record {p₁ = zp; p₂ = np; cpr = cpr; donk = d})
     ... | no Npr = no (Npr ∘ {!!})
 
