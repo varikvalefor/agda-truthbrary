@@ -555,14 +555,6 @@ instance
         /∉ℕ [] = λ ()
         /∉ℕ (x ∷ xs) = allDeg (x ∷ xs) '/' (λ ()) ∘ proj₁
           where
-
-          -- : (x₁
-          --    : 0 ≡
-          --      𝕃.length
-          --      (𝕃.filter (Truthbrary.Record.Eq.EqChar Truthbrary.Record.Eq.Eq.≟ c)
-          --       (𝕍.toList
-          --        (Truthbrary.Record.LLC.LL.vec Truthbrary.Record.LLC.liliList
-          --         ss)))) →
           allDeg : (s : Strong)
                  → (c : Char)
                  → ¬ readℕ.IsDigit c
