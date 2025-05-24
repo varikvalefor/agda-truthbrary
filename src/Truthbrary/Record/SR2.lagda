@@ -580,7 +580,7 @@ instance
     ... | yes pz | yes pn = yes {!!}
     f : Decidable $ Read.P readℚ
     f x with PFrinu? x
-    ... | no N = {!!}
+    ... | no N = no {!!}
     ... | yes ((z , n) , (zp , np) , d) with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
     ... | yes cpr = yes (((_ , _) , zp , np) , cpr , {!!})
     ... | no Npr = {!!}
