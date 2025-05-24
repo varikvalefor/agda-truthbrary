@@ -515,7 +515,7 @@ instance
     PFrinu : Strong → Set
     PFrinu s = Σ (ℤ × ℕ) $ λ (z , n) → s ≡ show z 𝕃.++ 𝕃.[ '/' ] 𝕃.++ show n
     P? : Decidable _
-    P? x with ReadMaybe.P? readMaybeℕ x
+    P? x with PR? {A = ℕ} x
     ... | no j = no $ j ∘ proj₁
     ... | yes p with Read.read readℕ x p ℕ.<? n
     ... | yes p₁ = yes $ p , p₁
