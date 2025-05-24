@@ -597,7 +597,7 @@ instance
     ... | yes zp | yes np with OCP.coprime? ℤ.∣ z ∣ n
       where
       z = Read.read readℤ _ zp
-      n = (ℕ.suc $ Read.read readℕ _ np)
+      n = ℕ.suc $ Read.read readℕ _ np
     ... | yes cpr = yes (record {p₁ = zp; p₂ = np; cpr = cpr; donk = d})
     ... | no Npr = no (Npr ∘ {!!})
 
