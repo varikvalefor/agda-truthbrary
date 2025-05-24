@@ -567,7 +567,8 @@ instance
     ... | nothing | just n = no {!!}
     ... | just z | nothing = no {!!}
     ... | nothing | nothing = no {!!}
-    ... | just z | just n = {!!}
+    ... | just z | just 0 = {!!}
+    ... | just z | just (ℕ.suc n) = {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
