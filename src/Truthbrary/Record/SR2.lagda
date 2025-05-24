@@ -551,7 +551,7 @@ instance
         open readℚ.P p
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
-    ... | yes zp | no nN = no {!!}
+    ... | _ | no nN = no {!!}
     ... | yes zp | yes np with OCP.coprime? ℤ.∣ z ∣ n
       where
       z = Read.read readℤ _ zp
