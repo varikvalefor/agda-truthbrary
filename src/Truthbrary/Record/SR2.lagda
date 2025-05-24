@@ -553,7 +553,7 @@ instance
         /∉ℤ = {!!}
         /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
         /∉ℕ [] = λ ()
-        /∉ℕ (x ∷ xs) = allDeg (x ∷ xs) '/' {!!} ∘ proj₁
+        /∉ℕ (x ∷ xs) = allDeg (x ∷ xs) '/' (λ ()) ∘ proj₁
           where
           allDeg : (s : Strong)
                  → (c : Char)
