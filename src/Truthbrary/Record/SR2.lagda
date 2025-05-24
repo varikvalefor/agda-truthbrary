@@ -576,6 +576,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     where
     cbs = Function.flip 𝕃.replicate ' '
     f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂
+
   ≡∷[]? : Strong → Set
   ≡∷[]? x =
     (Σ
