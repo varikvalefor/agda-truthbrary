@@ -562,7 +562,7 @@ instance
     read s p = ℚ.mkℚ (z) (n) cpr
       where
       open readℚ.P p
-      z = Read.read readℤ s₁ p₁
+      z = n₁
       n = n₂
 
   readMaybeℚ : ReadMaybe ℚ
