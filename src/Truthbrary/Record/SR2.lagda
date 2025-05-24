@@ -490,6 +490,7 @@ instance
       d : x₁ ∷ c ∷ x₂ ∷ [] ≡ '\'' ∷ c ∷ '\'' ∷ []
       d = begin
         x₁ ∷ c ∷ x₂ ∷ [] ≡⟨ {!!} ⟩
+        '\'' ∷ c ∷ x₂ ∷ [] ≡⟨ {!!} ⟩
         '\'' ∷ c ∷ '\'' ∷ [] ∎
         where
         open Relation.Binary.PropositionalEquality.≡-Reasoning
