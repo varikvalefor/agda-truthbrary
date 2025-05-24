@@ -595,7 +595,6 @@ instance
         where
         open readℚ.P p
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
-      where
     ... | no zN | _ = no {!!}
     ... | yes zp | no nN = no {!!}
     ... | yes zp | yes np with OCP.coprime? ℤ.∣ z ∣ n
