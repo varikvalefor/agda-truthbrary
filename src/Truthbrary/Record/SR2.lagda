@@ -230,6 +230,7 @@ open import Relation.Binary.PropositionalEquality
   using (
     subst;
     cong;
+    sym;
     _≡_
   )
 
@@ -561,7 +562,7 @@ instance
                  → 𝕃All.All readℕ.IsDigit s
                  → c ∉ s
           allDeg [] c z z₁ = _≡_.refl
-          allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = Relation.Binary.PropositionalEquality.sym $ begin
+          allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
              𝕃.length (𝕃.filter (c ≟_) $ id' $ s ∷ ss) ≡⟨ {!!} ⟩
              𝕃.length (𝕃.filter (c ≟_) $ s ∷ ss) ≡⟨ {!!} ⟩
              𝕃.length (𝕃.filter (c ≟_) ss) ≡⟨ {!!} ⟩
