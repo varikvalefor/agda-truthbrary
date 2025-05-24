@@ -488,7 +488,11 @@ instance
     ... | yes d₁ | yes d₂ = yes $ c , d
       where
       d : x₁ ∷ c ∷ x₂ ∷ [] ≡ '\'' ∷ c ∷ '\'' ∷ []
-      d = {!!}
+      d = begin
+        x₁ ∷ c ∷ x₂ ∷ [] ≡⟨ {!!} ⟩
+        '\'' ∷ c ∷ '\'' ∷ [] ∎
+        where
+        open Relation.Binary.PropositionalEquality.≡-Reasoning
     ... | no N₁ | _ = no $ N₁ ∘ {!!}
     ... | _ | no N₂ = no $ N₂ ∘ {!!}
     P? [] = no $ λ ()
