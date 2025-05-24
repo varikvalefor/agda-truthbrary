@@ -571,13 +571,14 @@ instance
                  → c ∉ s
           allDeg [] c z z₁ = _≡_.refl
           allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
-             𝕃.length (𝕃.filter (c ≟_) $ id' $ s ∷ ss) ≡⟨ 𝕍P.toList∘fromList (s ∷ ss) ▹ cong (𝕃.length ∘ 𝕃.filter (c ≟_)) ⟩
-             𝕃.length (𝕃.filter (c ≟_) $ s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) {!!} ▹ cong 𝕃.length ⟩
-             𝕃.length (𝕃.filter (c ≟_) ss) ≡⟨ 𝕍P.toList∘fromList ss ▹ sym ▹ cong (𝕃.length ∘ 𝕃.filter (c ≟_)) ⟩
-             𝕃.length (𝕃.filter (c ≟_) $ id' ss) ≡⟨ allDeg ss c N ps ▹ sym ⟩
+             lf (c ≟_) (id' $ s ∷ ss) ≡⟨ 𝕍P.toList∘fromList (s ∷ ss) ▹ cong (lf (c ≟_)) ⟩
+             lf (c ≟_) (s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) {!!} ▹ cong 𝕃.length ⟩
+             lf (c ≟_) ss ≡⟨ 𝕍P.toList∘fromList ss ▹ sym ▹ cong (lf (c ≟_)) ⟩
+             lf (c ≟_) (id' ss) ≡⟨ allDeg ss c N ps ▹ sym ⟩
              0 ∎
             where
             id' = 𝕍.toList ∘ 𝕍.fromList
+            lf = 𝕃.length Function.∘₂ 𝕃.filter
             open Relation.Binary.PropositionalEquality.≡-Reasoning
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
