@@ -563,7 +563,7 @@ instance
           allDeg [] c z z₁ = _≡_.refl
           allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = Relation.Binary.PropositionalEquality.sym $ begin
              𝕃.length (𝕃.filter (c ≟_) $ id' $ s ∷ ss) ≡⟨ {!!} ⟩
-             𝕃.length (𝕃.filter (Truthbrary.Record.Eq.EqChar Truthbrary.Record.Eq.Eq.≟ c) $ id' ss) ≡⟨ {!!} ⟩
+             𝕃.length (𝕃.filter (c ≟_) $ id' ss) ≡⟨ {!!} ⟩
              0 ∎
             where
             id' = 𝕍.toList ∘ 𝕍.fromList
