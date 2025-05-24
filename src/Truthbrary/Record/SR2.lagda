@@ -405,61 +405,6 @@ module readℕ where
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
       namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃All.toList
 
-module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
-  Ps : Strong → (Strong → Set) → Strong → Set p
-  Ps s P x =
-      (Σ
-        (Strong ×_ $ List $ Strong × ℕ × ℕ)
-        (λ (s , xs) →
-          (_×_
-            (P s ×_ $ 𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
-            (_≡_
-              x
-              (let im = λ s f → 𝕃.intercalate s ∘ 𝕃.map f in
-               ('[' ∷ []) 𝕃.++ im s f xs 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
-    where
-    cbs = Function.flip 𝕃.replicate ' '
-    f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂
-  ≡∷[]? : Strong → Set
-  ≡∷[]? x =
-    (Σ
-      (ℕ × ℕ)
-      (λ (n₁ , n₂) →
-        (_≡_
-          x
-          (𝕃.concat $
-            𝕃.replicate n₁ ' ' ∷
-            ('∷' ∷ []) ∷
-            𝕃.replicate n₂ ' ' ∷
-            ('[' ∷ ']' ∷ []) ∷
-            []))))
-
-  data P (x : Strong) : Set p
-    where
-    xaste : -- [1,2,3]
-      (Σ
-        (List Strong)
-        (λ s →
-          (_×_
-            (𝕃All.All (Read.P R) s)
-            (_≡_
-              x
-              (let S = 𝕃.intercalate (',' ∷ []) s in
-               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-      → P x
-    xastes : -- [1,  2  ,    3 ]
-      Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
-    agasp : -- 1 ∷ 2 ∷ 3 ∷ []
-      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[]? x → P x
-      
-  read : Σ.∃ P → List A
-  read (x , xaste (s , (r , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-  read (x , xastes (s , ((p , r) , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-  read (x , agasp (s , ((p , r) , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-
 instance
   readℕ : Read ℕ
   readℕ = record {
@@ -606,6 +551,62 @@ instance
       p = record {p₁ = zp; p₂ = np; cpr = cpr; donk = d}
     ... | no Npr = no (Npr ∘ {!!})
 
+module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
+  Ps : Strong → (Strong → Set) → Strong → Set p
+  Ps s P x =
+      (Σ
+        (Strong ×_ $ List $ Strong × ℕ × ℕ)
+        (λ (s , xs) →
+          (_×_
+            (P s ×_ $ 𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+            (_≡_
+              x
+              (let im = λ s f → 𝕃.intercalate s ∘ 𝕃.map f in
+               ('[' ∷ []) 𝕃.++ im s f xs 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
+    where
+    cbs = Function.flip 𝕃.replicate ' '
+    f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂
+  ≡∷[]? : Strong → Set
+  ≡∷[]? x =
+    (Σ
+      (ℕ × ℕ)
+      (λ (n₁ , n₂) →
+        (_≡_
+          x
+          (𝕃.concat $
+            𝕃.replicate n₁ ' ' ∷
+            ('∷' ∷ []) ∷
+            𝕃.replicate n₂ ' ' ∷
+            ('[' ∷ ']' ∷ []) ∷
+            []))))
+
+  data P (x : Strong) : Set p
+    where
+    xaste : -- [1,2,3]
+      (Σ
+        (List Strong)
+        (λ s →
+          (_×_
+            (𝕃All.All (Read.P R) s)
+            (_≡_
+              x
+              (let S = 𝕃.intercalate (',' ∷ []) s in
+               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+      → P x
+    xastes : -- [1,  2  ,    3 ]
+      Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
+    agasp : -- 1 ∷ 2 ∷ 3 ∷ []
+      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[]? x → P x
+      
+  read : Σ.∃ P → List A
+  read (x , xaste (s , (r , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+  read (x , xastes (s , ((p , r) , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+  read (x , agasp (s , ((p , r) , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+
+instance
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
            → Read $ List A
