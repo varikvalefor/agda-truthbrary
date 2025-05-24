@@ -587,7 +587,7 @@ instance
     ... | yes zp | no nN = no {!!}
     ... | yes zp | yes np with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
     ... | yes cpr = yes (((_ , _) , zp , np) , cpr , {!!})
-    ... | no Npr = {!!}
+    ... | no Npr = no {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
