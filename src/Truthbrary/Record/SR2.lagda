@@ -585,7 +585,9 @@ instance
       where
       projₓ : Read.P readℚ ⊆ PFrinu
       projₓ p =
-        (readℚ.P.s₁ p , readℚ.P.s₂ p) , (readℚ.P.donk p , {!!})
+        (s₁ , s₂) , (donk , {!!})
+        where
+        open readℚ.P p
     ... | yes ((s₁ , s₂) , (d , _)) with ReadMaybe.P? readMaybeℤ s₁ | ReadMaybe.P? readMaybeℕ s₂
     ... | no zN | _ = no {!!}
     ... | yes zp | no nN = no {!!}
