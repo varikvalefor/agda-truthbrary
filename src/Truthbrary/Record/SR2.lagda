@@ -583,9 +583,8 @@ instance
     ... | no N = no $ N ∘ projₓ
       where
       projₓ : Read.P readℚ ⊆ PFrinu
-      projₓ =
-        (λ (((s₁ , s₂) , (p₁ , p₂)) , (cpr , d)) →
-          (Read.read readℤ s₁ p₁ , Read.read readℕ s₂ p₂) , {!!})
+      projₓ (((s₁ , s₂) , (p₁ , p₂)) , (cpr , d)) =
+          (Read.read readℤ s₁ p₁ , Read.read readℕ s₂ p₂) , {!!}
     ... | yes ((z , n) , (zp , np) , d) with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
     ... | yes cpr = yes (((_ , _) , zp , np) , cpr , {!!})
     ... | no Npr = {!!}
