@@ -572,7 +572,7 @@ instance
           allDeg [] c z z₁ = _≡_.refl
           allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
              lf (id' $ s ∷ ss) ≡⟨ 𝕍P.toList∘fromList (s ∷ ss) ▹ cong lf ⟩
-             lf (s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) {!!} ▹ cong 𝕃.length ⟩
+             lf (s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) (P¬≡ p N) ▹ cong 𝕃.length ⟩
              lf ss ≡⟨ 𝕍P.toList∘fromList ss ▹ sym ▹ cong lf ⟩
              lf (id' ss) ≡⟨ allDeg ss c N ps ▹ sym ⟩
              0 ∎
@@ -580,6 +580,12 @@ instance
             id' = 𝕍.toList ∘ 𝕍.fromList
             lf = 𝕃.length ∘ 𝕃.filter (c ≟_)
             open Relation.Binary.PropositionalEquality.≡-Reasoning
+            P¬≡ : ∀ {a p} → {A : Set a} → {P : A → Set p}
+                → {x z : A}
+                → P x
+                → ¬ P z
+                → ¬_ $ z ≡ x
+            P¬≡ = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
