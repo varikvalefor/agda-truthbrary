@@ -563,7 +563,6 @@ instance
       where
       open readℚ.P p
       z = n₁
-      n = n₂
 
   readMaybeℚ : ReadMaybe ℚ
   readMaybeℚ = record {
