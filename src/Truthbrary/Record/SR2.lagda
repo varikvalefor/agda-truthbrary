@@ -485,7 +485,10 @@ instance
     where
     P? : (x : Strong) → Dec $ Read.P readChar x
     P? (x₁ ∷ c ∷ x₂ ∷ []) with x₁ ≟ '\'' | x₂ ≟ '\''
-    ... | yes d₁ | yes d₂ = yes $ c , {!!}
+    ... | yes d₁ | yes d₂ = yes $ c , d
+      where
+      d : x₁ ∷ c ∷ x₂ ∷ [] ≡ '\'' ∷ c ∷ '\'' ∷ []
+      d = {!!}
     ... | no N₁ | _ = no $ N₁ ∘ {!!}
     ... | _ | no N₂ = no $ N₂ ∘ {!!}
     P? [] = no $ λ ()
