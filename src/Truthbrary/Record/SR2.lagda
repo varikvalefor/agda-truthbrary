@@ -559,7 +559,7 @@ instance
     }
     where
     read : (x : Strong) → readℚ.P x → ℚ
-    read s p = ℚ.mkℚ (z) (n) cpr
+    read s p = ℚ.mkℚ z (n) cpr
       where
       open readℚ.P p
       z = n₁
