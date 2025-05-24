@@ -573,7 +573,7 @@ instance
           allDeg (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
              𝕃.length (𝕃.filter (c ≟_) $ id' $ s ∷ ss) ≡⟨ 𝕍P.toList∘fromList (s ∷ ss) ▹ cong (𝕃.length ∘ 𝕃.filter (c ≟_)) ⟩
              𝕃.length (𝕃.filter (c ≟_) $ s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) {!!} ▹ cong 𝕃.length ⟩
-             𝕃.length (𝕃.filter (c ≟_) ss) ≡⟨ {!!} ⟩
+             𝕃.length (𝕃.filter (c ≟_) ss) ≡⟨ 𝕍P.toList∘fromList ss ▹ sym ▹ cong (𝕃.length ∘ 𝕃.filter (c ≟_)) ⟩
              𝕃.length (𝕃.filter (c ≟_) $ id' ss) ≡⟨ allDeg ss c N ps ▹ sym ⟩
              0 ∎
             where
