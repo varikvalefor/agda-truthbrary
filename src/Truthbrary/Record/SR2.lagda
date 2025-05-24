@@ -503,6 +503,8 @@ instance
     P? = P?
     }
     where
+    PFrinu : Strong → Set
+    PFrinu s = Σ (ℤ × ℕ) $ λ (z , n) → s ≡ show z 𝕃.++ 𝕃.[ '/' ] 𝕃.++ show n
     P? : Decidable _
     P? x with ReadMaybe.P? readMaybeℕ x
     ... | no j = no $ j ∘ proj₁
@@ -558,8 +560,16 @@ instance
     P? = f
     }
     where
-    f : Decidable $ Read.P readℚ
-    f x with 𝕃.linesBy (_≟ '/') x
+    PFrinu : Strong → Set
+    PFrinu x =
+      (Σ
+        (ℤ × ℕ)
+        (λ (z , n) →
+          (_×_
+            (Read.P readℤ (show z) × Read.P readℕ (show n))
+            (x ≡ show z 𝕃.++ 𝕃.[ '/' ] 𝕃.++ show n))))
+    PFrinu? : Decidable PFrinu
+    PFrinu? x with 𝕃.linesBy (_≟ '/') x
     ... | [] = no {!!}
     ... | x ∷ [] = no {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = no {!!}
@@ -567,10 +577,12 @@ instance
     ... | no Nz | yes pn = no {!!}
     ... | yes pz | no Nn = no {!!}
     ... | no Nz | no Nn = no {!!}
-    ... | yes pz | yes pn with Read.read readℤ zp pz | Read.read readℕ np pn
-    ... | z | 0 = no {!!}
-    ... | z | ℕ.suc n with OCP.coprime? ℤ.∣ Read.read readℤ zp pz ∣ _
-    ... | yes cpr = yes (((zp , np) , pz , pn) , cpr , {!!})
+    ... | yes pz | yes pn = yes {!!}
+    f : Decidable $ Read.P readℚ
+    f x with PFrinu? x
+    ... | no N = {!!}
+    ... | yes ((z , n) , (zp , np) , d) with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
+    ... | yes cpr = yes (((_ , _) , zp , np) , cpr , {!!})
     ... | no Npr = {!!}
 
   readList : ∀ {a p} → {A : Set a}
