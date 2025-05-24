@@ -555,7 +555,9 @@ instance
         /∉ℕ [] = λ ()
         /∉ℕ (x ∷ xs) with x ≟ '0'
         ... | yes d = {!!}
-        ... | no N0 = {!!}
+        ... | no N0 with x ≟ '1'
+        ... | yes d = {!!}
+        ... | no N1 = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
