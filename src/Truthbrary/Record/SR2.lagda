@@ -540,23 +540,29 @@ instance
     P? (x₁ ∷ x₂ ∷ []) = no $ λ ()
     P? (x₁ ∷ x₂ ∷ x₃ ∷ x₄ ∷ xs) = no $ λ ()
 
+  module readℚ where
+    record P (x : Strong) : Set where
+      field
+        s₁ s₂ : Strong
+        donk : x ≡ s₁ 𝕃.++ 𝕃.[ '/' ] 𝕃.++ s₂
+        p₁ : Read.P readℤ s₁
+        p₂ : Read.P readℕ s₂
+      n₁ = Read.read readℤ s₁ p₁
+      n₂ = Read.read readℕ s₂ p₂
+      field
+        cpr : Coprime ℤ.∣ n₁ ∣ (ℕ.suc n₂)
+        
+
   readℚ : Read {p = {!!}} ℚ
   readℚ = record {
-    P = λ s →
-      (Σ
-        (Σ
-          (Strong × Strong)
-          (λ (s₁ , s₂) →
-            Read.P readℤ s₁ × Read.P readℕ s₂))
-        (λ ((s₁ , s₂) , (p₁ , p₂)) →
-          let n₁ = Read.read readℤ s₁ p₁ in
-          let n₂ = Read.read readℕ s₂ p₂ in
-          (_×_
-            (Coprime ℤ.∣ n₁ ∣ (ℕ.suc n₂))
-            (s ≡ s₁ 𝕃.++ 𝕃.[ '/' ] 𝕃.++ s₂))));
-    read = (λ s (((s₁ , s₂) , p₁ , p₂) , (cpr) , d) →
-      ℚ.mkℚ (Read.read readℤ s₁ p₁) (Read.read readℕ s₂ p₂) cpr)
+    P = readℚ.P;
+    read = read
     }
+    where
+    read : (x : Strong) → readℚ.P x → ℚ
+    read s p = ℚ.mkℚ (Read.read readℤ s₁ p₁) (Read.read readℕ s₂ p₂) cpr
+      where
+      open readℚ.P p
 
   readMaybeℚ : ReadMaybe ℚ
   readMaybeℚ = record {
@@ -579,13 +585,13 @@ instance
     ... | no N = no $ N ∘ projₓ
       where
       projₓ : Read.P readℚ ⊆ PFrinu
-      projₓ (((s₁ , s₂) , (p₁ , p₂)) , (cpr , d)) =
-        (s₁ , s₂) , (d , {!!})
+      projₓ p =
+        (readℚ.P.s₁ p , readℚ.P.s₂ p) , (readℚ.P.donk p , {!!})
     ... | yes ((s₁ , s₂) , (d , _)) with ReadMaybe.P? readMaybeℤ s₁ | ReadMaybe.P? readMaybeℕ s₂
     ... | no zN | _ = no {!!}
     ... | yes zp | no nN = no {!!}
-    ... | yes zp | yes np with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ _
-    ... | yes cpr = yes (((_ , _) , zp , np) , cpr , d)
+    ... | yes zp | yes np with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ (ℕ.suc $ Read.read readℕ _ np)
+    ... | yes cpr = yes (record {p₁ = zp; p₂ = np; cpr = cpr; donk = d})
     ... | no Npr = no (Npr ∘ {!!})
 
   readList : ∀ {a p} → {A : Set a}
