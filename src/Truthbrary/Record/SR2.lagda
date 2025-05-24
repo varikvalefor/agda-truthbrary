@@ -562,7 +562,6 @@ instance
     read s p = ℚ.mkℚ n₁ n₂ cpr
       where
       open readℚ.P p
-      z = n₁
 
   readMaybeℚ : ReadMaybe ℚ
   readMaybeℚ = record {
