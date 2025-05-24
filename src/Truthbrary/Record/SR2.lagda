@@ -564,10 +564,10 @@ instance
     ... | x ∷ [] = no {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = no {!!}
     ... | zp ∷ np ∷ [] with readMaybe {A = ℤ} zp | readMaybe {A = ℕ} np
-    ... | just z | just n = {!!}
     ... | nothing | just n = no {!!}
     ... | just z | nothing = no {!!}
     ... | nothing | nothing = no {!!}
+    ... | just z | just n = {!!}
 
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
