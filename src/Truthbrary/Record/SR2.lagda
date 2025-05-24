@@ -560,7 +560,7 @@ instance
     where
     f : Decidable $ Read.P readℚ
     f x with 𝕃.linesBy (_≟ '/') x
-    ... | [] = {!!}
+    ... | [] = no {!!}
     ... | x ∷ [] = {!!}
     ... | (x₁ ∷ x₂ ∷ x₃ ∷ xs) = {!!}
     ... | zp ∷ np ∷ [] with readMaybe {A = ℤ} zp | readMaybe {A = ℕ} np
