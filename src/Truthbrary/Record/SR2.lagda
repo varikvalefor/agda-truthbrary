@@ -563,7 +563,9 @@ instance
         ... | yes d = {!!}
         ... | no N3 with x ≟ '4'
         ... | yes d = {!!}
-        ... | no N4 = {!!}
+        ... | no N4 with x ≟ '5'
+        ... | yes d = {!!}
+        ... | no N5 = {!!}
     ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
     ... | no zN | _ = no $ zN ∘ {!!}
     ... | _ | no nN = no {!!}
