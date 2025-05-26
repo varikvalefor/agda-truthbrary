@@ -503,7 +503,7 @@ instance
         '\'' ∷ c ∷ '\'' ∷ [] ∎
         where
         open Relation.Binary.PropositionalEquality.≡-Reasoning
-    ... | no N₁ | _ = no $ N₁ ∘ (λ (c₁ , d) → sj x₁ _ _ _ d)
+    ... | no N₁ | _ = no $ N₁ ∘ (λ (c₁ , d) → sj _ _ _ _ d)
       where
       sj : ∀ {a} → {A : Set a}
          → (x z : A)
