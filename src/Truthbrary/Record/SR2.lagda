@@ -503,7 +503,14 @@ instance
         '\'' ∷ c ∷ '\'' ∷ [] ∎
         where
         open Relation.Binary.PropositionalEquality.≡-Reasoning
-    ... | no N₁ | _ = no $ N₁ ∘ {!!}
+    ... | no N₁ | _ = no $ N₁ ∘ (λ (c₁ , d) → sj x₁ '\'' (c ∷ x₂ ∷ []) (c₁ ∷ '\'' ∷ []) d)
+      where
+      sj : ∀ {a} → {A : Set a}
+         → (x z : A)
+         → (xs zs : List A)
+         → (x ∷ xs) ≡ (z ∷ zs)
+         → x ≡ z
+      sj = {!!}
     ... | _ | no N₂ = no $ N₂ ∘ {!!}
     P? [] = no $ λ ()
     P? (x ∷ []) = no $ λ ()
