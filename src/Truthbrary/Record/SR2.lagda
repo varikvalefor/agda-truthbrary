@@ -504,7 +504,6 @@ instance
         where
         open Relation.Binary.PropositionalEquality.≡-Reasoning
     ... | no N₁ | _ = no $ N₁ ∘ (λ (c₁ , d) → 𝕃P.∷-injectiveˡ d)
-      where
     ... | _ | no N₂ = no $ N₂ ∘ {!!}
     P? [] = no $ λ ()
     P? (x ∷ []) = no $ λ ()
