@@ -118,6 +118,7 @@ open import Data.Nat
   )
 open import Data.Bool
   using (
+    _∧_
   )
   renaming (
     if_then_else_ to if
@@ -238,14 +239,13 @@ module words where
     where
     dedup' : _ → _ → _ → _
     dedup' x b 𝕃.[] = x
-    dedup' x b z = if (z₁ ≡ᵇ b) v? j
+    dedup' x b z = if ((z₁ ≡ᵇ b) ∧ (x' ≡ᵇ b)) v j
       where
       z₁ = 𝕃.take (𝕃.length b) z
       z' = 𝕃.drop (𝕃.length b) z
       j = dedup' (x 𝕃.++ z₁) b z'
-      v? = if (x' ≡ᵇ b) (dedup' x b z') j
-        where
-        x' = 𝕃.reverse $ 𝕃.take (𝕃.length b) $ 𝕃.reverse x
+      v = dedup' x b z'
+      x' = 𝕃.reverse $ 𝕃.take (𝕃.length b) $ 𝕃.reverse x
 
   module Veritas where
     module soi where
