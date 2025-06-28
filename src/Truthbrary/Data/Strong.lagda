@@ -233,8 +233,11 @@ module words where
         → List A
         → List A
         → List A
-  dedup x [] = []
-  dedup x z = {!!}
+  dedup = dedup' 𝕃.[]
+    where
+    dedup' : _ → _ → _ → _
+    dedup' x b 𝕃.[] = x
+    dedup' x b z = {!!}
 
   module Veritas where
     module soi where
