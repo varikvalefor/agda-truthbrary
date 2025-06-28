@@ -128,6 +128,9 @@ open import Data.List
   using (
     List
   )
+  renaming (
+    reverse to ⌽
+  )
 open import Data.Char
   using (
     Char
@@ -244,7 +247,7 @@ module words where
       z₁ = 𝕃.take (𝕃.length b) z
       z' = 𝕃.drop (𝕃.length b) z
       j = x 𝕃.++ z₁
-      x' = 𝕃.reverse $ 𝕃.take (𝕃.length b) $ 𝕃.reverse x
+      x' = ⌽ $ 𝕃.take (𝕃.length b) $ ⌽ x
 
   module Veritas where
     module soi where
