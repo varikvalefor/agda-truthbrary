@@ -248,7 +248,7 @@ module words where
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
     nocan = {!!}
 
-    konk : (x : Strong) → dedup 𝕃.[ ' ' ] x ≡ unwords (words x)
+    konk : (x : Strong) → dedup 𝕃.[ ' ' ] x ≡ (unwords ∘ words) x
     konk = {!!}
 
     kons : (x₁ x₂ : Strong)
