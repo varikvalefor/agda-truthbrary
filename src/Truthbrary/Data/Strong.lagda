@@ -159,6 +159,7 @@ open import Relation.Nullary.Decidable
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    _≗_;
     _≡_
   )
 
@@ -248,7 +249,7 @@ module words where
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
     nocan = {!!}
 
-    konk : (x : Strong) → dedup 𝕃.[ ' ' ] x ≡ (unwords ∘ words) x
+    konk : dedup 𝕃.[ ' ' ] ≗ (unwords ∘ words)
     konk = {!!}
 
     kons : (x₁ x₂ : Strong)
