@@ -200,10 +200,18 @@ open import Data.Nat.Properties
   as DNP
   using (
   )
+open import Data.Vec.Properties
+  as 𝕍P
+  using (
+  )
 open import Data.Nat.Coprimality
   as OCP
   using (
     Coprime
+  )
+open import Data.List.Properties
+  as 𝕃P
+  using (
   )
 open import Truthbrary.Record.Eq
   using (
@@ -230,6 +238,7 @@ open import Relation.Binary.PropositionalEquality
   using (
     subst;
     cong;
+    sym;
     _≡_
   )
 
@@ -359,6 +368,12 @@ readMaybe : ∀ {a p} → {A : Set a}
           → Maybe A
 readMaybe ⦃ Q ⦄ = ReadMaybe.readMaybe Q
 
+PR? : ∀ {a p}
+    → (A : Set a)
+    → ⦃ Q : ReadMaybe {p = p} A ⦄
+    → Decidable $ Read.P $ ReadMaybe.rr Q
+PR? _ ⦃ Q ⦄ = ReadMaybe.P? Q
+
 show : ∀ {a} → {A : Set a} → ⦃ Show A ⦄ → A → Strong
 show ⦃ Q ⦄ = Show.show Q
 \end{code}
@@ -398,61 +413,6 @@ module readℕ where
       tenfa = λ (b , e) → b ℕ.* 10 ℕ.^ e
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
       namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃All.toList
-
-module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
-  Ps : Strong → (Strong → Set) → Strong → Set p
-  Ps s P x =
-      (Σ
-        (Strong ×_ $ List $ Strong × ℕ × ℕ)
-        (λ (s , xs) →
-          (_×_
-            (P s ×_ $ 𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
-            (_≡_
-              x
-              (let im = λ s f → 𝕃.intercalate s ∘ 𝕃.map f in
-               ('[' ∷ []) 𝕃.++ im s f xs 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
-    where
-    cbs = Function.flip 𝕃.replicate ' '
-    f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂
-  ≡∷[]? : Strong → Set
-  ≡∷[]? x =
-    (Σ
-      (ℕ × ℕ)
-      (λ (n₁ , n₂) →
-        (_≡_
-          x
-          (𝕃.concat $
-            𝕃.replicate n₁ ' ' ∷
-            ('∷' ∷ []) ∷
-            𝕃.replicate n₂ ' ' ∷
-            ('[' ∷ ']' ∷ []) ∷
-            []))))
-
-  data P (x : Strong) : Set p
-    where
-    xaste : -- [1,2,3]
-      (Σ
-        (List Strong)
-        (λ s →
-          (_×_
-            (𝕃All.All (Read.P R) s)
-            (_≡_
-              x
-              (let S = 𝕃.intercalate (',' ∷ []) s in
-               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
-      → P x
-    xastes : -- [1,  2  ,    3 ]
-      Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
-    agasp : -- 1 ∷ 2 ∷ 3 ∷ []
-      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[]? x → P x
-      
-  read : Σ.∃ P → List A
-  read (x , xaste (s , (r , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-  read (x , xastes (s , ((p , r) , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
-  read (x , agasp (s , ((p , r) , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
 
 instance
   readℕ : Read ℕ
@@ -510,7 +470,7 @@ instance
     PFrinu : Strong → Set
     PFrinu s = Σ (ℤ × ℕ) $ λ (z , n) → s ≡ show z 𝕃.++ 𝕃.[ '/' ] 𝕃.++ show n
     P? : Decidable _
-    P? x with ReadMaybe.P? readMaybeℕ x
+    P? x with PR? ℕ x
     ... | no j = no $ j ∘ proj₁
     ... | yes p with Read.read readℕ x p ℕ.<? n
     ... | yes p₁ = yes $ p , p₁
@@ -533,8 +493,18 @@ instance
     }
     where
     P? : (x : Strong) → Dec $ Read.P readChar x
-    P? ('\'' ∷ c ∷ '\'' ∷ []) = yes $ c , _≡_.refl
-    P? (x₁ ∷ z ∷ x₂ ∷ []) = {!!}
+    P? (x₁ ∷ c ∷ x₂ ∷ []) with x₁ ≟ '\'' | x₂ ≟ '\''
+    ... | yes d₁ | yes d₂ = yes $ c , d
+      where
+      d : x₁ ∷ c ∷ x₂ ∷ [] ≡ '\'' ∷ c ∷ '\'' ∷ []
+      d = begin
+        x₁ ∷ c ∷ x₂ ∷ [] ≡⟨ d₁ ▹ cong (λ z → z ∷ c ∷ x₂ ∷ []) ⟩
+        '\'' ∷ c ∷ x₂ ∷ [] ≡⟨ d₂ ▹ cong (λ z → '\'' ∷ c ∷ z ∷ []) ⟩
+        '\'' ∷ c ∷ '\'' ∷ [] ∎
+        where
+        open Relation.Binary.PropositionalEquality.≡-Reasoning
+    ... | no N₁ | _ = no $ N₁ ∘ (λ (c₁ , d) → 𝕃P.∷-injectiveˡ d)
+    ... | _ | no N₂ = no $ N₂ ∘ {!!}
     P? [] = no $ λ ()
     P? (x ∷ []) = no $ λ ()
     P? (x₁ ∷ x₂ ∷ []) = no $ λ ()
@@ -552,15 +522,14 @@ instance
       field
         cpr : Coprime ℤ.∣ n₁ ∣ (ℕ.suc n₂)
         
-
-  readℚ : Read {p = {!!}} ℚ
+  readℚ : Read ℚ
   readℚ = record {
     P = readℚ.P;
     read = read
     }
     where
     read : (x : Strong) → readℚ.P x → ℚ
-    read s p = ℚ.mkℚ (Read.read readℤ s₁ p₁) (Read.read readℕ s₂ p₂) cpr
+    read s p = ℚ.mkℚ n₁ n₂ cpr
       where
       open readℚ.P p
 
@@ -586,14 +555,110 @@ instance
       where
       projₓ : Read.P readℚ ⊆ PFrinu
       projₓ p =
-        (readℚ.P.s₁ p , readℚ.P.s₂ p) , (readℚ.P.donk p , {!!})
-    ... | yes ((s₁ , s₂) , (d , _)) with ReadMaybe.P? readMaybeℤ s₁ | ReadMaybe.P? readMaybeℕ s₂
-    ... | no zN | _ = no {!!}
-    ... | yes zp | no nN = no {!!}
-    ... | yes zp | yes np with OCP.coprime? ℤ.∣ Read.read readℤ _ zp ∣ (ℕ.suc $ Read.read readℕ _ np)
-    ... | yes cpr = yes (record {p₁ = zp; p₂ = np; cpr = cpr; donk = d})
+        (s₁ , s₂) , (donk , /∉ℤ s₁ p₁  , /∉ℕ s₂ p₂)
+        where
+        open readℚ.P p
+        /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
+        /∉ℕ [] = λ ()
+        /∉ℕ (x ∷ xs) = allDeg readℕ.IsDigit? (x ∷ xs) '/' (λ ()) ∘ proj₁
+          where
+          allDeg : ∀ {a p} → {A : Set a} → {P : A → Set p}
+                 → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+                 → Decidable P
+                 → (xs : List A)
+                 → (x : A)
+                 → ¬ P x
+                 → 𝕃All.All P xs
+                 → x ∉ xs
+          allDeg P? [] c z z₁ = _≡_.refl
+          allDeg P? (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
+             lf (id' $ s ∷ ss) ≡⟨ 𝕍P.toList∘fromList (s ∷ ss) ▹ cong lf ⟩
+             lf (s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) (P¬≡ p N) ▹ cong 𝕃.length ⟩
+             lf ss ≡⟨ 𝕍P.toList∘fromList ss ▹ sym ▹ cong lf ⟩
+             lf (id' ss) ≡⟨ allDeg P? ss c N ps ▹ sym ⟩
+             0 ∎
+            where
+            id' = 𝕍.toList ∘ 𝕍.fromList
+            lf = 𝕃.length ∘ 𝕃.filter (c ≟_)
+            open Relation.Binary.PropositionalEquality.≡-Reasoning
+            P¬≡ : ∀ {a p} → {A : Set a} → {P : A → Set p}
+                → {x z : A}
+                → P x
+                → ¬ P z
+                → ¬_ $ z ≡ x
+            P¬≡ {P = P} {x = x} {z} p N d = N $ subst P (sym d) p
+        /∉ℤ : (s : Strong) → Read.P readℤ s → '/' ∉ s
+        /∉ℤ s (_⊎_.inj₁ djm) = /∉ℕ s djm
+        /∉ℤ s (_⊎_.inj₂ m) = {!!} $ /∉ℕ _ $ proj₂ m
+    ... | yes ((s₁ , s₂) , (d , _)) with PR? ℤ s₁ | PR? ℕ s₂
+    ... | no zN | _ = no $ zN ∘ {!!}
+    ... | _ | no nN = no {!!}
+    ... | yes zp | yes np with OCP.coprime? ℤ.∣ z ∣ n
+      where
+      z = Read.read readℤ _ zp
+      n = ℕ.suc $ Read.read readℕ _ np
+    ... | yes cpr = yes p
+      where
+      p = record {p₁ = zp; p₂ = np; cpr = cpr; donk = d}
     ... | no Npr = no (Npr ∘ {!!})
 
+module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
+  Ps : Strong → (Strong → Set) → Strong → Set p
+  Ps s P x =
+      (Σ
+        (Strong ×_ $ List $ Strong × ℕ × ℕ)
+        (λ (s , xs) →
+          (_×_
+            (P s ×_ $ 𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+            (_≡_
+              x
+              (let im = λ s f → 𝕃.intercalate s ∘ 𝕃.map f in
+               ('[' ∷ []) 𝕃.++ im s f xs 𝕃.++ (']' ∷ []) 𝕃.++ s)))))
+    where
+    cbs = Function.flip 𝕃.replicate ' '
+    f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂
+
+  ≡∷[]? : Strong → Set
+  ≡∷[]? x =
+    (Σ
+      (ℕ × ℕ)
+      (λ (n₁ , n₂) →
+        (_≡_
+          x
+          (𝕃.concat $
+            𝕃.replicate n₁ ' ' ∷
+            ('∷' ∷ []) ∷
+            𝕃.replicate n₂ ' ' ∷
+            ('[' ∷ ']' ∷ []) ∷
+            []))))
+
+  data P (x : Strong) : Set p
+    where
+    xaste : -- [1,2,3]
+      (Σ
+        (List Strong)
+        (λ s →
+          (_×_
+            (𝕃All.All (Read.P R) s)
+            (_≡_
+              x
+              (let S = 𝕃.intercalate (',' ∷ []) s in
+               ('[' ∷ []) 𝕃.++ S 𝕃.++ (']' ∷ []))))))
+      → P x
+    xastes : -- [1,  2  ,    3 ]
+      Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
+    agasp : -- 1 ∷ 2 ∷ 3 ∷ []
+      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[]? x → P x
+      
+  read : Σ.∃ P → List A
+  read (x , xaste (s , (r , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+  read (x , xastes (s , ((p , r) , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+  read (x , agasp (s , ((p , r) , d))) =
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+
+instance
   readList : ∀ {a p} → {A : Set a}
            → ⦃ Read {p = p} A ⦄
            → Read $ List A

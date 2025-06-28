@@ -111,8 +111,14 @@ open import Function
     _$_;
     id
   )
+open import Data.Nat
+  as ℕ
+  using (
+    ℕ
+  )
 open import Data.Bool
   using (
+    _∧_
   )
   renaming (
     if_then_else_ to if
@@ -121,6 +127,9 @@ open import Data.List
   as 𝕃
   using (
     List
+  )
+  renaming (
+    reverse to ⌽
   )
 open import Data.Char
   using (
@@ -154,6 +163,7 @@ open import Relation.Nullary.Decidable
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    _≗_;
     _≡_
   )
 
@@ -193,7 +203,7 @@ unwords x = 𝕃.concat $ 𝕃.intersperse 𝕃.[ ' ' ] x
 \end{code}
 
 \section{la'oi .\F{words}.}
-ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'oi .\B x.\ du la'o zoi.\ \F{𝕃.concat} \OpF{\$} \F{𝕃.intersperse} \OpF{𝕃.[} \AgdaString{' '} \OpF{]} \OpF{\$} \F{words} \AgdaBound{x}\ .zoi.
+ni'o la .varik.\ na birti lo du'u ma kau zabna velcki je cu te gerna la .lojban.
 
 \begin{code}
 module words where
@@ -222,6 +232,23 @@ module words where
   words : Strong → List Strong
   words = splitOn' ' '
 
+  {-# TERMINATING #-}
+  dedup : ∀ {a} → {A : Set a}
+        → ⦃ Truthbrary.Record.Eq.Eq A ⦄
+        → List A
+        → List A
+        → List A
+  dedup = dedup' 𝕃.[]
+    where
+    dedup' : _ → _ → _ → _
+    dedup' x b 𝕃.[] = x
+    dedup' x b z = dedup' (if ((z₁ ≡ᵇ b) ∧ (x' ≡ᵇ b)) x j) b z'
+      where
+      z₁ = 𝕃.take (𝕃.length b) z
+      z' = 𝕃.drop (𝕃.length b) z
+      j = x 𝕃.++ z₁
+      x' = ⌽ $ 𝕃.take (𝕃.length b) $ ⌽ x
+
   module Veritas where
     module soi where
       sxs : (buf : List Strong)
@@ -236,8 +263,17 @@ module words where
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
     nocan = {!!}
 
-    konk : (x : Strong) → x ≡ unwords (words x)
+    konk : dedup 𝕃.[ ' ' ] ≗ (unwords ∘ words)
     konk = {!!}
+
+    kons : (x₁ x₂ : Strong)
+         → (n : ℕ)
+         → (_≡_
+             (words $ x₁ 𝕃.++ 𝕃.[ ' ' ] 𝕃.++ x₂)
+             (words
+               ((λ x → x₁ 𝕃.++ x 𝕃.++ x₂)
+                 (𝕃.replicate (ℕ.suc n) ' '))))
+    kons = {!!}
 
 words : Strong → List Strong
 words = words.words
