@@ -233,7 +233,7 @@ module words where
         → List A
         → List A
         → List A
-  dedup x [] = {!!}
+  dedup x [] = []
   dedup x z = {!!}
 
   module Veritas where
