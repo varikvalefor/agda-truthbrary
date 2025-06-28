@@ -111,6 +111,11 @@ open import Function
     _$_;
     id
   )
+open import Data.Nat
+  as ℕ
+  using (
+    ℕ
+  )
 open import Data.Bool
   using (
   )
@@ -193,7 +198,7 @@ unwords x = 𝕃.concat $ 𝕃.intersperse 𝕃.[ ' ' ] x
 \end{code}
 
 \section{la'oi .\F{words}.}
-ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo no canlu lerfu cu cmima pe'a da gi la'oi .\B x.\ du la'o zoi.\ \F{𝕃.concat} \OpF{\$} \F{𝕃.intersperse} \OpF{𝕃.[} \AgdaString{' '} \OpF{]} \OpF{\$} \F{words} \AgdaBound{x}\ .zoi.
+ni'o la .varik.\ na birti lo du'u ma kau zabna velcki je cu te gerna la .lojban.
 
 \begin{code}
 module words where
@@ -222,6 +227,13 @@ module words where
   words : Strong → List Strong
   words = splitOn' ' '
 
+  dedup : ∀ {a} → {A : Set a}
+        → ⦃ Truthbrary.Record.Eq.Eq A ⦄
+        → List A
+        → List A
+        → List A
+  dedup = {!!}
+
   module Veritas where
     module soi where
       sxs : (buf : List Strong)
@@ -236,8 +248,17 @@ module words where
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
     nocan = {!!}
 
-    konk : (x : Strong) → x ≡ unwords (words x)
+    konk : (x : Strong) → dedup 𝕃.[ ' ' ] x ≡ unwords (words x)
     konk = {!!}
+
+    kons : (x₁ x₂ : Strong)
+         → (n : ℕ)
+         → (_≡_
+             (words $ x₁ 𝕃.++ 𝕃.[ ' ' ] 𝕃.++ x₂)
+             (words
+               ((λ x → x₁ 𝕃.++ x 𝕃.++ x₂)
+                 (𝕃.replicate (ℕ.suc n) ' '))))
+    kons = {!!}
 
 words : Strong → List Strong
 words = words.words
