@@ -135,6 +135,10 @@ open import Data.Char
   using (
     Char
   )
+open import Data.Empty
+  using (
+    ⊥
+  )
 open import Relation.Unary
   using (
     Decidable
@@ -248,6 +252,19 @@ module words where
   words = splitOn' ' ' ∘ dedup 𝕃.[ ' ' ]
 
   module Veritas where
+    module dedup where
+      dun : ∀ {a} → {A : Set a}
+          → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+          → (x : List A)
+          → (d : List A)
+          → (_ : (lt ld r : ℕ)
+               → (_≡_
+                   (𝕃.take lt $ 𝕃.drop ld x)
+                   (𝕃.concat $ 𝕃.replicate (ℕ.suc r) d))
+               → ⊥)
+          → x ≡ dedup d x
+      dun = {!!}
+
     module soi where
       sxs : (o : List Strong)
           → (buf ss : Strong)
