@@ -243,10 +243,11 @@ module words where
     where
     dedup' : _ → _ → _ → _
     dedup' x b 𝕃.[] = x
-    dedup' x b z = if ((z₁ ≡ᵇ b) ∧ (x' ≡ᵇ b)) (d) (dedup' (x 𝕃.++ 𝕃.take 1 z) b $ 𝕃.drop 1 z)
+    dedup' x b z = if ((z₁ ≡ᵇ b) ∧ (x' ≡ᵇ b)) (d) (j)
       where
       z₁ = 𝕃.take (𝕃.length b) z
       d = dedup' x b $ 𝕃.drop (𝕃.length b) z
+      j = dedup' (x 𝕃.++ 𝕃.take 1 z) b $ 𝕃.drop 1 z
       x' = ⌽ $ 𝕃.take (𝕃.length b) $ ⌽ x
 
   words : Strong → List Strong
