@@ -229,9 +229,6 @@ module words where
   splitOn' : Char → Strong → List Strong
   splitOn' = soi₁ ∘ _≟_
 
-  words : Strong → List Strong
-  words = splitOn' ' '
-
   {-# TERMINATING #-}
   dedup : ∀ {a} → {A : Set a}
         → ⦃ Truthbrary.Record.Eq.Eq A ⦄
@@ -248,6 +245,9 @@ module words where
       z' = 𝕃.drop (𝕃.length b) z
       j = x 𝕃.++ z₁
       x' = ⌽ $ 𝕃.take (𝕃.length b) $ ⌽ x
+
+  words : Strong → List Strong
+  words = splitOn' ' '
 
   module Veritas where
     module soi where
