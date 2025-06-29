@@ -243,7 +243,7 @@ module words where
     where
     dedup' : _ → _ → _ → _
     dedup' x b 𝕃.[] = x
-    dedup' x b z = if ((z₁ ≡ᵇ b) ∧ (x' ≡ᵇ b)) (d) (j)
+    dedup' x b z = if ((z₁ ≡ᵇ b) ∧ (x' ≡ᵇ b)) (d) j
       where
       z₁ = 𝕃.take (𝕃.length b) z
       d = dedup' x b $ 𝕃.drop (𝕃.length b) z
