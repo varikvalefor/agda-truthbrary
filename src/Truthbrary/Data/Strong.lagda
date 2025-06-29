@@ -251,13 +251,13 @@ module words where
 
   module Veritas where
     module soi where
-      sxs : (buf : List Strong)
+      sxs : (o : List Strong)
           → (c ss : Strong)
           → (x : Char)
           → let f = x ≟_ in
             (_≡_
-              (soi buf c f $ x 𝕃.∷ ss)
-              (soi (c 𝕃.∷ buf) 𝕃.[] f ss))
+              (soi o c f $ x 𝕃.∷ ss)
+              (soi (c 𝕃.∷ o) 𝕃.[] f ss))
       sxs = {!!}
 
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
