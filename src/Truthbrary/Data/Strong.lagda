@@ -247,7 +247,7 @@ module words where
       x' = ⌽ $ 𝕃.take (𝕃.length b) $ ⌽ x
 
   words : Strong → List Strong
-  words = splitOn' ' '
+  words = splitOn' ' ' ∘ dedup 𝕃.[ ' ' ]
 
   module Veritas where
     module soi where
