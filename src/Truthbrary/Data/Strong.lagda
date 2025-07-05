@@ -270,7 +270,8 @@ module words where
                 (dedup
                   x
                   (𝕃.concat $ 𝕃.replicate (ℕ.suc n) x)))
-      sampu 0 x = {!!}
+      sampu 0 List.[] = {!!}
+      sampu 0 (x List.∷ x₁) = {!!}
       sampu (ℕ.suc n) x = {!!}
 
       dun : ∀ {a} → {A : Set a}
