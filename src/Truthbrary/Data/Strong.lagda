@@ -281,14 +281,16 @@ module words where
                   x
                   (𝕃.concat $ 𝕃.replicate (ℕ.suc n) x)))
       sampu 0 x = sym $ begin
-        dedup x (𝕃.concat $ 𝕃.replicate 1 x) ≡⟨ cong (dedup x) cr ⟩
+        dedup x (𝕃.concat $ 𝕃.replicate 1 x) ≡⟨ cong (dedup x) $ cr x ⟩
         dedup x x ≡⟨ sym $ dxx x ⟩
         x ∎
         where
         open import Relation.Binary.PropositionalEquality
         open ≡-Reasoning
-        cr : 𝕃.concat (𝕃.replicate 1 x) ≡ x
-        cr = begin
+        cr : ∀ {a} → {A : Set a}
+           → (x : List A)
+           → 𝕃.concat (𝕃.replicate 1 x) ≡ x
+        cr x = begin
           𝕃.concat (𝕃.replicate 1 x) ≡⟨ refl ⟩
           𝕃.concat 𝕃.[ x ] ≡⟨ refl ⟩
           x 𝕃.++ 𝕃.[] ≡⟨ DLP.++-identityʳ x ⟩
