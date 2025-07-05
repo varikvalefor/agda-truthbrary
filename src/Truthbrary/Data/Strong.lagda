@@ -286,7 +286,7 @@ module words where
         cr : 𝕃.concat (𝕃.replicate 1 x) ≡ x
         cr = begin
           𝕃.concat (𝕃.replicate 1 x) ≡⟨ refl ⟩
-          𝕃.concat 𝕃.[ x ] ≡⟨ {!!} ⟩
+          𝕃.concat 𝕃.[ x ] ≡⟨ refl ⟩
           x 𝕃.++ 𝕃.[] ≡⟨ {!!} ⟩
           x ∎
       sampu (ℕ.suc n) x = {!!}
