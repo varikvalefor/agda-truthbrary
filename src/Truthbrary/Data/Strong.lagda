@@ -295,7 +295,12 @@ module words where
           𝕃.concat 𝕃.[ x ] ≡⟨ refl ⟩
           x 𝕃.++ 𝕃.[] ≡⟨ DLP.++-identityʳ x ⟩
           x ∎
-      sampu (ℕ.suc n) x = {!!}
+      sampu (ℕ.suc n) x = sym $ begin
+        dedup x (𝕃.concat $ 𝕃.replicate (ℕ.suc $ ℕ.suc n) x) ≡⟨ {!!} ⟩
+        x ∎
+        where
+        open import Relation.Binary.PropositionalEquality
+        open ≡-Reasoning
 
       dun : ∀ {a} → {A : Set a}
           → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
