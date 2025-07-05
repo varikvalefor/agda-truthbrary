@@ -148,6 +148,10 @@ open import Relation.Nullary
     yes;
     no
   )
+open import Data.List.Properties
+  as DLP
+  using (
+  )
 open import Truthbrary.Record.Eq
   using (
     _≡ᵇ_;
@@ -287,7 +291,7 @@ module words where
         cr = begin
           𝕃.concat (𝕃.replicate 1 x) ≡⟨ refl ⟩
           𝕃.concat 𝕃.[ x ] ≡⟨ refl ⟩
-          x 𝕃.++ 𝕃.[] ≡⟨ {!!} ⟩
+          x 𝕃.++ 𝕃.[] ≡⟨ DLP.++-identityʳ x ⟩
           x ∎
       sampu (ℕ.suc n) x = {!!}
 
