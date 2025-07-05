@@ -284,7 +284,9 @@ module words where
         open import Relation.Binary.PropositionalEquality
         open ≡-Reasoning
         cr : 𝕃.concat (𝕃.replicate 1 x) ≡ x
-        cr = {!!}
+        cr = begin
+          𝕃.concat (𝕃.replicate 1 x) ≡⟨ {!!} ⟩
+          x ∎
       sampu (ℕ.suc n) x = {!!}
 
       dun : ∀ {a} → {A : Set a}
