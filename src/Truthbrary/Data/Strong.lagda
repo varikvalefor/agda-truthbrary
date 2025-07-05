@@ -270,7 +270,12 @@ module words where
                 (dedup
                   x
                   (𝕃.concat $ 𝕃.replicate (ℕ.suc n) x)))
-      sampu 0 x = {!!}
+      sampu 0 x = sym $ begin
+        dedup x (𝕃.concat $ 𝕃.replicate 1 x) ≡⟨ {!!} ⟩
+        x ∎
+        where
+        open import Relation.Binary.PropositionalEquality
+        open ≡-Reasoning
       sampu (ℕ.suc n) x = {!!}
 
       dun : ∀ {a} → {A : Set a}
