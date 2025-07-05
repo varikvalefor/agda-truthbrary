@@ -303,4 +303,12 @@ ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo 
 lines : Strong → List Strong
 lines = words.splitOn' '\n'
 \end{code}
+
+\section{la'oi .\F{unlines}.}
+ni'o ro da zo'u ro de zo'u lo meirmoi be de bei fo da cu meirmoi de fo lo'i ro lerpinsle pe lo me'oi .\F{unlines}.\ be da
+
+\begin{code}
+unlines : List Strong → Strong
+unlines = 𝕃.concat ∘ 𝕃.intersperse 𝕃.[ '\n' ]
+\end{code}
 \end{document}
