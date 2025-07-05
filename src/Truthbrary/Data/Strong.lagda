@@ -271,6 +271,15 @@ module words where
           → x ≡ dedup x x
       dxx = {!!}
 
+      dxxs : ∀ {a} → {A : Set a}
+           → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+           → (x : List A)
+           → (s : List $ List A)
+           → (_≡_
+               (dedup x $ 𝕃.concat $ x 𝕃.∷ s)
+               (dedup x $ 𝕃.concat $ x 𝕃.∷ x 𝕃.∷ s))
+      dxxs = {!!}
+
       sampu : ∀ {a} → {A : Set a}
             → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
             → (n : ℕ)
