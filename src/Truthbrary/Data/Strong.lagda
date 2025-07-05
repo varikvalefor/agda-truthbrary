@@ -261,6 +261,12 @@ module words where
 
   module Veritas where
     module dedup where
+      dxx : ∀ {a} → {A : Set a}
+          → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+          → (x : List A)
+          → x ≡ dedup x x
+      dxx = {!!}
+
       sampu : ∀ {a} → {A : Set a}
             → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
             → (n : ℕ)
