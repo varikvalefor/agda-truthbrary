@@ -306,6 +306,7 @@ module words where
           x ∎
       sampu (ℕ.suc n) x = sym $ begin
         dedup x (𝕃.concat $ 𝕃.replicate (ℕ.suc $ ℕ.suc n) x) ≡⟨ {!!} ⟩
+        dedup x (𝕃.concat $ x 𝕃.∷ 𝕃.replicate (ℕ.suc n) x) ≡⟨ {!!} ⟩
         dedup x (x 𝕃.++ 𝕃.concat (𝕃.replicate (ℕ.suc n) x)) ≡⟨ {!!} ⟩
         dedup x (𝕃.concat $ 𝕃.replicate (ℕ.suc n) x) ≡⟨ sym $ sampu n x ⟩
         x ∎
