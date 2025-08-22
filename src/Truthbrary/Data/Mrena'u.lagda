@@ -760,7 +760,7 @@ module Veritas where
     fromℕ≥0 (ℕ.suc n) = inj₂ {!!}
 
     fromℕ≡fromℤ∘ℤ+_ : fromℕ ≗ (fromℤ ∘ ℤ.+_)
-    fromℕ≡fromℤ∘ℤ+_ = λ x → refl
+    fromℕ≡fromℤ∘ℤ+_ x = refl
 \end{code}
 
 \subsection{\lcblm{\F{fromℤ}}}
