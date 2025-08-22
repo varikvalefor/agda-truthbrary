@@ -1519,9 +1519,8 @@ module Veritas where
       where
       R[ℕ] = Fromℕ.fromℕ-Rational
       2ℚ = toℚ $ R[ℕ] 2
+      N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡
       √2 = fromℕ 2 ^ frinu (fromℕ 1) (fromℕ 2) N
-        where
-        N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡
       √2^2≈2 : (√2 ^ fromℕ 2) ≈ fromℚ 2ℚ
       √2^2≈2 = begin
         (√2 ^ fromℕ 2) ≈⟨ _≈_.r≈r ⟩
@@ -1530,7 +1529,6 @@ module Veritas where
         fromℕ 2 ≈⟨ Fromℕ.fromℕ-fromℚ 2 ⟩
         fromℚ 2ℚ ∎
         where
-        N = (¬ (2 ≡ 0) ∋ λ ()) ∘ Fromℕ.fromℕ≈⇒≡
         open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
     ∃I[R^R] : (Σ.Σ
