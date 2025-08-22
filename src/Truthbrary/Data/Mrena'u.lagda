@@ -1490,6 +1490,11 @@ module Veritas where
       where
       open import Relation.Binary.Reasoning.Setoid _≈_.setoid
 
+    x^n : (r : ℝ)
+        → (n : ℕ)
+        → (r ^ fromℕ n) ≈ (𝕃.foldr _*_ (fromℕ 1) $ 𝕃.replicate n r)
+    x^n = {!!}
+
     r≈[r^[1/s]]^s : (r s : ℝ)
                   → (N : _)
                   → r ≈_ $ (r ^ frinu (fromℕ 1) s N) ^ s
