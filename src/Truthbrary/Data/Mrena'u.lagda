@@ -2159,7 +2159,10 @@ module Veritas where
     isSemigroup = {!!};
     identity = Veritas._+_.id≈+0};
   inverse = {!!};
-  ⁻¹-cong = {!!}}
+  ⁻¹-cong = dicong}
+    where
+    dicong : {r s : ℝ} → r ≈ s → (fromℕ 0 - r) ≈ (fromℕ 0 - s)
+    dicong = {!!}
 \end{code}
 
 \section{le ctaipe be le su'u sumji mu'oi glibau.\ abelian group .glibau.}
