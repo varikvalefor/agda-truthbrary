@@ -145,7 +145,7 @@ module I where
       o ∎
       where
       open ≡-Reasoning
-  
+
     0≡n,n : ∀ {a} → {A : Set a}
           → (n : ℕ)
           → (f g : Fin n)
