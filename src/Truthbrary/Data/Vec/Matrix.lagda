@@ -123,7 +123,34 @@ I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
-ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.  .i mupli fa le su'u ga jo ga je da sinxa le se sinxa be zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+	\end{bmatrix}
+\]
+
+.zoi.\ gi de sinxa le se sinxa be zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 \\
+		4 \\
+	\end{bmatrix}
+\]
+
+.zoi.\ gi lo mu'oi zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ be da bei de cu sinxa le se sinxa be zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 & 1 \\
+		4 & 5 & 6 & 4 \\
+	\end{bmatrix}
+\]
+
+.zoi.
 
 \begin{code}
 _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
