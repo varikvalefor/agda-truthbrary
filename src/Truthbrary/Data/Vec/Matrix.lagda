@@ -126,36 +126,44 @@ lookup m n = map (flip lookupᵥ n) m
 ni'o ga jo la'o zoi.\ \F \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} I \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da du lo pilji ja co'e be da bei la'o zoi.\ \B o .zoi.
 
 \begin{code}
-I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
-I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
+module I where
+  I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
+  I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
-module IVeritas where
-  1≡n,n : ∀ {a} → {A : Set a}
-        → (n : ℕ)
-        → (f : Fin n)
-        → (z o : A)
-        → o ≡ Data.Vec.lookup (lookup (I z o) f) f
-  1≡n,n = λ n f z o → sym $ begin
-    Data.Vec.lookup (lookup (I z o) f) f ≡⟨ {!!} ⟩
-    o ∎
-    where
-    open ≡-Reasoning
+  module Veritas where
+    1≡n,n : ∀ {a} → {A : Set a}
+          → (n : ℕ)
+          → (f : Fin n)
+          → (z o : A)
+          → o ≡ Data.Vec.lookup (lookup (I z o) f) f
+    1≡n,n = λ n f z o → sym $ begin
+      Data.Vec.lookup (lookup (I z o) f) f ≡⟨ {!!} ⟩
+      o ∎
+      where
+      open ≡-Reasoning
+  
+    0≡n,n : ∀ {a} → {A : Set a}
+          → (n : ℕ)
+          → (f g : Fin n)
+          → (z o : A)
+          → ¬_ $ f ≡ g
+          → z ≡ Data.Vec.lookup (lookup (I z o) f) g
+    0≡n,n = λ n f g z o N → sym $ begin
+      Data.Vec.lookup (lookup (I z o) f) g ≡⟨ {!!} ⟩
+      z ∎
+      where
+      open ≡-Reasoning
+\end{code}
 
-  0≡n,n : ∀ {a} → {A : Set a}
-        → (n : ℕ)
-        → (f g : Fin n)
-        → (z o : A)
-        → ¬_ $ f ≡ g
-        → z ≡ Data.Vec.lookup (lookup (I z o) f) g
-  0≡n,n = λ n f g z o N → sym $ begin
-    Data.Vec.lookup (lookup (I z o) f) g ≡⟨ {!!} ⟩
-    z ∎
-    where
-    open ≡-Reasoning
+\subsection{le co'e ja se me'oi .export.}
+ni'o lo su'u cusku zo'e ja zoi zoi.\ \F{I.I}\ .zoi.\ cu milxe le ka ce'u jai fanza la .varik.  .i zo'e joi la'e di'u krinu le su'u la .varik.\ cu curmi tu'a zo'oi .\F I.
+
+\begin{code}
+I = I.I
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
