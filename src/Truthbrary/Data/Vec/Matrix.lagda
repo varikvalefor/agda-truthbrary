@@ -97,8 +97,8 @@ ni'o la'o zoi.\
 \subsection{le cimde}
 ni'o ro da poi ke'a ctaipe la'o zoi.\ \F 𝕄 \B A \B m \B m\ .zoi.\ zo'u ga je\ldots
 \begin{itemize}
-       \item la'oi .\B m.\ ni ganra co'e fa lo se sinxa be da gi
-       \item la'oi .\B n.\ ni rajycla co'e fa lo se sinxa be da
+	\item la'oi .\B m.\ ni ganra co'e fa lo se sinxa be da gi
+	\item la'oi .\B n.\ ni rajycla co'e fa lo se sinxa be da
 \end{itemize}
 
 \begin{code}
