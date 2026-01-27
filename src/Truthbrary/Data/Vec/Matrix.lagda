@@ -123,7 +123,7 @@ I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
-ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.  .i mupli fa le su'u ga jo ga je da sinxa le se sinxa be zoi zoi.\
+ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.  .i mupli fa le su'u ga jo ga je da se sinxa zoi zoi.\
 
 \[
 	\begin{bmatrix}
@@ -132,7 +132,7 @@ ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B 
 	\end{bmatrix}
 \]
 
-.zoi.\ gi de sinxa le se sinxa be zoi zoi.\
+.zoi.\ gi de se sinxa zoi zoi.\
 
 \[
 	\begin{bmatrix}
@@ -141,7 +141,7 @@ ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B 
 	\end{bmatrix}
 \]
 
-.zoi.\ gi lo mu'oi zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ be da bei de cu sinxa le se sinxa be zoi zoi.\
+.zoi.\ gi lo mu'oi zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ be da bei de cu se sinxa zoi zoi.\
 
 \[
 	\begin{bmatrix}
