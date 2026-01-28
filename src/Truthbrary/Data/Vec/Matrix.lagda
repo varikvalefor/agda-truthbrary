@@ -21,6 +21,10 @@
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
 \newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
+\newunicodechar{⁻}{\ensuremath{\mathnormal{{}^-}}}
+\newunicodechar{¹}{\ensuremath{\mathnormal{{}^1}}}
+\newunicodechar{ₘ}{\ensuremath{\mathnormal{{}_m}}}
+\newunicodechar{ₙ}{\ensuremath{\mathnormal{{}_n}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -145,6 +149,20 @@ ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
         → (M : 𝕄 A m n)
         → M ≡ ff (ff⁻¹ M)
 ff∘ff⁻¹ = {!!}
+\end{code}
+
+\subsection{le re moi be le'i ctaipe be le su'u me'oi .inverse.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi bau la .lojban.
+
+\begin{code}
+ff⁻¹∘ff : ∀ {a} → {A : Set a} → {m n : ℕ}
+       → (g : Fin m → Fin n → A)
+       → (fₘ : Fin m)
+       → (fₙ : Fin n)
+       → (_≡_
+           (g fₘ fₙ)
+           (ff⁻¹ (ff g) fₘ fₙ))
+ff⁻¹∘ff = {!!}
 \end{code}
 
 \section{la'oi .\F{lookup}.}
