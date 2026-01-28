@@ -161,7 +161,7 @@ module I where
               f
               (map fx $ allFin _)))
       d = sym $ begin
-        lookupᵥ (map fx $ allFin _) f ≡⟨ {!!} ⟩
+        lookupᵥ (map fx $ allFin _) f ≡⟨ DVP.lookup-map f fx $ allFin _ ⟩
         fx (lookupᵥ (allFin _) f) ≡⟨ cong fx $ DVP.lookup∘tabulate id f ⟩
         fx f ∎
 
