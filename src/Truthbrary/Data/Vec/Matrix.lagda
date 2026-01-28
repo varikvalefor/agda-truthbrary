@@ -223,7 +223,7 @@ module _∣_ where
     ind x₁ x₂ i = begin
       lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
       lookupᵥ (map L $ allFin _) i ≡⟨ DVP.lookup-map i L (allFin _) ⟩
-      L (lookupᵥ (tabulate id) i) ≡⟨ cong L {!!} ⟩
+      L (lookupᵥ (tabulate id) i) ≡⟨ cong L $ DVP.lookup∘tabulate id i ⟩
       L i ≡⟨ _≡_.refl ⟩
       (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
       where
