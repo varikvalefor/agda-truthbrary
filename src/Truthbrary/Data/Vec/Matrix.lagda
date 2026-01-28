@@ -196,4 +196,11 @@ module _∣_ where
       L = λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n
       open ≡-Reasoning
 \end{code}
+
+\subsection{le co'e ja se me'oi .export.}
+ni'o lo su'u cusku zo'e ja zoi zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore.\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ cu milxe le ka ce'u jai fanza la .varik.  .i zo'e joi la'e di'u krinu le su'u la .varik.\ cu curmi tu'a zoi zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.
+
+\begin{code}
+_∣_ = _∣_._∣_
+\end{code}
 \end{document}
