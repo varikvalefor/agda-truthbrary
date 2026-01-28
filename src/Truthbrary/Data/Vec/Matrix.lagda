@@ -186,7 +186,7 @@ module I where
       lookupᵥ (lookupᵥ (I z o) f) g ≡⟨ _≡_.refl ⟩
       lookupᵥ (lookupᵥ (map u $ allFin _) f) g ≡⟨ _≡_.refl ⟩
       _ ≡⟨ cong (λ x → lookupᵥ x g) $ sym d ⟩
-      lookupᵥ (u f) g ≡⟨ DVP.lookup∘updateAt′ g f {!!} _ ⟩
+      lookupᵥ (u f) g ≡⟨ DVP.lookup∘updateAt′ g f (N ∘ sym) _ ⟩
       lookupᵥ (replicate z) g ≡⟨ DVP.lookup-replicate g z ⟩
       z ∎
       where
