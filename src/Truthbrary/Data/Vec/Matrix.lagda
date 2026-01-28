@@ -155,7 +155,8 @@ ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
         → (M : 𝕄 A m n)
         → M ≡ ff (ff⁻¹ M)
 ff∘ff⁻¹ M = sym $ begin
-  ff (ff⁻¹ M) ≡⟨ {!!} ⟩
+  ff (ff⁻¹ M) ≡⟨ ≡.refl ⟩
+  map (λ x → map (flip (ff⁻¹ M) x) $ allFin _) (allFin _) ≡⟨ {!!} ⟩
   M ∎
   where
   open ≡.≡-Reasoning
