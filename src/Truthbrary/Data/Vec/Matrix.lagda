@@ -153,7 +153,7 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \F{ff∘ff⁻�
 ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
         → (M : 𝕄 A m n)
         → M ≡ ff (ff⁻¹ M)
-ff∘ff⁻¹ = λ M → sym $ begin
+ff∘ff⁻¹ M = sym $ begin
   ff (ff⁻¹ M) ≡⟨ {!!} ⟩
   M ∎
   where
