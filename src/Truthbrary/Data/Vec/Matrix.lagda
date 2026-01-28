@@ -195,7 +195,8 @@ ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
 ff∘ff⁻¹ M = sym $ begin
   ff (ff⁻¹ M) ≡⟨ ≡.refl ⟩
   map (λ x → map (flip (ff⁻¹ M) x) F) F ≡⟨ ≡.refl ⟩
-  map (λ x → map (lookupᵥ $ lookupᵥ M x) F) F ≡⟨ {!!} ⟩
+  map (λ x → map (lookupᵥ $ lookupᵥ M x) F) F ≡⟨ ≡.refl ⟩
+  _ ≡⟨ DVP.map-cong (DVP.map-lookup-allFin ∘ lookupᵥ M) F ⟩
   map (lookupᵥ M) F ≡⟨ DVP.map-lookup-allFin M ⟩
   M ∎
   where
@@ -215,7 +216,11 @@ ff⁻¹∘ff : ∀ {a} → {A : Set a} → {m n : ℕ}
        → (_≡_
            (g fₘ fₙ)
            (ff⁻¹ (ff g) fₘ fₙ))
-ff⁻¹∘ff = {!!}
+ff⁻¹∘ff g fₘ fₙ = sym $ begin
+  ff⁻¹ (ff g) fₘ fₙ ≡⟨ {!!} ⟩
+  g fₘ fₙ ∎
+  where
+  open ≡.≡-Reasoning
 \end{code}
 
 \section{la'oi .\F{lookup}.}
