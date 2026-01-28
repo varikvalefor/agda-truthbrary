@@ -20,6 +20,7 @@
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
+\newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
