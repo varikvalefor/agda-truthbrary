@@ -70,6 +70,10 @@ open import Algebra.Core
   using (
     Op₂
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'o zoi.\ \F 𝕄\ .zoi.}
@@ -130,6 +134,16 @@ ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
      → Fin n
      → A
 ff⁻¹ M m n = lookupᵥ (lookupᵥ M n) m
+\end{code}
+
+\subsection{le ctaipe be le su'u me'oi .inverse.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \F{ff∘ff⁻¹}\ .zoi.\ fo lo su'o te gerna be la .lojban.\sds  .i sa'u nai ru'e la .varik.\ cu jinvi le du'u le se ctaipe be cu banzuka le ka ce'u jai .indika kei le ka na sarcu lo nu jimpe fi ko'a goi le ctaipe be ce'u fa lo nu ciksi ko'a fo lo te gerna be la .lojban.
+
+\begin{code}
+ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
+        → (M : 𝕄 A m n)
+        → M ≡ ff (ff⁻¹ M)
+ff∘ff⁻¹ = {!!}
 \end{code}
 
 \section{la'oi .\F{lookup}.}
