@@ -170,29 +170,30 @@ I = I.I
 ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
 
 \begin{code}
-_∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
-    → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m + o) n
-_∣_ a b = map (λ n → lookupᵥ a n ++ lookupᵥ b n) $ allFin _
+module _∣_ where
+  _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
+      → 𝕄 A m n → 𝕄 A o n → 𝕄 A (m + o) n
+  _∣_ a b = map (λ n → lookupᵥ a n ++ lookupᵥ b n) $ allFin _
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
-module _∣_Veritas where
-  ind : ∀ {a} → {A : Set a}
-      → {m n o : ℕ}
-      → (x₁ : 𝕄 A m n)
-      → (x₂ : 𝕄 A o n)
-      → (i : Fin n)
-      → lookupᵥ (x₁ ∣ x₂) i ≡ (lookupᵥ x₁ i ++ lookupᵥ x₂ i)
-  ind x₁ x₂ i = begin
-    lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
-    lookupᵥ (map L $ allFin _) i ≡⟨ DVP.lookup-map i L (allFin _) ⟩
-    L (lookupᵥ (tabulate id) i) ≡⟨ cong L {!!} ⟩
-    L i ≡⟨ _≡_.refl ⟩
-    (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
-    where
-    L = λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n
-    open ≡-Reasoning
+  module Veritas where
+    ind : ∀ {a} → {A : Set a}
+        → {m n o : ℕ}
+        → (x₁ : 𝕄 A m n)
+        → (x₂ : 𝕄 A o n)
+        → (i : Fin n)
+        → lookupᵥ (x₁ ∣ x₂) i ≡ (lookupᵥ x₁ i ++ lookupᵥ x₂ i)
+    ind x₁ x₂ i = begin
+      lookupᵥ (x₁ ∣ x₂) i ≡⟨ _≡_.refl ⟩
+      lookupᵥ (map L $ allFin _) i ≡⟨ DVP.lookup-map i L (allFin _) ⟩
+      L (lookupᵥ (tabulate id) i) ≡⟨ cong L {!!} ⟩
+      L i ≡⟨ _≡_.refl ⟩
+      (lookupᵥ x₁ i ++ lookupᵥ x₂ i) ∎
+      where
+      L = λ n → lookupᵥ x₁ n ++ lookupᵥ x₂ n
+      open ≡-Reasoning
 \end{code}
 \end{document}
