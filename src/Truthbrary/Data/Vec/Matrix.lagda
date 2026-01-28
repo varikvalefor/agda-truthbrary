@@ -147,11 +147,23 @@ module I where
           → (f : Fin n)
           → (z o : A)
           → o ≡ Data.Vec.lookup (lookup (I z o) f) f
-    1≡n,n = λ n f z o → sym $ begin
-      Data.Vec.lookup (lookup (I z o) f) f ≡⟨ {!!} ⟩
+    1≡n,n n f z o = sym $ begin
+      Data.Vec.lookup (lookup (I z o) f) f ≡⟨ _≡_.refl ⟩
+      Data.Vec.lookup (lookup (map fx $ allFin _) f) f ≡⟨ cong (λ x → Data.Vec.lookup x f) $ sym d ⟩
+      Data.Vec.lookup (fx f) f ≡⟨ DVP.lookup∘updateAt f _ ⟩
       o ∎
       where
+      fx = λ x → updateAt x (const o) $ replicate z
       open ≡-Reasoning
+      d : (_≡_
+            (fx f)
+            (flip lookup
+              f
+              (map fx $ allFin _)))
+      d = sym $ begin
+        lookup (map fx $ allFin _) f ≡⟨ {!!} ⟩
+        fx (lookupᵥ (allFin _) f) ≡⟨ cong fx $ DVP.lookup∘tabulate id f ⟩
+        fx f ∎
 
     0≡n,n : ∀ {a} → {A : Set a}
           → (n : ℕ)
