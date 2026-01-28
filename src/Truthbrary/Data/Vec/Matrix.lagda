@@ -155,24 +155,24 @@ module I where
           → (f : Fin n)
           → (z o : A)
           → o ≡ lookupᵥ (lookupᵥ (I z o) f) f
-    1≡n,n n f z o = sym $ begin
-      lookupᵥ (lookupᵥ (I z o) f) f ≡⟨ _≡_.refl ⟩
-      lookupᵥ (lookupᵥ (map fx $ allFin _) f) f ≡⟨ _≡_.refl ⟩
-      _ ≡⟨ cong (λ x → lookupᵥ x f) $ sym d ⟩
-      lookupᵥ (fx f) f ≡⟨ DVP.lookup∘updateAt f _ ⟩
+    1≡n,n n i z o = sym $ begin
+      lookupᵥ (lookupᵥ (I z o) i) i ≡⟨ _≡_.refl ⟩
+      lookupᵥ (lookupᵥ (map fx $ allFin _) i) i ≡⟨ _≡_.refl ⟩
+      _ ≡⟨ cong (λ x → lookupᵥ x i) $ sym d ⟩
+      lookupᵥ (fx i) i ≡⟨ DVP.lookup∘updateAt i _ ⟩
       o ∎
       where
       fx = λ x → updateAt x (const o) $ replicate z
       open ≡-Reasoning
       d : (_≡_
-            (fx f)
+            (fx i)
             (flip lookupᵥ
-              f
+              i
               (map fx $ allFin _)))
       d = sym $ begin
-        lookupᵥ (map fx $ allFin _) f ≡⟨ DVP.lookup-map f fx $ allFin _ ⟩
-        fx (lookupᵥ (allFin _) f) ≡⟨ cong fx $ DVP.lookup∘tabulate id f ⟩
-        fx f ∎
+        lookupᵥ (map fx $ allFin _) i ≡⟨ DVP.lookup-map i fx $ allFin _ ⟩
+        fx (lookupᵥ (allFin _) i) ≡⟨ cong fx $ DVP.lookup∘tabulate id i ⟩
+        fx i ∎
 \end{code}
 
 \begin{code}
