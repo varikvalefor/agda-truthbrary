@@ -142,6 +142,9 @@ module I where
 
 \begin{code}
   module Veritas where
+\end{code}
+
+\begin{code}
     1≡n,n : ∀ {a} → {A : Set a}
           → (n : ℕ)
           → (f : Fin n)
@@ -165,7 +168,9 @@ module I where
         lookupᵥ (map fx $ allFin _) f ≡⟨ DVP.lookup-map f fx $ allFin _ ⟩
         fx (lookupᵥ (allFin _) f) ≡⟨ cong fx $ DVP.lookup∘tabulate id f ⟩
         fx f ∎
+\end{code}
 
+\begin{code}
     0≡n,n : ∀ {a} → {A : Set a}
           → (n : ℕ)
           → (f g : Fin n)
