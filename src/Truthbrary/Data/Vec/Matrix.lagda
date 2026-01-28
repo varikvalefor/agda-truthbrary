@@ -273,7 +273,6 @@ module _∣_ where
   _∣_ a b = map (λ n → lookupᵥ a n ++ lookupᵥ b n) $ allFin _
 \end{code}
 
-\subsection{le ctaipe be le su'u mapti}
 ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.  .i mupli fa le su'u ga jo ga je da se sinxa zoi zoi.\
 
 \[
@@ -302,6 +301,7 @@ ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B 
 \]
 
 .zoi.
+
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
