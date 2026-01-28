@@ -96,6 +96,10 @@ open import Data.Product
   using (
     _×_
   )
+open import Data.Fin.Properties
+  using (
+    toℕ-fromℕ<
+  )
 open import Data.Integer.Properties
   as ℤP
   using (
@@ -161,10 +165,6 @@ instance
       z ∎
     }
     where
-    open import Data.Fin.Properties
-      using (
-        toℕ-fromℕ<
-      )
     open ≡-Reasoning
 \end{code}
 \end{document}
