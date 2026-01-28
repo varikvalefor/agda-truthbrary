@@ -161,7 +161,8 @@ ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
 ff∘ff⁻¹ M = sym $ begin
   ff (ff⁻¹ M) ≡⟨ ≡.refl ⟩
   map (λ x → map (flip (ff⁻¹ M) x) F) F ≡⟨ ≡.refl ⟩
-  map (λ x → map (lookupᵥ $ lookupᵥ M x) F) F ≡⟨ DVP.map-cong (DVP.map-lookup-allFin ∘ lookupᵥ M) F ⟩
+  map (λ x → map (lookupᵥ $ lookupᵥ M x) F) F ≡⟨ ≡.refl ⟩
+  _ ≡⟨ DVP.map-cong (DVP.map-lookup-allFin ∘ lookupᵥ M) F ⟩
   map (lookupᵥ M) F ≡⟨ DVP.map-lookup-allFin M ⟩
   M ∎
   where
