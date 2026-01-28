@@ -290,7 +290,7 @@ module I where
           → (f g : Fin n)
           → (z o : A)
           → ¬_ $ f ≡ g
-          → z ≡ Data.Vec.lookup (lookupᵥ (I z o) f) g
+          → z ≡ lookupᵥ (lookupᵥ (I z o) f) g
     0≡n,n n f g z o N = sym $ begin
       lookupᵥ (lookupᵥ (I z o) f) g ≡⟨ _≡_.refl ⟩
       lookupᵥ (lookupᵥ (map u $ allFin _) f) g ≡⟨ _≡_.refl ⟩
