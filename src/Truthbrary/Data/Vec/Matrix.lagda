@@ -181,12 +181,26 @@ module I where
           → (f g : Fin n)
           → (z o : A)
           → ¬_ $ f ≡ g
-          → z ≡ Data.Vec.lookup (lookup (I z o) f) g
-    0≡n,n = λ n f g z o N → sym $ begin
-      Data.Vec.lookup (lookup (I z o) f) g ≡⟨ {!!} ⟩
+          → z ≡ Data.Vec.lookup (lookupᵥ (I z o) f) g
+    0≡n,n n f g z o N = sym $ begin
+      lookupᵥ (lookupᵥ (I z o) f) g ≡⟨ _≡_.refl ⟩
+      lookupᵥ (lookupᵥ (map u $ allFin _) f) g ≡⟨ _≡_.refl ⟩
+      _ ≡⟨ cong (λ x → lookupᵥ x g) $ sym d ⟩
+      lookupᵥ (u f) g ≡⟨ DVP.lookup∘updateAt′ g f {!!} _ ⟩
+      lookupᵥ (replicate z) g ≡⟨ DVP.lookup-replicate g z ⟩
       z ∎
       where
+      u = λ x → updateAt x (const o) $ replicate z
       open ≡-Reasoning
+      d : (_≡_
+            (u f)
+            (flip lookupᵥ
+              f
+              (map u $ allFin _)))
+      d = sym $ begin
+        lookupᵥ (map u $ allFin _) f ≡⟨ DVP.lookup-map f u $ allFin _ ⟩
+        u (lookupᵥ (allFin _) f) ≡⟨ cong u $ DVP.lookup∘tabulate id f ⟩
+        u f ∎
 \end{code}
 
 \subsection{le co'e ja se me'oi .export.}
