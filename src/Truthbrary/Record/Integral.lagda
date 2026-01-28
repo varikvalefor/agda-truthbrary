@@ -102,6 +102,7 @@ open import Data.Integer.Properties
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    module ≡-Reasoning;
     cong;
     _≡_;
     sym
@@ -164,6 +165,6 @@ instance
       using (
         toℕ-fromℕ<
       )
-    open Relation.Binary.PropositionalEquality.≡-Reasoning
+    open ≡-Reasoning
 \end{code}
 \end{document}
