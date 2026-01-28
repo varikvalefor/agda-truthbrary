@@ -66,6 +66,7 @@ open import Data.Vec
   using (
     replicate;
     updateAt;
+    tabulate;
     allFin;
     _++_;
     Vec;
@@ -81,7 +82,8 @@ open import Function
     flip;
     _ˢ_;
     _∘_;
-    _$_
+    _$_;
+    id
   )
 open import Relation.Nullary
   using (
