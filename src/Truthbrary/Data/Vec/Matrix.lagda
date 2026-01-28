@@ -115,7 +115,9 @@ ni'o ro da poi ke'a ctaipe la'o zoi.\ \F 𝕄 \B A \B m \B m\ .zoi.\ zo'u ga je\
 𝕄 = Vec ∘₂ Vec
 \end{code}
 
-\subsection{le fancu fancu}
+\section{le fancu fancu}
+
+\subsection{le pa moi}
 ni'o ro da poi ke'a ctaipe zo'e zo'u ro ny xi pa oi ke'a ctaipe zo'e zo'u ro ny xi re poi ke'a ctaipe zo'e zo'u lo co'e ja meirmoi be ny xi pa pi'e ny xi re bei fo lo se sinxa be lo me'oi .\F{ff}.\ be da cu du lo me da be ny xi pa bei ny xi re
 
 .i la'oi .\F{ff}.\ me'oi .inverse.\ la'o zoi.\ \F{ff⁻¹}\ .zoi.
@@ -127,7 +129,7 @@ ff : ∀ {a} → {A : Set a} → {m n : ℕ}
 ff f = map (λ x → map (flip f x) $ allFin _) $ allFin _
 \end{code}
 
-\subsection{le to'e ke fancu fancu}
+\subsection{le re moi}
 ni'o ro da poi ke'a ctaipe zo'e zo'u ro ny xi pa oi ke'a ctaipe zo'e zo'u ro ny xi re poi ke'a ctaipe zo'e zo'u lo co'e ja meirmoi be ny xi pa pi'e ny xi re bei fo lo se sinxa be da cu du lo mu'oi zoi.\ \F{ff⁻¹}\ .zoi.\ be da bei ny xi pa bei ny xi re
 
 .i la'o zoi.\ \F{ff⁻¹}\ .zoi.\ me'oi .inverse.\ la'oi .\F{ff}.
@@ -141,7 +143,9 @@ ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
 ff⁻¹ M = flip $ lookupᵥ ∘ lookupᵥ M
 \end{code}
 
-\subsection{le ctaipe be le su'u me'oi .inverse.}
+\subsection{le ctaipe be le su'u mapti}
+
+\subsubsection{le ctaipe be le su'u me'oi .inverse.}
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \F{ff∘ff⁻¹}\ .zoi.\ fo lo su'o te gerna be la .lojban.\sds  .i sa'u nai ru'e la .varik.\ cu jinvi le du'u le se ctaipe be cu banzuka le ka ce'u jai .indika kei le ka na sarcu lo nu jimpe fi ko'a goi le ctaipe be ce'u fa lo nu ciksi ko'a fo lo te gerna be la .lojban.
 
 \begin{code}
@@ -151,7 +155,7 @@ ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
 ff∘ff⁻¹ = {!!}
 \end{code}
 
-\subsection{le re moi be le'i ctaipe be le su'u me'oi .inverse.}
+\subsubsection{le re moi be le'i ctaipe be le su'u me'oi .inverse.}
 ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi bau la .lojban.
 
 \begin{code}
