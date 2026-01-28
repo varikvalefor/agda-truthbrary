@@ -151,7 +151,7 @@ module I where
       lookupᵥ (lookupᵥ (I z o) f) f ≡⟨ _≡_.refl ⟩
       lookupᵥ (lookupᵥ (map fx $ allFin _) f) f ≡⟨ _≡_.refl ⟩
       _ ≡⟨ cong (λ x → lookupᵥ x f) $ sym d ⟩
-      Data.Vec.lookup (fx f) f ≡⟨ DVP.lookup∘updateAt f _ ⟩
+      lookupᵥ (fx f) f ≡⟨ DVP.lookup∘updateAt f _ ⟩
       o ∎
       where
       fx = λ x → updateAt x (const o) $ replicate z
