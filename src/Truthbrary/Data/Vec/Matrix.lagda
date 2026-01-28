@@ -148,7 +148,7 @@ module I where
           → (z o : A)
           → o ≡ Data.Vec.lookup (lookupᵥ (I z o) f) f
     1≡n,n n f z o = sym $ begin
-      Data.Vec.lookup (lookupᵥ (I z o) f) f ≡⟨ _≡_.refl ⟩
+      lookupᵥ (lookupᵥ (I z o) f) f ≡⟨ _≡_.refl ⟩
       lookupᵥ (lookupᵥ (map fx $ allFin _) f) f ≡⟨ cong (λ x → lookupᵥ x f) $ sym d ⟩
       Data.Vec.lookup (fx f) f ≡⟨ DVP.lookup∘updateAt f _ ⟩
       o ∎
