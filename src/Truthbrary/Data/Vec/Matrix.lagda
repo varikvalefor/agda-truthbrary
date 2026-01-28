@@ -106,6 +106,32 @@ ni'o ro da poi ke'a ctaipe la'o zoi.\ \F 𝕄 \B A \B m \B m\ .zoi.\ zo'u ga je\
 𝕄 = Vec ∘₂ Vec
 \end{code}
 
+\subsection{le fancu fancu}
+ni'o ro da poi ke'a ctaipe zo'e zo'u ro ny xi pa oi ke'a ctaipe zo'e zo'u ro ny xi re poi ke'a ctaipe zo'e zo'u lo co'e ja meirmoi be ny xi pa pi'e ny xi re bei fo lo se sinxa be lo me'oi .\F{ff}.\ be da cu du lo me da be ny xi pa bei ny xi re
+
+.i la'oi .\F{ff}.\ me'oi .inverse.\ la'o zoi.\ \F{ff⁻¹}\ .zoi.
+
+\begin{code}
+ff : ∀ {a} → {A : Set a} → {m n : ℕ}
+   → (Fin m → Fin n → A)
+   → 𝕄 A m n
+ff f = map (λ x → map (flip f x) $ allFin _) $ allFin _
+\end{code}
+
+\subsection{le to'e ke fancu fancu}
+ni'o ro da poi ke'a ctaipe zo'e zo'u ro ny xi pa oi ke'a ctaipe zo'e zo'u ro ny xi re poi ke'a ctaipe zo'e zo'u lo co'e ja meirmoi be ny xi pa pi'e ny xi re bei fo lo se sinxa be da cu du lo mu'oi zoi.\ \F{ff⁻¹}\ .zoi.\ be da bei ny xi pa bei ny xi re
+
+.i la'o zoi.\ \F{ff⁻¹}\ .zoi.\ me'oi .inverse.\ la'oi .\F{ff}.
+
+\begin{code}
+ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
+     → 𝕄 A m n
+     → Fin m
+     → Fin n
+     → A
+ff⁻¹ M m n = lookupᵥ (lookupᵥ M n) m
+\end{code}
+
 \section{la'oi .\F{lookup}.}
 ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la'oi .\F{lookup}.\ bau la .lojban.
 
