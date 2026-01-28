@@ -181,7 +181,7 @@ ff⁻¹∘ff : ∀ {a} → {A : Set a} → {m n : ℕ}
        → (_≡_
            (g fₘ fₙ)
            (ff⁻¹ (ff g) fₘ fₙ))
-ff⁻¹∘ff = λ g fₘ fₙ → sym $ begin
+ff⁻¹∘ff g fₘ fₙ = sym $ begin
   ff⁻¹ (ff g) fₘ fₙ ≡⟨ {!!} ⟩
   g fₘ fₙ ∎
   where
