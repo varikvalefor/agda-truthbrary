@@ -156,7 +156,8 @@ ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
         → M ≡ ff (ff⁻¹ M)
 ff∘ff⁻¹ M = sym $ begin
   ff (ff⁻¹ M) ≡⟨ ≡.refl ⟩
-  map (λ x → map (flip (ff⁻¹ M) x) F) F ≡⟨ {!!} ⟩
+  map (λ x → map (flip (ff⁻¹ M) x) F) F ≡⟨ ≡.refl ⟩
+  map (λ x → map (lookupᵥ $ lookupᵥ M x) F) F ≡⟨ {!!} ⟩
   M ∎
   where
   F : {n : ℕ} → Vec (Fin n) n
