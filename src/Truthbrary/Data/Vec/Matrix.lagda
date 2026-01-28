@@ -24,6 +24,7 @@
 \newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
 \newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
