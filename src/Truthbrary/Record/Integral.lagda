@@ -96,6 +96,10 @@ open import Data.Product
   using (
     _×_
   )
+open import Data.Integer.Properties
+  as ℤP
+  using (
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     cong;
@@ -151,7 +155,7 @@ instance
     fromℤ = λ _ → 𝔽.fromℕ< ∘ Σ.proj₂;
     toℤ∘fromℤ = λ z p → sym $ begin
       ℤ.+ (𝔽.toℕ $ 𝔽.fromℕ< $ Σ.proj₂ p) ≡⟨ cong ℤ.+_ (toℕ-fromℕ< $ Σ.proj₂ p) ⟩
-      ℤ.+ ℤ.∣ z ∣ ≡⟨ {!!} ⟩
+      ℤ.+ ℤ.∣ z ∣ ≡⟨ ℤP.0≤n⇒+∣n∣≡n {!!} ⟩
       z ∎
     }
     where
