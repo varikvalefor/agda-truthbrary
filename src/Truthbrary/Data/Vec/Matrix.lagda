@@ -77,6 +77,7 @@ open import Algebra.Core
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    sym;
     _≡_
   )
 \end{code}
@@ -152,7 +153,11 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \F{ff∘ff⁻�
 ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
         → (M : 𝕄 A m n)
         → M ≡ ff (ff⁻¹ M)
-ff∘ff⁻¹ = {!!}
+ff∘ff⁻¹ = λ M → sym $ begin
+  ff (ff⁻¹ M) ≡⟨ {!!} ⟩
+  M ∎
+  where
+  open Relation.Binary.PropositionalEquality.≡-Reasoning
 \end{code}
 
 \subsubsection{le re moi be le'i ctaipe be le su'u me'oi .inverse.}
