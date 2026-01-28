@@ -122,6 +122,13 @@ ni'o la'o zoi.\
 \]
 .cmaci.
 
+\subsection{le cimde}
+ni'o ro da poi ke'a ctaipe la'o zoi.\ \F 𝕄 \B A \B m \B m\ .zoi.\ zo'u ga je\ldots
+\begin{itemize}
+	\item la'oi .\B m.\ ni ganra co'e fa lo se sinxa be da gi
+	\item la'oi .\B n.\ ni rajycla co'e fa lo se sinxa be da
+\end{itemize}
+
 \begin{code}
 𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
 𝕄 = Vec ∘₂ Vec
@@ -195,6 +202,35 @@ _∣_ a b = map ((_++_ ∘ lookupᵥ a) ˢ lookupᵥ b) $ allFin _
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
+ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.  .i mupli fa le su'u ga jo ga je da se sinxa zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+	\end{bmatrix}
+\]
+
+.zoi.\ gi de se sinxa zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 \\
+		4 \\
+	\end{bmatrix}
+\]
+
+.zoi.\ gi lo mu'oi zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ be da bei de cu se sinxa zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 & 1 \\
+		4 & 5 & 6 & 4 \\
+	\end{bmatrix}
+\]
+
+.zoi.
+>>>>>>> master
 
 \begin{code}
 module _∣_Veritas where
