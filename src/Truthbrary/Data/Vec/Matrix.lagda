@@ -17,14 +17,18 @@
 \newunicodechar{∋}{\ensuremath{\mathnormal{\ni}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
+\newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
-\newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
 \newunicodechar{⁻}{\ensuremath{\mathnormal{{}^-}}}
 \newunicodechar{¹}{\ensuremath{\mathnormal{{}^1}}}
 \newunicodechar{ₘ}{\ensuremath{\mathnormal{{}_m}}}
 \newunicodechar{ₙ}{\ensuremath{\mathnormal{{}_n}}}
+\newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
+\newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
+\newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
+\newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -247,28 +251,60 @@ module I where
 
 \begin{code}
   module Veritas where
+\end{code}
+
+\begin{code}
     1≡n,n : ∀ {a} → {A : Set a}
           → (n : ℕ)
           → (f : Fin n)
           → (z o : A)
-          → o ≡ Data.Vec.lookup (lookup (I z o) f) f
-    1≡n,n = λ n f z o → sym $ begin
-      Data.Vec.lookup (lookup (I z o) f) f ≡⟨ {!!} ⟩
+          → o ≡ lookupᵥ (lookupᵥ (I z o) f) f
+    1≡n,n n i z o = sym $ begin
+      lookupᵥ (lookupᵥ (I z o) i) i ≡⟨ _≡_.refl ⟩
+      lookupᵥ (lookupᵥ (map f $ allFin _) i) i ≡⟨ _≡_.refl ⟩
+      _ ≡⟨ cong (λ x → lookupᵥ x i) $ sym d ⟩
+      lookupᵥ (f i) i ≡⟨ DVP.lookup∘updateAt i _ ⟩
       o ∎
       where
+      f = λ x → updateAt x (const o) $ replicate z
       open ≡-Reasoning
+      d : (_≡_
+            (f i)
+            (flip lookupᵥ
+              i
+              (map f $ allFin _)))
+      d = sym $ begin
+        lookupᵥ (map f $ allFin _) i ≡⟨ DVP.lookup-map i f $ allFin _ ⟩
+        f (lookupᵥ (allFin _) i) ≡⟨ cong f $ DVP.lookup∘tabulate id i ⟩
+        f i ∎
+\end{code}
 
+\begin{code}
     0≡n,n : ∀ {a} → {A : Set a}
           → (n : ℕ)
           → (f g : Fin n)
           → (z o : A)
           → ¬_ $ f ≡ g
-          → z ≡ Data.Vec.lookup (lookup (I z o) f) g
-    0≡n,n = λ n f g z o N → sym $ begin
-      Data.Vec.lookup (lookup (I z o) f) g ≡⟨ {!!} ⟩
+          → z ≡ Data.Vec.lookup (lookupᵥ (I z o) f) g
+    0≡n,n n f g z o N = sym $ begin
+      lookupᵥ (lookupᵥ (I z o) f) g ≡⟨ _≡_.refl ⟩
+      lookupᵥ (lookupᵥ (map u $ allFin _) f) g ≡⟨ _≡_.refl ⟩
+      _ ≡⟨ cong (λ x → lookupᵥ x g) $ sym d ⟩
+      lookupᵥ (u f) g ≡⟨ DVP.lookup∘updateAt′ g f (N ∘ sym) _ ⟩
+      lookupᵥ (replicate z) g ≡⟨ DVP.lookup-replicate g z ⟩
       z ∎
       where
+      u = λ x → updateAt x (const o) $ replicate z
       open ≡-Reasoning
+      d : (_≡_
+            (u f)
+            (flip lookupᵥ
+              f
+              (map u $ allFin _)))
+      d = sym $ begin
+        lookupᵥ (map u $ allFin _) f ≡⟨ DVP.lookup-map f u $ allFin _ ⟩
+        u (lookupᵥ (allFin _) f) ≡⟨ cong u $ DVP.lookup∘tabulate id f ⟩
+        u f ∎
 \end{code}
 
 \subsection{le co'e ja se me'oi .export.}
