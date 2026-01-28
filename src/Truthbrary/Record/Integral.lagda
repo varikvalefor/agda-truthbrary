@@ -49,9 +49,10 @@
 \maketitle
 
 \section{le me'oi .abstract.}
-ni'o la'o zoi.\ \texttt{Truthbrary.Record.Integral} .zoi.\ vasru\ldots
+ni'o la'o zoi.\ \texttt{Truthbrary.Record.Integral} .zoi.\ vasru ga je\ldots
 \begin{itemize}
-	\item le velcki be la'oi .\AgdaRecord{Integral}.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je cu jai filri'a tu'a lo kacna'u co'e
+	\item le velcki be ko'a goi la'oi .\AgdaRecord{Integral}.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je cu jai filri'a tu'a lo kacna'u co'e gi
+	\item le velcki be le me'oi .instance.\ be ko'a
 \end{itemize}
 
 \section{le me'oi .preamble.}
