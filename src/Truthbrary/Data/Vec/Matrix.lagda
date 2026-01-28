@@ -105,8 +105,14 @@ open import Data.Vec.Properties
   as DVP
   using (
   )
-open import Relation.Binary.PropositionalEquality
+open import Data.Vec.Properties
+  as DVP
   using (
+  )
+open import Relation.Binary.PropositionalEquality
+  as ≡
+  using (
+    sym;
     _≡_
   )
 \end{code}
@@ -182,7 +188,16 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \F{ff∘ff⁻�
 ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
         → (M : 𝕄 A m n)
         → M ≡ ff (ff⁻¹ M)
-ff∘ff⁻¹ = {!!}
+ff∘ff⁻¹ M = sym $ begin
+  ff (ff⁻¹ M) ≡⟨ ≡.refl ⟩
+  map (λ x → map (flip (ff⁻¹ M) x) F) F ≡⟨ ≡.refl ⟩
+  map (λ x → map (lookupᵥ $ lookupᵥ M x) F) F ≡⟨ {!!} ⟩
+  map (lookupᵥ M) F ≡⟨ DVP.map-lookup-allFin M ⟩
+  M ∎
+  where
+  F : {n : ℕ} → Vec (Fin n) n
+  F = allFin _
+  open ≡.≡-Reasoning
 \end{code}
 
 \subsubsection{le re moi be le'i ctaipe be le su'u me'oi .inverse.}
