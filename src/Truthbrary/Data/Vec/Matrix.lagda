@@ -20,6 +20,11 @@
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
+\newunicodechar{≡}{\ensuremath{\mathnormal{\equiv}}}
+\newunicodechar{⁻}{\ensuremath{\mathnormal{{}^-}}}
+\newunicodechar{¹}{\ensuremath{\mathnormal{{}^1}}}
+\newunicodechar{ₘ}{\ensuremath{\mathnormal{{}_m}}}
+\newunicodechar{ₙ}{\ensuremath{\mathnormal{{}_n}}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -100,6 +105,10 @@ open import Data.Vec.Properties
   as DVP
   using (
   )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≡_
+  )
 \end{code}
 
 \section{la'oi .\F 𝕄.}
@@ -134,6 +143,60 @@ ni'o ro da poi ke'a ctaipe la'o zoi.\ \F 𝕄 \B A \B m \B m\ .zoi.\ zo'u ga je\
 \begin{code}
 𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
 𝕄 = Vec ∘₂ Vec
+\end{code}
+
+\section{le fancu fancu}
+
+\subsection{le pa moi}
+ni'o ro da poi ke'a ctaipe zo'e zo'u ro ny xi pa oi ke'a ctaipe zo'e zo'u ro ny xi re poi ke'a ctaipe zo'e zo'u lo co'e ja meirmoi be ny xi pa pi'e ny xi re bei fo lo se sinxa be lo me'oi .\F{ff}.\ be da cu du lo me da be ny xi pa bei ny xi re
+
+.i la'oi .\F{ff}.\ me'oi .inverse.\ la'o zoi.\ \F{ff⁻¹}\ .zoi.
+
+\begin{code}
+ff : ∀ {a} → {A : Set a} → {m n : ℕ}
+   → (Fin m → Fin n → A)
+   → 𝕄 A m n
+ff f = map (λ x → map (flip f x) $ allFin _) $ allFin _
+\end{code}
+
+\subsection{le re moi}
+ni'o ro da poi ke'a ctaipe zo'e zo'u ro ny xi pa oi ke'a ctaipe zo'e zo'u ro ny xi re poi ke'a ctaipe zo'e zo'u lo co'e ja meirmoi be ny xi pa pi'e ny xi re bei fo lo se sinxa be da cu du lo mu'oi zoi.\ \F{ff⁻¹}\ .zoi.\ be da bei ny xi pa bei ny xi re
+
+.i la'o zoi.\ \F{ff⁻¹}\ .zoi.\ me'oi .inverse.\ la'oi .\F{ff}.
+
+\begin{code}
+ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
+     → 𝕄 A m n
+     → Fin m
+     → Fin n
+     → A
+ff⁻¹ M = flip $ lookupᵥ ∘ lookupᵥ M
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\subsubsection{le ctaipe be le su'u me'oi .inverse.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la'o zoi.\ \F{ff∘ff⁻¹}\ .zoi.\ fo lo su'o te gerna be la .lojban.\sds  .i sa'u nai ru'e la .varik.\ cu jinvi le du'u le se ctaipe be cu banzuka le ka ce'u jai .indika kei le ka na sarcu lo nu jimpe fi ko'a goi le ctaipe be ce'u fa lo nu ciksi ko'a fo lo te gerna be la .lojban.
+
+\begin{code}
+ff∘ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
+        → (M : 𝕄 A m n)
+        → M ≡ ff (ff⁻¹ M)
+ff∘ff⁻¹ = {!!}
+\end{code}
+
+\subsubsection{le re moi be le'i ctaipe be le su'u me'oi .inverse.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi bau la .lojban.
+
+\begin{code}
+ff⁻¹∘ff : ∀ {a} → {A : Set a} → {m n : ℕ}
+       → (g : Fin m → Fin n → A)
+       → (fₘ : Fin m)
+       → (fₙ : Fin n)
+       → (_≡_
+           (g fₘ fₙ)
+           (ff⁻¹ (ff g) fₘ fₙ))
+ff⁻¹∘ff = {!!}
 \end{code}
 
 \section{la'oi .\F{lookup}.}
