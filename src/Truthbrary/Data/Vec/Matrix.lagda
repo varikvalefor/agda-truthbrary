@@ -76,6 +76,7 @@ open import Algebra.Core
     Op₂
   )
 open import Relation.Binary.PropositionalEquality
+  as ≡
   using (
     sym;
     _≡_
@@ -157,7 +158,7 @@ ff∘ff⁻¹ M = sym $ begin
   ff (ff⁻¹ M) ≡⟨ {!!} ⟩
   M ∎
   where
-  open Relation.Binary.PropositionalEquality.≡-Reasoning
+  open ≡.≡-Reasoning
 \end{code}
 
 \subsubsection{le re moi be le'i ctaipe be le su'u me'oi .inverse.}
