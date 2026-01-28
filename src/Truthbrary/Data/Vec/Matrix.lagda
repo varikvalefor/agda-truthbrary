@@ -134,7 +134,7 @@ ff⁻¹ : ∀ {a} → {A : Set a} → {m n : ℕ}
      → Fin m
      → Fin n
      → A
-ff⁻¹ M m n = lookupᵥ (lookupᵥ M n) m
+ff⁻¹ M = flip $ lookupᵥ ∘ lookupᵥ M
 \end{code}
 
 \subsection{le ctaipe be le su'u me'oi .inverse.}
