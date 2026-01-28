@@ -21,6 +21,9 @@
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{∣}{\ensuremath{\mathnormal{|}}}
+\newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
+\newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
+\newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
