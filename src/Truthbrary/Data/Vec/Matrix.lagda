@@ -158,6 +158,7 @@ ff∘ff⁻¹ M = sym $ begin
   ff (ff⁻¹ M) ≡⟨ ≡.refl ⟩
   map (λ x → map (flip (ff⁻¹ M) x) F) F ≡⟨ ≡.refl ⟩
   map (λ x → map (lookupᵥ $ lookupᵥ M x) F) F ≡⟨ {!!} ⟩
+  map (lookupᵥ M) F ≡⟨ {!!} ⟩
   M ∎
   where
   F : {n : ℕ} → Vec (Fin n) n
