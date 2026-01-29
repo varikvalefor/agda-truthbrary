@@ -129,7 +129,7 @@ ni'o la'oi .\AgdaRecord{Integral}.\ jai filri'a tu'a lo kacna'u co'e
 	\item ga je la'o zoi.\ \AgdaField{Integral.fromℤ} \B k \B z \B p\ .zoi.\ namcu du la'o zoi.\ \B z\ .zoi.\ gi
 	\item ga je la'o zoi.\ \AgdaField{Integral.P} \B k .zoi.\ co'e gi
 	\item ga je la'o zoi.\ \AgdaField{Integral.toℤ} \B k \B x\ .zoi.\ namcu du la'o zoi.\ \B x\ .zoi.\ gi
-        \item la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi tu'a la'o zoi.\ \AgdaField{Integral.toℤ∘fromℤ} \B k\ .zoi.\ fo lo lojbo
+        \item la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi tu'a la'o zoi.\ \AgdaField{Integral.toℤ∘fromℤ} \B k\ .zoi.\ ja la'o zoi.\ \AgdaField{Integral.f≗f}\ \B k\ .zoi.\ fo lo lojbo
 \end{itemize}
 
 \begin{code}
@@ -140,6 +140,7 @@ record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
     toℤ : A → ℤ
     fromℤ : (z : ℤ) → P z → A
     toℤ∘fromℤ : (z : ℤ) → (p : P z) → z ≡ toℤ (fromℤ z p)
+    f≗f : (z : ℤ) → (p₁ p₂ : P z) → fromℤ z p₁ ≡ fromℤ z p₂
 \end{code}
 
 \section{le'i me'oi .instance.}
@@ -150,7 +151,8 @@ instance
   _ = record {
     P = λ x → ⊤;
     fromℤ = λ x _ → x;
-    toℤ∘fromℤ = λ _ _ → _≡_.refl
+    toℤ∘fromℤ = λ _ _ → _≡_.refl;
+    f≗f = {!!}
     }
 
   _ : Integral ℕ
@@ -158,7 +160,8 @@ instance
     P = λ z → z ≡ ℤ.+ ℤ.∣ z ∣;
     toℤ = ℤ.+_;
     fromℤ = λ z refl → ℤ.∣ z ∣;
-    toℤ∘fromℤ = λ _ d → d
+    toℤ∘fromℤ = λ _ d → d;
+    f≗f = {!!}
     }
 
   IntegralFin : {n : ℕ} → Integral $ Fin n
@@ -170,7 +173,8 @@ instance
       ℤ.+ (𝔽.toℕ $ 𝔽.fromℕ< $ Σ.proj₂ p) ≡⟨ _≡_.refl ⟩
       _ ≡⟨ cong ℤ.+_ (toℕ-fromℕ< $ Σ.proj₂ p) ⟩
       ℤ.+ ℤ.∣ z ∣ ≡⟨ ℤP.0≤n⇒+∣n∣≡n $ Σ.proj₁ p ⟩
-      z ∎
+      z ∎;
+    f≗f = {!!}
     }
     where
     open ≡-Reasoning
