@@ -61,7 +61,7 @@ ni'o sa'u ko'a goi la'o zoi.\ \texttt\cmene .zoi.\ vasru zo'e poi tu'a ke'a filr
 
 \begin{code}
 {-# OPTIONS --safe #-}
-{-# OPTIONS --overlapping-instances #-}
+{-# OPTIONS --backtracking-instance-search #-}
 {-# OPTIONS --instance-search-depth=2 #-}
 
 module Truthbrary.Record.SR where
