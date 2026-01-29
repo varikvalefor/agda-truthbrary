@@ -135,6 +135,10 @@ open import Data.Char
   using (
     Char
   )
+open import Data.Empty
+  using (
+    ⊥
+  )
 open import Relation.Unary
   using (
     Decidable
@@ -143,6 +147,10 @@ open import Relation.Nullary
   using (
     yes;
     no
+  )
+open import Data.List.Properties
+  as DLP
+  using (
   )
 open import Truthbrary.Record.Eq
   using (
@@ -229,8 +237,20 @@ module words where
   splitOn' : Char → Strong → List Strong
   splitOn' = soi₁ ∘ _≟_
 
-  words : Strong → List Strong
-  words = splitOn' ' '
+  {-# TERMINATING #-}
+  dedup' : ∀ {a} → {A : Set a}
+         → ⦃ Truthbrary.Record.Eq.Eq A ⦄
+         → List A
+         → List A
+         → List A
+         → List A
+  dedup' x b 𝕃.[] = x
+  dedup' x b z = if ((z₁ ≡ᵇ b) ∧ (x' ≡ᵇ b)) d j
+    where
+    z₁ = 𝕃.take (𝕃.length b) z
+    d = dedup' x b $ 𝕃.drop (𝕃.length b) z
+    j = dedup' (x 𝕃.++ 𝕃.take 1 z) b $ 𝕃.drop 1 z
+    x' = ⌽ $ 𝕃.take (𝕃.length b) $ ⌽ x
 
   {-# TERMINATING #-}
   dedup : ∀ {a} → {A : Set a}
@@ -239,25 +259,81 @@ module words where
         → List A
         → List A
   dedup = dedup' 𝕃.[]
-    where
-    dedup' : _ → _ → _ → _
-    dedup' x b 𝕃.[] = x
-    dedup' x b z = dedup' (if ((z₁ ≡ᵇ b) ∧ (x' ≡ᵇ b)) x j) b z'
-      where
-      z₁ = 𝕃.take (𝕃.length b) z
-      z' = 𝕃.drop (𝕃.length b) z
-      j = x 𝕃.++ z₁
-      x' = ⌽ $ 𝕃.take (𝕃.length b) $ ⌽ x
+
+  words : Strong → List Strong
+  words = splitOn' ' ' ∘ dedup 𝕃.[ ' ' ]
 
   module Veritas where
+    module dedup where
+      dxx : ∀ {a} → {A : Set a}
+          → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+          → (x : List A)
+          → x ≡ dedup x x
+      dxx = {!!}
+
+      dxxs : ∀ {a} → {A : Set a}
+           → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+           → (x : List A)
+           → (s : List $ List A)
+           → (_≡_
+               (dedup x $ 𝕃.concat $ x 𝕃.∷ s)
+               (dedup x $ 𝕃.concat $ x 𝕃.∷ x 𝕃.∷ s))
+      dxxs = {!!}
+
+      sampu : ∀ {a} → {A : Set a}
+            → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+            → (n : ℕ)
+            → (x : List A)
+            → (_≡_
+                x
+                (dedup
+                  x
+                  (𝕃.concat $ 𝕃.replicate (ℕ.suc n) x)))
+      sampu 0 x = sym $ begin
+        dedup x (𝕃.concat $ 𝕃.replicate 1 x) ≡⟨ cong (dedup x) $ cr x ⟩
+        dedup x x ≡⟨ sym $ dxx x ⟩
+        x ∎
+        where
+        open import Relation.Binary.PropositionalEquality
+        open ≡-Reasoning
+        cr : ∀ {a} → {A : Set a}
+           → (x : List A)
+           → 𝕃.concat (𝕃.replicate 1 x) ≡ x
+        cr x = begin
+          𝕃.concat (𝕃.replicate 1 x) ≡⟨ refl ⟩
+          𝕃.concat 𝕃.[ x ] ≡⟨ refl ⟩
+          x 𝕃.++ 𝕃.[] ≡⟨ DLP.++-identityʳ x ⟩
+          x ∎
+      sampu (ℕ.suc n) x = sym $ begin
+        dedup x (𝕃.concat $ 𝕃.replicate (ℕ.suc $ ℕ.suc n) x) ≡⟨ refl ⟩
+        dedup x (𝕃.concat $ x 𝕃.∷ 𝕃.replicate (ℕ.suc n) x) ≡⟨ refl ⟩
+        dedup x (x 𝕃.++ 𝕃.concat (𝕃.replicate (ℕ.suc n) x)) ≡⟨ {!!} ⟩
+        dedup x (𝕃.concat $ 𝕃.replicate (ℕ.suc n) x) ≡⟨ sym $ sampu n x ⟩
+        x ∎
+        where
+        open import Relation.Binary.PropositionalEquality
+        open ≡-Reasoning
+
+      dun : ∀ {a} → {A : Set a}
+          → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
+          → (x : List A)
+          → (d : List A)
+          → (_ : (lt ld r : ℕ)
+               → (_≡_
+                   (𝕃.take lt $ 𝕃.drop ld x)
+                   (𝕃.concat $ 𝕃.replicate (ℕ.suc r) d))
+               → ⊥)
+          → x ≡ dedup d x
+      dun = {!!}
+
     module soi where
-      sxs : (buf : List Strong)
-          → (c ss : Strong)
+      sxs : (o : List Strong)
+          → (buf ss : Strong)
           → (x : Char)
           → let f = x ≟_ in
             (_≡_
-              (soi buf c f $ x 𝕃.∷ ss)
-              (soi (c 𝕃.∷ buf) 𝕃.[] f ss))
+              (soi o buf f $ x 𝕃.∷ ss)
+              (soi (buf 𝕃.∷ o) 𝕃.[] f ss))
       sxs = {!!}
 
     nocan : (x : Strong) → 𝕃.All (' ' ∉_) $ words x
@@ -285,5 +361,13 @@ ni'o ga je ro da poi ke'a cmima pe'a la'o zoi.\ \F{words} \B{x}\ .zoi.\ zo'u lo 
 \begin{code}
 lines : Strong → List Strong
 lines = words.splitOn' '\n'
+\end{code}
+
+\section{la'oi .\F{unlines}.}
+ni'o ro da zo'u ro de zo'u lo meirmoi be de bei fo da cu meirmoi de fo lo'i ro lerpinsle pe lo me'oi .\F{unlines}.\ be da
+
+\begin{code}
+unlines : List Strong → Strong
+unlines = 𝕃.concat ∘ 𝕃.intersperse 𝕃.[ '\n' ]
 \end{code}
 \end{document}

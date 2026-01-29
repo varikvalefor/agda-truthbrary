@@ -226,12 +226,13 @@ open import Truthbrary.Data.Strong
     Strong
   )
 open import Relation.Nullary.Decidable
+  as R₀D
   using (
     from-yes;
     isYes
   )
 open import Data.List.Relation.Unary.All
-  as 𝕃All
+  as 𝕃∀
   using (
   )
 open import Relation.Binary.PropositionalEquality
@@ -248,21 +249,23 @@ import Data.Maybe.Relation.Unary.Any
 
 module apDec where
   apDec' : ∀ {a b p}
-         → {A : Set a} → {B : Set b}
+         → {A : Set a}
+         → {B : A → Set b}
          → {P : A → Set p}
-         → (f : (x : A) → P x → B)
+         → (f : (x : A) → P x → B x)
          → (x : A)
          → Dec $ P x
-         → Maybe B
+         → Maybe $ B x
   apDec' f x = ？.map (f x) ∘ ？.decToMaybe
 
   apDec : ∀ {a b p}
-        → {A : Set a} → {B : Set b}
+        → {A : Set a}
+        → {B : A → Set b}
         → {P : A → Set p}
-        → ((x : A) → P x → B)
+        → ((x : A) → P x → B x)
         → Decidable P
-        → A
-        → Maybe B
+        → (x : A)
+        → Maybe $ B x
   apDec f = apDec' f ˢ_
 
 apDec = apDec.apDec
@@ -280,33 +283,47 @@ record Show {a} (A : Set a) : Set a
   field
     show : A → Strong
 
-instance
+module showNat where
   {-# TERMINATING #-}
+  show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
+  show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
+    where
+    s : Fin 10 → Char
+    s 𝔽.0F = '0'
+    s 𝔽.1F = '1'
+    s 𝔽.2F = '2'
+    s 𝔽.3F = '3'
+    s 𝔽.4F = '4'
+    s 𝔽.5F = '5'
+    s 𝔽.6F = '6'
+    s 𝔽.7F = '7'
+    s 𝔽.8F = '8'
+    s 𝔽.9F = '9'
+  show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ romoi
+    where
+    romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
+
+  show : ℕ → Strong
+  show = show' ˢ (ℕ._<? 10)
+
+  module Veritas where
+    ¬[] : ¬_ $ Σ ℕ $ ([] ≡_) ∘ show
+    ¬[] (n , d) with n ℕ.<? 10
+    ... | yes m = {!!}
+    ... | no N = {!!}
+
+    *10+x : (n : ℕ)
+          → (f : Fin 10)
+          → (_≡_
+              (show $ n ℕ.+ 𝔽.toℕ f)
+              (show n 𝕃.++ show (𝔽.toℕ f)))
+    *10+x = {!!}
+
+instance
   showNat : Show ℕ
   showNat = record {
-    show = show
+    show = showNat.show
     }
-    where
-    show : ℕ → Strong
-    show = show' ˢ (ℕ._<? 10)
-      where
-      show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
-      show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
-        where
-        s : Fin 10 → Char
-        s 𝔽.zero = '0'
-        s 𝔽.1F = '1'
-        s 𝔽.2F = '2'
-        s 𝔽.3F = '3'
-        s 𝔽.4F = '4'
-        s 𝔽.5F = '5'
-        s 𝔽.6F = '6'
-        s 𝔽.7F = '7'
-        s 𝔽.8F = '8'
-        s 𝔽.9F = '9'
-      show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ romoi
-        where
-        romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
 
   showInt : Show ℤ
   showInt = record {
@@ -337,30 +354,30 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   readMaybe = apDec read P?
 
-  justys : P ⊆ (Is-just ∘ readMaybe)
-  nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
-
-  justys = J⇒IJ _ _ ∘ dij _
-    where
-    J⇒IJ : ∀ {a} → {A : Set a}
-         → (x : Maybe A)
-         → (z : A)
-         → x ≡ just z
-         → Is-just x
-    J⇒IJ (just x) f _≡_.refl = DMRN.just _
-    dij : (x : Strong)
-        → (_ : P x)
-        → apDec read P? x ≡ just _
-    dij x p = begin
-      apDec read P? x ≡⟨ _≡_.refl ⟩
-      apDec.apDec' read x (P? x) ≡⟨ _≡_.refl ⟩
-      _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' read x) ⟩
-      apDec.apDec' read x (yes $ proj₁ D) ∎
+  mutual
+    justys : P ⊆ (Is-just ∘ readMaybe)
+    justys = J⇒IJ _ _ ∘ dij _
       where
-      D = Relation.Nullary.Decidable.dec-yes (P? x) p
-      open Relation.Binary.PropositionalEquality.≡-Reasoning
+      J⇒IJ : ∀ {a} → {A : Set a}
+           → (x : Maybe A)
+           → (z : A)
+           → x ≡ just z
+           → Is-just x
+      J⇒IJ (just x) f _≡_.refl = DMRN.just _
+      dij : (x : Strong)
+          → (_ : P x)
+          → apDec read P? x ≡ just _
+      dij x p = begin
+        apDec read P? x ≡⟨ _≡_.refl ⟩
+        apDec.apDec' read x (P? x) ≡⟨ _≡_.refl ⟩
+        _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' read x) ⟩
+        apDec.apDec' read x (yes $ proj₁ D) ∎
+        where
+        D = R₀D.dec-yes (P? x) p
+        open Relation.Binary.PropositionalEquality.≡-Reasoning
 
-  nad = {!!}
+    nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
+    nad = {!!}
 
 readMaybe : ∀ {a p} → {A : Set a}
           → ⦃ ReadMaybe {p = p} A ⦄
@@ -381,23 +398,24 @@ show ⦃ Q ⦄ = Show.show Q
 \begin{code}
 module readℕ where
     private
-      j : {m n : ℕ} → m ℕ.< n → Maybe $ Fin n
-      j = just ∘ 𝔽.fromℕ<
+      j : (m : ℕ) → {n : ℕ} → {R₀D.True $ m ℕ.<? n} → Maybe $ Fin n
+      j _ {_} {M} = just $ 𝔽.fromℕ< $ R₀D.toWitness M
+
+    toFin10 : Char → Maybe $ Fin 10
+    toFin10 '0' = j 0
+    toFin10 '1' = j 1
+    toFin10 '2' = j 2
+    toFin10 '3' = j 3
+    toFin10 '4' = j 4
+    toFin10 '5' = j 5
+    toFin10 '6' = j 6
+    toFin10 '7' = j 7
+    toFin10 '8' = j 8
+    toFin10 '9' = j 9
+    toFin10 _ = nothing
 
     IsDigit : Char → Set
-    toFin10 : Char → Maybe $ Fin 10
     IsDigit = Is-just ∘ toFin10
-    toFin10 '0' = just 𝔽.zero
-    toFin10 '1' = j $ from-yes $ 1 ℕ.<? 10
-    toFin10 '2' = j $ from-yes $ 2 ℕ.<? 10
-    toFin10 '3' = j $ from-yes $ 3 ℕ.<? 10
-    toFin10 '4' = j $ from-yes $ 4 ℕ.<? 10
-    toFin10 '5' = j $ from-yes $ 5 ℕ.<? 10
-    toFin10 '6' = j $ from-yes $ 6 ℕ.<? 10
-    toFin10 '7' = j $ from-yes $ 7 ℕ.<? 10
-    toFin10 '8' = j $ from-yes $ 8 ℕ.<? 10
-    toFin10 '9' = j $ from-yes $ 9 ℕ.<? 10
-    toFin10 _ = nothing
 
     IsDigit? : Decidable IsDigit
     IsDigit? x with toFin10 x
@@ -405,19 +423,25 @@ module readℕ where
     ... | nothing = no $ λ ()
 
     djm0 : Strong → Set
-    djm0 = λ n → 𝕃All.All IsDigit n × 𝕃.length n ℕ.> 0
+    djm0 = λ n → 𝕃∀.All IsDigit n × 𝕃.length n ℕ.> 0
 
-    read' : {x : Strong} → djm0 x → ℕ
-    read' = 𝕃.sum ∘ 𝕃.map tenfa ∘ indice ∘ namste ∘ proj₁
+    read : {x : Strong} → djm0 x → ℕ
+    read = 𝕃.sum ∘ 𝕃.map tenfa ∘ indice ∘ namste ∘ proj₁
       where
       tenfa = λ (b , e) → b ℕ.* 10 ℕ.^ e
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
-      namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃All.toList
+      namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃∀.toList
+
+    module Veritas where
+      read≡read : (s : Strong)
+                → (p₁ p₂ : _)
+                → read {s} p₁ ≡ read {s} p₂
+      read≡read = {!!}
 
 instance
   readℕ : Read ℕ
   readℕ = record {
-    read = λ x → readℕ.read' {x}
+    read = λ x → readℕ.read {x}
     }
 
   readMaybeℕ : ReadMaybe ℕ
@@ -427,7 +451,7 @@ instance
     }
     where
     P? : Decidable readℕ.djm0
-    P? x with 𝕃All.all? readℕ.IsDigit? x | 𝕃.length x ℕ.>? 0
+    P? x with 𝕃∀.all? readℕ.IsDigit? x | 𝕃.length x ℕ.>? 0
     ... | yes p | yes l = yes $ p , l
     ... | no p | _ = no $ p ∘ proj₁
     ... | _ | no l = no $ l ∘ proj₂
@@ -478,7 +502,7 @@ instance
       where
       d : (p₁ p₂ : _)
         → Read.read readℕ x p₁ ≡ Read.read readℕ x p₂
-      d = {!!}
+      d = readℕ.Veritas.read≡read _
 
   readChar : Read Char
   readChar = record {
@@ -559,8 +583,7 @@ instance
         where
         open readℚ.P p
         /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
-        /∉ℕ [] = λ ()
-        /∉ℕ (x ∷ xs) = allDeg readℕ.IsDigit? (x ∷ xs) '/' (λ ()) ∘ proj₁
+        /∉ℕ x = allDeg readℕ.IsDigit? x '/' (λ ()) ∘ proj₁
           where
           allDeg : ∀ {a p} → {A : Set a} → {P : A → Set p}
                  → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
@@ -568,10 +591,10 @@ instance
                  → (xs : List A)
                  → (x : A)
                  → ¬ P x
-                 → 𝕃All.All P xs
+                 → 𝕃∀.All P xs
                  → x ∉ xs
           allDeg P? [] c z z₁ = _≡_.refl
-          allDeg P? (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
+          allDeg P? (s ∷ ss) c N (p 𝕃∀.∷ ps) = sym $ begin
              lf (id' $ s ∷ ss) ≡⟨ 𝕍P.toList∘fromList (s ∷ ss) ▹ cong lf ⟩
              lf (s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) (P¬≡ p N) ▹ cong 𝕃.length ⟩
              lf ss ≡⟨ 𝕍P.toList∘fromList ss ▹ sym ▹ cong lf ⟩
@@ -609,7 +632,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
         (Strong ×_ $ List $ Strong × ℕ × ℕ)
         (λ (s , xs) →
           (_×_
-            (P s ×_ $ 𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+            (P s ×_ $ 𝕃∀.All (Read.P R) $ 𝕃.map proj₁ xs)
             (_≡_
               x
               (let im = λ s f → 𝕃.intercalate s ∘ 𝕃.map f in
@@ -618,8 +641,13 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     cbs = Function.flip 𝕃.replicate ' '
     f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂
 
-  ≡∷[]? : Strong → Set
-  ≡∷[]? x =
+  -- | ni'o cumki fa lo nu banzuka lo ka ce'u pensi
+  -- kei lo ka ce'u na facki le du'u le fancu cu mo kau
+  -- .i ku'i le fancu na mutce le ka ce'u pluja
+  -- .i la .varik. cu jinvi le du'u na sarcu fa lo nu
+  -- ciksi fo lo te gerna be la .lojban.
+  ≡∷[] : Strong → Set
+  ≡∷[] x =
     (Σ
       (ℕ × ℕ)
       (λ (n₁ , n₂) →
@@ -639,7 +667,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
         (List Strong)
         (λ s →
           (_×_
-            (𝕃All.All (Read.P R) s)
+            (𝕃∀.All (Read.P R) s)
             (_≡_
               x
               (let S = 𝕃.intercalate (',' ∷ []) s in
@@ -648,15 +676,15 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     xastes : -- [1,  2  ,    3 ]
       Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
     agasp : -- 1 ∷ 2 ∷ 3 ∷ []
-      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[]? x → P x
+      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[] x → P x
       
   read : Σ.∃ P → List A
   read (x , xaste (s , (r , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃∀.toList r
   read (x , xastes (s , ((p , r) , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃∀.toList r
   read (x , agasp (s , ((p , r) , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃∀.toList r
 
 instance
   readList : ∀ {a p} → {A : Set a}
