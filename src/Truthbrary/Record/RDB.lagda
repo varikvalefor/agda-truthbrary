@@ -11,6 +11,7 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
+\newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal\forall}}
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
@@ -47,20 +48,34 @@ ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru zo'e je le velcki be la'oi .\AgdaRecord{
 
 module Truthbrary.Record.RDB where
 
+open import Data.Fin
+  using (
+    Fin
+  )
 open import Function
   using (
     _$_
   )
 open import Data.List
+  as 𝕃
   using (
+    length;
     _∷ʳ_;
     List
+  )
+open import Data.Product
+  using (
+    Σ
   )
 open import Relation.Binary.PropositionalEquality
   using (
     refl;
+    sym;
     _≡_
   )
+
+coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+coerce refl x = x
 \end{code}
 
 \section{la'oi .\AgdaRecord{Table}.}
@@ -82,6 +97,26 @@ ni'o ga jo ctaipe la'o zoi.\ \F{Subtable} \B a \B b\ .zoi.\ gi lo'i ro co'e ja s
 \begin{code}
 Subtable : ∀ {a} → Table a → Table a → Set a
 Subtable = {!!}
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module SubtableVeritas where
+  ex : ∀ {a}
+     → (x z : Table a)
+     → Subtable x z
+     → (d : Table.SCᵣ x ≡ Table.SCᵣ z)
+     → (i : Fin $ length $ Table.r x)
+     → (Σ
+         (Fin _)
+         (λ j →
+           (_≡_
+             (𝕃.lookup (Table.r x) i)
+             (coerce
+               (sym d)
+               (𝕃.lookup (Table.r z) j)))))
+  ex = {!!}
 \end{code}
 
 \section{la'oi .\F{SCD}.}
@@ -146,5 +181,16 @@ module vimcuVeritas where
            → (T : Table.tcek t _)
            → Subtable (vimcu t r T) t
   subtable = {!!}
+\end{code}
+
+\section{ko'a goi la'oi .\AgdaRecord{Database}.}
+ni'o ro da poi ke'a ctaipe ko'a zo'u da sinxa lo su'o me'oi .database.
+
+\begin{code}
+record Database {a p} : Set (Agda.Primitive.lsuc a Agda.Primitive.⊔ Agda.Primitive.lsuc p) where
+  field
+    tb : List $ Table a
+    tcek : List $ Table a → Set p
+    ctaipe : tcek tb
 \end{code}
 \end{document}
