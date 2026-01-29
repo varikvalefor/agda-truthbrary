@@ -392,24 +392,24 @@ show ⦃ Q ⦄ = Show.show Q
 \begin{code}
 module readℕ where
     private
-      j : {m n : ℕ} → m ℕ.< n → Maybe $ Fin n
-      j = just ∘ 𝔽.fromℕ<
+      j : (m : ℕ) → {n : ℕ} → {_ : Relation.Nullary.Decidable.True $ m ℕ.<? n} → Maybe $ Fin n
+      j _ {_} {M} = just $ 𝔽.fromℕ< $ Relation.Nullary.Decidable.toWitness M
 
     mutual
       IsDigit : Char → Set
       IsDigit = Is-just ∘ toFin10
 
       toFin10 : Char → Maybe $ Fin 10
-      toFin10 '0' = just 𝔽.zero
-      toFin10 '1' = j $ from-yes $ 1 ℕ.<? 10
-      toFin10 '2' = j $ from-yes $ 2 ℕ.<? 10
-      toFin10 '3' = j $ from-yes $ 3 ℕ.<? 10
-      toFin10 '4' = j $ from-yes $ 4 ℕ.<? 10
-      toFin10 '5' = j $ from-yes $ 5 ℕ.<? 10
-      toFin10 '6' = j $ from-yes $ 6 ℕ.<? 10
-      toFin10 '7' = j $ from-yes $ 7 ℕ.<? 10
-      toFin10 '8' = j $ from-yes $ 8 ℕ.<? 10
-      toFin10 '9' = j $ from-yes $ 9 ℕ.<? 10
+      toFin10 '0' = j 0
+      toFin10 '1' = j 1
+      toFin10 '2' = j 2
+      toFin10 '3' = j 3
+      toFin10 '4' = j 4
+      toFin10 '5' = j 5
+      toFin10 '6' = j 6
+      toFin10 '7' = j 7
+      toFin10 '8' = j 8
+      toFin10 '9' = j 9
       toFin10 _ = nothing
 
     IsDigit? : Decidable IsDigit
