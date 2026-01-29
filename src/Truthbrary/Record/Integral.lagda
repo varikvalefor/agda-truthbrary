@@ -105,6 +105,7 @@ open import Data.Product
     _×_
   )
 open import Data.Fin.Properties
+  as DFP
   using (
     toℕ-fromℕ<
   )
@@ -174,7 +175,7 @@ instance
       _ ≡⟨ cong ℤ.+_ (toℕ-fromℕ< $ Σ.proj₂ p) ⟩
       ℤ.+ ℤ.∣ z ∣ ≡⟨ ℤP.0≤n⇒+∣n∣≡n $ Σ.proj₁ p ⟩
       z ∎;
-    f≗f = λ _ p₁ p₂ → Data.Fin.Properties.fromℕ<-cong _ _ _≡_.refl (Σ.proj₂ p₁) $ Σ.proj₂ p₂
+    f≗f = λ _ p₁ p₂ → DFP.fromℕ<-cong _ _ _≡_.refl (Σ.proj₂ p₁) $ Σ.proj₂ p₂
     }
     where
     open ≡-Reasoning
