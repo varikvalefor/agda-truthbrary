@@ -502,7 +502,7 @@ instance
       where
       d : (p₁ p₂ : _)
         → Read.read readℕ x p₁ ≡ Read.read readℕ x p₂
-      d = {!!}
+      d = readℕ.Veritas.read≡read _
 
   readChar : Read Char
   readChar = record {
