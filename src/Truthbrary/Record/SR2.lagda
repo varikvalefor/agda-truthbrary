@@ -305,6 +305,14 @@ module showNat where
       where
       romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
 
+  module Veritas where
+    *10+x : (n : ℕ)
+          → (f : Fin 10)
+          → (_≡_
+              (show $ n ℕ.+ 𝔽.toℕ f)
+              (show n 𝕃.++ show (𝔽.toℕ f)))
+    *10+x = {!!}
+
 instance
   showNat : Show ℕ
   showNat = record {
