@@ -147,4 +147,15 @@ module vimcuVeritas where
            → Subtable (vimcu t r T) t
   subtable = {!!}
 \end{code}
+
+\section{ko'a goi la'oi .\AgdaRecord{Database}.}
+ni'o ro da poi ke'a ctaipe ko'a zo'u da sinxa lo su'o me'oi .database.
+
+\begin{code}
+record Database {a p} : Set (Agda.Primitive.lsuc a Agda.Primitive.⊔ Agda.Primitive.lsuc p) where
+  field
+    tb : List $ Table a
+    tcek : List $ Table a → Set p
+    ctaipe : tcek tb
+\end{code}
 \end{document}
