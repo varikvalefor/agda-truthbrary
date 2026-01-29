@@ -226,6 +226,7 @@ open import Truthbrary.Data.Strong
     Strong
   )
 open import Relation.Nullary.Decidable
+  as R₀D
   using (
     from-yes;
     isYes
@@ -367,7 +368,7 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
         _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' read x) ⟩
         apDec.apDec' read x (yes $ proj₁ D) ∎
         where
-        D = Relation.Nullary.Decidable.dec-yes (P? x) p
+        D = R₀D.dec-yes (P? x) p
         open Relation.Binary.PropositionalEquality.≡-Reasoning
 
     nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
@@ -392,8 +393,8 @@ show ⦃ Q ⦄ = Show.show Q
 \begin{code}
 module readℕ where
     private
-      j : (m : ℕ) → {n : ℕ} → {_ : Relation.Nullary.Decidable.True $ m ℕ.<? n} → Maybe $ Fin n
-      j _ {_} {M} = just $ 𝔽.fromℕ< $ Relation.Nullary.Decidable.toWitness M
+      j : (m : ℕ) → {n : ℕ} → {_ : R₀D.True $ m ℕ.<? n} → Maybe $ Fin n
+      j _ {_} {M} = just $ 𝔽.fromℕ< $ R₀D.toWitness M
 
     mutual
       IsDigit : Char → Set
