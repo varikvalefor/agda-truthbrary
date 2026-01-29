@@ -307,6 +307,9 @@ module showNat where
       romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
 
   module Veritas where
+    ¬[] : ¬_ $ Σ ℕ $ ([] ≡_) ∘ show
+    ¬[] = {!!}
+
     *10+x : (n : ℕ)
           → (f : Fin 10)
           → (_≡_
