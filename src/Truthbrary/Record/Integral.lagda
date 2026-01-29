@@ -152,7 +152,7 @@ instance
     P = λ x → ⊤;
     fromℤ = λ x _ → x;
     toℤ∘fromℤ = λ _ _ → _≡_.refl;
-    f≗f = {!!}
+    f≗f = λ _ _ _ → _≡_.refl
     }
 
   _ : Integral ℕ
