@@ -11,6 +11,7 @@
 \usepackage{unicode-math}
 \usepackage{newunicodechar}
 
+\newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal\forall}}
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
