@@ -572,8 +572,7 @@ instance
         where
         open readℚ.P p
         /∉ℕ : (s : Strong) → Read.P readℕ s → '/' ∉ s
-        /∉ℕ [] = λ ()
-        /∉ℕ (x ∷ xs) = allDeg readℕ.IsDigit? (x ∷ xs) '/' (λ ()) ∘ proj₁
+        /∉ℕ x = allDeg readℕ.IsDigit? x '/' (λ ()) ∘ proj₁
           where
           allDeg : ∀ {a p} → {A : Set a} → {P : A → Set p}
                  → ⦃ _ : Truthbrary.Record.Eq.Eq A ⦄
