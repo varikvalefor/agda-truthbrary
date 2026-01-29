@@ -282,33 +282,34 @@ record Show {a} (A : Set a) : Set a
   field
     show : A → Strong
 
-instance
+module showNat where
   {-# TERMINATING #-}
+  show : ℕ → Strong
+  show = show' ˢ (ℕ._<? 10)
+    where
+    show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
+    show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
+      where
+      s : Fin 10 → Char
+      s 𝔽.zero = '0'
+      s 𝔽.1F = '1'
+      s 𝔽.2F = '2'
+      s 𝔽.3F = '3'
+      s 𝔽.4F = '4'
+      s 𝔽.5F = '5'
+      s 𝔽.6F = '6'
+      s 𝔽.7F = '7'
+      s 𝔽.8F = '8'
+      s 𝔽.9F = '9'
+    show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ romoi
+      where
+      romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
+
+instance
   showNat : Show ℕ
   showNat = record {
-    show = show
+    show = showNat.show
     }
-    where
-    show : ℕ → Strong
-    show = show' ˢ (ℕ._<? 10)
-      where
-      show' : (n : ℕ) → Dec $ n ℕ.< 10 → Strong
-      show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
-        where
-        s : Fin 10 → Char
-        s 𝔽.zero = '0'
-        s 𝔽.1F = '1'
-        s 𝔽.2F = '2'
-        s 𝔽.3F = '3'
-        s 𝔽.4F = '4'
-        s 𝔽.5F = '5'
-        s 𝔽.6F = '6'
-        s 𝔽.7F = '7'
-        s 𝔽.8F = '8'
-        s 𝔽.9F = '9'
-      show' n (no _) = show' (n ℕ.div 10) (_ ℕ.<? 10) 𝕃.++ romoi
-        where
-        romoi = show' (n ℕ.% 10) (yes $ ℕ.m%n<n n 9)
 
   showInt : Show ℤ
   showInt = record {
