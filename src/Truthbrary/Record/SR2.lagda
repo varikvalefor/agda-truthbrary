@@ -258,12 +258,13 @@ module apDec where
   apDec' f x = ？.map (f x) ∘ ？.decToMaybe
 
   apDec : ∀ {a b p}
-        → {A : Set a} → {B : Set b}
+        → {A : Set a}
+        → {B : A → Set b}
         → {P : A → Set p}
-        → ((x : A) → P x → B)
+        → ((x : A) → P x → B x)
         → Decidable P
-        → A
-        → Maybe B
+        → (x : A)
+        → Maybe $ B x
   apDec f = apDec' f ˢ_
 
 apDec = apDec.apDec
