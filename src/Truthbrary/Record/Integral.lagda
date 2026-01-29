@@ -148,8 +148,8 @@ record Integral {a p} (A : Set a) : Set (suc p Level.⊔ a)
 
 \begin{code}
 instance
-  _ : Integral ℤ
-  _ = record {
+  integralℤ : Integral ℤ
+  integralℤ = record {
     P = λ x → ⊤;
     fromℤ = λ x _ → x;
     toℤ∘fromℤ = λ _ _ → _≡_.refl;
