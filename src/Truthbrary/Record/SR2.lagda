@@ -308,7 +308,9 @@ module showNat where
 
   module Veritas where
     ¬[] : ¬_ $ Σ ℕ $ ([] ≡_) ∘ show
-    ¬[] = {!!}
+    ¬[] (n , d) with n ℕ.<? 10
+    ... | yes m = {!!}
+    ... | no N = {!!}
 
     *10+x : (n : ℕ)
           → (f : Fin 10)
