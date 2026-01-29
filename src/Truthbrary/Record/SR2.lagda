@@ -425,8 +425,8 @@ module readℕ where
     djm0 : Strong → Set
     djm0 = λ n → 𝕃∀.All IsDigit n × 𝕃.length n ℕ.> 0
 
-    read' : {x : Strong} → djm0 x → ℕ
-    read' = 𝕃.sum ∘ 𝕃.map tenfa ∘ indice ∘ namste ∘ proj₁
+    read : {x : Strong} → djm0 x → ℕ
+    read = 𝕃.sum ∘ 𝕃.map tenfa ∘ indice ∘ namste ∘ proj₁
       where
       tenfa = λ (b , e) → b ℕ.* 10 ℕ.^ e
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
@@ -435,7 +435,7 @@ module readℕ where
 instance
   readℕ : Read ℕ
   readℕ = record {
-    read = λ x → readℕ.read' {x}
+    read = λ x → readℕ.read {x}
     }
 
   readMaybeℕ : ReadMaybe ℕ
