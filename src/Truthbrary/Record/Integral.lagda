@@ -156,8 +156,8 @@ instance
     f≗f = λ _ _ _ → _≡_.refl
     }
 
-  _ : Integral ℕ
-  _ = record {
+  integralℕ : Integral ℕ
+  integralℕ = record {
     P = λ z → z ≡ ℤ.+ ℤ.∣ z ∣;
     toℤ = ℤ.+_;
     fromℤ = λ z refl → ℤ.∣ z ∣;
