@@ -47,20 +47,33 @@ ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru zo'e je le velcki be la'oi .\AgdaRecord{
 
 module Truthbrary.Record.RDB where
 
+open import Data.Fin
+  using (
+    Fin
+  )
 open import Function
   using (
     _$_
   )
 open import Data.List
   using (
+    length;
     _∷ʳ_;
     List
+  )
+open import Data.Product
+  using (
+    Σ
   )
 open import Relation.Binary.PropositionalEquality
   using (
     refl;
+    sym;
     _≡_
   )
+
+coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+coerce refl x = x
 \end{code}
 
 \section{la'oi .\AgdaRecord{Table}.}
@@ -82,6 +95,26 @@ ni'o ga jo ctaipe la'o zoi.\ \F{Subtable} \B a \B b\ .zoi.\ gi lo'i ro co'e ja s
 \begin{code}
 Subtable : ∀ {a} → Table a → Table a → Set a
 Subtable = {!!}
+\end{code}
+
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
+module SubtableVeritas where
+  ex : ∀ {a}
+     → (x z : Table a)
+     → Subtable x z
+     → (d : Table.SCᵣ x ≡ Table.SCᵣ z)
+     → (i : Fin $ length $ Table.r x)
+     → (Σ
+         (Fin _)
+         (λ j →
+           (_≡_
+             (Data.List.lookup (Table.r x) i)
+             (coerce
+               (sym d)
+               (Data.List.lookup (Table.r z) j)))))
+  ex = {!!}
 \end{code}
 
 \section{la'oi .\F{SCD}.}
