@@ -349,7 +349,7 @@ instance
     inj₁-inj refl = refl
     inj₂-inj : ∀ {a b} → {A : Set a} → {B : Set b}
              → {x y : B}
-             → (A ⊎ B ∋ inj₂ x) ≡ inj₂ y
+             → inj₂ x ≡ inj₂ {A = A} y
              → x ≡ y
     inj₂-inj refl = refl
     D : DecidableEquality _
