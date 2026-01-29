@@ -348,30 +348,30 @@ record ReadMaybe {a p} (A : Set a) : Set (a ⊔ suc p)
 
   readMaybe = apDec read P?
 
-  justys : P ⊆ (Is-just ∘ readMaybe)
-  nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
-
-  justys = J⇒IJ _ _ ∘ dij _
-    where
-    J⇒IJ : ∀ {a} → {A : Set a}
-         → (x : Maybe A)
-         → (z : A)
-         → x ≡ just z
-         → Is-just x
-    J⇒IJ (just x) f _≡_.refl = DMRN.just _
-    dij : (x : Strong)
-        → (_ : P x)
-        → apDec read P? x ≡ just _
-    dij x p = begin
-      apDec read P? x ≡⟨ _≡_.refl ⟩
-      apDec.apDec' read x (P? x) ≡⟨ _≡_.refl ⟩
-      _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' read x) ⟩
-      apDec.apDec' read x (yes $ proj₁ D) ∎
+  mutual
+    justys : P ⊆ (Is-just ∘ readMaybe)
+    justys = J⇒IJ _ _ ∘ dij _
       where
-      D = Relation.Nullary.Decidable.dec-yes (P? x) p
-      open Relation.Binary.PropositionalEquality.≡-Reasoning
+      J⇒IJ : ∀ {a} → {A : Set a}
+           → (x : Maybe A)
+           → (z : A)
+           → x ≡ just z
+           → Is-just x
+      J⇒IJ (just x) f _≡_.refl = DMRN.just _
+      dij : (x : Strong)
+          → (_ : P x)
+          → apDec read P? x ≡ just _
+      dij x p = begin
+        apDec read P? x ≡⟨ _≡_.refl ⟩
+        apDec.apDec' read x (P? x) ≡⟨ _≡_.refl ⟩
+        _ ≡⟨ proj₂ D ▹ cong (apDec.apDec' read x) ⟩
+        apDec.apDec' read x (yes $ proj₁ D) ∎
+        where
+        D = Relation.Nullary.Decidable.dec-yes (P? x) p
+        open Relation.Binary.PropositionalEquality.≡-Reasoning
 
-  nad = {!!}
+    nad : (¬_ ∘ P) ⊆ (Is-nothing ∘ readMaybe)
+    nad = {!!}
 
 readMaybe : ∀ {a p} → {A : Set a}
           → ⦃ ReadMaybe {p = p} A ⦄
