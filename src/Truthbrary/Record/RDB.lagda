@@ -56,6 +56,7 @@ open import Function
     _$_
   )
 open import Data.List
+  as 𝕃
   using (
     length;
     _∷ʳ_;
@@ -110,10 +111,10 @@ module SubtableVeritas where
          (Fin _)
          (λ j →
            (_≡_
-             (Data.List.lookup (Table.r x) i)
+             (𝕃.lookup (Table.r x) i)
              (coerce
                (sym d)
-               (Data.List.lookup (Table.r z) j)))))
+               (𝕃.lookup (Table.r z) j)))))
   ex = {!!}
 \end{code}
 
