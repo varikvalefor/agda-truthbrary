@@ -432,6 +432,12 @@ module readℕ where
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
       namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃∀.toList
 
+    module Veritas where
+      read≡read : (s : Strong)
+                → (p₁ p₂ : _)
+                → read {s} p₁ ≡ read {s} p₂
+      read≡read = {!!}
+
 instance
   readℕ : Read ℕ
   readℕ = record {
