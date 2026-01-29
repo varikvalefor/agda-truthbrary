@@ -231,7 +231,7 @@ open import Relation.Nullary.Decidable
     isYes
   )
 open import Data.List.Relation.Unary.All
-  as 𝕃All
+  as 𝕃∀
   using (
   )
 open import Relation.Binary.PropositionalEquality
@@ -418,14 +418,14 @@ module readℕ where
     ... | nothing = no $ λ ()
 
     djm0 : Strong → Set
-    djm0 = λ n → 𝕃All.All IsDigit n × 𝕃.length n ℕ.> 0
+    djm0 = λ n → 𝕃∀.All IsDigit n × 𝕃.length n ℕ.> 0
 
     read' : {x : Strong} → djm0 x → ℕ
     read' = 𝕃.sum ∘ 𝕃.map tenfa ∘ indice ∘ namste ∘ proj₁
       where
       tenfa = λ (b , e) → b ℕ.* 10 ℕ.^ e
       indice = λ x → 𝕃.zip x $ 𝕃.reverse $ 𝕃.upTo $ 𝕃.length x
-      namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃All.toList
+      namste = 𝕃.map (𝔽.toℕ ∘ to-witness ∘ proj₂) ∘ 𝕃∀.toList
 
 instance
   readℕ : Read ℕ
@@ -440,7 +440,7 @@ instance
     }
     where
     P? : Decidable readℕ.djm0
-    P? x with 𝕃All.all? readℕ.IsDigit? x | 𝕃.length x ℕ.>? 0
+    P? x with 𝕃∀.all? readℕ.IsDigit? x | 𝕃.length x ℕ.>? 0
     ... | yes p | yes l = yes $ p , l
     ... | no p | _ = no $ p ∘ proj₁
     ... | _ | no l = no $ l ∘ proj₂
@@ -581,10 +581,10 @@ instance
                  → (xs : List A)
                  → (x : A)
                  → ¬ P x
-                 → 𝕃All.All P xs
+                 → 𝕃∀.All P xs
                  → x ∉ xs
           allDeg P? [] c z z₁ = _≡_.refl
-          allDeg P? (s ∷ ss) c N (p 𝕃All.∷ ps) = sym $ begin
+          allDeg P? (s ∷ ss) c N (p 𝕃∀.∷ ps) = sym $ begin
              lf (id' $ s ∷ ss) ≡⟨ 𝕍P.toList∘fromList (s ∷ ss) ▹ cong lf ⟩
              lf (s ∷ ss) ≡⟨ 𝕃P.filter-reject (c ≟_) (P¬≡ p N) ▹ cong 𝕃.length ⟩
              lf ss ≡⟨ 𝕍P.toList∘fromList ss ▹ sym ▹ cong lf ⟩
@@ -622,7 +622,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
         (Strong ×_ $ List $ Strong × ℕ × ℕ)
         (λ (s , xs) →
           (_×_
-            (P s ×_ $ 𝕃All.All (Read.P R) $ 𝕃.map proj₁ xs)
+            (P s ×_ $ 𝕃∀.All (Read.P R) $ 𝕃.map proj₁ xs)
             (_≡_
               x
               (let im = λ s f → 𝕃.intercalate s ∘ 𝕃.map f in
@@ -652,7 +652,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
         (List Strong)
         (λ s →
           (_×_
-            (𝕃All.All (Read.P R) s)
+            (𝕃∀.All (Read.P R) s)
             (_≡_
               x
               (let S = 𝕃.intercalate (',' ∷ []) s in
@@ -665,11 +665,11 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
       
   read : Σ.∃ P → List A
   read (x , xaste (s , (r , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃∀.toList r
   read (x , xastes (s , ((p , r) , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃∀.toList r
   read (x , agasp (s , ((p , r) , d))) =
-    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃All.toList r
+    𝕃.map (Read.read R _ ∘ proj₂) $ 𝕃∀.toList r
 
 instance
   readList : ∀ {a p} → {A : Set a}
