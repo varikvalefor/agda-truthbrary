@@ -252,7 +252,6 @@ module words where
     j = dedup' (x 𝕃.++ 𝕃.take 1 z) b $ 𝕃.drop 1 z
     x' = ⌽ $ 𝕃.take (𝕃.length b) $ ⌽ x
 
-  {-# TERMINATING #-}
   dedup : ∀ {a} → {A : Set a}
         → ⦃ Truthbrary.Record.Eq.Eq A ⦄
         → List A
