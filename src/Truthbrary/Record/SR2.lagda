@@ -248,12 +248,13 @@ import Data.Maybe.Relation.Unary.Any
 
 module apDec where
   apDec' : ∀ {a b p}
-         → {A : Set a} → {B : Set b}
+         → {A : Set a}
+         → {B : A → Set b}
          → {P : A → Set p}
-         → (f : (x : A) → P x → B)
+         → (f : (x : A) → P x → B x)
          → (x : A)
          → Dec $ P x
-         → Maybe B
+         → Maybe $ B x
   apDec' f x = ？.map (f x) ∘ ？.decToMaybe
 
   apDec : ∀ {a b p}
