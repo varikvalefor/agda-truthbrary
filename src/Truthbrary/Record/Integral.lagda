@@ -161,7 +161,7 @@ instance
     toℤ = ℤ.+_;
     fromℤ = λ z refl → ℤ.∣ z ∣;
     toℤ∘fromℤ = λ _ d → d;
-    f≗f = {!!}
+    f≗f = λ _ _ _ → _≡_.refl
     }
 
   IntegralFin : {n : ℕ} → Integral $ Fin n
