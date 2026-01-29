@@ -289,7 +289,7 @@ module showNat where
   show' _ (yes p) = 𝕃.[_] $ s $ 𝔽.fromℕ< p
     where
     s : Fin 10 → Char
-    s 𝔽.zero = '0'
+    s 𝔽.0F = '0'
     s 𝔽.1F = '1'
     s 𝔽.2F = '2'
     s 𝔽.3F = '3'
