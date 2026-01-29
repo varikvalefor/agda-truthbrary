@@ -630,6 +630,11 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     cbs = Function.flip 𝕃.replicate ' '
     f = λ (x , s₁ , s₂) → cbs s₁ 𝕃.++ x 𝕃.++ cbs s₂
 
+  -- | ni'o cumki fa lo nu banzuka lo ka ce'u pensi
+  -- kei lo ka ce'u na facki le du'u le fancu cu mo kau
+  -- .i ku'i le fancu na mutce le ka ce'u pluja
+  -- .i la .varik. cu jinvi le du'u na sarcu fa lo nu
+  -- ciksi fo lo te gerna be la .lojban.
   ≡∷[]? : Strong → Set
   ≡∷[]? x =
     (Σ
