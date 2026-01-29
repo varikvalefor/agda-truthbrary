@@ -11,6 +11,7 @@
 \usepackage{newunicodechar}
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
+\newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{ℤ}{\ensuremath{\mathnormal{\mathbb Z}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
@@ -40,6 +41,7 @@
 \newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
+\newunicodechar{∣}{\ensuremath{\mathnormal|}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
