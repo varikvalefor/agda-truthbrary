@@ -635,8 +635,8 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
   -- .i ku'i le fancu na mutce le ka ce'u pluja
   -- .i la .varik. cu jinvi le du'u na sarcu fa lo nu
   -- ciksi fo lo te gerna be la .lojban.
-  ≡∷[]? : Strong → Set
-  ≡∷[]? x =
+  ≡∷[] : Strong → Set
+  ≡∷[] x =
     (Σ
       (ℕ × ℕ)
       (λ (n₁ , n₂) →
@@ -665,7 +665,7 @@ module readList {a p : Level.Level} {A : Set a} ⦃ R : Read A ⦄ where
     xastes : -- [1,  2  ,    3 ]
       Ps (',' ∷ []) (_≡ 𝕃.[]) x → P x
     agasp : -- 1 ∷ 2 ∷ 3 ∷ []
-      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[]? x → P x
+      Ps (' ' ∷ '∷' ∷ ' ' ∷ []) ≡∷[] x → P x
       
   read : Σ.∃ P → List A
   read (x , xaste (s , (r , d))) =
