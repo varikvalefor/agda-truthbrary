@@ -397,9 +397,6 @@ module readℕ where
       j _ {_} {M} = just $ 𝔽.fromℕ< $ R₀D.toWitness M
 
     mutual
-      IsDigit : Char → Set
-      IsDigit = Is-just ∘ toFin10
-
       toFin10 : Char → Maybe $ Fin 10
       toFin10 '0' = j 0
       toFin10 '1' = j 1
@@ -412,6 +409,9 @@ module readℕ where
       toFin10 '8' = j 8
       toFin10 '9' = j 9
       toFin10 _ = nothing
+
+      IsDigit : Char → Set
+      IsDigit = Is-just ∘ toFin10
 
     IsDigit? : Decidable IsDigit
     IsDigit? x with toFin10 x
