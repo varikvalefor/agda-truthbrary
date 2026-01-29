@@ -398,7 +398,7 @@ show ⦃ Q ⦄ = Show.show Q
 \begin{code}
 module readℕ where
     private
-      j : (m : ℕ) → {n : ℕ} → {_ : R₀D.True $ m ℕ.<? n} → Maybe $ Fin n
+      j : (m : ℕ) → {n : ℕ} → {R₀D.True $ m ℕ.<? n} → Maybe $ Fin n
       j _ {_} {M} = just $ 𝔽.fromℕ< $ R₀D.toWitness M
 
     toFin10 : Char → Maybe $ Fin 10
