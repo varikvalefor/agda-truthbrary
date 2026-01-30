@@ -12,6 +12,7 @@
 
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
+\newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
 \newunicodechar{∘}{\ensuremath{\mathnormal{\circ}}}
 \newunicodechar{∀}{\ensuremath{\mathnormal{\forall}}}
 \newunicodechar{∃}{\ensuremath{\mathnormal{\exists}}}
@@ -21,7 +22,7 @@
 \newunicodechar{⦃}{\ensuremath{\mathnormal{\lbrace\hspace{-0.3em}|}}}
 \newunicodechar{⦄}{\ensuremath{\mathnormal{|\hspace{-0.3em}\rbrace}}}
 \newunicodechar{ₗ}{\ensuremath{\mathnormal{_l}}}
-\newunicodechar{ₛ}{\ensuremath{\mathnormal{_s}}}
+\newunicodechar{ₛ}{\ensuremath{\mathnormal{_\AgdaFontStyle{s}}}}
 \newunicodechar{ᵥ}{\ensuremath{\mathnormal{_v}}}
 \newunicodechar{ⁿ}{\ensuremath{\mathnormal{^n}}}
 \newunicodechar{ʸ}{\ensuremath{\mathnormal{^y}}}
@@ -40,6 +41,7 @@
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 \newcommand\OpF[1]{\AgdaOperator{\F{#1}}}
+\newcommand\OpIC[1]{\AgdaOperator{\AgdaInductiveConstructor{#1}}}
 
 \title{la'o zoi.\ \texttt{Truthbrary.Record.LLC} .zoi.}
 \author{la .varik.\ .VALefor.}
@@ -50,8 +52,8 @@
 \section{le me'oi .abstract.}
 ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 \begin{itemize}
-	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je noi tu'a ke'a filri'a lo nu pilno lo smimlu be la'oi .\D{Vec}.\ ku'o be'o je
-        \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi tu'a ke'a filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o be'o je
+	\item le velcki be la'o zoi.\ \AgdaRecord{LL} .zoi.\ noi ke'a me'oi .\AgdaKeyword{record}.\ je cu jai filri'a lo nu pilno lo smimlu be la'oi .\D{Vec}.\ ku'o be'o je
+        \item le velcki be la'o zoi.\ \F{dist} .zoi.\ noi ke'a jai filri'a lo nu kanji lo mu'oi glibau.\ HAMMING weight .glibau.\ ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u vasru ku'o be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore∉\AgdaUnderscore} .zoi.\ noi tu'a ke'a filri'a lo nu ciksi lo ctaipe be lo su'u na vasru ku'o be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore∈₂\AgdaUnderscore} .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∈\AgdaUnderscore}\ .zoi.\ be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ noi ke'a smimlu la'o zoi.\ \F{\AgdaUnderscore{}∉\AgdaUnderscore}\ .zoi.\ be'o je
 	\item le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∈₂?\AgdaUnderscore} .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∈₂\AgdaUnderscore}\ .zoi.\ co'e be'o je le velcki be la'o zoi.\ \F{\AgdaUnderscore{}∉₂?\AgdaUnderscore}\ .zoi.\ noi ke'a me'oi .\AgdaRecord{Dec}.\ ke mu'oi zoi.\ \F{\AgdaUnderscore{}∉₂\AgdaUnderscore}\ .zoi.\ co'e be'o je
@@ -67,104 +69,122 @@ ni'o la'o zoi.\ \texttt{Truthbrary.Record.LL} .zoi.\ vasru\ldots
 module Truthbrary.Record.LLC where
 
 open import Level
+  using (
+  )
 open import Data.Fin
+  as 𝔽
   using (
     Fin
   )
-  renaming (
-    fromℕ to fromℕF;
-    toℕ to toℕF
-  )
 open import Data.Nat
-  hiding (
-    _≟_;
-    _≡ᵇ_
+  as ℕ
+  using (
+    _+_;
+    _∸_;
+    suc;
+    ℕ
   )
 open import Data.Vec
-  renaming (
-    [] to []ᵥ;
-    _∷_ to _∷ᵥ_;
-    replicate to replicateᵥ;
-    length to lengthᵥ
+  as 𝕍
+  using (
+    toList;
+    Vec
   )
-  hiding (
-    reverse;
-    _++_;
-    map
+  renaming (
+    _∷_ to _∷ᵥ_;
+    [] to []ᵥ
   )
 open import Function
+  using (
+    const;
+    _∘₂_;
+    flip;
+    _$_;
+    _∘_;
+    id
+  )
 open import Data.Bool
-  hiding (
-    _≟_;
-    T
+  using (
+    if_then_else_;
+    false;
+    Bool;
+    true;
+    _∧_
   )
 open import Data.Char
-  hiding (
-    _≟_
+  using (
+    Char
   )
 open import Data.List
-  renaming (
-    [] to []ₗ;
-    _∷_ to _∷ₗ_;
-    filter to filterₗ;
-    length to lengthₗ
+  as 𝕃
+  using (
+    List
   )
-  hiding (
-    reverse;
-    _++_;
-    map
+  renaming (
+    filter to filterₗ;
+    length to lengthₗ;
+    _∷_ to _∷ₗ_;
+    [] to []ₗ
   )
 open import Data.Maybe
-  hiding (
-    map
+  using (
+    nothing;
+    Maybe;
+    maybe;
+    just
+  )
+open import Data.String
+  renaming (
+    fromList to fromListₛ;
+    toList to toListₛ
+  )
+  using (
+    String
   )
 open import Data.Product
   using (
     uncurry;
-    _,_
-  )
-open import Data.String
-  renaming (
-    toList to toListₛ;
-    fromList to fromListₛ
-  )
-  hiding (
-    length;
-    _≟_;
-    _++_
-  )
-open import Data.Product
-  using (
+    _,_;
     ∃;
     Σ
   )
 open import Relation.Unary
   using (
+    _⊆_;
     Pred
   )
 open import Relation.Nullary
+  using (
+    ofⁿ;
+    ofʸ;
+    Dec;
+    ¬_
+  )
 open import Truthbrary.Record.Eq
+  using (
+    _≟_;
+    Eq
+  )
 open import Relation.Nullary.Decidable
   using (
     isYes
   )
-open import Relation.Binary.PropositionalEquality
-  using (
-    _≢_;
-    _≡_
-  )
-
-import Data.Vec.Relation.Unary.Any
+open import Data.Vec.Relation.Unary.Any
   as DVRUA
   using (
     any?;
     Any
   )
-import Data.Vec.Relation.Unary.All
+open import Data.Vec.Relation.Unary.All
   as DVRUL
   using (
     all?;
     All
+  )
+open import Relation.Binary.PropositionalEquality
+  using (
+    _≢_;
+    _≡_
   )
 \end{code}
 
@@ -190,7 +210,7 @@ record LL {a} (A : Set a) : Set (Level.suc a)
     olen : ℕ → Set a
     [] : olen 0
     l : A → ℕ
-    _∷_ : e → (q : A) → olen $ ℕ.suc $ l q
+    _∷_ : e → (q : A) → olen $ suc $ l q
     vec : (q : A) → Vec e $ l q
     cev : {n : ℕ} → Vec e n → olen n
 \end{code}
@@ -198,81 +218,81 @@ record LL {a} (A : Set a) : Set (Level.suc a)
 \subsection{le fancu}
 
 \subsubsection{la'oi .\F{\AgdaUnderscore∷\AgdaUnderscore}.}
-ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
+ni'o la .varik.\ cu sorpa'a lo nu banzuka fa le se ctaipe je zo'e
 
 \begin{code}
 infixr 5 _∷_
 
 _∷_ : ∀ {a} → {A : Set a}
-     → ⦃ ALL : LL A ⦄
-     → LL.e ALL → (q : A) → LL.olen ALL $ ℕ.suc $ LL.l ALL q
-_∷_ ⦃ Q ⦄ = LL._∷_ Q
+    → ⦃ ALL : LL A ⦄
+    → LL.e ALL
+    → (q : A)
+    → LL.olen ALL $ suc $ LL.l ALL q
+_∷_ ⦃ K ⦄ = LL._∷_ K
 \end{code}
 
 \subsubsection{la'oi .\F{[]}.}
 ni'o la .varik.\ cu sorpa'a lo nu le se ctaipe je zo'e cu banzuka
 
 \begin{code}
-[] : ∀ {a} → {A : Set a}
-   → ⦃ Q : LL A ⦄
-   → LL.olen Q 0
-[] ⦃ Q ⦄ = LL.[] Q
+[] : ∀ {a} → {A : Set a} → ⦃ Q : LL A ⦄ → LL.olen Q 0
+[] ⦃ K ⦄ = LL.[] K
 \end{code}
 
 \subsubsection{la'oi .\F{length}.}
 ni'o la'o zoi.\ \F{length} \B q .zoi.\ nilzilcmi la'oi .\B q.
 
 \begin{code}
-length : ∀ {a} → {A : Set a}
-       → ⦃ LL A ⦄
-       → A → ℕ
+length : ∀ {a} → {A : Set a} → ⦃ LL A ⦄ → A → ℕ
 length ⦃ T ⦄ = LL.l T
 \end{code}
 
 \subsubsection{la'oi .\F{vec}.}
-ni'o la'o zoi.\ \F{vec} \B a .zoi.\ me'oi .equivalent.\ la'oi .\B a.
+ni'o la'o zoi.\ \F{vec} \B a .zoi.\ co'e du la'oi .\B a.
 
 \begin{code}
 vec : ∀ {a} → {Bean : Set a}
     → ⦃ Q : LL Bean ⦄
-    → (lima : Bean) → Vec (LL.e Q) $ LL.l Q lima
+    → (lima : Bean)
+    → Vec (LL.e Q) $ LL.l Q lima
 vec ⦃ Q ⦄ = LL.vec Q
 \end{code}
 
 \subsubsection{la'oi .\F{cev}.}
-ni'o la'o zoi.\ \F{cev} \B a .zoi.\ me'oi .equivalent.\ la'oi .\B a.
+ni'o la'o zoi.\ \F{cev} \B a .zoi.\ co'e du la'oi .\B a.
 
 \begin{code}
 cev : ∀ {a} → {Bean : Set a}
     → ⦃ Q : LL Bean ⦄
-    → {n : ℕ} → Vec (LL.e Q) n → LL.olen Q n
+    → Vec (LL.e Q) ⊆ LL.olen Q
 cev ⦃ Q ⦄ = LL.cev Q
 \end{code}
 
 \subsection{la'oi .\F{decaf}.}
-ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \F{decaf} \B a \B b \B c .zoi.\ gi ga je la'oi .\B c.\ konkatena ja co'e la'oi .\B a.\ la'oi .\B x.\ la'oi .\B b.\ gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ la'oi .\B x.
+ni'o ga jonai la'oi .\AgdaInductiveConstructor{nothing}.\ du ko'a goi la'o zoi.\ \F{decaf} \B a \B b \B c .zoi.\ gi ga je la'oi .\B c.\ co'e ja konkatena la'oi .\B a.\ la'oi .\B x.\ la'oi .\B b.\ gi ko'a me'oi .\AgdaInductiveConstructor{just}.\ la'oi .\B x.
 
 \begin{code}
 decaf : ∀ {a} → {Bean : Set a}
       → ⦃ Q : LL Bean ⦄
       → ⦃ Eq $ LL.e Q ⦄
-      → LL.e Q → LL.e Q → (j : Bean)
+      → LL.e Q
+      → LL.e Q
+      → (j : Bean)
       → Maybe $ LL.olen Q $ LL.l Q j ∸ 2
 decaf ⦃ Q ⦄ a b = Data.Maybe.map cev ∘ f ∘ vec
   where
-  f : ∀ {n} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
+  f : {n : ℕ} → Vec (LL.e Q) n → Maybe $ Vec (LL.e Q) $ n ∸ 2
   f []ᵥ = nothing
   f (_ ∷ᵥ []ᵥ) = nothing
-  f (x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet q) else nothing
+  f k@(x ∷ᵥ y ∷ᵥ z) = if conteven then just (delet k) else nothing
     where
-    q = x ∷ᵥ y ∷ᵥ z
-    r = Data.Vec.reverse
+    r = 𝕍.reverse
     delet = r ∘ t ∘ r ∘ t
       where
-      t = Data.Vec.drop 1
-    conteven = (pamoi a q) ∧ (pamoi b $ r q)
+      t = 𝕍.drop 1
+    conteven = (pamoi a k) ∧ (pamoi b $ r k)
       where
-      pamoi = λ n → isYes ∘ _≟_ n ∘ Data.Vec.head
+      pamoi = λ n → isYes ∘ _≟_ n ∘ 𝕍.head
 \end{code}
 
 \subsection{la .\F{map}.}
@@ -280,10 +300,11 @@ ni'o la .varik.\ cu pacna lo nu banzuka fa zo'e je le se ctaipe  .i ku'i la .\F{
 
 \begin{code}
 map : ∀ {a b} → {A : Set a} → {B : Set b}
-    → ⦃ Q : LL A ⦄ → ⦃ R : LL B ⦄
-    → (f : LL.e Q → LL.e R) → (x : A)
-    → LL.olen R $ length x
-map f = cev ∘ Data.Vec.map f ∘ vec
+    → ⦃ L₁ : LL A ⦄ → ⦃ L₂ : LL B ⦄
+    → (f : LL.e L₁ → LL.e L₂)
+    → (x : A)
+    → LL.olen L₂ $ length x
+map f = cev ∘ 𝕍.map f ∘ vec
 \end{code}
 
 \subsection{la .\F{garden}.}
@@ -292,13 +313,20 @@ ni'o ga jonai la'o zoi.\ \B q\ .zoi.\ du ko'a goi la'o zoi.\ \F{garden} \B f \B 
 \begin{code}
 garden : ∀ {a b} → {CoolJ : Set a} → {B : Set b}
        → ⦃ Q : LL CoolJ ⦄
-       → (LL.e Q → Maybe B) → B → CoolJ → B
+       → (LL.e Q → Maybe B)
+       → B
+       → CoolJ
+       → B
 garden the west gate = g2 the west $ vec gate
   where
-  g2 : ∀ {a b} → {A : Set a} → {B : Set b} → {n : ℕ}
-     → (A → Maybe B) → B → Vec A n → B
-  g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
+  g2 : ∀ {a b} → {A : Set a} → {B : Set b}
+     → {n : ℕ}
+     → (A → Maybe B)
+     → B
+     → Vec A n
+     → B
   g2 _ d []ᵥ = d
+  g2 f d (x ∷ᵥ xs) = maybe id (g2 f d xs) $ f x
 \end{code}
 
 \subsection{la'oi .\F{dist}.}
@@ -310,13 +338,13 @@ ni'o ko'a goi la'o zoi.\ \F{dist} \B a \B b .zoi.\ mu'oi glibau.\ HAMMING distan
 dist : ∀ {a} → {A : Set a}
      → ⦃ Bean : LL A ⦄
      → ⦃ Eq $ LL.e Bean ⦄
-     → A → A → ℕ
-dist a b = Data.List.length $ Data.List.filter drata ziprd
+     → A
+     → A
+     → ℕ
+dist = 𝕃.length ∘₂ 𝕃.filter drata ∘₂ ziprd
   where
   drata = _≟_ false ∘ isYes ∘ uncurry _≟_
-  ziprd = Data.List.zip (lst a) $ lst b
-    where
-    lst = toList ∘ vec
+  ziprd = 𝕃.zip Function.on (toList ∘ vec)
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore∈\AgdaUnderscore}.}
@@ -326,8 +354,10 @@ ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B a \OpF 
 _∈_ : ∀ {a} → {A : Set a}
     → ⦃ Fireball : LL A ⦄
     → ⦃ Eq $ LL.e Fireball ⦄
-    → LL.e Fireball → A → Set
-_∈_ a = _≡_ 1 ∘ lengthₗ ∘ Data.List.take 1 ∘ filterₗ (_≟_ a) ∘ f
+    → LL.e Fireball
+    → A
+    → Set
+_∈_ a = _≡_ 1 ∘ lengthₗ ∘ 𝕃.take 1 ∘ filterₗ (a ≟_) ∘ f
   where
   -- | .i cumki fa lo nu sruma lo du'u zo'oi .f.
   -- cmavlaka'i zo'oi .from... ja cu co'e
@@ -339,19 +369,19 @@ ni'o ga jo la'oi .\AgdaInductiveConstructor{refl}.\ ctaipe la'o zoi.\ \B x \OpF 
 
 \begin{code}
 _∉_ : ∀ {a} → {Bean : Set a}
-    → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+    → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
     → LL.e Jeans → Bean → Set
-_∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (_≟_ x) ∘ toList ∘ vec
+_∉_ x = _≡_ 0 ∘ lengthₗ ∘ filterₗ (x ≟_) ∘ toList ∘ vec
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore{}∈₂\AgdaUnderscore}.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∈₂}} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ cmima la'o zoi.\ \B b\ .zoi.
+ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∈₂}} \B b\ .zoi.\ gi la'oi .\B a.\ cmima la'o zoi.\ \B b\ .zoi.
 
 \begin{code}
 _∈₂_ : ∀ {a} → {Bean : Set a}
-     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
+     → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
      → LL.e Jeans → Bean → Set a
-_∈₂_ ⦃ Q ⦄ a b = DVRUA.Any (a ≡_) $ LL.vec Q b
+_∈₂_ a = DVRUA.Any (a ≡_) ∘ vec
 \end{code}
 
 \subsection{la'oi .\F{\AgdaUnderscore{}∈₂?\AgdaUnderscore}.}
@@ -361,17 +391,19 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 _∈₂?_ : ∀ {a} → {Bean : Set a}
        → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
        → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∈₂ xs
-_∈₂?_ ⦃ Q ⦄ x xs = DVRUA.any? (x ≟_) $ LL.vec Q xs
+_∈₂?_ x = DVRUA.any? (x ≟_) ∘ vec
 \end{code}
 
 \subsubsection{la'oi .\F{\AgdaUnderscore{}∉₂\AgdaUnderscore}.}
-ni'o ga jo ctaipe la'o zoi.\ \B a \AgdaOperator{\F{∉₂}} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ na cmima la'o zoi.\ \B b\ .zoi.
+ni'o ga jo ctaipe la'o zoi.\ \B a \OpF{∉₂} \B b\ .zoi.\ gi la'o zoi.\ \B a\ .zoi.\ na cmima la'o zoi.\ \B b\ .zoi.
 
 \begin{code}
 _∉₂_ : ∀ {a} → {Bean : Set a}
-     → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
-     → LL.e Jeans → Bean → Set a
-_∉₂_ ⦃ Q ⦄ a b = DVRUL.All (a ≢_) $ LL.vec Q b
+     → ⦃ Jeans : LL Bean ⦄ → ⦃ Eq $ LL.e Jeans ⦄
+     → LL.e Jeans
+     → Bean
+     → Set a
+_∉₂_ a = DVRUL.All (a ≢_) ∘ vec
 \end{code}
 
 
@@ -381,8 +413,10 @@ ni'o xu sarcu fa lo nu la .varik.\ cu ciksi bau la .lojban.
 \begin{code}
 _∉₂?_ : ∀ {a} → {Bean : Set a}
        → ⦃ Jeans : LL Bean ⦄ → ⦃ _ : Eq $ LL.e Jeans ⦄
-       → (x : LL.e Jeans) → (xs : Bean) → Dec $ x ∉₂ xs
-_∉₂?_ ⦃ Q ⦄ x = DVRUL.all? (inv {P = x ≡_} ∘ _≟_ x) ∘ LL.vec Q
+       → (x : LL.e Jeans)
+       → (xs : Bean)
+       → Dec $ x ∉₂ xs
+_∉₂?_ x = DVRUL.all? (inv {P = x ≡_} ∘ _≟_ x) ∘ vec
   where
   inv : ∀ {a p} → {A : Set a} → {P : Pred A p}
       → {x : A}
@@ -403,15 +437,13 @@ ni'o ga jo ctaipe la'o zoi.\ \F{nu,iork} \B a .zoi.\ gi ro da poi ke'a selvau la
 nu,iork : ∀ {a} → {Bean : Set a}
         → ⦃ Q : LL Bean ⦄ → ⦃ Eq $ LL.e Q ⦄
         → Bean → Set a
-nu,iork = nu,iork' ∘ Data.Vec.toList ∘ vec
+nu,iork = nu,iork' ∘ 𝕍.toList ∘ vec
   where
-  nu,iork' = λ a → a ≡ filterₗ (λ b → []' b ≟ filterₗ (_≟_ b) a) a
-    where
-    []' = flip List._∷_ List.[]
+  nu,iork' = λ a → a ≡ filterₗ (λ b → 𝕃.[ b ] ≟ filterₗ (b ≟_) a) a
 \end{code}
 
 \section{la'oi .\F{UL}.}
-ni'o ga jo la'o zoi.\ \B A \OpF , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau ko'a goi la'oi .\B A.\ zo'u li pa du lo nilzilcmi be lo'i ro selvau be ko'a be'o poi ke'a du da
+ni'o ga jo la'o zoi.\ \B A \OpIC , \B b .zoi.\ ctaipe la'o zoi.\ zoi.\ \F{UL} \B A .zoi.\ gi ro da poi ke'a selvau ko'a goi la'oi .\B A.\ zo'u li pa du lo nilzilcmi be lo'i ro selvau be ko'a be'o poi ke'a du da
 
 \begin{code}
 UL : ∀ {a} → (A : Set a)
@@ -425,14 +457,14 @@ UL A = Σ A nu,iork
 \begin{code}
 instance
   liliList : ∀ {a} → {A : Set a} → LL $ List A
-  liliList {_} {A} = record {
+  liliList {A = A} = record {
     e = A;
     olen = const $ List A;
     [] = []ₗ;
     l = lengthₗ;
     _∷_ = _∷ₗ_;
-    vec = Data.Vec.fromList;
-    cev = Data.Vec.toList}
+    vec = 𝕍.fromList;
+    cev = 𝕍.toList}
   liliString : LL String
   liliString = record {
     e = Char;
@@ -440,14 +472,14 @@ instance
     [] = "";
     l = Data.String.length;
     _∷_ = λ a → fromListₛ ∘ _∷ₗ_ a ∘ toListₛ;
-    vec = Data.Vec.fromList ∘ Data.String.toList;
-    cev = Data.String.fromList ∘ Data.Vec.toList}
+    vec = 𝕍.fromList ∘ Data.String.toList;
+    cev = Data.String.fromList ∘ 𝕍.toList}
   liliVec : ∀ {a} → {A : Set a} → {n : ℕ} → LL $ Vec A n
-  liliVec {_} {A} {n'} = record {
+  liliVec {A = A} = record {
     [] = []ᵥ;
     olen = Vec A;
     e = A;
-    l = const n';
+    l = const _;
     _∷_ = _∷ᵥ_;
     vec = id;
     cev = id}
@@ -457,9 +489,9 @@ instance
     olen = const ℕ;
     e = Fin 1;
     l = id;
-    _∷_ = const ℕ.suc;
-    vec = λ q → replicateᵥ {_} {_} {q} $ Data.Fin.fromℕ 0;
-    cev = Data.Vec.length}
+    _∷_ = const suc;
+    vec = λ _ → 𝕍.replicate 𝔽.zero;
+    cev = 𝕍.length}
 \end{code}
 
 \section{la'oi .\AgdaRecord{LC}.}
@@ -469,7 +501,7 @@ ni'o ga jo la'oi .\B Q.\ drani gi la'o zoi.\ \AgdaField{LC.\AgdaUnderscore++\Agd
 record LC {a} (A B : Set a) ⦃ Q : LL A ⦄ ⦃ R : LL B ⦄ : Set a
   where
   field
-    _++_ : (C : A) → (D : B) → LL.olen Q $ LL.l Q C + LL.l R D
+    _++_ : (c : A) → (d : B) → LL.olen Q $ LL.l Q c + LL.l R d
 \end{code}
 
 \subsection{le fancu}
@@ -483,10 +515,11 @@ infixr 5 _++_
 _++_ : ∀ {a} → {Bean CoolJ : Set a}
      → ⦃ T : LL Bean ⦄
      → ⦃ U : LL CoolJ ⦄
-     → ⦃ C : LC Bean CoolJ ⦄
-     → (BN : Bean) → (CJ : CoolJ)
+     → ⦃ K : LC Bean CoolJ ⦄
+     → (BN : Bean)
+     → (CJ : CoolJ)
      → LL.olen T $ LL.l T BN + LL.l U CJ
-_++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
+_++_ ⦃ K = Q ⦄ = LC._++_ Q
 \end{code}
 
 \subsection{le me'oi .\AgdaKeyword{instance}.}
@@ -495,13 +528,13 @@ _++_ ⦃ _ ⦄ ⦃ _ ⦄ ⦃ Q ⦄ = LC._++_ Q
 instance
   LCList : ∀ {a} → {A : Set a}
          → LC (List A) (List A)
-  LCList = record {_++_ = Data.List._++_}
+  LCList = record {_++_ = 𝕃._++_}
   LCString : LC String String
   LCString = record {_++_ = Data.String._++_}
   LCVec : ∀ {a} → {A : Set a} → {m n : ℕ}
-        → LC (Vec A m) (Vec A n)
-  LCVec = record {_++_ = Data.Vec._++_}
+        → LC (Vec A m) $ Vec A n
+  LCVec = record {_++_ = 𝕍._++_}
   LCℕ : LC ℕ ℕ
-  LCℕ = record {_++_ = Data.Nat._+_}
+  LCℕ = record {_++_ = ℕ._+_}
 \end{code}
 \end{document}

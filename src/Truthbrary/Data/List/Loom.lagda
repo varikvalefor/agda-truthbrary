@@ -32,12 +32,16 @@
 \newunicodechar{𝔦}{\ensuremath{\mathfrak{i}}}
 \newunicodechar{𝔪}{\ensuremath{\mathfrak{m}}}
 \newunicodechar{𝔭}{\ensuremath{\mathfrak{p}}}
+\newunicodechar{▹}{\ensuremath{\mathnormal\triangleright}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
 
+% | ni'o la .varik. na morji lo du'u cmene ki'u ma
+%
+% .i ku'i xajmi la .varik.
 \newcommand\kulmodis{\texttt{Truthbrary.Data.List.Loom}}
 
 \title{la'o zoi.\ \kulmodis\ .zoi.}
@@ -47,11 +51,11 @@
 \maketitle
 
 \begin{abstract}
-	\noindent ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru lo velcki be lo ctaipe be lo su'u dunli be'o be'o je lo velcki be lo fancu ja co'e be ko'a goi lo liste bei zo'e ja lo liste poi lo me'oi .\F{length}.\ be ke'a cu du lo me'oi .\F{length}.\ be ko'a je poi su'o da zo'u lo meirmoi be da bei fo ke'a cu frica ja co'e lo meirmoi be da bei fo ko'a
+	\noindent ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru lo velcki be lo ctaipe be lo su'u dunli be'o be'o je lo velcki be lo fancu ja co'e be ko'a goi lo liste bei zo'e ja lo liste poi su'o da zo'u da me'oi .\F{length}.\ ke'a je ko'a je poi su'o da zo'u lo meirmoi be da bei fo ke'a cu co'e ja frica lo meirmoi be da bei fo ko'a
 \end{abstract}
 
 \section{le torveki}
-ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulmodis\ .zoi.\ kei je cu curmi lo nu cusku lo se du'u cadga fa lo nu ma kau torveki ko'a
+ni'o la .varik.\ na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \kulmodis\ .zoi.\ kei je cu curmi lo nu cusku lo se du'u cadga fa lo nu ma kau torveki ko'a
 
 \section{le vrici}
 
@@ -61,6 +65,7 @@ ni'o la .varik.\ cu na birti lo du'u ma kau xamgu torveki ko'a goi la'o zoi.\ \k
 module Truthbrary.Data.List.Loom where
 
 open import Data.Fin
+  as 𝔽
   using (
     Fin;
     suc;
@@ -75,12 +80,25 @@ open import Data.Nat
   )
 open import Function
   using (
+    _on_;
     flip;
     id;
     _∘_;
     _$_
   )
+  renaming (
+    _|>_ to _▹_
+  )
 open import Data.List
+  using (
+    length;
+    _++_;
+    List;
+    take;
+    drop;
+    map;
+    _∷_
+  )
   renaming (
     lookup to _!_
   )
@@ -93,6 +111,7 @@ open import Data.Product
   )
 open import Truthbrary.Data.Fin
   using (
+    minzero;
     mink
   )
 open import Data.List.Properties
@@ -100,33 +119,43 @@ open import Data.List.Properties
     length-map
   )
 open import Relation.Binary.PropositionalEquality
+  using (
+    module ≡-Reasoning;
+    subst;
+    cong;
+    refl;
+    _≗_;
+    _≡_;
+    sym
+  )
 
 open ≡-Reasoning
+  using (
+    step-≡;
+    begin_;
+    _∎
+  )
 \end{code}
 
 \section{la .\F{lum}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{lum}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{lum}.\ bau la .lojban.
 
 \begin{code}
 lum : ∀ {a b} → {A : Set a} → {B : Set b}
     → (l : List A)
     → (f : A → B)
     → (n : Fin $ length l)
-    → (map f l ! mink n (sym $ length-map f l)) ≡ f (l ! n)
+    → map f l ! mink n (sym $ length-map f l) ≡ f (l ! n)
 lum (x ∷ xs) f zero = begin
-  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ cong x∷xs! $ zil ℓ ⟩
-  map f (x ∷ xs) ! zero ≡⟨⟩
+  map f (x ∷ xs) ! (mink zero ℓ) ≡⟨ minzero ℓ ▹ cong x∷xs'! ⟩
+  map f (x ∷ xs) ! zero ≡⟨ refl ⟩
   f x ∎
   where
   ℓ = sym $ length-map f $ x ∷ xs
-  x∷xs! = _!_ $ map f $ x ∷ xs
-  zil : {m n : ℕ}
-      → (x : ℕ.suc m ≡ ℕ.suc n)
-      → mink zero x ≡ zero
-  zil refl = refl
+  x∷xs'! = _!_ $ map f $ x ∷ xs
 lum (x ∷ xs) f (suc n) = begin
-  map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ kong $ 𝔪 n tryk tryks ⟩
-  map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ 𝔦 x xs f $ mink n tryk ⟩
+  map f (x ∷ xs) ! mink (suc n) tryks ≡⟨ 𝔪 n tryk tryks ▹ kong ⟩
+  map f (x ∷ xs) ! suc (mink n tryk) ≡⟨ refl ⟩
   map f xs ! mink n tryk ≡⟨ lum xs f n ⟩
   f (xs ! n) ∎
   where
@@ -136,62 +165,41 @@ lum (x ∷ xs) f (suc n) = begin
   𝔪 : {m n : ℕ}
     → (t : Fin m)
     → (x : m ≡ n)
-    → (d : ℕ.suc m ≡ ℕ.suc n)
-    → mink (suc t) d ≡ suc (mink t x)
+    → (x₂ : suc m ≡ suc n)
+    → mink (suc t) x₂ ≡ suc (mink t x)
   𝔪 t refl refl = refl
-  𝔦 : ∀ {a b} → {A : Set a} → {B : Set b}
-    → (x : A)
-    → (xs : List A)
-    → (f : A → B)
-    → (n : Fin $ length $ map f xs)
-    → map f (x ∷ xs) ! (suc n) ≡ map f xs ! n
-  𝔦 x xs f n = refl
 \end{code}
 
 \section{la .\F{ual}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ual}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ual}.\ bau la .lojban.
 
 \begin{code}
 ual : ∀ {a} → {A : Set a}
-    → (l : List A) → (n : Fin $ length l) → (f : A → A)
+    → (l : List A)
+    → (n : Fin $ length l)
+    → (f : A → A)
     → Σ (List A) $ λ l'
       → Σ (length l ≡ length l') $ λ ℓ
       → l' ! mink n ℓ ≡ f (l ! n)
 ual (x ∷ xs) zero f = f x ∷ xs , refl , refl
-ual (x ∷ xs) (suc n) f = x ∷ proj₁ r₁ , r₂ , r₃
+ual (x ∷ xs) (suc n) f = x ∷ proj₁ u , r₂ , r₃
   where
-  r₁ = ual xs n f
-  r₂ = cong ℕ.suc $ proj₁ $ proj₂ r₁
-  r₃ = i misuk $ p (proj₁ r₁) x $ proj₂ $ proj₂ r₁
+  u = ual xs n f
+  u₂ = u ▹ λ (_ , x , _) → x
+  r₂ = cong suc u₂
+  r₃ = subst i (sukmi u₂) $ proj₂ $ proj₂ u
     where
-    p : ∀ {a} → {A : Set a}
-      → {x : A}
-      → (l : List A)
-      → {n : Fin $ length l}
-      → (z : A)
-      → l ! n ≡ x
-      → (z ∷ l) ! suc n ≡ x
-    p l z = id
-    i : ∀ {a} → {A : Set a}
-      → {l : List A}
-      → {m n : Fin $ length l}
-      → {k : A}
-      → m ≡ n
-      → l ! m ≡ k
-      → l ! n ≡ k
-    i refl = id
-    misuk : suc (mink n $ proj₁ $ proj₂ r₁) ≡ mink (suc n) r₂
-    misuk = sukmi n $ proj₁ $ proj₂ r₁
-      where
-      sukmi : {m n : ℕ}
-            → (f : Fin m)
-            → (x : m ≡ n)
-            → suc (mink f x) ≡ mink (suc f) (cong ℕ.suc x)
-      sukmi f refl = refl
+    i = λ i → (x ∷ proj₁ u) ! i ≡ f ((x ∷ xs) ! suc n)
+    sukmi : {m n : ℕ}
+          → {f : Fin m}
+          → (_≗_
+              (suc ∘ mink f)
+              (mink {n = suc n} (suc f) ∘ cong suc))
+    sukmi refl = refl
 \end{code}
 
 \section{la .\F{ualmap}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmap}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmap}.\ bau la .lojban.
 
 \begin{code}
 ualmap : ∀ {a b} → {A : Set a} → {B : Set b}
@@ -202,24 +210,24 @@ ualmap : ∀ {a b} → {A : Set a} → {B : Set b}
        → Σ (List B) $ λ l
          → Σ (length x ≡ length l) $ λ ℓ
          → g (f $ x ! k) ≡ l ! mink k ℓ
-ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
+ualmap {B = B} x f g k = proj₁ l , _ , sym p₃
   where
   mifix = map f x
   ℓ : length x ≡ length mifix
-  ℓ = sym $ length-map f x
+  ℓ = length-map f x ▹ sym
   k₂ = mink k ℓ
-  l : Σ (List B) $ λ l'
-      → Σ (length mifix ≡ length l') $ λ ℓ
-      → l' ! mink k₂ ℓ ≡ g (mifix ! k₂)
+  l : Σ (List B) $ λ l
+      → Σ _ $ λ ℓ
+      → l ! mink k₂ ℓ ≡ g (mifix ! k₂)
   l = ual mifix k₂ g
   p₂ = begin
-    length x ≡⟨ sym $ length-map f x ⟩
+    length x ≡⟨ length-map f x ▹ sym ⟩
     length (map f x) ≡⟨ proj₁ $ proj₂ l ⟩
     length (proj₁ l) ∎
   p₃ = begin
-    proj₁ l ! mink k p₂ ≡⟨ cong (_!_ $ proj₁ l) $ M k ℓ ℓ₂ xul ⟩
+    proj₁ l ! mink k p₂ ≡⟨ M k ℓ ℓ₂ xul ▹ cong (proj₁ l !_) ⟩
     proj₁ l ! mink k₂ (proj₁ $ proj₂ l) ≡⟨ proj₂ $ proj₂ l ⟩
-    g (map f x ! k₂) ≡⟨ cong g $ lum x f k ⟩
+    g (map f x ! k₂) ≡⟨ lum x f k ▹ cong g ⟩
     g (f $ x ! k) ∎
     where
     ℓ₂ = proj₁ $ proj₂ l
@@ -233,61 +241,59 @@ ualmap {B = B} x f g k = proj₁ l , p₂ , sym p₃
       → (x : m ≡ n)
       → (xov : l ≡ n)
       → mink k xov ≡ mink (mink k v) x
-    M k refl refl refl = refl
+    M _ refl refl refl = refl
 \end{code}
 
 \section{la .\F{ualkonk}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualkonk}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualkonk}.\ bau la .lojban.
 
 \begin{code}
 ualkonk : ∀ {a} → {A : Set a}
         → (x : List A)
         → (n : Fin $ length x)
         → (f : A → A)
-        → let n' = Data.Fin.toℕ n in
+        → let n' = 𝔽.toℕ n in
           (_≡_
             (proj₁ $ ual x n f)
             (_++_
               (take n' x)
               (_∷_
                 (f $ x ! n)
-                (drop (ℕ.suc n') x))))
-ualkonk (_ ∷ _) Fin.zero _ = refl
-ualkonk (x ∷ xs) (Fin.suc n) f = cong (_∷_ x) u
-  where
-  u = ualkonk xs n f
+                (drop (suc n') x))))
+ualkonk (_ ∷ _) zero _ = refl
+ualkonk (_ ∷ _) (suc _) _ = ualkonk _ _ _ ▹ cong (_ ∷_) 
 \end{code}
 
 \section{la .\F{ualteik}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualteik}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualteik}.\ bau la .lojban.
 
 \begin{code}
 ualteik : ∀ {a} → {A : Set a}
         → (x : List A)
         → (n : Fin $ length x)
         → (f : A → A)
-        → let n' = Data.Fin.toℕ n in
-          take n' x ≡ take n' (proj₁ $ ual x n f)
-ualteik (_ ∷ _) Fin.zero _ = refl
-ualteik (x ∷ xs) (Fin.suc n) = cong (_∷_ x) ∘ ualteik xs n
+        → let n' = 𝔽.toℕ n in
+          take n' x ≡ take n' (ual x n f ▹ proj₁)
+ualteik (_ ∷ _) zero _ = refl
+ualteik (x ∷ xs) (suc n) = cong (x ∷_) ∘ ualteik xs n
 \end{code}
 
 \section{la .\F{ualdrop}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualdrop}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualdrop}.\ bau la .lojban.
 
 \begin{code}
 ualdrop : ∀ {a} → {A : Set a}
         → (x : List A)
         → (n : Fin $ length x)
         → (f : A → A)
-        → let n' = ℕ.suc $ Data.Fin.toℕ n in
+        → let n' = suc $ 𝔽.toℕ n in
           drop n' x ≡ drop n' (proj₁ $ ual x n f)
 ualdrop (_ ∷ _) Fin.zero _ = refl
 ualdrop (_ ∷ xs) (Fin.suc n) = ualdrop xs n
 \end{code}
 
 \section{la .\F{ualmapkonk}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmapkonk}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{ualmapkonk}.\ bau la .lojban.
 
 \begin{code}
 ualmapkonk : ∀ {a} → {A B : Set a}
@@ -295,56 +301,50 @@ ualmapkonk : ∀ {a} → {A B : Set a}
            → (n : Fin $ length x)
            → (f : A → B)
            → (g : B → B)
-           → let n' = Data.Fin.toℕ n in
+           → let n' = 𝔽.toℕ n in
              (_≡_
                (proj₁ $ ualmap x f g n)
                (_++_
                  (take n' $ map f x)
                  (_∷_
                    (g $ f $ x ! n)
-                   (drop (ℕ.suc n') $ map f x))))
+                   (drop (suc n') $ map f x))))
 ualmapkonk x n f g = begin
   proj₁ (ualmap x f g n) ≡⟨ refl ⟩
-  proj₁ (ual (map f x) m g) ≡⟨ ualkonk (map f x) m g ⟩
-  t m' ++ g ((map f x) ! m) ∷ d (ℕ.suc m') ≡⟨ mynydus ⟩
-  t n' ++ g ((map f x) ! m) ∷ d (ℕ.suc n') ≡⟨ midju ⟩
-  t n' ++ g (f $ x ! n) ∷ d (ℕ.suc n') ∎
+  proj₁ (ual (map f x) n₂ g) ≡⟨ ualkonk (map f x) n₂ g ⟩
+  t take n₂' ++ g ((map f x) ! n₂) ∷ t drop (suc n₂') ≡⟨ mynydus ⟩
+  t take n' ++ g ((map f x) ! n₂) ∷ t drop (suc n') ≡⟨ lum x f n ▹ cong (p n') ⟩
+  t take n' ++ g (f $ x ! n) ∷ t drop (suc n') ∎
   where
-  m = mink n $ sym $ length-map f x
-  m' = Data.Fin.toℕ m
-  n' = Data.Fin.toℕ n
-  t = flip take $ map f x
-  d = flip drop $ map f x
-  tondus : {m n : ℕ}
-         → (x : Fin m)
-         → (d : m ≡ n)
-         → Data.Fin.toℕ x ≡ Data.Fin.toℕ (mink x d)
-  tondus _ refl = refl
-  mynydus = cong p $ sym $ tondus n $ sym $ length-map f x
-    where
-    p = λ n → t n ++ g ((map f x) ! m) ∷ d (ℕ.suc n)
-  midju = cong (λ c → t n' ++ g c ∷ d (ℕ.suc n')) $ lum x f n
+  n₂ = n ▹_ $ flip mink $ length-map f x ▹ sym
+  n₂' = 𝔽.toℕ n₂
+  n' = 𝔽.toℕ n
+  t = flip flip $ map f x
+  tondus : {m n : ℕ} → (d : m ≡ n) → 𝔽.toℕ ≗ (𝔽.toℕ ∘ flip mink d)
+  tondus refl _ = refl
+  p = λ n c → t take n ++ g c ∷ t drop (suc n)
+  mynydus = tondus _ n ▹ sym ▹ cong (flip p $ map f x ! n₂)
 \end{code}
 
 \section{la .\F{teiklendus}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{teiklendus}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{teiklendus}.\ bau la .lojban.
 
 .i zo .teiklendus.\ cmavlaka'i lo konkatena be zo'oi .take.\ bei zo'oi .length.\ bei zo dunli
 
 \begin{code}
 teiklendus : ∀ {a} → {A : Set a}
-           → (xs : List A)
+           → (x : List A)
            → (n : ℕ)
-           → n ≤ length xs
-           → length (take n xs) ≡ n
+           → n ≤ length x
+           → length (take n x) ≡ n
 teiklendus _ 0 _ = refl
-teiklendus (_ ∷ xs) (suc n) (s≤s g) = cong ℕ.suc t
+teiklendus (_ ∷ _) (suc _) (s≤s g) = cong suc t
   where
-  t = teiklendus xs n g
+  t = teiklendus _ _ g
 \end{code}
 
 \section{la .\F{mapimplant}.}
-ni'o la .varik.\ cu na jinvi le du'u sarcu fa lo nu ciksi la .\F{mapimplant}.\ bau la .lojban.
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ciksi la .\F{mapimplant}.\ fo lo te gerna be fi la .lojban.
 
 \begin{code}
 mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
@@ -352,14 +352,14 @@ mapimplant : ∀ {a b} → {A : Set a} → {B : Set b}
            → (z : B)
            → (f : A → B)
            → (n : Fin $ length x)
-           → let n' = Data.Fin.toℕ n in
-             let sin = ℕ.suc n' in
-             (_≡_
-               (take n' (map f x) ++ z ∷ drop sin (map f x))
-               (map f (take n' x) ++ z ∷ map f (drop sin x)))
+           → let n' = 𝔽.toℕ n in
+             let sin = suc n' in
+             ((_≡_ on (λ (a ,  b) → a ++ z ∷ b))
+               (take n' (map f x) , drop sin (map f x))
+               (map f (take n' x) , map f (drop sin x)))
 mapimplant (_ ∷ _) _ _ zero = refl
-mapimplant (x ∷ xs) z f (suc n) = cong (_∷_ $ f x) mip
+mapimplant (x ∷ _) _ f (suc _) = mip ▹ cong (f x ∷_)
   where
-  mip = mapimplant xs z f n
+  mip = mapimplant _ _ _ _
 \end{code}
 \end{document}

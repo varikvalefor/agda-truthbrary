@@ -58,11 +58,16 @@ ni'o la'o zoi.\ \texttt{\cmene} .zoi.\ vasru le fancu poi tu'a ke'a filri'a lo n
 module Truthbrary.Data.List.Split where
 
 open import Function
+  using (
+    _∘_;
+    _$_
+  )
 open import Data.Bool
   using (
     if_then_else_
   )
 open import Data.List
+  as 𝕃
   using (
     List
   )
@@ -71,10 +76,9 @@ open import Data.List
     [] to []ₗ
   )
 open import Truthbrary.Record.Eq
-open import Truthbrary.Record.LLC
-open import Relation.Nullary.Decidable
   using (
-    isYes
+    _≡ᵇ_;
+    Eq
   )
 \end{code}
 
@@ -84,17 +88,23 @@ ni'o ga jo ko'a goi la'o zoi\ \B a .zoi.\ ctaipe la'o zoi.\ \F{List} \B A .zoi.\
 \begin{code}
 splitOn : ∀ {a} → {A : Set a}
         → ⦃ Eq A ⦄
-        → A → List A → List $ List A
-splitOn a = rev ∘ Data.List.map rev ∘ sob a []ₗ []ₗ
+        → A
+        → List A
+        → List $ List A
+splitOn a = rev ∘ 𝕃.map rev ∘ sob a []ₗ []ₗ
   where
-  rev = Data.List.reverse
+  rev = 𝕃.reverse
   sob : ∀ {a} → {A : Set a}
       → ⦃ Eq A ⦄
-      → A → List $ List A → List A → List A → List $ List A
+      → A
+      → List $ List A
+      → List A
+      → List A
+      → List $ List A
   sob a b g []ₗ = g ∷ₗ b
-  sob a b g (f ∷ₗ xs) = if f ≡ᵇ a then hitit else add
+  sob a b g (x ∷ₗ xs) = if x ≡ᵇ a then hitit else add
     where
     hitit = sob a (g ∷ₗ b) []ₗ xs
-    add = sob a b (f ∷ₗ g) xs
+    add = sob a b (x ∷ₗ g) xs
 \end{code}
 \end{document}
