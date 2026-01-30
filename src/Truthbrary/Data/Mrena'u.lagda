@@ -858,7 +858,7 @@ module Veritas where
     R[¯R] = {!!}
 
     R[¯r]⇒R[r] : Rational ∘ ¯_ ⊆′ Rational
-    R[¯r]⇒R[r] = {!!}
+    R[¯r]⇒R[r] x (k , d) = {!!} , {!!}
 
     I[¯I] : Irrational ⊆ Irrational ∘ ¯_
     I[¯I] = {!!}
