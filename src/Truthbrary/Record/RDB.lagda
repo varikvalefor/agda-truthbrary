@@ -117,6 +117,9 @@ module SubtableVeritas where
                (sym d)
                (𝕃.lookup (Table.r z) j)))))
   ex = {!!}
+
+  rfl : ∀ {a} → {A : Set a} → (t : Table a) → Subtable t t
+  rfl = {!!}
 \end{code}
 
 \section{la'oi .\F{SCD}.}
