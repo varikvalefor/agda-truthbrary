@@ -70,6 +70,7 @@ open import Data.List
   )
 open import Data.Product
   using (
+    _×_;
     Σ
   )
 open import Relation.Binary.PropositionalEquality
@@ -135,7 +136,7 @@ ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'oi .\B a.\ dunli l
 \begin{code}
 record SCD {a} (t₁ t₂ : Table a) : Set (suc a) where
   _⇔_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
-  _⇔_ A B = (A → B) Data.Product.× (B → A)
+  _⇔_ A B = (A → B) × (B → A)
   field
     dscr : Table.SCᵣ t₁ ≡ Table.SCᵣ t₂
     dtck : (l : List $ Table.SCᵣ t₁)
