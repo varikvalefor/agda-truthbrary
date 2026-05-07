@@ -28,6 +28,7 @@
 \newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
 \newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
 \newunicodechar{⇔}{\ensuremath{\mathnormal\iff}}
+\newunicodechar{↔}{\ensuremath{\mathnormal\leftrightarrow}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -147,13 +148,13 @@ ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'oi .\B a.\ dunli l
 
 \begin{code}
 record SCD {a} (t₁ t₂ : Table a) : Set (suc a) where
-  _⇔_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
-  _⇔_ A B = (A → B) × (B → A)
+  _↔_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
+  _↔_ A B = (A → B) × (B → A)
   field
     dscr : Table.SCᵣ t₁ ≡ Table.SCᵣ t₂
     dtck : (l : List $ Table.SCᵣ t₁)
          → let l' = l ⟨ coerce ⍨ ⟩ cong List dscr in
-           Table.tcek t₁ l ⇔ Table.tcek t₂ l'
+           Table.tcek t₁ l ↔ Table.tcek t₂ l'
 \end{code}
 
 \section{la \F{jmina}}
