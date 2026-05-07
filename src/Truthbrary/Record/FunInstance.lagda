@@ -1,4 +1,5 @@
 \begin{code}
+{-# OPTIONS --backtracking-instance-search #-}
 module Truthbrary.Record.FunInstance where
 \end{code}
 
@@ -22,32 +23,15 @@ open import Relation.Binary.PropositionalEquality
     _≡_
   )
 
-record _⍨Mp {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
-  field
-    _⍨ : A → B
-
-instance
-  ⍨p-flip : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-          → _⍨Mp (A → B → C) (B → A → C)
-  ⍨p-flip = record {
-    _⍨ = flip
-    }
-
-  ⍨p-× : ∀ {a b} → {A : Set a} → {B : Set b}
-       → _⍨Mp (A × B) $ B × A
-  ⍨p-× = record {
-    _⍨ = Data.Product.swap
-    }
-
 record _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
   field
-    f₁ : _⍨Mp A B
-    f₂ : _⍨Mp B A
-    d₁ : (x : A) → x ≡ _⍨Mp._⍨ f₂ (_⍨Mp._⍨ f₁ x)
-    d₂ : (x : B) → x ≡ _⍨Mp._⍨ f₁ (_⍨Mp._⍨ f₂ x)
+    f₁ : A → B
+    f₂ : B → A
+    d₁ : (x : A) → x ≡ f₂ (f₁ x)
+    d₂ : (x : B) → x ≡ f₁ (f₂ x)
 
 _⍨ : ∀ {a b} → {A : Set a} → {B : Set b} → ⦃ _⍨M A B ⦄ → A → B
-_⍨ ⦃ M ⦄ = _⍨Mp._⍨ $ _⍨M.f₁ M
+_⍨ ⦃ M ⦄ = _⍨M.f₁ M
 
 instance
   ⍨-⍨ : ∀ {a b} → {A : Set a} → {B : Set b}
@@ -63,8 +47,8 @@ instance
   ⍨-flip : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → _⍨M (A → B → C) (B → A → C)
   ⍨-flip = record {
-    f₁ = ⍨p-flip;
-    f₂ = ⍨p-flip;
+    f₁ = flip;
+    f₂ = flip;
     d₁ = λ _ → refl;
     d₂ = λ _ → refl
     }
@@ -72,9 +56,16 @@ instance
   ⍨-× : ∀ {a b} → {A : Set a} → {B : Set b}
       → _⍨M (A × B) $ B × A
   ⍨-× = record {
-    f₁ = ⍨p-×;
-    f₂ = ⍨p-×;
+    f₁ = Data.Product.swap;
+    f₂ = Data.Product.swap;
     d₁ = λ _ → refl;
     d₂ = λ _ → refl
     }
+
+open import Data.Nat
+
+x : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+  → (A → B → C)
+  → (B → A → C)
+x = _⍨
 \end{code}
