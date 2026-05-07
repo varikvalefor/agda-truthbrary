@@ -21,6 +21,14 @@
 \newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^\AgdaFontStyle{r}}}}
 \newunicodechar{ᵣ}{\ensuremath{\mathnormal{_\AgdaFontStyle{r}}}}
+\newunicodechar{⍨}{\ensuremath{\raisebox{-0.25ex}{\ddot\sim}}}
+\newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
+\newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
+\newunicodechar{⊔}{\ensuremath{\mathnormal\sqcup}}
+\newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
+\newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
+\newunicodechar{⇔}{\ensuremath{\mathnormal\iff}}
+\newunicodechar{↔}{\ensuremath{\mathnormal\leftrightarrow}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
@@ -48,13 +56,22 @@ ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru zo'e je le velcki be la'oi .\AgdaRecord{
 
 module Truthbrary.Record.RDB where
 
+open import Level
+  using (
+    _⊔_;
+    suc
+  )
 open import Data.Fin
   using (
     Fin
   )
 open import Function
   using (
+    _⟨_⟩_;
     _$_
+  )
+  renaming (
+    flip to _⍨
   )
 open import Data.List
   as 𝕃
@@ -65,10 +82,12 @@ open import Data.List
   )
 open import Data.Product
   using (
+    _×_;
     Σ
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    cong;
     refl;
     sym;
     _≡_
@@ -117,16 +136,25 @@ module SubtableVeritas where
                (sym d)
                (𝕃.lookup (Table.r z) j)))))
   ex = {!!}
+
+  rfl : ∀ {a} → {A : Set a} → (t : Table a) → Subtable t t
+  rfl = {!!}
 \end{code}
 
 \section{la'oi .\F{SCD}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'oi .\B a.\ dunli la'oi .\B b.\ le ka mu'oi zoi.\ \AgdaField{Table.SCᵣ}\ .zoi.\ ke'a kei je le ka mu'oi zoi.\ \AgdaField{Table.tcek}\ .zoi.\ ke'a
+ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'oi .\B a.\ dunli la'oi .\B b.\ le ka mu'oi zoi.\ \AgdaField{Table.SCᵣ}\ .zoi.\ ke'a kei je le ka mu'oi zoi.\ \AgdaField{Table.tcek}\ .zoi.\ ce'u
 
 .i racli fa lo nu sruma zo'e ja le du'u zoi zoi.\ \F{SCD}\ .zoi.\ cmavlaka'i lu se ctaipe dunli li'u
 
 \begin{code}
-SCD : ∀ {a} → Table a → Table a → Set a
-SCD = {!!}
+record SCD {a} (t₁ t₂ : Table a) : Set (suc a) where
+  _↔_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
+  _↔_ A B = (A → B) × (B → A)
+  field
+    dscr : Table.SCᵣ t₁ ≡ Table.SCᵣ t₂
+    dtck : (l : List $ Table.SCᵣ t₁)
+         → let l' = l ⟨ coerce ⍨ ⟩ cong List dscr in
+           Table.tcek t₁ l ↔ Table.tcek t₂ l'
 \end{code}
 
 \section{la \F{jmina}}
