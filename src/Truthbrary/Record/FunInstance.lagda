@@ -31,14 +31,17 @@ record Iso {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
     d₁ : (x : A) → x ≡ f₂ (f₁ x)
     d₂ : (x : B) → x ≡ f₁ (f₂ x)
 
+data _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
+  iso⍨ : Iso A B → _⍨M A B
+
 _⍨ : ∀ {a b} → {A : Set a} → {B : Set b} → ⦃ Iso A B ⦄ → A → B
 _⍨ ⦃ M ⦄ = Iso.f₁ M
 
 instance
   ⍨-⍨ : ∀ {a b} → {A : Set a} → {B : Set b}
      → ⦃ Iso A B ⦄
-     → Iso B A
-  ⍨-⍨ ⦃ M ⦄ = record {
+     → _⍨M B A
+  ⍨-⍨ ⦃ M ⦄ = iso⍨ $ record {
     f₁ = Iso.f₂ M;
     f₂ = Iso.f₁ M;
     d₁ = Iso.d₂ M;
@@ -46,8 +49,8 @@ instance
     }
 
   ⍨-flip : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-         → Iso (A → B → C) (B → A → C)
-  ⍨-flip = record {
+         → _⍨M (A → B → C) (B → A → C)
+  ⍨-flip = iso⍨ $ record {
     f₁ = flip;
     f₂ = flip;
     d₁ = λ _ → refl;
@@ -55,16 +58,16 @@ instance
     }
 
   ⍨-× : ∀ {a b} → {A : Set a} → {B : Set b}
-      → Iso (A × B) $ B × A
-  ⍨-× = record {
+      → _⍨M (A × B) $ B × A
+  ⍨-× = iso⍨ $ record {
     f₁ = Data.Product.swap;
     f₂ = Data.Product.swap;
     d₁ = λ _ → refl;
     d₂ = λ _ → refl
     }
 
-  ⍨-≡ : ∀ {a} → {A B : Set a} → Iso (A ≡ B) $ B ≡ A
-  ⍨-≡ = record {
+  ⍨-≡ : ∀ {a} → {A B : Set a} → _⍨M (A ≡ B) $ B ≡ A
+  ⍨-≡ = iso⍨ $ record {
     f₁ = sym;
     f₂ = sym;
     d₁ = λ {refl → refl};
