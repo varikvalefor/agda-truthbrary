@@ -61,11 +61,4 @@ instance
     d₁ = λ _ → refl;
     d₂ = λ _ → refl
     }
-
-open import Data.Nat
-
-x : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-  → (A → B → C)
-  → (B → A → C)
-x = _⍨
 \end{code}
