@@ -123,7 +123,7 @@ module SubtableVeritas where
 \end{code}
 
 \section{la'oi .\F{SCD}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'oi .\B a.\ dunli la'oi .\B b.\ le ka mu'oi zoi.\ \AgdaField{Table.SCᵣ}\ .zoi.\ ke'a kei je le ka mu'oi zoi.\ \AgdaField{Table.tcek}\ .zoi.\ ke'a
+ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'oi .\B a.\ dunli la'oi .\B b.\ le ka mu'oi zoi.\ \AgdaField{Table.SCᵣ}\ .zoi.\ ke'a kei je le ka mu'oi zoi.\ \AgdaField{Table.tcek}\ .zoi.\ ce'u
 
 .i racli fa lo nu sruma zo'e ja le du'u zoi zoi.\ \F{SCD}\ .zoi.\ cmavlaka'i lu se ctaipe dunli li'u
 
