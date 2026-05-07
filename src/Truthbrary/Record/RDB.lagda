@@ -85,6 +85,10 @@ open import Data.Product
     _×_;
     Σ
   )
+open import Relation.Unary
+  using (
+    Decidable
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     cong;
@@ -220,5 +224,14 @@ record Database {a p} : Set (suc a ⊔ suc p) where
     tb : List $ Table a
     tcek : List $ Table a → Set p
     ctaipe : tcek tb
+\end{code}
+
+\section{ko'a goi la'oi .Autodatabase.}
+
+\begin{code}
+record Autodatabase {a p} : Set (suc a ⊔ suc p) where
+  field
+    db : Database {a} {p}
+    tcek-dek : Decidable $ Database.tcek db
 \end{code}
 \end{document}
