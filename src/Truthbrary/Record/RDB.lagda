@@ -48,6 +48,11 @@ ni'o la'o zoi.\ \kulmodis\ .zoi.\ vasru zo'e je le velcki be la'oi .\AgdaRecord{
 
 module Truthbrary.Record.RDB where
 
+open import Level
+  using (
+    _⊔_;
+    suc
+  )
 open import Data.Fin
   using (
     Fin
@@ -128,8 +133,14 @@ ni'o ga jo ctaipe la'o zoi.\ \F{SCD} \B a\ \B b\ .zoi.\ gi la'oi .\B a.\ dunli l
 .i racli fa lo nu sruma zo'e ja le du'u zoi zoi.\ \F{SCD}\ .zoi.\ cmavlaka'i lu se ctaipe dunli li'u
 
 \begin{code}
-SCD : ∀ {a} → Table a → Table a → Set a
-SCD = {!!}
+record SCD {a} (t₁ t₂ : Table a) : Set (suc a) where
+  _⇔_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
+  _⇔_ A B = (A → B) Data.Product.× (B → A)
+  field
+    dscr : Table.SCᵣ t₁ ≡ Table.SCᵣ t₂
+    dtck : (l : List $ Table.SCᵣ t₁)
+         → let l' = Function.flip coerce l $ Relation.Binary.PropositionalEquality.cong List dscr in
+           Table.tcek t₁ l ⇔ Table.tcek t₂ l'
 \end{code}
 
 \section{la \F{jmina}}
