@@ -21,6 +21,13 @@
 \newunicodechar{∷}{\ensuremath{\mathnormal{\Colon}}}
 \newunicodechar{ʳ}{\ensuremath{\mathnormal{^\AgdaFontStyle{r}}}}
 \newunicodechar{ᵣ}{\ensuremath{\mathnormal{_\AgdaFontStyle{r}}}}
+\newunicodechar{⍨}{\ensuremath{\raisebox{-0.25ex}{\ddot\sim}}}
+\newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
+\newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
+\newunicodechar{⊔}{\ensuremath{\mathnormal\sqcup}}
+\newunicodechar{₁}{\ensuremath{\mathnormal{_1}}}
+\newunicodechar{₂}{\ensuremath{\mathnormal{_2}}}
+\newunicodechar{⇔}{\ensuremath{\mathnormal\iff}}
 
 \newcommand\Sym\AgdaSymbol
 \newcommand\D\AgdaDatatype
