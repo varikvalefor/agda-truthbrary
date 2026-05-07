@@ -215,7 +215,7 @@ module vimcuVeritas where
 ni'o ro da poi ke'a ctaipe ko'a zo'u da sinxa lo su'o me'oi .database.
 
 \begin{code}
-record Database {a p} : Set (Agda.Primitive.lsuc a Agda.Primitive.⊔ Agda.Primitive.lsuc p) where
+record Database {a p} : Set (suc a ⊔ suc p) where
   field
     tb : List $ Table a
     tcek : List $ Table a → Set p
