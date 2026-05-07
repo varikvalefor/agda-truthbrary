@@ -20,6 +20,7 @@ open import Data.Product
 open import Relation.Binary.PropositionalEquality
   using (
     refl;
+    sym;
     _≡_
   )
 
@@ -60,5 +61,13 @@ instance
     f₂ = Data.Product.swap;
     d₁ = λ _ → refl;
     d₂ = λ _ → refl
+    }
+
+  ⍨-≡ : ∀ {a} → {A B : Set a} → _⍨M (A ≡ B) $ B ≡ A
+  ⍨-≡ = record {
+    f₁ = sym;
+    f₂ = sym;
+    d₁ = λ {refl → refl};
+    d₂ = λ {refl → refl}
     }
 \end{code}
