@@ -33,9 +33,11 @@ record Iso {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
 
 data _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
   iso⍨ : Iso A B → _⍨M A B
+  fancu⍨ : (A → B) → _⍨M A B
 
-_⍨ : ∀ {a b} → {A : Set a} → {B : Set b} → ⦃ Iso A B ⦄ → A → B
-_⍨ ⦃ M ⦄ = Iso.f₁ M
+_⍨ : ∀ {a b} → {A : Set a} → {B : Set b} → ⦃ _⍨M A B ⦄ → A → B
+_⍨ ⦃ iso⍨ M ⦄ = Iso.f₁ M
+_⍨ ⦃ fancu⍨ M ⦄ = M
 
 instance
   ⍨-⍨ : ∀ {a b} → {A : Set a} → {B : Set b}
@@ -73,4 +75,7 @@ instance
     d₁ = λ {refl → refl};
     d₂ = λ {refl → refl}
     }
+
+  ⍨-f₁ : ∀ {a} → {A : Set a} → {B : Set a} → _⍨M (A → A → B) (A → B)
+  ⍨-f₁ = fancu⍨ $ λ f x → f x x
 \end{code}
