@@ -59,6 +59,7 @@ open import Data.Fin
   )
 open import Function
   using (
+    _⟨_⟩_;
     _$_
   )
   renaming (
@@ -144,7 +145,7 @@ record SCD {a} (t₁ t₂ : Table a) : Set (suc a) where
   field
     dscr : Table.SCᵣ t₁ ≡ Table.SCᵣ t₂
     dtck : (l : List $ Table.SCᵣ t₁)
-         → let l' = _⍨ coerce l $ cong List dscr in
+         → let l' = l ⟨ coerce ⍨ ⟩ cong List dscr in
            Table.tcek t₁ l ⇔ Table.tcek t₂ l'
 \end{code}
 
