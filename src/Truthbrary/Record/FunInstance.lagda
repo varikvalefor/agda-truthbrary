@@ -20,33 +20,39 @@ open import Data.Product
 open import Relation.Binary.PropositionalEquality
   using (
     refl;
+    sym;
     _≡_
   )
 
-record _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
+record Iso {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
   field
     f₁ : A → B
     f₂ : B → A
     d₁ : (x : A) → x ≡ f₂ (f₁ x)
     d₂ : (x : B) → x ≡ f₁ (f₂ x)
 
+data _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
+  iso⍨ : Iso A B → _⍨M A B
+  fancu⍨ : (A → B) → _⍨M A B
+
 _⍨ : ∀ {a b} → {A : Set a} → {B : Set b} → ⦃ _⍨M A B ⦄ → A → B
-_⍨ ⦃ M ⦄ = _⍨M.f₁ M
+_⍨ ⦃ iso⍨ M ⦄ = Iso.f₁ M
+_⍨ ⦃ fancu⍨ M ⦄ = M
 
 instance
   ⍨-⍨ : ∀ {a b} → {A : Set a} → {B : Set b}
-     → ⦃ _⍨M A B ⦄
+     → ⦃ Iso A B ⦄
      → _⍨M B A
-  ⍨-⍨ ⦃ M ⦄ = record {
-    f₁ = _⍨M.f₂ M;
-    f₂ = _⍨M.f₁ M;
-    d₁ = _⍨M.d₂ M;
-    d₂ = _⍨M.d₁ M
+  ⍨-⍨ ⦃ M ⦄ = iso⍨ $ record {
+    f₁ = Iso.f₂ M;
+    f₂ = Iso.f₁ M;
+    d₁ = Iso.d₂ M;
+    d₂ = Iso.d₁ M
     }
 
   ⍨-flip : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
          → _⍨M (A → B → C) (B → A → C)
-  ⍨-flip = record {
+  ⍨-flip = iso⍨ $ record {
     f₁ = flip;
     f₂ = flip;
     d₁ = λ _ → refl;
@@ -55,10 +61,21 @@ instance
 
   ⍨-× : ∀ {a b} → {A : Set a} → {B : Set b}
       → _⍨M (A × B) $ B × A
-  ⍨-× = record {
+  ⍨-× = iso⍨ $ record {
     f₁ = Data.Product.swap;
     f₂ = Data.Product.swap;
     d₁ = λ _ → refl;
     d₂ = λ _ → refl
     }
+
+  ⍨-≡ : ∀ {a} → {A B : Set a} → _⍨M (A ≡ B) $ B ≡ A
+  ⍨-≡ = iso⍨ $ record {
+    f₁ = sym;
+    f₂ = sym;
+    d₁ = λ {refl → refl};
+    d₂ = λ {refl → refl}
+    }
+
+  ⍨-f₁ : ∀ {a} → {A : Set a} → {B : Set a} → _⍨M (A → A → B) (A → B)
+  ⍨-f₁ = fancu⍨ $ λ f x → f x x
 \end{code}
