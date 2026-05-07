@@ -75,6 +75,7 @@ open import Data.Product
   )
 open import Relation.Binary.PropositionalEquality
   using (
+    cong;
     refl;
     sym;
     _≡_
@@ -140,7 +141,7 @@ record SCD {a} (t₁ t₂ : Table a) : Set (suc a) where
   field
     dscr : Table.SCᵣ t₁ ≡ Table.SCᵣ t₂
     dtck : (l : List $ Table.SCᵣ t₁)
-         → let l' = Function.flip coerce l $ Relation.Binary.PropositionalEquality.cong List dscr in
+         → let l' = Function.flip coerce l $ cong List dscr in
            Table.tcek t₁ l ⇔ Table.tcek t₂ l'
 \end{code}
 
