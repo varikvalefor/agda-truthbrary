@@ -100,7 +100,7 @@ open import Relation.Binary.PropositionalEquality
   )
 
 _∈ₗ_ : ∀ {a} → {A : Set a} → A → List A → Set a
-_∈ₗ_ x xs = ∃ $ λ i → x ≡ 𝕃.lookup xs i
+_∈ₗ_ x xs = ∃ $ _≡_ x Function.∘ 𝕃.lookup xs
 
 coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
 coerce refl x = x
