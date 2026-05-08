@@ -85,6 +85,10 @@ open import Data.Product
     _×_;
     Σ
   )
+open import Relation.Unary
+  using (
+    Decidable
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     cong;
@@ -215,10 +219,19 @@ module vimcuVeritas where
 ni'o ro da poi ke'a ctaipe ko'a zo'u da sinxa lo su'o me'oi .database.
 
 \begin{code}
-record Database {a p} : Set (Agda.Primitive.lsuc a Agda.Primitive.⊔ Agda.Primitive.lsuc p) where
+record Database {a p} : Set (suc a ⊔ suc p) where
   field
     tb : List $ Table a
     tcek : List $ Table a → Set p
     ctaipe : tcek tb
+\end{code}
+
+\section{ko'a goi la'oi .Autodatabase.}
+
+\begin{code}
+record Autodatabase {a p} : Set (suc a ⊔ suc p) where
+  field
+    db : Database {a} {p}
+    tcek-dek : Decidable $ Database.tcek db
 \end{code}
 \end{document}
