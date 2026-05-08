@@ -83,6 +83,7 @@ open import Data.List
 open import Data.Product
   using (
     _×_;
+    _,_;
     Σ
   )
 open import Relation.Unary
@@ -146,7 +147,7 @@ module SubtableVeritas where
              (coerce
                (sym d)
                (𝕃.lookup (Table.r z) j)))))
-  ex x z S d i = {!!} $ Subtable.klesiᵣ S _ $ i Data.Product., refl
+  ex x z S d i = {!!} $ Subtable.klesiᵣ S _ $ i , refl
     where
     f : (Σ _
           (λ j →
