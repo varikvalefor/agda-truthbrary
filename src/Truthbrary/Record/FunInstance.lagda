@@ -18,7 +18,7 @@
 \newunicodechar{⟨}{\ensuremath{\mathnormal\langle}}
 \newunicodechar{⟩}{\ensuremath{\mathnormal\rangle}}
 \newunicodechar{≡}{\ensuremath{\mathnormal\equiv}}
-\newunicodechar{≡}{\ensuremath{\mathnormal\cong}}
+\newunicodechar{≅}{\ensuremath{\mathnormal\cong}}
 \newunicodechar{∎}{\ensuremath{\mathnormal\blacksquare}}
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
 \newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb M}}}
