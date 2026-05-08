@@ -146,7 +146,19 @@ module SubtableVeritas where
              (coerce
                (sym d)
                (𝕃.lookup (Table.r z) j)))))
-  ex = {!!}
+  ex x z S d i = {!!} $ Subtable.klesiᵣ S _ $ i Data.Product., refl
+    where
+    f : (Σ _
+          (λ j →
+            (_≡_
+              (coerce (Subtable.dscr S) $ 𝕃.lookup (Table.r x) i)
+              (𝕃.lookup (Table.r z) j))))
+      → (Σ _
+          (λ j →
+            (_≡_
+              (𝕃.lookup (Table.r x) i)
+              (coerce (sym d) (𝕃.lookup (Table.r z) j)))))
+    f = {!!}
 
   rfl : ∀ {a} → (t : Table a) → Subtable t t
   rfl t = record {
