@@ -150,7 +150,7 @@ module SubtableVeritas where
 
   rfl : ∀ {a} → (t : Table a) → Subtable t t
   rfl t = record {
-    dscr = {!!};
+    dscr = refl;
     klesiᵣ = λ _ x → x
     }
 \end{code}
