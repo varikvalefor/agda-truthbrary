@@ -208,4 +208,24 @@ instance
   ⍨-f₁ : ∀ {a} → {A : Set a} → {B : Set a} → _⍨M (A → A → B) (A → B)
   ⍨-f₁ = fancu⍨ $ λ f x → f x x
 \end{code}
+
+\section{le mupli be lo ka ce'u nu pilno la'o zoi.\ \F{\AgdaUnderscore{}⍨}\ .zoi.}
+
+\begin{code}
+private module Mupli where
+  open import Function
+    using (
+      _⟨_⟩_
+    )
+  open import Data.Nat
+    using (
+      _^_
+    )
+
+  _ : 3125 ≡ (_^_ ⍨) 5
+  _ = refl
+
+  _ : 5 ≡_ $ 1 ⟨ _^_ ⍨ ⟩ 5
+  _ = refl
+\end{code}
 \end{document}
