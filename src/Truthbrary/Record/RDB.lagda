@@ -97,6 +97,9 @@ open import Relation.Binary.PropositionalEquality
     _≡_
   )
 
+_∈ₗ_ : ∀ {a} → {A : Set a} → A → List A → Set a
+_∈ₗ_ x xs = Data.Product.∃ $ λ i → x ≡ 𝕃.lookup xs i
+
 coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
 coerce refl x = x
 \end{code}
@@ -114,12 +117,16 @@ record Table a : Set (Agda.Primitive.lsuc a)
     ctaipe : tcek r
 \end{code}
 
-\section{la'oi .\F{Subtable}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{Subtable} \B a \B b\ .zoi.\ gi lo'i ro co'e ja selvau be la'oi .\B a.\ cu klesi lo'i ro co'e ja selvau be la'oi .\B b.
+\section{la'oi .\AgdaRecord{Subtable}.}
+ni'o ga jo ctaipe la'o zoi.\ \AgdaRecord{Subtable} \B a \B b\ .zoi.\ gi lo'i ro co'e ja selvau be la'oi .\B a.\ cu klesi lo'i ro co'e ja selvau be la'oi .\B b.
 
 \begin{code}
-Subtable : ∀ {a} → Table a → Table a → Set a
-Subtable = {!!}
+record Subtable {a} (t₁ t₂ : Table a) : Set (suc a) where
+  field
+    dscr : Table.SCᵣ t₁ ≡ Table.SCᵣ t₂
+    klesiᵣ : (x : Table.SCᵣ t₁)
+           → x ∈ₗ Table.r t₁
+           → coerce dscr x ∈ₗ Table.r t₂
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
