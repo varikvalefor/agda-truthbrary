@@ -141,7 +141,7 @@ module SubtableVeritas where
                (𝕃.lookup (Table.r z) j)))))
   ex = {!!}
 
-  rfl : ∀ {a} → {A : Set a} → (t : Table a) → Subtable t t
+  rfl : ∀ {a} → (t : Table a) → Subtable t t
   rfl = {!!}
 \end{code}
 
