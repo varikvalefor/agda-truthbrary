@@ -146,7 +146,7 @@ record Iso {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
 ni'o la .varik.\ cu jinvi le du'u ko'e se ctaipe pluja\sds  .i zo'e joi la'e di'u cu krinu le su'u la'o zoi.\ \D{\AgdaUnderscore{}⍨M}\ .zoi.\ me'oi .\AgdaKeyword{data}.\ co'e
 
 .i la'o zoi.\ \IC{iso⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{5 = 1 *⍨ 5} .zoi.\ pe la'oi .APL.\\
-.i la'o zoi.\ \IC{fancu⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{3125 = *⍨ 5} .zoi.\ pe la'oi .APL.\\
+.i la'o zoi.\ \IC{fancu⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{3125 = *⍨ 5} .zoi.\ pe la'oi .APL.
 
 \begin{code}
 data _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
