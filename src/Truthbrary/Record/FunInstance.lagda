@@ -212,7 +212,7 @@ instance
 \subsection{le mupli be lo ka ce'u nu pilno la'o zoi.\ \F{\AgdaUnderscore{}⍨}\ .zoi.}
 
 \begin{code}
-private module Mupli where
+private module ⍨Mupli where
   open import Function
     using (
       _⟨_⟩_
