@@ -149,7 +149,10 @@ module SubtableVeritas where
   ex = {!!}
 
   rfl : ∀ {a} → (t : Table a) → Subtable t t
-  rfl = {!!}
+  rfl t = record {
+    dscr = {!!};
+    klesiᵣ = {!!}
+    }
 \end{code}
 
 \section{la'oi .\F{SCD}.}
