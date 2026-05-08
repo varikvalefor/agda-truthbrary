@@ -169,10 +169,10 @@ ni'o lo me'oi .\AgdaKeyword{instance}.\ cu jai filri'a lo nu cmalu velcki pilno 
 
 \begin{code}
 instance
-  ⍨-⍨ : ∀ {a b} → {A : Set a} → {B : Set b}
-     → ⦃ Iso A B ⦄
-     → _⍨M B A
-  ⍨-⍨ ⦃ M ⦄ = iso⍨ $ record {
+  ⍨-Iso : ∀ {a b} → {A : Set a} → {B : Set b}
+        → ⦃ Iso A B ⦄
+        → _⍨M B A
+  ⍨-Iso ⦃ M ⦄ = iso⍨ $ record {
     f₁ = Iso.f₂ M;
     f₂ = Iso.f₁ M;
     d₁ = Iso.d₂ M;
