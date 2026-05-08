@@ -209,7 +209,7 @@ instance
   ⍨-f₁ = fancu⍨ $ λ f x → f x x
 \end{code}
 
-\section{le mupli be lo ka ce'u nu pilno la'o zoi.\ \F{\AgdaUnderscore{}⍨}\ .zoi.}
+\subsection{le mupli be lo ka ce'u nu pilno la'o zoi.\ \F{\AgdaUnderscore{}⍨}\ .zoi.}
 
 \begin{code}
 private module Mupli where
