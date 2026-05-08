@@ -161,7 +161,7 @@ module SubtableVeritas where
             (_≡_
               (𝕃.lookup (Table.r x) i)
               (coerce (sym d) (𝕃.lookup (Table.r z) j)))))
-    f = {!!}
+    f = λ (j , d) → j , {!!}
 
   rfl : ∀ {a} → (t : Table a) → Subtable t t
   rfl t = record {
