@@ -113,6 +113,7 @@ open import Function
     _$_
   )
 open import Data.Product
+  as Σ
   using (
     _×_
   )
@@ -191,8 +192,8 @@ instance
   ⍨-× : ∀ {a b} → {A : Set a} → {B : Set b}
       → _⍨M (A × B) $ B × A
   ⍨-× = iso⍨ $ record {
-    f₁ = Data.Product.swap;
-    f₂ = Data.Product.swap;
+    f₁ = Σ.swap;
+    f₂ = Σ.swap;
     d₁ = λ _ → refl;
     d₂ = λ _ → refl
     }
