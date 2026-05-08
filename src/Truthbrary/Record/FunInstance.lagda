@@ -124,7 +124,10 @@ open import Relation.Binary.PropositionalEquality
   )
 \end{code}
 
-\section{la'o zoi.\ \AgdaFunction{\AgdaUnderscore{}⍨}\ .zoi.\ je lo jai filri'a be tu'a ri}
+\section{ko'a goi la'o zoi.\ \AgdaFunction{\AgdaUnderscore{}⍨}\ .zoi.\ je lo jai filri'a be tu'a ri}
+ni'o le ckupau cu vasru pe'a le velcki be ko'a be'o je lo velcki be lo jai filri'a be lo nu pilno ko'a\ldots kei ja lo nu la .varik.\ cu ciksi ko'a
+
+.i la .varik.\ cu co'e ja troci lo nu ko'a jai smimlu tu'a zoi zoi.\ \(⍨\)\ .zoi.\ poi ke'a me'oi .APL.\ fancu\ldots ge'u goi ko'e\sds  .i la .varik.\ cu stidi lo nu lo prenu je ke se slabu naje ku'i ke djica be lo nu jimpe cu tcidu lo se .urli be zoi .urli.\ \url{https://aplwiki.com/wiki/Commute}\ .urli.
 
 \subsection{la'oi .\AgdaRecord{Iso}.}
 ni'o ro da zo'u ro de zo'u ga jo ctaipe lo me'oi .\AgdaRecord{Iso}.\ bei da bei de gi da me'oi .isomorphic.\ de
@@ -139,6 +142,10 @@ record Iso {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
 \end{code}
 
 \subsection{le se ctaipe pe lo du'u xu kau mapti la'o zoi.\ \AgdaFunction{\AgdaUnderscore{}⍨}\ .zoi.}
+ni'o la .varik.\ cu jinvi le du'u ko'e se ctaipe pluja\sds  .i zo'e joi la'e di'u cu krinu le su'u la'o zoi.\ \D{\AgdaUnderscore{}⍨M}\ .zoi.\ me'oi .\AgdaKeyword{data}.\ co'e
+
+.i la'o zoi.\ \IC{iso⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{5 = 1 *⍨ 5} .zoi.\ pe la'oi .APL.\\
+.i la'o zoi.\ \IC{fancu⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{3125 = *⍨ 5} .zoi.\ pe la'oi .APL.\\
 
 \begin{code}
 data _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
@@ -146,7 +153,8 @@ data _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
   fancu⍨ : (A → B) → _⍨M A B
 \end{code}
 
-\subsection{la'o zoi.\ \AgdaFunction{\AgdaUnderscore{}⍨}\ .zoi.}
+\subsection{ko'a no'u la'o zoi.\ \AgdaFunction{\AgdaUnderscore{}⍨}\ .zoi.}
+ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ri ciksi ko'a fo lo te gerna be la .lojban.
 
 \begin{code}
 _⍨ : ∀ {a b} → {A : Set a} → {B : Set b} → ⦃ _⍨M A B ⦄ → A → B
@@ -155,6 +163,9 @@ _⍨ ⦃ fancu⍨ M ⦄ = M
 \end{code}
 
 \subsection{le me'oi .\AgdaKeyword{instance}.}
+ni'o lo me'oi .\AgdaKeyword{instance}.\ cu jai filri'a lo nu cmalu velcki pilno ko'a
+
+.i le su'u me'oi .isomorphism.\ co'e cu jai krinu le su'u la .varik.\ cu ciksi zo'e poi la .varik.\ cu jinvi le du'u ke'a zmadu ko'e goi le me'oi .APL.\ fancu le ka ce'u mapti lo so'i co'e\sds  .i ku'i la .varik.\ na birti lo du'u xu kau mapti lo ro se mapti be ko'e
 
 \begin{code}
 instance
