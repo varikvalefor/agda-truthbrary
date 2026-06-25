@@ -206,7 +206,7 @@ instance
     d₂ = λ {refl → refl}
     }
 
-  ⍨-f₁ : ∀ {a} → {A : Set a} → {B : Set a}
+  ⍨-f₁ : ∀ {a b} → {A : Set a} → {B : Set b}
        → _⍨M (A → A → B) (A → B)
   ⍨-f₁ = fancu⍨ $ λ f x → f x x
 \end{code}
