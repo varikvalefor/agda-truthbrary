@@ -230,6 +230,10 @@ private module ⍨Mupli where
   _ : 3125 ≡ (_^_ ⍨) 5
   _ = refl
 
+  _ : 5 ≡ (_^_ ⍨) 1 5
+  _ = refl
+
+  -- | .i zmadu fi tu'a la'oi .APL.
   _ : 5 ≡_ $ 1 ⟨ _^_ ⍨ ⟩ 5
   _ = refl
 
@@ -238,5 +242,15 @@ private module ⍨Mupli where
 
   _ : ∀ {a b} → {A : Set a} → {B : Set b} → (A → A → B) → A → B
   _ = _⍨
+
+  module Eq {a b c} {A : Set a} {B : Set b} {C : Set c} where
+    diag : (A → A → B) → A → B
+    diag f x = f x x
+
+    _ : _⍨ ≡ flip {A = A} {B} {λ _ _ → C}
+    _ = refl
+
+    _ : _⍨ ≡ diag
+    _ = refl
 \end{code}
 \end{document}
