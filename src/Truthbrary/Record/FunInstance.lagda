@@ -96,6 +96,9 @@
 
 \begin{code}
 {-# OPTIONS --backtracking-instance-search #-}
+{-# OPTIONS --instance-search-depth=5 #-}
+{-# OPTIONS --safe #-}
+{-# OPTIONS --cubical-compatible #-}
 \end{code}
 
 \begin{code}
