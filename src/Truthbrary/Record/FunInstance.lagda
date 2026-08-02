@@ -96,6 +96,9 @@
 
 \begin{code}
 {-# OPTIONS --backtracking-instance-search #-}
+{-# OPTIONS --instance-search-depth=1 #-}
+{-# OPTIONS --cubical-compatible #-}
+{-# OPTIONS --safe #-}
 \end{code}
 
 \begin{code}
@@ -113,6 +116,7 @@ open import Function
     _$_
   )
 open import Data.Product
+  as Σ
   using (
     _×_
   )
@@ -145,7 +149,7 @@ record Iso {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
 ni'o la .varik.\ cu jinvi le du'u ko'e se ctaipe pluja\sds  .i zo'e joi la'e di'u cu krinu le su'u la'o zoi.\ \D{\AgdaUnderscore{}⍨M}\ .zoi.\ me'oi .\AgdaKeyword{data}.\ co'e
 
 .i la'o zoi.\ \IC{iso⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{5 = 1 *⍨ 5} .zoi.\ pe la'oi .APL.\\
-.i la'o zoi.\ \IC{fancu⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{3125 = *⍨ 5} .zoi.\ pe la'oi .APL.\\
+.i la'o zoi.\ \IC{fancu⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{3125 = *⍨ 5} .zoi.\ pe la'oi .APL.
 
 \begin{code}
 data _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
@@ -191,8 +195,8 @@ instance
   ⍨-× : ∀ {a b} → {A : Set a} → {B : Set b}
       → _⍨M (A × B) $ B × A
   ⍨-× = iso⍨ $ record {
-    f₁ = Data.Product.swap;
-    f₂ = Data.Product.swap;
+    f₁ = Σ.swap;
+    f₂ = Σ.swap;
     d₁ = λ _ → refl;
     d₂ = λ _ → refl
     }
@@ -205,7 +209,7 @@ instance
     d₂ = λ {refl → refl}
     }
 
-  ⍨-f₁ : ∀ {a} → {A : Set a} → {B : Set a}
+  ⍨-f₁ : ∀ {a b} → {A : Set a} → {B : Set b}
        → _⍨M (A → A → B) (A → B)
   ⍨-f₁ = fancu⍨ $ λ f x → f x x
 \end{code}
@@ -226,7 +230,30 @@ private module ⍨Mupli where
   _ : 3125 ≡ (_^_ ⍨) 5
   _ = refl
 
+  _ : 5 ≡ (_^_ ⍨) 1 5
+  _ = refl
+
+  -- | .i zmadu fi tu'a la'oi .APL.
+  -- .i ku'i la .varik. cu jinvi le du'u mleca
+  -- fi le ka li'armi fa le du'u ce'u se ctaipe ciste
+  -- cizra
   _ : 5 ≡_ $ 1 ⟨ _^_ ⍨ ⟩ 5
   _ = refl
+
+  _ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c} → (A → B → C) → B → A → C
+  _ = _⍨
+
+  _ : ∀ {a b} → {A : Set a} → {B : Set b} → (A → A → B) → A → B
+  _ = _⍨
+
+  module Eq {a b c} {A : Set a} {B : Set b} {C : Set c} where
+    diag : (A → A → B) → A → B
+    diag f x = f x x
+
+    _ : _⍨ ≡ flip {A = A} {B} {λ _ _ → C}
+    _ = refl
+
+    _ : _⍨ ≡ diag
+    _ = refl
 \end{code}
 \end{document}
