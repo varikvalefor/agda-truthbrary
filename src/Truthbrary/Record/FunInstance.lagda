@@ -234,6 +234,9 @@ private module ⍨Mupli where
   _ = refl
 
   -- | .i zmadu fi tu'a la'oi .APL.
+  -- .i ku'i la .varik. cu jinvi le du'u mleca
+  -- fi le ka li'armi fa le du'u ce'u se ctaipe ciste
+  -- cizra
   _ : 5 ≡_ $ 1 ⟨ _^_ ⍨ ⟩ 5
   _ = refl
 
