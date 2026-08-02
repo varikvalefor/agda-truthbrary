@@ -97,8 +97,8 @@
 \begin{code}
 {-# OPTIONS --backtracking-instance-search #-}
 {-# OPTIONS --instance-search-depth=1 #-}
-{-# OPTIONS --safe #-}
 {-# OPTIONS --cubical-compatible #-}
+{-# OPTIONS --safe #-}
 \end{code}
 
 \begin{code}
