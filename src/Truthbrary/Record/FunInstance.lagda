@@ -169,7 +169,7 @@ _⍨ ⦃ f1⍨ M ⦄ = M
 \end{code}
 
 \subsection{le me'oi .\AgdaKeyword{instance}.}
-ni'o lo me'oi .\AgdaKeyword{instance}.\ cu jai filri'a lo nu cmalu velcki pilno ko'a
+ni'o lo me'oi .\AgdaKeyword{instance}.\ cu jai filri'a lo nu lo cmalu velcki cu co'e ja se pagbu ko'a
 
 .i le su'u me'oi .isomorphism.\ co'e cu jai krinu le su'u la .varik.\ cu ciksi zo'e poi la .varik.\ cu jinvi le du'u ke'a zmadu ko'e goi le me'oi .APL.\ fancu le ka ce'u mapti lo so'i co'e\sds  .i ku'i la .varik.\ na birti lo du'u xu kau mapti lo ro se mapti be ko'e
 
