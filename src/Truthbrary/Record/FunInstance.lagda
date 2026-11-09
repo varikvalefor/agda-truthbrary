@@ -243,6 +243,8 @@ private module ⍨Mupli where
   _ = refl
 \end{code}
 
+\section{le ctaipe be le su'u mapti co su'u dunli}
+
 \begin{code}
   _ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
     → (A → B → C)
