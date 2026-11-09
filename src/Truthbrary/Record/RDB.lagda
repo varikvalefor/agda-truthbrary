@@ -260,7 +260,7 @@ module vimcu where
        → (_≡_
            (Table.SCᵣ t)
            (Table.SCᵣ $ main t P? T))
-    dt = {!!}
+    dt = λ _ _ _ → refl
 \end{code}
 
 \begin{code}
