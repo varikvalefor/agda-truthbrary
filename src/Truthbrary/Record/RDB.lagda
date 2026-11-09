@@ -232,7 +232,12 @@ module vimcu where
        → (P? : Decidable P)
        → Table.tcek t $ 𝕃.filter P? $ Table.r t
        → Table a
-  main = {!!}
+  main t {P} P? T = record {
+    SCᵣ = {!!};
+    r = {!!};
+    tcek = {!!};
+    ctaipe = {!!}
+    }
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
