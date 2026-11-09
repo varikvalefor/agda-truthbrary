@@ -131,7 +131,7 @@ open import Relation.Binary.PropositionalEquality
 \end{code}
 
 \section{ko'a goi la'o zoi.\ \AgdaFunction{\AgdaUnderscore{}⍨}\ .zoi.\ je lo jai filri'a be tu'a ri}
-ni'o le ckupau cu vasru pe'a le velcki be ko'a be'o je lo velcki be lo jai filri'a be lo nu pilno ko'a\ldots kei ja lo nu la .varik.\ cu ciksi ko'a
+ni'o le ckupau cu vasru pe'a le velcki be ko'a be'o je lo velcki be lo jai filri'a be lo nu zukte tu'a ko'a\ldots kei ja lo nu la .varik.\ cu ciksi ko'a
 
 .i la .varik.\ cu co'e ja troci lo nu ko'a jai smimlu tu'a zoi zoi.\ \(⍨\)\ .zoi.\ poi ke'a me'oi .APL.\ fancu\ldots ge'u goi ko'e\sds  .i la .varik.\ cu stidi lo nu lo prenu je ke se slabu naje ku'i ke djica be lo nu jimpe cu tcidu lo se .urli be zoi .urli.\ \url{https://aplwiki.com/wiki/Commute}\ .urli.
 
