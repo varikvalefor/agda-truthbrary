@@ -226,12 +226,12 @@ jmina = jmina.main
 
 \begin{code}
 module vimcu where
-  vimcu : ∀ {a}
-        → (t : Table a)
-        → (r : Table.SCᵣ t)
-        → Table.tcek t {!!}
-        → Table a
-  vimcu = {!!}
+  main : ∀ {a}
+       → (t : Table a)
+       → (r : Table.SCᵣ t)
+       → Table.tcek t {!!}
+       → Table a
+  main = {!!}
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
@@ -242,12 +242,12 @@ module vimcu where
              → (t : Table a)
              → (r : Table.SCᵣ t)
              → (T : Table.tcek t _)
-             → Subtable (vimcu t r T) t
+             → Subtable (main t r T) t
     subtable = {!!}
 \end{code}
 
 \begin{code}
-vimcu = vimcu.vimcu
+vimcu = vimcu.main
 \end{code}
 
 \section{ko'a goi la'oi .\AgdaRecord{Database}.}
