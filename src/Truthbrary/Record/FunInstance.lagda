@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{ar}
+\usepackage{xurl}
 \usepackage[bw]{agda}
 \usepackage{ifsym}
 \usepackage{amsmath}
