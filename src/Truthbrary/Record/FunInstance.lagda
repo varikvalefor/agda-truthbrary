@@ -247,7 +247,10 @@ private module ⍨Mupli where
     → (B → A → C)
   _ = _⍨
 
-  _ : ∀ {a b} → {A : Set a} → {B : Set b} → (A → A → B) → A → B
+  _ : ∀ {a b} → {A : Set a} → {B : Set b}
+    → (A → A → B)
+    → A
+    → B
   _ = _⍨
 
   module Eq {a b c} {A : Set a} {B : Set b} {C : Set c} where
