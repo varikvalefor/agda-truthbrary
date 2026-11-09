@@ -149,7 +149,7 @@ module SubtableVeritas where
              (coerce
                (sym d)
                (𝕃.lookup (Table.r z) j)))))
-  ex x z S d i = {!!} $ Subtable.klesiᵣ S _ $ i , refl
+  ex x z S d i = f $ Subtable.klesiᵣ S _ $ i , refl
     where
     f : (Σ _
           (λ j →
