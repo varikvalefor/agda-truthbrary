@@ -94,6 +94,13 @@ ni'o la'o zoi.\
 \]
 .cmaci.
 
+\subsection{le cimde}
+ni'o ro da poi ke'a ctaipe la'o zoi.\ \F 𝕄 \B A \B m \B m\ .zoi.\ zo'u ga je\ldots
+\begin{itemize}
+	\item la'oi .\B m.\ ni ganra co'e fa lo se sinxa be da gi
+	\item la'oi .\B n.\ ni rajycla co'e fa lo se sinxa be da
+\end{itemize}
+
 \begin{code}
 𝕄 : ∀ {a} → Set a → ℕ → ℕ → Set a
 𝕄 = Vec ∘₂ Vec
@@ -108,7 +115,7 @@ lookup m n = map (flip lookupᵥ n) m
 \end{code}
 
 \section{la'oi .\F I.}
-ni'o ga jo la'o zoi.\ \F \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} I \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da du lo pilji ja co'e be da bei la'o zoi.\ \B o .zoi.
+ni'o ga jo la'o zoi.\ \F I \Sym\{\AgdaUnderscore\Sym\} \Sym\{\B A\Sym\} \B z \B o .zoi.\ me'oi .identity.\ nacmeimei gi ro da poi ke'a ctaipe la'o zoi.\ \B A .zoi.\ zo'u ga je lo pilji ja co'e be da bei la'o zoi.\ \B z .zoi.\ du la'o zoi.\ \B z .zoi.\ gi da du lo pilji ja co'e be da bei la'o zoi.\ \B o .zoi.
 
 \begin{code}
 I : ∀ {a} → {A : Set a} → {n : ℕ} → A → A → 𝕄 A n n
@@ -116,7 +123,34 @@ I z o = map (λ x → updateAt x (const o) $ replicate z) $ allFin _
 \end{code}
 
 \section{la'o zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.}
-ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.
+ni'o la'o zoi.\ \B a \AgdaOperator{\F{∣}} \B b .zoi.\ konkatena la'o zoi.\ \B a .zoi.\ la'o zoi.\ \B b .zoi.  .i mupli fa le su'u ga jo ga je da se sinxa zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+	\end{bmatrix}
+\]
+
+.zoi.\ gi de se sinxa zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 \\
+		4 \\
+	\end{bmatrix}
+\]
+
+.zoi.\ gi lo mu'oi zoi.\ \F{\AgdaUnderscore∣\AgdaUnderscore}\ .zoi.\ be da bei de cu se sinxa zoi zoi.\
+
+\[
+	\begin{bmatrix}
+		1 & 2 & 3 & 1 \\
+		4 & 5 & 6 & 4 \\
+	\end{bmatrix}
+\]
+
+.zoi.
 
 \begin{code}
 _∣_ : ∀ {a} → {A : Set a} → {m n o : ℕ}
