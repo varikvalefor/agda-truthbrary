@@ -242,7 +242,11 @@ private module ⍨Mupli where
   _ : 5 ≡_ $ 1 ⟨ _^_ ⍨ ⟩ 5
   _ = refl
 
-  _ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c} → (A → B → C) → B → A → C
+  _ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+    → (A → B → C)
+    → B
+    → A
+    → C
   _ = _⍨
 
   _ : ∀ {a b} → {A : Set a} → {B : Set b} → (A → A → B) → A → B
