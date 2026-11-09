@@ -165,7 +165,7 @@ instance
   ⍨-f₁ = f1⍨ $ λ f x → f x x
 \end{code}
 
-\subsection{le mupli be lo ka ce'u velcki je cu co'a ja se pagbu la'o zoi.\ \F{\AgdaUnderscore{}⍨}\ .zoi.}
+\subsection{le mupli be lo ka ce'u velcki je cu co'a ja se pagbu ko'a}
 
 \begin{code}
 private module ⍨Mupli where
