@@ -258,9 +258,19 @@ module vimcu where
        → (P? : Decidable P)
        → (T : Table.tcek t _)
        → (_≡_
+           (Table.tcek t)
+           (Table.tcek $ main t P? T))
+    dt _ _ _ = refl
+
+    dC : ∀ {a p}
+       → (t : Table a)
+       → {P : Table.SCᵣ t → Set p}
+       → (P? : Decidable P)
+       → (T : Table.tcek t _)
+       → (_≡_
            (Table.SCᵣ t)
            (Table.SCᵣ $ main t P? T))
-    dt _ _ _ = refl
+    dC _ _ _ = refl
 \end{code}
 
 \begin{code}
