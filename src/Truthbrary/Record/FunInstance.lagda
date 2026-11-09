@@ -241,7 +241,9 @@ private module ⍨Mupli where
   -- cizra
   _ : 5 ≡_ $ 1 ⟨ _^_ ⍨ ⟩ 5
   _ = refl
+\end{code}
 
+\begin{code}
   _ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
     → (A → B → C)
     → (B → A → C)
