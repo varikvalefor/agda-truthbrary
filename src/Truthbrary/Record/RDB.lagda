@@ -226,10 +226,11 @@ jmina = jmina.main
 
 \begin{code}
 module vimcu where
-  main : ∀ {a}
+  main : ∀ {a p}
        → (t : Table a)
-       → (r : Table.SCᵣ t)
-       → Table.tcek t {!!}
+       → {P : Table.SCᵣ t → Set p}
+       → (P? : Decidable P)
+       → Table.tcek t $ 𝕃.filter P? $ Table.r t
        → Table a
   main = {!!}
 \end{code}
@@ -238,11 +239,12 @@ module vimcu where
 
 \begin{code}
   module Veritas where
-    subtable : ∀ {a}
+    subtable : ∀ {a p}
              → (t : Table a)
-             → (r : Table.SCᵣ t)
+             → {P : Table.SCᵣ t → Set p}
+             → (P? : Decidable P)
              → (T : Table.tcek t _)
-             → Subtable (main t r T) t
+             → Subtable (main t P? T) t
     subtable = {!!}
 \end{code}
 
