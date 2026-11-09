@@ -225,24 +225,29 @@ jmina = jmina.main
 \section{la \F{vimcu}}
 
 \begin{code}
-vimcu : ∀ {a}
-      → (t : Table a)
-      → (r : Table.SCᵣ t)
-      → Table.tcek t {!!}
-      → Table a
-vimcu = {!!}
+module vimcu where
+  vimcu : ∀ {a}
+        → (t : Table a)
+        → (r : Table.SCᵣ t)
+        → Table.tcek t {!!}
+        → Table a
+  vimcu = {!!}
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
-module vimcuVeritas where
-  subtable : ∀ {a}
-           → (t : Table a)
-           → (r : Table.SCᵣ t)
-           → (T : Table.tcek t _)
-           → Subtable (vimcu t r T) t
-  subtable = {!!}
+  module Veritas where
+    subtable : ∀ {a}
+             → (t : Table a)
+             → (r : Table.SCᵣ t)
+             → (T : Table.tcek t _)
+             → Subtable (vimcu t r T) t
+    subtable = {!!}
+\end{code}
+
+\begin{code}
+vimcu = vimcu.vimcu
 \end{code}
 
 \section{ko'a goi la'oi .\AgdaRecord{Database}.}
