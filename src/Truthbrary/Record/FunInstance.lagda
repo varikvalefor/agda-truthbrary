@@ -78,6 +78,7 @@
 \newcommand\D\AgdaDatatype
 \newcommand\F\AgdaFunction
 \newcommand\B\AgdaBound
+\newcommand\IC\AgdaInductiveConstructor
 \newcommand\OpF[1]{\AgdaOperator{\F{#1}}}
 
 \newcommand\sds{\spacefactor\sfcode`.\ \space}
