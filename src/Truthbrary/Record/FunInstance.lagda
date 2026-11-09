@@ -244,9 +244,7 @@ private module ⍨Mupli where
 
   _ : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
     → (A → B → C)
-    → B
-    → A
-    → C
+    → (B → A → C)
   _ = _⍨
 
   _ : ∀ {a b} → {A : Set a} → {B : Set b} → (A → A → B) → A → B
