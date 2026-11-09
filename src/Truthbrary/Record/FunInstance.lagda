@@ -96,7 +96,7 @@ record Iso {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
     d₂ : (x : B) → x ≡ f₁ (f₂ x)
 \end{code}
 
-\subsection{le se ctaipe pe lo du'u xu kau mapti la'o zoi.\ \AgdaFunction{\AgdaUnderscore{}⍨}\ .zoi.}
+\subsection{le se ctaipe pe lo du'u xu kau mapti ko'a}
 ni'o la .varik.\ cu jinvi le du'u ko'e se ctaipe pluja\sds  .i zo'e joi la'e di'u cu krinu le su'u la'o zoi.\ \D{\AgdaUnderscore{}⍨M}\ .zoi.\ me'oi .\AgdaKeyword{data}.\ co'e
 
 .i la'o zoi.\ \IC{iso⍨}\ .zoi.\ jai filri'a tu'a zoi zoi.\ \texttt{5 = 1 *⍨ 5} .zoi.\ pe la'oi .APL.\\
