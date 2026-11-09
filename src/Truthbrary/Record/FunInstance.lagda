@@ -85,7 +85,7 @@ ni'o le ckupau cu vasru pe'a le velcki be ko'a be'o je lo velcki be lo jai filri
 .i la .varik.\ cu co'e ja troci lo nu ko'a jai smimlu tu'a zoi zoi.\ \(⍨\)\ .zoi.\ poi ke'a me'oi .APL.\ fancu\ldots ge'u goi ko'e\sds  .i la .varik.\ cu stidi lo nu lo prenu je ke se slabu naje ku'i ke djica be lo nu jimpe cu tcidu lo se .urli be zoi .urli.\ \url{https://aplwiki.com/wiki/Commute}\ .urli.
 
 \subsection{la'oi .\AgdaRecord{Iso}.}
-ni'o ro da zo'u ro de zo'u ga jo ctaipe lo me'oi .\AgdaRecord{Iso}.\ bei da bei de gi da me'oi .isomorphic.\ de
+ni'o ro da zo'u ro de zo'u ga jo ctaipe lo me'oi .\AgdaRecord{Iso}.\ bei da bei de gi da tarmi joi me lo'i ctaipe ku dunli de
 
 \begin{code}
 record Iso {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
