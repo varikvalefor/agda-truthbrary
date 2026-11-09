@@ -191,12 +191,12 @@ ni'o xu sarcu fa lo nu ciksi bau la .lojban.
 
 \begin{code}
 module jmina where
-  jmina : ∀ {a}
-        → (t : Table a)
-        → (r : Table.SCᵣ t)
-        → Table.tcek t $ Table.r t ∷ʳ r
-        → Table a
-  jmina t _ c = record t {r = _; ctaipe = c}
+  main : ∀ {a}
+       → (t : Table a)
+       → (r : Table.SCᵣ t)
+       → Table.tcek t $ Table.r t ∷ʳ r
+       → Table a
+  main t _ c = record t {r = _; ctaipe = c}
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
@@ -207,19 +207,19 @@ module jmina where
        → (t : Table a)
        → (r : Table.SCᵣ t)
        → (g : Table.tcek t $ Table.r t ∷ʳ r)
-       → Table.r (jmina t r g) ≡ Table.r t ∷ʳ r
+       → Table.r (main t r g) ≡ Table.r t ∷ʳ r
     kk _ _ _ = refl
   
     subtable : ∀ {a}
              → (t : Table a)
              → (r : Table.SCᵣ t)
              → (g : Table.tcek t $ Table.r t ∷ʳ r)
-             → Subtable t $ jmina t r g
+             → Subtable t $ main t r g
     subtable = {!!}
 \end{code}
 
 \begin{code}
-jmina = jmina.jmina
+jmina = jmina.main
 \end{code}
 
 \section{la \F{vimcu}}
