@@ -190,31 +190,36 @@ record SCD {a} (t₁ t₂ : Table a) : Set (suc a) where
 ni'o xu sarcu fa lo nu ciksi bau la .lojban.
 
 \begin{code}
-jmina : ∀ {a}
-      → (t : Table a)
-      → (r : Table.SCᵣ t)
-      → Table.tcek t $ Table.r t ∷ʳ r
-      → Table a
-jmina t _ c = record t {r = _; ctaipe = c}
+module jmina where
+  jmina : ∀ {a}
+        → (t : Table a)
+        → (r : Table.SCᵣ t)
+        → Table.tcek t $ Table.r t ∷ʳ r
+        → Table a
+  jmina t _ c = record t {r = _; ctaipe = c}
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
-module jminaVeritas where
-  kk : ∀ {a}
-     → (t : Table a)
-     → (r : Table.SCᵣ t)
-     → (g : Table.tcek t $ Table.r t ∷ʳ r)
-     → Table.r (jmina t r g) ≡ Table.r t ∷ʳ r
-  kk _ _ _ = refl
+  module Veritas where
+    kk : ∀ {a}
+       → (t : Table a)
+       → (r : Table.SCᵣ t)
+       → (g : Table.tcek t $ Table.r t ∷ʳ r)
+       → Table.r (jmina t r g) ≡ Table.r t ∷ʳ r
+    kk _ _ _ = refl
+  
+    subtable : ∀ {a}
+             → (t : Table a)
+             → (r : Table.SCᵣ t)
+             → (g : Table.tcek t $ Table.r t ∷ʳ r)
+             → Subtable t $ jmina t r g
+    subtable = {!!}
+\end{code}
 
-  subtable : ∀ {a}
-           → (t : Table a)
-           → (r : Table.SCᵣ t)
-           → (g : Table.tcek t $ Table.r t ∷ʳ r)
-           → Subtable t $ jmina t r g
-  subtable = {!!}
+\begin{code}
+jmina = jmina.jmina
 \end{code}
 
 \section{la \F{vimcu}}
