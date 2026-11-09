@@ -68,6 +68,7 @@ open import Data.Fin
 open import Function
   using (
     _⟨_⟩_;
+    _∘_;
     _$_
   )
   renaming (
@@ -83,6 +84,8 @@ open import Data.List
 open import Data.Product
   using (
     _×_;
+    _,_;
+    ∃;
     Σ
   )
 open import Relation.Unary
@@ -96,6 +99,9 @@ open import Relation.Binary.PropositionalEquality
     sym;
     _≡_
   )
+
+_∈ₗ_ : ∀ {a} → {A : Set a} → A → List A → Set a
+_∈ₗ_ x xs = ∃ $ _≡_ x ∘ 𝕃.lookup xs
 
 coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
 coerce refl x = x
@@ -114,12 +120,16 @@ record Table a : Set (Agda.Primitive.lsuc a)
     ctaipe : tcek r
 \end{code}
 
-\section{la'oi .\F{Subtable}.}
-ni'o ga jo ctaipe la'o zoi.\ \F{Subtable} \B a \B b\ .zoi.\ gi lo'i ro co'e ja selvau be la'oi .\B a.\ cu klesi lo'i ro co'e ja selvau be la'oi .\B b.
+\section{la'oi .\AgdaRecord{Subtable}.}
+ni'o ga jo ctaipe la'o zoi.\ \AgdaRecord{Subtable} \B a \B b\ .zoi.\ gi lo'i ro co'e ja selvau be la'oi .\B a.\ cu klesi lo'i ro co'e ja selvau be la'oi .\B b.
 
 \begin{code}
-Subtable : ∀ {a} → Table a → Table a → Set a
-Subtable = {!!}
+record Subtable {a} (t₁ t₂ : Table a) : Set (suc a) where
+  field
+    dscr : Table.SCᵣ t₁ ≡ Table.SCᵣ t₂
+    klesiᵣ : (x : Table.SCᵣ t₁)
+           → x ∈ₗ Table.r t₁
+           → coerce dscr x ∈ₗ Table.r t₂
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
@@ -139,10 +149,25 @@ module SubtableVeritas where
              (coerce
                (sym d)
                (𝕃.lookup (Table.r z) j)))))
-  ex = {!!}
+  ex x z S d i = {!!} $ Subtable.klesiᵣ S _ $ i , refl
+    where
+    f : (Σ _
+          (λ j →
+            (_≡_
+              (coerce (Subtable.dscr S) $ 𝕃.lookup (Table.r x) i)
+              (𝕃.lookup (Table.r z) j))))
+      → (Σ _
+          (λ j →
+            (_≡_
+              (𝕃.lookup (Table.r x) i)
+              (coerce (sym d) (𝕃.lookup (Table.r z) j)))))
+    f (j , d) = j , {!!}
 
-  rfl : ∀ {a} → {A : Set a} → (t : Table a) → Subtable t t
-  rfl = {!!}
+  rfl : ∀ {a} → (t : Table a) → Subtable t t
+  rfl t = record {
+    dscr = refl;
+    klesiᵣ = λ _ x → x
+    }
 \end{code}
 
 \section{la'oi .\F{SCD}.}
@@ -165,54 +190,66 @@ record SCD {a} (t₁ t₂ : Table a) : Set (suc a) where
 ni'o xu sarcu fa lo nu ciksi bau la .lojban.
 
 \begin{code}
-jmina : ∀ {a}
-      → (t : Table a)
-      → (r : Table.SCᵣ t)
-      → Table.tcek t $ Table.r t ∷ʳ r
-      → Table a
-jmina t _ c = record t {r = _; ctaipe = c}
+module jmina where
+  main : ∀ {a}
+       → (t : Table a)
+       → (r : Table.SCᵣ t)
+       → Table.tcek t $ Table.r t ∷ʳ r
+       → Table a
+  main t _ c = record t {r = _; ctaipe = c}
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
-module jminaVeritas where
-  kk : ∀ {a}
-     → (t : Table a)
-     → (r : Table.SCᵣ t)
-     → (g : Table.tcek t $ Table.r t ∷ʳ r)
-     → Table.r (jmina t r g) ≡ Table.r t ∷ʳ r
-  kk _ _ _ = refl
+  module Veritas where
+    kk : ∀ {a}
+       → (t : Table a)
+       → (r : Table.SCᵣ t)
+       → (g : Table.tcek t $ Table.r t ∷ʳ r)
+       → Table.r (main t r g) ≡ Table.r t ∷ʳ r
+    kk _ _ _ = refl
+  
+    subtable : ∀ {a}
+             → (t : Table a)
+             → (r : Table.SCᵣ t)
+             → (g : Table.tcek t $ Table.r t ∷ʳ r)
+             → Subtable t $ main t r g
+    subtable = {!!}
+\end{code}
 
-  subtable : ∀ {a}
-           → (t : Table a)
-           → (r : Table.SCᵣ t)
-           → (g : Table.tcek t $ Table.r t ∷ʳ r)
-           → Subtable t $ jmina t r g
-  subtable = {!!}
+\begin{code}
+jmina = jmina.main
 \end{code}
 
 \section{la \F{vimcu}}
 
 \begin{code}
-vimcu : ∀ {a}
-      → (t : Table a)
-      → (r : Table.SCᵣ t)
-      → Table.tcek t {!!}
-      → Table a
-vimcu = {!!}
+module vimcu where
+  main : ∀ {a p}
+       → (t : Table a)
+       → {P : Table.SCᵣ t → Set p}
+       → (P? : Decidable P)
+       → Table.tcek t $ 𝕃.filter P? $ Table.r t
+       → Table a
+  main = {!!}
 \end{code}
 
 \subsection{le ctaipe be le su'u mapti}
 
 \begin{code}
-module vimcuVeritas where
-  subtable : ∀ {a}
-           → (t : Table a)
-           → (r : Table.SCᵣ t)
-           → (T : Table.tcek t _)
-           → Subtable (vimcu t r T) t
-  subtable = {!!}
+  module Veritas where
+    subtable : ∀ {a p}
+             → (t : Table a)
+             → {P : Table.SCᵣ t → Set p}
+             → (P? : Decidable P)
+             → (T : Table.tcek t _)
+             → Subtable (main t P? T) t
+    subtable = {!!}
+\end{code}
+
+\begin{code}
+vimcu = vimcu.main
 \end{code}
 
 \section{ko'a goi la'oi .\AgdaRecord{Database}.}
