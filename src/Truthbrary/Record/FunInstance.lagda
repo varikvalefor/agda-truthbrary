@@ -156,7 +156,7 @@ ni'o la .varik.\ cu jinvi le du'u ko'e se ctaipe pluja\sds  .i zo'e joi la'e di'
 \begin{code}
 data _⍨M {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
   iso⍨ : Iso A B → _⍨M A B
-  fancu⍨ : (A → B) → _⍨M A B
+  f1⍨ : (A → B) → _⍨M A B
 \end{code}
 
 \subsection{ko'a no'u la'o zoi.\ \AgdaFunction{\AgdaUnderscore{}⍨}\ .zoi.}
@@ -165,7 +165,7 @@ ni'o la .varik.\ na jinvi le du'u sarcu fa lo nu ri ciksi ko'a fo lo te gerna be
 \begin{code}
 _⍨ : ∀ {a b} → {A : Set a} → {B : Set b} → ⦃ _⍨M A B ⦄ → A → B
 _⍨ ⦃ iso⍨ M ⦄ = Iso.f₁ M
-_⍨ ⦃ fancu⍨ M ⦄ = M
+_⍨ ⦃ f1⍨ M ⦄ = M
 \end{code}
 
 \subsection{le me'oi .\AgdaKeyword{instance}.}
@@ -213,7 +213,7 @@ instance
 
   ⍨-f₁ : ∀ {a b} → {A : Set a} → {B : Set b}
        → _⍨M (A → A → B) (A → B)
-  ⍨-f₁ = fancu⍨ $ λ f x → f x x
+  ⍨-f₁ = f1⍨ $ λ f x → f x x
 \end{code}
 
 \subsection{le mupli be lo ka ce'u nu pilno la'o zoi.\ \F{\AgdaUnderscore{}⍨}\ .zoi.}
