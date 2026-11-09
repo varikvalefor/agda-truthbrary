@@ -251,6 +251,16 @@ module vimcu where
              → (T : Table.tcek t _)
              → Subtable (main t P? T) t
     subtable = {!!}
+
+    dt : ∀ {a p}
+       → (t : Table a)
+       → {P : Table.SCᵣ t → Set p}
+       → (P? : Decidable P)
+       → (T : Table.tcek t _)
+       → (_≡_
+           (Table.SCᵣ t)
+           (Table.SCᵣ $ main t P? T))
+    dt = {!!}
 \end{code}
 
 \begin{code}
