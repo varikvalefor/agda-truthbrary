@@ -234,9 +234,9 @@ module vimcu where
        → Table a
   main t {P} P? T = record {
     SCᵣ = {!!};
-    r = {!!};
+    r = _;
     tcek = Table.tcek t;
-    ctaipe = {!!}
+    ctaipe = T
     }
 \end{code}
 
