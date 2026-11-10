@@ -92,10 +92,6 @@ open import Relation.Unary
   using (
     Decidable
   )
-open import Function.Definitions
-  using (
-    Injective
-  )
 open import Relation.Binary.PropositionalEquality
   using (
     cong;
@@ -130,7 +126,10 @@ record IsPk {a b} {A : Set a} {B : Set b}
             (x : List A) : Set (a ⊔ b) where
   field
     i : Fin $ length x
-    dun : Injective _≡_ _≡_ $ f ∘ 𝕃.lookup x
+    dun : let k = 𝕃.lookup x in
+          (j : Fin $ length x)
+        → f (k i) ≡ f (k j)
+        → i ≡ j
 \end{code}
 
 \section{la'oi .\AgdaRecord{Subtable}.}
