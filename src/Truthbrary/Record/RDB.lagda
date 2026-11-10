@@ -298,8 +298,9 @@ record Autodatabase {a p} : Set (suc a ⊔ suc p) where
   field
     db : Database {a} {p}
     tcek-dek : Decidable $ Database.tcek db
-    tcek-dekₜ : (i : Fin $ length $ Database.tb db)
+    tcek-dekₜ : let tb = Database.tb db in
+                (i : Fin $ length $ tb)
               → (Decidable
-                  (Table.tcek $ 𝕃.lookup (Database.tb db) i))
+                  (Table.tcek $ 𝕃.lookup (tb) i))
 \end{code}
 \end{document}
