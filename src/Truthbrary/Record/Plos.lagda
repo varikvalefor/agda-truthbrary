@@ -21,6 +21,11 @@ open import Function
   using (
     _∋_
   )
+open import Data.Rational
+  as ℚ
+  using (
+    ℚ
+  )
 open import Relation.Binary.PropositionalEquality
   using (
     refl;
@@ -81,6 +86,9 @@ instance
       using (
         +-comm
       )
+
+  ℕ→ℚ : Plos₁ ℕ ℚ (λ _ _ → ℚ)
+  ℕ→ℚ = {!!}
 
   Plos₁→Plos : ∀ {a c}
              → {A B : Set a}
