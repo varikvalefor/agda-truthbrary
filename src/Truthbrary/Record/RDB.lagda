@@ -120,6 +120,18 @@ record Table a : Set (Agda.Primitive.lsuc a)
     ctaipe : tcek r
 \end{code}
 
+\begin{code}
+record IsPk {a b} {A : Set a} {B : Set b}
+            (f : A → B)
+            (x : List A) : Set (a ⊔ b) where
+  field
+    i : Fin $ length x
+    dun : let k = 𝕃.lookup x in
+          (j : Fin $ length x)
+        → k i ≡ k j
+        → i ≡ j
+\end{code}
+
 \section{la'oi .\AgdaRecord{Subtable}.}
 ni'o ga jo ctaipe la'o zoi.\ \AgdaRecord{Subtable} \B a \B b\ .zoi.\ gi lo'i ro co'e ja selvau be la'oi .\B a.\ cu klesi lo'i ro co'e ja selvau be la'oi .\B b.
 
