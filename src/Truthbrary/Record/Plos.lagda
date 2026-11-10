@@ -96,6 +96,9 @@ instance
   ℕ→ℚ : Plos₁ ℕ ℚ (λ _ _ → ℚ)
   ℕ→ℚ = {!!}
 
+  ℕ₂→ℚ : Plos₁ ℚ ℕ (λ _ _ → ℚ)
+  ℕ₂→ℚ = {!!}
+
   Plos₁→Plos : ∀ {a c}
              → {A B : Set a}
              → {C : A → B → Set c}
