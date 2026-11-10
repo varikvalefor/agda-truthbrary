@@ -87,5 +87,8 @@ instance
              → {C : A → B → Set c}
              → {Plos₁ A B C}
              → Plos A (λ _ → B) C
-  Plos₁→Plos = {!!}
+  Plos₁→Plos = record {
+    _+_ = {!!};
+    ⍨! = {!!}
+    }
 \end{code}
