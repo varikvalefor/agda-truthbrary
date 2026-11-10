@@ -88,7 +88,7 @@ instance
              → {Plos₁ A B C}
              → Plos A (λ _ → B) C
   Plos₁→Plos = record {
-    _+_ = {!!};
+    _+_ = Plos₁._+_ _;
     ⍨! = {!!}
     }
 \end{code}
