@@ -74,6 +74,11 @@ instance
   ℕ→ℕ : Plos₁ ℕ ℕ (λ _ _ → ℕ)
   ℕ→ℕ = record {
     _+_ = ℕ._+_;
-    ⍨! = {!!}
+    ⍨! = λ {refl x z refl → +-comm x z}
     }
+    where
+    open import Data.Nat.Properties
+      using (
+        +-comm
+      )
 \end{code}
