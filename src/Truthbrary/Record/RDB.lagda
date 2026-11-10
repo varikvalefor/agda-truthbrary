@@ -236,7 +236,6 @@ module vimcu where
        → Table.tcek t $ 𝕃.filter P? $ Table.r t
        → Table a
   main t {P} P? T = record {
-    SCᵣ = _;
     r = _;
     tcek = Table.tcek t;
     ctaipe = T
