@@ -81,4 +81,11 @@ instance
       using (
         +-comm
       )
+
+  Plos₁→Plos : ∀ {a c}
+             → {A B : Set a}
+             → {C : A → B → Set c}
+             → {Plos₁ A B C}
+             → Plos A (λ _ → B) C
+  Plos₁→Plos = {!!}
 \end{code}
