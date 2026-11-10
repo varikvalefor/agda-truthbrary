@@ -5,6 +5,18 @@ open import Level
   using (
     _⊔_
   )
+open import Data.Fin
+  as 𝔽
+  renaming (
+    Fin to 𝔽
+  )
+  using (
+  )
+open import Data.Nat
+  as ℕ
+  using (
+    ℕ
+  )
 open import Function
   using (
     _∋_
@@ -49,4 +61,34 @@ record Min {a b c}
            Set (a ⊔ b ⊔ c) where
   field
     _-_ : (x : A) → (z : B x) → C x z
+\end{code}
+
+\begin{code}
+instance
+  ℕ→𝔽 : {n : ℕ} → Plos₁ ℕ ℕ (λ _ _ → 𝔽 (ℕ.suc n))
+  ℕ→𝔽 = record {
+    _+_ = {!!};
+    ⍨! = {!!}
+    }
+
+  ℕ→ℕ : Plos₁ ℕ ℕ (λ _ _ → ℕ)
+  ℕ→ℕ = record {
+    _+_ = ℕ._+_;
+    ⍨! = λ {refl x z refl → +-comm x z}
+    }
+    where
+    open import Data.Nat.Properties
+      using (
+        +-comm
+      )
+
+  Plos₁→Plos : ∀ {a c}
+             → {A B : Set a}
+             → {C : A → B → Set c}
+             → {Plos₁ A B C}
+             → Plos A (λ _ → B) C
+  Plos₁→Plos = record {
+    _+_ = Plos₁._+_ _;
+    ⍨! = {!!}
+    }
 \end{code}
