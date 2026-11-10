@@ -215,7 +215,7 @@ module jmina where
              → (r : Table.SCᵣ t)
              → (g : Table.tcek t $ Table.r t ∷ʳ r)
              → Subtable t $ main t r g
-    subtable = λ t r g → record {
+    subtable t r g = record {
       dscr = {!!};
       klesiᵣ = {!!}
       }
