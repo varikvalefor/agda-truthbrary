@@ -65,7 +65,7 @@ record Min {a b c}
 
 \begin{code}
 instance
-  ℕ→𝔽 : {n : ℕ} → Plos ℕ (λ _ → ℕ) (λ _ _ → 𝔽 (ℕ.suc n))
+  ℕ→𝔽 : {n : ℕ} → Plos₁ ℕ ℕ (λ _ _ → 𝔽 (ℕ.suc n))
   ℕ→𝔽 = record {
     _+_ = {!!};
     ⍨! = {!!}
