@@ -5,6 +5,18 @@ open import Level
   using (
     _⊔_
   )
+open import Data.Fin
+  as 𝔽
+  renaming (
+    Fin to 𝔽
+  )
+  using (
+  )
+open import Data.Nat
+  as ℕ
+  using (
+    ℕ
+  )
 open import Function
   using (
     _∋_
@@ -49,4 +61,10 @@ record Min {a b c}
            Set (a ⊔ b ⊔ c) where
   field
     _-_ : (x : A) → (z : B x) → C x z
+\end{code}
+
+\begin{code}
+instance
+  ℕ→𝔽 : {n : ℕ} → Plos ℕ (λ _ → ℕ) (λ _ _ → 𝔽 (ℕ.suc n))
+  ℕ→𝔽 = {!!}
 \end{code}
