@@ -128,7 +128,7 @@ record IsPk {a b} {A : Set a} {B : Set b}
     i : Fin $ length x
     dun : let k = 𝕃.lookup x in
           (j : Fin $ length x)
-        → k i ≡ k j
+        → f (k i) ≡ f (k j)
         → i ≡ j
 \end{code}
 
