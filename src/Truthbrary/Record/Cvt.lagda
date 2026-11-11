@@ -20,6 +20,10 @@ open import Data.Integer
   using (
     ℤ
   )
+open import Data.Unit.Polymorphic
+  using (
+    ⊤
+  )
 
 record Cvt {a b} (A : Set a) (B : A → Set b) : Set (Level.suc a Level.⊔ b) where
   field
@@ -38,7 +42,7 @@ instance
 
   Id : ∀ {a} → {A : Set a} → Cvt A $ λ _ → A
   Id = record {
-    mpt = {!!};
+    mpt = λ _ → ⊤;
     cnino = λ x _ → x
     }
 \end{code}
