@@ -53,7 +53,7 @@ instance
        → {Cvt {c = d} A $ λ _ → B}
        → {Cvt {c = d} B $ λ _ → C}
        → Cvt {c = b Level.⊔ d} A $ λ _ → C
-  Comp {A = A} {_} {_} {Cab} {Cbc} = record {
+  Comp {C = _} {Cab} {Cbc} = record {
     mpt = λ x → Σ (Cvt.mpt Cab x) $ Cvt.mpt Cbc ∘ Cvt.cnino Cab x;
     cnino = λ x (z₁ , z₂) → Cvt.cnino Cbc (Cvt.cnino Cab x z₁) z₂
     }
