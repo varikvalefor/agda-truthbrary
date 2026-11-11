@@ -28,5 +28,8 @@ record Cvt {a b} (A : Set a) (B : A → Set b) : Set (Level.suc a Level.⊔ b) w
 
 instance
   ℕ→ℤ : Cvt ℕ $ λ _ → ℤ
-  ℕ→ℤ = {!!}
+  ℕ→ℤ = record {
+    mpt = {!!};
+    cnino = {!!}
+    }
 \end{code}
