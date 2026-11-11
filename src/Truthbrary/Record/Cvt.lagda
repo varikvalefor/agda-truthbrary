@@ -30,6 +30,6 @@ instance
   ℕ→ℤ : Cvt ℕ $ λ _ → ℤ
   ℕ→ℤ = record {
     mpt = {!!};
-    cnino = {!!}
+    cnino = λ n _ → ℤ.+_ n
     }
 \end{code}
