@@ -45,7 +45,7 @@ instance
 
   ℤ→ℕ : Cvt ℤ $ λ _ → ℕ
   ℤ→ℕ = record {
-    mpt = λ z → ℤ.0ℤ ℤ.≤ z;
+    mpt = ℤ.0ℤ ℤ.≤_;
     cnino = {!!}
     }
 \end{code}
