@@ -20,6 +20,11 @@ open import Data.Integer
   using (
     ℤ
   )
+open import Data.Rational
+  as ℚ
+  using (
+    ℚ
+  )
 open import Data.Unit.Polymorphic
   using (
     ⊤
@@ -36,6 +41,12 @@ instance
     mpt = λ _ → ⊤;
     cnino = λ x _ → x
     }
+
+  Comp : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
+       → Cvt A $ λ _ → B
+       → Cvt B $ λ _ → C
+       → Cvt A $ λ _ → C
+  Comp = {!!}
 
   ℕ→ℤ : Cvt ℕ $ λ _ → ℤ
   ℕ→ℤ = record {
