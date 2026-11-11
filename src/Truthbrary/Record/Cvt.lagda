@@ -43,10 +43,13 @@ instance
     }
 
   Comp : ∀ {a b c} → {A : Set a} → {B : Set b} → {C : Set c}
-       → Cvt A $ λ _ → B
-       → Cvt B $ λ _ → C
+       → {Cvt A $ λ _ → B}
+       → {Cvt B $ λ _ → C}
        → Cvt A $ λ _ → C
-  Comp = {!!}
+  Comp = record {
+    mpt = {!!};
+    cnino = {!!}
+    }
 
   ℕ→ℤ : Cvt ℕ $ λ _ → ℤ
   ℕ→ℤ = record {
