@@ -31,6 +31,12 @@ record Cvt {a b} (A : Set a) (B : A → Set b) : Set (Level.suc a Level.⊔ b) w
     cnino : (x : A) → mpt x → B x
 
 instance
+  Id : ∀ {a} → {A : Set a} → Cvt A $ λ _ → A
+  Id = record {
+    mpt = λ _ → ⊤;
+    cnino = λ x _ → x
+    }
+
   ℕ→ℤ : Cvt ℕ $ λ _ → ℤ
   ℕ→ℤ = record {
     mpt = λ _ → ⊤;
@@ -39,10 +45,4 @@ instance
 
   ℤ→ℕ : Cvt ℤ $ λ _ → ℕ
   ℤ→ℕ = {!!}
-
-  Id : ∀ {a} → {A : Set a} → Cvt A $ λ _ → A
-  Id = record {
-    mpt = λ _ → ⊤;
-    cnino = λ x _ → x
-    }
 \end{code}
