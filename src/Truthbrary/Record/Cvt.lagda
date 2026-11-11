@@ -37,5 +37,8 @@ instance
   ℤ→ℕ = {!!}
 
   Id : ∀ {a} → {A : Set a} → Cvt A $ λ _ → A
-  Id = {!!}
+  Id = record {
+    mpt = {!!};
+    cnino = {!!}
+    }
 \end{code}
