@@ -35,4 +35,7 @@ instance
 
   ℤ→ℕ : Cvt ℤ $ λ _ → ℕ
   ℤ→ℕ = {!!}
+
+  Id : ∀ {a} → {A : Set a} → Cvt A $ λ _ → A
+  Id = {!!}
 \end{code}
