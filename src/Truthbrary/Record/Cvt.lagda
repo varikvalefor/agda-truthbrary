@@ -24,6 +24,7 @@ open import Data.Integer
 open import Data.Product
   as Σ
   using (
+    _,_;
     Σ
   )
 open import Data.Rational
@@ -54,7 +55,7 @@ instance
        → Cvt {c = b Level.⊔ d} A $ λ _ → C
   Comp {A = A} {_} {_} {Cab} {Cbc} = record {
     mpt = λ x → Σ (Cvt.mpt Cab x) $ Cvt.mpt Cbc ∘ Cvt.cnino Cab x;
-    cnino = λ x (z₁ Σ., z₂) → Cvt.cnino Cbc (Cvt.cnino Cab x z₁) z₂
+    cnino = λ x (z₁ , z₂) → Cvt.cnino Cbc (Cvt.cnino Cab x z₁) z₂
     }
 
   ℕ→ℤ : Cvt {c = Level.zero} ℕ $ λ _ → ℤ
