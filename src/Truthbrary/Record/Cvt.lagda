@@ -44,5 +44,8 @@ instance
     }
 
   ℤ→ℕ : Cvt ℤ $ λ _ → ℕ
-  ℤ→ℕ = {!!}
+  ℤ→ℕ = record {
+    mpt = {!!};
+    cnino = {!!}
+    }
 \end{code}
