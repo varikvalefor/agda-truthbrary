@@ -70,3 +70,12 @@ instance
     cnino = {!!}
     }
 \end{code}
+
+\begin{code}
+! : ∀ {a b c} → {A : Set a} → {B : A → Set b}
+  → ⦃ CC : Cvt {c = c} A B ⦄
+  → (x : A)
+  → Cvt.mpt CC x
+  → B x
+! ⦃ CC ⦄ = Cvt.cnino CC
+\end{code}
