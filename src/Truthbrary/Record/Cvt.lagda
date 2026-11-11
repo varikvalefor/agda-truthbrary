@@ -69,6 +69,9 @@ instance
     mpt = ℤ.0ℤ ℤ.≤_;
     cnino = {!!}
     }
+
+  ℤ→ℚ : Cvt {c = Level.zero} ℤ $ λ _ → ℚ
+  ℤ→ℚ = {!!}
 \end{code}
 
 \begin{code}
