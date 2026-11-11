@@ -4,7 +4,8 @@ module Truthbrary.Record.Cvt where
 open import Level
   as Level
   using (
-    Level
+    Level;
+    _⊔_
   )
   renaming (
     suc to lsuc
@@ -40,7 +41,7 @@ open import Data.Unit.Polymorphic
     ⊤
   )
 
-record Cvt {a b c} (A : Set a) (B : A → Set b) : Set (lsuc a Level.⊔ lsuc b Level.⊔ lsuc c) where
+record Cvt {a b c} (A : Set a) (B : A → Set b) : Set (lsuc a ⊔ lsuc b ⊔ lsuc c) where
   field
     mpt : A → Set (a Level.⊔ b Level.⊔ c)
     cnino : (x : A) → mpt x → B x
