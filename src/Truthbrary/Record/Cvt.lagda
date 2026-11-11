@@ -71,7 +71,10 @@ instance
     }
 
   ℤ→ℚ : Cvt {c = Level.zero} ℤ $ λ _ → ℚ
-  ℤ→ℚ = {!!}
+  ℤ→ℚ = record {
+    mpt = {!!};
+    cnino = {!!}
+    }
 \end{code}
 
 \begin{code}
