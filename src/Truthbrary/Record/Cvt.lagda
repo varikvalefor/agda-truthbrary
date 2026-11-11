@@ -6,6 +6,9 @@ open import Level
   using (
     Level
   )
+  renaming (
+    suc to lsuc
+  )
 open import Function
   using (
     _∘_;
@@ -37,7 +40,7 @@ open import Data.Unit.Polymorphic
     ⊤
   )
 
-record Cvt {a b c} (A : Set a) (B : A → Set b) : Set (Level.suc a Level.⊔ Level.suc b Level.⊔ Level.suc c) where
+record Cvt {a b c} (A : Set a) (B : A → Set b) : Set (lsuc a Level.⊔ lsuc b Level.⊔ lsuc c) where
   field
     mpt : A → Set (a Level.⊔ b Level.⊔ c)
     cnino : (x : A) → mpt x → B x
