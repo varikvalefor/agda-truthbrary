@@ -4,7 +4,11 @@ module Truthbrary.Record.Cvt where
 open import Level
   as Level
   using (
-    Level
+    Level;
+    _⊔_
+  )
+  renaming (
+    suc to lsuc
   )
 open import Function
   using (
@@ -37,7 +41,9 @@ open import Data.Unit.Polymorphic
     ⊤
   )
 
-record Cvt {a b c} (A : Set a) (B : A → Set b) : Set (Level.suc a Level.⊔ Level.suc b Level.⊔ Level.suc c) where
+record Cvt {a b c}
+           (A : Set a)
+           (B : A → Set b) : Set (lsuc a ⊔ lsuc b ⊔ lsuc c) where
   field
     mpt : A → Set (a Level.⊔ b Level.⊔ c)
     cnino : (x : A) → mpt x → B x
@@ -54,8 +60,8 @@ instance
        → {Cvt {c = d} B $ λ _ → C}
        → Cvt {c = b Level.⊔ d} A $ λ _ → C
   Comp {C = _} {Cab} {Cbc} = record {
-    mpt = λ x → Σ (Cvt.mpt Cab x) $ Cvt.mpt Cbc ∘ Cvt.cnino Cab x;
-    cnino = λ x (z₁ , z₂) → Cvt.cnino Cbc (Cvt.cnino Cab x z₁) z₂
+    mpt = λ x → Σ _ $ Cvt.mpt Cbc ∘ Cvt.cnino Cab x;
+    cnino = λ x (z₁ , z₂) → Cvt.cnino Cbc _ z₂
     }
 
   ℕ→ℤ : Cvt {c = Level.zero} ℕ $ λ _ → ℤ
@@ -69,4 +75,19 @@ instance
     mpt = ℤ.0ℤ ℤ.≤_;
     cnino = {!!}
     }
+
+  ℤ→ℚ : Cvt {c = Level.zero} ℤ $ λ _ → ℚ
+  ℤ→ℚ = record {
+    mpt = λ _ → ⊤;
+    cnino = λ z _ → z ℚ./ 1
+    }
+\end{code}
+
+\begin{code}
+! : ∀ {a b c} → {A : Set a} → {B : A → Set b}
+  → ⦃ CC : Cvt {c = c} A B ⦄
+  → (x : A)
+  → Cvt.mpt CC x
+  → B x
+! ⦃ CC ⦄ = Cvt.cnino CC
 \end{code}
