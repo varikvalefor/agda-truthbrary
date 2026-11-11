@@ -39,6 +39,6 @@ instance
   Id : ∀ {a} → {A : Set a} → Cvt A $ λ _ → A
   Id = record {
     mpt = {!!};
-    cnino = {!!}
+    cnino = λ x _ → x
     }
 \end{code}
