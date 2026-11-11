@@ -6,6 +6,10 @@ open import Level
   using (
     Level
   )
+open import Function
+  using (
+    _$_
+  )
 open import Data.Nat
   as ℕ
   using (
@@ -23,6 +27,6 @@ record Cvt {a b} (A : Set a) (B : A → Set b) : Set (Level.suc a Level.⊔ b) w
     cnino : (x : A) → mpt x → B x
 
 instance
-  ℕ→ℤ : Cvt ℕ (λ _ → ℤ)
+  ℕ→ℤ : Cvt ℕ $ λ _ → ℤ
   ℕ→ℤ = {!!}
 \end{code}
