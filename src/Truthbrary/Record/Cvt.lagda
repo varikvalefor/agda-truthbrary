@@ -32,4 +32,7 @@ instance
     mpt = {!!};
     cnino = λ n _ → ℤ.+_ n
     }
+
+  ℤ→ℕ : Cvt ℤ $ λ _ → ℕ
+  ℤ→ℕ = {!!}
 \end{code}
