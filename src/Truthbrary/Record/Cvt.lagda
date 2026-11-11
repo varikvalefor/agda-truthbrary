@@ -8,6 +8,7 @@ open import Level
   )
 open import Function
   using (
+    _∘_;
     _$_
   )
 open import Data.Nat
@@ -52,7 +53,7 @@ instance
        → {Cvt {c = d} B $ λ _ → C}
        → Cvt {c = b Level.⊔ d} A $ λ _ → C
   Comp {A = A} {_} {_} {Cab} {Cbc} = record {
-    mpt = λ x → Σ (Cvt.mpt Cab x) $ Cvt.mpt Cbc Function.∘ Cvt.cnino Cab x;
+    mpt = λ x → Σ (Cvt.mpt Cab x) $ Cvt.mpt Cbc ∘ Cvt.cnino Cab x;
     cnino = λ x (z₁ Σ., z₂) → Cvt.cnino Cbc (Cvt.cnino Cab x z₁) z₂
     }
 
