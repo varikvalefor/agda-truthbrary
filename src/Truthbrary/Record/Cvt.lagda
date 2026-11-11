@@ -51,8 +51,8 @@ instance
        → {Cvt {c = d} A $ λ _ → B}
        → {Cvt {c = d} B $ λ _ → C}
        → Cvt {c = b Level.⊔ d} A $ λ _ → C
-  Comp = record {
-    mpt = {!!};
+  Comp {A = A} {_} {_} {Cab} {Cbc} = record {
+    mpt = λ x → Σ (Cvt.mpt Cab x) $ Cvt.mpt Cbc Function.∘ Cvt.cnino Cab x;
     cnino = {!!}
     }
 
